@@ -1,0 +1,138 @@
+<!-- ================= 3.6 INTENSIVE CARE & PAIN ================= -->
+<style>
+#m-icu .tbl table{min-width:620px}
+#m-icu .card>.ev,#m-icu .card>.tag{align-self:flex-start}
+#m-icu .card b.big-num{font-size:34px}
+#m-icu .icbar{display:flex;flex-wrap:wrap;gap:8px}
+#m-icu .icbar .btn{min-height:40px;text-align:left}
+#m-icu .icout{font-size:15px;line-height:1.55;max-width:76ch}
+</style>
+<section class="mod" id="m-icu" data-mod="icu" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Acute care</p><h2>Intensive care &amp; pain</h2>
+    <p class="lede">Follow a schematic stay on the ventilator from intubation to weaning, against published medians for how long it lasts. Then explore the predictors of a long stay, the complications teams watch for, pain and its trials, and what people say helped.</p></div>
+
+  <div class="prose">
+    <p>Intensive care in GBS is mostly about buying time while the nerves recover: breathing for the person, guarding against infection and clots, managing autonomic swings and pain, and keeping contact. Even with complete paralysis, consciousness, vision and hearing are usually intact, so what is said at the bedside matters [[Leonhard2019]]. Pick a step or press Play.</p>
+  </div>
+
+  <div class="stepper" id="icSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="icSvg" viewBox="0 0 720 408" style="min-width:560px" role="img" aria-label="A schematic stay in intensive care: lungs with a breathing tube that later becomes a tracheostomy, a ventilator moving from full support to weaning trials to off, badges for complications teams watch for, a vital capacity bar rising past published weaning lines at 7, 13, 15 and 21.9 millilitres per kilogram, and a day scale with the published median durations of ventilation in a Dutch cohort and in IGOS."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="icPlay">%t:player.play%</button><label class="stage-cap tl" for="icT">Days <input type="range" id="icT" min="0" max="1" step="0.002" value="0.02"></label></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> The stay and the rising vital capacity are illustrative. Published values: weaning lines [[Chevrolet1991,Nguyen2006]]; median ventilation 28 days (IQR 12 to 60) in a Dutch cohort [[Walgaard2017]] and 20 days (IQR 10 to 54) in IGOS [[Luijten2023]].</p></div>
+    <aside class="note" id="icNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Will ventilation be long? A week-one predictor</h3>
+  <div class="prose"><p>A long stay on the ventilator is the usual argument for an earlier tracheostomy. In a Dutch cohort of ventilated people, the picture one week after intubation predicted ventilation of 14 days or more [[Walgaard2017]]. In Bangladesh, inability to flex the hip at day 7 of ventilation was the strongest predictor of a prolonged stay (predicted probability 82%) [[Papri2024]].</p></div>
+  <p class="teach" role="note"><b>Teaching tool</b>Each button is a published row from one cohort, shown as people out of 100. These are group figures, never a forecast for a person.</p>
+  <div class="icbar" role="group" aria-label="Published row">
+    <button class="btn" data-pmv="0" aria-pressed="true">Cannot lift arms from the bed</button>
+    <button class="btn" data-pmv="1" aria-pressed="false">Cannot lift arms, axonal or unexcitable nerves</button>
+    <button class="btn" data-pmv="2" aria-pressed="false">Can lift arms, axonal or unexcitable nerves</button>
+    <button class="btn" data-pmv="3" aria-pressed="false">Can lift arms, demyelinating or equivocal</button>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="icPmv" viewBox="0 0 720 210" style="min-width:560px" role="img" aria-label="A block of 100 people in which the published share still ventilated at 14 days for the chosen row is highlighted, with 21 and 28 day figures for the last row."></svg></div>
+    <p class="icout" id="icPmvOut" aria-live="polite"></p>
+  </div>
+
+  <h3 class="sub">The tracheostomy question</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Study</th><th>Design</th><th>Finding</th></tr></thead>
+    <tbody>
+      <tr><th>Mayo Clinic, 60 ventilated</th><td>Series</td><td>87% had a tracheostomy, a median 9 days after intubation; only 13 (22%) weaned within 3 weeks; older age and lung disease predicted it [[Lawn1999]]</td></tr>
+      <tr><th>Japan, 919 ventilated</th><td>National observational</td><td>71% had a tracheostomy, median day 12 (IQR 8 to 15); early tracheostomy (by day 7) did not change in-hospital mortality (risk difference 0.4%, 95% CI −5.6 to 6.7) or pneumonia [[Yonezawa2020]]</td></tr>
+      <tr><th>France, 494 intubated</th><td>Multicentre observational</td><td>Tracheostomy with no weaning attempt first was linked to fewer people alive and off the ventilator at day 28 (43% vs 83%; adjusted difference −39.5%, 95% CI −47.3 to −31.5); sicker people may be over-represented [[Thille2026]]</td></tr>
+      <tr><th>France, 513 with GBS</th><td>Nationwide cohort</td><td>Prolonged weaning 64%, extubation attempted in only 46%, reintubation 26%, tracheostomy 57%, mortality 9.4% [[Thille2025]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="callout">Status: no randomised trial. A review favours early tracheostomy [[Shang2020]] and the ten-steps guideline says it should be considered when there are risk factors for prolonged ventilation, without a fixed day [[Leonhard2019]]. A 2025 review suggests considering it when someone is still ventilator-dependent after 2 weeks with failed weaning, or after failed extubation [[Weiss2025]]. National data show no mortality gain from going early [[Yonezawa2020]], and a search of the 2023 EAN/PNS guideline text finds no mention of tracheostomy [[vanDoorn2023]].</p>
+
+  <h3 class="sub">What intensive care watches for</h3>
+  <div class="cards">
+    <div class="card"><span class="kicker">Major morbidity, Mayo</span><b class="big-num">60%</b><p>of 114 in intensive care; respiratory complications in about half, systemic infection in a fifth; uncommon when the stay was under 3 weeks [[Henderson2003]].</p></div>
+    <div class="card"><span class="kicker">Pneumonia after intubation</span><b class="big-num">78%</b><p>of 81 intubated people (63), early-onset in 48; of those with pneumonia, 18% had septic shock and 14% died [[Orlikowski2006]].</p></div>
+    <div class="card"><span class="kicker">Canadian ICU cohort</span><b class="big-num">54%</b><p>pneumonia in 76 adults; two-thirds had at least one major complication; mortality 6.5% [[Dhar2008]].</p></div>
+    <div class="card"><span class="kicker">Readmission</span><b class="big-num">14.1%</b><p>within 90 days among 2,587 US adults, nearly half (46.7%) within 15 days [[Voth2026]].</p></div>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Complication in 173 ventilated people, India</th><th>Count</th><th>Share (derived)</th></tr></thead>
+    <tbody>
+      <tr><th>Tracheobronchitis</th><td>128</td><td>74%</td></tr>
+      <tr><th>Hyponatraemia</th><td>115</td><td>66%</td></tr>
+      <tr><th>Urinary infection</th><td>47</td><td>27%</td></tr>
+      <tr><th>Sepsis</th><td>40</td><td>23%</td></tr>
+      <tr><th>Deep vein thrombosis</th><td>7</td><td>4%</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose">
+    <p>Counts from Netto and colleagues; on average each person had 6.8 complications. The percentages are simple divisions done on this page [[Netto2017]]. The ten-steps guideline also names pressure ulcers, choking, corneal ulceration when the eyelids cannot close, limb contractures, ossification, pressure palsies, delirium and depression [[Leonhard2019]]. No GBS-specific pressure injury rate was found; guidance is standard preventive care [[Leonhard2019]]. Rarely, IVIg causes acute lung injury: 17 cases were pooled, 2 with GBS [[Baudel2020]].</p>
+  </div>
+
+  <h3 class="sub">Blood clots: an open question</h3>
+  <div class="split2">
+    <div class="prose">
+      <p>A 2005 consensus group recommended heparin and graduated stockings for bed-bound adults in the acute phase, resting on observational data and expert opinion, not a trial [[Hughes2005]]. In 73 UK patients, 68% were anticoagulated (mean 72 days) and clinical DVT still occurred in 5 (7%), 3 of them on enoxaparin [[Gaber2002]].</p>
+    </div>
+    <div class="prose">
+      <p>In a Russian intensive care cohort screened with ultrasound, DVT was found in 52% and pulmonary embolism in 15% despite low-molecular-weight heparin [[Ryabinkina2016]], while Mayo found pulmonary embolism very uncommon [[Henderson2003]]. Screening finds more than waiting for symptoms, which may explain part of the gap. The 2023 EAN/PNS guideline makes no statement on clot prevention [[vanDoorn2023]].</p>
+    </div>
+  </div>
+
+  <h3 class="sub">Pain: common, real and under-treated</h3>
+  <div class="cards">
+    <div class="card"><span class="kicker">Before weakness</span><b class="big-num">36%</b><p>had pain in the 2 weeks before weakness began, in 156 Dutch people [[Ruts2010Pain]].</p></div>
+    <div class="card"><span class="kicker">Acute phase</span><b class="big-num">66%</b><p>mostly moderate to severe, in every variant including Miller Fisher syndrome [[Ruts2010Pain]].</p></div>
+    <div class="card"><span class="kicker">One year on</span><b class="big-num">38%</b><p>still had pain [[Ruts2010Pain]]; it can last over 10 years [[Leonhard2019]].</p></div>
+  </div>
+  <div class="prose">
+    <p>Counts depend on the method: 89.1% of 55 Canadians had pain during the illness and 74.5% needed opioids [[Moulin1997]], while a retrospective Chinese series found only 34.5% [[Yao2018]]. Pain can be tingling and burning (paraesthesia, dysaesthesia), deep back and nerve-root pain, neck stiffness, muscle or joint pain, or discomfort in the gut [[Pentland1994]]. Deep back and leg pain usually settled by 8 weeks, but burning limb pain persisted longer in 5 to 10% [[Moulin1997]]. Pain can come before weakness and delay the diagnosis, especially in young children [[Leonhard2019]]. Skin biopsies showed loss of small nerve fibres in about 60%, linked to how strong the pain was, even in pure motor forms [[Ruts2012]].</p>
+  </div>
+
+  <h3 class="sub">Pain treatment: small trials</h3>
+  <div class="prose"><p>The Cochrane review found 3 short randomised trials with 277 people; none reported its primary outcome, and the evidence is insufficient to support any single drug [[Liu2015]]. The largest effect came from a three-arm trial in 36 people in intensive care. Scrub or play through the week.</p></div>
+  <div class="stage">
+    <div class="scroll"><svg id="icPain" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="A line chart of median pain scores from 0 to 10 over days 1 to 7: gabapentin falls from 3.5 to 2.0, carbamazepine from 6.0 to 3.0, and placebo stays at 6.0."></svg></div>
+    <div class="ctrls"><button class="btn primary" id="icPainPlay">%t:player.play%</button><label class="stage-cap tl" for="icPainT">Day <input type="range" id="icPainT" min="0" max="1" step="0.002" value="1"></label></div>
+    <p class="stage-cap">Median pain scores (0 to 10) in Pandey 2005, n=36 [[Pandey2005]]. Day-1 fentanyl use was about 340, 348 and 590 µg in the three arms [[Pandey2005]].</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Evidence</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><th>Gabapentin vs placebo, crossover, 18 ventilated people</th><td>Pain score 7.22 to 2.33 by day 2; fentanyl fell from 211 to 66 µg vs about 317 µg on placebo [[Pandey2002]]. Cochrane: day-7 mean difference −3.61 on a 0 to 10 scale (very low quality) [[Liu2015]]</td></tr>
+      <tr><th>Carbamazepine, crossover, 12 in intensive care</th><td>Pain 1.7 vs 3.1 on a 1 to 5 scale; pethidine 1.7 vs 3.7 mg/kg/day [[Tripathi2000]]</td></tr>
+      <tr class="tx"><th>Methylprednisolone for 5 days, 223 people</th><td>No difference in developing pain (RR 0.89, 95% CI 0.68 to 1.16) [[Liu2015]]; EAN/PNS weakly recommends against high-dose corticosteroids for pain [[vanDoorn2023]]</td></tr>
+      <tr><th>EAN/PNS guideline, 2023</th><td>Weakly recommends gabapentin or carbamazepine, and advises gabapentinoids or tricyclics before carbamazepine; opioids may be used with care because of constipation, ileus, confusion, breathing suppression and addiction [[vanDoorn2023]]</td></tr>
+      <tr><th>Other reviews</th><td>No robust evidence favours one option [[Pena2015]]; cautious narcotic use [[Hughes2005]]; carbamazepine drug interactions, and lidocaine 5% plaster as a low-risk option [[Weiss2025]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose"><p>Doses and recommendations are quoted as published, never as instructions. Pain at admission did not predict outcome [[Moulin1997]], and there are no randomised trials for pain in the recovery phase [[Liu2015]].</p></div>
+
+  <h3 class="sub">Mind, sleep and communication</h3>
+  <div class="cards">
+    <div class="card"><h4>Vivid dreams and hallucinations</h4><p>Mental status changes in 31% of 139 people with GBS vs 16% of intensive care controls: vivid dreams, illusions, mainly visual hallucinations, paranoid ideas. Median onset day 9, lasting a median 8 days; linked to autonomic dysfunction, ventilation and high CSF protein [[Cochen2005]].</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>A sleep mechanism?</h4><p>The same authors link these experiences to a REM sleep disorder rather than ordinary intensive care delirium [[Cochen2005]].</p></div>
+    <div class="card"><h4>Distress</h4><p>Among 49 very severely affected people in intensive care: anxiety 82%, depressive episodes 67%, brief reactive psychosis 25% [[Weiss2002]]. Top fears at admission were staying paralysed, uncertainty and intubation [[Sharshar2012]].</p></div>
+    <div class="card"><h4>Locked in, but present</h4><p>One person, fully conscious but unable to communicate for 31 days, described standard low-volume ventilation as profound breathlessness and physiotherapy as very painful with no change in heart rate or blood pressure. One account, but it shows monitors can miss pain [[Kumta2022]].</p></div>
+  </div>
+  <p class="support" role="note"><b>What helped</b>People said losing the ability to communicate was the hardest part, and 90% found contact with relatives most helpful [[Weiss2002]]. The guideline advises asking directly about pain, hallucinations, anxiety and depression, explaining procedures, and giving accurate information about the relatively good chance of recovery and the low risk of recurrence (2 to 5%) [[Leonhard2019]]. A small 2026 interview study named communication barriers among four themes of lived experience [[Susanti2026]].</p>
+
+  <h3 class="sub">After a ventilator: outcomes for groups</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Cohort</th><th>Outcome</th></tr></thead>
+    <tbody>
+      <tr><th>Dutch, 6 months</th><td>Walking unaided: 57% of those ventilated vs 87% not (OR 5.0); ventilation under 14 days had recovery comparable to none [[Walgaard2017]]</td></tr>
+      <tr><th>Dutch, ventilated over 2 months (6% of 526)</th><td>18% walked unaided at 6 months vs 76% with shorter ventilation [[vanDenBerg2018]]; in a long-term group (median 93 days ventilated) 58% walked unaided at last follow-up, 31% reaching it after more than a year [[vanDenBerg2018]]</td></tr>
+      <tr class="hl"><th>Mayo, ventilated</th><td>Mortality 20%; 79% of survivors eventually walked independently; 19% improved at least one grade beyond 1 year [[Fletcher2000]]</td></tr>
+      <tr><th>Canadian ICU cohort</th><td>75% recovered independent walking over an average of 3 years, median 198 days, sometimes up to 10 years [[Dhar2008]]</td></tr>
+      <tr><th>German, 110 ventilated</th><td>Hospital mortality 5.5%, long-term 13.6%; 53.8% good outcome; severe fatigue 30.4% [[Witsch2013]]</td></tr>
+      <tr><th>All GBS, Dutch</th><td>Mortality 2.8% at 6 months and 3.9% at 12 months; only 47% of deaths happened in intensive care [[vanDenBerg2013]]</td></tr>
+      <tr><th>IGOS regions</th><td>Mortality 17% in Bangladesh vs 5% in Europe and the Americas and 2% in Asia [[Doets2018]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose"><p>In ventilated people at Mayo, only age (OR 1.99) and transfer to a specialist centre delayed by more than 2 days (OR 19.8) independently predicted a poor outcome [[Fletcher2000]]. Respiratory muscle strength is reported to recover in all patients eventually, though ventilation is tied to residual disability [[Orlikowski2004]]. Two years after onset, 7% of a Swedish cohort still could not walk 10 m independently [[Forsberg2004Impairment]].</p></div>
+
+  <div class="hook"><b>Exam hook</b>Delayed intubation (over 2 days) independently predicted early pneumonia [[Orlikowski2006]]. Cannot lift arms at 1 week: 87% chance of ventilation for 14 days or more [[Walgaard2017]]. Early tracheostomy did not lower mortality in a national cohort [[Yonezawa2020]]. Pain: about two-thirds acutely, over a third at 1 year [[Ruts2010Pain]]. Methylprednisolone does not prevent GBS pain [[Liu2015]]. Fully paralysed people usually see and hear normally [[Leonhard2019]].</div>
+  <div class="pt"><b>In plain words</b>Pain is common and real, even when weakness is the main problem; please say if you hurt [[Ruts2010Pain]]. Vivid dreams or seeing things that are not there can happen in GBS. They usually pass, and they do not mean you are losing your mind [[Cochen2005]]. Someone who cannot move or speak can usually still hear and understand: talk to them, explain things and say who is there [[Leonhard2019]]. Many people who needed a ventilator walk again, though it can take a long time. These are group figures, not a forecast for one person [[Fletcher2000,vanDenBerg2018]].</div>
+</section>

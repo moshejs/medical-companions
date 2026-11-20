@@ -1,0 +1,67 @@
+<!-- ================= 6.2 FLASHCARDS & MNEMONICS ================= -->
+<section class="mod" id="m-review" data-mod="review" hidden>
+<style>
+#m-review .rv-lab{margin-top:14px}
+#m-review .mn .card p{margin:6px 0 0}
+#m-review .mn .card .tag{align-self:flex-start}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Flashcards &amp; mnemonics</h2>
+    <p class="lede">Flashcards on bipolar disorder, from prevalence, twins and the body clock to the DSM-5-TR episode rules, ICD-11, screening, lithium levels and toxicity, the other medicines, talking therapies, suicide safety, pregnancy, course and history. Tap a card or press Space to flip it; arrow keys move through the deck. Filter by part, or shuffle.</p></div>
+  <div class="ctrls" id="fcFilter"></div>
+  <div class="fc-wrap"><div class="fc" id="fc" tabindex="0" role="button" aria-label="%t:cards.label%">
+    <div class="face front"><small id="fcTagF"></small><p id="fcFront"></p></div>
+    <div class="face back"><small id="fcTagB"></small><p id="fcBack"></p></div>
+  </div></div>
+  <div class="ctrls"><button class="btn" id="fcPrev">%t:nav.prev%</button><button class="btn primary" id="fcFlip">%t:cards.flip%</button><button class="btn" id="fcNext">%t:nav.next%</button><button class="btn ghost" id="fcShuf">%t:cards.shuffle%</button><span class="stage-cap" id="fcCount"></span></div>
+  <div class="bar"><i id="fcBar"></i></div>
+  <h3 class="sub">%t:cards.mnemonics%</h3>
+  <div class="prose"><p>Every card below is tagged <b>memory aid</b>: a short phrase used in teaching or written for this guide to hold a published fact in mind. None of them is an official grouping from DSM-5-TR, ICD-11, NICE or a drug label, and none replaces the source. Doses and levels are quoted as published, not as instructions.</p></div>
+  <div class="mn" id="mnList"></div>
+  <h3 class="sub">Mnemonic in motion: DIGFAST and the episode gates</h3>
+  <p class="prose">A manic or hypomanic episode is defined by a two-part Criterion A, seven Criterion B symptoms, a minimum duration and, for mania, a Criterion C that hypomania lacks [[APA2022,Yatham2018]]. Play the animation to pass each gate in turn: mood and energy, the DIGFAST letters, the 3-or-4 count, the 4-day and 1-week clocks, and the line between mania and hypomania that separates bipolar I from bipolar II. More detail is in <button class="btn ghost" style="padding:2px 9px" data-go="criteria">DSM-5-TR criteria</button>.</p>
+  <div class="stepper" id="rvSteps"></div>
+  <div class="lab rv-lab">
+    <div class="stage"><div class="scroll"><svg id="rvSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Animated walk through the DSM-5-TR manic episode. Two boxes, mood and energy, tick together for Criterion A; seven tiles spell D-I-G-F-A-S-T for the Criterion B symptoms; a counter lights four tiles and shows the 3-of-7 and 4-of-7 thresholds; a day bar passes the 4-day hypomania and 1-week mania marks; and three Criterion C boxes lead to manic episode, bipolar I, or hypomanic episode, bipolar II"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="rvPlay">Play</button><label class="stage-cap tl" for="rvT">Gates <input type="range" id="rvT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap">Criterion wording shortened for study. DIGFAST is a memory aid, not DSM-5-TR wording. A teaching tool, not for diagnosing yourself or anyone else. [[APA2022,Yatham2018]]</p></div>
+    <aside class="note" id="rvNote" aria-live="polite"></aside>
+  </div>
+  <div class="callout prose"><p>These cards are for learning, not for self-diagnosis or for interpreting your own test results or lithium levels. Suspected lithium toxicity is an emergency [[FDA-Lithium]]. If you are in crisis or thinking about suicide, contact local emergency services or a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123).</p></div>
+</section>
+
+<!-- ================= 6.3 QUIZ ================= -->
+<section class="mod" id="m-quiz" data-mod="quiz" hidden>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Quiz</h2>
+    <p class="lede">Multiple-choice questions on bipolar disorder with cited explanations: epidemiology, genes and the brain, DSM-5-TR and ICD-11, screening and the differential, lithium levels and interactions, the other medicines, therapy, suicide safety, pregnancy, course, nursing and history. Clinical-reasoning cases for nursing and medical students are mixed in. The mixed quiz draws 20 at random; or choose a part.</p></div>
+  <div class="ctrls" id="qFilter"></div>
+  <div class="bar"><i id="qBar"></i></div>
+  <div class="qcard" id="qCard" aria-live="polite"></div>
+</section>
+
+<!-- ================= 6.4 GLOSSARY ================= -->
+<section class="mod" id="m-glossary" data-mod="glossary" hidden>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Glossary</h2>
+    <p class="lede">A searchable glossary of bipolar disorder terms, from actigraphy and the social zeitgeber theory to Criterion C, the MDQ, trough levels, EXTRIP, the Pregnancy Prevention Programme, IPSRT and Safewards. Type to filter; the arrow on each entry jumps to the module where the term matters most.</p></div>
+  <input class="search" id="glSearch" type="search" placeholder="Search terms, e.g. lithium, MDQ, rapid cycling" aria-label="%t:glossary.search%">
+  <p class="stage-cap" id="glCount"></p>
+  <div class="gloss" id="glList"></div>
+</section>
+
+<!-- ================= 6.5 SOURCES ================= -->
+<section class="mod" id="m-sources" data-mod="sources" hidden>
+<style>
+#m-sources .srcs .tag.good{text-transform:none;letter-spacing:.02em}
+#m-sources #srcStats{margin:8px 0 0}
+#m-sources .srcs .tag{white-space:normal;max-width:100%;overflow-wrap:anywhere;text-align:left}
+#m-sources #srcFilter .btn{white-space:normal;text-align:left}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Sources</h2>
+    <p class="lede">Every reference behind the Bipolar Companion: journal articles, Cochrane and other systematic reviews, guidelines, drug labels and trial registrations. The small numbers throughout the app point here; filter by research area or search.</p></div>
+  <div class="callout prose"><p>Eight research passes ran in parallel, one per area: epidemiology, presentation, burden and history; causes, genetics and environment; mechanisms, from the body clock to how lithium works; diagnosis, screening and the differential; lithium; the other medicines; psychological care, suicide safety, living well, families and nursing; and course, comorbidity, pregnancy and research toward better treatment. Before inclusion each source was checked, where possible, against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or openFDA, and the green tag on an entry names the service that confirmed it. Works found by more than one pass appear once, with any extra keys listed beside them.</p>
+    <p>Entries marked <span class="tag warn">%t:sources.check%</span> are pages with no PMID or DOI, or works that could not be confirmed. They are not cited for any fact in this guide.</p>
+    <p id="srcStats"></p></div>
+  <input class="search" id="srcSearch" type="search" placeholder="%t:sources.placeholder%" aria-label="%t:sources.search%">
+  <div class="ctrls" id="srcFilter"></div>
+  <p class="stage-cap" id="srcCount"></p>
+  <ol class="srcs" id="srcList"></ol>
+</section>

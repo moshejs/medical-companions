@@ -1,0 +1,93 @@
+<!-- ================= 2.3 THE DIFFERENTIAL ================= -->
+<section class="mod" id="m-ddx" data-mod="ddx" hidden>
+<style>
+#m-ddx .dx-pick{display:flex;flex-wrap:wrap;gap:6px}
+#m-ddx .dx-pick .btn{font-size:13px;padding:6px 11px}
+#m-ddx .dx-out{min-height:64px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:12px 16px;display:flex;flex-direction:column;gap:6px;font-size:15px}
+#m-ddx .dx-out b.big{font-family:var(--display);font-size:19px;line-height:1.2}
+#m-ddx .dx-flags{display:flex;flex-wrap:wrap;gap:6px}
+#m-ddx .dx-flags .btn{font-size:13px;padding:7px 12px;font-weight:600;text-align:left;white-space:normal;max-width:100%}
+#m-ddx .dx-flags .btn[aria-pressed="true"].away{background:var(--warn-soft);color:var(--ink);border-color:var(--warn)}
+#m-ddx .dx-flags .btn[aria-pressed="true"].fits{background:var(--nerve-soft);color:var(--ink);border-color:var(--nerve)}
+#m-ddx .dx-flags .btn small{display:block;font:600 10.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;margin-top:2px}
+#m-ddx .dx-flags .btn.away small{color:var(--warn)} #m-ddx .dx-flags .btn.fits small{color:var(--nerve)}
+#m-ddx .dx-cell{background:var(--panel-2);border-radius:10px;padding:10px 12px;font-size:14.5px;display:flex;flex-direction:column;gap:6px}
+#m-ddx .dx-cell .kicker{display:block}
+#m-ddx .dx-prof{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;display:flex;flex-direction:column;gap:12px}
+#m-ddx .dx-prof h4{margin:0;font-family:var(--display);font-weight:800;font-size:21px}
+#m-ddx .dx-prof .kv{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px 18px}
+#m-ddx .dx-prof .kv div{border-left:3px solid var(--line);padding-left:10px}
+#m-ddx .dx-prof .kv div.f1{border-left-color:var(--warn)} #m-ddx .dx-prof .kv div.f0{border-left-color:var(--nerve)} #m-ddx .dx-prof .kv div.f2{border-left-color:var(--muted)}
+#m-ddx .dx-prof .kv div.on{background:var(--panel-2);border-radius:0 8px 8px 0}
+#m-ddx .dx-delta{display:flex;flex-wrap:wrap;gap:6px}
+#m-ddx .dx-delta .btn{font-size:13px;padding:6px 11px}
+#m-ddx td,#m-ddx th{overflow-wrap:break-word;hyphens:auto}
+#m-ddx .dx-tbl table{min-width:700px}
+#m-ddx .dx-tbl tbody tr{cursor:pointer}
+#m-ddx .dx-tbl tbody tr:hover td,#m-ddx .dx-tbl tbody tr:hover th{background:var(--panel-2)}
+#m-ddx .lg-sw{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-2px;margin-right:5px;border:1px solid var(--line)}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 2 · Diagnosis</p><h2>The differential</h2>
+    <p class="lede">How Lambert-Eaton, botulism, ALS, eye-muscle disease, brainstem lesions, Miller Fisher, congenital and drug-induced myasthenia are told apart from MG. Press play to sweep the features column by column, ending with the nerve test that separates MG from Lambert-Eaton; pick a condition to compare it with MG.</p></div>
+  <p class="callout">MG weakens muscles that are moved on purpose and spares the pupils, the reflexes and sensation. <b>A finding outside that pattern points away from MG</b>: a dilated pupil, absent reflexes, a dry mouth, numbness, weakness since birth, or a muscle response that jumps after 10 seconds of effort. [[Juel2007,MSDManual2026,Titulaer2008,Finsterer2019,Oh2005,Hatanaka2008]]</p>
+  <div class="stepper" id="ddxSteps"></div>
+  <div class="ctrls" role="group" aria-label="Condition to compare with MG">
+    <span class="kicker">Compare MG with</span>
+    <div class="dx-pick" id="ddxPick"></div>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="ddxSvg" viewBox="0 0 720 644" style="min-width:560px" role="img" aria-label="A matrix of twelve conditions against nine clinical features, with the column under discussion highlighted, above two side-by-side panels comparing MG with the chosen condition: eyelid droop on sustained upgaze, pupil response to light, the knee jerk, the course over time, a low-rate repetitive nerve stimulation train, and the muscle response before and after 10 seconds of exercise with the 60% and 100% increment thresholds."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="ddxPlay">Play</button><label class="stage-cap tl" for="ddxT">Timeline <input type="range" id="ddxT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <div class="readout" id="ddxRead"></div>
+      <div class="legend"><span><i class="lg-sw" style="background:var(--nerve-soft)"></i>like MG</span><span><i class="lg-sw" style="background:var(--warn-soft);border-color:var(--warn)"></i>points away from MG</span><span><i class="lg-sw" style="background:var(--panel-2)"></i>overlaps or sometimes</span><span><i class="lg-sw" style="background:none"></i>— not described in the sources used here</span></div>
+      <p class="stage-cap">Schematic, not to scale. Matrix cells summarise the cited text shown in the box under the note and in the profile below. The traces are drawn shapes: thresholds (10% decrement, 60% and 100% increment) and the LEMS increment after 5–10 s of exercise (filled dot, about 244%) are published values; other heights are illustrative (open dots).</p></div>
+    <aside class="note" id="ddxNote" aria-live="polite"></aside>
+  </div>
+  <div class="dx-cell" id="ddxCell" aria-live="polite"></div>
+
+  <div class="dx-prof" id="ddxProf"></div>
+
+  <h3 class="sub">Which answer points away from MG?</h3>
+  <p class="prose">Each finding below is something a person might report or a clinician might find. Click one to see whether it fits MG or points elsewhere. Findings that point away light up the matching rows in the matrix above; click again to clear.</p>
+  <div class="dx-flags" id="ddxFlags" role="group" aria-label="Findings"></div>
+  <div class="dx-out" id="ddxFlagOut" aria-live="polite"></div>
+
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Lambert-Eaton: <b>proximal leg weakness, dry mouth and areflexia</b>; a <b>low</b> first CMAP that rises <b>60% or more</b> (classically 100%) after <b>10 s of exercise</b> or 50 Hz stimulation; P/Q-type VGCC antibodies in 91–100%; small-cell lung cancer in about half. MG: normal first CMAP, low-rate decrement of 10% or more, normal reflexes and pupils. [[Kesner2018,Oh2005,Hatanaka2008,Lennon1995,Titulaer2011,Oh2017,AAEM2001,Juel2007,MSDManual2026]]</div>
+    <div class="pt"><b>In plain words</b>Several other conditions also cause drooping lids or tiring muscles. MG leaves the pupils, the reflexes and feeling alone, and comes and goes over the day. Reflexes, pupils, how the illness started, and a nerve test that compares the muscle's response before and after a short effort help tell them apart.</div>
+  </div>
+
+  <h3 class="sub">Lambert-Eaton: the tumour score</h3>
+  <p class="prose">The DELTA-P score (Dutch-English LEMS Tumour Association Prediction) gives one point for each item present at or within 3 months of onset. It was built to predict small-cell lung cancer in people with LEMS. It is a published research score, shown here to illustrate the study's numbers; it is not a diagnosis. [[Titulaer2011b]]</p>
+  <div class="dx-delta" id="ddxDelta" role="group" aria-label="DELTA-P items"></div>
+  <div class="dx-out" id="ddxDeltaOut" aria-live="polite"></div>
+
+  <h3 class="sub">Look-alikes in brief</h3>
+  <div class="cards">
+    <div class="card"><h4>Lambert-Eaton (LEMS)</h4><p>A presynaptic disease: antibodies against P/Q-type voltage-gated calcium channels cut acetylcholine release. Found in 100% of 32 LEMS with cancer and 91% of 33 without; N-type antibodies in 49%. Low titres also appear in 23% of sporadic ALS and 24% of people with cancer but no neurological disease. [[Lennon1995]]</p><p>About half have small-cell lung cancer. After exercise, the increment was largest with 5–10 s of effort (about 243–244%) and smallest with 30 s (84%). [[Titulaer2011,Hatanaka2008]]</p></div>
+    <div class="card"><h4>Botulism</h4><p>Cranial nerve palsies, then a symmetric descending flaccid paralysis in an alert, afebrile person. Ptosis 81%, diplopia 75%, dysphagia 85%, dilated pupils 37%. 87% of those intubated were intubated on hospital day 1 or 2. Asymmetry (6–15%) does not exclude it. [[Rao2021,ChathamStephens2017]]</p></div>
+    <div class="card"><h4>Thyroid eye disease, alone or with MG</h4><p>Proptosis, pain and restricted, often asymmetric eye movements with enlarged muscles on imaging. The two can coexist: 0.23% of 6,576 TED patients also had MG, where ptosis and exotropia were the clues. When both are present, one positive test may not be enough. [[Keene2022,Abumanhal2026,Claytor2021]]</p></div>
+    <div class="card"><h4>Drug- and checkpoint-inhibitor MG</h4><p>D-penicillamine induces true AChR-antibody MG in up to 7%, mostly mild and ocular. Checkpoint inhibitors cause MG in about 0.5%, mostly with PD-1/PD-L1 blockade, a median 4 weeks after the first dose, often with myositis or myocarditis; mortality 20–30%. [[Krenn2020,Safa2019]] <a href="#drugs" data-go="drugs">Drugs that can worsen MG</a></p></div>
+    <div class="card"><h4>Mimics that were treated as MG</h4><p>In one series, 8 of 61 patients had been wrongly treated as refractory MG for a mean of 9 years; 2 had a thymectomy. Of 80 people first labelled double-seronegative MG, 36% had another diagnosis, most often a functional disorder (45%), then OPMD. [[Harrison2023,Maccora2025]]</p></div>
+    <div class="card"><h4>Magnesium: a chemical look-alike</h4><p>A high blood magnesium produces a LEMS-like presynaptic picture that tends to spare the eye muscles. [[Krenn2020]]</p></div>
+  </div>
+
+  <h3 class="sub">Congenital myasthenic syndromes: one drug, opposite effects</h3>
+  <p class="prose">Congenital myasthenic syndromes (CMS) are inherited, not autoimmune: 32 genes are known (8 presynaptic, 4 synaptic, 15 postsynaptic, 5 glycosylation). Most respond to acetylcholinesterase inhibitors, 3,4-DAP, salbutamol, ephedrine or fluoxetine, but which drug helps depends on the gene. [[Finsterer2019]]</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Drug class</th><th>May help</th><th>May worsen or fail</th></tr></thead>
+    <tbody>
+      <tr><th>Acetylcholinesterase inhibitors</th><td>Many CMS forms</td><td>May worsen COLQ, LAMB2, DOK7, MUSK and LRP4 CMS [[Finsterer2019]]</td></tr>
+      <tr><th>Fluoxetine</th><td>Slow-channel CMS</td><td>Worsened MYO9A and RAPSN CMS [[Finsterer2019]]</td></tr>
+      <tr><th>3,4-diaminopyridine (3,4-DAP)</th><td>Many CMS forms</td><td>May be ineffective in CHRNE or MUSK CMS [[Finsterer2019]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="prose">A drug that helps one form can harm another, which is why the gene matters before treatment in CMS. [[Engel2015]] Drug choices are made by the treating clinician.</p>
+
+  <h3 class="sub">Every condition in one table</h3>
+  <p class="prose">Click a row to load it into the comparison above.</p>
+  <div class="tbl dx-tbl"><table>
+    <thead><tr><th>Condition</th><th>Typical pattern</th><th>What points away from MG</th><th>Key test</th></tr></thead>
+    <tbody id="ddxTbl"></tbody>
+  </table></div>
+</section>

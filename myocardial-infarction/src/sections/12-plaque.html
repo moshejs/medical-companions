@@ -1,0 +1,75 @@
+<!-- ================= 1.2 PLAQUE, RUPTURE & CLOT ================= -->
+<style>
+#m-plaque .card>.ev,#m-plaque .card>.tag{align-self:flex-start}
+#m-plaque .tbl table{min-width:620px}
+#m-plaque .modebar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-plaque .readout{min-height:2.6em}
+</style>
+<section class="mod" id="m-plaque" data-mod="plaque" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · Understanding heart attack</p><h2>Plaque, rupture &amp; clot</h2>
+    <p class="lede">A heart attack (myocardial infarction, MI) usually starts decades before it happens, as cholesterol builds up in the wall of a coronary artery. Follow one plaque from a teenage fatty streak to the minutes when its surface breaks and a clot blocks the artery. [[Badimon2014,Strong1999PDAY]]</p></div>
+  <div class="modebar" role="group" aria-label="How the plaque fails">
+    <span class="kicker">How the plaque fails</span>
+    <button class="btn" data-plm="rupture" aria-pressed="true">Rupture: the cap tears</button>
+    <button class="btn" data-plm="erosion" aria-pressed="false">Erosion: the surface wears away</button>
+  </div>
+  <div class="stepper" id="plSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="plSvg" viewBox="0 0 720 380" role="img" aria-label="A coronary artery in long section and in cross-section. Over the decades LDL particles enter the wall, foam cells gather into a fatty streak, a fibroatheroma grows with a yellow necrotic core under a fibrous cap, and the cap thins. Then, over minutes, the cap ruptures or the surface erodes, platelets stick and a dark red thrombus grows until it blocks the channel and blood stops flowing downstream. A gauge shows the cap thickness against published thresholds of 55, 65 and 84 micrometres."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="plPlay">Play</button><label class="stage-cap tl" for="plT">Decades, then minutes <input type="range" id="plT" min="0" max="1" step="0.001" value="0.04"></label></div>
+      <div class="readout" id="plRead"></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> The ages are illustrative: plaques grow at very different speeds in different people. The cap gauge's reference lines are published values; the moving marker is drawn, not measured. [[Stary1994,Stary1995,Virmani2006,Narula2013,Jia2013OCT]]</p>
+    </div>
+    <aside class="note" id="plNote" aria-live="polite"></aside>
+  </div>
+
+  <p class="crisis" role="note"><b>Call now</b><span>If you think you or someone else is having a heart attack, call your local emergency number now (911 in the US, 999 in the UK, 112 in the EU).</span></p>
+
+  <h3 class="sub">Rupture, erosion and calcified nodule</h3>
+  <p class="prose">Two plaque events cause most coronary clots: rupture, the most common, and erosion. A third, the calcified nodule, is rare and is found in heavily calcified, tortuous arteries of older people. [[Falk2013,Bentzon2014]] How often each one is found depends on how it is looked for: autopsy after sudden death, or imaging inside the artery (optical coherence tomography, OCT) in living patients, where some lesions stay unclassified.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Feature</th><th>Rupture</th><th>Erosion</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><th>Share, autopsy (50 sudden deaths)</th><td>56%</td><td>44%</td><td>[[Farb1996]]</td></tr>
+      <tr><th>Share, autopsy (59 acute thrombi, men)</th><td>69%</td><td>31%</td><td>[[Burke1997]]</td></tr>
+      <tr><th>Share, OCT (126 patients with ACS)</th><td>43.7%</td><td>31.0% (calcified nodule 7.9%)</td><td>[[Jia2013OCT]]</td></tr>
+      <tr><th>Mean age</th><td>53 (autopsy); 60.6 (OCT)</td><td>44 (autopsy); 53.8 (OCT)</td><td>[[Farb1996,Jia2013OCT]]</td></tr>
+      <tr><th>Women</th><td>18%</td><td>50%</td><td>[[Farb1996]]</td></tr>
+      <tr><th>Fibrous cap, OCT (mean)</th><td>60.4 µm</td><td>169.3 µm</td><td>[[Jia2013OCT]]</td></tr>
+      <tr><th>Diameter stenosis, OCT</th><td>68.8%</td><td>55.4%</td><td>[[Jia2013OCT]]</td></tr>
+      <tr><th>Presented without ST elevation</th><td>29.1%</td><td>61.5%</td><td>[[Jia2013OCT]]</td></tr>
+      <tr><th>Macrophages in the cap</th><td>100%</td><td>50%</td><td>[[Farb1996]]</td></tr>
+      <tr><th>Calcification</th><td>69%</td><td>23%</td><td>[[Farb1996]]</td></tr>
+      <tr><th>Typical plaque</th><td>Thin-cap fibroatheroma, large necrotic core, outward remodelling</td><td>Intimal thickening or fibroatheroma rich in smooth muscle cells and proteoglycans, often inward remodelling, little inflammation</td><td>[[Bentzon2014,Falk2013]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">In men who died suddenly, the total-to-HDL cholesterol ratio was 8.5 with rupture, 5.0 with erosion and 5.5 with stable plaque, and smoking was a risk factor in 75% of those with an acute thrombus against 41% with stable plaques. The authors concluded that abnormal cholesterol predisposes to rupture and smoking to acute thrombosis. [[Burke1997]]</p>
+
+  <h3 class="sub">Stable or vulnerable? Why heart attacks come "out of the blue"</h3>
+  <p class="prose">A tight narrowing is not necessarily the plaque that causes the next heart attack. An angiogram shows only the channel that the dye fills; it cannot see a plaque that has grown outward into the wall. Switch views to compare two plaques.</p>
+  <div class="ctrls" role="group" aria-label="Comparator view">
+    <button class="btn" data-plv="angio" aria-pressed="true">What the angiogram shows</button>
+    <button class="btn" data-plv="wall" aria-pressed="false">What the wall holds</button>
+    <button class="btn" data-plv="follow" aria-pressed="false">What happened next</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="plComp" viewBox="0 0 720 330" role="img" aria-label="Two coronary plaques compared. Plaque A narrows the channel severely but has a thick cap and a small core. Plaque B narrows the channel only mildly because it has grown outward, but it has a large necrotic core under a thin cap. A third view shows 29 patients in whom the artery that later caused a heart attack had usually been less than 50% narrowed."></svg></div>
+      <p class="stage-cap">Schematic. Follow-up numbers: Little 1988 (29 patients with an angiogram before their MI) and PROSPECT (697 patients after acute coronary syndrome). [[Little1988,Stone2011PROSPECT]]</p>
+    </div>
+    <aside class="note" id="plCompNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Inflammation, cholesterol and the debates</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Inflammation drives plaque</h4><p>Atherosclerosis is an inflammatory disease in which macrophages and T lymphocytes play a dominant role. [[Falk2013]] In CANTOS, 10,061 people with a past MI and hs-CRP ≥2 mg/L were given canakinumab, an antibody against interleukin-1β, or placebo. At 150 mg every 3 months it lowered nonfatal MI, nonfatal stroke or cardiovascular death (HR 0.85, 95% CI 0.74–0.98; 3.86 vs 4.50 events per 100 person-years) without lowering lipids. It raised fatal infections and did not change all-cause mortality. [[Ridker2017CANTOS]] More in <a href="#frontier" data-go="frontier">Research toward better treatment</a>.</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Colchicine trials</h4><p>Low-dose colchicine 0.5 mg daily lowered ischaemic events after a recent MI (COLCOT: 5.5% vs 7.1%, HR 0.77) and in chronic coronary disease (LoDoCo2: 6.8% vs 9.6%, HR 0.69). Across 5 trials it reduced MI by 22% with no difference in all-cause death. Net benefit is still debated. [[Tardif2019COLCOT,Nidorf2020LoDoCo2,Fiolet2021Colchicine]] These are trial descriptions, not dosing advice.</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Why lowering LDL protects the artery</h4><p>LDL retained in the wall is the starting point. [[Tabas2007]] Genetic, epidemiological and trial evidence "unequivocally establishes that LDL causes ASCVD". [[Ference2017EAS]] In 26 statin trials, each 1.0 mmol/L lower LDL cholesterol meant about 22% fewer major vascular events. [[CTT2010]] <span class="ev early">Early evidence</span> After an MI, adding alirocumab to a high-intensity statin shrank plaque volume slightly more on imaging (PACMAN-AMI), a surrogate result. [[Raber2022PACMAN]] See <a href="#lipids" data-go="lipids">Lowering LDL cholesterol</a>.</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>It starts young</h4><p>Intravascular ultrasound of 262 young donor hearts found coronary atherosclerosis in 51.9%: 17% of donors under 20 and 85% of those 50 or older, with similar prevalence in men and women. [[Tuzcu2001]] PDAY concluded that prevention must begin in childhood or adolescence. [[Strong1999PDAY]] Risk factors are in <a href="#risk" data-go="risk">Risk factors &amp; prevention</a>.</p></div>
+    <div class="card"><span class="tag warn">Debated</span><h4>Beyond the "vulnerable plaque"</h4><p>Autopsy and imaging link events to thin-cap fibroatheromas. [[Virmani2006,Narula2013]] Yet in PROSPECT, plaque burden and lumen area predicted events as strongly as thin-cap appearance, and half of later events came from the original culprit sites. [[Stone2011PROSPECT]] Libby argues that thinking has moved "beyond the 'vulnerable plaque' concept". [[Libby2021Nature]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Clonal haematopoiesis (CHIP)</h4><p>An expanded clone of blood cells carrying acquired mutations was linked to 1.9 times the risk of coronary heart disease and 4.0 times the risk of early-onset MI. In mice, Tet2-deficient bone marrow caused larger lesions. [[Jaiswal2017CHIP]] Libby calls CHIP a common, age-related contributor to risk that was not recognised before. [[Libby2021Nature]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Bleeding inside the plaque</h4><p>Red-cell membranes and iron build up in late-stage and thin-cap plaques, adding free cholesterol and macrophages and enlarging the core. [[Kolodgie2003]] Fragile, leaky new vessels growing into the plaque help enlarge the core, and a bleed can expand a plaque quickly. [[Badimon2014,Falk2013]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Erosion without a stent?</h4><p>In the single-centre, uncontrolled EROSION study, 60 patients with an OCT-diagnosed erosion had antithrombotic drugs and no stent; 78.3% had more than a 50% reduction in thrombus volume at 1 month. [[Jia2017EROSION]] Erosion is hard to diagnose without intracoronary imaging. Treatment of the blocked artery is in <a href="#reperfusion" data-go="reperfusion">Reperfusion</a>.</p></div>
+  </div>
+</section>

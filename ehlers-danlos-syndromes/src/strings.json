@@ -1,0 +1,10 @@
+{
+ "foot.not_advice": "<b>It is not medical advice.</b> It cannot diagnose: the Beighton score, the criteria checklist and the other tools are teaching aids, not a test, and nothing here should change a treatment or care decision without your own clinician. Criteria, doses and guideline statements are quoted as published. Please check the original sources, which are listed in full in the <a href=\"#sources\" data-go=\"sources\">Sources</a> module.",
+ "quiz.answer_is": "The answer is {l}.",
+ "shell.disclaimer": "The EDS Companion is an educational synthesis of published literature. It does not replace a clinician, and its scores and checklists cannot diagnose anyone. Doses, criteria and guideline statements are reported as published, not as instructions. With vascular EDS or sudden severe pain, follow your emergency plan and seek urgent care.",
+ "shell.home": "EDS Companion home",
+ "shell.note": "An animated, cited guide to the Ehlers-Danlos syndromes for students, people with EDS or HSD, and their families. Educational only, not medical advice. Your place is saved on this device.",
+ "shell.skip": "Skip to the module",
+ "shell.tagline": "Ehlers-Danlos syndromes",
+ "sources.stats": "{all} sources in all. {ok} were confirmed against a database before inclusion (some by more than one: {svc}). {chk} are marked <span class=\"tag warn\">check</span>."
+}

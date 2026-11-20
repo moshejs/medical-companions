@@ -1,0 +1,62 @@
+<!-- ================= 1.2 THE BRAIN THAT FORGETS ================= -->
+<style>
+#m-brain .br-pick{display:flex;flex-direction:column;gap:12px}
+#m-brain .br-row{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-brain .br-row .kicker{min-width:100%}
+#m-brain .br-out{border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px;background:var(--field)}
+#m-brain .br-res{font-family:var(--display);font-weight:800;font-size:30px;line-height:1.05}
+#m-brain .br-scale{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.7fr) minmax(0,1fr);gap:4px}
+#m-brain .br-scale span{font:600 11px var(--mono);text-transform:uppercase;letter-spacing:.02em;text-align:center;padding:8px 2px;border-radius:7px;background:var(--panel-2);color:var(--muted);overflow-wrap:anywhere}
+#m-brain .br-scale span.on{background:var(--rose);color:var(--panel)}
+#m-brain #brAbcTbl td.on{background:var(--rose-soft);font-weight:700;outline:2px solid var(--rose);outline-offset:-2px}
+</style>
+<section class="mod" id="m-brain" data-mod="brain" hidden>
+  <div class="mhead"><p class="eyebrow">חלק 1 · המחלה</p><h2>המוח ששוכח</h2>
+    <p class="lede">סבכי טאו ורובדי עמילואיד מתפשטים שניהם במוח בסדר קבוע, אבל לא באותו סדר. עברו על שלבי הסבכים, ואז עברו לעמילואיד והשוו היכן כל אחד מהם מתחיל.</p></div>
+  <div class="ctrls" role="group" aria-label="איזה חלבון למפות">
+    <span class="kicker">מפה</span>
+    <button class="btn" id="brTau" aria-pressed="true">סבכי טאו: שלבי בראק I–VI</button>
+    <button class="btn" id="brAmy" aria-pressed="false">רובדי עמילואיד: שלבי תאל 1 עד 5</button>
+  </div>
+  <div class="stepper" id="brSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="brSvg" viewBox="0 0 720 430" style="min-width:560px" role="img" aria-label="מבט צידי ומבט מדיאלי של המוח, שבהם האזורים נצבעים אזור אחר אזור: סבכי טאו מתחילים בקליפה הטרנס־אנטורינלית ומתפשטים דרך האזורים הלימביים אל האיזוקורטקס, ואילו עמילואיד מתחיל בניאוקורטקס ומתפשט מטה אל גזע המוח והמוחון."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="brPlay">הפעלה</button><label class="stage-cap tl" for="brT">התפשטות <input type="range" id="brT" min="0" max="1" step="0.002" value="0.2"></label></div>
+      <p class="stage-cap" id="brCap">קווי מתאר סכמטיים. מבנים עמוקים מסומנים בקו מקווקו. אזורים שאינם כלולים בשיטת הדירוג נשארים לא צבועים; אין פירוש הדבר שהם לא נפגעים.</p></div>
+    <aside class="note" id="brNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">למה הזיכרון נפגע ראשון</h3>
+  <p class="prose">הסבכים הראשונים נוצרים במקום שבו מתחיל מעגל הזיכרון של ההיפוקמפוס. עקבו אחרי אות שעובר במעגל, ואז ראו אילו נוירונים אובדים, בסדר שהמחקרים מתארים.</p>
+  <div class="stepper" id="brCiSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="brCi" viewBox="0 0 720 410" style="min-width:560px" role="img" aria-label="מעגל הזיכרון של ההיפוקמפוס, משכבה II של הקליפה האנטורינלית דרך הגירוס הדנטטי, CA3, CA1 והסוביקולום, מאבד נוירונים לפי סדר: קודם שכבה II האנטורינלית, אחר כך CA1, ואחר כך המוח הקדמי הבזלי הכולינרגי. לוח MRI מראה שההיפוקמפוס מצטמק מהר יותר במחלת אלצהיימר מאשר בקבוצת הביקורת."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="brCiPlay">הפעלה</button><label class="stage-cap tl" for="brCiT">מהלך המחלה <input type="range" id="brCiT" min="0" max="1" step="0.002" value="0.06"></label></div>
+      <p class="stage-cap">סכמטי. הנקודות על המעגל הן אותות; תאים דהויים בקו מקווקו הם נוירונים שאבדו. צורות ה־MRI מצטברות לפי שיעורי ההצטמקות השנתיים שפורסמו, לשם המחשה.</p></div>
+    <aside class="note" id="brCiNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">דירוג מוח בנתיחה: ציון ABC</h3>
+  <div class="prose"><p>הנחיות NIA-AA משנת 2012 מדרגות שלושה מרכיבים ומשלבות אותם לרמה אחת של שינוי נוירופתולוגי של אלצהיימר. בחרו דירוג לכל מרכיב וקראו את התוצאה. [[Montine2012,Hyman2012]]</p></div>
+  <div class="lab even">
+    <div class="stage br-pick">
+      <div class="br-row" role="group" aria-label="A: עמילואיד, שלב תאל"><span class="kicker">A · רובדי עמילואיד (שלב תאל)</span>
+        <button class="btn" data-abc="a" data-v="0" aria-pressed="false">A0 · אין</button><button class="btn" data-abc="a" data-v="1" aria-pressed="false">A1 · שלב 1 עד 2</button><button class="btn" data-abc="a" data-v="2" aria-pressed="true">A2 · שלב 3</button><button class="btn" data-abc="a" data-v="3" aria-pressed="false">A3 · שלב 4 עד 5</button></div>
+      <div class="br-row" role="group" aria-label="B: סבכים, שלב בראק"><span class="kicker">B · סבכים (שלב בראק)</span>
+        <button class="btn" data-abc="b" data-v="0" aria-pressed="false">B0 · אין</button><button class="btn" data-abc="b" data-v="1" aria-pressed="false">B1 · I–II</button><button class="btn" data-abc="b" data-v="2" aria-pressed="true">B2 · III–IV</button><button class="btn" data-abc="b" data-v="3" aria-pressed="false">B3 · V–VI</button></div>
+      <div class="br-row" role="group" aria-label="C: צפיפות רבדים נויריטיים, CERAD"><span class="kicker">C · רבדים נויריטיים (CERAD)</span>
+        <button class="btn" data-abc="c" data-v="0" aria-pressed="false">C0 · אין</button><button class="btn" data-abc="c" data-v="1" aria-pressed="false">C1 · דלילים</button><button class="btn" data-abc="c" data-v="2" aria-pressed="true">C2 · בינוניים</button><button class="btn" data-abc="c" data-v="3" aria-pressed="false">C3 · רבים</button></div>
+      <div class="br-out" id="brAbcOut" aria-live="polite"></div>
+    </div>
+    <aside class="note">
+      <div class="kicker">איך הרמות משתלבות</div>
+      <h4>ללא, נמוכה, בינונית, גבוהה</h4>
+      <p>A0 הוא תמיד "ללא". עם B0 או B1 הרמה היא לכל היותר "נמוכה". רמה "גבוהה" מחייבת A3,‏ B3 ו־C2 או C3 יחד. רמה "בינונית" או "גבוהה" נחשבת הסבר מספיק לדמנציה. [[Montine2012]]</p>
+      <p>ההנחיות מכירות בכך ששינויי אלצהיימר יכולים להופיע בלי פגיעה קוגניטיבית, והן קובעות פרוטוקולים לפתולוגיות נלוות שכיחות: מחלת גופיפי לוי, פגיעה מוחית וסקולרית, טרשת היפוקמפלית ותכלילי TDP-43. [[Hyman2012,Montine2012]]</p>
+      <div class="pt"><b>במילים פשוטות</b>אחרי המוות, פתולוג מדרג כמה עמילואיד יש, עד כמה התפשטו הסבכים וכמה רבדים פגועים יש. יחד הם מראים עד כמה סביר שמחלת אלצהיימר מסבירה את הדמנציה.</div>
+      <div class="hook"><b>לבחינה</b>A = תאל (עמילואיד), B = בראק (סבכים), C = CERAD (רבדים נויריטיים). A0 ← ללא. B0–1 ← לכל היותר נמוכה. גבוהה = A3 + B3 + C2–3.</div>
+    </aside>
+  </div>
+  <div class="tbl"><table id="brAbcTbl"></table></div>
+  <p class="stage-cap">הטבלה לפי Montine 2012, טבלה 3. במקור B0 ו־B1 חולקים עמודה אחת.</p>
+</section>

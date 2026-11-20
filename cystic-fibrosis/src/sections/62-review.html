@@ -1,0 +1,72 @@
+<!-- ================= 6.2 FLASHCARDS & MNEMONICS ================= -->
+<section class="mod" id="m-review" data-mod="review" hidden>
+<style>
+#m-review .rv-lab{margin-top:14px}
+#m-review .mn .card p{margin:6px 0 0}
+#m-review .mn .card .tag{align-self:flex-start}
+#m-review #rvSvg .rv-a{font:700 15px var(--body);fill:var(--ink)}
+#m-review #rvSvg .rv-c{font:500 13.5px var(--body);fill:var(--ink)}
+#m-review #rvSvg .rv-b{font:500 12px var(--body);fill:var(--muted)}
+#m-review #rvSvg .rv-n{font:700 13px var(--mono);fill:var(--on-brand)}
+@media (max-width:820px){#m-review #rvSvg .rv-c{font-size:14px}#m-review #rvSvg .rv-b{font-size:12.5px}}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Flashcards &amp; mnemonics</h2>
+    <p class="lede">Flashcards on cystic fibrosis, from the CFTR gene, carriers and the six variant classes to the lungs, pancreas and other organs, newborn screening and the sweat test, modulators and their trials, airway clearance, infection, nutrition, transplant, daily life, pregnancy, nursing care and the history of the disease. Every answer carries its source. Tap a card or press Space to flip it; arrow keys move through the deck. Filter by part, or shuffle.</p></div>
+  <div class="ctrls" id="fcFilter"></div>
+  <div class="fc-wrap"><div class="fc" id="fc" tabindex="0" role="button" aria-label="%t:cards.label%">
+    <div class="face front"><small id="fcTagF"></small><p id="fcFront"></p></div>
+    <div class="face back"><small id="fcTagB"></small><p id="fcBack"></p></div>
+  </div></div>
+  <div class="ctrls"><button class="btn" id="fcPrev">%t:nav.prev%</button><button class="btn primary" id="fcFlip">%t:cards.flip%</button><button class="btn" id="fcNext">%t:nav.next%</button><button class="btn ghost" id="fcShuf">%t:cards.shuffle%</button><span class="stage-cap" id="fcCount"></span></div>
+  <div class="bar"><i id="fcBar"></i></div>
+  <h3 class="sub">%t:cards.mnemonics%</h3>
+  <div class="prose"><p>Every card below is tagged <b>memory aid</b>: a short phrase written for this guide to hold a published fact in mind. None is an official grouping from the CF Foundation, the ECFS, a drug label or any guideline, and none replaces the source it points to. Doses, thresholds and schedules are quoted as published, never as instructions.</p></div>
+  <div class="mn" id="mnList"></div>
+  <h3 class="sub">Mnemonic in motion: the six variant classes</h3>
+  <p class="prose">CFTR variants are grouped by what they do to the protein, from no protein at all (class I) to a channel that reaches the surface but does not stay there (class VI) [[LopesPacheco2019,Bell2020Commission]]. As a memory aid, walk the protein's life: <b>make, fold, open, flow, amount, stay</b>. Each word names the step that fails in that class. Play the animation to watch one channel fail in six different ways, with the chloride it lets out on a dial. More in <button class="btn ghost" style="padding:2px 9px" data-go="variants">Variant classes &amp; genotype</button>.</p>
+  <div class="stepper" id="rvSteps"></div>
+  <div class="lab rv-lab">
+    <div class="stage"><div class="scroll"><svg id="rvSvg" viewBox="0 0 720 380" style="min-width:300px" role="img" aria-label="Animated walk through the six CFTR variant classes as the memory aid make, fold, open, flow, amount, stay. Six tiles light in turn while a panel draws one CFTR channel in the cell membrane: in class I a stop signal in the gene means no protein is made; in class II the protein misfolds and stays inside the cell; in class III it reaches the surface but the gate stays shut; in class IV it opens but little chloride flows; in class V there is too little normal channel; in class VI the channel works but is pulled back into the cell. A dial shows how much chloride gets out in each case, as a schematic."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="rvPlay">Play</button><label class="stage-cap tl" for="rvT">Class <input type="range" id="rvT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap">Schematic, not to scale. The dial is a drawing proportion, not a measured value; many variants cause more than one defect. [[LopesPacheco2019,Bell2020Commission,Cutting2015]]</p></div>
+    <aside class="note" id="rvNote" aria-live="polite"></aside>
+  </div>
+  <div class="callout prose"><p>These cards are for learning, not for deciding anything about one person's care. Whether a medicine suits someone depends on their own variants, tests and history, and only their CF team can judge that. Survival and outcome figures on the cards are population statistics from registries and trials; they cannot predict what will happen to any one person.</p></div>
+</section>
+
+<!-- ================= 6.3 QUIZ ================= -->
+<section class="mod" id="m-quiz" data-mod="quiz" hidden>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Quiz</h2>
+    <p class="lede">Multiple-choice questions on cystic fibrosis with cited explanations: the CFTR gene, inheritance and variant classes, how the channel works, the lungs, pancreas, liver and other organs, newborn screening, the sweat test and monitoring, CFTR modulators and their trials, airway clearance, infection, nutrition, transplant, living with CF, fertility and pregnancy, nursing care, the research frontier and history. The mixed quiz draws 20 at random; or choose a part.</p></div>
+  <div class="ctrls" id="qFilter"></div>
+  <div class="bar"><i id="qBar"></i></div>
+  <div class="qcard" id="qCard" aria-live="polite"></div>
+</section>
+
+<!-- ================= 6.4 GLOSSARY ================= -->
+<section class="mod" id="m-glossary" data-mod="glossary" hidden>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Glossary</h2>
+    <p class="lede">A searchable glossary of cystic fibrosis terms, from CFTR, F508del, theratypes and the R domain to IRT, CRMS/CFSPID, the sweat chloride bands, FEV1 and the lung clearance index, correctors, potentiators and Trikafta, dornase alfa, Pseudomonas, NTM, PERT, CF-related diabetes, CBAVD and palliative care. Type to filter; the arrow on each entry jumps to the module where the term matters most.</p></div>
+  <input class="search" id="glSearch" type="search" placeholder="Search terms, e.g. F508del, sweat test, ivacaftor" aria-label="%t:glossary.search%">
+  <p class="stage-cap" id="glCount"></p>
+  <div class="gloss" id="glList"></div>
+</section>
+
+<!-- ================= 6.5 SOURCES ================= -->
+<section class="mod" id="m-sources" data-mod="sources" hidden>
+<style>
+#m-sources .srcs .tag.good{text-transform:none;letter-spacing:.02em}
+#m-sources #srcStats{margin:8px 0 0}
+#m-sources .srcs .tag{white-space:normal;max-width:100%;overflow-wrap:anywhere;text-align:left}
+#m-sources #srcFilter .btn{white-space:normal;text-align:left}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Sources</h2>
+    <p class="lede">Every reference behind the CF Companion: journal articles, randomised trials, registry studies, systematic reviews, CF Foundation, ECFS and other guidance, US drug labels and trial registrations. The small numbers throughout the app point here; filter by research area or search.</p></div>
+  <div class="callout prose"><p>Research passes ran in parallel, one per area: the CFTR gene, inheritance and variants; CFTR physiology and the lungs; the digestive system, other organs and nutrition; newborn screening, diagnosis and monitoring; CFTR modulators and the research frontier; airway clearance, infection and transplant; and living with CF, fertility, pregnancy and nursing care. Before inclusion each source was checked, where possible, against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or the regulator's label, and the green tag on an entry names the service that confirmed it. Works found by more than one pass appear once, with any extra keys listed beside them.</p>
+    <p>Entries marked <span class="tag warn">%t:sources.check%</span> are pages with no PMID or DOI, or works that could not be confirmed. They are not cited for any fact in this guide.</p>
+    <p id="srcStats"></p></div>
+  <input class="search" id="srcSearch" type="search" placeholder="%t:sources.placeholder%" aria-label="%t:sources.search%">
+  <div class="ctrls" id="srcFilter"></div>
+  <p class="stage-cap" id="srcCount"></p>
+  <ol class="srcs" id="srcList"></ol>
+</section>

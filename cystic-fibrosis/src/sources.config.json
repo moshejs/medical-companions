@@ -1,0 +1,12 @@
+{
+ "areas": {
+  "A": "Epidemiology, survival, presentation & history",
+  "B": "CFTR gene, inheritance, variant classes & genotype",
+  "C": "CFTR physiology and the lungs",
+  "D": "Digestive system, other organs & nutrition",
+  "E": "Newborn screening, diagnosis & monitoring",
+  "F": "CFTR modulators & the research frontier",
+  "G": "Airway clearance, infection & transplant",
+  "H": "Living with CF, fertility, pregnancy & nursing care"
+ }
+}

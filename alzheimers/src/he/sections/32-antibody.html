@@ -1,0 +1,71 @@
+<!-- ================= 3.2 ANTI-AMYLOID ANTIBODIES ================= -->
+<section class="mod" id="m-antibody" data-mod="antibody" hidden>
+<style>
+#m-antibody .ab-ctl{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center}
+#m-antibody .ab-ctl>div{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-antibody .ab-clin{background:var(--sky-soft);border-radius:12px;padding:12px 14px;font-size:15px;max-width:none}
+#m-antibody .ab-clin b{color:var(--sky)}
+#m-antibody .note .readout{border-top:1px solid var(--line);padding-top:10px}
+#m-antibody .ab-debate .card h4{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+#m-antibody .ab-bars{display:flex;flex-direction:column;gap:9px;margin:0;padding:0;list-style:none}
+#m-antibody .ab-bars li{display:flex;flex-direction:column;gap:3px;font-size:14px}
+#m-antibody .ab-bars .tr{height:9px;background:var(--panel-2);border-radius:99px;overflow:hidden}
+#m-antibody .ab-bars .tr i{display:block;height:100%;background:var(--sky);border-radius:99px}
+#m-antibody .ab-bars .tr i.lt{background:var(--sky-soft);box-shadow:inset 0 0 0 1.5px var(--sky)}
+#m-antibody .tbl table{min-width:640px}
+#m-antibody .tbl td:first-child{white-space:nowrap;font:600 12.5px var(--mono);color:var(--muted)}
+#m-antibody .reg-tag{font:600 10.5px var(--mono);letter-spacing:.06em}
+#m-antibody .card>.ev{align-self:flex-start}
+#m-antibody .cardnote{font-size:13px;color:var(--muted)}
+</style>
+  <div class="mhead"><p class="eyebrow">חלק 3 · טיפול</p><h2>נוגדנים נגד עמילואיד לאורך זמן</h2>
+    <p class="lede">לקנמאב (Leqembi) ודונאנמאב (Kisunla) הם נוגדנים שניתנים בעירוי לדם ועוזרים לתאי מערכת החיסון של המוח לסלק רובד עמילואיד. כאן אפשר לעקוב אחרי הניסויים שפורסמו, חודש אחר חודש: הרובד יורד מהר, ARIA (בצקת או דימומים קטנים במוח הנראים ב־MRI) מופיע מוקדם, והתועלת הקלינית מופיעה לאט ונשארת מתונה.</p></div>
+  <p class="callout ab-clin"><b>מידע מניסויים ומעלונים שפורסמו בלבד.</b> כל מה שמוצג כאן מדווח מה פרסמו הניסויים, העלונים והרשויות הרגולטוריות. השאלות אם אדם מסוים זכאי לטיפול, ואם הטיפול מתאים לו, הן החלטות של רופאים מומחים יחד עם האדם ובני משפחתו.</p>
+
+  <div class="ab-ctl" role="group" aria-label="הגדרות ההנפשה">
+    <div><span class="kicker">תרופה</span>
+      <button class="btn" id="abLec" aria-pressed="true">לקנמאב (CLARITY AD)</button>
+      <button class="btn" id="abDon" aria-pressed="false">דונאנמאב (TRAILBLAZER-ALZ 2)</button></div>
+    <div><span class="kicker">עותקי APOE4</span>
+      <button class="btn" id="abG0" aria-pressed="false">אין</button>
+      <button class="btn" id="abG1" aria-pressed="true">אחד</button>
+      <button class="btn" id="abG2" aria-pressed="false">שניים</button></div>
+    <div><span class="kicker">טווח זמן</span>
+      <button class="btn" id="abOle" aria-pressed="false">הוספת שנות השלב הפתוח</button></div>
+  </div>
+  <div class="stepper" id="abSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="abSvg" viewBox="0 0 720 556" style="min-width:560px" role="img" aria-label="שלושה לוחות מקושרים לאורך חודשי הניסוי: רובדי עמילואיד מתכווצים כשנוגדנים נקשרים אליהם והמיקרוגליה מסלקת אותם, וערך ה־PET לעמילואיד יורד; ציון ה־CDR-SB מחמיר גם בתרופה וגם בפלצבו, והפער ביניהם מתרחב לאט; הסיכון ל־ARIA-E עולה בעיקר בחודשים הראשונים, ובדיקות ה־MRI מסומנות על ציר הזמן."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="abPlay">הפעלה</button><label class="stage-cap tl" for="abT">חודש <input type="range" id="abT" min="0" max="18" step="0.05" value="0"></label><span class="stage-cap" id="abMo" aria-hidden="true">0</span></div>
+      <p class="stage-cap" id="abCap">הרקמה סכמטית, לא בקנה מידה. נקודות מלאות הן ערכים שפורסמו מהניסוי; נקודות ריקות הן נתוני החברה או ערכים שחושבו ממספרים שפורסמו; הקווים ביניהן הם צורות משוערות (אינטרפולציה). בתצוגת השלב הפתוח, סימוני המנות של לקנמאב אחרי חודש 18 מראים את אפשרות האחזקה שבעלון הנוכחי, פעם ב־4 שבועות, ולא את לוח הזמנים של שלב ההמשך עצמו.</p></div>
+    <aside class="note" id="abNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">כמה גדולה התועלת?</h3>
+  <p class="prose">אותם מספרים מהניסויים נקראים בשתי דרכים שונות מאוד. בחרו סולם, ואז בחרו שורה כדי לראות מה היא מייצגת ואיך כל צד קורא אותה. זה ויכוח פעיל בין מומחים, ולכן שתי הקריאות מוצגות זו לצד זו.</p>
+  <div class="ctrls" role="group" aria-label="סולם"><span class="kicker">סולם</span>
+    <button class="btn" id="abMagPts" aria-pressed="true">נקודות CDR-SB</button>
+    <button class="btn" id="abMagMo" aria-pressed="false">חודשי זמן שנחסכו</button></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="abMag" viewBox="0 0 720 260" style="min-width:560px" role="img" aria-label="עמודות אופקיות משוות את ההפרשים שפורסמו בין תרופה לפלצבו, או את חודשי הזמן שנחסכו לפי ההערכות, עם הספים שהוצעו לשינוי משמעותי מבחינה קלינית."></svg></div>
+      <div class="ctrls" id="abMagBtns" role="group" aria-label="בחירת שורה להסבר"></div>
+      <p class="stage-cap">עמודות: אומדן נקודתי. שפמים: רווח סמך 95% או טווח, כפי שפורסמו. קווים אנכיים: ספים מוצעים.</p></div>
+    <aside class="note" id="abMagNote" aria-live="polite"></aside>
+  </div>
+  <div class="split2 ab-debate" id="abDebate"></div>
+
+  <h3 class="sub">למה כל נוגדן נקשר, ומה קרה</h3>
+  <div class="tbl" id="abTargets"></div>
+
+  <h3 class="sub">זכאות, ARIA, מינון וההיסטוריה</h3>
+  <div class="cards" id="abCards"></div>
+
+  <h3 class="sub">ציר הזמן הרגולטורי</h3>
+  <div class="ctrls" role="group" aria-label="סינון ציר הזמן לפי אזור"><span class="kicker">הצגה</span>
+    <button class="btn" data-reg="all" aria-pressed="true">הכול</button>
+    <button class="btn" data-reg="US" aria-pressed="false">ארה״ב (FDA, Medicare)</button>
+    <button class="btn" data-reg="EU" aria-pressed="false">האיחוד האירופי (EMA)</button>
+    <button class="btn" data-reg="UK" aria-pressed="false">אנגליה (NICE)</button></div>
+  <div class="tbl" id="abReg"></div>
+  <p class="callout ab-clin"><b>תזכורת.</b> עלונים, כללי זכאות וכיסוי ביטוחי שונים ממדינה למדינה ומשתנים עם הזמן. הקריטריונים שפורסמו ומסוכמים כאן נועדו להבנת הראיות, לא להחלטה לגבי אדם מסוים. ההחלטות האלה שייכות לרופאים מומחים.</p>
+</section>

@@ -1,0 +1,67 @@
+<style>
+#m-cure .qa{display:flex;flex-direction:column;gap:6px}
+#m-cure .qa details{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px 12px;min-width:0}
+#m-cure .qa summary{cursor:pointer;font-weight:700;font-size:15px;line-height:1.3;overflow-wrap:anywhere}
+#m-cure .qa details[open] summary{color:var(--sea)}
+#m-cure .qa p{margin-top:7px;font-size:14.5px}
+#m-cure .evrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-cure .tbl table{min-width:760px}
+</style>
+<!-- ================= 4.3 TOWARD A CURE ================= -->
+<section class="mod" id="m-cure" data-mod="cure" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Treatment &amp; the future</p><h2>Toward a cure</h2>
+    <p class="lede">No approved therapy cures FMF today. Colchicine and IL-1 blockade control it, for life. This module takes the question seriously anyway: where in the pathway could you intervene, what evidence exists for each route, and what stands in the way. Every claim carries an evidence label. Press play to send the signal down the pathway, then pick a route to drop a barrier in front of it.</p></div>
+  <div class="ctrls" role="group" aria-label="Choose an intervention route">
+    <span class="kicker">Route</span>
+    <button class="btn" data-cu="none" aria-pressed="true">No intervention</button>
+    <button class="btn" data-cu="hsct" aria-pressed="false">Allogeneic HSCT</button>
+    <button class="btn" data-cu="edit" aria-pressed="false">Gene-corrected HSCs</button>
+    <button class="btn" data-cu="rna" aria-pressed="false">RNA knockdown</button>
+    <button class="btn" data-cu="brake" aria-pressed="false">PKN activator / 14-3-3 glue</button>
+    <button class="btn" data-cu="casp" aria-pressed="false">Caspase-1 inhibitor</button>
+    <button class="btn" data-cu="gsdmd" aria-pressed="false">Gasdermin D inhibitor</button>
+    <button class="btn" data-cu="il1" aria-pressed="false">IL-1 &amp; IL-18 blockade</button>
+    <button class="btn" data-cu="jak" aria-pressed="false">JAK inhibitor</button>
+    <button class="btn" data-cu="micro" aria-pressed="false">Microbiome</button>
+    <button class="btn" data-cu="colch" aria-pressed="false">Colchicine</button>
+  </div>
+  <div class="stepper" id="cuSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="cuSvg" viewBox="0 0 960 340" style="min-width:640px" role="img" aria-label="The FMF pathway from gene to amyloid, with a barrier at the chosen intervention point"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="cuPlay">Play</button><label class="stage-cap tl" for="cuT">Signal flow <input type="range" id="cuT" min="0" max="1" step="0.002" value="0.04"></label></div>
+      <p class="stage-cap" id="cuCap">Schematic pathway, not to scale.</p></div>
+    <aside class="note" id="cuNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Replacing the marrow: what it would take</h3>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="cuMarrow" viewBox="0 0 720 390" style="min-width:560px" role="img" aria-label="Conditioning, engraftment of corrected stem cells, and the gradual switch of circulating neutrophils"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="cuMPlay">Play</button><label class="stage-cap tl" for="cuM">Months after transplant <input type="range" id="cuM" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <div class="ctrls"><label class="stage-cap tl" for="cuPct">Corrected myeloid cells at plateau <input type="range" id="cuPct" min="10" max="100" step="1" value="80"></label></div>
+      <div class="readout" id="cuMRead"></div>
+      <p class="stage-cap">Hypothetical sequence drawn from transplant and gene-editing biology in other diseases. There is no FMF-specific human dataset behind these curves.</p>
+    </div>
+    <aside class="note" id="cuMNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The routes, side by side</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Route</th><th>What it would fix</th><th>Best evidence</th><th>Level</th><th>Main obstacle</th><th>Status</th></tr></thead>
+    <tbody id="cuTbl"></tbody>
+  </table></div>
+
+  <div class="callout"><p><b>What a cure would have to achieve.</b> Two things at once, not one. It would have to stop attacks, and it would have to switch off the quiet inflammation between them, because AA amyloidosis is driven by chronically raised SAA rather than by the attacks themselves. The 2024 EULAR/PReS update makes control of subclinical inflammation an explicit treatment target. A cure would also have to reach the right cells: <i>MEFV</i> messenger RNA in blood is restricted to myeloid cells, and the gene is switched on as CD34+ progenitors differentiate into granulocytes, which puts the target inside the bone-marrow stem and progenitor compartment. Pyrin protein has also been reported in dendritic cells and in synovial fibroblasts, so a purely blood-cell fix might leave a reservoir behind. [[Ozen2025,Centola2000,Diaz2004]]</p></div>
+
+  <h3 class="sub">Thirteen open questions</h3>
+  <p class="lede">These are the gaps the literature itself leaves open, not rhetorical questions. Each one is a place where a study could change the picture.</p>
+  <div class="qa" id="cuQA"></div>
+
+  <h3 class="sub">What a next trial might look like</h3>
+  <div class="callout"><p><b>Read this part carefully.</b> The three designs below are illustrations written for this page. They are not registered trials, not proposals from any investigator, and not advice. No trial of gene editing, RNA therapeutics, HSCT or a pyrin-targeted small molecule in FMF is registered as of the October 2026 sweep of ClinicalTrials.gov. [[CTgovSweep2026]]</p></div>
+  <div class="cards" id="cuTrials"></div>
+
+  <div class="callout"><p><b>The statin caution, and its limits.</b> Statins deplete geranylgeranyl pyrophosphate, which stops RhoA from sitting in the membrane, and in cell experiments that <i>activates</i> the pyrin inflammasome; statin-induced IL-1β release was reversed by adding geranylgeranyl pyrophosphate back or by activating PKN. This is in-vitro mechanism. Its clinical relevance is unknown: no clinical study has looked at whether statins affect FMF, and patients with cardiovascular indications routinely receive them. Nobody should change or stop a medicine on the strength of this, and any question about a statin belongs with the prescriber. It appears here as one of the open questions, not as a recommendation. [[Park2016]]</p></div>
+
+  <div class="prose" id="cuClose"></div>
+</section>

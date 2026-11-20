@@ -1,0 +1,75 @@
+<!-- ================= 1.4 GENES & FAMILIES ================= -->
+<style>
+#m-genes .card>.ev,#m-genes .card>.tag{align-self:flex-start}
+#m-genes .tbl table{min-width:600px}
+#m-genes svg[data-mode="n"] .t-xs{font-size:11.5px}
+#m-genes svg[data-mode="n"] .t-sm{font-size:12.5px}
+#m-genes .ge-pair{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:1360px){#m-genes .ge-pair{grid-template-columns:minmax(0,1fr)}}
+</style>
+<section class="mod" id="m-genes" data-mod="genes" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · Understanding BPD</p><h2>Genes &amp; families</h2>
+    <p class="lede">Twin, family and register studies agree that genes matter for borderline personality disorder: roughly 35–69% of the differences between people in BPD traits are linked to genes. There is no "BPD gene", and heritability says nothing certain about any one family. [[Torgersen2000,Distel2008,Skoglund2021,Streit2026]]</p></div>
+  <div class="ctrls" role="group" aria-label="Study design">
+    <span class="kicker">Design</span>
+    <button class="btn" data-gemode="twin" aria-pressed="true">Twin studies</button>
+    <button class="btn" data-gemode="fam" aria-pressed="false">Family &amp; register study</button>
+  </div>
+  <div class="stepper" id="geSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="geSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="Twin view: identical and non-identical twin pairs drawn as pedigree symbols fill in as concordant or not, while a variance bar splits into additive genes, shared environment and unique environment for three studies with different estimates. Family view: a three-generation pedigree around one person with BPD, with each relative's hazard ratio from the Swedish register and a bar chart showing risk falling with relatedness."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="gePlay">Play</button><label class="stage-cap tl" for="geT">Study <input type="range" id="geT" min="0" max="1" step="0.001" value="0.2"></label></div>
+      <div class="readout" id="geRead"></div>
+      <p class="stage-cap" id="geCap"></p>
+    </div>
+    <aside class="note" id="geNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Polygenic, not one gene</h3>
+  <p class="prose">The largest genome-wide study so far (12,339 cases, more than a million controls) found 11 genomic loci. Together, common variants explain about 17% of liability (SNP heritability), and today's polygenic score explains 4.6%. Slide to add more of the common-variant signal and watch how little the curve moves. [[Streit2026]]</p>
+  <div class="ge-pair">
+    <div class="stage">
+      <div class="scroll"><svg id="gePgs" viewBox="0 0 720 360" style="min-width:0" role="img" aria-label="A bell curve of liability to BPD in the population with a threshold near the right tail. Two shifted curves show people in the top and bottom tenth of polygenic scores. As the slider captures more of the common-variant signal, the curves separate a little and the readout gives the modelled risk in each group."></svg></div>
+      <div class="ctrls"><label class="stage-cap tl" for="geR">Variance the score explains <input type="range" id="geR" min="0" max="1" step="0.001" value="0.1"></label></div>
+      <div class="readout" id="gePgsRead"></div>
+      <p class="stage-cap"><b>Liability-threshold model, illustrative.</b> It assumes a population rate of about 1.7% and a normally distributed liability. At today's 4.6% the model gives a top-versus-bottom-tenth ratio close to the published odds ratio of 6.61 (preprint), which is why it is a fair teaching sketch. It is not a test: a polygenic score cannot diagnose or predict BPD in one person. [[Gunderson2018,Streit2026,Streit2025medRxiv]]</p>
+    </div>
+    <div class="stage">
+      <div class="ctrls" role="group" aria-label="Genome-wide study">
+        <span class="kicker">Shared genes with</span>
+        <button class="btn" data-gerg="2017" aria-pressed="false">2017 GWAS</button>
+        <button class="btn" data-gerg="2025" aria-pressed="true">2025 preprint</button>
+      </div>
+      <div class="scroll"><svg id="geRg" viewBox="0 0 420 300" style="min-width:0" role="img" aria-label="Bar chart of genetic correlations between BPD and other conditions. In the 2025 preprint: PTSD 0.77, depression 0.74, ADHD 0.67, schizophrenia 0.36, bipolar disorder 0.35. In the 2017 GWAS: major depression 0.57, schizophrenia 0.34, bipolar disorder 0.28."></svg></div>
+      <p class="stage-cap" id="geRgCap"></p>
+    </div>
+  </div>
+
+  <h3 class="sub">Heritability estimates side by side</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Study</th><th>Sample and method</th><th>Genes (A)</th><th>Shared env. (C)</th><th>Unique env. (E)</th></tr></thead>
+    <tbody>
+      <tr><th>Torgersen 2000</th><td>92 MZ + 129 DZ pairs, Norway, interview (SCID-II) [[Torgersen2000]]</td><td>69%</td><td>not in best model (not ruled out)</td><td>31%</td></tr>
+      <tr><th>Kendler 2011</th><td>44,112 people incl. 542 twin pairs, web survey, latent BPD factor [[Kendler2011]]</td><td>60%</td><td>–</td><td>–</td></tr>
+      <tr><th>Distel 2010</th><td>5,533 twins + 1,202 siblings, latent factor of 4 feature scales [[Distel2010]]</td><td>51%</td><td>–</td><td>–</td></tr>
+      <tr><th>Skoglund 2021</th><td>1,851,755 Swedes, clinically diagnosed BPD, register [[Skoglund2021]]</td><td>46% (39–53)</td><td>0</td><td>54%</td></tr>
+      <tr><th>Distel 2008</th><td>5,496 twins, Netherlands, Belgium, Australia, self-report [[Distel2008]]</td><td>42%</td><td>0</td><td>58%</td></tr>
+      <tr><th>Torgersen 2008</th><td>1,386 Norwegian pairs aged 19–35, interview (SIDP-IV) [[Torgersen2008]]</td><td>35%</td><td>0</td><td>–</td></tr>
+      <tr><th>Streit 2026 (GWAS)</th><td>12,339 cases, 1,041,717 controls, European ancestry; common variants only [[Streit2026]]</td><td>17.3% (SNP h²)</td><td>–</td><td>–</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">A pooled review of family and twin studies put heritability at about 40%. The spread reflects interview versus self-report, sample and age. [[Amad2014,Torgersen2000,Torgersen2008]]</p>
+
+  <h3 class="sub">What it means, and what it does not</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Why candidate genes failed</h4><p>Early BPD genetics relied on small, unreplicated single-gene studies. Meta-analyses found no association with the serotonin transporter (5-HTTLPR, intron 2 VNTR), TPH1 or the serotonin 1B receptor gene. In depression, 18 historical candidate genes tested in up to 443,264 people did no better than random genes. Risk comes from thousands of tiny-effect variants that only samples of tens of thousands of cases can detect. [[BassirNia2018,Calati2013,Amad2014,Border2019,Streit2026]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Genes and environment work together</h4><p>In 5,083 twins and 1,285 siblings, the genes behind BPD features also raised exposure to break-ups, assault and job loss (gene–environment correlation), and after those events environment mattered more (interaction). In E-Risk, harsh treatment predicted borderline-related traits even within identical-twin pairs, more strongly with a family history of psychiatric illness. A Minnesota discordant-twin study found the abuse link mostly genetic instead. See <a href="#causes" data-go="causes">Causes</a>. [[Distel2011LifeEvents,Belsky2012,Bornovalova2013]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Epigenetics</h4><p>Childhood maltreatment went with more methylation of the stress-hormone receptor gene NR3C1, and a site near miR124-3 tracked both BPD and maltreatment. A 2025 review of 19 small studies found the candidate-gene methylation results inconsistent. [[Perroud2011,Prados2015,Dawidowski2025]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>What heritability means for one family</h4><p>Heritability is a population statistic about differences between people, not a share of one person's illness. Even among relatives of someone with BPD, 14.1% had BPD against 4.9% of other relatives, so most relatives did not. Genetic effects were stable over 10 years and explained 72% of trait stability, yet mean trait levels still fell with age. [[Gunderson2011Family,ReichbornKjennerud2015,Bornovalova2009]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>BPD shares genes with ordinary traits</h4><p>Borderline traits correlated with neuroticism at .68, and the genes behind neuroticism, agreeableness, conscientiousness and extraversion accounted for all the genetic liability to borderline personality. Across personality disorders, BPD loaded on a broad "negative emotionality" factor and on one shared with antisocial PD (genetic correlation 0.73). [[Distel2009,Kendler2008,ReichbornKjennerud2015]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>ADHD overlap</h4><p>In 2,113,902 Swedes, ADHD went with an adjusted odds ratio of 19.4 for a BPD diagnosis, and an identical co-twin with ADHD with 11.2. In Dutch and Belgian twins, BPD traits and adult ADHD symptoms had a genetic correlation of 0.72. See <a href="#differential" data-go="differential">BPD or something else?</a> [[KujaHalkola2021,Distel2011ADHD]]</p></div>
+    <div class="card"><span class="tag storm">Open question</span><h4>Sex and ancestry</h4><p>In the preprint, SNP heritability was 20.5% in women and 10.2% in men, but twin studies found similar heritability in both sexes; 85.4% of Swedish diagnoses were in women, which may reflect who gets diagnosed. The largest GWAS included only people of European ancestry, so results may not transfer. [[Streit2025medRxiv,Distel2008,Skoglund2021,Streit2026]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Genes across the teenage years</h4><p>In Minnesota female twins, shared-environment effects at 14 fell to zero by 17–24 while genetic influence tended to rise. Both the level of traits and how fast they changed were heritable (a² = .78 and .76). In E-Risk, borderline symptoms at 12 predicted poorer outcomes at 18, mostly through familial, particularly genetic, risk. [[Bornovalova2009,Wertz2020]]</p></div>
+  </div>
+</section>

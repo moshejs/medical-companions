@@ -1,0 +1,109 @@
+<!-- ================= 4.1 SURGERY ================= -->
+<style>
+#m-surgery .sites{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-surgery .sites .btn{font-size:13px;padding:7px 11px}
+#m-surgery .card>.ev,#m-surgery .card>.tag{align-self:flex-start}
+#m-surgery .tbl table{min-width:640px}
+#m-surgery td.num{font-family:var(--mono);font-size:13.5px;white-space:nowrap}
+</style>
+<section class="mod" id="m-surgery" data-mod="surgery" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Treatment</p><h2>Surgery</h2>
+    <p class="lede">For bowel cancer that has not spread, an operation is the main curative treatment. Pick where the tumour sits, then watch the operation: which segment comes out, where the vessels are tied, which lymph nodes go with it, and how the bowel is put back together.</p></div>
+
+  <div class="sites" role="group" aria-label="Tumour site">
+    <span class="kicker">Tumour site</span>
+    <button class="btn" data-su-site="right" aria-pressed="true">Caecum / ascending</button>
+    <button class="btn" data-su-site="transverse" aria-pressed="false">Transverse</button>
+    <button class="btn" data-su-site="left" aria-pressed="false">Descending</button>
+    <button class="btn" data-su-site="sigmoid" aria-pressed="false">Sigmoid</button>
+    <button class="btn" data-su-site="upper" aria-pressed="false">Upper rectum</button>
+    <button class="btn" data-su-site="lar" aria-pressed="false">Low rectum: LAR</button>
+    <button class="btn" data-su-site="apr" aria-pressed="false">Low rectum: APR</button>
+  </div>
+  <div class="stepper" id="suSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="suSvg" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="The large bowel inside the abdomen, seen from the front. For the chosen tumour site, the animation ties the supplying arteries at their roots, shades the lymph-node field that drains the segment, lifts the segment out with its nodes, and then joins the bowel ends or brings one end out as a stoma."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="suPlay">Play</button><label class="stage-cap tl" for="suT">Operation <input type="range" id="suT" min="0" max="1" step="0.001" value="0.1"></label></div>
+      <div class="readout" id="suRead"></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> Anatomical view: the patient's right is on the left of the picture. Vessels and nodes are simplified; real anatomy varies. [[Hohenberger2009,Jayne2017]]</p>
+    </div>
+    <aside class="note" id="suNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Total mesorectal excision and the circumferential margin</h3>
+  <p class="prose">The rectum sits inside a fatty envelope, the mesorectum, which carries its lymph nodes and is wrapped in a thin fascia. Bill Heald's total mesorectal excision (TME) removes the rectum with that envelope intact, by sharp dissection along the plane outside the fascia. Phil Quirke showed that whether tumour reaches the cut surface of the specimen, the circumferential resection margin (CRM), largely decides whether cancer comes back in the pelvis. [[Heald1982,Heald1986,Quirke1986]]</p>
+  <div class="ctrls" role="group" aria-label="TME scenario">
+    <span class="kicker">Scenario</span>
+    <button class="btn" data-su-tme="clear" aria-pressed="true">Clear margin</button>
+    <button class="btn" data-su-tme="threat" aria-pressed="false">Tumour reaches the fascia</button>
+    <button class="btn" id="suBreach" aria-pressed="false">Breached (incomplete) mesorectum</button>
+  </div>
+  <div class="stepper" id="suTmeSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="suTme" viewBox="0 0 720 340" style="min-width:560px" role="img" aria-label="A cross-section of the rectum in the pelvis: the rectal wall, the fatty mesorectum with lymph nodes, its fascia and the sacrum behind. A tumour grows through the wall into the fat, the surgeon's dissection line runs around the fascia, and the pathologist inks the specimen surface and measures the distance from tumour to ink."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="suTmePlay">Play</button><label class="stage-cap tl" for="suTmeT">Step <input type="range" id="suTmeT" min="0" max="1" step="0.001" value="0.1"></label></div>
+      <p class="stage-cap"><b>Schematic.</b> Axial view, front of the body at the top. Millimetre readings are illustrative, not measured. [[Quirke1986,Nagtegaal2002]]</p>
+    </div>
+    <aside class="note" id="suTmeNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Keyhole, open or robotic: what the trials found</h3>
+  <p class="prose">For colon cancer, laparoscopic surgery matched open surgery on cancer outcomes and shortened recovery. For rectal cancer the picture is more mixed: two trials did not show that laparoscopic surgery gives an equally good specimen, while local recurrence in the larger trials was the same. Robotic surgery is the newest question. [[COST2004,Stevenson2015,Fleshman2015,Bonjer2015]]</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial</th><th>Who</th><th>Comparison</th><th>Main result</th><th>Also</th></tr></thead>
+    <tbody>
+      <tr><th>COST (2004)</th><td>872, colon</td><td>Laparoscopic vs open</td><td class="num">3-y recurrence 16% vs 18%; HR 0.86</td><td>3-y OS 86% vs 85%; wound recurrence &lt;1% both; stay 5 vs 6 days [[COST2004]]</td></tr>
+      <tr><th>COLOR (2005, 2009)</th><td>1,248, right, left and sigmoid colon</td><td>Laparoscopic vs open</td><td class="num">3-y DFS 74.2% vs 76.2%</td><td>Upper CI just past the 7% margin: non-inferiority formally not shown. Blood loss 100 vs 175 mL; 17% converted [[Veldkamp2005,COLOR2009]]</td></tr>
+      <tr><th>CLASICC (2005, 2010)</th><td>794, colon and rectum</td><td>Laparoscopic vs open (2:1)</td><td class="num">No 5-y difference in OS, DFS or recurrence</td><td>29% converted; conversion went with worse survival; port-site recurrence 2.4% [[Guillou2005,Jayne2010]]</td></tr>
+      <tr><th>COLOR II (2013, 2015)</th><td>1,044, rectum</td><td>Laparoscopic vs open (2:1)</td><td class="num">3-y locoregional recurrence 5.0% vs 5.0%</td><td>CRM positive 10% both; DFS 74.8% vs 70.8% [[vanderPas2013,Bonjer2015]]</td></tr>
+      <tr class="hl"><th>ALaCaRT (2015)</th><td>475, T1–T3 rectum</td><td>Laparoscopic vs open</td><td class="num">Successful resection 82% vs 89%</td><td>Non-inferiority not established; 9% converted [[Stevenson2015]]</td></tr>
+      <tr class="hl"><th>ACOSOG Z6051 (2015, 2019)</th><td>486, stage II–III rectum after neoadjuvant therapy</td><td>Laparoscopic vs open</td><td class="num">Successful resection 81.7% vs 86.9%</td><td>Non-inferiority not met; 2-y DFS 79.5% vs 83.2%; local recurrence 4.6% vs 4.5% [[Fleshman2015,Fleshman2019]]</td></tr>
+      <tr><th>ROLARR (2017)</th><td>471, rectum, 40 surgeons</td><td>Robotic vs laparoscopic</td><td class="num">Conversion 8.1% vs 12.2% (P=.16)</td><td>CRM positive 5.1% vs 6.3%; no significant advantage [[Jayne2017]]</td></tr>
+      <tr><th>REAL (2022, 2025)</th><td>1,171, mid/low rectum, 11 Chinese hospitals</td><td>Robotic vs laparoscopic</td><td class="num">3-y locoregional recurrence 1.6% vs 4.0%; HR 0.45</td><td>CRM positive 4.0% vs 7.2%; conversion 1.7% vs 3.9%; OS not different. <span class="ev early">Early evidence</span> [[Feng2022,Feng2025]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Highlighted rows: trials whose pathological non-inferiority endpoint was not met. "Successful resection" = complete TME with clear circumferential and distal margins. Percentages are trial-population results.</p>
+
+  <h3 class="sub">Leaks, stomas and obstruction</h3>
+  <div class="ctrls" role="group" aria-label="Outcome to compare">
+    <button class="btn" data-su-leak="noStoma" aria-pressed="true">Low join, no stoma</button>
+    <button class="btn" data-su-leak="stoma" aria-pressed="false">Low join + defunctioning stoma</button>
+    <button class="btn" data-su-leak="emerg" aria-pressed="false">Obstruction: emergency surgery</button>
+    <button class="btn" data-su-leak="stent" aria-pressed="false">Obstruction: stent first</button>
+  </div>
+  <div class="lab even">
+    <div class="stage">
+      <div class="scroll"><svg id="suLeak" viewBox="0 0 520 200" style="min-width:0" role="img" aria-label="One hundred person icons; the highlighted ones show how many in 100 had the outcome in the chosen trial arm."></svg></div>
+    </div>
+    <aside class="note" id="suLeakNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Early cancers in a polyp: the Haggitt levels</h3>
+  <div class="ctrls" role="group" aria-label="Haggitt level">
+    <span class="kicker">Deepest invasion</span>
+    <button class="btn" data-su-hag="0" aria-pressed="false">Level 0</button>
+    <button class="btn" data-su-hag="1" aria-pressed="false">Level 1</button>
+    <button class="btn" data-su-hag="2" aria-pressed="false">Level 2</button>
+    <button class="btn" data-su-hag="3" aria-pressed="false">Level 3</button>
+    <button class="btn" data-su-hag="4" aria-pressed="true">Level 4</button>
+  </div>
+  <div class="lab even">
+    <div class="stage">
+      <div class="scroll"><svg id="suHag" viewBox="0 0 520 300" style="min-width:0" role="img" aria-label="A polyp on a stalk with the five Haggitt levels marked: mucosa, head, neck, stalk and the submucosa of the bowel wall beneath the stalk. Cancer is shaded down to the chosen level."></svg></div>
+    </div>
+    <aside class="note" id="suHagNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Around the operation</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Enhanced recovery (ERAS)</h4><p>A meta-analysis of 16 randomised trials (2,376 people) found enhanced-recovery programmes lowered overall complications (RR 0.60), mainly non-surgical ones, and shortened hospital stay by 2.28 days without more readmissions. The ERAS Society's 2018 colorectal guideline grades each care item by GRADE. [[Greco2014,Gustafsson2019]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Complete mesocolic excision</h4><p>In Erlangen (1,329 R0 colon resections), 5-year local recurrence fell from 6.5% to 3.6% and cancer-related 5-year survival rose from 82.1% to 89.1% as CME was adopted. This is a single-centre before–after comparison, not a randomised trial. [[Hohenberger2009]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Low anterior resection syndrome</h4><p>After a low join, bowel function can change. The LARS score adds five items (flatus incontinence, liquid-stool incontinence, frequency, clustering, urgency): 0–20 no LARS, 21–29 minor, 30–42 major. Scores were worse after radiotherapy and with tumours under 5 cm. [[Emmertsen2012]] More in <a href="#living" data-go="living">Living with colorectal cancer</a>.</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Stent as a bridge to surgery</h4><p>In CReST (245 people, left-sided obstruction), stenting relieved obstruction in 82.4% of attempts. In the curative group, stent-then-surgery vs emergency surgery: 30-day mortality 3.6% vs 5.6% (not significant), stoma 47.5% vs 67.9%, and no difference in 3-year recurrence. [[CReST2022]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>MRI before rectal surgery</h4><p>In MERCURY (408 people), high-resolution MRI predicted a clear CRM with 92% specificity: of 349 cases MRI called clear, 327 (94%) were clear at surgery. This is why rectal cancer is planned around the MRI. [[MERCURY2006]] See <a href="#rectal" data-go="rectal">Rectal cancer pathway</a>.</p></div>
+    <div class="card"><span class="tag warn">Controversy</span><h4>Robotic vs laparoscopic</h4><p>ROLARR found no significant fall in conversion; REAL found lower 3-year locoregional recurrence (1.6% vs 4.0%). REAL comes from high-volume centres in one country, so how far it applies elsewhere is not yet known. [[Jayne2017,Feng2025]]</p></div>
+  </div>
+  <p class="callout">Survival and recurrence figures on this page come from groups of people in trials and series. They describe populations, and cannot predict what will happen to one person.</p>
+</section>

@@ -1,0 +1,2 @@
+/* a neutrophil glyph: multi-lobed nucleus */
+function neutro(x,y,r=11,o=1,extra=''){return `<g transform="translate(${f1(x)} ${f1(y)})" style="opacity:${(+o).toFixed(2)}" ${extra}><circle r="${r}" style="fill:var(--neut);stroke:var(--crocus);stroke-width:1.4"/><circle cx="${-r*.3}" cy="${-r*.18}" r="${r*.27}" style="fill:var(--nuc)"/><circle cx="${r*.28}" cy="${r*.2}" r="${r*.27}" style="fill:var(--nuc)"/><circle cx="${r*.2}" cy="${-r*.33}" r="${r*.23}" style="fill:var(--nuc)"/></g>`}

@@ -1,0 +1,80 @@
+<!-- ================= 4.2 DRUGS THAT CAN WORSEN MG ================= -->
+<section class="mod" id="m-drugs" data-mod="drugs" hidden>
+  <style>
+    #m-drugs .dr-who{border:1px solid var(--ab);background:var(--ab-soft);border-radius:var(--r);padding:12px 16px;font-size:15px;max-width:80ch;display:flex;flex-direction:column;gap:6px}
+    #m-drugs .dr-who b.dr-big{color:var(--ab)}
+    #m-drugs .dr-b{display:inline-block;font:600 10.5px/1.25 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;border-radius:6px;border:1px solid transparent;vertical-align:middle;white-space:normal}
+    #m-drugs .dr-b.contra{background:var(--bad);color:var(--panel)}
+    #m-drugs .dr-b.boxed{background:var(--bad-soft);color:var(--bad);border-color:var(--bad)}
+    #m-drugs .dr-b.label{background:var(--warn-soft);color:var(--warn);border-color:var(--warn)}
+    #m-drugs .dr-b.case{background:var(--panel-2);color:var(--muted);border-color:var(--line)}
+    #m-drugs .dr-b.debated{background:var(--nerve-soft);color:var(--nerve);border-color:var(--nerve)}
+    #m-drugs .dr-b.good{background:var(--good-soft);color:var(--good);border-color:var(--good)}
+    #m-drugs .dr-find{display:flex;flex-direction:column;gap:10px}
+    #m-drugs .dr-find label{font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+    #m-drugs .dr-hits{display:flex;flex-wrap:wrap;gap:6px}
+    #m-drugs .dr-hits .btn{font-size:13px;padding:6px 11px;white-space:normal;text-align:left}
+    #m-drugs .dr-hits .btn i{font-style:normal;display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:baseline}
+    #m-drugs .dr-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;display:flex;flex-direction:column;gap:12px;min-width:0;overflow-wrap:break-word}
+    #m-drugs .dr-card h4{font-family:var(--display);font-weight:800;font-size:24px;line-height:1.12;margin:0}
+    #m-drugs .dr-card .dr-al{font-size:13.5px;color:var(--muted)}
+    #m-drugs .dr-q{margin:0;border-left:3px solid var(--warn);padding:6px 0 6px 12px;font-size:15px;display:flex;flex-direction:column;gap:4px}
+    #m-drugs .dr-q.none{border-left-color:var(--line)}
+    #m-drugs .dr-q cite{font:500 11.5px/1.4 var(--mono);color:var(--muted);font-style:normal}
+    #m-drugs .dr-sec{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:-6px}
+    #m-drugs .dr-num{font:800 28px/1.05 var(--display);color:var(--ab);display:block}
+    #m-drugs .dr-none{font-size:14.5px;color:var(--muted)}
+    #m-drugs td .dr-b{font-size:9.5px}
+  </style>
+  <div class="mhead"><p class="eyebrow">Part 4 · Crisis, care &amp; the future</p><h2>Drugs that can worsen MG</h2>
+    <p class="lede">Some medicines can weaken the nerve-to-muscle signal or set off the immune attack in MG. Press play to light each site at the junction, then search the checker for a drug's evidence badge and its US label wording.</p></div>
+
+  <div class="dr-who" role="note"><b class="dr-big">A listed drug is not automatically forbidden.</b>
+    <span>The MGFA cautionary-drugs list says these associations "do not necessarily mean" a drug should not be prescribed, and that some drugs may be necessary and "should not be deemed 'off limits'". A 2021 review stresses that infections in MG must be treated aggressively, while avoiding macrolides, aminoglycosides and fluoroquinolones where possible. Choices are made by the prescriber, with closer monitoring when a listed drug is needed. [[MGFA2024,Sheikh2021]]</span>
+    <span>New or worsening weakness, trouble swallowing or trouble breathing after a new medicine is an emergency. Nursing teaching material tells patients to contact the prescriber urgently for trouble swallowing, speaking or breathing, and the ciprofloxacin medication guide warns of worsening MG symptoms "including muscle weakness and breathing problems". [[OpenStaxPharmNurses,FDACiprofloxacin2026]]</span></div>
+
+  <div class="stepper" id="drSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="drSvg" viewBox="0 0 720 440" style="min-width:560px" role="img" aria-label="Schematic neuromuscular junction: a nerve terminal releases acetylcholine onto receptors on the muscle. Each phase lights one site where drug classes act: less acetylcholine release, blocked receptors, a junction effect whose side the labels do not name, the immune system, or a mechanism not stated in the sources. A meter shows how much signal reaches the muscle."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="drPlay">Play</button><label class="stage-cap tl" for="drT">Site <input type="range" id="drT" min="0" max="1" step="0.001" value="0.04"></label></div>
+      <p class="stage-cap">Schematic, not to scale. The site shown for each drug follows what its label or the sources read say; where they name no site, the drawing says so instead of guessing. The signal meter is illustrative, not measured. [[Sheikh2021,Krenn2020]]</p></div>
+    <aside class="note" id="drNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The checker</h3>
+  <div class="lab even">
+    <div class="dr-find">
+      <label for="drQ">Find a drug or class</label>
+      <input id="drQ" class="search" type="search" placeholder="e.g. ciprofloxacin, magnesium, timolol, contrast" autocomplete="off" spellcheck="false">
+      <div class="legend" aria-hidden="true"><span><span class="dr-b contra">Contraindicated</span></span><span><span class="dr-b boxed">Boxed warning</span></span><span><span class="dr-b label">Label warning</span></span><span><span class="dr-b case">Case reports or mechanism</span></span><span><span class="dr-b debated">Debated</span></span><span><span class="dr-b good">Reassuring data</span></span></div>
+      <div class="dr-hits" id="drHits" role="group" aria-label="Matching drugs"></div>
+      <p class="stage-cap" id="drCount"></p>
+    </div>
+    <div class="dr-card" id="drCard" aria-live="polite"></div>
+  </div>
+  <p class="stage-cap">Label wording is quoted from the US prescribing information cited, read on DailyMed, with omissions marked "…". Badges describe the strongest published statement found, not how often harm happens. The 2020 international consensus update has a table of drugs to avoid or use with caution; it is cited here but not quoted, because its wording could not be read in the version accessed. [[Narayanaswami2021]]</p>
+
+  <h3 class="sub">All entries</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Drug or class</th><th>Badge</th><th>Site at the junction</th><th>Sheikh 2021 rating or summary</th><th>Main source</th></tr></thead>
+    <tbody id="drTbl"></tbody></table></div>
+
+  <h3 class="sub">How big is the risk in practice?</h3>
+  <div class="cards">
+    <div class="card"><h4>Antibiotic courses</h4><p><span class="dr-num">2.4% vs 1.3%</span>Exacerbation followed 2.4% of ciprofloxacin, 1.6% of levofloxacin and 1.5% of azithromycin courses, against 1.3% of amoxicillin courses (p = 0.68). Infection itself was a confounder in 88.2% of these exacerbations. [[Uysal2025]]</p></div>
+    <div class="card"><h4>Overridden alerts</h4><p><span class="dr-num">12.7%</span>of 55 hospital encounters where an MG drug alert was overridden were followed by an exacerbation, all after IV magnesium or IV labetalol; in 5 of 7 events another risk factor was present. [[Petrucelli2024]]</p></div>
+    <div class="card"><h4>A national database</h4><p><span class="dr-num">89.6%</span>of 14,459 French people with MG received a "contraindicated" drug during follow-up, and exposure was not linked to ICU admission for MG (HR 1.04). For statins, long-term mortality benefit likely outweighs the short-term MG risk, the authors suggest. [[Sole2026]]</p></div>
+    <div class="card"><h4>Usually considered safe</h4><p>One review lists cephalosporins, sulfa drugs, clindamycin, tetracyclines, polymyxin B and nitrofurantoin as antibiotics that can be given safely in MG. [[Sheikh2021]]</p></div>
+  </div>
+
+  <h3 class="sub">Starting steroids and checkpoint inhibitors</h3>
+  <div class="split2">
+    <div class="card"><h4>Steroid start <span class="dr-b label">Label warning</span></h4><p>42% of 55 people given prednisone 40-80 mg worsened within 4 weeks, more often with older age, severe bulbar symptoms and more severe MG; published rates range from 25% to 75%, mostly in the first 2 weeks, and 8.6% severe worsening needing ventilation in one table. The prednisone label warns that anticholinesterases together with corticosteroids may produce severe weakness in MG. Giving IVIG first was followed by worsening in 2.2% of 45 patients. The consensus says it may be reasonable to let PLEX or IVIG act for several days before starting steroids in impending crisis. Doses for a person are set by the treating clinician. [[Bae2006,Sheikh2021,Krenn2020,DiezPorras2020,Sanders2016,FDAPrednisone2026]]</p></div>
+    <div class="card"><h4>Checkpoint inhibitors <span class="dr-b label">Label warning</span></h4><p>MG appeared in 0.12% (12 of 9,869) on nivolumab and 0.24% (14 of 5,898) in another study. In 65 cases, median onset was 4 weeks; 37% also had myositis, 45% respiratory failure, and 38% died (23% from MG); IVIG or PLEX first did better than steroids alone (95% vs 63% improved). In-hospital mortality of the myositis-myocarditis-MG overlap is close to 40%. The 2020 consensus: existing MG is not an absolute contraindication, and avoiding anti-CTLA-4 plus anti-PD-1/PD-L1 combinations may be prudent. [[Suzuki2017,Sheikh2021,Safa2019,Furlepa2025,Narayanaswami2021]]</p></div>
+  </div>
+
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b><b>Contraindicated</b> on the US label: telithromycin and quinine. <b>Boxed warning</b>: fluoroquinolones (MG added February 2011). Label warnings: macrolides, aminoglycosides, procainamide, quinidine, timolol, botulinum toxin, D-penicillamine, checkpoint inhibitors, non-depolarizing blockers ("small doses … profound effects"). Magnesium sulfate is <b>not recommended for eclampsia</b> in MG. Starting steroids can cause <b>transient worsening</b>.</div>
+    <div class="pt"><b>In plain words</b>Some common medicines make the weak nerve-to-muscle signal weaker, and a few can switch on the immune attack. Being on a list does not mean a drug is banned: the prescriber weighs why it is needed, and the person is watched more closely. Guidance for children with MG suggests giving families a list of medicines that may worsen it. [[OConnell2020]]</div>
+  </div>
+</section>

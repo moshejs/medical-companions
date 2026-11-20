@@ -1,0 +1,48 @@
+<!-- ================= 3.4 GOOD PSYCHIATRIC MANAGEMENT ================= -->
+<style>
+#m-gpm .card>.ev,#m-gpm .card>.tag{align-self:flex-start}
+#m-gpm #gpEvBtns .btn{font-size:13px;padding:7px 12px}
+</style>
+<section class="mod" id="m-gpm" data-mod="gpm" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Psychotherapies</p><h2>Good psychiatric management</h2>
+    <p class="lede">Most people with BPD will never see a specialist DBT or MBT team. Good psychiatric management (GPM) is a generalist approach built for ordinary services, and stepped care adds more only when it is needed. Follow one person up and down the ladder over two years.</p></div>
+
+  <div class="ctrls" role="group" aria-label="Care pathway">
+    <span class="kicker">Pathway</span>
+    <button class="btn" data-gpv="gpm" aria-pressed="true">GPM and stepped care</button>
+    <button class="btn" data-gpv="spec" aria-pressed="false">Specialist-only pathway</button>
+  </div>
+  <div class="stepper" id="gpSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="gpSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A four-step care ladder: GPM with psychoeducation at the base, structured groups such as STEPPS, specialist DBT, MBT or schema therapy, and crisis care with brief admission at the top. A person icon climbs and descends as needs change over 24 months, and a trace below records the level of care each month. A side panel shows who delivers the current step and what training it needs. In the specialist-only view, the person waits at the bottom for a specialist place."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="gpPlay">Play</button><label class="stage-cap tl" for="gpT">Months <input type="range" id="gpT" min="0" max="1" step="0.001" value="0.05"></label></div>
+      <div class="readout" id="gpRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> One illustrative person; the timing of each step is invented to show how stepped care works, not a prediction. Step contents and training facts are cited in the notes.</p>
+    </div>
+    <aside class="note" id="gpNote" aria-live="polite"></aside>
+  </div>
+  <p class="crisis" role="note"><b>Need help now?</b><span>If you are in crisis or thinking about suicide, contact local emergency services or a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123).</span></p>
+
+  <h3 class="sub">Generalist vs specialist: what the trials show</h3>
+  <div class="prose"><p>Pick a comparison. Where a trial reports "no difference" without separate arm values, the chart shows the two arms as equal arrows instead of inventing bars. Group averages from trials, not predictions for anyone.</p></div>
+  <div class="ctrls" id="gpEvBtns" role="group" aria-label="Choose a comparison"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="gpEv" viewBox="0 0 600 360" style="min-width:500px" role="img" aria-label="Evidence board for generalist treatments: for the chosen trial, equal-outcome arrows for both arms, bars for published percentages, or effect sizes on a common scale."></svg></div>
+      <p class="stage-cap" id="gpEvCap"></p>
+    </div>
+    <aside class="note" id="gpEvNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Why generalist care matters</h3>
+  <div class="cards">
+    <div class="card"><span class="tag rx">Access</span><h4>Most people never reach a specialist</h4><p>Fewer than 25% of patients with BPD receive guideline-adherent psychotherapy, according to the authors of a digital-therapeutic trial. [[Assmann2025]] Reviews describe a move toward generalist care models and "pared down" forms of intensive therapies, for example case management plus DBT skills groups. [[ChoiKain2017]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>GPM as the first step</h4><p>GPM is "a once-weekly, generalist model that medicalizes the disorder, emphasizes psychoeducation, and focuses on social adaptation". Its authors propose it as the primary intervention, with more intensive therapies kept for people who do not respond. [[Gunderson2018GPM]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>GPM for adolescents (GPM-A)</h4><p>A one-day GPM-A workshop for 32 child and adolescent psychiatry staff improved willingness to disclose a BPD diagnosis, reduced negative attitudes and increased confidence, with effects lasting 6 months. It was uncontrolled. [[Usher2024GPMA]] In young people, the MOBY trial found that youth-oriented case management and psychiatric care, not necessarily specialist psychotherapy, carried the benefit. [[Chanen2022MOBY]]</p></div>
+    <div class="card"><span class="tag rx">Good enough</span><h4>What "good enough" means</h4><p>In the treatment-as-usual arms of 16 trials, BPD symptoms improved by a small-to-moderate amount (g 0.371) but self-harm and suicidality did not change (g 0.003). [[Finch2019TAU]] Structured generalist care is different: GPM matched DBT on every outcome. [[McMain2009]] On this evidence, "good enough" care is structured generalist care, not simply whatever is usual.</p></div>
+    <div class="card"><span class="tag rx">Disclosure</span><h4>Say the diagnosis</h4><p>APA 2024 recommends (1C) "a collaborative discussion about their diagnosis and treatment, which includes psychoeducation related to the disorder". [[APA2024Guideline]] In a survey of 134 US psychiatrists, 57% had at some point not disclosed a BPD diagnosis. [[Sisti2016]] Withholding a psychiatric diagnosis to protect the patient is now generally seen as unethical. [[Sims2022]]</p></div>
+    <div class="card"><span class="tag warn">Exam hook</span><h4>DBT = GPM</h4><p>McMain 2009: 180 people, 1 year of DBT vs general psychiatric management: "No significant differences across any outcomes were found between groups", and gains held 2 years later. [[McMain2009,McMain2012]] STEPPS is a 20-week add-on group with a "systems" component involving the person's support network. [[Blum2008STEPPS]]</p></div>
+  </div>
+  <p class="callout">Functional recovery lags behind symptom remission: even after successful treatment, many people remain out of work or study. [[McMain2012,Bateman2008]] GPM focuses on social adaptation for this reason. [[Gunderson2018GPM]] See also <a href="#crisis" data-go="crisis">Suicide &amp; self-harm safety</a>, <a href="#dbt" data-go="dbt">Dialectical behaviour therapy</a> and <a href="#compare" data-go="compare">Therapies compared</a>.</p>
+</section>

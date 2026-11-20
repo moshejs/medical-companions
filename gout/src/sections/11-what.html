@@ -1,0 +1,66 @@
+<!-- ================= 1.1 WHAT GOUT IS ================= -->
+<section class="mod" id="m-what" data-mod="what" hidden>
+<style>
+#m-what .wh-sites{display:flex;flex-direction:column;gap:6px}
+#m-what .wh-site{display:grid;grid-template-columns:minmax(0,10.5em) minmax(0,1fr) 4.4em;gap:10px;align-items:center;width:100%;text-align:left;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--panel);cursor:pointer;font-size:14.5px;font-weight:700;line-height:1.2}
+#m-what .wh-site:hover{border-color:var(--muted)}
+#m-what .wh-site[aria-pressed="true"]{border-color:var(--terra);background:var(--terra-soft)}
+#m-what .wh-site .tr{height:10px;border-radius:99px;background:var(--panel-2);overflow:hidden;position:relative}
+#m-what .wh-site .tr i{display:block;height:100%;border-radius:99px;background:var(--terra);width:0;transition:width .7s cubic-bezier(.3,.7,.2,1)}
+#m-what .wh-site .tr i.gh{position:absolute;left:0;top:0;background:none;border:1.5px dashed var(--terra);box-sizing:border-box}
+#m-what .wh-site .nq{font:500 11.5px var(--mono);color:var(--muted)}
+#m-what .wh-site .v{font:600 12.5px var(--mono);text-align:right;color:var(--ink)}
+#m-what .wh-body{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:12px;display:flex;flex-direction:column;gap:10px;min-width:0}
+#m-what .wh-body svg{width:100%;max-width:340px;height:auto;display:block;margin:0 auto}
+#m-what .wh-sexes{display:flex;flex-wrap:wrap;gap:6px}
+#m-what .wh-sexes .btn{font-size:13px;padding:7px 11px}
+#m-what .big{font-family:var(--display);font-weight:800;font-size:30px;line-height:1;color:var(--terra)}
+#m-what .wh-sitenote{display:flex;flex-direction:column;gap:8px}
+#m-what .wh-sitenote h4{font-family:var(--display);font-weight:800;font-size:20px;margin:0}
+#m-what .wh-popnote{display:flex;flex-direction:column;gap:8px}
+#m-what .wh-popnote h4{font-family:var(--display);font-weight:800;font-size:20px;margin:0}
+#m-what svg .clk:focus-visible{outline:none}
+#m-what svg .clk:focus-visible .fr{stroke:var(--sea);stroke-width:2}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 1 · The disease</p><h2>What gout is</h2>
+    <p class="lede">Gout is a long-term disease of urate crystal deposits that shows itself as sudden, very painful flares, most often in the big toe. [[Dalbeth2021,Dalbeth2019NRDP,Elfishawi2020]] High urate comes first, crystals form silently, flares follow, and years later some people develop tophi. Below: how common it is, the four stages, and where it strikes.</p></div>
+
+  <h3 class="sub">How common is gout?</h3>
+  <div class="prose"><p>The figures below do not measure the same thing. A survey asks people whether a doctor ever told them they have gout. Health records count recorded diagnoses. A model (the Global Burden of Disease study) adjusts many sources to one definition and to a standard age structure. Each bar names its measure. Compare bars of the same kind. [[GBD2024Gout,ChenXu2019,Dalbeth2016]]</p></div>
+  <div class="ctrls" role="group" aria-label="Sex"><span class="kicker">Show</span><div class="wh-sexes" id="whSex"></div></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="whPop" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="Bar chart of gout prevalence in eight populations, each bar labelled with how it was measured"></svg></div>
+      <p class="stage-cap">Solid bars: observed (survey or records). Outlined bars: modelled, age-standardised. Grey: not a population sample. Tap a bar for the source and what it counts.</p>
+    </div>
+    <aside class="note wh-popnote" id="whPopNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The four stages</h3>
+  <div class="prose"><p>Dalbeth and Stamp proposed four stages in 2014. Not everyone moves through all of them, and lowering urate can stop the march at any point. Press play to watch one joint go from stage A to stage D. [[Dalbeth2014,Dalbeth2021]]</p></div>
+  <div class="ctrls" role="group" aria-label="Sex for the urate scale"><span class="kicker">Person</span><button class="btn" id="whMen" aria-pressed="true">Man</button><button class="btn" id="whWomen" aria-pressed="false">Woman</button></div>
+  <div class="stepper" id="whSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="whSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="One joint across the four stages of gout: urate in the joint fluid, silent crystals on the cartilage, a flare with neutrophils, then a tophus eroding bone. Beside it, a symptom track and a serum urate scale."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="whPlay">Play</button><label class="stage-cap tl" for="whT">Years <input type="range" id="whT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <div class="readout" id="whRead"></div>
+      <p class="stage-cap">Schematic, not to scale. The person's urate level, the symptom track and the timing are illustrative. Stage boundaries vary from person to person, and stages B and C can last for years.</p>
+    </div>
+    <aside class="note" id="whNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Where flares strike</h3>
+  <div class="prose"><p>Tap a site. Only the big toe has a sourced first-flare percentage; for the other joints the research gives where gout goes, not how often it starts there. [[Elfishawi2020,Taylor2015,Roddy2011]]</p></div>
+  <div class="split2">
+    <div class="wh-sites" id="whSites" role="group" aria-label="Joints and tophus sites"></div>
+    <div class="wh-body">
+      <svg id="whBody" viewBox="0 0 340 340" role="img" aria-label="A leg, an arm and an ear, with the selected gout site highlighted"></svg>
+      <div class="wh-sitenote" id="whSiteNote" aria-live="polite"></div>
+    </div>
+  </div>
+  <p class="callout">Gout is crystals in joints, not just high uric acid. Where the urate comes from is in <a href="#urate" data-go="urate">Where urate comes from</a>; how it turns into crystals is in <a href="#crystals" data-go="crystals">Crystals vs serum urate</a>.</p>
+
+  <h3 class="sub">Key numbers</h3>
+  <div class="cards" id="whCards"></div>
+</section>

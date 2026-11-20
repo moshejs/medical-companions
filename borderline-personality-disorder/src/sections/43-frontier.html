@@ -1,0 +1,72 @@
+<!-- ================= 4.3 RESEARCH TOWARD BETTER CARE ================= -->
+<style>
+#m-frontier .pipe{display:flex;flex-direction:column;gap:10px}
+#m-frontier .lane{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:10px 12px;display:flex;flex-direction:column;gap:8px}
+#m-frontier .lane>b{font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+#m-frontier .zones{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+#m-frontier .zone{background:var(--field);border:1px dashed var(--line);border-radius:10px;padding:6px;display:flex;flex-direction:column;gap:6px;min-height:46px;min-width:0}
+#m-frontier .zone[data-z="est"]{border-style:solid;border-color:var(--good-soft)}
+#m-frontier .zhead{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:0 13px}
+#m-frontier .rc{text-align:left;border:1px solid var(--line);background:var(--panel);border-radius:8px;padding:6px 8px;cursor:pointer;display:flex;flex-direction:column;gap:4px;min-width:0;font-size:13px;line-height:1.25;font-weight:700}
+#m-frontier .rc .ev{align-self:flex-start;font-size:9px;padding:3px 5px}
+#m-frontier .rc small{font:500 10px var(--mono);color:var(--muted);overflow-wrap:anywhere}
+#m-frontier .rc[aria-pressed="true"]{border-color:var(--med);box-shadow:0 0 0 2px var(--med-soft)}
+#m-frontier .rc.hide{display:none}
+@media (max-width:600px){#m-frontier .rc{font-size:12px;padding:5px 6px} #m-frontier .zones,#m-frontier .zhead{gap:5px} #m-frontier .zhead{padding:0 4px;font-size:9.5px;letter-spacing:.04em}}
+#m-frontier .hype{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px}
+#m-frontier .hcard{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:9px}
+#m-frontier .hcard q{font-family:var(--display);font-weight:800;font-size:19px;line-height:1.2;quotes:"“" "”"}
+#m-frontier .hcard .ctrls .btn{font-size:12.5px;padding:6px 10px}
+#m-frontier .hcard .rev{font-size:14px;display:none;flex-direction:column;gap:6px}
+#m-frontier .hcard.done .rev{display:flex}
+#m-frontier .pgrid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:14px;align-items:start}
+@media (max-width:1100px){#m-frontier .pgrid{grid-template-columns:minmax(0,1fr)}}
+#m-frontier .pgrid>.note{position:sticky;top:84px}
+@media (max-width:1100px){#m-frontier .pgrid>.note{position:static}}
+#m-frontier .card>.tag,#m-frontier .card>.ev{align-self:flex-start}
+</style>
+<section class="mod" id="m-frontier" data-mod="frontier" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Medication, safety &amp; research</p><h2>Research toward better care</h2>
+    <p class="lede">New ideas for BPD care are being tested: earlier help for young people, shorter therapies, apps, brain stimulation and new medicines. Most are early. Here is how a treatment earns its place, and how to read the next headline.</p></div>
+
+  <h3 class="sub">From idea to guideline: how DBT got there</h3>
+  <div class="stepper" id="reSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="reSvg" viewBox="0 0 720 390" style="min-width:560px" role="img" aria-label="A timeline from the 1980s to 2026: a card for dialectical behaviour therapy moves from Idea to Trials to Established as randomised trials, meta-analyses and guidelines accumulate along the years, while a checklist of what makes evidence trustworthy ticks off."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="rePlay">Play</button><label class="stage-cap tl" for="reT">Year <input type="range" id="reT" min="0" max="1" step="0.001" value="0.58"></label></div>
+      <div class="readout" id="reRead"></div>
+      <p class="stage-cap">Dots are trials and reviews summarised in this guide, not every study of DBT. The evidence label is this guide's reading of each stage. [[LinehanWilks2015,Storebo2020]]</p>
+    </div>
+    <aside class="note" id="reNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The research pipeline</h3>
+  <div class="prose"><p>Each card is a line of research. Watch them slide to where the evidence has taken them, then click one for the study, its registration and status. Trial statuses are as listed on ClinicalTrials.gov on 25 October 2026 and can change.</p></div>
+  <div class="ctrls" role="group" aria-label="Filter">
+    <button class="btn" data-flt="all" aria-pressed="true">Show all</button>
+    <button class="btn" data-flt="est" aria-pressed="false">Only Established</button>
+    <button class="btn ghost" id="reReplay">Replay the slide</button>
+  </div>
+  <div class="pgrid">
+    <div class="pipe" id="rePipe"></div>
+    <aside class="note" id="reDetail" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Hype filter</h3>
+  <div class="prose"><p>Read the headline a news story might write, guess the evidence level, then see the study behind it. <span class="ev est">Established</span> = consistent results from good trials or reviews; <span class="ev early">Early evidence</span> = a few or small trials, mixed or untested results; <span class="ev hyp">Hypothesis</span> = an idea, a lab finding or an open-label pilot.</p></div>
+  <p class="readout" id="reScore"></p>
+  <div class="hype" id="reHype"></div>
+
+  <h3 class="sub">Open questions and controversies</h3>
+  <div class="cards">
+    <div class="card"><span class="tag warn">Open</span><h4>Remission is common; recovery is not</h4><p>In the long cohorts 85–99% reached remission and relapse was low, but recovery of social and vocational functioning stayed around 40–60%. The meta-analytic remission range is 50–70%. Functional recovery is the unsolved problem. [[Zanarini2012,Gunderson2011,AlvarezTomas2019Meta]]</p></div>
+    <div class="card"><span class="tag warn">Open</span><h4>Does treatment change the long-term course?</h4><p>Short-term trials show psychotherapy beats usual care, but a meta-analysis found no significant link between treatment moderators and long-term outcome, and the McLean cohort reflects usual treatment. Long-term treatment effects are unproven. [[Storebo2020,AlvarezTomas2019Meta,Zanarini2003Course]]</p></div>
+    <div class="card"><span class="tag warn">Open</span><h4>Service or therapy brand?</h4><p>In MOBY, youth-oriented case management carried the benefit, not specialist psychotherapy, and in HYPE cognitive analytic therapy and good clinical care were similar. Larger trials are pending. [[Chanen2022MOBY,Chanen2008HYPE,Kaess2025]]</p></div>
+    <div class="card"><span class="tag warn">Open</span><h4>Why do BPD drug trials keep failing?</h4><p>Large placebo responses and high dropout are common. The BI 1358894 authors suggest more targeted populations and new outcome measures. [[Grant2022Brexpiprazole,Rothman2024Brexpiprazole,Dwyer2025BI1358894]]</p></div>
+    <div class="card"><span class="tag warn">Open</span><h4>How long must treatment last?</h4><p>6 months of DBT matched 12 on self-harm and 5 months of MBT matched 14, but critics question the MBT trial's design and NICE still warns against BPD-specific interventions under 3 months outside a structured service. Which patients need longer care is unknown. [[McMain2022,Juul2023,Philips2024,NICE2009,Laporte2018Stepped]]</p></div>
+    <div class="card"><span class="tag warn">Open</span><h4>Who was studied?</h4><p>The McLean cohort recruited severely ill, mostly white, mostly female inpatients in 1992–1995 using DSM-III-R criteria. Community and youth samples may differ. [[Zanarini2012,Temes2019,Winograd2008,Tomko2014]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Matching person to therapy</h4><p>A model built on baseline traits matched 156 patients to DBT or GPM with a moderate advantage (d 0.36) when they had been randomised to their predicted best treatment, but it has not been tested prospectively. [[Keefe2021Selection]]</p></div>
+    <div class="card"><span class="tag rx">Plain words</span><h4>New is not the same as proven</h4><p>Brain stimulation, ketamine and psilocybin are still being tested and are not proven treatments for BPD. Talking therapies remain the main treatment, and no medicine is approved for BPD itself. [[Konstantinou2021rTMS,Fineberg2023Ketamine,Grant2026Psilocybin,StoffersWinterling2022]]</p></div>
+  </div>
+</section>

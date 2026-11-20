@@ -1,0 +1,65 @@
+<!-- ================= 4.4 TOWARD BETTER TREATMENT ================= -->
+<style>
+#m-frontier .recands{display:flex;flex-wrap:wrap;gap:6px}
+#m-frontier .recands .btn{font-size:13px;padding:6px 11px}
+#m-frontier .rechk{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;font-size:15px;max-width:76ch}
+#m-frontier .rechk b{display:block}
+#m-frontier .card>.ev,#m-frontier .card>.tag{align-self:flex-start}
+#m-frontier .relegend{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;font:500 12px var(--mono);color:var(--muted)}
+#m-frontier .relegend .dash{display:inline-block;width:12px;height:12px;border-radius:50%;border:1.5px dashed var(--muted);vertical-align:middle;margin-right:4px}
+</style>
+<section class="mod" id="m-frontier" data-mod="frontier" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Treatment</p><h2>Toward better treatment</h2>
+    <p class="lede">There is still no specific medical or genetic therapy for any type of EDS. Scrub through the research landscape since the 2017 classification, from the hunt for hEDS genes to placebo-controlled trials in vascular EDS, and see where each candidate treatment really stands.</p></div>
+  <div class="stepper" id="reSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="reSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A timeline from before 2017 to 2030 with four lanes: genetics, criteria, vascular EDS therapeutics, and mechanisms and biomarkers. As a cursor moves through the years, milestones appear as dots coloured by evidence label; items after October 2026 are dashed outlines marked as announced or estimated. A box at the bottom describes the latest milestone."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="rePlay">Play</button><label class="stage-cap tl" for="reT">Year <input type="range" id="reT" min="0" max="1" step="0.001" value="0.2"></label></div>
+      <div class="ctrls"><button class="btn" id="reHuman" aria-pressed="false">Show only human trials</button></div>
+      <div class="relegend"><span class="ev est">Established</span><span class="ev early">Early evidence</span><span class="ev hyp">Hypothesis / unconfirmed</span><span><i class="dash"></i>future: as announced or estimated</span></div>
+      <p class="stage-cap">Dates are publication or registry dates. Future dates are those announced by sponsors or registries, not guarantees. Before 2017 the axis is compressed.</p>
+    </div>
+    <aside class="note" id="reNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The pipeline: where each candidate stands</h3>
+  <div class="prose"><p>Most candidates are still in mice or cells. Results in animals often fail to carry over to people: in one vEDS mouse model celiprolol "accelerated rather than reduced death from aortic rupture", while in another it strengthened the aorta, and in people it lowered events in an open trial. Choose a candidate to see its registry record. [[Bowen2020JCI,Dubacher2020,Ong2010]]</p></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="reFun" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="A funnel from laboratory and animal studies through early human studies, randomised trials and phase 3 trials to approval. Each candidate treatment is a dot in its stage; the approved stage is empty because no medicine is approved for any EDS type."></svg></div>
+      <div class="recands" id="reCands" role="group" aria-label="Candidates"></div>
+    </div>
+    <aside class="note" id="reFunNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Registries and cohorts behind the research</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Study</th><th>Who</th><th>Size</th><th>Status (registry)</th></tr></thead>
+    <tbody>
+      <tr><th>HEDGE (hEDS genome study)</th><td>Adults meeting the 2017 hEDS criteria; begun 2018 by the Ehlers-Danlos Society</td><td>Target 1,000 genomes; 1,021 enrolled (92% female, 95% White, 62% from the US)</td><td>No causal gene confirmed as of 2026 [[Douglas2026,VanDijk2024,Halverson2023,Malfait2020]]</td></tr>
+      <tr><th>RaDiCo-SEDVasc</th><td>French national vEDS cohort</td><td>340 enrolled</td><td>Active, not recruiting; completion estimated January 2028 [[NCT05976841]]</td></tr>
+      <tr><th>RED registry (Rizzoli, Italy)</th><td>All EDS types: clinical, genetic, imaging and quality-of-life data with biosamples</td><td>Aims for 3,000</td><td>Recruiting through 2033 [[NCT04133272]]</td></tr>
+      <tr><th>Boston University genotyping study</th><td>People with EDS, next-generation sequencing</td><td>334</td><td>Completed April 2025; results not yet posted [[NCT03093493]]</td></tr>
+      <tr><th>MEDIC biomarkers</th><td>Plasma biomarkers in vEDS (France)</td><td>211</td><td>Completed 2015; no results posted [[NCT02165085]]</td></tr>
+      <tr><th>MPEDS</th><td>Metabolic phenotyping in vEDS (Cambridge)</td><td>15 planned</td><td>Recruiting since March 2026 [[NCT07516496]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">How to read EDS research claims</h3>
+  <div class="split2">
+    <div class="card"><span class="tag rx">For patients, families and students</span><h4>Seven questions to ask of any headline</h4>
+      <ol class="rechk">
+        <li><b>People, or mice and cells?</b>Hydralazine kept 97% of vEDS mice alive to 45 days; no human trial has tested it. Doxycycline repairing hEDS cells in a dish is explicitly "not a treatment recommendation". [[Bowen2020JCI,Chiarelli2021]]</li>
+        <li><b>Which type of EDS?</b>A vascular EDS result says nothing about hypermobile EDS, and almost all exercise trials enrolled hEDS or HSD. [[Malfait2017,Palmer2021]]</li>
+        <li><b>Was there a comparison group, and was it blinded?</b>BBEST had no placebo; DiSCOVER is testing the same drug against placebo. [[Ong2010,NCT05432466]]</li>
+        <li><b>How many people, and was the diagnosis confirmed?</b>Only 33 of BBEST's 53 participants had a confirmed COL3A1 variant. [[Ong2010]]</li>
+        <li><b>Has anyone repeated it?</b>The KLK15 candidate gene still awaits independent replication; earlier candidate genes failed to replicate. [[Gensemer2025,Scicluna2022]]</li>
+        <li><b>Is the trial registered, and are results posted?</b>Registries show when a trial is suspended ("Indefinite hold by company") or stopped for poor recruitment. [[NCT05463679,NCT05405257]]</li>
+        <li><b>Who paid, and who owns it?</b>An online Pilates trial studied a programme owned by a co-author's organisation; a taping trial used donated tape. Declared conflicts are not proof of bias, but worth knowing. [[Russek2026,Tudini2024]]</li>
+      </ol></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>A blood test for hEDS?</h4><p>Several groups are looking for molecular markers. Plasma fibronectin and collagen-fragment patterns were shared by hEDS and HSD and differed from other EDS types and arthritis, but the test is not validated. Serum proteomics found complement proteins lower in 29 women with hEDS than in controls. Fibroblast RNA and serum protein studies found no clear molecular line between hEDS and HSD. [[Ritelli2025,Griggs2025,Ritelli2022,Cinquina2026]]</p>
+      <p>For vascular EDS, an AI facial-analysis model separated vEDS from controls and from hEDS (AUC ≥0.97, trained on 30 people), and vertebral tortuosity was linked to cardiovascular events. Both need validation. [[Murdock2025,Stephens2023]]</p>
+      <p class="callout">The 2017 criteria remain the published standard. A revision of the criteria has been announced by the Ehlers-Danlos Society; until it is published, see <a href="#criteria" data-go="criteria">The 2017 hEDS criteria</a>. [[Malfait2017]]</p></div>
+  </div>
+</section>

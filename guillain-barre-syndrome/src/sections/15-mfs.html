@@ -1,0 +1,110 @@
+<!-- ================= 1.5 MILLER FISHER SYNDROME AND OTHER VARIANTS ================= -->
+<style>
+#m-mfs .tbl table{min-width:640px}
+#m-mfs .card>.ev,#m-mfs .card>.tag{align-self:flex-start}
+#m-mfs .mfbar{display:flex;flex-wrap:wrap;gap:8px}
+#m-mfs .mfbar .btn{min-height:40px}
+#m-mfs .mfcap{font-size:15px;line-height:1.5;max-width:76ch}
+#m-mfs .card b.num{font:700 30px/1 var(--display);color:var(--brand)}
+</style>
+<section class="mod" id="m-mfs" data-mod="mfs" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · Understanding GBS</p><h2>Miller Fisher syndrome and other variants</h2>
+    <p class="lede">Not every Guillain-Barré syndrome starts in the legs. Miller Fisher syndrome takes the eyes, balance and reflexes; other variants stay in the throat and arms, the face or the legs. Follow one course of Miller Fisher syndrome, then see how often it spreads in the first week.</p></div>
+
+  <div class="prose">
+    <p>Miller Fisher syndrome (MFS) is defined by ophthalmoplegia (weak eye movements), ataxia (unsteadiness) and areflexia (absent reflexes) [[Mori2001MFS]]. It is estimated to make up 5–25% of the GBS spectrum, and overlaps with classic sensorimotor GBS in an estimated 15% [[Leonhard2019]]. How common it is depends on where you look: MFS and MFS-GBS overlap together were 22% of IGOS inclusions in Asia, 11% in Europe and the Americas and 1% in Bangladesh [[Doets2018]].</p>
+  </div>
+  <p class="crisis" role="note"><b>Emergency</b><span>Weakness that spreads to the arms or legs, or new trouble swallowing or breathing, needs emergency care. In Miller Fisher syndrome, every overlap with wider weakness began within the first 7 days [[Sekiguchi2016,Verboon2017MFS]], and overlap needed a ventilator in 24% of one series [[Funakoshi2009]].</span></p>
+
+  <div class="stepper" id="mfSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="mfSvg" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="A person with Miller Fisher syndrome beside a close-up of two eyes following a moving target, three status rows for eyes, balance and reflexes, and a chart of days from onset. Before onset the antibody level rises; from day 0 the eyes stop following the target and the body sways; a shaded band marks the first week, when the syndrome can spread; a schematic antibody curve falls by about one month; the ataxia bar ends at its median of 32 days and the eye-movement bar at its median of 88 days, after which the eyes move normally again."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="mfPlay">%t:player.play%</button><label class="stage-cap tl" for="mfT">Days <input type="range" id="mfT" min="0" max="1" step="0.002" value="0.21"></label></div>
+      <p class="stage-cap"><b>Schematic.</b> The antibody curve has no scale. Bar ends are medians from an untreated series of 28 people (Mori, as summarised by Cochrane), not the course of any one person [[Overell2007]]. The first two weeks are stretched on the time axis.</p>
+    </div>
+    <aside class="note" id="mfNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The first week: how often MFS spreads</h3>
+  <div class="prose"><p>In 60 consecutive people who began with the triad alone, half stayed pure and half went on to an overlap syndrome [[Sekiguchi2016]]. Pick a group to see what spread, and when.</p></div>
+  <div class="mfbar" role="group" aria-label="Choose a group">
+    <button class="btn" data-mfov="all" aria-pressed="true">All 60</button>
+    <button class="btn" data-mfov="pure" aria-pressed="false">Stayed pure</button>
+    <button class="btn" data-mfov="pcb" aria-pressed="false">Throat, neck, arms</button>
+    <button class="btn" data-mfov="gbs" aria-pressed="false">Classic GBS</button>
+    <button class="btn" data-mfov="bbe" aria-pressed="false">Bickerstaff</button>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="mfOv" viewBox="0 0 720 260" style="min-width:560px" role="img" aria-label="Sixty dots, one per person with Fisher syndrome, grouped by shape: rings for those who stayed pure, squares for pharyngeal-cervical-brachial overlap, diamonds for overlap with classic GBS and triangles for Bickerstaff overlap, beside a body outline shaded where the chosen group became weak."></svg></div>
+    <p class="mfcap" id="mfOvCap" aria-live="polite"></p>
+  </div>
+  <div class="cards">
+    <div class="card"><b class="num">43%</b><p>of 23 people with MFS in a Dutch cohort developed limb weakness, all in the first week; no early predictor was found, so the authors advise careful monitoring of everyone with MFS for at least a week [[Verboon2017MFS]].</p></div>
+    <div class="card"><b class="num">24%</b><p>of people with Fisher/GBS overlap needed ventilation, against 10% with GBS and none with Fisher syndrome alone. Titubation (head or trunk tremor) as a first symptom and descending tetraparesis marked those ventilated [[Funakoshi2009]].</p></div>
+    <div class="card"><b class="num">96%</b><p>complete remission of ophthalmoplegia and ataxia at one year in a cohort of 92 (89 people), with no deaths recorded [[Overell2007]].</p></div>
+  </div>
+
+  <h3 class="sub">Anti-GQ1b: the antibody behind the eyes</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Finding</th><th>People</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><th>IgG anti-GQ1b raised early in all 6 with typical MFS, falling with time, absent in controls including GBS</th><td>6</td><td>[[Chiba1992]]</td></tr>
+      <tr><th>Positive in 95% (18 of 19) with typical MFS</th><td>19</td><td>[[Chiba1993]]</td></tr>
+      <tr><th>Positive in 81% (13 of 16); positive people had more severe cerebellar-type ataxia</th><td>16</td><td>[[Yuki1993GQ1b]]</td></tr>
+      <tr><th>Positive in 83% of Fisher syndrome and 68% of Bickerstaff encephalitis</th><td>466 and 53</td><td>[[Ito2008]]</td></tr>
+      <tr class="mfs"><th>Tied to ophthalmoplegia: positive in 5 of 5 with atypical MFS without ataxia and 5 of 6 with GBS and ophthalmoplegia; none of 23 with GBS without it</th><td>40</td><td>[[Chiba1993]]</td></tr>
+      <tr><th>Antibodies to ganglioside complexes containing GQ1b or GT1a in 47% of MFS, 47% of GBS with ophthalmoplegia, none of GBS without it</th><td>64, 53 and 53</td><td>[[Kanzaki2008]]</td></tr>
+      <tr><th>Guideline figures: sensitivity 88–100% with very high specificity (EAN/PNS 2023); "up to 90%" (consensus review)</th><td>Reviews</td><td>[[vanDoorn2023,Leonhard2019]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="callout">Timing changes the result: titres peak at presentation and can be undetectable as early as about one month after onset [[Overell2007]]. The 2023 EAN/PNS guideline advises anti-GQ1b testing when MFS is suspected (good practice point) [[vanDoorn2023]]. On nerve tests, 25 of 27 people with MFS in IGOS had a normal or equivocal first study [[Arends2026]]; the soleus H-reflex is typically absent [[Kuwabara2017]].</p>
+
+  <h3 class="sub">Fisher syndrome and Bickerstaff: one spectrum?</h3>
+  <div class="prose"><p>Bickerstaff brainstem encephalitis was defined in 62 people by progressive, fairly symmetrical ophthalmoplegia and ataxia within 4 weeks, plus disturbed consciousness or brisk reflexes [[Odaka2003]]. An autopsy showed inflammation with oedema and glial nodules in the brainstem [[Odaka2003]]. A Japanese series of 581 people compared the two directly [[Ito2008]]:</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Feature</th><th>Fisher syndrome (466)</th><th>Bickerstaff (53)</th></tr></thead>
+    <tbody>
+      <tr><th>Anti-GQ1b IgG</th><td>83%</td><td>68%</td></tr>
+      <tr><th>Recent <i>C. jejuni</i></th><td>21%</td><td>23%</td></tr>
+      <tr><th>CSF albuminocytological dissociation</th><td>76%</td><td>46%</td></tr>
+      <tr><th>Abnormal brain MRI</th><td>2%</td><td>11%</td></tr>
+      <tr><th>Abnormal EEG</th><td>25%</td><td>57%</td></tr>
+    </tbody>
+  </table></div>
+  <div class="split2">
+    <div class="card"><h4>One spectrum</h4><p>The Japanese authors conclude Fisher syndrome and Bickerstaff form one continuous spectrum [[Ito2008]]. A review groups them with acute ophthalmoparesis and acute ataxic neuropathy at the limited end, and pharyngeal-cervical-brachial weakness and GBS overlap at the extensive end, as "anti-GQ1b antibody syndrome" [[Shahrizaila2013JNNP]].</p></div>
+    <div class="card"><h4>Or outside GBS criteria</h4><p>Bickerstaff makes up an estimated under 5% of the spectrum and does not meet commonly used GBS criteria [[Leonhard2019]]. In the 62-person series, 92% had a preceding illness, 74% disturbed consciousness, 60% flaccid tetraparesis and 66% anti-GQ1b IgG [[Odaka2003]].</p></div>
+  </div>
+
+  <h3 class="sub">Treatment and recovery</h3>
+  <div class="cards">
+    <div class="card"><h4>No controlled trials</h4><p>A Cochrane review found no randomised or non-randomised prospective controlled trials of immunotherapy in Fisher syndrome or related disorders [[Overell2007]].</p></div>
+    <div class="card"><h4>Treated or not, a similar course</h4><p>In a Mori cohort of 92, median days until ophthalmoplegia and ataxia disappeared were 82 and 39 with IVIg, 92 and 21 with plasma exchange and 76 and 31 with supportive care, with no statistically significant difference. Symptom-free at 6 months: 89%, 96% and 95% [[Overell2007]].</p></div>
+    <div class="card"><h4>What reviews say</h4><p>Because most people with pure MFS recover completely without treatment within 6 months, a 2019 consensus review says treatment is generally not recommended, with close monitoring advised [[Leonhard2019]]. For Bickerstaff, the severity of the course is described as justifying IVIg or plasma exchange, although evidence of benefit is limited [[Leonhard2019]].</p></div>
+  </div>
+  <p class="teach" role="note"><b>Not advice</b>These are published findings and review statements, quoted to explain how decisions are discussed. They are not recommendations for any person.</p>
+
+  <h3 class="sub">Other variants</h3>
+  <div class="prose"><p>A 2014 classification splits GBS into classic and localised forms, and MFS into incomplete forms (acute ophthalmoparesis, acute ataxic neuropathy) and a central nervous system form (Bickerstaff) [[Wakerley2014]]. Estimated shares below are to the nearest 5%, from nine mainly adult cohorts [[Leonhard2019]].</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Variant</th><th>Estimated share</th><th>What stands out</th></tr></thead>
+    <tbody>
+      <tr><th>Sensorimotor (classic)</th><td>30–85%</td><td>Weakness and sensory change in the limbs [[Leonhard2019]]</td></tr>
+      <tr><th>Pure motor</th><td>5–70%</td><td>5–15% in most studies, about 70% in Bangladesh [[Leonhard2019]]</td></tr>
+      <tr><th>Paraparetic</th><td>5–10%</td><td>Leg weakness and absent reflexes without arm, cranial or breathing involvement, often starting with lower back, buttock or leg pain [[Kimachi2017]]; 6% of 494 Dutch people [[Fokke2014]]</td></tr>
+      <tr><th>Pharyngeal-cervical-brachial</th><td>under 5%</td><td>Throat, neck and arm weakness. Of 100 people, 13 were pure and the rest overlapped with GBS, Fisher or Bickerstaff; anti-GT1a IgG in 51% and anti-GQ1b in 39% [[Nagashima2007]]</td></tr>
+      <tr><th>Bilateral facial palsy with paraesthesias</th><td>under 5%</td><td>22 people from about 8,600 referred: all had CSF dissociation, 86% had infectious symptoms, anti-cytomegalovirus IgM in 35% [[Susuki2009]]</td></tr>
+      <tr><th>Pure sensory</th><td>under 1%</td><td>22 of 1,056 in southern China, with milder symptoms and shorter stays (retrospective) [[Liu2025Sensory]]</td></tr>
+      <tr><th>Polyneuritis cranialis</th><td>not estimated</td><td>15 historical cases: a mean of 6 cranial nerves, ocular signs 93%, bulbar 87%, facial 73% [[Wakerley2015Polyneuritis]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="split2">
+    <div class="card"><span class="tag warn">Debated</span><h4>Inside or outside the spectrum?</h4><p>Bilateral facial palsy with paraesthesias, pure sensory GBS and Bickerstaff do not meet commonly used diagnostic criteria but are often included in the spectrum, and this inclusion is debated [[Leonhard2019]]. Acute facial diplegia with brisk reflexes after <i>C. jejuni</i> shows that hyperreflexia does not rule out a variant [[Susuki2004]].</p></div>
+    <div class="card"><h4>Counted with the 2014 criteria</h4><p>In 103 Japanese people: classic GBS 71%, classic MFS 17%, Bickerstaff 3%, pharyngeal-cervical-brachial 2% and 1–2% each for the other variants [[Wakerley2016]]. In 61 Malaysian people: classic GBS 67%, classic MFS 10%, paraparetic 7%, pharyngeal-cervical-brachial 5%, bifacial 5%, overlap 5% [[Hiew2017Fruste]].</p></div>
+  </div>
+  <p class="callout">Look-alikes run both ways: MFS and the pharyngeal-cervical-brachial variant are often mistaken for brainstem stroke, botulism or myasthenia gravis, and Bickerstaff for Wernicke's encephalopathy [[Wakerley2015]]. See <a href="#ddx" data-go="ddx">Look-alikes</a>.</p>
+
+  <div class="hook"><b>Exam hook</b>Bickerstaff has impaired consciousness or hyperreflexia on top of ophthalmoplegia and ataxia [[Odaka2003]]. Pharyngeal-cervical-brachial antibody: anti-GT1a IgG, 51% [[Nagashima2007]].</div>
+  <div class="pt"><b>In plain words</b>Miller Fisher syndrome affects the eyes, balance and reflexes. Most people recover fully, usually within 6 months. It can spread to the arms, legs, swallowing or breathing in the first week, which is why doctors watch closely at first. Blood tests for antibodies help in this form. The numbers here describe groups of people. They cannot tell you exactly what will happen to you.</div>
+</section>

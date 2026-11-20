@@ -1,0 +1,61 @@
+<!-- ================= 2.4 THE DIFFERENTIAL ================= -->
+<section class="mod" id="m-ddx" data-mod="ddx" hidden>
+<style>
+#m-ddx .card>.ev{align-self:flex-start}
+#m-ddx .ddb{background:none;border:0;padding:0;font:inherit;font-weight:700;color:var(--ink);text-align:left;cursor:pointer;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px}
+#m-ddx .ddb:hover,#m-ddx .ddb[aria-expanded="true"]{color:var(--rose)}
+#m-ddx tr.ddmore td{background:var(--panel-2);font-size:14px}
+#m-ddx .pickrow .btn{font-size:13px;padding:6px 11px}
+#m-ddx .legend i.sw{width:14px;height:12px;border-radius:3px;border:1px solid var(--line)}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 2 · Course and diagnosis</p><h2>The differential</h2>
+    <p class="lede">Several conditions look like Parkinson's at first, and some are far more common than people expect. In one US county, Parkinson's disease made up only 42% of new cases of parkinsonism and drugs caused 20%. [[Bower1999]] Follow the questions a specialist asks, watch a rest tremor and an action tremor side by side, then compare any look-alike with Parkinson's feature by feature.</p></div>
+  <div class="stepper" id="ddxSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="ddxSvg" viewBox="0 0 720 350" style="min-width:560px" role="img" aria-label="A marker travels through seven questions: is it parkinsonism or an action tremor, which medicines, the pattern and onset, the levodopa response, red flags for atypical parkinsonism, tests when the picture is unclear, and review over time. Beside each question a label names the conditions that question tends to pick out."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="ddxPlay">Play</button><label class="stage-cap tl" for="ddxT">Questions <input type="range" id="ddxT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap">A simplified teaching sequence from published criteria and guidance. Real assessments ask these questions together, not one at a time, and loop back as the illness unfolds.</p></div>
+    <aside class="note" id="ddxNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Rest tremor or action tremor?</h3>
+  <p class="prose">A key early question is whether a shaking hand is a parkinsonian rest tremor or the action tremor of essential tremor. Play a short examination: arm resting, lifting, held out, finger to nose, and back to rest.</p>
+  <div class="ctrls" role="group" aria-label="Essential tremor scenario">
+    <span class="kicker">Essential tremor</span>
+    <button class="btn" id="ddxAlc0" aria-pressed="true">Usual day</button>
+    <button class="btn" id="ddxAlc1" aria-pressed="false">After a small drink of alcohol</button>
+  </div>
+  <div class="stepper" id="ddxTrSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="ddxTr" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="A seated figure rests its arm, lifts it, holds it out and touches its nose while two tremor recordings scroll: the Parkinson's trace shakes at rest, quietens as movement starts and returns at rest, while the essential tremor trace is quiet at rest and shakes when the arm is held out or moving. Below, the published frequency ranges for each tremor overlap."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="ddxTrPlay">Play</button><label class="stage-cap tl" for="ddxTrT">Seconds <input type="range" id="ddxTrT" min="0" max="1" step="0.002" value="0.08"></label></div>
+      <p class="readout" id="ddxTrRead"></p>
+      <p class="stage-cap">Schematic traces: the amplitudes and the frequencies drawn (5 and 7 Hz) are illustrations within the published ranges. Ranges: MDS rest tremor 4–6 Hz [[PPMI-FEATPD]]; tremor consensus, parkinsonian rest tremor 4–7 Hz with higher frequencies described [[Bhatia2018]]; essential tremor 4–12 Hz [[Louis2026]]. The sources do not agree on one PD range.</p></div>
+    <aside class="note" id="ddxTrNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Side by side with Parkinson's</h3>
+  <p class="prose">Pick a condition. Each row sets one feature beside Parkinson's disease, coloured by whether it looks similar or points away. Grey means the sources behind this module do not cover that feature for that condition; it does not mean "normal".</p>
+  <div class="ctrls pickrow" role="group" aria-label="Choose a condition" id="ddxPick"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="ddxCmp" viewBox="0 0 720 424" style="min-width:560px" role="img" aria-label="Nine features compared between Parkinson's disease and the chosen condition: onset and age, pattern, tremor and movement, levodopa response, gait and falls, eye movements, autonomic function, thinking, and tests."></svg></div>
+      <p class="legend"><span><i class="sw" style="background:var(--good-soft)"></i>similar to PD</span><span><i class="sw" style="background:var(--warn-soft)"></i>points away from PD</span><span><i class="sw" style="background:var(--panel-2)"></i>not covered by these sources</span></p>
+      <p class="stage-cap">A summary of the table below, where every statement carries its source.</p></div>
+    <aside class="note" id="ddxCmpNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The differential, condition by condition</h3>
+  <p class="prose">Click a condition to open what else the sources say about it.</p>
+  <div class="tbl"><table id="ddxTable"><thead><tr><th scope="col">Condition</th><th scope="col">What points to it rather than Parkinson's</th><th scope="col">Key tests and findings</th></tr></thead><tbody></tbody></table></div>
+
+  <h3 class="sub">Why the differential is hard</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Parkinsonism has many causes</h4><p>Among 364 new cases of parkinsonism in Olmsted County, Minnesota: 42% Parkinson's disease, 20% drug-induced, 17% unspecified, 14% parkinsonism in dementia and 7% other causes. Men had higher incidence for every type except drug-induced. [[Bower1999]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Even experts are sometimes wrong</h4><p>Of 100 people diagnosed with PD by neurologists, 24 had another condition at autopsy, including PSP, MSA, Alzheimer's disease and vascular disease. Pooled accuracy of the clinical diagnosis is 80.6%. [[Hughes1992,Rizzo2016]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>More than one disease at once</h4><p>At the UK Brain Bank, 37.2% of people with PD also had co-pathology such as DLB, MSA or Alzheimer pathology, which complicates any single-diagnosis accuracy figure. Functional symptoms can also coexist with PD. [[Fox2025,AmbarAkkaoui2020]]</p></div>
+    <div class="card"><span class="ev early">Early is hardest</span><h4>Atypical disorders hide at first</h4><p>Under the 2008 criteria, sensitivity for MSA at the first visit was only 41% for possible and 18% for probable MSA. For PSP under the older NINDS-SPSP criteria, the median was 24%. In early unclassifiable parkinsonism, the MRI hummingbird and morning-glory signs caught 35.3%. [[Wenning2022,Hoglinger2017,Mueller2018]]</p></div>
+    <div class="card"><span class="ev est">Guidance</span><h4>What NICE recommends</h4><p>Suspect PD with "tremor, stiffness, slowness, balance problems and/or gait disorders", refer quickly and untreated to a specialist, and review the diagnosis every 6 to 12 months. NICE advises against PET outside trials, acute levodopa or apomorphine challenge tests and routine smell testing for the differential. [[NICE2017]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Missed in the community</h4><p>In a London population study, at least 15% of people with a PD diagnosis did not meet strict criteria, and about 19% of people found to have PD had not been diagnosed with it. [[Schrag2002]]</p></div>
+  </div>
+  <div class="hook"><b>Exam hook</b>Essential tremor is a bilateral action (postural and kinetic) tremor of the arms; small doses of alcohol may reduce it, though not consistently enough for the definition. Parkinsonian tremor is a rest tremor that is suppressed when movement starts. Early falls and vertical gaze palsy suggest PSP; early autonomic failure and stridor suggest MSA; dementia before or within a year of parkinsonism suggests DLB. [[Bhatia2018,PPMI-FEATPD,Hoglinger2017,Wenning2022,McKeith2017]]</div>
+</section>

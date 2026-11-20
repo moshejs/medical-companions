@@ -1,0 +1,197 @@
+<!-- ================= 5.2 LIFE AFTER STROKE ================= -->
+<style>
+#m-after .btn{min-height:40px}
+#m-after .card>.ev,#m-after .card>.tag{align-self:flex-start}
+#m-after .card b.big{font-family:var(--display);font-weight:700;font-size:26px;line-height:1.1}
+#m-after .tbl table{min-width:640px}
+#m-after .aftpanel{display:flex;flex-direction:column;gap:16px}
+#m-after .aftpanel[hidden]{display:none}
+#m-after .aftchart{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:12px}
+#m-after .aftchart svg{width:100%;max-width:720px;height:auto;display:block}
+#m-after .aftrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-after .aftcheck{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin:0;padding:0;list-style:none}
+#m-after .aftcheck li{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-weight:600;font-size:15px}
+</style>
+<section class="mod" id="m-after" data-mod="after" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Recovery &amp; care</p><h2>Life after stroke</h2>
+    <p class="lede">The effects nobody can see, how they change with time, and the everyday questions: work, driving, sex, carers, being young, having a baby, and what people say they still need.</p></div>
+
+  <div class="pt"><b>In plain words</b>Low mood and worry are common, can last for years, and can be treated. They are part of the stroke, not a weakness [[Hackett2014,Rafsten2018,Richards2026]]. Feeling very tired is common too, and rest does not always fix it. It is worth telling your team [[Alghamdi2021,Richards2026]].</div>
+  <div class="callout prose"><p><b>About the numbers.</b> Everything here describes groups of people in studies. A percentage cannot tell you what will happen to you. This page reports research. It is not medical advice, and it does not replace your own stroke team.</p></div>
+
+  <h3 class="sub">The invisible effects</h3>
+  <div class="prose"><p>Press Play, or choose an effect. The people on the left show about how many in 100 were affected in the study named. The chart shows how the figure changes with time after stroke. Each line spans the time window the study reported.</p></div>
+  <div class="stepper" id="aftSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="aftSvg" viewBox="0 0 720 410" style="min-width:560px" role="img" aria-label="For each of depression, anxiety, post-traumatic stress, fatigue, cognition and pain: an array of 100 people showing how many are affected, beside a chart of the published prevalence over the time after stroke."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="aftPlay">%t:player.play%</button><label class="stage-cap tl" for="aftT">Effects <input type="range" id="aftT" min="0" max="1" step="0.002" value="0.125"></label></div>
+      <p class="stage-cap"><b>Published population figures, not predictions.</b> Studies differ in who they counted and how, so lines from different studies do not join into one person's course. The time axis is stretched at the early end.</p>
+    </div>
+    <aside class="note" id="aftNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="tbl"><table><thead><tr><th>Effect</th><th>How common</th><th>Time course</th><th>What reviews and the 2026 guideline say</th></tr></thead><tbody>
+    <tr><th>Depression</th><td>31% (95% CI 28% to 35%), 61 studies, 25,488 people [[Hackett2014]]. A second synthesis: 29% (25 to 32) [[Ayerbe2013]].</td><td>The reviews disagree: lower with time [[Hackett2014]] or stable to 10 years [[Ayerbe2013]]. Cumulative incidence 39% to 52% within 5 years. Recovery at 1 year in 15% to 57% of those depressed a few months after stroke [[Ayerbe2013]].</td><td>Cochrane, all very low certainty: drugs RR 0.70 (0.55 to 0.88), psychological therapy RR 0.77 (0.62 to 0.95) for meeting depression criteria [[Allida2023]]. Early screening from 3 days to 3 months (COR 1, LOE A). Antidepressants (2a, A). CBT (2a, B-R). Exercise at least 3 times per week (2a, A). Prophylactic antidepressants not recommended (3: No Benefit, A) [[Richards2026]].</td></tr>
+    <tr><th>Anxiety</th><td>29.3% in the first year (24.8% to 33.8%), with high heterogeneity [[Rafsten2018]].</td><td>36.7% at 0 to 2 weeks, 24.1% from 2 weeks to 3 months, 23.8% from 3 to 12 months [[Rafsten2018]].</td><td>Regular benzodiazepines potentially harmful in anxiety (3: Harm, B-NR) [[Richards2026]].</td></tr>
+    <tr><th>Post-traumatic stress</th><td>9 studies, N=1138, after stroke or TIA [[Edmondson2013]].</td><td>23% (16% to 33%) within 1 year, 11% (8% to 14%) after 1 year [[Edmondson2013]].</td><td>The review reports prevalence. No treatment recommendation was found in this evidence.</td></tr>
+    <tr><th>Fatigue</th><td>48% (42% to 53%), Fatigue Severity Scale 4 or more, 35 studies, N=6851 [[Alghamdi2021]]. The guideline gives "&gt;40%" and defines it as not relieved by rest [[Richards2026]].</td><td>Time of assessment, stroke type and geography explain variation [[Alghamdi2021]].</td><td>CBT for fatigue and sleep (2a, B-R), light therapy (2b, C-LD), fluoxetine not recommended (3: No Benefit, B-R) [[Richards2026]]. Cochrane: insufficient evidence on any treatment; the overall benefit disappeared in trials with adequate allocation concealment [[Wu2015]].</td></tr>
+    <tr><th>Cognition</th><td>44% impaired in global cognition at 2 to 6 months (3146 people, 13 studies) [[Lo2019]].</td><td>Dementia: 10% before a first stroke, 10% soon after it, more than a third after recurrent stroke [[Pendlebury2009]]. An acute drop, then faster decline in REGARDS [[Levine2015]].</td><td>Supervised technology-supported cognitive training (1, B-R). Cognitive training plus physical activity (2a, B-R). Exercise to optimise cognitive health (1, A) [[Richards2026]].</td></tr>
+    <tr><th>Pain</th><td>Central post-stroke pain 11% (7% to 18%), over 50% with medullary or thalamic stroke [[Liampas2020]]. Shoulder pain 29% overall in follow-up [[AdeyWakeling2015]].</td><td>Central pain began at stroke in 26%, within 1 month in 31%, between 1 and 12 months in 41%, after 12 months in 5% [[Liampas2020]]. Shoulder pain peaks at 4 months [[AdeyWakeling2015]].</td><td>Duloxetine, lamotrigine or amitriptyline reasonable first-line (2a, B-R), pregabalin or gabapentin second-line (2b, B-NR). This differs from Liampas, which calls lamotrigine best supported [[Richards2026,Liampas2020]].</td></tr>
+  </tbody></table></div>
+  <div class="split2">
+    <div class="card"><span class="tag warn">Controversy</span><h4>Can antidepressants prevent depression after stroke?</h4><p>Robinson and Jorge reported that antidepressants significantly decrease incident depression and may improve recovery and survival [[Robinson2016]]. The 2026 guideline does not recommend routine prophylaxis, after the large trials [[Richards2026]].</p></div>
+    <div class="card"><h4>Crying or laughing you cannot control</h4><p>Pseudobulbar affect occurs in 11% to 37.8%, according to the 2026 guideline. It lists dextromethorphan/quinidine (COR 1, LOE A), noting that its pivotal trials did not include people with stroke [[Richards2026]].</p></div>
+  </div>
+
+  <h3 class="sub">Life, one part at a time</h3>
+  <div class="aftrow" role="group" aria-label="Part of life" id="aftTabs">
+    <button class="btn" data-tab="work" aria-pressed="true">Work</button>
+    <button class="btn" data-tab="drive" aria-pressed="false">Driving</button>
+    <button class="btn" data-tab="sex" aria-pressed="false">Sex &amp; relationships</button>
+    <button class="btn" data-tab="care" aria-pressed="false">Carers</button>
+    <button class="btn" data-tab="young" aria-pressed="false">Younger people</button>
+    <button class="btn" data-tab="preg" aria-pressed="false">Pregnancy</button>
+    <button class="btn" data-tab="need" aria-pressed="false">Long-term needs</button>
+  </div>
+
+  <div class="aftpanel" id="aftP-work">
+    <div class="pt"><b>In plain words</b>Many people go back to work, but it can take a year or more [[Edwards2018]].</div>
+    <div class="aftchart"><svg id="aftC-work" role="img" aria-label="Bars of median return to work: 41% at 0 to 6 months, 53% at 1 year, 56% at 1.5 years, 66% at 2 to 4 years."></svg></div>
+    <div class="tbl"><table><thead><tr><th>What affects going back</th><th>Odds of return</th></tr></thead><tbody>
+      <tr><th>Independent in daily activities</th><td>OR 3.99 (1.73 to 9.23) [[Orange2024]]</td></tr>
+      <tr><th>White-collar work</th><td>OR 1.84 (1.64 to 2.06) [[Orange2024]]</td></tr>
+      <tr><th>Haemorrhagic stroke</th><td>OR 0.53 (0.45 to 0.60) [[Orange2024]]</td></tr>
+      <tr><th>Aphasia</th><td>OR 0.37 (0.20 to 0.69) [[Orange2024]]</td></tr>
+    </tbody></table></div>
+    <div class="cards">
+      <div class="card"><h4>The gap the mRS misses</h4><p>Among 362 people aged 18 to 50 in Singapore, 87.8% reached mRS 0 to 2 at 90 days but 68.8% had returned to work. Pooled return in young ischaemic stroke was 63.2% (56.0 to 69.9) [[Kwok2025]].</p></div>
+      <div class="card"><h4>Why reports differ</h4><p>Earlier reports ranged from 0% to 100% because of methods [[Daniel2009]]. Predictors in the review of young stroke: ADL independence, fewer deficits, better cognition [[Edwards2018]].</p></div>
+      <div class="card"><h4>2026 guideline</h4><p>Early tailored vocational rehabilitation (COR 2a, LOE B-R), modified duties (2a, B-R), fatigue management and early employer engagement (2a, B-R) [[Richards2026]].</p></div>
+    </div>
+  </div>
+
+  <div class="aftpanel" id="aftP-drive" hidden>
+    <div class="pt"><b>In plain words</b>Driving rules depend on where you live and what you drive. In the UK a car driver stops for at least a month [[DVLA-Neuro]]. Check the rules for your own country and licence.</div>
+    <div class="callout prose"><p><b>UK rules as published by the DVLA</b> (page updated 7 November 2025) [[DVLA-Neuro]]. <b>Rules differ by country.</b> This shows what the page says. It is not a decision about any one person's driving.</p></div>
+    <div class="aftrow" role="group" aria-label="Licence type" id="aftDrL">
+      <button class="btn" data-l="1" aria-pressed="true">Group 1: car, motorcycle</button>
+      <button class="btn" data-l="2" aria-pressed="false">Group 2: bus, lorry</button>
+    </div>
+    <div class="aftrow" role="group" aria-label="Event" id="aftDrE">
+      <button class="btn" data-e="s" aria-pressed="true">Stroke</button>
+      <button class="btn" data-e="t" aria-pressed="false">TIA</button>
+    </div>
+    <div class="aftchart"><svg id="aftC-drive" role="img" aria-label="A timeline of 12 months showing the time off driving in the DVLA rules: 1 month for Group 1, 1 year for Group 2."></svg></div>
+    <div class="card" aria-live="polite"><h4 id="aftDrH"></h4><p id="aftDrT"></p></div>
+    <div class="tbl"><table><thead><tr><th>Question</th><th>What the research says</th></tr></thead><tbody>
+      <tr><th>Can a test predict fitness to drive?</th><td>Cognitive tests had the best reproducibility, such as Trail Making A and B, Rey-Osterrieth Complex Figure and Useful Field of View, across 17 studies [[Marshall2007]]. The 2026 guideline says no test or battery precisely identifies who needs on-road evaluation [[Richards2026]].</td></tr>
+      <tr><th>Does driving rehabilitation help?</th><td>Cochrane (4 trials, 245 participants): no clear evidence of improved on-road scores [[George2014]].</td></tr>
+      <tr><th>2026 guideline</th><td>On-road test for those with relevant impairments (COR 1, LOE C-LD). A simulator may be considered (2b, B-NR) [[Richards2026]].</td></tr>
+    </tbody></table></div>
+    <div class="hook"><b>Exam hook</b>DVLA Group 1: 1 month off driving. Group 2: 1 year [[DVLA-Neuro]].</div>
+  </div>
+
+  <div class="aftpanel" id="aftP-sex" hidden>
+    <div class="pt"><b>In plain words</b>Sex and intimacy can change after a stroke. You can raise this with your team, as many people have the same worries [[Richards2026]].</div>
+    <div class="cards">
+      <div class="card"><b class="big">More than 50%</b><p>report sexual dysfunction, and it is under-addressed. The 2026 guideline says it "may be reasonable" for providers to discuss sexual function (COR 2b, LOE B-NR) [[Richards2026]].</p></div>
+      <div class="card"><b class="big">From 0 to 80%</b><p>A clinician interview script raised discussion from 0 to 80% within 10 months. Eight intervention studies also included a 30 to 45 minute structured programme, sexual counselling and pelvic floor training [[Auger2021]].</p></div>
+      <div class="card"><h4>More than the lesion</h4><p>Psychological factors play a significant part, and the role of lesion location remains inconclusive [[Grenier2017]]. The cause is multifactorial, and it is frequently neglected by patients and clinicians [[Park2015]].</p></div>
+      <div class="card"><h4>How long, and who was studied</h4><p>Deterioration in sexual life was reported in 5% to 76% of working-age adults [[Daniel2009]]. Dysfunction can last months or as long as 2 years. Reviewed participants were predominantly men, with few women or younger people studied [[Dusenbury2017]].</p></div>
+    </div>
+    <div class="callout prose"><p>Relationships are named in the Canadian best practice recommendations, alongside transitions, driving, vocational roles, leisure and long-term care, so people do not fall "through the cracks" between stages of care [[Mountain2020]]. "Relationship with caregiver" is one of the 11 areas of the Post-Stroke Checklist [[Philp2013]].</p></div>
+  </div>
+
+  <div class="aftpanel" id="aftP-care" hidden>
+    <div class="pt"><b>In plain words</b>Carers often get worn out or low too. They need support of their own [[Alemayehu2024,Bakas2014]].</div>
+    <div class="tbl"><table><thead><tr><th>Study</th><th>Who</th><th>Result</th></tr></thead><tbody>
+      <tr><th>AHA statement</th><td>Review</td><td>Most people are cared for at home after stroke by a family caregiver. Caregiver stress is a leading cause of institutionalisation [[Bakas2014]].</td></tr>
+      <tr><th>Burden review</th><td>7 longitudinal studies</td><td>Physical disability correlated with burden in all 7 [[Shamoun2022]].</td></tr>
+      <tr><th>Carer depression</th><td>Developing countries</td><td>Pooled 48.75% (38.64% to 58.86%), ranging 17.2% to 76%. Long caregiving was the only significant factor [[Alemayehu2024]].</td></tr>
+      <tr><th>TRACS</th><td>928 pairs, 36 stroke units</td><td>Structured carer training did not change activity (difference -0.2, -3.0 to 2.5) or burden (0.5, -1.7 to 2.7) at 6 months [[Forster2013]].</td></tr>
+      <tr><th>ATTEND</th><td>India, 1250 people, 14 hospitals</td><td>Family-led rehabilitation did not change death or dependency at 6 months: 47% versus 47% (OR 0.98, 0.78 to 1.23) [[ATTEND2017]].</td></tr>
+      <tr><th>Carer-mediated exercise</th><td>9 trials</td><td>No significant effect on basic ADL (SMD 0.21, -0.02 to 0.44), and burden did not increase. Standing balance improved (SMD 0.53, 0.19 to 0.87) [[Vloothuis2016]].</td></tr>
+      <tr><th>Newer studies</th><td>18 studies</td><td>Small samples and conflicting results, with burden the most common significant carer outcome. Firm conclusions were difficult [[Bakas2022]].</td></tr>
+    </tbody></table></div>
+    <div class="split2">
+      <div class="card"><h4>2026 guideline</h4><p>Engage carers early and throughout (COR 2a, LOE B-R). Teach-back training (2a, B-R). Tailored multicomponent psychosocial intervention after discharge (2a, B-R) [[Richards2026]].</p></div>
+      <div class="card"><span class="tag warn">Controversy</span><h4>Support is recommended, trials are mixed</h4><p>The guideline supports carer engagement at 2a [[Richards2026]], but TRACS and ATTEND were neutral [[Forster2013,ATTEND2017]]. ATTEND's authors did not support new task-shifting services without new evidence, which matters in low-resource settings [[ATTEND2017]].</p></div>
+    </div>
+  </div>
+
+  <div class="aftpanel" id="aftP-young" hidden>
+    <div class="pt"><b>In plain words</b>Researchers have followed young people for years after a stroke. In the FUTURE study about two in three did not have a poor outcome, and about one in three did. Getting back to work takes time, and a good score does not capture everything [[Synhaeve2014,Kwok2025]].</div>
+    <div class="aftchart"><svg id="aftC-young" role="img" aria-label="Bars from the FUTURE study. Poor outcome, mRS over 2, was 16.8% after TIA, 36.5% after ischaemic stroke, and 49.3% after intracerebral haemorrhage."></svg></div>
+    <div class="cards">
+      <div class="card"><h4>More young strokes</h4><p>Average age of onset for ischaemic stroke is decreasing as incidence rises under age 50, with traditional risk factors increasingly important [[Maaijwee2014]].</p></div>
+      <div class="card"><h4>FUTURE: 722 people aged 18 to 50</h4><p>Mean follow-up 9.1 years. Poor outcome 32.0% overall. One of 8 survivors is dependent at 10 years, which also means 7 of 8 are not [[Synhaeve2014]].</p></div>
+      <div class="card"><h4>Long-term survival</h4><p>FUTURE (959 people): 20-year mortality among 30-day survivors 24.9% TIA, 26.8% ischaemic stroke, 13.7% intracerebral haemorrhage. Standardised mortality ratios 2.6, 3.9 and 3.9 versus the general population [[RuttenJacobs2013]].</p></div>
+      <div class="card"><h4>Back to work</h4><p>87.8% reached mRS 0 to 2 at 90 days and 68.8% had returned to work, among 362 people in Singapore. A good mRS does not capture everything [[Kwok2025]].</p></div>
+    </div>
+    <div class="pt"><b>In plain words</b>A second stroke is a real risk for years, so preventing one is lifelong work [[Mohan2011,Maaijwee2014]].</div>
+  </div>
+
+  <div class="aftpanel" id="aftP-preg" hidden>
+    <div class="pt"><b>In plain words</b>In a French study, a past ischaemic stroke did not rule out a later pregnancy, and pregnancies went much as in the general population [[Lamy2000]]. Evidence is limited, so Canadian guidance rests on consensus. This is a topic for your own team.</div>
+    <div class="cards">
+      <div class="card"><b class="big">"Not a contraindication"</b><p>441 French women aged 15 to 40, 187 later pregnancies. Recurrence 1% within 1 year, 2.3% within 5 years. Outcome of pregnancies resembled the general population. "A previous ischemic stroke is not a contraindication" [[Lamy2000]].</p></div>
+      <div class="card"><h4>After the birth</h4><p>In the same study, the risk ratio for recurrence was 9.7 (1.2 to 78.9) post partum, versus 2.2 (0.3 to 17.5) in pregnancy. The intervals are wide [[Lamy2000]].</p></div>
+      <div class="card"><h4>Stroke during pregnancy</h4><p>US pregnancy-related hospitalisations: 16,694 of 37,360,772 (0.045%, 1 in 2222) had acute stroke. In-hospital mortality was 42.1 versus 0.11 per 1000, falling among those with stroke from 5.5% in 2007 to 2.7% in 2015 [[Elgendy2020]].</p></div>
+      <div class="card"><h4>Canadian consensus</h4><p>Decisions rest on what would be done if the woman was not pregnant and if she had not had a stroke, since maternal health is vital for fetal wellbeing. Evidence is limited, hence consensus [[Swartz2018,Ladhani2018]].</p></div>
+    </div>
+  </div>
+
+  <div class="aftpanel" id="aftP-need" hidden>
+    <div class="pt"><b>In plain words</b>In one UK survey about half of people had no unmet needs. Across studies, information is one of the main concerns. If you still have questions, you are in good company [[McKevitt2011,Lin2021]].</div>
+    <div class="aftchart"><svg id="aftC-need" role="img" aria-label="Bars from a UK survey of 1251 people 1 to 5 years after stroke: 51% had no unmet needs. 54% had an unmet need for stroke information, 52% lost work activities, 18% lost income, 31% had higher expenses."></svg></div>
+    <div class="split2">
+      <div class="card"><h4>Across 32 studies</h4><p>15.08% to 97.59% had unmet needs, median 67.20%, 62.14% at 6 months and 81.37% at 2 years. Main concerns: information, physical function, mental health [[Lin2021]].</p></div>
+      <div class="card"><h4>South London, 15 years on</h4><p>Among people surviving 15 years, 87% lived at home. Disability mild 33.8%, moderate 14.3%, severe 15.0%. Cognitive impairment 30.0%, depression 39.1%, anxiety 34.9% [[Crichton2016]].</p></div>
+    </div>
+    <h4>The Post-Stroke Checklist: 11 areas to ask about</h4>
+    <ul class="aftcheck"><li>Secondary prevention</li><li>Daily activities</li><li>Mobility</li><li>Spasticity</li><li>Pain</li><li>Incontinence</li><li>Communication</li><li>Mood</li><li>Cognition</li><li>Life after stroke</li><li>Relationship with caregiver</li></ul>
+    <p class="stage-cap">Source: Philp and colleagues [[Philp2013]].</p>
+    <div class="cards">
+      <div class="card"><h4>Self-management</h4><p>14 trials, 1863 participants: quality of life SMD 0.34 (0.05 to 0.62), self-efficacy SMD 0.33 (0.04 to 0.61), no superior effect on ADL, participation or mood [[Fryer2016]].</p></div>
+      <div class="card"><h4>2026 guideline</h4><p>Community or home rehabilitation (COR 1, LOE A). Discharge planning (2a, B-R). Social health screening (1, B-NR). Community exercise (2a, C-LD) [[Richards2026]].</p></div>
+    </div>
+  </div>
+
+  <h3 class="sub">Moving for life</h3>
+  <div class="cards">
+    <div class="card"><h4>2026 guideline</h4><p>150 to 300 minutes of moderate-intensity activity per week, 3 to 5 days of aerobic and 2 to 3 days of strength and balance training (COR 1, LOE A). A tailored programme (1, A). Behaviour change techniques (2a, B-R) [[Richards2026]].</p></div>
+    <div class="card"><h4>Moving more, sitting less</h4><p>An AHA statement describes low to moderate-intensity aerobic activity, muscle strengthening and less sedentary behaviour, customised for adherence [[Billinger2014]]. In BUST-stroke (19 people), 3-minute breaks every 30 minutes for 8 hours did not change glucose or insulin [[English2018]].</p></div>
+  </div>
+
+  <h3 class="sub">Rehabilitation around the world</h3>
+  <div class="cards">
+    <div class="card"><b class="big">2.41 billion</b><p>people globally had conditions that would benefit from rehabilitation in 2019, up 63% since 1990 [[Cieza2021]].</p></div>
+    <div class="card"><h4>Where services are few</h4><p>Most people with stroke in India have no access to organised rehabilitation [[ATTEND2017]]. A scoping review (25 studies, 11 countries, 16 RCTs) found mostly middle-income settings and one low-income study: 10 RCTs positive, 5 not, and no cost-effectiveness data [[Hardianto2026]].</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Phones and apps</h4><p>mHealth apps (11 trials, 264 people): 6 of 7 studies showed better physical function, most robustly for the arm [[Rintala2023]]. Pilots include WalkWithMe in Benin (9 adults) [[Noukpo2024]] and smartphone-guided electrical stimulation (31 adults) [[Purohit2026]]. Medication adherence with mHealth (10 RCTs, 2151 people): OR 2.81 (1.35 to 5.85) [[Zeng2022]].</p></div>
+  </div>
+
+  <h3 class="sub">Talking about what matters</h3>
+  <div class="split2">
+    <div class="card"><h4>Palliative care is part of stroke care</h4><p>The 2025 AHA statement says palliative care needs "are insufficiently addressed by current models of care" and should be addressed throughout the illness, including communication about prognosis and goals [[Creutzfeldt2025]]. The 2014 statement listed nine expectations, including estimating prognosis, setting goals of care, and bereavement resources [[Holloway2014]].</p></div>
+    <div class="card"><h4>Advance care planning</h4><p>In a Corpus Christi cohort (148 people), 18% had no advance care planning, 44% informal conversations only, 38% formal documents. Both were linked with earlier transition to comfort measures (informal HR 3.55, 1.35 to 9.33; formal HR 2.85, 1.05 to 7.72). Formal documents added no extra association beyond informal talks (HR 0.80, 0.40 to 1.63) [[Lank2021]].</p>
+      <div class="pt"><b>In plain words</b>Talking with family about what matters to you, before you are unwell, can guide later choices [[Lank2021,Creutzfeldt2025]].</div></div>
+  </div>
+
+  <h3 class="sub">Survival and a second stroke: the population curves</h3>
+  <div class="callout prose"><p><b>You can stop here if you prefer.</b> This is the last section, and nothing above depends on it. It shows survival and recurrence across hundreds of thousands of people. Some people want these figures, and some would rather not read them. Both are fine.</p></div>
+  <div class="stepper" id="aftSvSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="aftSvSvg" viewBox="0 0 720 370" style="min-width:560px" role="img" aria-label="Two charts over ten years after stroke. Survival in Australia and New Zealand falls from 79.4% at 3 months to 36.4% at 10 years. Cumulative recurrence rises to 39.2% in a pooled review and 26.8% in Australia and New Zealand."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="aftSvPlay">%t:player.play%</button><label class="stage-cap tl" for="aftSvT">Years <input type="range" id="aftSvT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap"><b>These curves describe whole populations, not you.</b> They count everyone in large registers and studies, whatever their age or the size of their stroke. They cannot say what will happen to any one person. Dots are published, dashed lines between them are schematic.</p>
+    </div>
+    <aside class="note" id="aftSvNote" aria-live="polite"></aside>
+  </div>
+  <div class="cards">
+    <div class="card"><h4>Other long-term cohorts</h4><p>Sweden (22,929 people): 5-year death or dependency 70.6% ischaemic, 79% haemorrhagic [[Sennfalt2019]]. Oxford: 70% dead or disabled at 5 years, 39% of survivors disabled, 19% care-home risk [[LuengoFernandez2013]]. South London: 20% to 30% have poor outcomes up to 10 years [[Wolfe2011]].</p></div>
+    <div class="card"><h4>Measuring outcome</h4><p>Trials use the modified Rankin Scale, 0 (no symptoms) to 6 (death), with 0 to 2 often a favourable outcome at 3 months [[ATTEND2017,Bernhardt2015]]. Inter-rater reliability is moderate and improves with structured interviews (kappa 0.56 versus 0.78) [[Banks2007]].</p></div>
+  </div>
+  <div class="hook"><b>Exam hook</b>Five-year recurrence 26.4% [[Mohan2011]]; 5-year survival 52.8% [[Peng2022]]. Depression about 31% [[Hackett2014]], anxiety about 29% [[Rafsten2018]], fatigue about 48% [[Alghamdi2021]], central pain about 11% [[Liampas2020]], hemiplegic shoulder pain about 29% [[AdeyWakeling2015]].</div>
+</section>

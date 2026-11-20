@@ -1,0 +1,88 @@
+<!-- ================= 2.1 SCREENING: AUDIT, AUDIT-C & BRIEF INTERVENTION ================= -->
+<style>
+#m-screening .scq{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px 18px}
+@media (max-width:700px){#m-screening .scq{grid-template-columns:minmax(0,1fr)}}
+#m-screening .scq label{display:flex;flex-direction:column;gap:5px;font-size:14px;font-weight:700;min-width:0}
+#m-screening .scq label small{font-weight:500;color:var(--muted);font-size:12.5px}
+#m-screening .scq select{font:inherit;font-weight:400;font-size:14px;padding:7px 9px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink);max-width:100%;width:100%}
+#m-screening .scdom{font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--dx);grid-column:1/-1;margin-top:6px}
+#m-screening .scbig{font:800 44px/1 var(--display);color:var(--dx)}
+#m-screening .card>.tag,#m-screening .card>.ev{align-self:flex-start}
+#m-screening .scread{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:baseline}
+#m-screening td b{white-space:nowrap}
+</style>
+<section class="mod" id="m-screening" data-mod="screening" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · Screening &amp; diagnosis</p><h2>Screening: AUDIT, AUDIT-C &amp; brief intervention</h2>
+    <p class="lede">Unhealthy alcohol use is common and easy to miss, so primary care asks everyone. Follow one person through the SBIRT pathway, score a teaching copy of the AUDIT, and see how many people each screening question flags correctly and wrongly.</p></div>
+  <p class="callout"><b>The USPSTF recommendation (2018, grade B).</b> The US Preventive Services Task Force recommends screening for unhealthy alcohol use in primary care in adults 18 years or older, including pregnant women, and providing people engaged in risky or hazardous drinking with brief behavioural counselling. For adolescents aged 12 to 17 it found the evidence insufficient (an I statement). [[USPSTF2018Alcohol]]</p>
+  <div class="stepper" id="scSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="scSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A primary-care screening pathway: a patient token moves from 'everyone is asked' to a pre-screen with the single question or AUDIT-C, then to the full 10-item AUDIT, where the score builds item by item and a needle crosses the four WHO zones; the token lands in a zone whose action lights up: feedback, brief intervention, brief intervention with monitoring, or referral. A lower panel shows the screening gap, the cut-offs, the AUDIT tally, the average effect of brief intervention and the evidence on referral."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="scPlay">Play</button><label class="stage-cap tl" for="scT">Pathway <input type="range" id="scT" min="0" max="1" step="0.001" value="0.06"></label></div>
+      <p class="stage-cap">Schematic pathway for one illustrative person; the scores are made up for teaching. Zones as published by WHO; percentages and effect sizes are population figures from the cited studies. [[Babor2016AUDITZones,McKnightEily2020MMWR,Kaner2018Cochrane,Glass2015Referral]]</p>
+    </div>
+    <aside class="note" id="scNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Try it: score a teaching copy of the AUDIT</h3>
+  <p class="callout"><b>A teaching tool, not a self-test or a diagnosis.</b> Use it to learn how the AUDIT is built and scored, not to interpret your own drinking or anyone else's. A screening score only says “let's talk more”: a score of 20 or more, or any dependence symptom, signals that a diagnostic assessment is needed, not that alcohol use disorder is present. If you are worried about drinking, talk with a health professional. [[HigginsBiddle2018USAUDIT]]</p>
+  <div class="lab">
+    <div class="stage">
+      <p class="kicker">The 10 AUDIT items (stems shortened; answers and points as published) [[Saunders1993AUDIT]]</p>
+      <div class="scq" id="scQ"></div>
+      <div class="ctrls" role="group" aria-label="AUDIT-C cut-off to show"><span class="kicker">AUDIT-C cut-off for</span>
+        <button class="btn" data-scsex="m" aria-pressed="true">Men (≥4)</button>
+        <button class="btn" data-scsex="f" aria-pressed="false">Women (≥3)</button>
+        <button class="btn ghost" id="scReset">Reset</button>
+      </div>
+      <div class="scroll"><svg id="scCalcSvg" viewBox="0 0 720 150" style="min-width:560px" role="img" aria-label="A 0 to 40 bar divided into the four WHO AUDIT zones with a marker at the current total, and below it a 0 to 12 AUDIT-C bar with the chosen sex-specific cut-off."></svg></div>
+    </div>
+    <aside class="note" id="scCalcNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Same 100 people, different questions: true and false positives</h3>
+  <p class="prose">No screen is perfect. Pick a tool and how common the condition is in the group being screened, and watch 100 people sort into true positives, missed cases, false alarms and true negatives. Each tool's sensitivity and specificity come from a different study, population and reference standard, so this is a way to see what the numbers mean, not a ranking. [[OConnor2018JAMA]]</p>
+  <div class="ctrls" role="group" aria-label="Screening tool" id="scTools"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="scIcon" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="An icon array of 100 people. People who have the condition are on the left rows; filled plum icons are true positives, outlined plum icons are missed cases, amber icons are false positives and grey icons are true negatives. Counts and predictive values are shown beside it."></svg></div>
+      <div class="ctrls"><label class="stage-cap tl" for="scPrev">Prevalence in this group <input type="range" id="scPrev" min="0.05" max="0.5" step="0.01" value="0.2"></label></div>
+      <p class="stage-cap">Illustrative prevalence chosen by you; counts are rounded. [[Bradley2007AUDITC,Smith2009JGIM,Dhalla2007CAGE,Knight2002CRAFFT,Burns2010Pregnancy]]</p>
+    </div>
+    <aside class="note" id="scIconNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The brief tools side by side</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Tool</th><th>What it asks</th><th>Positive at</th><th>Accuracy as published</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td><b>AUDIT</b></td><td>10 items: consumption (1–3), dependence symptoms (4–6), harms (7–10); 0–40</td><td>8 or more flags hazardous or harmful use</td><td>In development, 92% of hazardous or harmful drinkers scored ≥8 and 94% of non-hazardous drinkers scored &lt;8 [[Saunders1993AUDIT]]</td><td>First released 1989; assumes a 10 g drink (the US drink is 14 g, hence the USAUDIT, 0–46) [[Babor2016AUDITZones,HigginsBiddle2018USAUDIT]]</td></tr>
+      <tr><td><b>AUDIT-C</b></td><td>The first three AUDIT items; 0–12</td><td>≥4 men, ≥3 women</td><td>Primary care: 0.86 / 0.89 (men), 0.73 / 0.91 (women) [[Bradley2007AUDITC]]</td><td>No significant accuracy difference from the full AUDIT in a 14-study meta-analysis [[Kriston2008AUDITC]]</td></tr>
+      <tr><td><b>Single question (NIAAA)</b></td><td>“How many times in the past year have you had X or more drinks in a day?” X = 5 men, 4 women</td><td>1 or more</td><td>Unhealthy use: 81.8% / 79.3%; current AUD: 87.9% / 66.8% [[Smith2009JGIM]]</td><td>Little affected by demographics [[Smith2009JGIM]]</td></tr>
+      <tr><td><b>CAGE</b></td><td>Cut down, Annoyed by criticism, Guilty, Eye-opener (4 interview questions)</td><td>2 or more</td><td>Pooled sensitivity 0.87 inpatients, 0.71 primary care, 0.60 ambulatory; LR+ 3.44 [[Aertgeerts2004CAGE]]</td><td>Asks about problems, not amounts; poor in women, pregnancy, students and adolescents [[Dhalla2007CAGE,Knight2003ACER]]</td></tr>
+      <tr><td><b>FAST</b></td><td>Four items derived from the AUDIT</td><td>–</td><td>Its first item alone classifies more than half of patients [[Hodgson2002FAST]]</td><td>Built for busy settings [[Hodgson2002FAST]]</td></tr>
+      <tr><td><b>T-ACE (pregnancy)</b></td><td>Tolerance (2 points), Annoyed, Cut down, Eye-opener (1 each)</td><td>2 or more</td><td>Identified 69% of risk drinkers in 971 pregnant women (PPV 23%) [[Sokol1989TACE]]</td><td>Review: T-ACE 69–88%, TWEAK 71–91%, AUDIT-C 95% sensitive for risk drinking [[Burns2010Pregnancy]]</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">Adolescents: CRAFFT and frequency screens</h3>
+  <p class="prose">For people aged 12 to 17 the USPSTF found the evidence insufficient to recommend for or against screening, and brief-intervention trials in this age group gave mixed results. Tools built for adolescents do better than adult problem questions. [[USPSTF2018Alcohol,OConnor2018JAMA]]</p>
+  <div class="split2">
+    <div class="tbl"><table style="min-width:0">
+      <thead><tr><th>Letter</th><th>CRAFFT keyword [[Shenoi2019CRAFFT]]</th></tr></thead>
+      <tbody><tr><td><b>C</b></td><td>Car</td></tr><tr><td><b>R</b></td><td>Relax</td></tr><tr><td><b>A</b></td><td>Alone</td></tr><tr><td><b>F</b></td><td>Forget</td></tr><tr><td><b>F</b></td><td>Friends</td></tr><tr><td><b>T</b></td><td>Trouble</td></tr></tbody></table></div>
+    <div class="cards" style="grid-template-columns:minmax(0,1fr)">
+      <div class="card"><span class="tag dx">CRAFFT ≥2</span><h4>The usual adolescent cut-off</h4><p>In 538 clinic patients aged 14 to 18, a score of 2 or more was optimal: sensitivity 0.76 and specificity 0.94 for any problem, 0.80 and 0.86 for any disorder, 0.92 and 0.80 for dependence. About one in four scored 2 or more, and validity did not differ by age, sex or race. [[Knight2002CRAFFT]]</p></div>
+      <div class="card"><span class="tag dx">Compared</span><h4>CAGE misses most adolescents</h4><p>For adolescent alcohol problems, sensitivities were CRAFFT 0.92, AUDIT 0.88, POSIT 0.84 and CAGE 0.37; CAGE is not recommended in this age group. Frequency screens (S2BI, BSTAD, TAPS) reached AUCs of 0.89 to 1, and S2BI was 100% sensitive for moderate or severe AUD. [[Knight2003ACER,Levy2023Adolescent,Levy2021S2BI]]</p></div>
+    </div>
+  </div>
+
+  <h3 class="sub">What the evidence says, in four cards</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Brief intervention helps on average</h4><p>Across 69 trials, people given a brief intervention (five or fewer sessions, under an hour in total) drank about 20 g a week less after a year (95% CI −28 to −12), from an average of 244 g a week. Longer counselling added little. Both men and women cut down. [[Kaner2018Cochrane]]</p></div>
+    <div class="card"><span class="tag dx">Pregnancy</span><h4>Plan with the care team</h4><p>Screening and counselling in pregnancy are part of the USPSTF B recommendation, and counselling increased reported abstinence (OR 2.26). If you are pregnant or planning a pregnancy, your care team will ask about alcohol as routine, to help you plan. [[USPSTF2018Alcohol,OConnor2018JAMA]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Population-level benefit</h4><p>More than a hundred trials support short-term individual benefit of screening and brief intervention; long-term effects on whole populations have not been demonstrated. No study directly tested a screening programme itself. [[Babor2007SBIRT,OConnor2018JAMA]]</p></div>
+    <div class="card"><span class="tag dx">The gap</span><h4>Most people are never treated</h4><p>Only 19.8% of US adults with lifetime DSM-5 alcohol use disorder had ever been treated. AUD is a treatable medical condition, and stigma plus too little systematic screening keep many people from care. Next: how it is diagnosed, in <a href="#criteria" data-go="criteria">Diagnosis: DSM-5-TR criteria</a>. [[Grant2015NESARC,Carvalho2019Lancet]]</p></div>
+  </div>
+  <p class="callout"><b>Safety.</b> Stopping suddenly after long, heavy daily drinking can be dangerous (seizures, delirium tremens): get medical help to stop safely. Alcohol poisoning is an emergency: call emergency services. See <a href="#withdrawal" data-go="withdrawal">Alcohol withdrawal: the timeline</a>.</p>
+</section>

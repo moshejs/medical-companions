@@ -1,0 +1,76 @@
+<!-- ================= 1.1 WHAT PARKINSON'S IS ================= -->
+<style>
+#m-what .wh-big{font-family:var(--display);font-weight:800;font-size:30px;line-height:1.05;letter-spacing:-.01em}
+#m-what .wh-src{font-size:13px;color:var(--muted)}
+#m-what .card svg{width:100%;height:auto;display:block}
+#m-what .card .ev,#m-what .card .tag{align-self:flex-start}
+</style>
+<section class="mod" id="m-what" data-mod="what" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · The disease</p><h2>What Parkinson's is</h2>
+    <p class="lede">Parkinsonism is a pattern of movement signs, not one disease. Several conditions can cause it, and Parkinson's disease is the most common of them. Press play to build the picture, then see the signs up close and how the odds change with age.</p></div>
+  <div class="stepper" id="whSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="whSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="The definition of parkinsonism is built as a formula, bradykinesia plus rest tremor or rigidity, with postural instability greyed out as not required. Below, an umbrella region holds the causes of parkinsonism, with Parkinson's disease the largest, beside a grid of 100 squares showing the shares of new parkinsonism cases in Olmsted County, and a bar showing that 76 of 100 brains diagnosed with Parkinson's in life had Lewy bodies."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="whPlay">Play</button><label class="stage-cap tl" for="whT">Timeline <input type="range" id="whT" min="0" max="1" step="0.002" value="0.1"></label></div>
+      <p class="stage-cap">Schematic. Circle sizes in the umbrella are not to scale; the grid of 100 squares and the bar are. The small traces illustrate the definitions; they are not recordings.</p></div>
+    <aside class="note" id="whNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The signs, up close</h3>
+  <p class="prose">A clinician looks for these signs on examination. Pick one to see what the definition means in movement.</p>
+  <div class="ctrls" role="group" aria-label="Which motor sign to show" id="whSignBtns">
+    <span class="kicker">Sign</span>
+    <button class="btn" data-whs="0" aria-pressed="true">Bradykinesia</button>
+    <button class="btn" data-whs="1" aria-pressed="false">Rest tremor</button>
+    <button class="btn" data-whs="2" aria-pressed="false">Rigidity</button>
+    <button class="btn" data-whs="3" aria-pressed="false">Postural instability</button>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="whSign" viewBox="0 0 720 270" style="min-width:560px" role="img" aria-label="Finger tapping that gets slower and smaller with each tap, drawn beside a trace of tap size that shrinks over time compared with a steady typical trace."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="whSignPlay">Play</button><label class="stage-cap tl" for="whSignT">Time <input type="range" id="whSignT" min="0" max="1" step="0.002" value="0.7"></label></div>
+      <p class="stage-cap">Schematic. The movements and traces illustrate the published definitions; they are not patient recordings.</p></div>
+    <aside class="note" id="whSignNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Who it affects: age and sex</h3>
+  <div class="ctrls" role="group" aria-label="How to show the incidence by sex">
+    <span class="kicker">Show</span>
+    <button class="btn" id="whSexSplit" aria-pressed="true">Men and women</button>
+    <button class="btn" id="whSexBoth" aria-pressed="false">Both sexes combined</button>
+  </div>
+  <div class="stepper" id="whAgeSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="whAge" viewBox="0 0 720 360" style="min-width:560px" role="img" aria-label="Bars of new Parkinson's cases per 100,000 people a year by age band in Olmsted County, Minnesota, for men and women, filling in as an age marker moves from 30 to 99: almost none under 40, rising steeply after 60, and about twice as high in men as in women."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="whAgePlay">Play</button><label class="stage-cap tl" for="whAgeT">Age <input type="range" id="whAgeT" min="0" max="1" step="0.002" value="0.7"></label></div>
+      <p class="stage-cap" id="whAgeCap">New cases of Parkinson's disease per 100,000 person-years, Olmsted County, Minnesota, 1976 to 2005 (Savica 2016). Each bar spans its age band.</p></div>
+    <aside class="note" id="whAgeNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The numbers, and where sources disagree</h3>
+  <p class="prose">Counts depend on the year, the method and the population. Each card names its source so the figures can be compared fairly.</p>
+  <div class="cards">
+    <div class="card"><span class="kicker">Worldwide, now</span><p class="wh-big">Over 8.5 million</p>
+      <p>people had Parkinson's disease in 2019, according to the WHO fact sheet. Prevalence has doubled in the past 25 years. In 2019 it caused 5.8 million disability-adjusted life years, up 81% since 2000, and 329,000 deaths, up more than 100%. [[WHO2023PD]]</p>
+      <p class="wh-src">WHO fact sheet dated 9 August 2023.</p></div>
+    <div class="card"><span class="kicker">Worldwide, 1990 to 2016</span><p class="wh-big">2.5 → 6.1 million</p>
+      <p>The Global Burden of Disease study counted 6.1 million people with Parkinson's in 2016 (95% UI 5.0 to 7.3), against 2.5 million in 1990. Age-standardised prevalence still rose by 21.7%, so the increase is not explained by ageing alone. Parkinson's caused 211,296 deaths in 2016. [[GBD2018PD]]</p>
+      <p>The authors attribute the rise mainly to more older people, with possible contributions from longer disease duration and environmental factors. [[GBD2018PD]]</p></div>
+    <div class="card"><span class="kicker">Forecasts</span><p class="wh-big">12 or 25 million?</p>
+      <svg id="whProj" viewBox="0 0 300 150" role="img" aria-label="Bars of the number of people with Parkinson's worldwide: 2.5 million in 1990 and 6.1 million in 2016 from GBD 2016, over 8.5 million in 2019 from WHO, more than 12 million projected for 2040 by Dorsey 2018, and 25.2 million projected for 2050 by Su 2025."></svg>
+      <p>Dorsey and colleagues call Parkinson's "the fastest growing neurological disorder in the world" and project a rise from over 6 million in 2015 to over 12 million by 2040, or above 17 million with longer lifespans, less smoking and industrialisation. [[Dorsey2018]] A 2025 GBD 2021 model projects 25.2 million in 2050 (95% UI 21.7 to 30.1), a 112% increase from 2021: 89% of the growth from ageing, 20% from population growth and 3% from changing prevalence. [[Su2025]]</p>
+      <p><span class="ev early">Sources differ</span> The projections use different GBD rounds, base years and assumptions. Both name ageing as the main driver. [[Dorsey2018,Su2025]]</p></div>
+    <div class="card"><span class="kicker">North America</span><p class="wh-big">About 680,000</p>
+      <p>people with Parkinson's in the US in 2010, from a prevalence of 572 per 100,000 among people aged 45 and over. The model projected about 930,000 in 2020 and 1,238,000 in 2030; the authors call these minimum estimates. [[Marras2018]]</p>
+      <p>Across five North American data sources in 2012, yearly incidence at 65 and over ranged from 108 to 212 per 100,000. [[Willis2022]] In Kaiser Permanente data, adjusted incidence was 16.6 per 100,000 in Hispanic, 13.6 in non-Hispanic White, 11.3 in Asian and 10.2 in Black members. [[VanDenEeden2003]]</p></div>
+    <div class="card"><span class="kicker">Israel</span><p class="wh-big">1%, 2%, 3%</p>
+      <p>of people aged 50, 60 and 70 and over had Parkinson's in a drug-tracer study of an Israeli health maintenance organisation covering about a quarter of the population (1998 to 2008). Incidence was stable at about 33 per 100,000 a year; prevalence rose from 170 to 256 per 100,000; the mean age at the first anti-parkinsonian prescription was 69. Men aged 50 and over had higher prevalence (RR 1.38) and incidence (RR 1.45). [[ChillagTalmor2011]]</p>
+      <p><span class="ev early">Against the trend</span> In the Clalit registry (2002 to 2021), age-adjusted incidence fell from 57 to 20.3 per 100,000, faster in women than in men. The authors suggest better diagnosis and better health and environmental conditions. Elsewhere, incidence in men rose over 30 years in Olmsted County. [[Balash2026,Savica2016]]</p></div>
+    <div class="card"><span class="kicker">Men and women</span><p class="wh-big">About 1.4 to 1</p>
+      <p>The GBD male to female ratio of age-standardised prevalence was 1.40 in 2016 and 1.37 in 1990. [[GBD2018PD]] It is projected to rise from 1.46 in 2021 to 1.64 in 2050. [[Su2025]]</p>
+      <p>For new cases the gap is wider. Men to women incidence rate ratios at 65 and over were 1.66 (Ontario), 1.69 (Medicare), 1.77 (Kaiser) and 2.57 (Rochester) in 2012. [[Willis2022]] A meta-analysis found higher incidence in men in every age group, significant at 60 to 79. [[Hirsch2016]]</p></div>
+    <div class="card"><span class="kicker">Early onset</span><p class="wh-big">21 to 50</p>
+      <p>The MDS task force recommends "early-onset" rather than "young-onset" Parkinson's, partly to avoid age-related stigma, and defines it as onset after 21 and before 50. Onset before 21 is conventionally called juvenile parkinsonism. Published cutoffs have ranged from 40 to 60. [[Mehanna2022]]</p>
+      <p>Only 4% of Kaiser Permanente cases began before 50. [[VanDenEeden2003]] Genes matter more at younger onset: see <a href="#genes" data-go="genes">Genes and inheritance</a>.</p></div>
+  </div>
+  <div class="hook"><b>Exam hook</b>Parkinsonism = bradykinesia plus rest tremor and/or rigidity (MDS 2015); postural instability is not part of the core definition. Parkinson's disease was 42% of new parkinsonism in Olmsted County, with drug-induced parkinsonism second at 20%. [[Postuma2015,Bower1999]]</div>
+</section>

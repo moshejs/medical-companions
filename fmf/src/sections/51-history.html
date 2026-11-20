@@ -1,0 +1,32 @@
+<!-- ================= 5.1 HISTORY & PEOPLE ================= -->
+<section class="mod" id="m-history" data-mod="history" hidden>
+<style>
+#m-history .hi-chips button.tag{border:0;cursor:pointer;font-size:11.5px;padding:7px 10px;white-space:normal;text-align:left;line-height:1.25}
+#m-history .hi-chips button.tag:hover{background:var(--sea-soft);color:var(--sea)}
+#m-history .hi-chips button.tag small{font:inherit;opacity:.7;margin-left:4px}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 5 · Context &amp; review</p><h2>History &amp; people</h2>
+    <p class="lede">A disease first sketched in 1908, named in 1958, made treatable in 1972 and explained at the molecular level only after 2014. Press play to run the playhead from 1900 to today, or jump between eras. The scene above the timeline redraws itself as each era arrives.</p></div>
+  <div class="stepper" id="hiSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="hiSvg" viewBox="0 0 720 672" style="min-width:500px" role="img" aria-label="Timeline of FMF history from 1900 to 2025 in five lanes, with a scene of each era above it"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="hiPlay">Play</button><label class="stage-cap tl" for="hiT">Year <input type="range" id="hiT" min="0" max="1" step="0.001" value="0.03"></label></div>
+      <div class="readout" id="hiRead"></div>
+      <p class="stage-cap">The scene is a drawing of what changed in each era; every caption in it repeats a milestone below, with that milestone's sources in the note panel. The axis is stretched after 1940 and again after 1990 so crowded recent decades stay readable. The outlook band is qualitative.</p></div>
+    <aside class="note" id="hiNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Names it has carried</h3>
+  <div class="prose"><p>Before 1958 the same illness went by many names, often after the doctors who described it or the people who had it. Click a dated name to jump the timeline. [[Adwan2015]]</p></div>
+  <h3 class="sub">Every milestone</h3>
+  <p class="prose">The dots on the timeline are also listed here, so they can be reached with the keyboard and read in order.</p>
+  <div class="chips" id="hiYears" role="group" aria-label="Jump to a milestone"></div>
+  <h3 class="sub">What it was called</h3>
+  <div class="chips hi-chips" id="hiChips"></div>
+
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Five dates: <b>1945</b> Siegal, "benign paroxysmal peritonitis" · <b>1958</b> named FMF at Tel Hashomer (Heller, Sohar, Sherf) · <b>1972</b> colchicine (Goldfinger) · <b>1997</b> <i>MEFV</i> cloned, protein named pyrin and marenostrin · <b>2016</b> RhoA–PKN–14-3-3 keeps pyrin switched off. [[Siegal1945,Heller1958,Goldfinger1972,IntFMF1997,FrenchFMF1997,Park2016]]</div>
+    <div class="pt"><b>In plain words</b>For half a century doctors could describe FMF but not stop it, and many patients died of kidney failure from amyloidosis. A daily pill, colchicine, changed that in the 1970s. The gene was found in 1997, and only in the last decade did scientists work out what the protein actually senses.</div>
+  </div>
+  <div class="cards" id="hiCards"></div>
+</section>

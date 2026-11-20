@@ -1,0 +1,151 @@
+<!-- ================= 4.1 APPROVED MEDICINES: NALTREXONE, ACAMPROSATE, DISULFIRAM ================= -->
+<style>
+#m-medicines .meTog{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-medicines .meTog .kicker{margin-right:4px}
+#m-medicines .card>.tag,#m-medicines .card>.ev{align-self:flex-start}
+#m-medicines .tbl table{min-width:780px}
+#m-medicines td small{display:block;color:var(--muted);font-size:12.5px;margin-top:4px}
+#m-medicines tr.hl td,#m-medicines tr.hl th{background:var(--rx-soft)}
+#m-medicines tbody th{width:150px}
+#m-medicines .meRow{display:flex;flex-wrap:wrap;gap:6px}
+#m-medicines .lab.even>.stage{justify-content:flex-start}
+#m-medicines svg[data-mode="n"] .t-xs{font-size:11px}
+#m-medicines svg[data-mode="n"] .t-sm{font-size:12px}
+#m-medicines svg[data-mode="n"] .meSc .t-xs{font-size:11.5px}
+</style>
+<section class="mod" id="m-medicines" data-mod="medicines" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Treatment &amp; recovery</p><h2>Approved medicines: naltrexone, acamprosate, disulfiram</h2>
+    <p class="lede">Alcohol use disorder is a treatable medical condition, and the US FDA has approved four medicines for it: oral naltrexone, injectable naltrexone, acamprosate and disulfiram. Each works in a different way. Watch how, see how much each helps in the trials, and read what the labels say. [[KranzlerSoyka2018]]</p></div>
+
+  <p class="safety"><b>Read this first</b>Every dose on this page is quoted as published in the named US label or trial. None of it is an instruction: a clinician starts and adjusts these medicines as part of a care plan. If a person drinks heavily every day, stopping suddenly can be dangerous, so get medical help to stop safely. Mixing alcohol with opioids, benzodiazepines or other sedatives is dangerous. [[FDA-Antabuse,FDA-Campral,FDA-Naltrexone]]</p>
+
+  <div class="stepper" id="meSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="meSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Three schematic scenes, one per medicine. Naltrexone: after a drink, endorphins fall onto mu-opioid receptors and a dopamine reward bar rises; naltrexone molecules then sit in the receptors, endorphins bounce off and the reward bar falls. Acamprosate: after long heavy drinking stops, an over-excited synapse sparks and a balance tips toward glutamate; acamprosate is thought to bring it back level. Disulfiram: the second enzyme in alcohol breakdown is crossed out, acetaldehyde fills a tank and reaction signs appear one by one. A side panel gives each medicine's first US approval and label points."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="mePlay">Play</button><label class="stage-cap tl" for="meT">Medicine <input type="range" id="meT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <p class="stage-cap">Schematic, not to scale: molecule counts, bars and the tank level illustrate direction, not measured amounts. The acamprosate mechanism is a hypothesis. [[FDA-Naltrexone,FDA-Campral,FDA-Antabuse,Mitchell2012]]</p>
+    </div>
+    <aside class="note" id="meNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How much do they help? Numbers needed to treat</h3>
+  <p class="prose">The number needed to treat (NNT) is how many people need to take a medicine, rather than a placebo, for one more person to avoid an outcome. The two big US evidence reviews pooled outpatient trials of acamprosate and oral naltrexone. Pick a review and an outcome. These are averages across trial populations, not a forecast for any one person. [[Jonas2014JAMA,McPheeters2023JAMA]]</p>
+  <div class="meTog" role="group" aria-label="Evidence review"><span class="kicker">Review</span>
+    <button class="btn" data-mesrc="j" aria-pressed="true">Jonas 2014</button>
+    <button class="btn" data-mesrc="m" aria-pressed="false">McPheeters 2023</button>
+  </div>
+  <div class="meTog" role="group" aria-label="Outcome"><span class="kicker">Outcome prevented</span>
+    <button class="btn" data-meout="any" aria-pressed="true">Return to any drinking</button>
+    <button class="btn" data-meout="heavy" aria-pressed="false">Return to heavy drinking</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="meNntSvg" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Two grids of 100 people, one for acamprosate and one for oral naltrexone 50 mg a day. In each grid the people who avoided the chosen outcome because of the medicine, rather than placebo, are coloured, with the number needed to treat and its 95% confidence interval above."></svg></div>
+      <p class="stage-cap">Coloured figures ≈ 100 ÷ NNT, rounded. Ranges are 95% confidence intervals as published. [[Jonas2014JAMA,McPheeters2023JAMA]]</p>
+    </div>
+    <aside class="note" id="meNntNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Which medicine might a clinician consider when…</h3>
+  <p class="callout">The American Psychiatric Association's 2018 guideline, as quoted in reviews, recommends that naltrexone, acamprosate and disulfiram be offered to patients with moderate to severe AUD. The 2023 US evidence review concluded that, with psychosocial support, oral naltrexone 50 mg/day and acamprosate are supported as first-line medicines. Jonas 2014 suggested choosing between them by dosing frequency, possible adverse events and availability. The table quotes the labels and guidelines; it is not a guide to choosing your own treatment. [[Reus2018APA,KranzlerSoyka2018,McPheeters2023JAMA,Jonas2014JAMA]]</p>
+  <div class="meTog" role="group" aria-label="Highlight a situation"><span class="kicker">Highlight</span>
+    <button class="btn" data-mesit="liver" aria-pressed="false">Liver disease</button>
+    <button class="btn" data-mesit="kidney" aria-pressed="false">Kidney disease</button>
+    <button class="btn" data-mesit="opioid" aria-pressed="false">Opioid use</button>
+    <button class="btn" data-mesit="abst" aria-pressed="false">Goal: abstinence</button>
+    <button class="btn" data-mesit="reduce" aria-pressed="false">Goal: cutting down</button>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Situation</th><th>Naltrexone (oral or injection)</th><th>Acamprosate</th><th>Disulfiram</th></tr></thead>
+    <tbody>
+      <tr data-sit="liver"><th>Liver disease</th>
+        <td>The ACG 2024 guideline says either form may be used in early alcohol-associated liver disease and compensated cirrhosis, and should be avoided in decompensated cirrhosis or liver failure. In a VA cohort of 3,285 people with cirrhosis, no case was classed as possible or probable drug-induced liver injury. [[Jophlin2024ACG,Thompson2024JHEP]]<small>The label describes hepatitis and liver dysfunction, often with other causes present. [[FDA-Naltrexone]]</small></td>
+        <td>Not metabolised by the liver; it is excreted unchanged by the kidneys. A retrospective analysis suggests it is safe in cirrhosis (ACG). [[FDA-Campral,Jophlin2024ACG]]</td>
+        <td>The ACG guideline states it is contraindicated in liver disease of any spectrum, because it is entirely metabolised by the liver and hepatotoxic. [[Jophlin2024ACG]]<small>Label: hepatitis, including fulminant hepatitis and liver failure, has been reported; baseline and 10–14-day liver tests are suggested. [[FDA-Antabuse]]</small></td></tr>
+      <tr data-sit="kidney"><th>Kidney disease</th>
+        <td>ACG: use with caution in kidney disease. [[Jophlin2024ACG]]</td>
+        <td>Label: in moderate renal impairment (creatinine clearance 30–50 mL/min) the starting dose is one 333 mg tablet three times daily; contraindicated at ≤30 mL/min. Peak levels were about 2-fold (moderate) and 4-fold (severe) higher. [[FDA-Campral]]</td>
+        <td>No kidney-specific point in the sources used for this guide.</td></tr>
+      <tr data-sit="opioid"><th>Opioid use, including methadone or buprenorphine</th>
+        <td>Label contraindications: current opioid analgesics, current opioid dependence (including methadone or buprenorphine maintenance) and acute opioid withdrawal. An opioid-free interval of at least 7–10 days is advised first. After stopping or a missed dose, a smaller opioid dose than before can cause a fatal overdose. [[FDA-Naltrexone,FDA-Vivitrol]]</td>
+        <td>No opioid point in the sources used for this guide.</td>
+        <td>No opioid point in the sources used for this guide.</td></tr>
+      <tr data-sit="abst"><th>Goal: abstinence</th>
+        <td>Injection label: for people "able to abstain from alcohol in an outpatient setting prior to initiation". Requiring abstinence before naltrexone started was linked to larger effects. [[FDA-Vivitrol,Maisel2013]]</td>
+        <td>Label indication: "maintenance of abstinence from alcohol in patients with alcohol dependence who are abstinent at treatment initiation". A 64-trial meta-analysis found a larger effect than naltrexone on keeping abstinence. [[FDA-Campral,Maisel2013]]</td>
+        <td>Label: never until the person has abstained for at least 12 hours. Open-label and supervised trials show benefit; blinded trials do not. [[FDA-Antabuse,Skinner2014Disulfiram]]</td></tr>
+      <tr data-sit="reduce"><th>Goal: cutting down heavy drinking</th>
+        <td>Cochrane: lowered the risk of heavy drinking to 83% of the placebo risk (RR 0.83). Larger effect than acamprosate on heavy drinking and craving. The injection trial enrolled actively drinking adults. [[Rosner2010Naltrexone,Maisel2013,Garbutt2005JAMA]]</td>
+        <td>Cochrane: did not significantly reduce heavy drinking. [[Rosner2010Acamprosate]]</td>
+        <td>Even small amounts of alcohol can trigger a reaction: the label says mild reactions can start at a blood alcohol of 5–10 mg/100 mL. [[FDA-Antabuse]]</td></tr>
+      <tr data-sit="dose"><th>How it is taken (label)</th>
+        <td>Oral: "A dose of 50 mg once daily is recommended for most patients". Injection: 380 mg deep intramuscular gluteal every 4 weeks or once a month, given by a healthcare provider. [[FDA-Naltrexone,FDA-Vivitrol]]</td>
+        <td>Two 333 mg tablets (666 mg) three times daily, started "as soon as possible after the period of alcohol withdrawal" and "maintained if the patient relapses". [[FDA-Campral]]</td>
+        <td>Up to 500 mg once daily for 1–2 weeks, then an average maintenance dose of 250 mg daily (range 125–500 mg). Supervised ingestion was linked to a clearly better outcome. [[FDA-Antabuse,KranzlerSoyka2018]]</td></tr>
+      <tr data-sit="preg"><th>Pregnancy or planning one</th>
+        <td colspan="3">The oral naltrexone label says to use it only if the potential benefit justifies the potential risk; there are no adequate human studies. If you are pregnant or planning a pregnancy, plan medicine choices with your care team. [[FDA-Naltrexone,FDA-Campral]] See also <a href="#" data-go="pregnancy">Pregnancy and FASD</a>.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap" id="meSitNote" aria-live="polite">Pick a situation to highlight its row.</p>
+
+  <h3 class="sub">COMBINE: what happened when the medicines met talking therapy</h3>
+  <div class="lab even">
+    <div class="stage">
+      <div class="scroll"><svg id="meCombSvg" viewBox="0 0 720 250" style="min-width:0" role="img" aria-label="Horizontal bars of percent days abstinent during 16 weeks of treatment in the COMBINE trial: CBI alone without pills or medical management 66.6, placebo pills with medical management 75.1, naltrexone plus CBI plus medical management 77.1, CBI plus medical management plus placebo 79.2, naltrexone plus medical management 80.6."></svg></div>
+      <p class="stage-cap">Percent days abstinent during treatment, as published. MM = medical management (meetings with a health professional); CBI = combined behavioural intervention. [[Anton2006COMBINE]]</p>
+    </div>
+    <div class="card"><span class="tag rx">COMBINE · JAMA 2006</span><h4>1,383 people, 11 US sites, 16 weeks</h4>
+      <p>Recently abstinent people with alcohol dependence received naltrexone 100 mg/day, acamprosate 3 g/day, both or placebos, all with medical management, with or without CBI. [[Anton2006COMBINE]]</p>
+      <ul>
+        <li>Naltrexone reduced the risk of a heavy drinking day (HR 0.72, 97.5% CI 0.53–0.98), most clearly with medical management alone.</li>
+        <li>Acamprosate showed no significant effect, alone or combined.</li>
+        <li>No combination beat naltrexone or CBI alone when medical management was given.</li>
+        <li>Placebo pills plus meetings with a health professional helped beyond CBI alone, which gave the lowest result (66.6).</li>
+        <li>One year later the differences were similar but no longer significant. [[Anton2006COMBINE]]</li>
+      </ul>
+      <p>Why acamprosate worked in European trials but not in COMBINE or the first US trial is unresolved; prior inpatient detoxification and the person's own goal of abstinence are among the explanations. [[Mann2004Acamprosate,Mason2006Acamprosate,Maisel2013]]</p>
+    </div>
+  </div>
+
+  <h3 class="sub">The trials and the side effects</h3>
+  <div class="cards">
+    <div class="card"><span class="tag rx">Oral naltrexone</span><h4>Less heavy drinking</h4>
+      <p>First trial (70 men, 12 weeks): 23% on naltrexone 50 mg/day met relapse criteria vs 54.3% on placebo. A Cochrane review of 50 trials (7,793 people) found the risk of heavy drinking fell to 83% of the placebo risk; the effect on any drinking just missed significance (RR 0.96, 0.92–1.00). [[Volpicelli1992,Rosner2010Naltrexone]]</p>
+      <p>Side effects were mainly nausea and daytime sleepiness. One extra person stopped a trial because of side effects for every 48 treated. [[Rosner2010Naltrexone,Jonas2014JAMA]]</p></div>
+    <div class="card"><span class="tag rx">Injectable naltrexone</span><h4>A monthly injection</h4>
+      <p>In the pivotal 6-month trial (624 actively drinking adults), 380 mg gave a 25% fall in the rate of heavy drinking days vs placebo. Effects were larger in men and in people abstinent during the lead-in. [[Garbutt2005JAMA]]</p>
+      <p>Label: nausea 33% vs 11%; any injection-site reaction 69% vs 50%. Some reactions were severe (abscess or necrosis, a few needing surgery), so a worsening lump or skin change should be checked. Opioid blockade lasts about 28 days. [[FDA-Vivitrol]]</p></div>
+    <div class="card"><span class="tag rx">Acamprosate</span><h4>Staying stopped</h4>
+      <p>Mann 2004 (17 trials, 4,087 people): continuous abstinence at 6 months 36.1% vs 23.4% on placebo. Cochrane (24 trials): lower risk of any drinking (RR 0.86) and about 11 more abstinent days. [[Mann2004Acamprosate,Rosner2010Acamprosate]]</p>
+      <p>Diarrhoea is the side effect that stands out (24.9% vs 13.9%). The first US multicentre trial was negative in its planned analysis. [[KranzlerSoyka2018,Mason2006Acamprosate]]</p></div>
+    <div class="card"><span class="tag rx">Disulfiram</span><h4>A deterrent that needs consent</h4>
+      <p>A meta-analysis of 22 trials found benefit only in open-label trials (g = 0.70); blinded trials showed no efficacy. Supervised ingestion did clearly better (g = 0.82) than unsupervised (g = 0.26). The VA trial of 605 men found no gain in total abstinence. [[Skinner2014Disulfiram,KranzlerSoyka2018,Fuller1986VA]]</p>
+      <p>Supporters argue that blinding cancels the deterrent that is the point of the medicine. The label's old supervised test reaction "has been largely abandoned". [[FDA-Antabuse]]</p></div>
+    <div class="card"><span class="tag rx">Combining</span><h4>Naltrexone with disulfiram?</h4>
+      <p>The naltrexone label calls this combination of two potentially liver-toxic medicines of unknown safety and efficacy, "not ordinarily recommended unless the probable benefits outweigh the known risks". [[FDA-Naltrexone]]</p>
+      <p>Gene tests to pick a medicine are not supported by current evidence. [[KranzlerSoyka2018,Fairbanks2020Mayo]]</p></div>
+  </div>
+
+  <h3 class="sub">Underused: few people are offered them</h3>
+  <div class="lab even">
+    <div class="stage">
+      <div class="scroll"><svg id="meUseSvg" viewBox="0 0 720 200" style="min-width:0" role="img" aria-label="One hundred figures, of whom fewer than nine are coloured: AUD medicines reach fewer than 9% of the people likely to benefit."></svg></div>
+      <p class="stage-cap">Schematic of a published proportion. [[KranzlerSoyka2018,Fairbanks2020Mayo]]</p>
+    </div>
+    <div class="prose">
+      <p>AUD medicines are prescribed to fewer than 9% of the people likely to benefit, and people with AUD most often receive counselling alone. [[KranzlerSoyka2018]] US retail prescriptions rose from 393,000 in 2003 to an estimated 720,000 in 2007, while buprenorphine for opioid use disorder reached 1.9 million in 2007. [[Mark2009]]</p>
+      <p>A Lancet seminar links undertreatment partly to stigma and partly to too little systematic screening in primary care. People with alcohol-associated liver disease are rarely treated for their AUD. [[Carvalho2019Lancet,Jophlin2024ACG]]</p>
+      <div class="pt"><b>In plain words</b>Very few people with AUD are offered these medicines. It is fine to ask a doctor or nurse about them. [[KranzlerSoyka2018]]</div>
+      <p>More options: <a href="#" data-go="offlabel">other medicines</a>, <a href="#" data-go="therapy">talking therapies</a>, <a href="#" data-go="liver">the liver</a>, <a href="#" data-go="detox">managing withdrawal safely</a>.</p>
+    </div>
+  </div>
+
+  <h3 class="sub">Timeline of US approvals</h3>
+  <div class="stage">
+    <div class="scroll"><svg id="meTlSvg" viewBox="0 0 720 190" style="min-width:560px" role="img" aria-label="A timeline from 1945 to 2020: Antabuse 1951, ReVia 1984, ReVia efficacy supplement 1994, Campral 2004, Vivitrol 2006, and removal of naltrexone's hepatotoxicity boxed warning in 2013."></svg></div>
+    <p class="stage-cap">Dates from Drugs@FDA records; one review dates disulfiram's first approval to 1949, before the earliest record. [[DrugsFDA-AUD,KranzlerSoyka2018,Thompson2024JHEP]]</p>
+  </div>
+
+  <p class="crisis" role="note"><b>Need help now?</b><span>If you or someone else may have alcohol poisoning or severe withdrawal (seizure, confusion, hallucinations), call emergency services. For help with drinking in the US, SAMHSA's National Helpline is free and confidential: 1-800-662-4357. If you are in crisis or thinking about suicide, contact a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123).</span></p>
+</section>

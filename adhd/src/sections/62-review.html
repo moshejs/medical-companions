@@ -1,0 +1,66 @@
+<!-- ================= 6.2 FLASHCARDS & MNEMONICS ================= -->
+<section class="mod" id="m-review" data-mod="review" hidden>
+<style>
+#m-review .rv-lab{margin-top:14px}
+#m-review .mn .card p{margin:6px 0 0}
+#m-review .mn .card .tag{align-self:flex-start}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Flashcards &amp; mnemonics</h2>
+    <p class="lede">Flashcards on ADHD, from twin heritability, the inverted-U and how stimulants act at the synapse to DSM-5-TR thresholds, the MTA study, NICE monitoring and the transition to adult care. Tap a card or press Space to flip it; arrow keys move through the deck. Filter by part, or shuffle.</p></div>
+  <div class="ctrls" id="fcFilter"></div>
+  <div class="fc-wrap"><div class="fc" id="fc" tabindex="0" role="button" aria-label="%t:cards.label%">
+    <div class="face front"><small id="fcTagF"></small><p id="fcFront"></p></div>
+    <div class="face back"><small id="fcTagB"></small><p id="fcBack"></p></div>
+  </div></div>
+  <div class="ctrls"><button class="btn" id="fcPrev">%t:nav.prev%</button><button class="btn primary" id="fcFlip">%t:cards.flip%</button><button class="btn" id="fcNext">%t:nav.next%</button><button class="btn ghost" id="fcShuf">%t:cards.shuffle%</button><span class="stage-cap" id="fcCount"></span></div>
+  <div class="bar"><i id="fcBar"></i></div>
+  <h3 class="sub">%t:cards.mnemonics%</h3>
+  <div class="prose"><p>Cards tagged <b>well known</b> would be mnemonics in common use; every card here is tagged <b>memory aid</b> because each was written for this guide to hold a published fact in mind. Doses, criteria and monitoring intervals are quoted as published, not as instructions, and none of them replaces the source.</p></div>
+  <div class="mn" id="mnList"></div>
+  <h3 class="sub">Mnemonic in motion: 9 + 9, then 6 or 5; 12 · 2 · 6</h3>
+  <p class="prose">Play the scene to watch one illustrative person meet the DSM-5-TR criteria one number at a time: the two lists of nine symptoms, the threshold that drops from 6 to 5 at age 17, onset before 12, symptoms in two settings, and finally impairment and the presentation. It is a memory aid for the criteria, not a self-test; the <a href="#criteria" data-go="criteria">criteria calculator</a> and <a href="#scales" data-go="scales">rating scales</a> modules go further.</p>
+  <div class="stepper" id="rvSteps"></div>
+  <div class="lab rv-lab">
+    <div class="stage"><div class="scroll"><svg id="rvSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Animated DSM-5-TR checklist: two lists of nine inattentive and nine hyperactive-impulsive symptoms light up for an illustrative 9-year-old, the symptom threshold drops from 6 to 5 as the person passes age 17 while one hyperactive symptom fades, a timeline marks symptoms before age 12, home and school settings are ticked, and five badges for 18 symptoms, threshold, onset, settings and impairment turn green, ending with a combined presentation"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="rvPlay">Play</button><label class="stage-cap tl" for="rvT">Age and criteria <input type="range" id="rvT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap">Illustrative person, not a real case. Filled circles are symptoms present; the black line on each bar is the threshold. [[APA2022DSM,Epstein2013]]</p></div>
+    <aside class="note" id="rvNote" aria-live="polite"></aside>
+  </div>
+</section>
+
+<!-- ================= 6.3 QUIZ ================= -->
+<section class="mod" id="m-quiz" data-mod="quiz" hidden>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Quiz</h2>
+    <p class="lede">Multiple-choice questions on ADHD with cited explanations: prevalence and heritability, brain imaging and catecholamines, DSM-5-TR criteria and screeners, stimulants and non-stimulants, parent training and the MTA, outcomes, nursing monitoring and history. The mixed quiz draws 20 at random; or choose a part.</p></div>
+  <div class="ctrls" id="qFilter"></div>
+  <div class="bar"><i id="qBar"></i></div>
+  <div class="qcard" id="qCard" aria-live="polite"></div>
+</section>
+
+<!-- ================= 6.4 GLOSSARY ================= -->
+<section class="mod" id="m-glossary" data-mod="glossary" hidden>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Glossary</h2>
+    <p class="lede">A searchable glossary of ADHD terms, from alpha-2A receptors and delay discounting to Criterion C, positive predictive value, the MTA, drug holidays and reasonable adjustments. Type to filter; the arrow on each entry jumps to the module where the term matters most.</p></div>
+  <input class="search" id="glSearch" type="search" placeholder="Search terms, e.g. DAT, PPV, MTA" aria-label="%t:glossary.search%">
+  <p class="stage-cap" id="glCount"></p>
+  <div class="gloss" id="glList"></div>
+</section>
+
+<!-- ================= 6.5 SOURCES ================= -->
+<section class="mod" id="m-sources" data-mod="sources" hidden>
+<style>
+#m-sources .srcs .tag.good{text-transform:none;letter-spacing:.02em}
+#m-sources #srcStats{margin:8px 0 0}
+#m-sources .srcs .tag{white-space:normal;max-width:100%;text-align:left}
+#m-sources #srcFilter .btn{white-space:normal;text-align:left;max-width:100%}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Sources</h2>
+    <p class="lede">Every reference behind the ADHD Companion: journal articles, guidelines, drug labels, trial registrations and regulator pages. The small numbers throughout the app point here; filter by research area or search.</p></div>
+  <div class="callout prose"><p>Eight research passes ran in parallel, one per area: epidemiology, presentation and history; genetics and environmental risk; neurobiology and how the medicines act; diagnosis and assessment; stimulants and non-stimulants; behavioural, psychological and school treatment; course, outcomes and research; and living, family and nursing. Before inclusion each source was checked, where possible, against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or openFDA, and the green tag on an entry names the service that confirmed it. Works found by more than one pass appear once, with any extra keys listed beside them.</p>
+    <p>Entries marked <span class="tag warn">%t:sources.check%</span> are regulator or guideline pages that have no PMID or DOI, or works that could not be confirmed. They are used only for what they state, so treat them with extra care.</p>
+    <p id="srcStats"></p></div>
+  <input class="search" id="srcSearch" type="search" placeholder="%t:sources.placeholder%" aria-label="%t:sources.search%">
+  <div class="ctrls" id="srcFilter"></div>
+  <p class="stage-cap" id="srcCount"></p>
+  <ol class="srcs" id="srcList"></ol>
+</section>

@@ -1,0 +1,82 @@
+<!-- ================= 2.3 DIAGNOSIS ================= -->
+<style>
+#m-dx .card>.ev{align-self:flex-start}
+#m-dx .calc{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+#m-dx .calc label{display:flex;flex-direction:column;gap:4px;font:600 12px var(--mono);color:var(--muted);letter-spacing:.04em}
+#m-dx .calc output{font:700 20px var(--body);color:var(--ink)}
+#m-dx .calc .row{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+#m-dx .presets{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-dx .presets .btn{font-size:13px;padding:6px 11px}
+#m-dx .verdict{border-radius:10px;padding:9px 11px;background:var(--panel-2);font-size:14.5px}
+#m-dx .verdict b:first-child{display:block;font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+#m-dx .teach{display:inline-block;font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--warn);background:var(--warn-soft);border-radius:6px;padding:4px 8px}
+</style>
+<section class="mod" id="m-dx" data-mod="dx" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · Course and diagnosis</p><h2>Diagnosis and biomarkers</h2>
+    <p class="lede">A diagnosis is built in layers: first whether thinking has declined, then what else could explain it, then whether Alzheimer's pathology is present. Follow one person through the pathway, or click any step.</p></div>
+  <div class="stepper" id="dxSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="dxSvg" viewBox="0 0 720 390" style="min-width:560px" role="img" aria-label="A marker travels along the diagnostic pathway from a first concern through cognitive screening, history and examination, blood tests for reversible causes and brain imaging, to biomarker confirmation by amyloid PET, spinal fluid or a blood p-tau217 test, and finally a named diagnosis and stage."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="dxPlay">Play</button><label class="stage-cap tl" for="dxT">Pathway <input type="range" id="dxT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap">Schematic. Real pathways vary: not everyone needs every step, and the order can change. Each box can be clicked or reached with the Tab key.</p></div>
+    <aside class="note" id="dxNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What a positive blood test really means</h3>
+  <p class="prose"><span><span class="teach">Teaching tool</span> This calculator shows arithmetic, not the performance of any real test in any real person. Pick how good a test is (sensitivity and specificity) and how likely the pathology is before testing. The grid then sorts 1,000 people by their true status and their result.</span></p>
+  <div class="stage">
+    <div class="presets" role="group" aria-label="Test presets"><span class="kicker">Test</span>
+      <button class="btn" data-sens="90" data-spec="75" aria-pressed="false">Triage minimum, 90/75</button>
+      <button class="btn" data-sens="90" data-spec="90" aria-pressed="true">Confirmatory minimum, 90/90</button>
+      <button class="btn" data-sens="92" data-spec="100" aria-pressed="false">Amyloid PET read, 92/100</button>
+    </div>
+    <div class="presets" role="group" aria-label="Pre-test probability presets"><span class="kicker">Setting</span>
+      <button class="btn" data-pre="10" aria-pressed="false">No symptoms, age 50: 10%</button>
+      <button class="btn" data-pre="25" aria-pressed="false">Primary care, example: 25%</button>
+      <button class="btn" data-pre="50" aria-pressed="false">Swedish clinics: 50%</button>
+      <button class="btn" data-pre="55" aria-pressed="true">MCI, cause unclear: 55%</button>
+      <button class="btn" data-pre="70" aria-pressed="false">Dementia, cause unclear: 70%</button>
+    </div>
+    <div class="calc">
+      <label for="dxSens"><span class="row"><span>Sensitivity</span><output id="dxSensV">90%</output></span><input type="range" id="dxSens" min="50" max="100" step="1" value="90"></label>
+      <label for="dxSpec"><span class="row"><span>Specificity</span><output id="dxSpecV">90%</output></span><input type="range" id="dxSpec" min="50" max="100" step="1" value="90"></label>
+      <label for="dxPre"><span class="row"><span>Pre-test probability</span><output id="dxPreV">55%</output></span><input type="range" id="dxPre" min="1" max="95" step="1" value="55"></label>
+    </div>
+    <p class="stage-cap">Test presets: the 2025 Alzheimer's Association guideline minimums for a blood test used for triage (90% sensitivity, 75% specificity) or as a substitute for PET or CSF (90% and 90%) [[Palmqvist2025CPG]], and amyloid PET visual reads against autopsy [[Clark2012]]. Settings: amyloid positivity in cognitively normal people at 50 [[Jansen2015]]; a primary-care example value (no source here gives one measured figure); 50% with Alzheimer's pathology among 1,213 Swedish patients [[Palmqvist2024]]; amyloid PET positivity in IDEAS, among Medicare patients with MCI or dementia of uncertain cause [[Rabinovici2019]].</p>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="dxGrid" viewBox="0 0 720 340" style="min-width:560px" role="img" aria-label="A grid of 1,000 people fills in three steps: everyone tested, then who truly has amyloid pathology, then who tests positive, separating true positives, false negatives, false positives and true negatives, with the resulting predictive values."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="dxGridPlay">Play</button><label class="stage-cap tl" for="dxGridT">Reveal <input type="range" id="dxGridT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap">Filled circle: true positive. Ring: false negative. Square: false positive. Small dot: true negative. Teaching tool, not a diagnostic calculator.</p></div>
+    <aside class="note" id="dxGridNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The biomarker toolbox</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Amyloid PET</h4><p>Florbetapir visual reads found moderate-to-frequent neuritic plaques with 92% sensitivity and 100% specificity against autopsy within 2 years. The Centiloid scale runs from 0 (young controls) to 100 (typical mild-to-moderate Alzheimer's); about 12 to 24 Centiloids marked plaque thresholds at autopsy. [[Clark2012,Klunk2015,LaJoie2019]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Spinal fluid (CSF)</h4><p>In Alzheimer's, CSF total tau is about 2.5 times and p-tau about 1.9 times control levels, and Aβ42 is about half. The Aβ42/40 ratio classifies better than Aβ42 alone. The FDA permitted the Lumipulse CSF ratio test in May 2022. [[Olsson2016,Hansson2019,FDA2022CSF]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Blood p-tau217</h4><p>Plasma p-tau217 separated clinical Alzheimer's from other neurodegenerative diseases with AUC 0.96. In 1,213 Swedish patients, a p-tau217 test was about 90% accurate, against 61% for primary care doctors and 73% for specialists using standard workup. In May 2025 the FDA cleared the first blood test, for specialised care, "not intended as a screening or stand-alone diagnostic test". [[Palmqvist2020,Palmqvist2024,FDA2025]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>A rule-out test for primary care</h4><p>In October 2025 the FDA cleared Roche's Elecsys pTau181 plasma test for primary care, to help rule out Alzheimer's amyloid pathology. Its reported negative predictive value was 97.9%, a figure that depends on the low prevalence of the people studied. [[Roche2025]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Tau PET and FDG-PET</h4><p>Flortaucipir tau PET separated Alzheimer's from other neurodegenerative disorders with about 90% sensitivity and specificity, outperforming MRI volumes. FDG-PET patterns correctly classified 95% of Alzheimer's, 92% of Lewy body and 94% of frontotemporal dementia in a 7-centre study. [[Ossenkoppele2018,Mosconi2008]]</p></div>
+    <div class="card"><span class="ev early">Not specific</span><h4>NfL and GFAP</h4><p>Neurofilament light rises with neurodegeneration of any cause, including MS, ALS and brain injury. GFAP, an astrocyte marker, rises with amyloid even before symptoms. The 2024 criteria use neither for diagnosis. [[Mattsson2019,Pereira2021,Jack2024]]</p></div>
+  </div>
+
+  <h3 class="sub">Screening tests: what they can and cannot do</h3>
+  <div class="cards">
+    <div class="card"><h4>MMSE</h4><ul><li>11 items, 30 points; about 7 minutes. [[Creavin2016,Borson2000]]</li><li>At a cut-point of 24 in community settings: sensitivity 0.85, specificity 0.90 for dementia. [[Creavin2016]]</li><li>Strongly affected by schooling: median 29 with 9 or more years, 22 with 0 to 4 years. [[Crum1993]]</li><li>Highly verbal and insensitive to mild impairment. [[Tombaugh1992]]</li><li>Under copyright; its authors began enforcing their rights in 2000, and licensed forms cost about USD 1.23 each in 2011. [[Newman2011]]</li></ul></div>
+    <div class="card"><h4>MoCA</h4><ul><li>About 10 minutes, 30 points; adds executive and visuospatial tasks. In the original study a cut-off of 26 caught 90% of MCI, against 18% for the MMSE; specificity was 87%, against 100% for the MMSE. [[Nasreddine2005]]</li><li><b>The cut-off dispute:</b> the owner keeps 26 or above as normal, with 1 point added for 12 or fewer years of education. A meta-analysis found 26 gives too many false positives, especially in older or less educated people, and the best accuracy at 23. [[MoCA2025FAQ,Carson2018]]</li><li><b>2025 change:</b> since December 2025, certification is optional for total-score screening but still required to interpret sub-scores. [[MoCA2025FAQ]]</li></ul></div>
+    <div class="card"><h4>Mini-Cog</h4><ul><li>Three-word recall (0 to 3) plus a clock drawing (0 or 2), total 0 to 5. A score of 0 to 2 means a higher likelihood of important impairment; a normal score does not rule it out. [[MiniCog2026]]</li><li>About 3 minutes, and its accuracy was not affected by education or language in the original multilingual study. [[Borson2000]]</li><li>In a meta-analysis: sensitivity 0.91, specificity 0.86 for dementia. [[Tsoi2015]]</li></ul></div>
+    <div class="card"><span class="ev est">Established</span><h4>The limit they share</h4><p>Screening tools grade severity and prompt further assessment. They do not establish the cause. A highly educated person with early disease can score normally; low education, poor hearing or vision, or a language barrier can lower a score without dementia. [[Crum1993,Tombaugh1992,Creavin2016,MiniCog2026]]</p><div class="hook"><b>Exam hook</b>MoCA for MCI, MMSE for grading dementia, Mini-Cog for speed. None of them names the cause.</div></div>
+  </div>
+
+  <h3 class="sub">Four definitions of Alzheimer's</h3>
+  <p class="prose">The criteria have moved from a clinical syndrome toward biology, and the field disagrees about how far to go. Pick a person and see how each framework would label them.</p>
+  <div class="ctrls" role="group" aria-label="Choose a person">
+    <span class="kicker">Person</span>
+    <button class="btn" data-prof="0" aria-pressed="true">Amyloid positive, no symptoms</button>
+    <button class="btn" data-prof="1" aria-pressed="false">Amyloid and tau positive, no symptoms</button>
+    <button class="btn" data-prof="2" aria-pressed="false">Amyloid positive, with MCI</button>
+    <button class="btn" data-prof="3" aria-pressed="false">Mild dementia, no biomarkers done</button>
+  </div>
+  <div class="cards" id="dxCrit" aria-live="polite"></div>
+</section>

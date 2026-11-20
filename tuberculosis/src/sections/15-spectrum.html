@@ -1,0 +1,67 @@
+<!-- ================= 1.5 TB INFECTION VS TB DISEASE ================= -->
+<style>
+#m-spectrum .tbl table{min-width:680px}
+#m-spectrum .card>.ev,#m-spectrum .card>.tag{align-self:flex-start}
+#m-spectrum .vg{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px}
+#m-spectrum .vg .card p.q{font-size:15px}
+#m-spectrum .vg .ans{font-size:14px;border-radius:10px;padding:10px 12px;background:var(--panel-2)}
+#m-spectrum .vg .ans.right{background:var(--good-soft);color:var(--good)}
+#m-spectrum .vg .ans.wrong{background:var(--bad-soft);color:var(--bad)}
+#m-spectrum .vg .ans b{display:block}
+</style>
+<section class="mod" id="m-spectrum" data-mod="spectrum" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · The infection</p><h2>TB infection vs TB disease</h2>
+    <p class="lede">Breathing in <i>M. tuberculosis</i> is not the same as having TB. Most people who become infected never fall ill; many clear the bacteria altogether; and of those who do develop TB disease, most do so within the first two years. Follow 100 people with a positive test over twenty years, then change who they are and watch the curve change with them.</p></div>
+  <div class="ctrls" role="group" aria-label="Risk group"><span class="kicker">Who are these 100 people?</span>
+    <button class="btn" data-sr="0" aria-pressed="true">No extra risk factor</button>
+    <button class="btn" data-sr="1" aria-pressed="false">Recently infected</button>
+    <button class="btn" data-sr="2" aria-pressed="false">Living with HIV, untreated</button>
+    <button class="btn" data-sr="3" aria-pressed="false">Children under 5, household contacts</button>
+  </div>
+  <div class="stepper" id="scSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="scSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A grid of 100 person icons, all infected at year zero, changing colour as the years run: pale grey for people whose infection has cleared, blue for people who still have TB infection, amber for subclinical TB disease found only by screening, and magenta for symptomatic TB disease. Beside the grid, a cumulative curve shows what share of the group has developed TB disease by each year, rising steeply in the first two years and then flattening, redrawn for each risk group."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="scPlay">Play</button><label class="stage-cap tl" for="scT">Years since infection <input type="range" id="scT" min="0" max="1" step="0.001" value="0.06"></label></div>
+      <div class="readout" id="scRead"></div>
+      <p class="stage-cap">These are population statistics, not a prediction for any one person, and the grid combines estimates from separate studies: the chance of disease and its timing, the share of disease that is subclinical, and self-clearance each come from a different source, named in the note. [[Behr2018,Frascella2021,Emery2021]]</p>
+    </div>
+    <aside class="note" id="scNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Two boxes, or a spectrum?</h3>
+  <div class="prose"><p>The old teaching split everyone into "latent" and "active". The modern reading is a continuum of bacterial activity and immune response, with two further states proposed in between, and an international Delphi consensus that separates disease from infection by the presence of macroscopic pathology, defines two subclinical and two clinical states, and makes viable bacteria plus a host response a prerequisite for every state. [[Drain2018,Coussens2024]]</p></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="ctrls"><button class="btn" id="scSpec" aria-pressed="true">Show the spectrum</button><span class="stage-cap">Switch between the two-box model and the states described in the literature.</span></div>
+      <div class="scroll"><svg id="scBar" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="A horizontal bar that switches between two boxes, latent and active TB, and a five-part spectrum running from cleared infection through TB infection, incipient TB and subclinical TB to symptomatic TB disease, with what each state means underneath."></svg></div>
+    </div>
+    <aside class="note" id="scBarNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">TB infection and TB disease, side by side</h3>
+  <div class="tbl"><table>
+    <thead><tr><th scope="col">&nbsp;</th><th scope="col">TB infection (formerly "latent TB")</th><th scope="col">TB disease</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Symptoms</th><td>None. The consensus definition separates disease from infection by the presence of macroscopic pathology, and every state requires viable bacteria plus a host response. [[Coussens2024]]</td><td>Often cough, fever, night sweats and weight loss — but not always: across national prevalence surveys, a median 50.4% (range 36.1–79.7%) of bacteriologically confirmed TB was subclinical, negative on symptom screening. [[Frascella2021]]</td></tr>
+      <tr><th scope="row">Can it be passed on?</th><td>No. Being infected is not the same as having TB disease, and TB infection is not contagious. [[Drain2018,Coussens2024]]</td><td>Yes, from disease of the lungs or throat; the proposed states are differentiated partly by likely infectiousness. <button class="btn ghost" data-go="spread">How TB spreads</button> [[Coussens2024]]</td></tr>
+      <tr><th scope="row">Skin test or IGRA</th><td>Usually positive — but a positive test is a memory of an encounter, not proof of live bacteria: an estimated 1–11% of people with TB immunoreactivity still harbour viable bacteria. [[Behr2019]]</td><td>Usually positive, and not a diagnosis of disease on its own. Pooled QuantiFERON specificity was 99% without BCG and 96% after BCG. <button class="btn ghost" data-go="tests">TST &amp; IGRA</button> [[Pai2008]]</td></tr>
+      <tr><th scope="row">Chest X-ray</th><td>Normal, or showing only old, healed change: 96–98% of visible calcified tuberculous lung lesions in pre-antibiotic autopsy series were sterile. [[Behr2018]]</td><td>Abnormal in most: chest radiography detected 89% (range 73–98%) of bacteriologically confirmed TB in prevalence surveys. [[Frascella2021]]</td></tr>
+      <tr><th scope="row">Sputum</th><td>Nothing to find. [[Coussens2024]]</td><td>Where bacteriological confirmation comes from: smear, Xpert and culture, with liquid culture reporting growth in 10–14 days. <button class="btn ghost" data-go="diagnose">Diagnosing TB disease</button> [[Lewinsohn2017]]</td></tr>
+      <tr><th scope="row">Treatment</th><td>Preventive treatment. Among exposed children it was 63% effective against incident TB overall and 91% effective in those with a positive infection test. <button class="btn ghost" data-go="tpt">Treating TB infection</button> [[Martinez2020Lancet]]</td><td>A multi-drug regimen. <button class="btn ghost" data-go="regimen">Treating TB disease</button> [[Lewinsohn2017]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Which is it? Six short vignettes</h3>
+  <div class="prose"><p>Pick an answer for each, then read why. These are teaching examples, not clinical guidance.</p></div>
+  <div class="vg" id="scQuiz"></div>
+
+  <h3 class="sub">How much TB comes from a long-dormant reservoir?</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>A very large reservoir</h4><p>Modelling of 131 infection surveys plus WHO prevalence estimates put the global burden of TB infection in 2014 at 23.0% of the world's population (95% UI 20.4–26.4), about 1.7 billion people, with around 80% in the South-East Asia, Western Pacific and Africa regions. Recent infection — within 2 years — affected about 55.5 million people. Even with no new infections after 2015, existing infection alone would still generate around 16.5 cases per 100,000 per year in 2035. [[Houben2016]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>But disease follows infection quickly</h4><p>Poulsen, who could pinpoint exposure in the Faroe Islands to a two-week period, found the incubation period of TB disease to be typically 3–9 months and almost always under two years. Among untreated tuberculin-positive contacts in Amsterdam, 75% of cases occurred within one year and 97% within two. Molecular fingerprinting gave a median incubation of 1.3 years, with 45%, 62% and 83% of cases by one, two and five years. [[Behr2018]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>And much of it may clear</h4><p>Inferring self-clearance from post-mortem and tuberculin-reversion studies gave 24.4% (95% UI 17.8–32.6) self-clearing within 10 years of infection and 73.1% (64.6–81.7) over a lifetime. That shrinks the population at risk — by 35–80% in India, China and Japan — while raising the lifetime risk per person who really is infected to 17.0% (10.9–22.5) from 12.6% assuming lifelong infection. [[Emery2021]]</p></div>
+    <div class="card"><span class="tag warn">Contested</span><h4>What is actually disputed</h4><p>The timing data are consistent across eras and methods. What is contested is the strategic implication: whether most global TB comes from recent transmission, so that the "latent reservoir" has been overstated, or whether the reservoir remains a central obstacle to elimination. Two centuries of shifting definitions explain much of the confusion around the word "latent". [[Behr2018,Houben2016,Behr2021]]</p></div>
+  </div>
+  <p class="callout"><b>Language.</b> This page says <b>TB infection</b>, not "latent TB", and never "carrier": a person with TB infection is not carrying TB to anyone. A positive test records an encounter with the bacillus; whether live bacteria remain is a separate question, and often the answer is no. [[Behr2019,Behr2021]]</p>
+</section>

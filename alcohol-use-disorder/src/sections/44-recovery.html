@@ -1,0 +1,61 @@
+<!-- ================= 4.4 COURSE, RELAPSE AND RECOVERY ================= -->
+<style>
+#m-recovery svg .t-xs{font-size:10.5px}
+#m-recovery svg .t-sm{font-size:12px}
+#m-recovery svg[data-mode=n] .t-xs{font-size:11.5px}
+#m-recovery svg[data-mode=n] .t-sm{font-size:13px}
+#m-recovery .card>.ev,#m-recovery .card>.tag{align-self:flex-start}
+#m-recovery .big-num{color:var(--rx)}
+#m-recovery .lvl ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;font-size:15px}
+</style>
+<section class="mod" id="m-recovery" data-mod="recovery" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Treatment &amp; recovery</p><h2>Course, relapse and recovery</h2>
+    <p class="lede">Alcohol use disorder is a treatable medical condition, and recovery is common. Follow 100 people with AUD over 20 years as their drinking changes, then see how a lapse differs from a relapse, and which level of care fits whom.</p></div>
+  <div class="stepper" id="rcSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="rcSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="An icon array of 100 people who all start with alcohol use disorder. As the years pass from 0 to 20, icons change colour into five groups from the NESARC survey: still dependent 25, partial remission 27, asymptomatic risk drinking 12, low-risk drinking 18 and abstinent 18. Some recovered icons briefly return to drinking and come back. Beside it, live counts, a recovery-capital curve that dips in the first year then rises steeply for six years, and a strip showing the median of two serious recovery attempts."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="rcPlay">Play</button><label class="stage-cap tl" for="rcT">Years <input type="range" id="rcT" min="0" max="1" step="0.001" value="0.03"></label></div>
+      <div class="readout" id="rcRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> The end proportions are the NESARC 2001–02 snapshot of 4,422 US adults whose DSM-IV alcohol dependence began before the past year; the timing of each change is drawn, not measured. The quality-of-life curve shows the shape reported in the National Recovery Survey, not values. Every number is a population statistic, not a prediction for anyone. [[Dawson2005,Kelly2018QoL,Kelly2019Attempts]]</p>
+    </div>
+    <aside class="note" id="rcNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Lapse or relapse? The road back</h3>
+  <p class="prose">A lapse is a single return to drinking; a relapse is a return to the old pattern. Relapse-prevention therapy treats the moment after a lapse as a turning point: the abstinence violation effect pulls one way, a plan and a reframe pull the other. People also respond better to the phrase "recurrence of use" than to "relapse". [[Larimer1999,Ashford2018]]</p>
+  <div class="stepper" id="rdSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="rdSvg" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="A winding road. A traveller in recovery passes a high-risk bend, steps off the road in a lapse, and then two paths lead back: a long detour labelled abstinence violation effect and a short return labelled reframe the lapse, rejoining the road further on."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="rdPlay">Play</button><label class="stage-cap tl" for="rdT">Along the road <input type="range" id="rdT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <p class="stage-cap">Schematic of the Marlatt relapse-prevention model and its later dynamic version; distances are not to scale. [[Larimer1999,Witkiewitz2004RP]]</p>
+    </div>
+    <aside class="note" id="rdNote" aria-live="polite"></aside>
+  </div>
+  <div class="callout"><p><b>Stopping safely.</b> If someone has been drinking heavily every day for a long time, stopping suddenly can be dangerous (seizures, delirium tremens). Get medical help to stop safely, including after a return to heavy drinking. Alcohol poisoning is an emergency: call emergency services. See <a href="#withdrawal" data-go="withdrawal">the withdrawal timeline</a>.</p></div>
+
+  <h3 class="sub">Levels of care: the least intensive setting that is safe</h3>
+  <p class="prose">For withdrawal, ASAM's 2020 guideline aims for "the least intensive level of care that is safe and effective"; most withdrawal can be managed outside hospital when risk factors are limited. Click a step to see who each level is for, using only the published pieces cited here. The full ASAM Criteria levels are set out in a book that our research pass did not cover, so they are not reproduced. [[ASAM2020Withdrawal]]</p>
+  <div class="ctrls" role="group" aria-label="Level of care" id="rcLvBtns"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="rcLv" viewBox="0 0 720 230" style="min-width:560px" role="img" aria-label="A staircase of six levels of care, from mutual help in the community at the bottom to medically managed inpatient care at the top. The chosen step is highlighted."></svg></div>
+      <p class="stage-cap">Intensity rises to the right. A person can move up or down as needs change; ASAM lists reasons to move to a more intensive level. [[ASAM2020Withdrawal]]</p>
+    </div>
+    <aside class="note lvl" id="rcLvNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What the long view shows</h3>
+  <div class="cards">
+    <div class="card"><span class="tag good">Recovery is common</span><p class="big-num">9.1%</p><h4>of US adults have resolved an alcohol or drug problem</h4><p>In a national probability survey (39,809 adults), 9.1% said they used to have a problem with alcohol or drugs but no longer do. Of them, 46% called themselves "in recovery" and 53.9% had used an assisted pathway: mutual help 45.1%, treatment 27.6%, recovery support services 21.8%. Group statistics, not a promise for any one person. [[Kelly2017Recovery]]</p></div>
+    <div class="card"><span class="tag good">Attempts</span><p class="big-num">2</p><h4>median serious attempts before resolving a problem</h4><p>Among 2,002 people who had resolved a problem, the median number of serious recovery attempts was 2 (IQR 1–4); the mean of 5.35 is pulled up by a few people with many attempts. The authors advise quoting the median, because describing AUD as endlessly relapsing may weaken hope and help-seeking. [[Kelly2019Attempts]]</p></div>
+    <div class="card"><span class="tag rx">Definitions</span><h4>Remission and recovery</h4><p>DSM-5 early remission: at least 3 but less than 12 months without meeting any AUD criterion except craving; sustained remission: 12 months or more. The 2022 NIAAA research definition of recovery adds cessation of heavy drinking, and does not require abstinence. [[Hasin2013DSM5,APA2022,Hagman2022]] Count criteria in the <a href="#criteria" data-go="criteria">criteria teaching counter</a>.</p></div>
+    <div class="card"><span class="tag rx">Mortality</span><h4>Risk falls when drinking falls</h4><p>In clinical samples, people with AUD had higher all-cause mortality than people without (RR 3.38 in men, 4.57 in women). In 16 cohorts of people with AUD, cutting below heavy drinking went with lower mortality than continued heavy drinking (OR 0.41); abstinence carried the lowest (OR 0.35). In a 60-year Boston cohort, by age 70 of 72 men with alcohol dependence, 54% had died, 32% were abstinent and 12% still had alcohol problems. [[Roerecke2013Mortality,Roerecke2013Reduction,Vaillant2003]]</p></div>
+    <div class="card"><span class="tag warn">Treatment gap</span><h4>Most people never get treatment</h4><p>Only 25.5% of NESARC adults with past dependence had ever been treated; 19.8% of people with lifetime AUD in NESARC-III. Worldwide about 1 in 6 receive treatment (17.3%), 9.3% in low and lower-middle-income countries. High stigma and too little screening are part of the reason. [[Dawson2005,Grant2015NESARC,Mekonen2021,Carvalho2019Lancet]]</p></div>
+    <div class="card"><span class="tag rx">Abstinence or moderation</span><h4>Paths after resolution</h4><p>In the recovery survey, 20.3% reported continuous abstinence since resolving their problem and 33.7% current abstinence; about half still used alcohol or drugs in some form. Lower-risk use, including abstinence, went with more self-esteem, happiness and recovery capital, and people moved toward abstinence as time passed. [[Eddie2022]] Low-risk drinking was an outcome in 78.6% of natural-recovery alcohol samples. [[Sobell2000]] The research does not support drinking for health.</p></div>
+    <div class="card"><span class="tag dx">Controversy</span><h4>A chronic relapsing illness?</h4><p>Treatment cohorts show long careers: median 27 years from first use to last use, 9 years from first treatment to last use, and 47% reaching a year of abstinence within 3 years. AUD is best managed like diabetes or asthma, with continued monitoring. Population surveys show many people remit, often untreated. Both are true for different groups: clinical samples are more severe. [[Dennis2005,McLellan2000,Dawson2005,Kelly2019Attempts]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Managed alcohol programmes</h4><p>For people with alcohol dependence who are homeless or unstably housed, managed alcohol programmes give regulated doses through the day with housing, health and social support. In six Canadian cities both programme participants and controls cut drinks per day by similar amounts, but participants reported fewer harms; liver markers worsened after people left. [[Carver2026,Stockwell2021]]</p></div>
+    <div class="card"><span class="tag rx">Health in recovery</span><h4>Keep primary care in the plan</h4><p>People in recovery had higher rates of hepatitis C, COPD, heart disease and diabetes than the general population, which supports joining addiction care with primary care. [[Eddie2019]] Recovery housing helped too: 15.6% of people who lived in an Oxford House for 6 months or more reported substance use at 24 months, against 64.8% with usual aftercare. [[Jason2007]]</p></div>
+  </div>
+</section>

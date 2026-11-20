@@ -1,0 +1,144 @@
+<!-- ================= 2.3 THE NIH STROKE SCALE ================= -->
+<style>
+#m-nihss .tbl table{min-width:640px}
+#m-nihss .card>.ev,#m-nihss .card>.tag{align-self:flex-start}
+#m-nihss .nhbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-nihss .nhbar .btn{min-height:40px}
+#m-nihss .nhcap{font-size:15px;line-height:1.5;max-width:76ch}
+#m-nihss .nhitems{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,430px),1fr));gap:12px}
+#m-nihss .nhitem{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px;display:flex;flex-direction:column;gap:8px;min-width:0}
+#m-nihss .nhitem.cur{border-color:var(--dx);box-shadow:0 0 0 2px var(--dx-soft)}
+#m-nihss .nhitem h4{margin:0;font-family:var(--display);font-weight:700;font-size:19px;line-height:1.2}
+#m-nihss .nhitem h4 span{font:700 13px var(--mono);color:var(--dx);margin-right:6px}
+#m-nihss .nhitem .tst{font-size:13.5px;color:var(--muted)}
+#m-nihss .nhopts{display:flex;flex-direction:column;gap:4px}
+#m-nihss .nhopt{display:grid;grid-template-columns:30px minmax(0,1fr);gap:6px;align-items:baseline;text-align:left;font-size:14.5px;line-height:1.3;padding:9px 10px;min-height:40px;border-radius:9px;border:1px solid var(--line);background:var(--panel);cursor:pointer}
+#m-nihss .nhopt b{font:700 13px var(--mono)}
+#m-nihss .nhopt:hover{border-color:var(--muted)}
+#m-nihss .nhopt[aria-pressed="true"]{background:var(--dx-soft);border-color:var(--dx);font-weight:700}
+#m-nihss .nhopt[aria-pressed="true"] b{color:var(--dx)}
+#m-nihss .nhnote{font-size:14px;line-height:1.45;border-left:3px solid var(--dx);padding-left:10px}
+#m-nihss .nhcalc{display:flex;flex-direction:column;gap:12px}
+#m-nihss .nhsticky{position:sticky;bottom:8px;z-index:5;background:var(--panel);border:1px solid var(--dx);border-radius:12px;padding:10px 14px;display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline;box-shadow:0 2px 10px rgba(0,0,0,.14)}
+#m-nihss .nhsticky b{font:700 28px/1 var(--display);color:var(--dx)}
+#m-nihss .nhsticky span{font-size:14.5px}
+</style>
+<section class="mod" id="m-nihss" data-mod="nihss" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · Recognition &amp; assessment</p><h2>The NIH Stroke Scale</h2>
+    <p class="lede">The NIHSS is a set of short bedside checks: 15 items, 0 to 42. Watch a score build item by item, try every item yourself with teaching notes, see what it misses, and meet the modified Rankin Scale that trials use for the end result.</p></div>
+
+  <p class="teach" role="note"><b>Teaching tool</b>This calculator explains how the published scale adds up. It is never for an individual's diagnosis, prognosis or treatment, and it does not teach or certify examination. Results are shown as population figures from the cited studies, not predictions for a person.</p>
+  <div class="callout"><p><b>Where the wording comes from.</b> Item wording and score options here are taken from two secondary summaries: a 2022 narrative review [[Budincevic2022]] and a 2014 <i>Continuum</i> appendix [[ContinuumNIHSS2014]]. The official NINDS form and booklet could not be fetched for this guide (HTTP 403), so administration rules, such as which response to score, are not stated here and need checking against <a href="https://www.ninds.nih.gov/health-information/stroke/assess-and-treat/nih-stroke-scale" rel="noopener">the official NIH Stroke Scale from NINDS</a>.</p></div>
+
+  <div class="stepper" id="nhSteps"></div>
+  <div class="nhbar" role="group" aria-label="Invented teaching examples">
+    <button class="btn" data-nhp="lmca" aria-pressed="true">Example: left MCA</button>
+    <button class="btn" data-nhp="rmca" aria-pressed="false">Example: right MCA</button>
+    <button class="btn" data-nhp="post" aria-pressed="false">Example: posterior</button>
+    <button class="btn" data-nhp="zero" aria-pressed="false">All zero</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="nhSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="A body, a face and a brain slice beside a list of the 15 NIHSS items. As the timeline moves through the items, each item's points fill in, the weak side of the body and face react, the brain hint changes, and a total moves along the severity bands."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="nhPlay">%t:player.play%</button><label class="stage-cap tl" for="nhT">Items <input type="range" id="nhT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap"><b>Schematic.</b> The three examples are invented score sets, not people. The slice sits opposite the weaker side of the body; lesion size follows the total only as a picture, and the next sections show that the link is loose.</p>
+    </div>
+    <aside class="note" id="nhNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Score every item</h3>
+  <div class="prose"><p>Pick one option for each item. Choosing an option moves the picture above to the full total. An untestable (UN) choice adds nothing to the total; one summary codes the same situations as 9 [[ContinuumNIHSS2014]]. The maximum of 42 is the sum of the item maxima and agrees with the published maximum [[Budincevic2022]].</p></div>
+  <div class="nhcalc">
+    <div class="nhitems" id="nhItems"></div>
+    <div class="nhsticky" id="nhTot" aria-live="polite"></div>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="nhBands" viewBox="0 0 720 180" style="min-width:560px" role="img" aria-label="Two strips from 0 to 42 with a marker at the current total. The first shows the commonly used severity bands, the second the categories derived from Medicare data with their 30-day mortality."></svg></div>
+    <p class="nhcap" id="nhBandCap" aria-live="polite"></p>
+  </div>
+
+  <div class="split2">
+    <div class="pt"><b>In plain words</b>A higher number means a more severe stroke now. It is not a promise about the future [[Adams1999,Kasner2006]]. A low score does not always mean a small stroke, especially with problems of balance or on the right side of the brain [[MartinSchild2011,Fink2002Stroke]].</div>
+    <div class="hook"><b>Exam hook</b>NIHSS: 15 elements, maximum 42. Left hemisphere bias and poor capture of posterior strokes are the two named weaknesses [[Budincevic2022,Woo1999,Sato2008]]. A score of 16 or more forecasts death or severe disability; 6 or less forecasts good recovery [[Adams1999]].</div>
+  </div>
+
+  <h3 class="sub">Bands and outcome</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Grouping</th><th>Cut points</th><th>What it rests on</th></tr></thead>
+    <tbody>
+      <tr><th>Commonly used bands</th><td>Minor 1 to 4, moderate 5 to 15, moderate to severe 16 to 20, severe 21 to 42</td><td>A convention, not validated thresholds [[Mwamba2026]]</td></tr>
+      <tr><th>Medicare data</th><td>0 to 7, 8 to 13, 14 to 21, 22 to 42</td><td>Derived from 33,102 beneficiaries; NIHSS alone gave c-statistic 0.82 [[Fonarow2012]]</td></tr>
+      <tr><th>TOAST</th><td>6 or less; 16 or more</td><td>6 or less forecasts a good recovery, 16 or more a high probability of death or severe disability, in 1281 people. Excellent outcome at 3 months 46% at 7 to 10 and 23% at 11 to 15. Each extra point lowered the likelihood of an excellent outcome by 17% at 3 months [[Adams1999]]</td></tr>
+      <tr><th>A cut-point of 13</th><td>13</td><td>Best predicted 3-month outcome. Sensitivity to poor outcome 0.71, specificity 0.90 [[Muir1996]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="cards">
+    <div class="card"><h4>"Mild" has no single meaning</h4><p>About a third of people with mild stroke were not functionally independent at 90 days, whatever the treatment or definition used, including NIHSS 0 to 5 [[Spokoyny2015]]. PRISMS (minor nondisabling deficits, median NIHSS 2): favourable outcome 78.2% with alteplase vs 81.5% with aspirin, symptomatic haemorrhage 3.2% vs 0. Stopped very early, so not definitive [[Khatri2018]].</p></div>
+    <div class="card"><h4>How much it explains</h4><p>NIHSS explained 11.3 to 25.0% of variation in outcome models, against 0.7 to 4.0% for a comorbidity index [[Rost2016]]. Lacunar subtype was the only one predicting outcome independently of NIHSS (OR 3.1) [[Adams1999]]. 24-hour NIHSS and 90-day mRS gave the same trial conclusion in 61 of 73 trials [[Rinkel2025]].</p></div>
+    <div class="card"><h4>NIHSS and large vessel occlusion</h4><p>At 10 or more, PPV for arterial occlusion was 97% in carotid and 96% in vertebrobasilar stroke, in selected people having arteriography [[Fischer2005]]. In 2152 people the best anterior cut-offs were 9 or more within 3 hours and 7 or more at 3 to 6 hours [[Heldner2013]]. Unselected data disagree: 11 or more misses over 25% of LVOs, and keeping misses at or below 10% needs a cut-off of 5 [[Turc2016]].</p></div>
+    <div class="card"><h4>What limb weakness means later</h4><p>Limb paresis explained most of the variance in quality of life at 90 days (17.5 to 24.1% of EQ-5D utility), far more than neglect (8.9%), aphasia (10.0%) or hemianopia (10.8%) [[vanderEnde2023]].</p></div>
+  </div>
+
+  <h3 class="sub">The left-hemisphere bias</h3>
+  <div class="prose"><p>Language adds points that right-sided signs do not, so left hemisphere strokes score higher for the same volume [[Woo1999,Lyden2004]]. Factor analysis finds left and right brain factors [[Lyden1999,Lyden2004]]. Choose a study to see the median volumes behind the same score.</p></div>
+  <div class="nhbar" role="group" aria-label="Which study">
+    <button class="btn" data-nhh="woo" aria-pressed="true">NIHSS 16 to 20</button>
+    <button class="btn" data-nhh="lyd" aria-pressed="false">Large strokes</button>
+    <button class="btn" data-nhh="fink" aria-pressed="false">NIHSS 0 to 5</button>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="nhHemi" viewBox="0 0 720 310" style="min-width:560px" role="img" aria-label="Two axial slices, a left hemisphere lesion and a right hemisphere lesion, drawn with areas following the median volumes of the chosen study. The right-sided lesion is larger for a similar or lower score."></svg></div>
+    <p class="nhcap" id="nhHemiCap" aria-live="polite"></p>
+  </div>
+
+  <h3 class="sub">The posterior blind spot</h3>
+  <div class="split2">
+    <div class="stage">
+      <div class="scroll"><svg id="nhPost" viewBox="0 0 520 240" style="min-width:0" role="img" aria-label="Paired bars comparing posterior and anterior stroke: median NIHSS 2 against 7 and 3 against 7 in two series, and the best cut-off for favourable outcome, 5 against 8."></svg></div>
+      <p class="stage-cap">Medians from 1569 people [[Inoa2014]] and from people with occlusion [[Heldner2013]]. Cut-offs [[Sato2008]].</p>
+    </div>
+    <div class="prose">
+      <p>Cranial nerves are not tested in detail, and the scale underestimates brainstem or cerebellar severity [[Budincevic2022]]. In posterior stroke the total is lower, and only the ataxia and visual subscores are higher [[Sato2008]].</p>
+      <p>In 1569 people, 71% of those with posterior stroke scored 4 or less, and 15% of them had a poor outcome at 3 months. The authors argue thrombolysis should not be withheld on the NIHSS alone in posterior stroke [[Inoa2014]].</p>
+      <p><b>A score of zero does not exclude stroke.</b> In one series 20 people (0.76% of stroke service admissions) scored 0 with an infarct on DWI, with headache, vertigo and nausea common, and truncal ataxia the commonest sign. Truncal ataxia is not on the scale, nor is isolated hand or finger palsy; 30% had a cardioembolic cause, which matters for prevention [[MartinSchild2011,Siniscalchi2018]].</p>
+      <p>The e-NIHSS adds posterior elements while keeping the same total and item count, raising posterior scores by an average of 2 points in early testing <span class="ev early">Early evidence</span> [[Olivato2016]]. The original remains standard for comparability [[Lyden2001,Lees2012]].</p>
+    </div>
+  </div>
+
+  <h3 class="sub">Where the scale came from, and how far raters agree</h3>
+  <div class="cards">
+    <div class="card"><h4>1989</h4><p>Designed as a 15-item examination for acute stroke trials. Interrater kappa averaged 0.69 in 24 people; test-retest kappa 0.66 to 0.77, with no difference among a neurologist, a resident, a neurology nurse and an emergency nurse. Correlation with infarct size r=0.68, with 3-month outcome r=0.79 [[Brott1989]].</p></div>
+    <div class="card"><h4>Training helps</h4><p>Video training of 162 investigators gave moderate to excellent agreement on most items, though facial paresis and ataxia stayed below 0.40 [[Lyden1994]]. Non-neurologists reached intraclass correlations of 0.93 and 0.95 [[Goldstein1997]]. A 2025 animated certification system: overall 0.979, while item kappas ran 0.25 to 0.90 [[Anderson2025]].</p></div>
+    <div class="card"><h4>The modified NIHSS</h4><p>Removes level of consciousness, face weakness, ataxia and dysarthria, and collapses sensory to 2 responses. Items with poor kappa fell from 8 to 3 [[Lyden2001]].</p></div>
+    <div class="card"><h4>Scoring from the notes</h4><p>Agreement with prospective scores r²=0.94 [[Williams2000]] and R²=0.991 in severe stroke [[Lindsell2005]], but interrater agreement fell to 0.48 at a hospital without neurologist assessment, with 62% of items missing [[Bushnell2001]].</p></div>
+  </div>
+
+  <h3 class="sub">The modified Rankin Scale</h3>
+  <div class="prose"><p>The NIHSS measures the deficit now. The mRS measures the result in daily life: how much help a person needs. It descends from Rankin's 1957 work [[Rankin1957]]. The 1988 interobserver study used six grades, 0 to 5 [[vanSwieten1988]]; modern usage is a 7-level scale that adds 6 for death [[Saver2021,Thomalla2018]]. Definitions below are verbatim as listed in a 2026 clinical study [[Luo2026]], because the 1988 abstract does not state them.</p></div>
+  <div class="stepper" id="nhMrsSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="nhMrs" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="The seven grades of the modified Rankin Scale as a coloured bar with a pointer, and below it a figure and a short table of what each grade means, from no symptoms to death."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="nhMrsPlay">%t:player.play%</button><label class="stage-cap tl" for="nhMrsT">Grade <input type="range" id="nhMrsT" min="0" max="1" step="0.002" value="0.5"></label></div>
+      <p class="stage-cap">Schematic figures. The yes and no rows are read from the definition wording; a dash means the definition does not say.</p>
+    </div>
+    <aside class="note" id="nhMrsNote" aria-live="polite"></aside>
+  </div>
+  <div class="nhbar" role="group" aria-label="How trials cut the scale">
+    <button class="btn" data-nhcut="01" aria-pressed="true">0 to 1</button>
+    <button class="btn" data-nhcut="02" aria-pressed="false">0 to 2</button>
+    <button class="btn" data-nhcut="03" aria-pressed="false">0 to 3</button>
+    <button class="btn" data-nhcut="sh" aria-pressed="false">Ordinal shift</button>
+  </div>
+  <p class="nhcap" id="nhCutCap" aria-live="polite"></p>
+  <div class="cards">
+    <div class="card"><div class="big-num">43% to 81%</div><h4>A structured interview</h4><p>Agreement across multiple raters rose from 43% to 81%, kappa 0.25 to 0.74 [[Wilson2005]]. In an earlier study, 57% to 78%, weighted kappa 0.78 to 0.93 [[Wilson2002]].</p></div>
+    <div class="card"><h4>Reliability disagrees</h4><p>Original: the same grade in 65 of 100 people, weighted kappa 0.91 [[vanSwieten1988]]. A systematic review found weighted kappa from 0.25 to 0.95, overall kappa 0.46 [[Quinn2009]]. Another synthesis reports moderate inter-rater reliability, improved by structured interviews [[Banks2007]].</p></div>
+    <div class="card"><h4>Quick versions</h4><p>A simplified questionnaire took 1.67 minutes on average, with kappa 0.72 (95% CI 0.58 to 0.86) [[Bruno2010]].</p></div>
+    <div class="card"><h4>Why trials use it</h4><p>mRS at 3 months or later is the preferred primary outcome for acute trials [[Lees2012]]. Comorbidities and socioeconomic factors affect how it should be read [[Banks2007]]. A roundtable recommends uniform names, because trials had used "a bewildering variety" of labels [[Saver2021]].</p></div>
+  </div>
+  <div class="split2">
+    <div class="pt"><b>In plain words</b>The mRS is a 0 to 6 scale of how much help a person needs in daily life [[Luo2026]].</div>
+    <div class="hook"><b>Exam hook</b>mRS 0 to 6, where 6 is death. Grade 3 walks unaided with some help; grade 4 cannot walk unaided [[Luo2026]].</div>
+  </div>
+</section>

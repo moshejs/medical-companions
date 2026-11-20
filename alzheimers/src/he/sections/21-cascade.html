@@ -1,0 +1,49 @@
+<!-- ================= 2.1 CASCADE ================= -->
+<style>
+#m-cascade .ca-pick{display:flex;flex-direction:column;gap:10px}
+#m-cascade .ca-pick .ctrls .kicker{min-width:118px}
+#m-cascade .ca-two{display:flex;flex-direction:column;gap:8px}
+#m-cascade .ca-two p{font-size:15px;border-left:3px solid var(--line);padding-left:10px}
+#m-cascade .ca-two p.aa{border-left-color:var(--rose)}
+#m-cascade .ca-two p.iwg{border-left-color:var(--sky)}
+</style>
+<section class="mod" id="m-cascade" data-mod="cascade" hidden>
+  <div class="mhead"><p class="eyebrow">חלק 2 · מהלך ואבחון</p><h2>עשרים שנה לפני התסמינים</h2>
+    <p class="lede">מחלת אלצהיימר משנה את המוח הרבה לפני שמישהו שם לב. הסמנים הביולוגיים הופכים לחריגים בסדר צפוי פחות או יותר: קודם עמילואיד, אחר כך טאו ונזק לתאי עצב, ורק אז החשיבה. הפעילו את השעון, ועברו בין משפחות עם גן דומיננטי לבין הצורה השכיחה, בהופעה מאוחרת.</p></div>
+  <div class="ctrls" role="group" aria-label="איזה ציר זמן">
+    <span class="kicker">ציר זמן</span>
+    <button class="btn" id="caDom" aria-pressed="true">תורשה דומיננטית (DIAN, בשנים)</button>
+    <button class="btn" id="caSpo" aria-pressed="false">ספורדי, בהופעה מאוחרת (סכמטי)</button>
+  </div>
+  <div class="stepper" id="caSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="caSvg" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="עקומות של סמנים ביולוגיים העולות לאורך עשורים לפי הסדר: עמילואיד ב־CSF, &rlm;PET עמילואיד, טאו ב־CSF, אטרופיה ב־MRI, ירידה בחילוף החומרים ב־FDG-PET והחשיבה, עם סמן זמן נע. בתצוגת התורשה הדומיננטית, נקודות ההתחלה הן השנים שמדדה DIAN לפני מועד ההופעה הצפוי; בתצוגה הספורדית העקומות סכמטיות, ותרשים תחתון מראה את שיעור החיוביות לעמילואיד שנמדד לפי גיל ולפי APOE."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="caPlay">הפעלה</button><label class="stage-cap tl" for="caT">שעון <input type="range" id="caT" min="0" max="1" step="0.002" value="0.04"></label></div>
+      <p class="readout" id="caRead"></p>
+      <p class="stage-cap" id="caCap"></p></div>
+    <aside class="note" id="caNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">איפה האדם הזה נמצא על המפה של 2024?</h3>
+  <div class="prose"><p>ב־2024 הציעה קבוצת עבודה של איגוד האלצהיימר (Alzheimer's Association) שני סולמות: שלב ביולוגי לפי סמנים ביולוגיים (A עד D, לפי מידת ההתפשטות של טאו ב־PET) ושלב קליני לפי התסמינים (0 עד 6). קבוצת העבודה הבינלאומית (IWG) חלקה עליה בשאלה איך לכנות אנשים בלי תסמינים. הגדירו את הסמנים הביולוגיים ואת התסמינים, או בחרו דוגמה. [[Jack2024,Dubois2024]]</p></div>
+  <div class="ca-pick">
+    <div class="ctrls" role="group" aria-label="דוגמאות" id="caPre"><span class="kicker">דוגמאות</span></div>
+    <div class="ctrls" role="group" aria-label="עמילואיד, סמן ביולוגי מסוג Core 1" id="caAmy"><span class="kicker">עמילואיד (Core 1)</span></div>
+    <div class="ctrls" role="group" aria-label="טאו ב־PET" id="caTau"><span class="kicker">טאו ב־PET</span></div>
+    <div class="ctrls" role="group" aria-label="שלב קליני" id="caCli"><span class="kicker">תסמינים</span></div>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="caMap" viewBox="0 0 720 340" style="min-width:560px" role="img" aria-label="טבלה של השלבים הקליניים 0 עד 6 מול השלבים הביולוגיים: ללא, A, &rlm;B, &rlm;C ו־D. המסלול הצפוי עובר באלכסון מ־1A דרך 4 ועד 6D, וטבעת מסמנת את האדם שנבחר."></svg></div>
+      <p class="stage-cap">משבצות מוצללות: האלכסון הצפוי, מ־1A ועד 4D–6D. משבצות מקווקוות: אף סמן Core 1 אינו חריג.</p></div>
+    <aside class="note" id="caMapNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">איך השתנו המודל וההגדרות</h3>
+  <div class="cards">
+    <div class="card"><span class="ev hyp">מודל היפותטי</span><h4>Jack 2010, עודכן ב־2013</h4><p>המודל של 2010 הציב את העמילואיד ראשון, ואת הניוון העצבי (טאו ב־CSF, אטרופיה ב־MRI, &rlm;FDG) אחריו, בפער זמן משתנה ובמקביל לתסמינים. העדכון של 2013 סידר את האנשים לפי זמן, הוסיף שונות בין אדם לאדם, שינה את הסדר של חלק מהסמנים, והציע שבמחלה הספורדית טאו עשוי להתחיל בעצמו ולהיות מואץ על ידי העמילואיד. [[Jack2010,Jack2013]]</p></div>
+    <div class="card"><span class="ev est">נמדד</span><h4>DIAN וההסתייגויות ממנו</h4><p>המספרים של DIAN מגיעים מ־128 נשאי מוטציה, שהוצבו על שעון שנקבע לפי גיל ההופעה אצל ההורה. נתוני אורך מ־217 אנשים אישרו שהעמילואיד משתנה ראשון, אך חלקו על התזמון של טאו ב־CSF שנקבע בנתוני החתך, בפער של יותר מ־10 שנים, והראו ש־p-tau181 ב־CSF יורד סמוך להופעת התסמינים. החוקרים מזהירים שייתכן שהתוצאות אינן חלות על אלצהיימר ספורדי. [[Bateman2012,McDade2018]]</p></div>
+    <div class="card"><span class="ev early">ההגדרות השתנו</span><h4>2011, 2018, 2024</h4><p>ב־2011 האבחנה הייתה קלינית, ולא הומלץ על סמנים ביולוגיים לשימוש שגרתי. ב־2018 הגדירה מסגרת מחקרית את מחלת אלצהיימר באופן ביולוגי, ודרשה גם A+&lrm; וגם T+&lrm;. ב־2024 די בתוצאה חריגה אחת מסוג Core 1, למשל עמילואיד בלבד. [[McKhann2011,Jack2018,Jack2024]]</p></div>
+    <div class="card"><span class="ev est">מודל</span><h4>כמה זמן נמשך כל שלב</h4><p>על פני 6 עוקבות (3,268 אנשים), הוערך שאדם עם אלצהיימר פרה־קליני בגיל 70 יעביר כ־10 שנים בשלב הפרה־קליני, 4 שנים עם MCI ו־6 שנים עם דמנציה. משך הזמן הכולל נע בין 24 שנים כשההתחלה בגיל 60 ל־15 שנים כשההתחלה בגיל 80. [[Vermunt2019]]</p></div>
+  </div>
+  <div class="hook"><b>לבחינה</b>עמילואיד נחוץ לתווית הביולוגית אך מתאם בצורה חלשה עם התסמינים; הניוון העצבי מתאם עם חומרת התסמינים, ושלב הטאו נושא מידע על הפרוגנוזה. אצל אנשים ללא פגיעה קוגניטיבית, בהשוואה ל־A−T−&lrm;, יחס הסיכונים להתקדמות לדמנציה היה 1.5 בשלב A,&rlm; 5.6 בטאו בטמפורלי המדיאלי ו־39.9 בטאו בניאוקורטקס. [[Jack2010,Jack2024]]</div>
+</section>

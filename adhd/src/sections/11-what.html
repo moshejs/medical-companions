@@ -1,0 +1,77 @@
+<!-- ================= 1.1 WHAT ADHD IS ================= -->
+<style>
+#m-what .card>.ev,#m-what .card>.tag{align-self:flex-start}
+#m-what .big-num{color:var(--dz)}
+#m-what .pres{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+#m-what .tbl table{min-width:620px}
+</style>
+<section class="mod" id="m-what" data-mod="what" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · The condition</p><h2>What ADHD is</h2>
+    <p class="lede">ADHD, attention deficit hyperactivity disorder, is a neurodevelopmental condition: a persistent pattern of inattention and/or hyperactivity-impulsivity that interferes with daily life. [[APA2022DSM]] Here is how common it is, in whom it is found, and how often it lasts into adulthood.</p></div>
+  <div class="ctrls" role="group" aria-label="Population shown in the first phase">
+    <span class="kicker">Show</span>
+    <button class="btn" data-wp="kids" aria-pressed="true">Children and adolescents</button>
+    <button class="btn" data-wp="adults" aria-pressed="false">Adults</button>
+  </div>
+  <div class="stepper" id="whSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="whSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="Three phases. First, an array of 100 people fills to 5.29 for children worldwide, or to 6.76 for adults with 2.58 persistent, beside bars of published estimates. Second, paired columns of boys and girls show a 10 to 1 ratio in clinic-referred children, 3 to 1 in the community and 55.8 to 44.2 among US adults, with dashed outlines for girls missing from clinics. Third, two curves from age 8 to 30 show the share still meeting full criteria falling to about 15% at 25, and about 65% including partial remission, then an MTA panel shows 63.8% with a fluctuating course."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="whPlay">Play</button><label class="stage-cap tl" for="whT">Phase <input type="range" id="whT" min="0" max="1" step="0.001" value="0.12"></label></div>
+      <p class="stage-cap"><b>Population statistics,</b> not predictions for one person. Icon arrays and glyph columns are scaled to 100 or 12 people; persistence curves are schematic lines drawn through the published points shown as circles. [[Polanczyk2007,Song2021,Biederman2002Gender,Staley2024,Faraone2006,Sibley2022]]</p>
+    </div>
+    <aside class="note" id="whNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Diagnosed and treated: the United States</h3>
+  <p class="prose">Meeting criteria in a research survey is not the same as being diagnosed, and being diagnosed is not the same as being treated. Two national US surveys show the gaps, for children and for adults.</p>
+  <div class="ctrls" role="group" aria-label="Population for the comparator">
+    <button class="btn" data-wc="kids" aria-pressed="true">Children, 2022</button>
+    <button class="btn" data-wc="adults" aria-pressed="false">Adults, 2023</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="whCmp" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Bar comparator. Left: the share of all US children (11.4% ever, 10.5% current) or adults (6.0%) diagnosed with ADHD. Right: among those with current ADHD, the share taking medication, having behavioural treatment or counselling, or receiving no treatment, with 2016 markers for children."></svg></div>
+      <p class="stage-cap">Survey data: parent report for children, self-report for adults. Children's treatment categories overlap (a child can have both), so they do not add up to 100%. [[Danielson2024,Danielson2018,Staley2024]]</p>
+    </div>
+    <aside class="note" id="whCmpNote" aria-live="polite"></aside>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="tag dz">Trend</span><h4>More diagnosis, not more ADHD</h4><p>US diagnosed ADHD among children aged 4–17 rose from 6.1% in 1997–1998 to 10.2% in 2015–2016, in every subgroup. [[Xu2018]] Yet with standardised methods, there was "no evidence to suggest an increase" over three decades in the number of children in the community who meet criteria. [[Polanczyk2014]] The World Federation consensus attributes the rise to changes in clinical and administrative practice. <span class="ev est">Established</span> [[Faraone2021]]</p></div>
+    <div class="card"><span class="tag dz">Debate</span><h4>Over- and under-diagnosis can coexist</h4><p>The youngest children in a school year are more likely to be diagnosed (RR 1.38), [[Frisira2025]] and a scoping review of 334 studies found <span class="ev early">Early evidence</span> of overdiagnosis at the milder end. [[Kazda2021]] At the same time, adults, women and minority groups appear under-detected. [[Chung2019,Fayyad2017,Young2020Females]] See <a href="#risk" data-go="risk">relative age and risk</a>.</p></div>
+    <div class="card"><span class="tag dz">Adults</span><h4>Often untreated</h4><p>In the WHO surveys only 21.8% of adults with ADHD had any mental health treatment in the past year, and 3.3% were treated specifically for ADHD. [[Fayyad2017]] Adults more often come to clinics for depression, anxiety or alcohol problems than for ADHD itself, and their ADHD symptoms are often mistaken for those conditions. [[Ginsberg2014]]</p></div>
+  </div>
+
+  <h3 class="sub">Three presentations</h3>
+  <p class="prose">DSM-5 replaced "subtype" with "presentation", because the pattern of symptoms can change as people grow up. The presentation describes the past 6 months. [[Epstein2013,APA2022DSM]] In the general population the inattentive presentation is the most common; children with the combined presentation are more likely to be referred to clinics. [[Willcutt2012]]</p>
+  <div class="cards">
+    <div class="card"><span class="tag dx">F90.0 · 6A05.0</span><h4>Predominantly inattentive</h4><p>Inattention criteria met, hyperactivity-impulsivity criteria not. Most common in the community, in both boys and girls, and in adults. [[APA2022DSM,Ayano2023Adults]] Inattention is more strongly linked to academic difficulties, low self-esteem and poorer work outcomes. [[Faraone2021]]</p><p class="pres"><span class="big-num">2.95%</span><span class="stage-cap">pooled prevalence in 12 African community studies</span></p><p class="stage-cap">[[Ayano2020Africa]]</p></div>
+    <div class="card"><span class="tag dx">F90.1 · 6A05.1</span><h4>Predominantly hyperactive-impulsive</h4><p>Hyperactivity-impulsivity criteria met, inattention criteria not. This pattern is linked to peer rejection, aggression, risky driving and accidental injuries. [[APA2022DSM,Faraone2021]]</p><p class="pres"><span class="big-num">2.77%</span><span class="stage-cap">same African studies</span></p><p class="stage-cap">[[Ayano2020Africa]]</p></div>
+    <div class="card"><span class="tag dx">F90.2 · 6A05.2</span><h4>Combined</h4><p>Both sets of criteria met. Many children first diagnosed with the combined presentation later move to the inattentive presentation, because inattention is relatively stable while hyperactivity-impulsivity often wanes. [[APA2022DSM,Epstein2013]]</p><p class="pres"><span class="big-num">2.44%</span><span class="stage-cap">same African studies</span></p><p class="stage-cap">[[Ayano2020Africa]] ICD codes: [[TebartzVanElst2025]]</p></div>
+  </div>
+  <p class="stage-cap">The full DSM-5-TR criteria, with a teaching calculator, are in <a href="#criteria" data-go="criteria">2.2 DSM-5-TR criteria</a>. How the symptoms look at each age is in <a href="#signs" data-go="signs">2.1 Signs across the lifespan</a>.</p>
+
+  <h3 class="sub">What ADHD is not</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Not a lack of effort</h4><p>People with ADHD of all ages show, on average, medium-sized weaknesses in executive functions such as response inhibition, vigilance, working memory and planning (effect sizes 0.46–0.69 across 83 studies), though not every person has them. [[Willcutt2005]] In girls and women, inattention is often misread as "lacking effort or motivation". [[Young2020Females]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Not caused by parenting</h4><p>Twin, adoption and family studies show that ADHD runs in biological families, and shared family environment adds little. Parenting can interact with a child's behaviour, and a child's behaviour also shapes parenting, but parenting is not the main cause. [[Larsson2014,Sprich2000,Harold2013]] NICE asks clinicians to explain that a recommendation for parent training "does not imply bad parenting". [[NICE2018H]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Not new, and not only American</h4><p>Physicians described attention problems in 1775 and 1798, and Still lectured on such children in 1902. [[Barkley2012Weikard,Lange2010,Still1902]] When studies use the same methods, prevalence does not differ significantly between North America, Europe, Asia, Africa, South America and Oceania. [[Faraone2021,Willcutt2012]] See <a href="#history" data-go="history">6.1 History</a>.</p></div>
+    <div class="card"><span class="tag">Diagnosis</span><h4>Not something a quiz can decide</h4><p>ADHD "can only be diagnosed by a licensed clinician", and it "cannot be diagnosed by rating scales alone, neuropsychological tests, or methods for imaging the brain". [[Faraone2021]] It occurs at every level of intelligence. [[Faraone2021]] Screeners are taught in <a href="#scales" data-go="scales">2.3 Rating scales</a>.</p></div>
+  </div>
+
+  <h3 class="sub">What each prevalence number counts</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Estimate</th><th>Who and how</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><th>5.29%</th><td>Children and adolescents ≤18, 102 studies worldwide, pooled meta-analysis</td><td>[[Polanczyk2007]]</td></tr>
+      <tr><th>3.4%</th><td>Children, 41 probabilistic community studies with standardised interviews</td><td>[[Polanczyk2015]]</td></tr>
+      <tr><th>7.2%</th><td>Children, 175 studies using DSM-III to DSM-IV criteria</td><td>[[Thomas2015]]</td></tr>
+      <tr><th>7.6% · 5.6%</th><td>Ages 3–12 and 12–18; DSM-5 studies gave higher figures than earlier criteria</td><td>[[Salari2023]]</td></tr>
+      <tr><th>1.78%</th><td>Under 20, Global Burden of Disease 2021 model (probably an underestimate, its critics say)</td><td>[[Cortese2026GBD]]</td></tr>
+      <tr><th>2.8%</th><td>Adults, WHO World Mental Health surveys, 20 surveys</td><td>[[Fayyad2017]]</td></tr>
+      <tr><th>2.58% · 6.76%</th><td>Adults: persistent (childhood onset) and symptomatic, age-standardised to 2020</td><td>[[Song2021]]</td></tr>
+      <tr><th>2.18% · 0.23% · 0.09%</th><td>Older adults by symptom scales, clinical diagnosis and treatment records</td><td>[[Dobrosavljevic2020]]</td></tr>
+      <tr><th>11.4% · 6.0%</th><td>US children ever diagnosed (2022); US adults with a current diagnosis (2023)</td><td>[[Danielson2024,Staley2024]]</td></tr>
+    </tbody>
+  </table></div>
+</section>

@@ -1,0 +1,61 @@
+<!-- ================= 6.1 HISTORY & PEOPLE ================= -->
+<section class="mod" id="m-history" data-mod="history" hidden>
+<style>
+#m-history #hiYears .tag{min-height:40px;padding:8px 10px}
+#m-history #hiYears .tag[aria-pressed="true"]{background:var(--brand-soft);color:var(--brand);border-color:var(--brand)}
+#m-history .hi-ms{font-size:14.5px;display:flex;flex-direction:column;gap:4px;min-height:3.2em}
+#m-history .hi-ms b{font:600 12px var(--mono);letter-spacing:.04em;color:var(--brand)}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>History &amp; people</h2>
+    <p class="lede">From Landry's "ascending paralysis" in 1859, through the spinal fluid finding of 1916, to trials, antibodies and a worldwide cohort. [[Afifi1994,Goodfellow2016,Jacobs2017]] Scrub through 170 years, or tap a year below to jump straight to it.</p></div>
+
+  <div class="stepper" id="hiSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="hiSvg" viewBox="0 0 720 370" style="min-width:560px" role="img" aria-label="An animated timeline of Guillain-Barré syndrome from 1859 to 2025, with a drawing for each era: ascending paralysis, two soldiers and a spinal fluid sample, nerve inflammation, the 1976 vaccine programme, the first treatments, Campylobacter and molecular mimicry, the treatment trials and a world view of recent outbreaks"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="hiPlay">%t:player.play%</button><label class="stage-cap tl" for="hiT">Year <input type="range" id="hiT" min="0" max="1" step="0.001" value="0.02"></label></div>
+      <div class="hi-ms" id="hiMs"></div>
+      <p class="stage-cap">The drawings are schematic. The map is a plain longitude and latitude grid, not to scale. The timeline is compressed before 1920.</p></div>
+    <aside class="note" id="hiNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Milestones</h3>
+  <div class="prose"><p>Each button moves the timeline to that year and shows the milestone under the drawing.</p></div>
+  <div class="chips" id="hiYears" role="group" aria-label="Milestones by year"></div>
+
+  <h3 class="sub">Who first described it?</h3>
+  <div class="prose">
+    <p>Landry is credited with the first report and Guillain, Barré and Strohl with the spinal fluid finding. [[Afifi1994,Waclawik2018]] The 1916 paper did not mention Landry, and others, including Duménil, Osler and Grainger Stewart, had reported similar cases without lumbar puncture. [[Afifi1994,Freitas2017]] Haymaker and Kernohan brought Landry's paralysis, acute febrile polyneuritis and GBS under one heading in 1949. [[Haymaker1949,Berciano2017]]</p>
+    <p>Strohl's name then dropped out of use, and the reasons given vary. [[Afifi1994]] His recordings of the tendon reflexes were an early step towards the nerve tests used at the bedside today. [[Waclawik2018]]</p>
+  </div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Albuminocytological dissociation, high CSF protein with a normal cell count, dates from the 1916 report in two soldiers. [[Goodfellow2016,Waclawik2018]] Lumbar puncture was then new: Quincke had described it in 1891. [[Afifi1994]]</div>
+    <div class="pt"><b>In plain words</b>GBS is named after French doctors who described it in 1916, though Landry wrote about a similar paralysis in 1859. The key clue was the spinal fluid: lots of protein, but few cells.</div>
+  </div>
+
+  <h3 class="sub">The trials that changed care</h3>
+  <div class="prose"><p>Results as published, not instructions. Current treatment is in <a href="#ivig" data-go="ivig">IVIg</a>, <a href="#plex" data-go="plex">Plasma exchange</a> and <a href="#whatnot" data-go="whatnot">Steroids, repeats &amp; relapses</a>.</p></div>
+  <div class="tbl"><table>
+    <caption class="sr">Landmark treatment trials in GBS</caption>
+    <thead><tr><th scope="col">Year</th><th scope="col">Trial</th><th scope="col">People</th><th scope="col">What it found</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">1978</th><td>Prednisolone, randomised</td><td>40</td><td>Steroid treatment "is not beneficial and can be detrimental" [[Hughes1978]]</td></tr>
+      <tr class="tx"><th scope="row">1985</th><td>US GBS Study Group, plasmapheresis</td><td>245</td><td>Confirmed benefit of plasma exchange [[GBSStudyGroup1985]]</td></tr>
+      <tr class="tx"><th scope="row">1987</th><td>French Cooperative Group, plasma exchange</td><td>220</td><td>Confirmed benefit; favoured albumin over fresh frozen plasma as the replacement fluid [[FrenchPE1987]]</td></tr>
+      <tr class="tx"><th scope="row">1992</th><td>Dutch trial, IVIg vs plasma exchange</td><td>150</td><td>Improved by at least one grade at 4 weeks: 53% with IVIg vs 34% with plasma exchange; median 27 vs 41 days to improve [[vanDerMeche1992]]</td></tr>
+      <tr><th scope="row">1997</th><td>Plasma Exchange/Sandoglobulin Trial Group</td><td>383</td><td>Plasma exchange and IVIg equivalent; no significant advantage from combining them [[PSGBS1997]]</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">How the cause was pieced together</h3>
+  <div class="cards">
+    <div class="card"><span class="kicker">1955</span><h4>An animal model</h4><p>Waksman and Adams produced experimental allergic neuritis in rabbits with peripheral nerve tissue and adjuvants, with raised CSF protein and usually normal cells. Their model pointed to an immune cause. [[Waksman1955,Afifi1994]]</p></div>
+    <div class="card"><span class="kicker">1969</span><h4>Inflammation in the nerve</h4><p>Asbury, Arnason and Adams showed inflammatory cells around small veins with segmental demyelination, from the roots to the peripheral nerves. [[Asbury1969,Afifi1994]]</p></div>
+    <div class="card"><span class="kicker">1986 to 1995</span><h4>Axons, not just myelin</h4><p>Feasby proposed an axonal form; summer epidemics in northern China led McKhann's group to name AMAN, and autopsies gave it a structural basis. [[Feasby1986,McKhann1993,Griffin1995]]</p></div>
+    <div class="card"><span class="kicker">1990 to 2004</span><h4>The germ and the nerve</h4><p>Anti-GM1 antibodies after <i>C. jejuni</i> (1990), a GM1-like structure on the bacterium (1993) and the disease reproduced in rabbits (2004). [[Yuki1990,Yuki1993,Yuki2004]] A case-control study found recent <i>C. jejuni</i> in 26% of 103 people, against 2% of household controls. [[Rees1995]]</p></div>
+  </div>
+  <div class="prose"><p>Not everything is settled. Why the 1976 swine influenza vaccine carried a measurable risk is still unresolved, and mouse studies found that inducing anti-GM1 antibodies was not unique to the 1976 vaccines. <span class="ev early">Early evidence</span> [[Nachamkin2008,Sejvar2011Flu]]</p></div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Summer epidemics in northern China are the classic AMAN setting. [[McKhann1993,Ho1995]] The 1976 swine influenza vaccine carried about 1 extra case per 100,000 vaccinations; later influenza vaccines about 1 per million. [[Schonberger1979,Leonhard2019]]</div>
+    <div class="pt"><b>In plain words</b>Over a hundred years, doctors moved from describing the paralysis to finding its cause: the immune system, often set off by a gut germ whose coat looks like part of the nerve. Treatments that work were found in the 1980s and 1990s.</div>
+  </div>
+  <p class="callout">The mechanism in detail is in <a href="#mimicry" data-go="mimicry">Molecular mimicry</a>; today's research, with its evidence labels, is in <a href="#frontier" data-go="frontier">Research frontier</a>.</p>
+</section>

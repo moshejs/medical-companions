@@ -1,0 +1,78 @@
+<!-- ================= 1.3 GENES & FAMILY RISK ================= -->
+<style>
+#m-genes .card>.ev,#m-genes .card>.tag{align-self:flex-start}
+#m-genes .tbl table{min-width:560px}
+#m-genes .gebtns{display:flex;flex-wrap:wrap;gap:8px}
+#m-genes #geLbInfo{display:flex;flex-direction:column;gap:10px}
+#m-genes #geLbInfo .fx{border-left:3px solid var(--brand);padding:2px 0 2px 12px;font-size:14.5px}
+#m-genes #geLbInfo .fx b{display:block;margin-bottom:2px}
+#m-genes #geLbInfo .fx.off{opacity:.55;border-left-color:var(--line)}
+</style>
+<section class="mod" id="m-genes" data-mod="genes" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · Understanding bipolar disorder</p><h2>Genes &amp; family risk</h2>
+    <p class="lede">Bipolar disorder runs in families, but no single gene causes it and most relatives never develop it. Step through one family, from the general population to an identical twin, and watch the numbers build from twin, family and register studies.</p></div>
+  <div class="stepper" id="geSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="geSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A three-generation family tree. As you step through, relatives are shaded as having bipolar disorder and a panel beside the tree shows the published risk for the person marked with a question mark: under half a per cent with no affected parent, 4.4% with one affected parent, 24.9% with two, and 43% for an identical co-twin, as 100-person icon arrays, then relative-risk and heritability bars."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="gePlay">Play</button><label class="stage-cap tl" for="geT">Family <input type="range" id="geT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <p class="stage-cap"><b>Population statistics, not a prediction for any one person.</b> Percentages are cumulative risks or concordances from the studies named in the note; each study counted a different outcome over a different span of life, so the figures are not one smooth scale. The family tree is illustrative. [[Gottesman2010,Kieseppa2004,Merikangas2011]]</p>
+    </div>
+    <aside class="note" id="geNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How heritable? Twins against whole populations</h3>
+  <div class="prose">
+    <p>Heritability is the share of the <i>differences</i> in liability between people in a population that is linked to genetic differences. It is not the chance that a given person inherits the condition. Clinical twin series give the highest figures; whole-population Swedish registers give lower ones, probably because of how severe cases were found, the diagnostic method and small twin samples with wide confidence intervals. The usual summary is "about 60–85%". [[McGuffin2003,Kieseppa2004,Lichtenstein2009,Mullins2021]]</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Study</th><th>Design</th><th>Estimate</th></tr></thead>
+    <tbody>
+      <tr><th>UK twins, 2003</th><td>67 twin pairs, DSM-IV</td><td>85% (95% CI 73–93%); no shared-environment effect [[McGuffin2003]]</td></tr>
+      <tr><th>Finnish twins, 2004</th><td>Nationwide twin cohort, bipolar I</td><td>93% (95% CI 69–100%); MZ concordance 0.43, DZ 0.06 [[Kieseppa2004]]</td></tr>
+      <tr><th>Norwegian twins, 2008</th><td>303 twins, DSM-III-R</td><td>73% bipolar I; 71% for bipolar I, II and cyclothymia together [[Edvardsen2008]]</td></tr>
+      <tr><th>Swedish twin register, 2019</th><td>804 twins with bipolar disorder</td><td>60.4% (95% CI 50.3–70.5%); no sex difference [[Johansson2019]]</td></tr>
+      <tr><th>Swedish families, 2009 and 2015</th><td>9 million and 8.1 million people</td><td>59% and 58%; shared family environment only 3.4% [[Lichtenstein2009,Song2015Family]]</td></tr>
+      <tr class="hl"><th>SNP-heritability, 2019–2021</th><td>Common variants measured in GWAS</td><td>about 16–23% on the liability scale [[Stahl2019,Mullins2021]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">The gap between 60–85% from twins and about 16–23% from measured common variants is the "missing heritability". Rare variants, undiscovered common variants and non-additive effects are candidate explanations; the question is open. [[Stahl2019,Mullins2021,OConnell2025,Palmer2022Exome]]</p>
+
+  <h3 class="sub">GWAS: from one locus to 298</h3>
+  <div class="stepper" id="geGwSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="geGw" viewBox="0 0 720 430" style="min-width:560px" role="img" aria-label="A Manhattan plot sketch fills with peaks as genome-wide association studies grow from 4,387 cases in 2008 to 158,036 in 2025 and from one genome-wide locus to 298, with named genes such as ANK3, CACNA1C, ODZ4, SCN2A, SHANK2 and ERBB4. Bar charts below show the cases and loci growing; the last step shows two overlapping score curves to explain why a polygenic score cannot diagnose."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="geGwPlay">Play</button><label class="stage-cap tl" for="geGwT">Year <input type="range" id="geGwT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <p class="stage-cap"><b>Sketch, not data.</b> Chromosome positions of the named genes are approximate; dot heights and the anonymous peaks are drawn to show the trend, and the 2025 panel does not draw every one of the 298 loci. Case and locus counts are as published. [[Ferreira2008,PGCBD2011,Stahl2019,Mullins2021,OConnell2025]]</p>
+    </div>
+    <aside class="note" id="geGwNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Genes and environment: a liability threshold</h3>
+  <div class="prose"><p>A classic way to picture a condition with many small causes: everyone sits somewhere on a scale of liability, and an episode or onset happens past a threshold. Genes set where a person starts; experiences can push liability up for a while. Switch factors on to see the curve shift. Each one is an <i>association</i> from the studies named, not proof of cause, and the size of each shift is drawn, not calculated.</p></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="gebtns" role="group" aria-label="Risk factors">
+        <button class="btn" data-gef="fam" aria-pressed="false">Parent with bipolar disorder</button>
+        <button class="btn" data-gef="adv" aria-pressed="false">Childhood adversity</button>
+        <button class="btn" data-gef="can" aria-pressed="false">Cannabis use</button>
+        <button class="btn" data-gef="slp" aria-pressed="false">Sleep loss</button>
+        <button class="btn" data-gef="pp" aria-pressed="false">The weeks after birth</button>
+      </div>
+      <div class="scroll"><svg id="geLb" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="A bell-shaped liability curve with a threshold line on the right. Each risk factor switched on shifts the curve to the right, so more of it is shaded past the threshold. The shifts are schematic."></svg></div>
+      <p class="stage-cap">Schematic liability-threshold model. Shifts are illustrative and do not add up to any person's risk. Sleep loss and the postpartum period mostly act as triggers in people who already have bipolar disorder; the others are linked with onset.</p>
+    </div>
+    <aside class="note" id="geLbInfo" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What this means for families</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Risk, not destiny</h4><p>In the Danish register, 95.6% of children with one parent admitted with bipolar disorder had not been diagnosed with it by age 52. By the 22-year Dutch follow-up of children of a parent with bipolar disorder, 87–89% had not developed it. Even an identical co-twin develops bipolar I in fewer than half of cases (concordance 0.43). [[Gottesman2010,Helmink2025,Kieseppa2004]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Shared genetics with schizophrenia and depression</h4><p>From genome-wide SNPs, the genetic correlation of bipolar disorder is about 0.68–0.70 with schizophrenia and 0.44–0.47 with major depression. In Swedish families, 63% of the overlap between schizophrenia and bipolar disorder came from shared genetic effects. Bipolar I leans toward schizophrenia (driven by psychosis); bipolar II leans toward depression. [[PGCCDG2013NatGenet,PGCCDG2019,Mullins2021,Lichtenstein2009,Stahl2019]]</p></div>
+    <div class="card"><span class="tag brand">In children at family risk</span><h4>Low mood usually comes first</h4><p>In the Dutch offspring study, 88% of those who developed a bipolar spectrum disorder began with a depressive episode. In Pittsburgh, subthreshold manic or hypomanic episodes were the strongest precursor of a full episode (hazard ratio 7.57). In the Canadian cohort the median age at onset was 20.7 years. [[Mesman2013,Axelson2015,Duffy2019AJP]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>No DNA test can diagnose it</h4><p>The best polygenic score separates cases from controls with an AUC of about 0.65–0.70; its authors call the liability explained "insufficient for diagnostic prediction in the general population". A polygenic score alone will never establish a diagnosis. There are no clinical practice guidelines for genetic testing in bipolar disorder. [[Mullins2021,OConnell2025,Murray2021PRS,Austin2020GC]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Rare variants: a smaller part</h4><p>Large rare copy-number variants matter less than in schizophrenia; a 16p11.2 duplication is the best supported. Exome sequencing of 13,933 cases found an excess of ultra-rare damaging variants and named AKAP11 (odds ratio 7.06), a gene shared with schizophrenia whose protein interacts with GSK3B, a proposed lithium target. [[Grozeva2010,Green2016CNV,Palmer2022Exome]]</p></div>
+    <div class="card"><span class="tag brand">Support</span><h4>Genetic counselling helps</h4><p>Genetic counselling is not genetic testing. In a pilot randomised trial, both counselling and a booklet improved knowledge, but only counselling made people's own risk estimates more accurate. Real risk is often lower than families fear. [[Hippman2016,Austin2020GC]] For how episodes look and are diagnosed, see <a href="#episodes" data-go="episodes">Mania, hypomania &amp; depression</a>; for the body clock, <a href="#brain" data-go="brain">Brain, sleep &amp; the body clock</a>.</p></div>
+  </div>
+</section>

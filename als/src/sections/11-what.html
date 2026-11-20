@@ -1,0 +1,63 @@
+<!-- ================= 1.1 WHAT ALS IS ================= -->
+<section class="mod" id="m-what" data-mod="what" hidden>
+<style>
+#m-what .wh-bars{display:flex;flex-direction:column;gap:6px}
+#m-what .wh-bar{display:grid;grid-template-columns:minmax(0,12em) minmax(0,1fr) 4.2em;gap:10px;align-items:center;width:100%;min-height:44px;text-align:left;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--panel);cursor:pointer;font-size:14px;font-weight:700;line-height:1.2}
+#m-what .wh-bar:hover{border-color:var(--muted)}
+#m-what .wh-bar[aria-pressed="true"]{border-color:var(--tdp);background:var(--tdp-soft)}
+#m-what .wh-bar small{display:block;font:500 11px var(--mono);color:var(--muted);margin-top:2px}
+#m-what .wh-bar .tr{height:10px;border-radius:99px;background:var(--panel-2);overflow:hidden}
+#m-what .wh-bar .tr i{display:block;height:100%;border-radius:99px;background:var(--tdp);width:0;transition:width .7s cubic-bezier(.3,.7,.2,1)}
+#m-what .wh-bar.model .tr i{background:var(--muted)}
+#m-what .wh-bar .v{font:600 13px var(--mono);text-align:right;color:var(--ink)}
+#m-what .wh-num{font-family:var(--display);font-weight:800;font-size:28px;line-height:1.05;color:var(--tdp)}
+#m-what .wh-num small{font:600 12px var(--mono);color:var(--muted);margin-left:4px}
+#m-what .card .kicker{margin-bottom:-4px}
+#m-what .wh-dis{border-left:3px solid var(--warn)}
+#m-what .ctrls .btn{min-height:44px}
+#m-what .wh-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+@media (max-width:600px){ #m-what .wh-bar{grid-template-columns:minmax(0,1fr) 4em} #m-what .wh-bar .tr{grid-column:1 / -1;grid-row:2} }
+</style>
+  <div class="mhead"><p class="eyebrow">Part 1 · The disease</p><h2>What ALS is</h2>
+    <p class="lede">Amyotrophic lateral sclerosis (ALS), also called motor neuron disease, damages both the upper motor neurons in the brain and the lower motor neurons in the brainstem and spinal cord, so muscles weaken, waste and stiffen. [[Feldman2022]] It starts in one region of the body and spreads. Choose where it starts and press Play.</p></div>
+
+  <div class="wh-row" role="group" aria-labelledby="whOnsetLbl"><span class="kicker" id="whOnsetLbl">Where it starts</span><div class="ctrls" id="whOnset"></div></div>
+  <div class="stepper" id="whSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="whSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A body figure with four regions (bulbar, cervical, thoracic, lumbosacral) that fill in one after another from the chosen onset region, beside a list of the order of spread and a time axis in months"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="whPlay">Play</button><label class="stage-cap tl" for="whT">Timeline <input type="range" id="whT" min="0" max="1" step="0.002" value="0.04"></label></div>
+      <div class="readout" id="whRead"></div>
+      <p class="stage-cap">Schematic, not to scale, and not anyone's forecast. Darker shading means more of that region is affected. The order of spread is a common pattern, not a rule. The month marks are mean times from onset in people who had died at one London clinic, with all onset types together [[Roche2012]]. Other cohorts differ, and many people live much longer.</p></div>
+    <aside class="note" id="whNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>ALS = <b>upper plus lower</b> motor neuron signs, spreading from one region. UMN: brisk or spreading reflexes, spasticity. LMN: weakness, wasting, fasciculations. [[Feldman2022]] Sensory loss, eye-movement palsy and sphincter disturbance argue against it [[Garnier2024]]; eye-movement and sphincter motor neurons are relatively spared until late [[Kanning2010,Mannen1977]].</div>
+    <div class="pt"><b>In plain words</b>The nerves that move muscles slowly stop working, so muscles get weak. Feeling and the muscles that move the eyes are usually spared. It usually begins in one place, such as a hand or the voice, and spreads over months to years.</div>
+  </div>
+
+  <h3 class="sub">Key numbers</h3>
+  <div class="prose"><p>These are ranges from population registers and reviews. A number for a population does not describe any one person.</p></div>
+  <div class="cards" id="whCards"></div>
+
+  <h3 class="sub">How common, by source</h3>
+  <div class="prose"><p>Different methods give different numbers. Pick a measure, then tap a bar to see where it comes from.</p></div>
+  <div class="wh-row" role="group" aria-labelledby="whMeasLbl"><span class="kicker" id="whMeasLbl">Measure</span><div class="ctrls" id="whMeas"></div></div>
+  <div class="split2">
+    <div class="wh-bars" id="whBars" role="group" aria-label="Estimates by source"></div>
+    <div class="note" id="whBarNote" aria-live="polite"></div>
+  </div>
+
+  <h3 class="sub">Where sources disagree</h3>
+  <div class="cards" id="whDis"></div>
+
+  <h3 class="sub">The ways ALS can look</h3>
+  <div class="prose"><p>The same disease process can start in different places and involve mostly upper or mostly lower motor neurons. These patterns, called phenotypes, differ in how fast they usually progress. Choose one.</p></div>
+  <div class="ctrls" id="whPh" role="group" aria-label="Phenotype"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="whPhSvg" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Body figure shaded for the chosen phenotype, with labels saying whether upper and lower motor neuron signs are present, and a bar chart of median survival from onset for four onset patterns"></svg></div>
+      <p class="stage-cap">Shading is a typical pattern, not a rule. Survival bars are medians from onset in one London cohort of 1188 people [[Wijesekera2009]].</p></div>
+    <aside class="note" id="whPhNote" aria-live="polite"></aside>
+  </div>
+  <p class="callout">How the decline is measured over time, with the ALSFRS-R and King's stages, is in <a href="#course" data-go="course">ALSFRS-R and the course</a>. Why both kinds of motor neuron fail is in <a href="#neurons" data-go="neurons">Upper and lower motor neurons</a>.</p>
+</section>

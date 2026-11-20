@@ -1,0 +1,148 @@
+<!-- ================= 2.3 LUMBAR PUNCTURE & CSF ================= -->
+<style>
+#m-csf .card>.tag,#m-csf .card>.ev{align-self:flex-start}
+#m-csf .tbl table{min-width:580px}
+#m-csf .csbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-csf .csbar .btn{min-height:40px}
+#m-csf .csbar .kicker{margin-right:4px}
+#m-csf .calc select,#m-csf .calc input[type=range]{min-height:40px}
+#m-csf .calc .chk{flex-direction:row;align-items:center;gap:10px;min-height:40px}
+#m-csf .calc .chk input{width:20px;height:20px;accent-color:var(--dx)}
+#m-csf .csout{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px;font-size:15px}
+#m-csf .cscap{font-size:15px;line-height:1.5;max-width:76ch}
+</style>
+<section class="mod" id="m-csf" data-mod="csf" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · Diagnosis</p><h2>Lumbar puncture &amp; CSF</h2>
+    <p class="lede">What the spinal fluid shows in Guillain-Barré syndrome: protein that rises over days while white cells stay low. See why an early sample can be normal, read a sample against fixed and age-adjusted limits, and see what antibody tests add.</p></div>
+
+  <div class="prose">
+    <p>A lumbar puncture (spinal tap) takes a small sample of cerebrospinal fluid (CSF) from the lower back. The classic finding in GBS is a raised protein with a normal cell count, called albuminocytological (or albuminocytologic) dissociation [[Leonhard2019]]. It is the only consistent CSF biomarker that supports the diagnosis among many studied <span class="ev est">Established</span> [[Illes2017]]. The two main guidance papers differ on when to do it: the 2023 EAN/PNS guideline advises CSF examination particularly when the diagnosis is uncertain or another cause must be excluded, while the 2019 consensus advises it in the initial evaluation, mainly to rule out other causes [[vanDoorn2023,Leonhard2019]].</p>
+  </div>
+
+  <div class="stepper" id="csSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="csSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A side view of the lower spine with a needle entering the spinal canal and fluid dripping into a tube; as a day marker moves from onset to three weeks, protein specks in the tube multiply while white cells stay few, and a chart beside it adds the share of people with raised protein in a Dutch cohort and in IGOS at each published time window, ending with how cell counts were spread."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="csPlay">%t:player.play%</button><label class="stage-cap tl" for="csT">Timeline <input type="range" id="csT" min="0" max="1" step="0.002" value="0.06"></label></div>
+      <p class="stage-cap">Schematic, not to scale; the protein specks in the tube are illustrative. Chart points are published windows, not a fitted curve: Dutch cohort [[Fokke2014]], IGOS [[Doets2018]]; cell counts [[AlHakem2023]].</p></div>
+    <aside class="note" id="csNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="cards">
+    <div class="card"><span class="tag dx">IGOS, n=823</span><h4>68% raised overall</h4><p>CSF was examined a median 4 days (IQR 2–8) after the first neurological symptoms; 68% had protein above 0.45 g/l [[Doets2018]].</p></div>
+    <div class="card"><span class="tag dx">IGOS, n=1,231</span><h4>70% had dissociation</h4><p>Albuminocytological dissociation in 846 of 1,231: 57% at 4 days or fewer from weakness onset and 84% beyond 4 days [[AlHakem2023]].</p></div>
+    <div class="card"><span class="tag dx">Dutch, n=494</span><h4>From 49% to 88%</h4><p>Raised protein in 64% overall, rising from 49% on the first day after weakness onset to 88% after 2 weeks [[Fokke2014]].</p></div>
+    <div class="card"><span class="tag dx">Children</span><h4>About three in four</h4><p>77% of 67 Dutch children had raised protein [[Roodbol2017]]; dissociation was found in 80% of a retrospective and 75% of a prospective paediatric cohort [[Korinthenberg2020]].</p></div>
+  </div>
+
+  <h3 class="sub">Cells: usually under 5</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Cohort</th><th>Under 5 cells/µl</th><th>5 to 49 or 50</th><th>50 or more</th></tr></thead>
+    <tbody>
+      <tr><th>IGOS, first 1,000 [[Doets2018]]</th><td>80%</td><td>19% (5–50)</td><td>2% (range 53–232)</td></tr>
+      <tr class="hl"><th>IGOS, 1,500 analysis [[AlHakem2023]]</th><td>83% (1,005)</td><td>16% (200; 5–49)</td><td>1% (13)</td></tr>
+      <tr><th>Dutch cohort [[Fokke2014]]</th><td>not given</td><td>15% (5–50)</td><td>none above 50</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose"><p>The guideline's wording is "usually &lt;5 cells/μL, rarely 5–50 cells/μL and very rarely &gt;50 cells/μL" [[vanDoorn2023]]. Marked pleocytosis above 50/µl suggests leptomeningeal malignancy or infectious or inflammatory disease of the cord or roots; mild pleocytosis of 10–50/µl is compatible with GBS but should still prompt consideration of infectious polyradiculitis [[Leonhard2019]]. In one series of GBS mimics, a person with 79 white cells/µl had lymphoma cells in the CSF, which is why cytology matters when the count is raised [[Tham2018]].</p></div>
+  <div class="hook"><b>Exam hook</b>CSF over 50 cells/µl should send you looking for another diagnosis [[vanDoorn2023,Leonhard2019]]. A normal protein in week 1 does not rule GBS out: about 50% are raised within 3 days and 84% after 7 days [[Doets2018]].</div>
+
+  <h3 class="sub">Read a sample: fixed and age-adjusted limits</h3>
+  <div class="prose"><p>Most laboratories flag protein above a fixed 0.45 g/l; over 85% of surveyed clinical centres use that limit [[Bourque2019]]. A systematic review found a weighted upper reference limit of 0.55 g/l in high-quality studies, above 0.60 g/l after age 50 [[Breiner2019JNeurol]]. Set an imaginary sample and see what the published sources say about each part of it.</p></div>
+  <p class="teach" role="note"><b>Teaching tool</b>This compares numbers with published limits and quotes what the sources say. It is never for an individual's diagnosis or treatment, and a laboratory's own reference range applies to its own results.</p>
+  <div class="lab even">
+    <div class="stage">
+      <div class="calc">
+        <label for="csAge">Age (published age points)
+          <select id="csAge"><option value="30">30</option><option value="40">40</option><option value="50" selected>50</option><option value="60">60</option><option value="70">70</option></select></label>
+        <label for="csProt">CSF protein: <span id="csProtV">0.52 g/l</span>
+          <input type="range" id="csProt" min="0.2" max="2" step="0.01" value="0.52"></label>
+        <label for="csCells">White cells
+          <select id="csCells"><option value="0">Under 5/µl</option><option value="1">5 to 9/µl</option><option value="2">10 to 49/µl</option><option value="3">50/µl or more</option></select></label>
+        <label for="csDay">Days since weakness began
+          <select id="csDay"><option value="0">0 to 3</option><option value="1" selected>4 to 7</option><option value="2">More than 7</option></select></label>
+        <label class="chk" for="csIvig"><input type="checkbox" id="csIvig"> Sample taken after IVIg</label>
+      </div>
+      <svg id="csRead" viewBox="0 0 400 200" role="img" aria-label="Two scales: CSF protein from 0 to 2 grams per litre with a marker for the sample, a line at the fixed 0.45 limit and a line at the age-adjusted limit; and white cells in three bands, under 5, 5 to 49 and 50 or more, with the sample's band marked."></svg>
+    </div>
+    <aside class="note" id="csReadOut" aria-live="polite"></aside>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Age</th><th>30</th><th>40</th><th>50</th><th>60</th><th>70</th></tr></thead>
+    <tbody><tr><th>Ottawa age-adjusted upper limit, g/l [[Bourque2019]]</th><td>0.54</td><td>0.57</td><td>0.60</td><td>0.63</td><td>0.67</td></tr></tbody>
+  </table></div>
+
+  <h3 class="sub">The trade-off: early sensitivity against specificity</h3>
+  <div class="prose"><p>A higher limit flags fewer normal people but also misses more GBS early on. In Ottawa (138 people at Brighton level 1 or 2), the share of GBS caught by each limit depended on timing [[Bourque2019]]. Pick a limit and a time window; each dot is one person with GBS in 100.</p></div>
+  <div class="stage">
+    <div class="csbar" role="group" aria-label="Protein limit">
+      <span class="kicker">Limit</span>
+      <button class="btn" data-csl="fixed" aria-pressed="true">Fixed 0.45 g/l</button>
+      <button class="btn" data-csl="age" aria-pressed="false">Age-adjusted</button>
+    </div>
+    <div class="csbar" role="group" aria-label="Time window">
+      <span class="kicker">Window</span>
+      <button class="btn" data-csw="d3" aria-pressed="false">Days 0–3</button>
+      <button class="btn" data-csw="w1" aria-pressed="true">First week</button>
+      <button class="btn" data-csw="w2" aria-pressed="false">Second week</button>
+    </div>
+    <div class="scroll"><svg id="csSens" viewBox="0 0 720 130" style="min-width:560px" role="img" aria-label="One hundred dots standing for 100 people with GBS; the dots filled in are those whose CSF protein was above the chosen limit in the chosen time window, with the percentage printed beside them."></svg></div>
+    <p class="cscap" id="csSensCap" aria-live="polite"></p>
+  </div>
+  <div class="split2">
+    <div class="card"><h4>Fewer positives with age adjustment</h4><p>In 110 people with GBS, the yield fell from 66% at the fixed 0.45 g/l limit to 49% with age-adjusted limits. The CSF/serum albumin quotient tracked total protein closely (r = 0.95) with similar yield, so it added little [[Rath2021]].</p></div>
+    <div class="card"><h4>Raised protein has many causes</h4><p>Among 2,627 samples with raised protein and white cells of 5×10⁹/l or fewer, a diagnosis explaining it was found in 57%: 75% when protein was above age-adjusted norms against 51% below them [[Brooks2019]].</p></div>
+  </div>
+
+  <h3 class="sub">Protein differs by subtype and variant</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Group</th><th>Finding</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr class="demy"><th>Demyelinating pattern</th><td>Mean protein 1.56 g/l (173 North American cases, one institution)</td><td>[[Bourque2020]]</td></tr>
+      <tr class="axonal"><th>Axonal pattern</th><td>Mean 0.68 g/l</td><td>[[Bourque2020]]</td></tr>
+      <tr><th>Normal or equivocal nerve conduction</th><td>Mean 0.65 g/l</td><td>[[Bourque2020]]</td></tr>
+      <tr><th>Higher protein goes with</th><td>Demyelinating subtype, proximal or global weakness, and lower odds of running at week 2 (OR 0.42, 95% CI 0.25–0.70)</td><td>[[AlHakem2023]]</td></tr>
+      <tr><th>Lower protein is more likely with</th><td>Miller Fisher syndrome, distal-predominant weakness, normal or equivocal nerve conduction</td><td>[[AlHakem2023]]</td></tr>
+      <tr class="mfs"><th>Miller Fisher syndrome</th><td>Dissociation in 76% of 466 Japanese patients and 46% of 53 with Bickerstaff encephalitis [[Ito2008]]; 40% of 25 Malaysian patients [[Tan2020]]</td><td>[[Ito2008,Tan2020]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout">After IVIg, both CSF protein and cell count may be artefactually raised, which matters when the puncture follows treatment [[vanDoorn2023]].</div>
+
+  <h3 class="sub">Antibody blood tests</h3>
+  <div class="prose"><p>Anti-ganglioside antibodies are measured in serum. Their value is limited and depends on the assay: a positive result can help when the diagnosis is in doubt, a negative one does not exclude GBS, and published guidance is that treatment should not wait for the results [[Leonhard2019]].</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Test</th><th>What is reported</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><th>Anti-GM1 IgG, all GBS</th><td>Sensitivity 20–69%, varying by region; specificity 94–98%</td><td>[[vanDoorn2023]]</td></tr>
+      <tr><th>Anti-ganglioside panel</th><td>Sensitivity 32–64%</td><td>[[vanDoorn2023]]</td></tr>
+      <tr class="mfs"><th>Anti-GQ1b, Miller Fisher syndrome</th><td>88–100% sensitivity with very high specificity [[vanDoorn2023]]; "up to 90%" [[Leonhard2019]]; 83% of 466 with Fisher syndrome and 68% of 53 with Bickerstaff encephalitis [[Ito2008]]</td><td>[[vanDoorn2023,Leonhard2019,Ito2008]]</td></tr>
+      <tr class="mfs"><th>Anti-GQ1b and eye movements</th><td>Present in 18 of 19 with typical Miller Fisher syndrome, 5 of 6 with GBS with ophthalmoplegia, and none of 23 with GBS without it</td><td>[[Chiba1993]]</td></tr>
+      <tr><th>Overlap</th><td>Anti-GM1 or anti-GD1a IgG in 50% of those with GBS and anti-GQ1b, 16% with Miller Fisher syndrome and 8% with Bickerstaff encephalitis</td><td>[[Odaka2001]]</td></tr>
+      <tr><th>High anti-GM1 titres</th><td>On a standardised ELISA, found only in GBS and other inflammatory polyneuropathies among 1,232 samples</td><td>[[Kuijf2005]]</td></tr>
+      <tr><th>Nodal-paranodal antibodies (NF155, Caspr1, CNTN1)</th><td>Suggested for poor treatment response, continued worsening or relapse, using cell-based assays with a second technique</td><td>[[vanDoorn2023]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="callout">As published, the guideline does not advise routine anti-ganglioside testing in most motor-sensory GBS or testing to subtype AIDP, AMAN or AMSAN; it suggests testing may help in some suspected motor GBS, variants or other uncertainty, and advises anti-GQ1b testing in suspected Miller Fisher syndrome [[vanDoorn2023]]. How these antibodies arise is in <a href="#mimicry" data-go="mimicry">Molecular mimicry</a>.</p>
+
+  <h3 class="sub">Neurofilament light chain: a research marker</h3>
+  <div class="prose"><p>Neurofilament light chain (NfL) can be measured in serum and CSF. In GBS it is a research marker, studied mainly for what it says about outcome [[vanTilburg2024,Thomma2025]].</p></div>
+  <div class="cards">
+    <div class="card"><span class="ev early">Early evidence</span><h4>Higher in GBS</h4><p>Median serum NfL 85.5 pg/ml in 27 people with GBS at admission against 9.1 pg/ml in 22 controls [[Altmann2020]]. In Spanish IGOS patients, 55.49 against 9.83 pg/ml, and 190.55 pg/ml in AMAN against 46.79 pg/ml in other variants [[MartinAguilar2020]].</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Linked to walking later</h4><p>In 281 trial patients, high levels at week 2 went with inability to walk unaided at week 4 (OR 1.74), and high levels at week 4 with inability at week 26 (OR 2.79) [[vanTilburg2024]]. In 293, NfL improved prediction models for walking (C-statistic 0.88 for one model at 26 weeks) but was not associated with respiratory failure [[Thomma2025]].</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Unvalidated cut-offs</h4><p>One study proposed baseline cut-offs: over 319 pg/ml for inability to walk independently and over 248 pg/ml for inability to run at 1 year, and under 34 pg/ml for ability to run. These are research values [[MartinAguilar2020]].</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>A diagnostic index?</h4><p>An NfL index separated 96 Swedish patients from healthy controls, multiple sclerosis and ALS with an AUC of 0.86; it has not been tested against true mimics [[Hafsteinsdottir2024]]. Low CSF/serum ratios in axonal or mixed cases (mean 4.4 against 26.7 in controls) suggest a peripheral origin [[Kortvelyessy2020]].</p></div>
+  </div>
+
+  <h3 class="sub">Imaging, when the picture is atypical</h3>
+  <div class="prose"><p>As published, routine MRI or nerve ultrasound is not advised for typical GBS; they may be considered in atypical cases, and whole-spine MRI with contrast can help exclude compression, transverse myelitis or tumour [[vanDoorn2023]]. In small uncontrolled studies, nerve-root MRI had a sensitivity of 82–95% with unknown specificity, and ultrasound a sensitivity of 47–95% and specificity of 36–91%, with no objective cut-offs [[vanDoorn2023]]. Ultrasound showed nerve enlargement on days 1–3 in 18 patients against 21 controls <span class="ev early">Early evidence</span> [[Grimm2014]].</p></div>
+
+  <h3 class="sub">Open questions</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Question</th><th>Positions</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><th>Is CSF needed in every suspected case?</th><td>The 2019 consensus advises it during initial evaluation [[Leonhard2019]]; EAN/PNS advises it particularly when the diagnosis is uncertain [[vanDoorn2023]].</td><td>Both agree a normal early result does not exclude GBS</td></tr>
+      <tr><th>Which protein limit?</th><td>Fixed 0.45 g/l gives the best early sensitivity (70% in week 1) [[Bourque2019]]; age-adjusted limits are data-driven but drop first-week sensitivity to 45% [[Bourque2019,Breiner2019JNeurol]].</td><td>Unresolved; specificity data missing</td></tr>
+      <tr><th>Can NfL enter practice?</th><td>The prognostic signal is consistent, but cut-offs lack external validation and it does not predict respiratory failure [[MartinAguilar2020,Thomma2025]].</td><td><span class="ev early">Early evidence</span> research use</td></tr>
+    </tbody>
+  </table></div>
+  <div class="pt"><b>In plain words</b>The spinal fluid test looks for high protein with few cells. In the first days it can be normal, and the person can still have GBS. Antibody blood tests can help in some cases, but treatment does not wait for them.</div>
+</section>

@@ -1,0 +1,78 @@
+<!-- ================= 2.2 DIAGNOSIS: DSM-5-TR CRITERIA & SEVERITY ================= -->
+<style>
+#m-criteria .crbox{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:6px 18px}
+@media (max-width:700px){#m-criteria .crbox{grid-template-columns:minmax(0,1fr)}}
+#m-criteria .crbox label{display:flex;gap:9px;align-items:flex-start;font-size:14.5px;line-height:1.35}
+#m-criteria .crbox input{width:18px;height:18px;margin:1px 0 0;flex:none;accent-color:var(--dx)}
+#m-criteria .crg{font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--dx);grid-column:1/-1;margin-top:8px}
+#m-criteria .crsel{display:flex;flex-direction:column;gap:5px;font-size:14px;font-weight:700;max-width:420px}
+#m-criteria .crsel select{font:inherit;font-weight:400;padding:7px 9px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink)}
+#m-criteria .crbig{font:800 44px/1 var(--display);color:var(--dx)}
+#m-criteria .card>.tag,#m-criteria .card>.ev{align-self:flex-start}
+</style>
+<section class="mod" id="m-criteria" data-mod="criteria" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · Screening &amp; diagnosis</p><h2>Diagnosis: DSM-5-TR criteria &amp; severity</h2>
+    <p class="lede">Alcohol use disorder is a treatable medical condition, diagnosed by a clinician who asks about 11 kinds of problems over the past 12 months. Watch the criteria light up cluster by cluster and the severity meter move, then see what remission means.</p></div>
+  <div class="stepper" id="crSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="crSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Eleven criteria tiles grouped in four clusters, impaired control, social impairment, risky use and pharmacological, light up one by one. A severity meter counts them and moves from none to mild (2 to 3), moderate (4 to 5) and severe (6 or more), with survey prevalence for each level. A 12-month window collects a dot for each criterion; in the last step the tiles dim and a token moves along a remission timeline from under 3 months, to early remission at 3 to under 12 months, to sustained remission at 12 months or more, while craving may remain."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="crPlay">Play</button><label class="stage-cap tl" for="crT">Criteria <input type="range" id="crT" min="0" max="1" step="0.001" value="0.06"></label></div>
+      <p class="stage-cap">Criteria paraphrased, not quoted. One illustrative person meets more and more criteria; months on the window are made up. Prevalences are US population estimates. [[APA2022,Hasin2013,Grant2015NESARC]]</p>
+    </div>
+    <aside class="note" id="crNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Try it: a teaching criteria counter</h3>
+  <p class="callout"><b>A teaching tool, not a self-diagnosis.</b> The criteria below are paraphrased from DSM-5-TR to show how the count and severity work. A diagnosis needs a clinician's assessment of a problematic pattern causing clinically significant impairment or distress, not a tick list. If you are worried about drinking, yours or someone else's, talk with a health professional. [[APA2022,Hasin2013]]</p>
+  <div class="lab">
+    <div class="stage">
+      <p class="kicker">In the same 12-month period, has the person… (paraphrased) [[APA2022]]</p>
+      <div class="crbox" id="crBox"></div>
+      <div class="scroll"><svg id="crCalcSvg" viewBox="0 0 720 96" style="min-width:560px" role="img" aria-label="An 11-segment severity meter with the bands none, mild, moderate and severe, filled to the number of criteria ticked."></svg></div>
+      <label class="crsel" for="crRem">If criteria were met before: time since any criterion other than craving was last met
+        <select id="crRem"><option value="na">Not applicable (criteria met in the past 12 months)</option><option value="lt3">Less than 3 months</option><option value="early">At least 3 but less than 12 months</option><option value="sust">12 months or more</option></select></label>
+      <label class="stage-cap" style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="crEnv" style="width:18px;height:18px;margin:0;accent-color:var(--dx)"> In a setting where access to alcohol is restricted</label>
+      <div class="ctrls"><button class="btn ghost" id="crReset">Clear all</button></div>
+    </div>
+    <aside class="note" id="crCalcNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">From DSM-IV abuse and dependence to one disorder</h3>
+  <p class="prose">DSM-IV had two alcohol diagnoses, “alcohol abuse” (the historical term) and “alcohol dependence”, arranged in a hierarchy. DSM-5 merged them into one disorder, based on consistent findings from more than 200,000 study participants: the criteria formed one factor, or two highly correlated factors. Toggle to watch the change. [[Hasin2013]]</p>
+  <div class="ctrls" role="group" aria-label="Classification"><span class="kicker">Show</span>
+    <button class="btn" data-crv="4" aria-pressed="true">DSM-IV (two diagnoses)</button>
+    <button class="btn" data-crv="5" aria-pressed="false">DSM-5 (one disorder)</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="crIv" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Criteria chips sit in two DSM-IV boxes, abuse and dependence. Switching to DSM-5 moves them into one box of 11: the legal-problems chip drops out and a craving chip is added."></svg></div>
+      <p class="stage-cap">Criteria paraphrased, grouped as in the DSM-5 work group paper. [[Hasin2013]]</p>
+    </div>
+    <aside class="note" id="crIvNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">DSM-5-TR and ICD-11 compared</h3>
+  <div class="tbl"><table>
+    <thead><tr><th></th><th>DSM-5-TR</th><th>ICD-11</th></tr></thead>
+    <tbody>
+      <tr><td><b>Main diagnosis</b></td><td>Alcohol use disorder, one dimensional condition [[Hasin2013]]</td><td>Alcohol dependence; harmful pattern of use of alcohol is a separate, less severe diagnosis [[Saunders2019ICD11]]</td></tr>
+      <tr><td><b>How it is built</b></td><td>11 criteria [[APA2022]]</td><td>Three essential features (condensed from ICD-10's six dependence criteria): impaired control over use, use becoming an increasing priority in life, physiological features (tolerance, withdrawal, or use to prevent or relieve withdrawal) [[Degenhardt2019ICD11]]</td></tr>
+      <tr><td><b>Threshold</b></td><td>2 or more criteria within 12 months [[APA2022,Hasin2013]]</td><td>At least 2 of the 3 features for dependence [[Degenhardt2019ICD11]]</td></tr>
+      <tr><td><b>Milder problems</b></td><td>Mild AUD (2–3 criteria) [[Hasin2013]]</td><td>Harmful pattern of use: damage to physical or mental health without dependence, typically evident over at least 12 months; it also covers health harm to others, an addition with very low endorsement and questionable validity [[Degenhardt2019ICD11]]</td></tr>
+      <tr><td><b>Risk without harm</b></td><td>Not a diagnosis</td><td>Hazardous alcohol use is listed separately, as a health risk factor [[Saunders2019ICD11]]</td></tr>
+      <tr><td><b>How common</b></td><td>US adults: 13.9% in the past 12 months, 29.1% lifetime [[Grant2015NESARC]]</td><td>Regular drinkers in 10 countries, lifetime: harmful use 21.6%, dependence 7.0% [[Degenhardt2019ICD11]]</td></tr>
+      <tr><td><b>Agreement</b></td><td colspan="2">ICD-11 agreed excellently with ICD-10 and DSM-IV (κ ≥ 0.9). Against DSM-5, agreement was good for dependence vs severe AUD but poor for harmful use vs mild AUD: the two systems will label some people differently. In an Australian survey DSM-5 moderate-to-severe AUD captured a far larger group than dependence in ICD-10, ICD-11 or DSM-IV. [[Degenhardt2019ICD11,Lago2016ICD11]]</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">What the numbers say</h3>
+  <div class="cards">
+    <div class="card"><span class="tag dx">Severity</span><h4>Mild is the most common</h4><p>In NESARC-III, 12-month prevalence was 7.3% mild, 3.2% moderate and 3.4% severe; lifetime, 8.6%, 6.6% and 13.9%. These are population estimates. [[Grant2015NESARC]]</p></div>
+    <div class="card"><span class="tag dx">Onset</span><h4>Earlier onset, more severe</h4><p>Mean age at onset was 26.2 years overall: 30.1 for mild, 25.9 for moderate and 23.9 for severe AUD. [[Grant2015NESARC]]</p></div>
+    <div class="card"><span class="tag dx">Treatment</span><h4>Few seek help</h4><p>Among people with 12-month AUD, treatment seeking was 2.7% (mild), 4.9% (moderate) and 21.3% (severe). Only 19.8% with lifetime AUD had ever been treated. [[Grant2015NESARC]]</p></div>
+    <div class="card"><span class="tag dx">Crosswalk</span><h4>Where old trials fit</h4><p>DSM-IV dependence agreed best with DSM-5 AUD at 4 or more criteria, so treatments tested in DSM-IV dependence apply best to AUD of at least moderate severity. [[Compton2013Crosswalk]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Why craving was added</h4><p>Its psychometric benefit was equivocal; the view that craving may become a biological treatment target prevailed. Adding it did not substantially change diagnosis rates. [[Hasin2013,Peer2013DSM5]]</p></div>
+    <div class="card"><span class="tag dx">Not in the criteria</span><h4>No blood test decides</h4><p>Biomarkers were considered but left out of DSM-5, because they were not yet suitable as diagnostic tests. Lab tests can show recent or heavy drinking: see <a href="#biomarkers" data-go="biomarkers">Blood and urine markers of drinking</a>. [[Hasin2013]]</p></div>
+  </div>
+  <p class="callout"><b>Recovery is common.</b> As group statistics, not a promise for any one person: among US adults whose alcohol dependence began before the past year, 18.2% were abstinent and 17.7% low-risk drinkers in the past year, and in long-term studies 35.0–54.4% of people with substance use disorders reached remission over a mean of 17 years. See <a href="#recovery" data-go="recovery">Course, relapse and recovery</a> and <a href="#medicines" data-go="medicines">Approved medicines</a>. [[Dawson2005,Fleury2016]] Stopping suddenly after long, heavy daily drinking can be dangerous: get medical help to stop safely.</p>
+</section>

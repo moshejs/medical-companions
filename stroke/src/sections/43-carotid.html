@@ -1,0 +1,139 @@
+<!-- ================= 4.3 CAROTID DISEASE AND PFO ================= -->
+<style>
+#m-carotid .tbl table{min-width:640px}
+#m-carotid .btn{min-height:40px}
+#m-carotid .carow{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-carotid .calab{font:600 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);width:100%}
+#m-carotid .card>.ev{align-self:flex-start}
+#m-carotid .canote{font-size:15px;line-height:1.5;max-width:76ch}
+#m-carotid .carng{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+#m-carotid .carng label{display:flex;flex-direction:column;gap:4px;font:500 12px var(--mono);color:var(--muted)}
+#m-carotid .carng input{width:100%;min-height:32px}
+#m-carotid .canum{font-family:var(--display);font-weight:700;font-size:30px;line-height:1.05}
+</style>
+<section class="mod" id="m-carotid" data-mod="carotid" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Preventing another stroke</p><h2>Carotid disease and PFO</h2>
+    <p class="lede">Watch plaque narrow a carotid artery and measure it two ways. See who gained from surgery and how much timing mattered, how modern trials changed the picture for people without symptoms, and how RoPE and PASCAL sort out when a hole in the heart mattered.</p></div>
+
+  <div class="stepper" id="caSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="caSvg" viewBox="0 0 720 424" style="min-width:560px" role="img" aria-label="A carotid bifurcation in which plaque grows in the internal carotid bulb, with NASCET and ECST measuring lines, percentages calculated from the drawing, and pooled surgical benefit by stenosis band."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="caPlay">Play</button><label class="stage-cap tl" for="caT">Plaque <input type="range" id="caT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap">Schematic. Percentages are the geometry of this drawing, for teaching, and not a clinical measurement. Bars from [[Rothwell2003]].</p></div>
+    <aside class="note" id="caNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Try the sum: a NASCET measuring tool</h3>
+  <div class="prose"><p><b>A teaching tool, never for an individual's diagnosis, prognosis or treatment.</b> Move the three widths and see that one narrowing gives two different percentages. Units are arbitrary.</p></div>
+  <div class="stage">
+    <div class="carng">
+      <label for="caN">N, narrowest lumen <input type="range" id="caN" min="0.2" max="8" step="0.1" value="2"></label>
+      <label for="caD">D, normal distal ICA <input type="range" id="caD" min="3" max="8" step="0.1" value="6"></label>
+      <label for="caE">E, estimated bulb width <input type="range" id="caE" min="4" max="10" step="0.1" value="9"></label>
+    </div>
+    <div class="scroll"><svg id="caMeas" viewBox="0 0 720 176" style="min-width:560px" role="img" aria-label="Three bars for the widths N, D and E, with the NASCET and ECST percentages that result."></svg></div>
+    <p class="canote" id="caMeasOut" aria-live="polite"></p>
+  </div>
+
+  <h3 class="sub">Symptomatic stenosis: the surgical trials</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial</th><th>Stenosis</th><th>Result: medical vs surgical</th></tr></thead>
+    <tbody>
+      <tr><th>NASCET, 659 people [[Barnett1991]]</th><td>70 to 99%</td><td>Ipsilateral stroke at 2 years 26% vs 9% (absolute reduction 17 ± 3.5%). Major or fatal ipsilateral stroke 13.1% vs 2.5%</td></tr>
+      <tr><th>NASCET [[Barnett1998]]</th><td>50 to 69%</td><td>5-year ipsilateral stroke 22.2% vs 15.7% (NNT 15)</td></tr>
+      <tr><th>NASCET [[Barnett1998]]</th><td>Below 50%</td><td>18.7% vs 14.9% (P=0.16, no benefit). Benefit in severe stenosis lasted to 8 years</td></tr>
+      <tr><th>ECST, 3024 people [[ECST1998]]</th><td>Above about 80%, ECST measure</td><td>3-year major stroke or death 26.5% vs 14.9%. Surgical major stroke or death risk 7.0%, not varying by severity</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Timing and who gains most</h3>
+  <div class="prose"><p>Number needed to treat over 5 years for stenosis of 50% or more: how many people have surgery to prevent one ipsilateral stroke. One figure in each block is marked [[Rothwell2004]]. The authors state that surgery should ideally occur within 2 weeks.</p></div>
+  <div class="ctrls" role="group" aria-label="Choose a comparison"><button class="btn" data-can="time" aria-pressed="true">Time since last event</button><button class="btn" data-can="sex" aria-pressed="false">Sex</button><button class="btn" data-can="age" aria-pressed="false">Age</button></div>
+  <div class="stage"><div class="scroll"><svg id="caNnt" viewBox="0 0 720 112" style="min-width:560px" role="img" aria-label="Icon arrays of the people treated to prevent one stroke in two groups: 5 within 2 weeks against 125 after more than 12 weeks, and the same for sex and age."></svg></div>
+    <p class="stage-cap">One highlighted person in each block. Population figures from pooled trials.</p></div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Timing: NNT 5 within 2 weeks vs 125 after 12 weeks [[Rothwell2004]].</div>
+    <div class="pt"><b>In plain words</b>If a neck artery is badly narrowed and has caused symptoms, surgery works best when done soon, ideally within 2 weeks [[Rothwell2004]].</div>
+  </div>
+
+  <h3 class="sub">Stenosis without symptoms, then and now</h3>
+  <div class="prose"><p>Early trials showed a modest gain from surgery. Modern trials compare a procedure with much better medical treatment, and medical-arm risks are far below those of ACST-1 [[Brott2026,Halliday2004]].</p></div>
+  <div class="stage"><div class="scroll"><svg id="caAsy" viewBox="0 0 720 296" style="min-width:560px" role="img" aria-label="Paired bars of event rates with a procedure and with medical treatment across ACAS, ACST-1, SPACE-2 and the two arms of CREST-2."></svg></div>
+    <div class="ctrls"><button class="btn primary" id="caAsyPlay">Play</button><label class="stage-cap tl" for="caAsyT">Trials <input type="range" id="caAsyT" min="0" max="1" step="0.002" value="1"></label></div>
+    <p class="stage-cap">Outcomes and durations differ between trials, so compare within a row [[ACAS1995,Halliday2004,Halliday2010,Reiff2022,Brott2026]].</p></div>
+  <div class="cards">
+    <div class="card"><h4>CREST-2 (NEJM 2026)</h4><p>70% or more asymptomatic stenosis, intensive medical management with or without revascularisation. Stenting trial, 1245 people: 4-year events 6.0% medical vs 2.8% stenting (P=0.02). Endarterectomy trial, 1240 people: 5.3% vs 3.7% (P=0.24). Periprocedural events: 8 with stenting vs 0 medical; 9 with endarterectomy vs 3 medical [[Brott2026]].</p></div>
+    <div class="card"><h4>ECST-2 interim</h4><p>429 people with 50% or more stenosis and low-to-intermediate predicted risk. At 2 years the win ratio was 1.01 (0.60 to 1.70), with no benefit shown from adding revascularisation. The trial is ongoing [[Donners2025]].</p></div>
+    <div class="card"><h4>Does severity matter?</h4><p>In OxVasc, 5-year ipsilateral stroke was 14.6% at 70 to 99% and none in 154 people at 50 to 69%. Cohorts show severity dependence (OR 2.9) where trials did not (OR 0.8) [[Howard2021]].</p></div>
+    <div class="card"><h4>ACST-1 and age</h4><p>At 10 years, benefit was seen under age 75 but not in older people. ACAS's gain was conditional on surgery with under 3% perioperative risk [[Halliday2010,ACAS1995]].</p></div>
+  </div>
+  <div class="callout"><p><b>A live disagreement.</b> CREST-2's stenting arm showed benefit, whereas its endarterectomy arm, SPACE-2 and ECST-2 did not [[Brott2026,Reiff2022,Donners2025]]. Severity may be the key, since cohort data show high risk only at severe stenosis [[Howard2021]].</p></div>
+  <div class="pt"><b>In plain words</b>If a narrowed neck artery has caused no symptoms, medicines work much better than they used to, and doctors are still working out who gains from a procedure [[Brott2026,Donners2025]].</div>
+
+  <h3 class="sub">Stenting or endarterectomy</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial</th><th>Who</th><th>Stenting vs surgery</th></tr></thead>
+    <tbody>
+      <tr><th>CREST [[Brott2010]]</th><td>2502 people</td><td>4-year composite 7.2% vs 6.8% (HR 1.11, 0.81 to 1.51). Periprocedural stroke 4.1% vs 2.3%; MI 1.1% vs 2.3%</td></tr>
+      <tr><th>CREST, 10 years [[Brott2016]]</th><td>Same trial</td><td>Composite 11.8% vs 9.9% (HR 1.10, 0.83 to 1.44); post-procedural ipsilateral stroke 6.9% vs 5.6%</td></tr>
+      <tr><th>ICSS [[Bonati2015,Bonati2018]]</th><td>1713 people, symptomatic</td><td>5-year fatal or disabling stroke 6.4% vs 6.5% (HR 1.06). Any stroke 15.2% vs 9.4% (HR 1.71), mainly non-disabling. Restenosis of 50% or more 40.7% vs 29.6%</td></tr>
+      <tr><th>ACST-2 [[Halliday2021]]</th><td>3625 people, asymptomatic</td><td>Procedural disabling stroke or death about 1% with either. 5-year non-procedural fatal or disabling stroke 2.5% in each</td></tr>
+    </tbody>
+  </table></div>
+  <div class="hook"><b>Exam hook</b>CREST trade-off: more periprocedural stroke with stenting, more MI with surgery [[Brott2010]].</div>
+
+  <h3 class="sub">Vertebral and intracranial stenosis</h3>
+  <div class="prose"><p>Intracranial large-artery disease has been described as likely the most common stroke subtype worldwide [[Gorelick2008]]. Here, stenting has not beaten medical treatment.</p></div>
+  <div class="cards">
+    <div class="card"><h4>SAMMPRIS</h4><p>451 people, 70 to 99% stenosis. 30-day stroke or death 14.7% stenting vs 5.8% medical; 1-year primary endpoint 20.0% vs 12.2% [[Chimowitz2011]]. Final, median 32.4 months: 23% vs 15% [[Derdeyn2014]].</p></div>
+    <div class="card"><h4>WASID</h4><p>Warfarin vs aspirin 1300 mg for 50 to 99% stenosis. Primary endpoint 21.8% vs 22.1%, death 9.7% vs 4.3%, major haemorrhage 8.3% vs 3.2% [[Chimowitz2005]].</p></div>
+    <div class="card"><h4>CASSISS</h4><p>358 people, refined selection, beyond 3 weeks from symptoms. Primary endpoint 8.0% vs 7.2% (HR 1.10, 0.52 to 2.35) [[Gao2022]].</p></div>
+    <div class="card"><h4>Vertebral: VAST and pooled</h4><p>VAST, 115 people: 30-day event 5% stenting vs 2% medical [[Compter2015]]. VIST, VAST and SAMMPRIS pooled, 354 people: any stroke HR 0.81 (0.45 to 1.44). Periprocedural stroke or death 16% intracranial vs 1% extracranial [[Markus2019]].</p></div>
+  </div>
+  <div class="hook"><b>Exam hook</b>SAMMPRIS: stenting worse than aggressive medical therapy at 30 days (14.7% vs 5.8%) [[Chimowitz2011]].</div>
+
+  <h3 class="sub">Patent foramen ovale (PFO)</h3>
+  <div class="prose"><p>A PFO occurs in about 1 in 4 adults [[Messe2020]], so finding one after a stroke does not show it caused the stroke. RoPE estimates how likely that is. PASCAL adds features of the PFO itself.</p></div>
+  <div class="prose"><p><b>A teaching tool, never for an individual's diagnosis, prognosis or treatment.</b> Points are quoted from secondary tables that cite the original RoPE paper [[Chambers2026,Nouh2016]].</p></div>
+  <div id="caRopeBox" class="split2" style="align-items:start">
+    <div class="stage">
+      <div class="carow" id="caRopeItems" role="group" aria-label="RoPE items"></div>
+      <div class="carow" id="caRopeAge" role="group" aria-label="Age band"><span class="calab">Age</span></div>
+      <div class="carow" role="group" aria-label="PFO features"><span class="calab">PASCAL: feature of the PFO</span><button class="btn" id="caFe" aria-pressed="false">Large shunt and/or atrial septal aneurysm</button></div>
+    </div>
+    <aside class="note" id="caRopeOut" aria-live="polite"></aside>
+  </div>
+  <div class="stage"><div class="scroll"><svg id="caRope" viewBox="0 0 720 280" style="min-width:560px" role="img" aria-label="Across RoPE strata from 0 to 3 up to 9 to 10, the PFO-attributable fraction rises from 0 to 88 percent while 2-year recurrence falls from 20 to 2 percent; the chosen stratum is highlighted."></svg></div>
+    <p class="stage-cap">Values from [[Nouh2016]]; the two panels have different scales. In summary form: PFO prevalence rose from 23% to 73%, attributable fraction from about 0% to 90%, recurrence from 20% to 2% [[Kent2013]]. Fractions are not strictly monotonic (38% at 4, 34% at 5).</p></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="caPas" viewBox="0 0 720 124" style="min-width:560px" role="img" aria-label="Forest plot of stroke with PFO closure against medical therapy by PASCAL class: no benefit if unlikely, clear benefit if possible or probable."></svg></div>
+      <p class="stage-cap">Log scale. RoPE of 7 or more, and a high-risk feature: neither = unlikely, one = possible, both = probable [[Chambers2026,Kent2021]].</p></div>
+    <aside class="note" id="caPasOut" aria-live="polite"></aside>
+  </div>
+  <div class="tbl"><table id="caPasTbl">
+    <thead><tr><th>PASCAL</th><th>Stroke HR, closure vs medical</th><th>2-year absolute reduction</th><th>Added AF beyond day 45</th><th>Share of people</th><th>5 years: strokes</th><th>5 years: late AF</th></tr></thead>
+    <tbody>
+      <tr><th>Unlikely</th><td>1.14 (0.53 to 2.46)</td><td>-0.7%</td><td>4.41%</td><td>14.6%</td><td>0.4% more</td><td>4.6% more</td></tr>
+      <tr><th>Possible</th><td>0.38 (0.22 to 0.65)</td><td>2.1%</td><td>1.53%</td><td>48.4%</td><td>3.4% fewer</td><td>1.1% more</td></tr>
+      <tr><th>Probable</th><td>0.10 (0.03 to 0.35)</td><td>2.1%</td><td>0.65%</td><td>37.0%</td><td>2.5% fewer</td><td>1.3% more</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose"><p>The first three columns of figures are from the SCOPE pooled analysis of 6 trials and 3740 people aged 18 to 60, in which annual stroke was 1.09% medical vs 0.47% closure (adjusted HR 0.41, 0.28 to 0.60) [[Kent2021]]. The 5-year columns are from a later SCOPE analysis, whose authors read this as net benefit in 4 of every 5 people and net harm in 1 of every 5 [[Saver2026]]. The two analyses report late AF over different time frames, so their figures differ. Both are shown.</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Closure trial</th><th>Who</th><th>Stroke, closure vs medical</th><th>Atrial fibrillation or other harm</th></tr></thead>
+    <tbody>
+      <tr><th>RESPECT, extended [[Saver2017]]</th><td>980 people</td><td>0.58 vs 1.07 per 100 patient-years (HR 0.55, 0.31 to 0.999)</td><td>Venous thromboembolism more common with closure</td></tr>
+      <tr><th>CLOSE [[Mas2017]]</th><td>663 people, high-risk features</td><td>0 of 238 vs 14 of 235 (HR 0.03, 0 to 0.26)</td><td>AF 4.6% vs 0.9%</td></tr>
+      <tr><th>REDUCE [[Sondergaard2017]]</th><td>664 people</td><td>Clinical stroke 1.4% vs 5.4% (HR 0.23, 0.09 to 0.62)</td><td>AF 6.6% after closure</td></tr>
+      <tr><th>DEFENSE-PFO [[Lee2018]]</th><td>120 people, high-risk PFO</td><td>Primary events 0 vs 6 of 60; 2-year rate 12.9% with medication only</td><td>Not reported here</td></tr>
+    </tbody>
+  </table></div>
+  <div class="split2">
+    <div class="card"><h4>What statements say</h4><p>AAN 2020 (level C): under 60 with an embolic-appearing infarct and no other mechanism, clinicians may recommend closure after discussing an absolute 5-year stroke reduction of 3.4%, a periprocedural complication rate of 3.9% and added non-periprocedural AF of 0.33% per year [[Messe2020]].</p><p>ANZ consensus 2026: PASCAL should be incorporated into decisions and high RoPE alone should not be the principal basis, with decisions by a multidisciplinary heart-brain team [[Chambers2026]].</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Still open</h4><p>Above age 60: not tested in the pooled trials [[Kent2021]]. A feasibility study estimated 5-year recurrence of 13.7% [[Wang2024]]. Observational data at 60 or over gave RR 0.49 for recurrent stroke or TIA [[deDeus2026]].</p><p>AF after closure: one meta-analysis suggests it is mostly early and transient (RR 2.27 overall; 0.60 after the first month, CI 0.02 to 19.88) [[Spyropoulou2026]], yet SCOPE reports excess AF beyond day 45 in the unlikely group [[Kent2021]].</p></div>
+  </div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>PASCAL: RoPE of 7 or more plus large shunt or atrial septal aneurysm = probable [[Chambers2026]].</div>
+    <div class="pt"><b>In plain words</b>About 1 in 4 adults has a small hole between the upper heart chambers. Often it did not cause the stroke, so doctors look at the whole picture before closing it [[Messe2020,Kent2021]].</div>
+  </div>
+</section>

@@ -1,0 +1,78 @@
+<!-- ================= 1.3 TDP-43 AND WHAT GOES WRONG ================= -->
+<section class="mod" id="m-tdp43" data-mod="tdp43" hidden>
+<style>
+#m-tdp43 .btn{min-height:44px}
+#m-tdp43 .tdrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-tdp43 .tdrow .kicker{margin-right:4px}
+#m-tdp43 .tdstate{font:500 13px/1.45 var(--mono);color:var(--muted);border-top:1px solid var(--line);padding-top:10px}
+#m-tdp43 .tdstate b{color:var(--ink);font-weight:600}
+#m-tdp43 .card .evs{display:flex;flex-wrap:wrap;gap:6px}
+#m-tdp43 .card.contro{border-color:var(--warn)}
+#m-tdp43 .card .tdside{font-size:13.5px;color:var(--muted)}
+#m-tdp43 .figcap{font:500 12px/1.4 var(--mono);color:var(--muted)}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 1 · The disease</p><h2>TDP-43 and what goes wrong</h2>
+    <p class="lede">In most people with ALS, a protein called TDP-43 leaves the nucleus of motor neurons and forms clumps in the cell body. Follow it from its normal job to the damage, then switch to SOD1-ALS or FUS-ALS to see the forms that work differently.</p></div>
+
+  <div class="tdrow" role="group" aria-labelledby="tdTogLbl"><span class="kicker" id="tdTogLbl">Pathology shown</span><span class="tdrow" id="tdTog"></span></div>
+  <div class="stepper" id="tdSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="tdSvg" viewBox="0 0 720 460" style="min-width:560px" role="img" aria-label="Animated motor neuron: TDP-43 leaves the nucleus, gathers in stress granules, forms phosphorylated and ubiquitinated clumps, the STMN2 transcript gains a cryptic exon, stathmin-2 falls and the axon growth cone pulls back"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="tdPlay">Play</button><label class="stage-cap tl" for="tdT">Timeline <input type="range" id="tdT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap" id="tdCap">Schematic, not to scale. Shares in the bars are drawn, not measured.</p>
+      <div class="scroll"><svg id="tdDom" viewBox="0 0 720 132" style="min-width:560px" role="img" aria-label="Domain map of TDP-43, 414 amino acids: N-terminal domain with nuclear localisation signal, RRM1, RRM2 and the C-terminal low-complexity domain, with the part used in the current step highlighted"></svg></div>
+      <p class="figcap">TDP-43 domain map, amino-acid positions from Prasad 2019. [[Prasad2019,Ling2013]]</p>
+    </div>
+    <aside class="note" id="tdNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="callout prose">
+    <p><b>How common is TDP-43 pathology?</b> A 2022 Lancet seminar puts it at about 97% of ALS and about 50% of frontotemporal dementia (FTD). [[Feldman2022]] A 2013 review says "over 90%" of ALS. [[Ling2013]] Both summarise the same autopsy evidence rather than one counted cohort. In one autopsy series of 111 cases, every sporadic case (59), every case with dementia (26) and every SOD1-negative familial case (11) had TDP-43-positive inclusions, and none of the 15 SOD1 cases did. [[Mackenzie2007]]</p>
+  </div>
+
+  <h3 class="sub">Three pathologies side by side</h3>
+  <div class="tbl"><table>
+    <thead><tr><th></th><th>What the inclusions contain</th><th>TDP-43 inclusions?</th><th>Share of ALS</th></tr></thead>
+    <tbody>
+      <tr class="hl"><th>TDP-43 proteinopathy</th><td>TDP-43 that is hyperphosphorylated, ubiquitinated and cut into C-terminal fragments; found only in affected brain and spinal cord regions. [[Neumann2006,Hasegawa2008]]</td><td><span class="tag tdp">Yes</span> nucleus often cleared</td><td>About 97% of ALS [[Feldman2022]]; "over 90%" [[Ling2013]]. Includes sporadic and C9orf72 ALS. [[Mackenzie2007,Brettschneider2013]]</td></tr>
+      <tr><th>SOD1-ALS</th><td>Misfolded SOD1 in ubiquitin-positive inclusions. [[Mackenzie2007,Taylor2016]]</td><td><span class="tag">No</span> [[Mackenzie2007]]</td><td>In a meta-analysis: Europe 14.8% of familial and 1.2% of sporadic ALS; Asia 30.0% and 1.5%. [[Zou2017]]</td></tr>
+      <tr><th>FUS-ALS</th><td>FUS-positive cytoplasmic inclusions. [[Kwiatkowski2009,Renton2014]]</td><td><span class="tag">No</span>, though "some debate remains" [[Renton2014]]</td><td>Europe 2.8% of familial and 0.3% of sporadic ALS; Asia 6.4% and 0.9%. [[Zou2017]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="pt"><b>In plain words</b>In almost everyone with ALS, the same helper protein, TDP-43, ends up in the wrong part of the cell and clumps. A few inherited forms, caused by changes in the SOD1 or FUS genes, clump a different protein instead. Genes are covered in <a href="#genes" data-go="genes">Genes: C9orf72, SOD1 and more</a>.</div>
+
+  <h3 class="sub">How the pathology spreads: Brettschneider stages</h3>
+  <div class="prose">
+    <p>In 76 ALS autopsy cases, phosphorylated TDP-43 (pTDP-43) appeared in four stages, each adding regions to the ones before. The 10 C9orf72-expansion cases followed the same order with more pathology in each region. Oligodendroglia carried pTDP-43 aggregates at every stage. [[Brettschneider2013]]</p>
+    <p><span class="ev est">Established</span> The staged pattern itself, seen in autopsy tissue.</p>
+    <p><span class="ev hyp">Hypothesis</span> That the pathology travels from cell to cell along axonal pathways, as the authors propose. [[Brettschneider2013]]</p>
+  </div>
+  <div class="tdrow" role="group" aria-label="Brettschneider stage" id="tdSprTog"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="tdSpr" viewBox="0 0 720 320" style="min-width:560px" role="img" aria-label="Side view of brain, brainstem and spinal cord with the regions affected at each of the four Brettschneider stages of pTDP-43 pathology filled in"></svg></div>
+      <p class="stage-cap">Schematic side view; region positions are approximate.</p></div>
+    <aside class="note" id="tdSprNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Other proposed mechanisms</h3>
+  <div class="prose"><p>Many processes go wrong in ALS motor neurons, and it is not settled which come first. A 2022 review groups them as impaired RNA metabolism, altered protein handling and autophagy, cytoskeleton and transport defects, and mitochondrial dysfunction. [[Feldman2022]] The labels rate how strong the evidence is that each one helps cause ALS in people: <span class="ev est">Established</span> repeatedly shown in people with ALS, <span class="ev early">Early evidence</span> shown in models or limited human data, <span class="ev hyp">Hypothesis</span> proposed and still being tested.</p></div>
+  <div class="cards">
+    <div class="card"><div class="evs"><span class="ev est">Established in tissue</span><span class="ev early">Early evidence as a cause</span></div><h4>Cryptic exons from TDP-43 loss</h4><p>STMN2 and UNC13A cryptic exons are found in tissue from people with ALS, and the TDP-43 repression of cryptic exons is impaired in ALS-FTD tissue. Forcing cryptic exons back out prevented cell death in models. [[Ling2015,Klim2019,Melamed2019,Ma2022,Brown2022]]</p></div>
+    <div class="card"><div class="evs"><span class="ev early">Early evidence</span></div><h4>Glutamate excitotoxicity</h4><p>High-affinity glutamate uptake was 59% lower in spinal cord and 70% lower in motor cortex from 13 people with ALS, and not lower in unaffected regions. The astrocyte transporter EAAT2 (GLT-1) was down by 71% in motor cortex. The authors note this could be a cause or a consequence. [[Rothstein1992,Rothstein1995]] Uncleared glutamate drives repeated firing and calcium entry. [[Taylor2016]]</p>
+      <p class="tdside"><b>Riluzole's rationale.</b> It reduces glutamate release and blocks the persistent sodium current. [[Doble1996,Urbani2000]] In the first trial, 74% on riluzole and 58% on placebo were alive at 12 months. [[Bensimon1994]] The US label says its mechanism in ALS is unknown. [[FDARiluzoleLabel]] See <a href="#drugs" data-go="drugs">Riluzole, edaravone and others</a>.</p></div>
+    <div class="card"><div class="evs"><span class="ev early">Early evidence</span></div><h4>Oxidative stress</h4><p>Markers of oxidative damage are raised in ALS spinal cord and cerebrospinal fluid, but antioxidant trials have been disappointing. [[Barber2010]] Mutant SOD1 does not harm through lost enzyme activity, so SOD1-ALS is not simply a shortage of an antioxidant. [[Taylor2016]]</p>
+      <p class="tdside"><b>Edaravone's rationale.</b> It is an antioxidant that scavenges peroxyl radicals. [[Watanabe2018]] In a selected early-stage group, ALSFRS-R fell 5.01 points with edaravone and 7.50 with placebo over 24 weeks [[MCI186Group2017]]; how far this applies more widely is contested. [[Feldman2022]] The US label says its mechanism in ALS is unknown. [[FDAEdaravoneLabel]]</p></div>
+    <div class="card"><div class="evs"><span class="ev hyp">Hypothesis</span></div><h4>Mitochondria and energy</h4><p>Spinal motor neurons rely heavily on mitochondria to buffer calcium and have little calcium-binding protein of their own, which is one proposed reason they are vulnerable. [[Nijssen2017,Alexianu1994]] Excess glutamate stresses mitochondria and the endoplasmic reticulum. CHCHD10, a gene for a mitochondrial protein, is a rare ALS gene. [[Taylor2016,Feldman2022]]</p></div>
+    <div class="card"><div class="evs"><span class="ev early">Early evidence</span></div><h4>Axonal transport</h4><p>Motor axons can be over a metre long. SOD1 mutants slow transport in both directions months before neurons die, and TDP-43 mutations impair transport of RNA granules in flies and in motor neurons grown from patients' cells. Evidence is strong in models and indirect in people. [[Taylor2016]] TUBA4A and PFN1 mutations disrupt the cytoskeleton. [[Feldman2022]]</p></div>
+    <div class="card"><div class="evs"><span class="ev early">Early evidence</span></div><h4>Protein handling and autophagy</h4><p>TDP-43 pathology is said to impair the clearing of damaged proteins. [[Feldman2022]] TBK1, which regulates autophagy and inflammation, is an ALS gene. [[Taylor2016]] Clumps are not the whole story: removing large SOD1 aggregates did not change disease in mice. [[Taylor2016]]</p></div>
+    <div class="card"><div class="evs"><span class="ev early">Early evidence</span></div><h4>Transport into the nucleus</h4><p>The C9orf72 repeat RNA binds RanGAP1. RanGAP was misplaced and nuclear import impaired in flies, patient-derived neurons and patient brain, and drugs aimed at the repeat corrected it. [[Zhang2015]] Hardened TDP-43 droplets trap import factors too. [[GassetRosa2019]]</p></div>
+    <div class="card"><div class="evs"><span class="ev early">Early evidence</span></div><h4>Glia: damage from neighbouring cells</h4><p>In SOD1 mice, mutant SOD1 in motor neurons set the time of onset, while lowering it in microglia slowed later progression. [[Boillee2006]] Mutant SOD1 astrocytes killed motor neurons in culture. [[Nagai2007]] Oligodendrocytes degenerated before onset, and grey-matter demyelination was seen in patients. [[Kang2013]] Inflammatory cells are present in ALS, but in mice glial activation followed axon damage, so its causal weight is debated. [[Beers2019,Fischer2004]]</p></div>
+  </div>
+
+  <h3 class="sub">Open questions</h3>
+  <div class="cards">
+    <div class="card contro"><div class="evs"><span class="tag warn">Controversy</span></div><h4>Are stress granules the seed?</h4><p><b>For:</b> most TDP-43 inclusions made in cultured cells overlapped stress granules, drugs that block stress granules reduced them, and inclusions in patient tissue carried stress granule markers. [[LiuYesucevitz2010]]</p><p><b>Against:</b> cytoplasmic TDP-43 formed long-lived droplets without conventional stress granules, and these droplets hardened, blocked nuclear import and killed cells. [[GassetRosa2019]]</p></div>
+    <div class="card contro"><div class="evs"><span class="tag warn">Controversy</span></div><h4>Misfolded SOD1 in sporadic ALS?</h4><p><b>For:</b> oxidised normal SOD1 shared a misfolded shape (the C4F6 epitope) with mutant SOD1, was found in spinal motor neurons in some sporadic cases, and slowed axonal transport. [[Bosco2010]]</p><p><b>Against:</b> seven antibodies for misfolded SOD1 found it below detection in sporadic and non-SOD1 inherited ALS. [[DaCruz2017]] In cell models, misfolded SOD1 can seed more misfolding and pass between cells. [[Munch2011]]</p></div>
+    <div class="card contro"><div class="evs"><span class="tag warn">Controversy</span></div><h4>Lost function or toxic clumps?</h4><p>Cells with TDP-43 clumps usually also lose nuclear TDP-43, so both are likely involved. [[Ling2013]] But some mutant TDP-43 mice lost lower motor neurons with neither clumps nor nuclear loss, only changes in splicing. [[Ling2013]]</p></div>
+  </div>
+</section>

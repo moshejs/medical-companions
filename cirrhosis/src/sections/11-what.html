@@ -1,0 +1,80 @@
+<!-- ================= 1.1 WHAT CIRRHOSIS IS ================= -->
+<style>
+#m-what .words{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+#m-what .wcard{position:relative;min-height:212px;border:0;padding:0;background:none;cursor:pointer;text-align:left;perspective:1100px;font:inherit;color:inherit}
+#m-what .wcard .in{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.4,.2,.2,1)}
+#m-what .wcard[aria-pressed="true"] .in{transform:rotateY(180deg)}
+#m-what .wcard .f,#m-what .wcard .b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:8px;overflow:auto}
+#m-what .wcard .f{background:var(--panel)}
+#m-what .wcard .b{background:var(--brand-soft);transform:rotateY(180deg)}
+#m-what .wcard small{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+#m-what .wcard .old{font:700 22px/1.15 var(--display);text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:var(--bad)}
+#m-what .wcard .new{font:700 20px/1.15 var(--display);color:var(--brand)}
+#m-what .wcard .b p{font-size:14px;line-height:1.45}
+#m-what .wcard .hint{margin-top:auto;font:500 11.5px var(--mono);color:var(--muted)}
+#m-what .wcard:focus-visible .in>div{outline:2px solid var(--brand);outline-offset:2px}
+@media (prefers-reduced-motion: reduce){#m-what .wcard .in{transition:none}}
+#m-what .card>.tag{align-self:flex-start}
+#m-what .tbl table{min-width:620px}
+#m-what .chips button.tag{border:1px solid transparent;cursor:pointer;text-transform:none;letter-spacing:0;font:700 13px var(--body);padding:7px 11px}
+#m-what .chips button.tag:hover{border-color:var(--liver)}
+</style>
+<section class="mod" id="m-what" data-mod="what" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · Understanding cirrhosis</p><h2>What cirrhosis is</h2>
+    <p class="lede">Cirrhosis is what a liver becomes after years of injury: healthy tissue is replaced by scar and lumpy regenerating nodules, and blood pressure in the portal vein rises. It has many causes, it is common, and for a long time it is silent. [[Gines2021Lancet]]</p></div>
+  <div class="stepper" id="whSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="whSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Who has cirrhosis, in four scenes. Worldwide: a grid of squares, each one million people, fills to 112 million with compensated and 10.6 million with decompensated cirrhosis in 2017, beside bars of yearly deaths rising from under 900,000 in 1990 to 1.43 million in 2021. Causes: a ring chart of cirrhosis deaths by cause morphs from men to women to western sub-Saharan Africa. Silent at first: a grid of 1,000 US adults lights about 3, then about 26, depending on how cirrhosis is measured, and 69 of 100 people with cirrhosis are shown as unaware of it. What it costs: paired bars show US deaths, death rates and hospital costs rising, and UK incidence rising."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="whPlay">Play</button><label class="stage-cap tl" for="whT">Scene <input type="range" id="whT" min="0" max="1" step="0.001" value="0.2"></label></div>
+      <p class="stage-cap" id="whCap">Population estimates, drawn to scale within each panel.</p>
+    </div>
+    <aside class="note" id="whNote" aria-live="polite"></aside>
+  </div>
+
+  <p class="crisis" role="note"><b>Urgent care</b><span>Vomiting blood, black or tarry stools, new confusion or drowsiness, or fever or belly pain with a swollen abdomen need urgent care: call your local emergency number or go to an emergency department.</span></p>
+
+  <h3 class="sub">The word, the liver, the body</h3>
+  <div class="cards">
+    <div class="card"><span class="tag brand">The word</span><h4>"Cirrhosis" means tawny</h4><p>René Laennec named it in 1819, in a brief footnote to his book on listening to the chest (<i>De l'auscultation médiate</i>). He took the Greek <i>kirrhos</i>, an orange-yellow, tawny colour, for the look of the scarred liver. The lesion itself had been recognised in England more than a century earlier, and the eponym "Laennec's cirrhosis" spread in North America through William Osler's textbook. [[Duffin1987]]</p></div>
+    <div class="card"><span class="tag liver">The liver</span><h4>Scar, nodules and pressure</h4><p>Long-lasting inflammation replaces healthy liver tissue with fibrous scar and regenerative nodules. Blood that should flow easily through the liver meets resistance, so pressure rises in the portal vein: portal hypertension. Portal hypertension, body-wide inflammation and failing liver function drive what happens next. [[Gines2021Lancet]] See how scar forms in <a href="#fibrosis" data-go="fibrosis">From injury to scar</a>.</p></div>
+    <div class="card"><span class="tag accent">Two phases</span><h4>Compensated, then decompensated</h4><p>Compensated cirrhosis means no present or past complications; the liver is coping and most people feel well. Decompensated cirrhosis begins with overt ascites, overt hepatic encephalopathy or variceal bleeding, and the risk of death rises with that step. [[deFranchis2022BavenoVII,Gines2021Lancet]] The course is told in <a href="#course" data-go="course">Compensated to decompensated</a>.</p></div>
+  </div>
+
+  <h3 class="sub">Many causes, not one</h3>
+  <div class="prose">
+    <p>Cirrhosis follows fatty liver disease linked to excess weight and diabetes (MASLD), high alcohol intake, hepatitis B or C, autoimmune and cholestatic (bile-duct) diseases, and iron or copper overload. It is not caused by alcohol alone. [[Gines2021Lancet]] Causes also overlap: in a US review, alcohol use disorder was present in about 45% of cases, fatty liver disease in 26% and hepatitis C in 41%, adding to more than 100% because many people have more than one. [[Tapper2023JAMA]]</p>
+    <p>In 2023 a Delphi process of 236 panellists from 56 countries renamed non-alcoholic fatty liver disease as metabolic dysfunction-associated steatotic liver disease (MASLD), diagnosed with at least 1 of 5 cardiometabolic risk factors, and created MetALD for people with MASLD who also drink more alcohol. [[Rinella2023MASLD]]</p>
+  </div>
+  <div class="chips">
+    <button class="tag liver" data-go="alcohol">Alcohol-related liver disease</button>
+    <button class="tag liver" data-go="masld">MASLD &amp; MASH</button>
+    <button class="tag liver" data-go="hepatitis">Hepatitis B &amp; C</button>
+    <button class="tag liver" data-go="othercauses">Genes, immunity &amp; bile ducts</button>
+  </div>
+
+  <h3 class="sub">How many people? It depends how you count</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Estimate</th><th>Figure</th><th>How it was measured</th></tr></thead>
+    <tbody>
+      <tr><th>World, 2017</th><td>112 million compensated, 10.6 million decompensated</td><td>Global Burden of Disease modelling [[GBD2020Cirrhosis]]</td></tr>
+      <tr><th>US, 1999–2010</th><td>0.27% of adults (about 633,000); 69% unaware</td><td>NHANES: AST-to-platelet ratio above 2 plus abnormal liver tests [[Scaglione2015]]</td></tr>
+      <tr><th>US, review 2023</th><td>About 2.2 million adults</td><td>Review estimate [[Tapper2023JAMA]]</td></tr>
+      <tr><th>US, 2017–2020</th><td>2.6% of adults; most of them with MASLD</td><td>NHANES: transient elastography or FIB-4 [[Younossi2025Prev]]</td></tr>
+      <tr><th>UK, 1992–2001</th><td>Incidence 12.05 → 16.99 per 100,000 person-years; at least 7,000 new diagnoses a year</td><td>General practice records (GPRD) [[Fleming2008UKIncidence]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">The roughly 10-fold gap between US estimates reflects different case definitions (a blood-test ratio versus liver stiffness, which can overcall cirrhosis in a fatty liver) and different eras. Read them as a range, not one number. [[Scaglione2015,Younossi2025Prev]]</p>
+  <p class="callout"><b>Two things are true at once.</b> The number of deaths from cirrhosis rose from 1990 to 2017, while the age-standardised death rate fell from 21.0 to 16.5 per 100,000: populations grew and aged. [[GBD2020Cirrhosis]] Official counts can also mislead: in one US county the narrow "chronic liver disease and cirrhosis" code captured only 27.2% of liver-related deaths. [[Asrani2013Gastro]]</p>
+
+  <h3 class="sub">Symptoms, in plain words</h3>
+  <div class="split2">
+    <div class="card"><h4>Often nothing at first</h4><p>Compensated cirrhosis is the phase without symptoms; symptoms usually appear with decompensation. [[Gines2021Lancet]] About 40% of people are first diagnosed when they arrive with a complication such as confusion or fluid in the belly. [[Tapper2023JAMA]] Day to day, many people notice muscle cramps (about 64%), poor sleep (63%), sexual problems (53%) or itch (39%). Many of these can be treated, so they are worth raising. [[Tapper2023JAMA]]</p></div>
+    <div class="card"><h4>Signs that the liver is struggling</h4><ul><li>A swelling belly from fluid (ascites)</li><li>Confusion, sleepiness or personality change (hepatic encephalopathy)</li><li>Vomiting blood or black stools from bleeding varices</li><li>Yellow skin or eyes (jaundice)</li></ul><p>[[deFranchis2022BavenoVII,Tapper2023JAMA]]</p></div>
+  </div>
+
+  <h3 class="sub">Words matter</h3>
+  <p class="prose">Most people with cirrhosis feel judged at some point: in a survey of 149 people with cirrhosis, 89% agreed with at least one of 18 stigma statements, and more stigma went with less social support, more depression and less care-seeking. [[VaughnSandler2014]] Tap a card to turn a label into language that describes a person, not a verdict.</p>
+  <div class="words" id="whWords"></div>
+  <p class="stage-cap">Older papers keep their published titles, such as "alcoholic liver disease"; this guide uses current terms in its own words.</p>
+</section>

@@ -1,0 +1,486 @@
+# F · CFTR modulators: mechanism, pivotal trials, eligibility, safety and research frontier
+
+Pass date: 2026-11-04. Modules served: modulators, trials, frontier.
+
+This pass covers the small-molecule CFTR modulators (ivacaftor, lumacaftor-ivacaftor, tezacaftor-ivacaftor, elexacaftor-tezacaftor-ivacaftor and vanzacaftor-tezacaftor-deutivacaftor): how they work, the pivotal trials with their exact effect sizes, US label eligibility and safety wording, real-world outcomes, cost and access, and the research frontier for people whose CFTR variants do not respond. Trial numbers come from PubMed abstracts read through Europe PMC. Label statements come from the current US labels in openFDA (effective dates March to August 2026). US approval dates come from openFDA Drugs@FDA submission records.
+
+Access notes:
+- Every journal source was confirmed in one batched PubMed esummary call (authors, journal, year, volume, pages). Abstracts were read through the Europe PMC core API.
+- EMA labels were not checked (no validation service in the brief). No EMA statements are given.
+- The brief's figure of a 2024 expansion of the elexacaftor-tezacaftor-ivacaftor label "to 272 variants" could not be traced to a validated record, so it is dropped. Drugs@FDA confirms that efficacy supplements were approved on 20 Dec 2024 and 27 Mar 2026. The current label (effective 22 Jun 2026) lists far more variants, and it adds a broader "results in production of CFTR protein" criterion (marked as an Indications change dated 03/2026).
+- I found no record of a study called "HELIO". Real-world outcomes come from PROMISE, the US registry study (Bower 2023) and the German registry (Sutharsan 2023).
+- ClinicalTrials.gov lists VX-522 (inhaled mRNA, Vertex with Moderna) as completed on 9 Sep 2026, with no results posted. No validated source documents the "paused/resumed" history, so it is not stated.
+- Variant counts in the label tables are my own counts of table cells. They are approximate (about), and every label says its list "is non-exhaustive".
+- Survival projections and registry outcomes are population statistics. They change quickly as modulators spread, and they are not predictions for any one person.
+
+## Findings
+
+### modulators · How the drugs work (potentiators and correctors)
+- CFTR modulators are small molecules that act on the CFTR protein itself. There are two main kinds: correctors improve folding so that more CFTR reaches the cell surface, and potentiators increase the function of CFTR that is already at the surface [[Liu2019Potentiator]].
+- Ivacaftor (VX-770) increased CFTR channel open probability (Po) in cells expressing either the F508del processing variant or the G551D gating variant [[VanGoor2009VX770]].
+- In cultured human CF bronchial epithelia (G551D/F508del), VX-770 increased chloride secretion about 10-fold, to about 50% of the level seen in epithelia from people without CF. It also reduced excess sodium and fluid absorption and increased cilia beating [[VanGoor2009VX770]].
+- The ivacaftor label wording: ivacaftor "facilitates increased chloride transport by potentiating the channel open probability (or gating)" of CFTR at the cell surface. The size of the effect depends on how much CFTR is at the surface and how responsive the variant is [[FDA-Kalydeco]].
+- Cryo-EM structures show ivacaftor and the investigational potentiator GLPG1837 binding to the same site in the transmembrane region of CFTR (3.3 Å and 3.2 Å resolution), a "hotspot" for potentiation [[Liu2019Potentiator]].
+- Lumacaftor (VX-809) improved F508del-CFTR processing in the endoplasmic reticulum. In F508del/F508del bronchial epithelial cells it raised chloride secretion to about 14% of non-CF levels (EC50 81 ± 19 nM) [[VanGoor2011VX809]].
+- Lumacaftor and tezacaftor are type I correctors. Cryo-EM shows both drugs inserting into a hydrophobic pocket in the first transmembrane domain (TMD1), linking four unstable helices. Mutating this binding site made ΔF508-CFTR insensitive to both drugs [[Fiedorczuk2022Cell]].
+- Proposed mechanism for type I correctors: they stabilise TMD1 early in protein assembly, prevent its premature degradation, and allosterically rescue many disease-causing variants (Established for binding site; mechanism Early evidence) [[Fiedorczuk2022Cell]].
+- Used alone, elexacaftor partly corrected interdomain assembly defects in Δ508 CFTR. Combined with a type I corrector it corrected them fully, which shows how the three Trikafta components act together [[Fiedorczuk2022Science]].
+- Elexacaftor also acts as a co-potentiator. In human bronchial and nasal epithelia, adding it raised ivacaftor-potentiated current by about 24% for F508del-CFTR and by more than 70% for G551D-CFTR (Early evidence, in vitro) [[Veit2021ELX]].
+- Correctors aimed at different structural defects (NBD1, NBD2 and the membrane-spanning domain interfaces) did little on their own. In combination they corrected ΔF508-CFTR to about 50–100% of wild-type levels in human airway epithelia (Early evidence, in vitro) [[Veit2018NatMed]].
+- In vitro, VX-445 (elexacaftor) with tezacaftor and ivacaftor improved F508del CFTR processing, trafficking and chloride transport more than any two of the three agents together [[Keating2018VX445]].
+- The Trikafta label: elexacaftor and tezacaftor bind different sites on CFTR and have an additive effect on processing and trafficking, while ivacaftor potentiates the channel open probability [[FDA-Trikafta]].
+- The Alyftrek label describes the same design: vanzacaftor and tezacaftor are correctors that bind different sites with an additive effect, and deutivacaftor is the potentiator [[FDA-Alyftrek]].
+- Deutivacaftor is a once-daily potentiator. In a phase 2 trial in people with gating variants, after an ivacaftor run-in, deutivacaftor 150 mg and 250 mg once daily changed ppFEV1 by 3.1 points (95% CI −0.8 to 7.0) and 2.7 points (−1.0 to 6.5) at week 12. Ivacaftor 150 mg every 12 hours changed it by −0.8 points (−6.2 to 4.7) [[Uluer2023VTD]].
+- Every modulator label sets the in vitro response threshold in Fischer rat thyroid (FRT) cells as a net increase in chloride transport of at least 10% of normal over baseline, "because it is predictive or reasonably expected to predict clinical benefit" [[FDA-Kalydeco,FDA-Trikafta]].
+- Labels add that for any single variant, the size of the in vitro response does not correlate with the size of the clinical response [[FDA-Kalydeco,FDA-Trikafta]].
+
+### trials · Ivacaftor (Kalydeco)
+- STRIVE was a 48-week randomised controlled trial of ivacaftor 150 mg every 12 hours in people aged 12 years or older with at least one G551D variant (84 ivacaftor, 83 placebo). Through week 24, ppFEV1 was 10.6 percentage points higher with ivacaftor than with placebo (P<0.001) [[Ramsey2011STRIVE]].
+- In STRIVE, the lung function effect appeared by week 2 and was maintained through week 48 [[Ramsey2011STRIVE]].
+- Other STRIVE results through week 48, ivacaftor vs placebo [[Ramsey2011STRIVE]]:
+  - 55% lower chance of a pulmonary exacerbation
+  - CFQ-R respiratory domain 8.6 points higher
+  - 2.7 kg more weight gain
+  - sweat chloride −48.1 mmol/L
+  - serious adverse events in 24% vs 42%
+- ENVISION enrolled children aged 6–11 years with G551D (26 ivacaftor, 26 placebo). Results vs placebo [[Davies2013ENVISION]]:
+  - ppFEV1 +12.5 points through week 24, despite near-normal baseline values
+  - weight gain 2.8 kg more at week 48
+  - sweat chloride −53.5 mmol/L through week 48
+- KIWI (open-label, ages 2–5, gating variants, 34 children in part B) [[Davies2016KIWI]]:
+  - sweat chloride fell by a mean of 46.9 mmol/L at week 24
+  - 5 of 34 (15%) had liver function tests more than 8 times the upper limit of normal
+  - the authors advise frequent liver monitoring in young children
+- ARRIVAL, ages 12 to <24 months (19 children in part B): mean sweat chloride change at week 24 was −73.5 mmol/L (SD 17.5). Faecal elastase-1 rose and immunoreactive trypsinogen fell, which are markers of pancreatic function [[Rosenfeld2018ARRIVAL]].
+- ARRIVAL, ages 4 to <12 months (25 infants): no deaths or discontinuations. Sweat chloride and markers of pancreatic obstruction improved, supporting treatment from age 4 months or more [[Davies2021ARRIVAL]].
+- KONNECTION (non-G551D gating variants, age 6 years or older, 8-week crossover): ppFEV1, BMI, sweat chloride and CFQ-R all improved significantly and stayed better through 24 weeks [[DeBoeck2014KONNECTION]].
+- KONDUCT (R117H, a residual-function variant, 69 people aged 6 years or older) [[Moss2015KONDUCT]]:
+  - the primary endpoint was not met: ppFEV1 difference 2.1 points (95% CI −1.13 to 5.35; p=0.20)
+  - sweat chloride −24.0 mmol/L
+  - adults gained 5.0 points (95% CI 1.15 to 8.78)
+  - children aged 6–11 changed by −6.3 points
+- Sweat chloride and FEV1 [[Fidler2017SwCl,Durmowicz2013SwCl]]:
+  - within any single ivacaftor study, a person's drop in sweat chloride did not correlate with their FEV1 gain
+  - pooled across studies, the two correlated (p<0.0001)
+  - so sweat chloride predicts lung response for a population, not for an individual
+- On 17 May 2017 the FDA expanded the ivacaftor indication to rare variants based on in vitro FRT chloride-transport data instead of a clinical trial. This set a pathway for adding hard-to-study variants [[Durmowicz2018]].
+- In the US and UK registries (1,256 US people treated with ivacaftor vs 6,200 matched comparators), treated people had lower risks than comparators [[Bessonova2018Registry]]:
+  - death: 0.6% vs 1.6%
+  - transplant: 0.2% vs 1.1%
+  - hospitalisation: 27.5% vs 43.1%
+  - pulmonary exacerbation: 27.8% vs 43.3%
+  - these are observational population statistics
+- Current label: ivacaftor is indicated from age 1 month for people with at least one variant responsive to ivacaftor on clinical and/or in vitro data. The label table lists about 97 responsive variants [[FDA-Kalydeco]].
+- Label dosing (quoted, not instructions): 150 mg every 12 hours with fat-containing food from age 6 years. Weight-based granule packets range from 5.8 mg to 75 mg every 12 hours for ages 1 month to under 6 years [[FDA-Kalydeco]].
+
+### trials · Lumacaftor-ivacaftor (Orkambi) and tezacaftor-ivacaftor (Symdeko)
+- TRAFFIC and TRANSPORT were two 24-week randomised controlled trials in 1,108 people aged 12 years or older who were homozygous for F508del (mean baseline ppFEV1 61%). Lumacaftor-ivacaftor raised ppFEV1 by 2.6 to 4.0 percentage points over placebo, a relative difference of 4.3–6.7% [[Wainwright2015TRAFFIC]].
+- Other TRAFFIC/TRANSPORT results: pulmonary exacerbations were 30–39% lower in pooled analyses, and adverse events led to discontinuation in 4.2% on lumacaftor-ivacaftor vs 1.6% on placebo [[Wainwright2015TRAFFIC]].
+- Ages 6–11, homozygous F508del (randomised, 204 dosed), vs placebo [[Ratjen2017LumIva]]:
+  - lung clearance index (LCI2.5) −1.09 units
+  - sweat chloride −20.8 mmol/L
+  - ppFEV1 +2.4 points
+- Ages 2–5 (open-label, 60 children) [[McNamara2019LumIva]]:
+  - sweat chloride fell 31.7 mmol/L at week 24
+  - faecal elastase-1 rose
+  - 3 of 60 (5%) stopped because of raised aminotransferases
+- PROGRESS (96-week extension, 1,029 dosed): the annual ppFEV1 decline on lumacaftor-ivacaftor was −1.33 points per year vs −2.29 in matched registry controls, a 42% slower decline [[Konstan2017PROGRESS]].
+- In the children's extension study (ages 6–11, 239 children, up to 120 weeks of treatment), no new safety concerns were found and earlier gains were generally maintained [[Chilvers2021LumIvaOLE]].
+- Current label: Orkambi is indicated from age 1 year only for people homozygous for F508del. Its warnings include liver decompensation, including liver failure leading to death, in people with cirrhosis and portal hypertension [[FDA-Orkambi]].
+- EVOLVE (homozygous F508del, age 12 or older, 509 dosed, baseline ppFEV1 60.0%), tezacaftor-ivacaftor vs placebo [[TaylorCousar2017EVOLVE]]:
+  - ppFEV1 +4.0 points (relative +6.8%)
+  - pulmonary exacerbations 35% lower
+  - serious adverse events 12.4% vs 18.2%
+- EXPAND (F508del plus a residual-function variant, 248 people, crossover), ppFEV1 vs placebo: +6.8 points with tezacaftor-ivacaftor and +4.7 points with ivacaftor alone [[Rowe2017EXPAND]].
+- Current label: Symdeko is indicated from age 6 years for people homozygous for F508del or with a responsive variant. The label table lists about 154 responsive variants [[FDA-Symdeko]].
+
+### trials · Elexacaftor-tezacaftor-ivacaftor (ETI; Trikafta)
+- The phase 2 trial of VX-445 (elexacaftor) with tezacaftor and ivacaftor raised ppFEV1 by up to 13.8 points in people with F508del and a minimal-function variant (F/MF). It added 11.0 points in F508del homozygotes who were already on tezacaftor-ivacaftor. The authors estimated the approach could treat about 90% of people with CF [[Keating2018VX445]].
+- Middleton 2019 was a phase 3 trial in people aged 12 years or older with an F/MF genotype (403 randomised, 24 weeks; nearly 90% of people with CF have at least one F508del), ETI vs placebo [[Middleton2019ETI]]:
+  - ppFEV1 13.8 points higher at week 4 and 14.3 points higher through week 24
+  - pulmonary exacerbations 63% lower
+  - CFQ-R respiratory domain 20.2 points higher (minimum clinically important difference 4 points)
+  - sweat chloride 41.8 mmol/L lower
+  - discontinuation for adverse events: 1%
+- Heijerman 2019 enrolled F508del homozygotes aged 12 years or older (107 randomised after a tezacaftor-ivacaftor run-in, 4 weeks), ETI vs tezacaftor-ivacaftor [[Heijerman2019ETI]]:
+  - ppFEV1 +10.0 points (95% CI 7.4 to 12.6)
+  - sweat chloride −45.1 mmol/L (−50.1 to −40.1)
+  - CFQ-R respiratory domain +17.4 points
+  - no discontinuations
+- Barry 2021 enrolled people with F508del plus a gating or residual-function variant (8 weeks, vs ivacaftor or tezacaftor-ivacaftor). ETI added [[Barry2021ETI]]:
+  - ppFEV1 +3.5 points vs active control (95% CI 2.2 to 4.7)
+  - sweat chloride −23.1 mmol/L vs active control
+  - CFQ-R respiratory domain change of 10.3 points with ETI vs 1.6 with control
+- Ages 6–11, open-label (66 children) [[Zemanick2021ETI]]:
+  - ppFEV1 +10.2 points (95% CI 7.9 to 12.6)
+  - sweat chloride −60.9 mmol/L
+  - LCI2.5 −1.71 units
+  - CFQ-R respiratory domain +7.0 points
+- Ages 6–11, F/MF, randomised (60 ETI, 61 placebo), between-group differences through week 24 [[Mall2022ETI]]:
+  - LCI2.5 −2.26 units (95% CI −2.71 to −1.81)
+  - sweat chloride −51.2 mmol/L
+  - ppFEV1 +11.0 points
+  - CFQ-R respiratory domain +5.5 points
+- Ages 2–5, open-label (75 children in part B), through week 24 [[Goralski2023ETI]]:
+  - sweat chloride −57.9 mmol/L (95% CI −61.3 to −54.6)
+  - LCI2.5 −0.83 units
+  - adverse events in 98.7%, all mild or moderate
+- Extension for ages 2 and up (70 children, about 90 weeks of exposure) [[Goralski2026]]:
+  - sweat chloride −57.0 mmol/L from parent baseline
+  - 80.8% had sweat chloride below 60 mmol/L and 28.8% below 30 mmol/L
+  - 9 children were above the pancreatic sufficiency threshold for faecal elastase-1
+- Adult and adolescent extension (506 participants, 144-week interim): mean annualised ppFEV1 change was +0.07 points per year (95% CI −0.12 to 0.26). 2.8% stopped because of adverse events [[Daines2023ETIOLE]].
+- Children's 192-week extension (64 children, aged 6 and older), at week 192 [[Wainwright2025ETIOLE]]:
+  - ppFEV1 +9.6 points from parent baseline
+  - sweat chloride −57.9 mmol/L
+  - pulmonary exacerbations 0.05 per year
+  - annualised ppFEV1 change −0.09 points per year
+- Rare variants without F508del [[Castellani2026RareVariants]]:
+  - in FRT cells, 518 of 620 rare variants (84%) responded to ETI
+  - in the randomised trial 445-124 (18 rare variants), ppFEV1 rose 9.2 points, sweat chloride fell 28.3 mmol/L and CFQ-R respiratory domain rose 19.5 points vs placebo
+- First US approvals [[FDA2026Approvals]]:
+  - Trikafta tablets: 21 Oct 2019
+  - efficacy supplement for ages 6–11: 8 Jun 2021
+  - oral granules for ages 2–5: 26 Apr 2023
+  - further efficacy supplements: 20 Dec 2024 and 27 Mar 2026
+- Current label: ETI is indicated from age 2 years for people with at least one CFTR variant that is "either responsive based on clinical and/or in vitro data … or results in production of CFTR protein." Table 6 lists more than 500 variants (about 520 by count) and is "non-exhaustive" [[FDA-Trikafta]].
+- The label's eligibility rules [[FDA-Trikafta]]:
+  - N1303K is listed as responsive based on human bronchial epithelial (HBE) cell data
+  - eligible variants "should not be the sole determinant" for treatment
+  - a clinical diagnosis of CF is required
+- Label dosing (quoted, not instructions): from age 12 years, two tablets of elexacaftor 100 mg/tezacaftor 50 mg/ivacaftor 75 mg in the morning and one ivacaftor 150 mg tablet in the evening, about 12 hours apart, with fat-containing food. Weight-based granules are used for ages 2 to under 6 years [[FDA-Trikafta]].
+
+### trials · Vanzacaftor-tezacaftor-deutivacaftor (VTD; Alyftrek)
+- Phase 2, F/MF adults: vanzacaftor 10 mg–tezacaftor–deutivacaftor raised ppFEV1 by 14.2 points and lowered sweat chloride by 45.8 mmol/L. In F508del homozygotes, the 20 mg dose added 15.9 points of ppFEV1 over the tezacaftor-ivacaftor baseline [[Uluer2023VTD]].
+- SKYLINE 102 and 103 were two 52-week, double-blind, active-controlled phase 3 trials in people aged 12 years or older after an ETI run-in (398 and 573 randomised). Once-daily VTD was non-inferior to ETI for ppFEV1 (non-inferiority margin −3.0 points) [[Keating2025SKYLINE]]:
+  - SKYLINE 102: difference +0.2 points (95% CI −0.7 to 1.1)
+  - SKYLINE 103: difference +0.2 points (95% CI −0.5 to 0.9)
+- SKYLINE sweat chloride difference vs ETI through week 24 (label Table 9): −8.4 mmol/L (95% CI −10.5 to −6.3) in Trial 1 and −2.8 mmol/L (−4.7 to −0.9) in Trial 2 [[FDA-Alyftrek]].
+- The most common SKYLINE adverse events (pooled VTD vs ETI) [[Keating2025SKYLINE]]:
+  - infective pulmonary exacerbation: 28% vs 32%
+  - cough: 23% vs 21%
+  - COVID-19: 22% vs 26%
+- RIDGELINE (ages 6–11, single arm, 78 children) [[Hoppe2025RIDGELINE]]:
+  - ppFEV1 was maintained from the ETI baseline
+  - nearly all children had sweat chloride below 60 mmol/L and more than half below 30 mmol/L
+  - one child (1%) stopped because of adverse events
+- ClinicalTrials.gov lists RIDGELINE (NCT05422222) as active and enrolling ages 1–11 years, with estimated completion in 2030 [[NCT05422222]].
+- Alyftrek was approved on 20 Dec 2024 for ages 6 years and older, taken once daily. Label dose from age 12 (quoted): two tablets of vanzacaftor 10 mg/tezacaftor 50 mg/deutivacaftor 125 mg with fat-containing food. The responsive-variant table lists about 560 variants [[FDA-Alyftrek,FDA2026Approvals]].
+
+### modulators · Eligibility, access and cost
+- Nearly 90% of people with CF carry at least one F508del allele [[Middleton2019ETI]]. A later paper puts the figure at about 80% [[Castellani2026RareVariants]]. Such estimates vary by registry and population.
+- Variants that make no protein (for example many nonsense variants) cannot be helped by drugs that act on the protein. Nonsense variants cause CF in about 10% of people [[Kerem2014Ataluren]].
+- An estimated 162,428 people live with CF across 94 countries (2022 analysis). About 105,352 (65%) are diagnosed, and 19,516 (12%) were receiving triple therapy [[Guo2022Access]].
+- The estimated minimum cost of producing ETI was $5,676 per year (range $4,628–6,723), more than 90% below the US list price. Treating all eligible diagnosed people worldwide would cost about $489 million a year at production cost vs $31.2 billion at the US list price [[Guo2022Prices]].
+- The Lancet Respiratory Medicine Commission noted that modulators are "highly expensive", widening the gap in outcomes between high-income and low- and middle-income countries [[Bell2020Commission]].
+- A 2023 Lancet review notes that a health outcome gap has been created for people who are not eligible for modulators, cannot tolerate them, or cannot get them [[TaylorCousar2023Lancet]].
+
+### modulators · Safety (label wording, quoted)
+- Trikafta has a boxed warning, "Drug-induced liver injury and liver failure" [[FDA-Trikafta]]:
+  - cases of liver failure leading to transplantation and death were reported in people with and without prior liver disease
+  - liver injury was reported from the first month up to 15 months after starting
+- Trikafta liver monitoring (quoted): ALT, AST, alkaline phosphatase and bilirubin before starting, monthly for the first 6 months, every 3 months for the next 12 months, then at least yearly. Not to be used in severe hepatic impairment (Child-Pugh C); not recommended in moderate impairment (Child-Pugh B) [[FDA-Trikafta]].
+- Alyftrek carries the same boxed warning, based on cases seen with ETI. In SKYLINE, transaminases above 3×, 5× and 8× the upper limit of normal occurred in 6%, 2.5% and 1.3% on VTD vs 3.1%, 1.2% and 0.2% on ETI [[FDA-Alyftrek]].
+- ETI liver data from label Trial 1 (vs placebo) [[FDA-Trikafta]]:
+  - transaminases above 8×, 5× and 3× the upper limit of normal: 1%, 2% and 8% vs 1%, 1% and 5%
+  - total bilirubin above 2× the upper limit of normal: 4% vs <1%
+- In US FDA adverse event reports (Q4 2019 to Q3 2022) there were 452 reports of drug-induced liver injury linked to ETI, 2.1% of all ETI reports. The reporting odds ratio was 2.82 and median onset was 50.5 days. Such reports cannot give incidence [[Shi2024DILI]].
+- Older labels (ivacaftor, tezacaftor-ivacaftor) recommend transaminases before starting, every 3 months in the first year, then yearly. Dosing is interrupted if ALT or AST is more than 5× the upper limit of normal [[FDA-Kalydeco,FDA-Symdeko]].
+- Cataracts: non-congenital lens opacities have been reported in children treated with ivacaftor-containing regimens. Labels recommend baseline and follow-up eye examinations in children [[FDA-Trikafta,FDA-Alyftrek]].
+- In juvenile rats, ivacaftor caused cataracts at 0.1 to 0.8 times the maximum recommended human dose. This was not seen in older animals [[FDA-Kalydeco]].
+- Drug interactions [[FDA-Trikafta]]:
+  - all three ETI components are CYP3A substrates, and ivacaftor is a sensitive substrate
+  - rifampin cut ivacaftor exposure (AUC) by 89%, so strong CYP3A inducers are not recommended
+  - itraconazole raised elexacaftor AUC 2.8-fold and tezacaftor AUC 4.0–4.5-fold, so the label reduces the dose with strong or moderate CYP3A inhibitors and advises avoiding grapefruit
+- Rash with ETI [[FDA-Trikafta]]:
+  - Trial 1: 10% vs 5% on placebo, more in females (16%) than males (5%)
+  - Trial 5: 23% vs 2%
+  - the label says a role of hormonal contraceptives "cannot be excluded"
+- Creatine phosphokinase above 5× the upper limit of normal occurred in 10% on ETI vs 5% on placebo in Trial 1 [[FDA-Trikafta]].
+- Since 2025–2026, all modulator labels carry warnings for intracranial hypertension (09/2025) and for "Neuropsychiatric events, including suicidal thoughts and behaviors" (03/2026). The neuropsychiatric events include anxiety, depression, suicidal ideation and behaviour, and sleep disturbance [[FDA-Trikafta,FDA-Kalydeco,FDA-Orkambi,FDA-Symdeko,FDA-Alyftrek]].
+- The Trikafta label notes these symptoms "may occur within the first three months" and occurred in people with and without a prior history. It advises a baseline assessment and monitoring [[FDA-Trikafta]].
+- A Vertex-funded review found exposure-adjusted rates of depression-related adverse events of 3.32 per 100 person-years on ETI vs 3.24 on placebo across trials (1,711 vs 1,369 people). Suicidal ideation was 0.23 vs 0.28 per 100 person-years. The authors found no causal link [[Ramsey2024Depression]].
+- Positions differ on mental health:
+  - a UK adult centre reported anxiety, low mood, insomnia or "brain fog" in 19 of 266 adults (7.1%). In 10 of the 13 who had a dose reduction, symptoms improved or resolved [[Spoletini2022MentalHealth]]
+  - a 7-centre US study (1,046 people) found that mental health medication use and diagnoses rose from baseline at all time points after ETI [[McKinzie2026MentalHealth]]
+  - the regulator now carries a class warning [[FDA-Trikafta]]
+  - causality remains unsettled [[Ramsey2024Depression]]
+
+### modulators · Real-world outcomes
+- PROMISE (487 people aged 12 or older starting ETI in the US), 6 months after starting [[Nichols2022PROMISE]]:
+  - ppFEV1 +9.76 points (95% CI 8.76 to 10.76)
+  - CFQ-R respiratory domain +20.4 points
+  - sweat chloride −41.7 mmol/L
+  - gains were larger in people new to modulators but substantial in all groups
+- US registry study (16,116 people starting ETI in 2019–2020), years 1 and 2 after starting vs before [[Bower2023]]:
+  - pulmonary exacerbations fell from 0.86 to 0.18 per person per year (79% reduction)
+  - hospitalisations fell 74%
+  - ppFEV1 rose 8.2 points in year 1 and 8.9 in year 2
+  - BMI rose 1.6 kg/m²
+- In the same study, the annual death rate on ETI was 0.47% and the lung transplant rate 0.16%, vs 1.65% and 1.08% in 2019: 72% and 85% lower. These are population statistics, not individual predictions [[Bower2023]].
+- German CF Registry (2,645 people, first year) [[Sutharsan2023Germany]]:
+  - ppFEV1 +11.3%
+  - adult BMI +1.4 kg/m²
+  - pulmonary exacerbations −75.9%
+  - sweat chloride −50.9 mmol/L
+  - ppFEV1 gain 12.6% in people new to modulators vs 9.7% in those switching from another modulator
+- French advanced lung disease cohort (ppFEV1 below 40, 245 people, median ppFEV1 29) [[Burgel2021Advanced]]:
+  - ppFEV1 +15.1 points and weight +4.2 kg within 3 months
+  - long-term oxygen, non-invasive ventilation and tube feeding needs fell 50%, 30% and 50%
+  - of 16 on the transplant list and 37 under evaluation, only 2 had a transplant
+  - France saw half as many CF lung transplants in 2020 as in the two previous years
+- In France, first-time lung transplant rates for people with CF fell from 13.4 per 1,000 per year (2015–2019) to 1.8 per 1,000 per year (2020–2024). Eleven people on ETI still needed a transplant. ETI reduced but did not eliminate the need [[Dhote2026Transplant]].
+- In French real-world data (1,266 people), those with two ETI-responsive variants reached a lower median sweat chloride than those with one (36 vs 53 mmol/L). The ppFEV1 gain was the same (p=0.80), which suggests established lung damage limits further lung gains (Early evidence) [[Burgel2025SwCl]].
+- SIMPLIFY (594 people on ETI with well-preserved lung function, average ppFEV1 96.9%): stopping hypertonic saline or dornase alfa for 6 weeks was non-inferior to continuing [[MayerHamblett2023SIMPLIFY]]:
+  - hypertonic saline: difference −0.32% (95% CI −1.25 to 0.60)
+  - dornase alfa: difference +0.35% (−0.45 to 1.14)
+- Pregnancy [[TaylorCousar2021ETI,Dacco2023]]:
+  - pregnancy rates are rising in women with CF on modulators
+  - one CF centre reported more unplanned pregnancies after ETI and linked them mainly to less attention to contraception, not contraceptive failure
+- An early survey of 45 ETI-exposed pregnancies reported a miscarriage rate consistent with the general US population. Five of the six women who stopped ETI for fear of fetal risk restarted after their health declined (Early evidence) [[TaylorCousar2021ETI]].
+- A Vertex-funded microsimulation model projected median survival of 71.6 years for F508del homozygotes on ETI, vs 38.1 years with best supportive care alone (+33.5 years). This is a modelled projection, not observed survival and not a prediction for any person (Hypothesis) [[Lopez2023Survival]].
+
+### frontier · Research for people without a modulator option
+- Gene therapy, non-viral (UK CF Gene Therapy Consortium, 140 people, nebulised monthly for 1 year): pGM169/GL67A gave a relative ppFEV1 benefit of 3.7% over placebo (95% CI 0.1 to 7.3; p=0.046). The effect reflected stabilisation vs decline on placebo; the authors called it "significant, albeit modest" (Early evidence) [[Alton2015pGM169]].
+- Gene therapy, AAV: 4D-710 is an inhaled AAV (capsid 4D-A101) carrying a CFTR transgene, in an open-label phase 1/2 trial in adults (NCT05248230, recruiting) (Early evidence) [[NCT05248230]].
+- Gene therapy, AAV: SP-101 is a single inhaled dose given with doxorubicin, for adults ineligible for or intolerant of modulators (NCT06526923, recruiting) (Early evidence) [[NCT06526923]].
+- Gene therapy, lentiviral: BI 3720931 is an inhaled lentiviral vector for adults ineligible for modulators (Lenticlair 1, NCT06515002). The trial was terminated in 2026 for "sponsor decision" after enrolling 5 people (Hypothesis) [[NCT06515002]].
+- mRNA: MRT5005 (inhaled CFTR mRNA in lipid nanoparticles, 42 adults) [[Rowe2023MRT5005]]:
+  - 14 febrile reactions occurred in 10 treated people, and 2 people had hypersensitivity reactions
+  - FEV1 stayed stable, but no FEV1 benefit was seen (Early evidence)
+- mRNA: VX-522 is an inhaled mRNA therapy for adults whose genotype does not respond to modulators. ClinicalTrials.gov lists its phase 1/2 trial (26 enrolled) as completed on 9 Sep 2026, with no results posted (Early evidence) [[NCT05668741]].
+- Read-through drugs: ataluren failed in the phase 3 trial (238 people). The relative ppFEV1 change was −2.5% vs −5.5% (p=0.12), and raised creatinine occurred in 15% vs <1% on placebo [[Kerem2014Ataluren]].
+- The confirmatory ACT CF trial (279 people not taking inhaled aminoglycosides) also showed no difference: ppFEV1 difference 0.6 (95% CI −1.3 to 2.5; p=0.54). The authors concluded "Development of a nonsense-mutation CF therapy remains elusive" (Established negative) [[Konstan2020ACTCF]].
+- ELX-02 is a subcutaneous eukaryotic ribosome-selective glycoside, tested with and without ivacaftor in adults with at least one G542X allele (phase 2, 17 enrolled, completed 2022, no results posted) (Hypothesis) [[NCT04135495]].
+- Base editing: in an organoid biobank from 664 people, about 20% carried variants that adenine base editing could theoretically correct. Genetic and functional repair was achieved in all 4 tested samples, with no off-target mutations found in 2 lines (Early evidence, laboratory) [[Geurts2020ABE]].
+- Prime editing: optimised prime editing corrected F508del in 58% of immortalised bronchial cells and 25% of patient airway cells. It restored CFTR function to over 50% of wild-type levels, similar to ETI (Early evidence, laboratory) [[Sousa2025Prime]].
+- Prime editing also corrected L227R and N1303K (variants not eligible for approved modulators when studied) in rectal organoids and nasal epithelial cells, with high specificity (Early evidence, laboratory) [[Bulcaen2024Prime]].
+- ENaC inhibition is a "mutation-agnostic" approach. The inhaled ENaC inhibitor BI 1265162 (BALANCE-CF 1) showed no relevant clinical benefit (+1.5% ppFEV1 at 200 µg twice daily vs placebo), and development was terminated [[Goss2022BALANCE]].
+- Ionocytes: single-cell atlases found a rare FOXI1-positive "pulmonary ionocyte" that is the major source of CFTR transcripts in mouse and human airways. Knocking out Foxi1 caused CF-like airway fluid and mucus changes in mice (Established discovery; therapeutic relevance Hypothesis) [[Montoro2018,Plasschaert2018]].
+- Organoids for theratyping [[Dekkers2013FIS,Dekkers2016Organoids,Berkers2019Organoids]]:
+  - forskolin-induced swelling of rectal organoids measures CFTR function
+  - responses to ivacaftor and lumacaftor in organoids correlated with clinical trial outcomes
+  - in a prospective study, organoid responses correlated with changes in both FEV1 and sweat chloride (Early evidence)
+- In organoids, two people with the rare genotype G1249R/F508del were predicted to respond and did respond clinically to ivacaftor. One person with F508del/R347P had a limited response both in vitro and in vivo [[Dekkers2016Organoids]].
+
+### Exam hooks
+- Ivacaftor is a potentiator: it increases the channel open probability of CFTR that is already at the cell surface [[FDA-Kalydeco,VanGoor2009VX770]].
+- Lumacaftor and tezacaftor are type I correctors that bind TMD1 [[Fiedorczuk2022Cell]].
+- Elexacaftor is a next-generation corrector with additional co-potentiator activity [[Fiedorczuk2022Science,Veit2021ELX]].
+- STRIVE (G551D, age 12 or older): ppFEV1 +10.6 points, sweat chloride −48.1 mmol/L, exacerbations 55% less likely [[Ramsey2011STRIVE]].
+- TRAFFIC/TRANSPORT (F/F): lumacaftor-ivacaftor gave ppFEV1 +2.6 to 4.0 points, a modest effect [[Wainwright2015TRAFFIC]].
+- EVOLVE (F/F): tezacaftor-ivacaftor ppFEV1 +4.0 points and exacerbations −35% [[TaylorCousar2017EVOLVE]].
+- Middleton 2019 (F/MF): ETI ppFEV1 +14.3 points, sweat chloride −41.8 mmol/L, exacerbations −63% vs placebo [[Middleton2019ETI]].
+- Heijerman 2019 (F/F): ETI ppFEV1 +10.0 points vs tezacaftor-ivacaftor (an active comparator, not placebo) [[Heijerman2019ETI]].
+- SKYLINE: once-daily vanzacaftor-tezacaftor-deutivacaftor was non-inferior to ETI for ppFEV1 (margin −3.0 points) and gave lower sweat chloride [[Keating2025SKYLINE,FDA-Alyftrek]].
+- The FDA in vitro threshold for a "responsive" variant is at least a 10% of normal net increase in FRT chloride transport [[FDA-Kalydeco]].
+- 2017 was the first FDA indication expansion based on in vitro data instead of a clinical trial (ivacaftor, rare variants) [[Durmowicz2018]].
+- ETI and VTD carry a boxed warning for drug-induced liver injury and liver failure, with LFTs monthly for 6 months, then every 3 months for 12 months, then yearly [[FDA-Trikafta,FDA-Alyftrek]].
+- Ivacaftor-containing drugs and cataracts in children: eye examinations at baseline and follow-up [[FDA-Trikafta]].
+- Modulators are CYP3A substrates: avoid strong inducers (rifampin cut ivacaftor AUC by 89%) and reduce the dose with strong or moderate inhibitors [[FDA-Trikafta]].
+- Within a trial, a person's change in sweat chloride does not predict their FEV1 change; the two correlate only across populations [[Fidler2017SwCl]].
+- Ataluren (read-through) failed two phase 3 trials, so nonsense variants remain an unmet need [[Kerem2014Ataluren,Konstan2020ACTCF]].
+- Pulmonary ionocytes are rare cells that make most of the CFTR transcripts in the airway [[Montoro2018,Plasschaert2018]].
+
+### In plain words
+- CF happens when the CFTR protein, a tiny gate for salt and water, is missing, misshapen or stuck shut. Modulator medicines work on that protein [[Liu2019Potentiator]].
+- "Correctors" help the protein fold and reach the cell surface. "Potentiators" help the gate open. Most modern pills combine both [[FDA-Trikafta]].
+- In trials, the triple medicine (elexacaftor-tezacaftor-ivacaftor) improved breathing tests by about 10 to 14 points on average and cut flare-ups by about two thirds [[Middleton2019ETI,Heijerman2019ETI]].
+- These are averages for groups of people. One person's response can be larger or smaller [[Fidler2017SwCl]].
+- Whether a medicine fits depends on a person's CFTR variants and age. Lists of variants are teaching tools; only the care team can decide on treatment [[FDA-Trikafta]].
+- The newest medicine (Alyftrek) is taken once a day and worked as well as the triple medicine on breathing tests [[Keating2025SKYLINE]].
+- These medicines can affect the liver, so blood tests are checked often, especially in the first months [[FDA-Trikafta]].
+- Children taking these medicines have eye checks because of a cataract warning [[FDA-Trikafta]].
+- Some people notice changes in mood, anxiety or sleep. These are worth telling the care team about early; help is available [[FDA-Trikafta]].
+- Many other medicines and grapefruit can change modulator levels, so the CF team and pharmacist should know about every medicine and supplement [[FDA-Trikafta]].
+- Since the triple medicine, far fewer people with CF have needed lung transplants. These are figures for whole countries, not predictions for one person [[Dhote2026Transplant,Bower2023]].
+- More people with CF are becoming pregnant, sometimes unexpectedly, so talking about family planning with the CF team matters [[Dacco2023]].
+- About 1 in 10 people with CF have variants these pills cannot help. Researchers are testing gene therapy, mRNA and gene editing, but none is a proven treatment yet [[Kerem2014Ataluren,Rowe2023MRT5005,Alton2015pGM169]].
+- In many countries these medicines are still out of reach because of their price [[Guo2022Access,Guo2022Prices]].
+
+## Numbers for the animations
+- ppFEV1_effect_vs_comparator | ivacaftor G551D (STRIVE, wk24) | 10.6 | percentage points | [[Ramsey2011STRIVE]]
+- ppFEV1_effect_vs_comparator | ivacaftor G551D age 6–11 (ENVISION, wk24) | 12.5 | percentage points | [[Davies2013ENVISION]]
+- ppFEV1_effect_vs_comparator | ivacaftor R117H (KONDUCT, wk24) | 2.1 | percentage points | [[Moss2015KONDUCT]]
+- ppFEV1_effect_vs_comparator | lumacaftor-ivacaftor F/F (TRAFFIC/TRANSPORT, wk24, low end) | 2.6 | percentage points | [[Wainwright2015TRAFFIC]]
+- ppFEV1_effect_vs_comparator | lumacaftor-ivacaftor F/F (TRAFFIC/TRANSPORT, wk24, high end) | 4.0 | percentage points | [[Wainwright2015TRAFFIC]]
+- ppFEV1_effect_vs_comparator | tezacaftor-ivacaftor F/F (EVOLVE, wk24) | 4.0 | percentage points | [[TaylorCousar2017EVOLVE]]
+- ppFEV1_effect_vs_comparator | tezacaftor-ivacaftor F/RF (EXPAND, wk4–8) | 6.8 | percentage points | [[Rowe2017EXPAND]]
+- ppFEV1_effect_vs_comparator | ETI F/MF vs placebo (wk24) | 14.3 | percentage points | [[Middleton2019ETI]]
+- ppFEV1_effect_vs_comparator | ETI F/F vs tez-iva (wk4) | 10.0 | percentage points | [[Heijerman2019ETI]]
+- ppFEV1_effect_vs_comparator | ETI F/gating or F/RF vs prior modulator (wk8) | 3.5 | percentage points | [[Barry2021ETI]]
+- ppFEV1_effect_vs_comparator | ETI F/MF age 6–11 vs placebo (wk24) | 11.0 | percentage points | [[Mall2022ETI]]
+- ppFEV1_effect_vs_comparator | ETI rare non-F508del variants vs placebo (wk24) | 9.2 | percentage points | [[Castellani2026RareVariants]]
+- ppFEV1_effect_vs_comparator | VTD vs ETI (SKYLINE 102, wk24) | 0.2 | percentage points | [[Keating2025SKYLINE]]
+- ppFEV1_effect_vs_comparator | VTD vs ETI (SKYLINE 103, wk24) | 0.2 | percentage points | [[Keating2025SKYLINE]]
+- sweat_chloride_change | ivacaftor G551D vs placebo (wk48) | -48.1 | mmol/L | [[Ramsey2011STRIVE]]
+- sweat_chloride_change | ivacaftor age 6–11 vs placebo (wk48) | -53.5 | mmol/L | [[Davies2013ENVISION]]
+- sweat_chloride_change | ivacaftor age 2–5 from baseline (wk24) | -46.9 | mmol/L | [[Davies2016KIWI]]
+- sweat_chloride_change | ivacaftor age 12–<24 months from baseline (wk24) | -73.5 | mmol/L | [[Rosenfeld2018ARRIVAL]]
+- sweat_chloride_change | lumacaftor-ivacaftor age 6–11 vs placebo (day 15/wk4) | -20.8 | mmol/L | [[Ratjen2017LumIva]]
+- sweat_chloride_change | ETI F/MF vs placebo (wk24) | -41.8 | mmol/L | [[Middleton2019ETI]]
+- sweat_chloride_change | ETI F/F vs tez-iva (wk4) | -45.1 | mmol/L | [[Heijerman2019ETI]]
+- sweat_chloride_change | ETI age 6–11 from baseline (wk24) | -60.9 | mmol/L | [[Zemanick2021ETI]]
+- sweat_chloride_change | ETI age 2–5 from baseline (wk24) | -57.9 | mmol/L | [[Goralski2023ETI]]
+- sweat_chloride_change | VTD vs ETI, Trial 1 (wk24) | -8.4 | mmol/L | [[FDA-Alyftrek]]
+- sweat_chloride_change | VTD vs ETI, Trial 2 (wk24) | -2.8 | mmol/L | [[FDA-Alyftrek]]
+- exacerbation_reduction | ivacaftor G551D (wk48) | 55 | % lower risk | [[Ramsey2011STRIVE]]
+- exacerbation_reduction | lumacaftor-ivacaftor F/F (pooled, wk24, low) | 30 | % lower rate | [[Wainwright2015TRAFFIC]]
+- exacerbation_reduction | lumacaftor-ivacaftor F/F (pooled, wk24, high) | 39 | % lower rate | [[Wainwright2015TRAFFIC]]
+- exacerbation_reduction | tezacaftor-ivacaftor F/F (wk24) | 35 | % lower rate | [[TaylorCousar2017EVOLVE]]
+- exacerbation_reduction | ETI F/MF (wk24) | 63 | % lower rate | [[Middleton2019ETI]]
+- annual_ppFEV1_decline | matched registry controls (PROGRESS comparator) | -2.29 | points/year | [[Konstan2017PROGRESS]]
+- annual_ppFEV1_decline | lumacaftor-ivacaftor (PROGRESS) | -1.33 | points/year | [[Konstan2017PROGRESS]]
+- annual_ppFEV1_decline | ETI age ≥12 (144-week interim) | 0.07 | points/year | [[Daines2023ETIOLE]]
+- annual_ppFEV1_decline | ETI children ≥6 (192 weeks) | -0.09 | points/year | [[Wainwright2025ETIOLE]]
+- realworld_PEx_per_person_year | baseline year before ETI (US registry) | 0.86 | events/person/year | [[Bower2023]]
+- realworld_PEx_per_person_year | years 1–2 on ETI (US registry) | 0.18 | events/person/year | [[Bower2023]]
+- realworld_ppFEV1_change | year 1 on ETI (US registry) | 8.2 | percentage points | [[Bower2023]]
+- realworld_ppFEV1_change | year 2 on ETI (US registry) | 8.9 | percentage points | [[Bower2023]]
+- realworld_ppFEV1_change | month 6 on ETI (PROMISE) | 9.76 | percentage points | [[Nichols2022PROMISE]]
+- realworld_ppFEV1_change | year 1 on ETI (German registry) | 11.3 | % | [[Sutharsan2023Germany]]
+- realworld_ppFEV1_change | month 3, advanced lung disease (France) | 15.1 | percentage points | [[Burgel2021Advanced]]
+- annual_death_rate | US 2019, before ETI (registry reference) | 1.65 | % per year | [[Bower2023]]
+- annual_death_rate | on ETI (US registry, years 1–2) | 0.47 | % per year | [[Bower2023]]
+- annual_lung_transplant_rate | US 2019, before ETI | 1.08 | % per year | [[Bower2023]]
+- annual_lung_transplant_rate | on ETI (US registry, years 1–2) | 0.16 | % per year | [[Bower2023]]
+- first_lung_transplant_rate_France | 2015–2019 | 13.4 | per 1,000 non-transplanted/year | [[Dhote2026Transplant]]
+- first_lung_transplant_rate_France | 2020–2024 | 1.8 | per 1,000 non-transplanted/year | [[Dhote2026Transplant]]
+- ETI_LFT_elevation_trial1 | >3× ULN, ETI vs placebo | 8 vs 5 | % | [[FDA-Trikafta]]
+- ETI_LFT_elevation_trial1 | >5× ULN, ETI vs placebo | 2 vs 1 | % | [[FDA-Trikafta]]
+- ETI_LFT_elevation_trial1 | >8× ULN, ETI vs placebo | 1 vs 1 | % | [[FDA-Trikafta]]
+- VTD_LFT_elevation_SKYLINE | >3× ULN, VTD vs ETI | 6 vs 3.1 | % | [[FDA-Alyftrek]]
+- VTD_LFT_elevation_SKYLINE | >8× ULN, VTD vs ETI | 1.3 vs 0.2 | % | [[FDA-Alyftrek]]
+- ETI_rash | Trial 1, ETI vs placebo | 10 vs 5 | % | [[FDA-Trikafta]]
+- ETI_rash | Trial 1, female vs male on ETI | 16 vs 5 | % | [[FDA-Trikafta]]
+- CYP3A_interaction | ivacaftor AUC change with rifampin | -89 | % | [[FDA-Trikafta]]
+- CYP3A_interaction | tezacaftor AUC with itraconazole | 4.0–4.5 | fold | [[FDA-Trikafta]]
+- US_approval_timeline | 2012-01-31 | ivacaftor (Kalydeco) | date | [[FDA2026Approvals]]
+- US_approval_timeline | 2015-07-02 | lumacaftor-ivacaftor (Orkambi) | date | [[FDA2026Approvals]]
+- US_approval_timeline | 2017-05-17 | first in vitro–based ivacaftor expansion | date | [[Durmowicz2018]]
+- US_approval_timeline | 2018-02-12 | tezacaftor-ivacaftor (Symdeko) | date | [[FDA2026Approvals]]
+- US_approval_timeline | 2019-10-21 | elexacaftor-tezacaftor-ivacaftor (Trikafta) | date | [[FDA2026Approvals]]
+- US_approval_timeline | 2023-04-26 | Trikafta granules, age 2–5 | date | [[FDA2026Approvals]]
+- US_approval_timeline | 2024-12-20 | vanzacaftor-tezacaftor-deutivacaftor (Alyftrek) | date | [[FDA2026Approvals]]
+- youngest_label_age | Kalydeco | 1 | month | [[FDA-Kalydeco]]
+- youngest_label_age | Orkambi | 1 | year | [[FDA-Orkambi]]
+- youngest_label_age | Symdeko | 6 | years | [[FDA-Symdeko]]
+- youngest_label_age | Trikafta | 2 | years | [[FDA-Trikafta]]
+- youngest_label_age | Alyftrek | 6 | years | [[FDA-Alyftrek]]
+- label_variant_count_approx | Kalydeco | 97 | variants (non-exhaustive list) | [[FDA-Kalydeco]]
+- label_variant_count_approx | Symdeko | 154 | variants | [[FDA-Symdeko]]
+- label_variant_count_approx | Trikafta | 520 | variants | [[FDA-Trikafta]]
+- label_variant_count_approx | Alyftrek | 560 | variants | [[FDA-Alyftrek]]
+- global_access | living with CF (94 countries) | 162428 | people | [[Guo2022Access]]
+- global_access | diagnosed | 105352 | people | [[Guo2022Access]]
+- global_access | receiving triple therapy | 19516 | people | [[Guo2022Access]]
+- ETI_annual_cost | estimated minimum production cost | 5676 | USD/year | [[Guo2022Prices]]
+- ETI_annual_cost_all_eligible | at production cost | 0.489 | USD billion/year | [[Guo2022Prices]]
+- ETI_annual_cost_all_eligible | at US list price | 31.2 | USD billion/year | [[Guo2022Prices]]
+- frontier_effect | pGM169/GL67A gene therapy vs placebo (12 months, relative) | 3.7 | % ppFEV1 | [[Alton2015pGM169]]
+- frontier_effect | ataluren vs placebo (ACT CF, weeks 40–48) | 0.6 | ppFEV1 points (NS) | [[Konstan2020ACTCF]]
+- frontier_effect | prime editing F508del correction, patient airway cells | 25 | % alleles corrected | [[Sousa2025Prime]]
+- frontier_effect | rare variants responsive to ETI in FRT cells | 84 | % (518/620) | [[Castellani2026RareVariants]]
+
+## Open questions and controversies
+- Mental health on modulators: a sponsor-funded pooled analysis finds depression-related event rates on ETI similar to placebo (3.32 vs 3.24 per 100 person-years) [[Ramsey2024Depression]]. Centre reports describe symptoms that improved after dose reduction [[Spoletini2022MentalHealth]], and a US multicentre study found more mental health diagnoses and medication after ETI [[McKinzie2026MentalHealth]]. Since 03/2026 the FDA labels carry a neuropsychiatric warning [[FDA-Trikafta]]. Status: causality unresolved; screening and monitoring advised by label.
+- Liver injury: trials showed modest transaminase rises [[FDA-Trikafta]], but post-marketing reports include liver failure, transplantation and death. The labels now carry a boxed warning [[FDA-Trikafta,FDA-Alyftrek]], and FAERS shows a disproportionate signal [[Shi2024DILI]]. Status: incidence of severe injury and its mechanism are unknown.
+- How much CFTR function is "enough"? VTD lowers sweat chloride more than ETI with no measurable FEV1 difference [[Keating2025SKYLINE,FDA-Alyftrek]]. Two responsive variants give lower sweat chloride but no larger FEV1 gain [[Burgel2025SwCl]]. One view: established lung damage caps lung gains. The other: earlier, more complete correction may prevent damage from forming [[Hoppe2025RIDGELINE]]. Status: open; long-term paediatric data pending.
+- Eligibility by in vitro data: the FDA accepts FRT and HBE cell data to add variants [[Durmowicz2018,FDA-Trikafta]], and 84% of rare protein-producing variants respond in vitro [[Castellani2026RareVariants]]. But in vitro response size does not predict clinical response for a variant [[FDA-Kalydeco]], and organoid theratyping remains a research tool [[Dekkers2016Organoids]]. Status: label now accepts "results in production of CFTR protein" with clinical judgment.
+- Simplifying treatment on ETI: stopping hypertonic saline or dornase alfa for 6 weeks was non-inferior in people with well-preserved lung function [[MayerHamblett2023SIMPLIFY]]. Long-term effects and effects in more advanced disease are unknown.
+- Survival projections: modelled median survival of 71.6 years on ETI (F/F) comes from an industry-funded microsimulation [[Lopez2023Survival]]. Observed registry death rates fell 72% [[Bower2023]], but follow-up is short. Status: projections are hypotheses, not predictions.
+- Global equity: estimated production cost is about $5,676 per year vs much higher list prices [[Guo2022Prices]], and only about 12% of people with CF worldwide were on triple therapy in 2022 [[Guo2022Access]]. Status: access remains limited outside high-income countries [[TaylorCousar2023Lancet,Bell2020Commission]].
+- Genetic therapies for about 10% with non-responsive variants: non-viral gene therapy gave a modest effect [[Alton2015pGM169]], mRNA showed no FEV1 benefit so far [[Rowe2023MRT5005]], one lentiviral trial was terminated [[NCT06515002]], and AAV trials are ongoing [[NCT05248230,NCT06526923]]. Editing works only in the laboratory so far [[Sousa2025Prime,Bulcaen2024Prime,Geurts2020ABE]]. Status: no approved genetic therapy as of 2026-11-04.
+
+## Sources
+- [Alton2015pGM169] Alton EWFW, Armstrong DK, Ashby D, Bayfield KJ, Bilton D, Bloomfield EV, et al. Repeated nebulisation of non-viral CFTR gene therapy in patients with cystic fibrosis: a randomised, double-blind, placebo-controlled, phase 2b trial. Lancet Respir Med. 2015;3(9):684-691. PMID 26149841; PMCID PMC4673100; doi:10.1016/s2213-2600(15)00245-3. (validated: PubMed)
+- [Barry2021ETI] Barry PJ, Mall MA, Álvarez A, Colombo C, de Winter-de Groot KM, Fajac I, et al. Triple Therapy for Cystic Fibrosis Phe508del-Gating and -Residual Function Genotypes. N Engl J Med. 2021;385(9):815-825. PMID 34437784; PMCID PMC8982185; doi:10.1056/nejmoa2100665. (validated: PubMed)
+- [Bell2020Commission] Bell SC, Mall MA, Gutierrez H, Macek M, Madge S, Davies JC, et al. The future of cystic fibrosis care: a global perspective. Lancet Respir Med. 2020;8(1):65-124. PMID 31570318; PMCID PMC8862661; doi:10.1016/s2213-2600(19)30337-6. (validated: PubMed)
+- [Berkers2019Organoids] Berkers G, van Mourik P, Vonk AM, Kruisselbrink E, Dekkers JF, de Winter-de Groot KM, et al. Rectal Organoids Enable Personalized Treatment of Cystic Fibrosis. Cell Rep. 2019;26(7):1701-1708.e3. PMID 30759382; doi:10.1016/j.celrep.2019.01.068. (validated: PubMed)
+- [Bessonova2018Registry] Bessonova L, Volkova N, Higgins M, Bengtsson L, Tian S, Simard C, et al. Data from the US and UK cystic fibrosis registries support disease modification by CFTR modulation with ivacaftor. Thorax. 2018;73(8):731-740. PMID 29748252; PMCID PMC6204955; doi:10.1136/thoraxjnl-2017-210394. (validated: PubMed)
+- [Bower2023] Bower JK, Volkova N, Ahluwalia N, Sahota G, Xuan F, Chin A, et al. Real-world safety and effectiveness of elexacaftor/tezacaftor/ivacaftor in people with cystic fibrosis: Interim results of a long-term registry-based study. J Cyst Fibros. 2023;22(4):730-737. PMID 36963986; doi:10.1016/j.jcf.2023.03.002. (validated: PubMed)
+- [Bulcaen2024Prime] Bulcaen M, Kortleven P, Liu RB, Maule G, Dreano E, Kelly M, et al. Prime editing functionally corrects cystic fibrosis-causing CFTR mutations in human organoids and airway epithelial cells. Cell Rep Med. 2024;5(5):101544. PMID 38697102; PMCID PMC11148721; doi:10.1016/j.xcrm.2024.101544. (validated: PubMed)
+- [Burgel2021Advanced] Burgel PR, Durieu I, Chiron R, Ramel S, Danner-Boucher I, Prevotat A, et al. Rapid Improvement after Starting Elexacaftor-Tezacaftor-Ivacaftor in Patients with Cystic Fibrosis and Advanced Pulmonary Disease. Am J Respir Crit Care Med. 2021;204(1):64-73. PMID 33600738; doi:10.1164/rccm.202011-4153oc. (validated: PubMed)
+- [Burgel2025SwCl] Burgel PR, Da Silva J, Girodon E, Durieu I, Reynaud-Gaubert M, Murris-Espin M, et al. Sweat chloride and lung function responses to elexacaftor-tezacaftor-ivacaftor in people with cystic fibrosis with two versus one responsive CFTR variants: an analysis of two real-world observational studies. Lancet Respir Med. 2025;13(11):978-989. PMID 40914184; doi:10.1016/s2213-2600(25)00190-0. (validated: PubMed)
+- [Castellani2026RareVariants] Castellani C, Mondejar-Lopez P, Van Goor F, Quon BS, Alghisi F, Fabrizzi B, et al. Elexacaftor/tezacaftor/ivacaftor for cystic fibrosis and rare CFTR variants: in vitro translation to a phase 3, double-blind, randomized, placebo-controlled trial, and real-world study. Am J Respir Crit Care Med. 2026;212(2):327-337. PMID 41738096; doi:10.1093/ajrccm/aamaf001. (validated: PubMed)
+- [Chilvers2021LumIvaOLE] Chilvers MA, Davies JC, Milla C, Tian S, Han Z, Cornell AG, et al. Long-term safety and efficacy of lumacaftor-ivacaftor therapy in children aged 6-11 years with cystic fibrosis homozygous for the F508del-CFTR mutation: a phase 3, open-label, extension study. Lancet Respir Med. 2021;9(7):721-732. PMID 33516285; doi:10.1016/s2213-2600(20)30517-8. (validated: PubMed)
+- [Dacco2023] Daccò V, Alicandro G, Trespidi L, Gramegna A, Blasi FA. Unplanned pregnancies following the introduction of elexacaftor/tezacaftor/ivacaftor therapy in women with cystic fibrosis. Arch Gynecol Obstet. 2023;308(5):1657-1659. PMID 37517074; doi:10.1007/s00404-023-07153-y. (validated: PubMed)
+- [Daines2023ETIOLE] Daines CL, Tullis E, Costa S, Linnemann RW, Mall MA, McKone EF, et al. Long-term safety and efficacy of elexacaftor/tezacaftor/ivacaftor in people with cystic fibrosis and at least one F508del allele: 144-week interim results from a 192-week open-label extension study. Eur Respir J. 2023;62(6):2202029. PMID 37945033; PMCID PMC10701091; doi:10.1183/13993003.02029-2022. (validated: PubMed)
+- [Davies2013ENVISION] Davies JC, Wainwright CE, Canny GJ, Chilvers MA, Howenstine MS, Munck A, et al. Efficacy and safety of ivacaftor in patients aged 6 to 11 years with cystic fibrosis with a G551D mutation. Am J Respir Crit Care Med. 2013;187(11):1219-1225. PMID 23590265; PMCID PMC3734608; doi:10.1164/rccm.201301-0153oc. (validated: PubMed)
+- [Davies2016KIWI] Davies JC, Cunningham S, Harris WT, Lapey A, Regelmann WE, Sawicki GS, et al. Safety, pharmacokinetics, and pharmacodynamics of ivacaftor in patients aged 2-5 years with cystic fibrosis and a CFTR gating mutation (KIWI): an open-label, single-arm study. Lancet Respir Med. 2016;4(2):107-115. PMID 26803277; PMCID PMC6734927; doi:10.1016/s2213-2600(15)00545-7. (validated: PubMed)
+- [Davies2021ARRIVAL] Davies JC, Wainwright CE, Sawicki GS, Higgins MN, Campbell D, Harris C, et al. Ivacaftor in Infants Aged 4 to <12 Months with Cystic Fibrosis and a Gating Mutation. Results of a Two-Part Phase 3 Clinical Trial. Am J Respir Crit Care Med. 2021;203(5):585-593. PMID 33023304; PMCID PMC7924576; doi:10.1164/rccm.202008-3177oc. (validated: PubMed)
+- [DeBoeck2014KONNECTION] De Boeck K, Munck A, Walker S, Faro A, Hiatt P, Gilmartin G, et al. Efficacy and safety of ivacaftor in patients with cystic fibrosis and a non-G551D gating mutation. J Cyst Fibros. 2014;13(6):674-680. PMID 25266159; doi:10.1016/j.jcf.2014.09.005. (validated: PubMed)
+- [Dekkers2013FIS] Dekkers JF, Wiegerinck CL, de Jonge HR, Bronsveld I, Janssens HM, de Winter-de Groot KM, et al. A functional CFTR assay using primary cystic fibrosis intestinal organoids. Nat Med. 2013;19(7):939-945. PMID 23727931; doi:10.1038/nm.3201. (validated: PubMed)
+- [Dekkers2016Organoids] Dekkers JF, Berkers G, Kruisselbrink E, Vonk A, de Jonge HR, Janssens HM, et al. Characterizing responses to CFTR-modulating drugs using rectal organoids derived from subjects with cystic fibrosis. Sci Transl Med. 2016;8(344):344ra84. PMID 27334259; doi:10.1126/scitranslmed.aad8278. (validated: PubMed)
+- [Dhote2026Transplant] Dhôte T, Grenet D, Reynaud-Gaubert M, Chatron E, Renaud-Picard B, Tissot A, et al. The impact of progressive expansion of elexacaftor-tezacaftor-ivacaftor availability on lung transplant for cystic fibrosis in France. J Cyst Fibros. 2026;25(4):664-669. PMID 41813505; doi:10.1016/j.jcf.2026.03.003. (validated: PubMed)
+- [Durmowicz2013SwCl] Durmowicz AG, Witzmann KA, Rosebraugh CJ, Chowdhury BA. Change in sweat chloride as a clinical end point in cystic fibrosis clinical trials: the ivacaftor experience. Chest. 2013;143(1):14-18. PMID 23276841; doi:10.1378/chest.12-1430. (validated: PubMed)
+- [Durmowicz2018] Durmowicz AG, Lim R, Rogers H, Rosebraugh CJ, Chowdhury BA. The U.S. Food and Drug Administration's Experience with Ivacaftor in Cystic Fibrosis. Establishing Efficacy Using In Vitro Data in Lieu of a Clinical Trial. Ann Am Thorac Soc. 2018;15(1):1-2. PMID 29020455; doi:10.1513/annalsats.201708-668ps. (validated: PubMed)
+- [Fidler2017SwCl] Fidler MC, Beusmans J, Panorchan P, Van Goor F. Correlation of sweat chloride and percent predicted FEV1 in cystic fibrosis patients treated with ivacaftor. J Cyst Fibros. 2017;16(1):41-44. PMID 27773592; doi:10.1016/j.jcf.2016.10.002. (validated: PubMed)
+- [Fiedorczuk2022Cell] Fiedorczuk K, Chen J. Mechanism of CFTR correction by type I folding correctors. Cell. 2022;185(1):158-168.e11. PMID 34995514; doi:10.1016/j.cell.2021.12.009. (validated: PubMed)
+- [Fiedorczuk2022Science] Fiedorczuk K, Chen J. Molecular structures reveal synergistic rescue of Δ508 CFTR by Trikafta modulators. Science. 2022;378(6617):284-290. PMID 36264792; PMCID PMC9912939; doi:10.1126/science.ade2216. (validated: PubMed)
+- [Geurts2020ABE] Geurts MH, de Poel E, Amatngalim GD, Oka R, Meijers FM, Kruisselbrink E, et al. CRISPR-Based Adenine Editors Correct Nonsense Mutations in a Cystic Fibrosis Organoid Biobank. Cell Stem Cell. 2020;26(4):503-510.e7. PMID 32084388; doi:10.1016/j.stem.2020.01.019. (validated: PubMed)
+- [Goralski2023ETI] Goralski JL, Hoppe JE, Mall MA, McColley SA, McKone E, Ramsey B, et al. Phase 3 Open-Label Clinical Trial of Elexacaftor/Tezacaftor/Ivacaftor in Children Aged 2-5 Years with Cystic Fibrosis and at Least One F508del Allele. Am J Respir Crit Care Med. 2023;208(1):59-67. PMID 36921081; PMCID PMC10870849; doi:10.1164/rccm.202301-0084oc. (validated: PubMed)
+- [Goralski2026] Goralski JL, Daines C, Pittman JE, Rayment JH, Robinson P, Thursfield R, et al. Safety and efficacy of elexacaftor/tezacaftor/ivacaftor in children ≥2 years with cystic fibrosis: 96-week interim results from a phase 3 open-label extension study. J Cyst Fibros. 2026;25(5):778-785. PMID 42315414; doi:10.1016/j.jcf.2026.05.014. (validated: PubMed)
+- [Goss2022BALANCE] Goss CH, Fajac I, Jain R, Seibold W, Gupta A, Hsu MC, et al. Efficacy and safety of inhaled ENaC inhibitor BI 1265162 in patients with cystic fibrosis: BALANCE-CF 1, a randomised, phase II study. Eur Respir J. 2022;59(2):2100746. PMID 34385272; PMCID PMC8850685; doi:10.1183/13993003.00746-2021. (validated: PubMed)
+- [Guo2022Access] Guo J, Garratt A, Hill A. Worldwide rates of diagnosis and effective treatment for cystic fibrosis. J Cyst Fibros. 2022;21(3):456-462. PMID 35125294; doi:10.1016/j.jcf.2022.01.009. (validated: PubMed)
+- [Guo2022Prices] Guo J, Wang J, Zhang J, Fortunak J, Hill A. Current prices versus minimum costs of production for CFTR modulators. J Cyst Fibros. 2022;21(5):866-872. PMID 35440408; doi:10.1016/j.jcf.2022.04.007. (validated: PubMed)
+- [Heijerman2019ETI] Heijerman HGM, McKone EF, Downey DG, Van Braeckel E, Rowe SM, Tullis E, et al. Efficacy and safety of the elexacaftor plus tezacaftor plus ivacaftor combination regimen in people with cystic fibrosis homozygous for the F508del mutation: a double-blind, randomised, phase 3 trial. Lancet. 2019;394(10212):1940-1948. PMID 31679946; PMCID PMC7571408; doi:10.1016/s0140-6736(19)32597-8. (validated: PubMed)
+- [Hoppe2025RIDGELINE] Hoppe JE, Kasi AS, Pittman JE, Jensen R, Thia LP, Robinson P, et al. Vanzacaftor-tezacaftor-deutivacaftor for children aged 6-11 years with cystic fibrosis (RIDGELINE Trial VX21-121-105): an analysis from a single-arm, phase 3 trial. Lancet Respir Med. 2025;13(3):244-255. PMID 39756425; PMCID PMC12126198; doi:10.1016/s2213-2600(24)00407-7. (validated: PubMed)
+- [Keating2018VX445] Keating D, Marigowda G, Burr L, Daines C, Mall MA, McKone EF, et al. VX-445-Tezacaftor-Ivacaftor in Patients with Cystic Fibrosis and One or Two Phe508del Alleles. N Engl J Med. 2018;379(17):1612-1620. PMID 30334692; PMCID PMC6289290; doi:10.1056/nejmoa1807120. (validated: PubMed)
+- [Keating2025SKYLINE] Keating C, Yonker LM, Vermeulen F, Prais D, Linnemann RW, Trimble A, et al. Vanzacaftor-tezacaftor-deutivacaftor versus elexacaftor-tezacaftor-ivacaftor in individuals with cystic fibrosis aged 12 years and older (SKYLINE Trials VX20-121-102 and VX20-121-103): results from two randomised, active-controlled, phase 3 trials. Lancet Respir Med. 2025;13(3):256-271. PMID 39756424; PMCID PMC12184100; doi:10.1016/s2213-2600(24)00411-9. (validated: PubMed)
+- [Kerem2014Ataluren] Kerem E, Konstan MW, De Boeck K, Accurso FJ, Sermet-Gaudelus I, Wilschanski M, et al. Ataluren for the treatment of nonsense-mutation cystic fibrosis: a randomised, double-blind, placebo-controlled phase 3 trial. Lancet Respir Med. 2014;2(7):539-547. PMID 24836205; PMCID PMC4154311; doi:10.1016/s2213-2600(14)70100-6. (validated: PubMed)
+- [Konstan2017PROGRESS] Konstan MW, McKone EF, Moss RB, Marigowda G, Tian S, Waltz D, et al. Assessment of safety and efficacy of long-term treatment with combination lumacaftor and ivacaftor therapy in patients with cystic fibrosis homozygous for the F508del-CFTR mutation (PROGRESS): a phase 3, extension study. Lancet Respir Med. 2017;5(2):107-118. PMID 28011037; doi:10.1016/s2213-2600(16)30427-1. (validated: PubMed)
+- [Konstan2020ACTCF] Konstan MW, VanDevanter DR, Rowe SM, Wilschanski M, Kerem E, Sermet-Gaudelus I, et al. Efficacy and safety of ataluren in patients with nonsense-mutation cystic fibrosis not receiving chronic inhaled aminoglycosides: The international, randomized, double-blind, placebo-controlled Ataluren Confirmatory Trial in Cystic Fibrosis (ACT CF). J Cyst Fibros. 2020;19(4):595-601. PMID 31983658; PMCID PMC9167581; doi:10.1016/j.jcf.2020.01.007. (validated: PubMed)
+- [Liu2019Potentiator] Liu F, Zhang Z, Levit A, Levring J, Touhara KK, Shoichet BK, et al. Structural identification of a hotspot on CFTR for potentiation. Science. 2019;364(6446):1184-1188. PMID 31221859; PMCID PMC7184887; doi:10.1126/science.aaw7611. (validated: PubMed)
+- [Lopez2023Survival] Lopez A, Daly C, Vega-Hernandez G, MacGregor G, Rubin JL. Elexacaftor/tezacaftor/ivacaftor projected survival and long-term health outcomes in people with cystic fibrosis homozygous for F508del. J Cyst Fibros. 2023;22(4):607-614. PMID 36849331; doi:10.1016/j.jcf.2023.02.004. (validated: PubMed)
+- [Mall2022ETI] Mall MA, Brugha R, Gartner S, Legg J, Moeller A, Mondejar-Lopez P, et al. Efficacy and Safety of Elexacaftor/Tezacaftor/Ivacaftor in Children 6 Through 11 Years of Age with Cystic Fibrosis Heterozygous for F508del and a Minimal Function Mutation: A Phase 3b, Randomized, Placebo-controlled Study. Am J Respir Crit Care Med. 2022;206(11):1361-1369. PMID 35816621; PMCID PMC9746869; doi:10.1164/rccm.202202-0392oc. (validated: PubMed)
+- [MayerHamblett2023SIMPLIFY] Mayer-Hamblett N, Ratjen F, Russell R, Donaldson SH, Riekert KA, Sawicki GS, et al. Discontinuation versus continuation of hypertonic saline or dornase alfa in modulator treated people with cystic fibrosis (SIMPLIFY): results from two parallel, multicentre, open-label, randomised, controlled, non-inferiority trials. Lancet Respir Med. 2023;11(4):329-340. PMID 36343646; PMCID PMC10065895; doi:10.1016/s2213-2600(22)00434-9. (validated: PubMed)
+- [McKinzie2026MentalHealth] McKinzie CJ, Tak CR, Duehlmeyer S, Foushee S, Hua S, Jones MC, et al. Mental health diagnosis and medication changes after initiation of elexacaftor/tezacaftor/ivacaftor. Ann Am Thorac Soc. 2026;23(3):390-396. PMID 41151030; doi:10.1513/annalsats.202505-552oc. (validated: PubMed)
+- [McNamara2019LumIva] McNamara JJ, McColley SA, Marigowda G, Liu F, Tian S, Owen CA, et al. Safety, pharmacokinetics, and pharmacodynamics of lumacaftor and ivacaftor combination therapy in children aged 2-5 years with cystic fibrosis homozygous for F508del-CFTR: an open-label phase 3 study. Lancet Respir Med. 2019;7(4):325-335. PMID 30686767; doi:10.1016/s2213-2600(18)30460-0. (validated: PubMed)
+- [Middleton2019ETI] Middleton PG, Mall MA, Dřevínek P, Lands LC, McKone EF, Polineni D, et al. Elexacaftor-Tezacaftor-Ivacaftor for Cystic Fibrosis with a Single Phe508del Allele. N Engl J Med. 2019;381(19):1809-1819. PMID 31697873; PMCID PMC7282384; doi:10.1056/nejmoa1908639. (validated: PubMed)
+- [Montoro2018] Montoro DT, Haber AL, Biton M, Vinarsky V, Lin B, Birket SE, et al. A revised airway epithelial hierarchy includes CFTR-expressing ionocytes. Nature. 2018;560(7718):319-324. PMID 30069044; PMCID PMC6295155; doi:10.1038/s41586-018-0393-7. (validated: PubMed)
+- [Moss2015KONDUCT] Moss RB, Flume PA, Elborn JS, Cooke J, Rowe SM, McColley SA, et al. Efficacy and safety of ivacaftor in patients with cystic fibrosis who have an Arg117His-CFTR mutation: a double-blind, randomised controlled trial. Lancet Respir Med. 2015;3(7):524-533. PMID 26070913; PMCID PMC4641035; doi:10.1016/s2213-2600(15)00201-5. (validated: PubMed)
+- [Nichols2022PROMISE] Nichols DP, Paynter AC, Heltshe SL, Donaldson SH, Frederick CA, Freedman SD, et al. Clinical Effectiveness of Elexacaftor/Tezacaftor/Ivacaftor in People with Cystic Fibrosis: A Clinical Trial. Am J Respir Crit Care Med. 2022;205(5):529-539. PMID 34784492; PMCID PMC8906485; doi:10.1164/rccm.202108-1986oc. (validated: PubMed)
+- [Plasschaert2018] Plasschaert LW, Žilionis R, Choo-Wing R, Savova V, Knehr J, Roma G, et al. A single-cell atlas of the airway epithelium reveals the CFTR-rich pulmonary ionocyte. Nature. 2018;560(7718):377-381. PMID 30069046; PMCID PMC6108322; doi:10.1038/s41586-018-0394-6. (validated: PubMed)
+- [Ramsey2011STRIVE] Ramsey BW, Davies J, McElvaney NG, Tullis E, Bell SC, Dřevínek P, et al. A CFTR potentiator in patients with cystic fibrosis and the G551D mutation. N Engl J Med. 2011;365(18):1663-1672. PMID 22047557; PMCID PMC3230303; doi:10.1056/nejmoa1105185. (validated: PubMed)
+- [Ramsey2024Depression] Ramsey B, Correll CU, DeMaso DR, McKone E, Tullis E, Taylor-Cousar JL, et al. Elexacaftor/Tezacaftor/Ivacaftor Treatment and Depression-related Events. Am J Respir Crit Care Med. 2024;209(3):299-306. PMID 37890129; PMCID PMC10840763; doi:10.1164/rccm.202308-1525oc. (validated: PubMed)
+- [Ratjen2017LumIva] Ratjen F, Hug C, Marigowda G, Tian S, Huang X, Stanojevic S, et al. Efficacy and safety of lumacaftor and ivacaftor in patients aged 6-11 years with cystic fibrosis homozygous for F508del-CFTR: a randomised, placebo-controlled phase 3 trial. Lancet Respir Med. 2017;5(7):557-567. PMID 28606620; doi:10.1016/s2213-2600(17)30215-1. (validated: PubMed)
+- [Rosenfeld2018ARRIVAL] Rosenfeld M, Wainwright CE, Higgins M, Wang LT, McKee C, Campbell D, et al. Ivacaftor treatment of cystic fibrosis in children aged 12 to <24 months and with a CFTR gating mutation (ARRIVAL): a phase 3 single-arm study. Lancet Respir Med. 2018;6(7):545-553. PMID 29886024; PMCID PMC6626762; doi:10.1016/s2213-2600(18)30202-9. (validated: PubMed)
+- [Rowe2017EXPAND] Rowe SM, Daines C, Ringshausen FC, Kerem E, Wilson J, Tullis E, et al. Tezacaftor-Ivacaftor in Residual-Function Heterozygotes with Cystic Fibrosis. N Engl J Med. 2017;377(21):2024-2035. PMID 29099333; PMCID PMC6472479; doi:10.1056/nejmoa1709847. (validated: PubMed)
+- [Rowe2023MRT5005] Rowe SM, Zuckerman JB, Dorgan D, Lascano J, McCoy K, Jain M, et al. Inhaled mRNA therapy for treatment of cystic fibrosis: Interim results of a randomized, double-blind, placebo-controlled phase 1/2 clinical study. J Cyst Fibros. 2023;22(4):656-664. PMID 37121795; PMCID PMC10524666; doi:10.1016/j.jcf.2023.04.008. (validated: PubMed)
+- [Shi2024DILI] Shi A, Nguyen H, Kuo CB, Beringer PM. Drug-induced liver injury associated with elexacaftor/tezacaftor/ivacaftor: A pharmacovigilance analysis of the FDA adverse event reporting system (FAERS). J Cyst Fibros. 2024;23(3):566-572. PMID 38233246; doi:10.1016/j.jcf.2024.01.001. (validated: PubMed)
+- [Sousa2025Prime] Sousa AA, Hemez C, Lei L, Traore S, Kulhankova K, Newby GA, et al. Systematic optimization of prime editing for the efficient functional correction of CFTR F508del in human airway epithelial cells. Nat Biomed Eng. 2025;9(1):7-21. PMID 38987629; PMCID PMC11754097; doi:10.1038/s41551-024-01233-3. (validated: PubMed)
+- [Spoletini2022MentalHealth] Spoletini G, Gillgrass L, Pollard K, Shaw N, Williams E, Etherington C, et al. Dose adjustments of Elexacaftor/Tezacaftor/Ivacaftor in response to mental health side effects in adults with cystic fibrosis. J Cyst Fibros. 2022;21(6):1061-1065. PMID 35585012; doi:10.1016/j.jcf.2022.05.001. (validated: PubMed)
+- [Sutharsan2023Germany] Sutharsan S, Dillenhoefer S, Welsner M, Stehling F, Brinkmann F, Burkhart M, et al. Impact of elexacaftor/tezacaftor/ivacaftor on lung function, nutritional status, pulmonary exacerbation frequency and sweat chloride in people with cystic fibrosis: real-world evidence from the German CF Registry. Lancet Reg Health Eur. 2023;32:100690. PMID 37554663; PMCID PMC10405057; doi:10.1016/j.lanepe.2023.100690. (validated: PubMed)
+- [TaylorCousar2017EVOLVE] Taylor-Cousar JL, Munck A, McKone EF, van der Ent CK, Moeller A, Simard C, et al. Tezacaftor-Ivacaftor in Patients with Cystic Fibrosis Homozygous for Phe508del. N Engl J Med. 2017;377(21):2013-2023. PMID 29099344; doi:10.1056/nejmoa1709846. (validated: PubMed)
+- [TaylorCousar2021ETI] Taylor-Cousar JL, Jain R. Maternal and fetal outcomes following elexacaftor-tezacaftor-ivacaftor use during pregnancy and lactation. J Cyst Fibros. 2021;20(3):402-406. PMID 33762125; doi:10.1016/j.jcf.2021.03.006. (validated: PubMed)
+- [TaylorCousar2023Lancet] Taylor-Cousar JL, Robinson PD, Shteinberg M, Downey DG. CFTR modulator therapy: transforming the landscape of clinical care in cystic fibrosis. Lancet. 2023;402(10408):1171-1184. PMID 37699418; doi:10.1016/s0140-6736(23)01609-4. (validated: PubMed)
+- [Uluer2023VTD] Uluer AZ, MacGregor G, Azevedo P, Indihar V, Keating C, Mall MA, et al. Safety and efficacy of vanzacaftor-tezacaftor-deutivacaftor in adults with cystic fibrosis: randomised, double-blind, controlled, phase 2 trials. Lancet Respir Med. 2023;11(6):550-562. PMID 36842446; PMCID PMC12815409; doi:10.1016/s2213-2600(22)00504-5. (validated: PubMed)
+- [VanGoor2009VX770] Van Goor F, Hadida S, Grootenhuis PD, Burton B, Cao D, Neuberger T, et al. Rescue of CF airway epithelial cell function in vitro by a CFTR potentiator, VX-770. Proc Natl Acad Sci U S A. 2009;106(44):18825-18830. PMID 19846789; PMCID PMC2773991; doi:10.1073/pnas.0904709106. (validated: PubMed)
+- [VanGoor2011VX809] Van Goor F, Hadida S, Grootenhuis PD, Burton B, Stack JH, Straley KS, et al. Correction of the F508del-CFTR protein processing defect in vitro by the investigational drug VX-809. Proc Natl Acad Sci U S A. 2011;108(46):18843-18848. PMID 21976485; PMCID PMC3219147; doi:10.1073/pnas.1105787108. (validated: PubMed)
+- [Veit2018NatMed] Veit G, Xu H, Dreano E, Avramescu RG, Bagdany M, Beitel LK, et al. Structure-guided combination therapy to potently improve the function of mutant CFTRs. Nat Med. 2018;24(11):1732-1742. PMID 30297908; PMCID PMC6301090; doi:10.1038/s41591-018-0200-x. (validated: PubMed)
+- [Veit2021ELX] Veit G, Vaccarin C, Lukacs GL. Elexacaftor co-potentiates the activity of F508del and gating mutants of CFTR. J Cyst Fibros. 2021;20(5):895-898. PMID 33775603; PMCID PMC8463622; doi:10.1016/j.jcf.2021.03.011. (validated: PubMed)
+- [Wainwright2015TRAFFIC] Wainwright CE, Elborn JS, Ramsey BW, Marigowda G, Huang X, Cipolli M, et al. Lumacaftor-Ivacaftor in Patients with Cystic Fibrosis Homozygous for Phe508del CFTR. N Engl J Med. 2015;373(3):220-231. PMID 25981758; PMCID PMC4764353; doi:10.1056/nejmoa1409547. (validated: PubMed)
+- [Wainwright2025ETIOLE] Wainwright C, McColley SA, McNally P, Powers M, Ratjen F, Rayment JH, et al. Long-Term Safety and Efficacy of Elexacaftor/Tezacaftor/Ivacaftor in Children ≥6 Years with Cystic Fibrosis and at Least One F508del Allele: A 192-Week, Phase 3, Open-Label Extension Study. Am J Respir Crit Care Med. 2025;211(10):1915-1925. PMID 40454869; doi:10.1164/rccm.202502-0512oc. (validated: PubMed)
+- [Zemanick2021ETI] Zemanick ET, Taylor-Cousar JL, Davies J, Gibson RL, Mall MA, McKone EF, et al. A Phase 3 Open-Label Study of Elexacaftor/Tezacaftor/Ivacaftor in Children 6 through 11 Years of Age with Cystic Fibrosis and at Least One F508del Allele. Am J Respir Crit Care Med. 2021;203(12):1522-1532. PMID 33734030; PMCID PMC8483230; doi:10.1164/rccm.202102-0509oc. (validated: PubMed)
+- [FDA-Kalydeco] Vertex Pharmaceuticals Incorporated. KALYDECO (ivacaftor) tablets and oral granules, US prescribing information. NDA203188/NDA207925; label effective 2026-03-23; openFDA set id 0ab0c9f8-3eee-4e0f-9f3f-c1e16aaffe25. Sections read: 1, 2, 5, 8.4, 12.1 (Table 3). (validated: openFDA)
+- [FDA-Orkambi] Vertex Pharmaceuticals Incorporated. ORKAMBI (lumacaftor and ivacaftor) tablets and oral granules, US prescribing information. NDA206038/NDA211358; label effective 2026-03-24; openFDA set id 3fc1c40e-cfac-47a1-9e1a-61ead3570600. Sections read: 1, 5, 12.1. (validated: openFDA)
+- [FDA-Symdeko] Vertex Pharmaceuticals Incorporated. SYMDEKO (tezacaftor and ivacaftor; ivacaftor) tablets, US prescribing information. NDA210491; label effective 2026-08-21; openFDA set id 302ae804-37db-44fd-ac2f-3dbdeda9aa4b. Sections read: 1, 5, 12.1 (Table 6). (validated: openFDA)
+- [FDA-Trikafta] Vertex Pharmaceuticals Incorporated. TRIKAFTA (elexacaftor, tezacaftor and ivacaftor; ivacaftor) tablets and oral granules, US prescribing information. NDA212273/NDA217660; label effective 2026-06-22; openFDA set id f354423a-85c2-41c3-a9db-0f3aee135d8d. Sections read: boxed warning, 1, 2, 5, 6, 7, 12.1 (Table 6). (validated: openFDA)
+- [FDA-Alyftrek] Vertex Pharmaceuticals Incorporated. ALYFTREK (vanzacaftor, tezacaftor and deutivacaftor) tablets, US prescribing information. NDA218730; label effective 2026-08-26; openFDA set id 7e635909-c6fd-4f0d-ae77-cdff03653a20. Sections read: boxed warning, 1, 2, 5, 6, 12.1 (Table 5), 14 (Table 9). (validated: openFDA)
+- [FDA2026Approvals] US Food and Drug Administration. Drugs@FDA submission records for NDA203188 (Kalydeco), NDA206038 and NDA211358 (Orkambi), NDA210491 (Symdeko), NDA212273 and NDA217660 (Trikafta) and NDA218730 (Alyftrek): original approval and efficacy supplement dates. Accessed 2026-11-04 via openFDA drugsfda endpoint. (validated: openFDA)
+- [NCT05248230] 4D Molecular Therapeutics. An Open-label, Phase 1/2 Trial of Gene Therapy 4D-710 in Adults With Cystic Fibrosis. ClinicalTrials.gov NCT05248230. Start 2022-03-29; recruiting; estimated n=30. (validated: ClinicalTrials.gov)
+- [NCT06526923] Spirovant Sciences, Inc. A Single Ascending Dose, Phase 1/2 Trial to Evaluate the Safety, Pharmacokinetics, and Pharmacodynamics of SP-101 Via Nebulizer for the Treatment of Cystic Fibrosis (SAAVe). ClinicalTrials.gov NCT06526923. Start 2024-09-16; recruiting. (validated: ClinicalTrials.gov)
+- [NCT06515002] Boehringer Ingelheim. Phase I/II trial of BI 3720931, an inhaled lentiviral vector gene therapy, in adults with cystic fibrosis ineligible for CFTR modulators (Lenticlair 1). ClinicalTrials.gov NCT06515002. Start 2024-11-04; terminated 2026-02-03 (sponsor decision); n=5. (validated: ClinicalTrials.gov)
+- [NCT05668741] Vertex Pharmaceuticals Incorporated. A Phase 1/2 Dose Escalation Study Evaluating the Safety, Tolerability and Efficacy of VX-522 in Subjects 18 Years of Age and Older With Cystic Fibrosis and a CFTR Genotype Not Responsive to CFTR Modulator Therapy. ClinicalTrials.gov NCT05668741. Start 2023-02-27; completed 2026-09-09; n=26; no results posted. (validated: ClinicalTrials.gov)
+- [NCT04135495] Eloxx Pharmaceuticals, Inc. A Phase 2 Open Label Study of Subcutaneously Administered ELX-02 in Patients With Cystic Fibrosis With at Least One G542X Allele. ClinicalTrials.gov NCT04135495. Start 2019-11-25; completed 2022-10-03; n=17; no results posted. (validated: ClinicalTrials.gov)
+- [NCT05422222] Vertex Pharmaceuticals Incorporated. A Phase 3 Study Evaluating the Pharmacokinetics, Safety, and Tolerability of VX-121/Tezacaftor/Deutivacaftor in Cystic Fibrosis Subjects 1 Through 11 Years of Age (RIDGELINE). ClinicalTrials.gov NCT05422222. Start 2022-06-21; active, not recruiting; estimated completion 2030-06-30. (validated: ClinicalTrials.gov)
+
+## Provenance
+- Journal sources (70): each PMID, author list, journal, year, volume, issue and pages confirmed in one batched PubMed esummary call on 2026-11-04; abstracts read through the Europe PMC core API (EXT_ID search). Every number in Findings is taken from the abstract as stated (or the label where cited).
+- US labels (5): read from the openFDA drug label endpoint (effective dates 2026-03-23 to 2026-08-26). Approval dates from the openFDA drugsfda endpoint (ORIG approval and efficacy supplement dates).
+- Trials (6): checked against the ClinicalTrials.gov v2 API (status, dates, enrolment, intervention, whyStopped).
+- Keys shared with sibling passes were aligned to their existing keys (Bower2023, Dacco2023, Durmowicz2018, Goralski2026, Montoro2018, Plasschaert2018, TaylorCousar2021ETI, Middleton2019ETI, Heijerman2019ETI, Ramsey2011STRIVE, Nichols2022PROMISE, Bell2020Commission, MayerHamblett2023SIMPLIFY).
+- Dropped: the "272 variants" 2024 label expansion (no validated record); the VX-522 pause/resume history (not in the registry record); "HELIO" (no study found); EMA label statements (not checked); Grasemann 2023 NEJM and Shteinberg 2021 Lancet (reviews not needed for any fact), Horsley 2026 and Johnson 2025 (no abstract available, so no facts taken). Riordan1989, Kerem1989, Farrell2017Dx and the other shared canonical keys were not needed in this pass and are not cited.
+- Approximate values: label variant counts (about 97, 154, 520 and 560) are my own counts of table cells and are marked as approximate; labels state the lists are non-exhaustive.
+- Nothing is marked (unverified).

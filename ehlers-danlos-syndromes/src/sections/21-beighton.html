@@ -1,0 +1,98 @@
+<!-- ================= 2.1 BEIGHTON SCORE ================= -->
+<style>
+#m-beighton .be-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) minmax(0,1fr);gap:8px 10px;align-items:center}
+#m-beighton .be-grid .kicker{padding-top:4px}
+#m-beighton .be-grid .lbl{font-size:14.5px;font-weight:700;line-height:1.25}
+#m-beighton .be-grid .lbl small{display:block;font-weight:400;color:var(--muted);font-size:12.5px}
+#m-beighton .be-grid .btn{width:100%;padding:9px 8px;font-size:13.5px}
+#m-beighton .be-grid .span2{grid-column:span 2}
+#m-beighton .be-pq{display:flex;flex-direction:column;gap:8px}
+#m-beighton .be-pq .btn{text-align:left;border-radius:12px;font-weight:400;font-size:14.5px;line-height:1.35;padding:10px 14px;display:flex;gap:10px;align-items:flex-start}
+#m-beighton .be-pq .btn b{font:600 11px var(--mono);letter-spacing:.06em;padding-top:3px;min-width:34px}
+#m-beighton .be-pq .btn[aria-pressed="true"] b{color:var(--bg)}
+#m-beighton .be-row{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:flex-end}
+#m-beighton .be-row label{display:flex;flex-direction:column;gap:5px;font-size:14px;font-weight:700;min-width:0;flex:1 1 240px}
+#m-beighton .be-row select{font:inherit;font-weight:400;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink);max-width:100%}
+#m-beighton .be-big{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+#m-beighton .be-big .big-num{color:var(--dx)}
+#m-beighton .card>.ev,#m-beighton .card>.tag{align-self:flex-start}
+#m-beighton .banner{font-size:15px}
+#m-beighton .be-pop .btn{font-size:13px;padding:7px 11px}
+</style>
+<section class="mod" id="m-beighton" data-mod="beighton" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · Diagnosis</p><h2>Beighton score</h2>
+    <p class="lede">Nine points from five quick manoeuvres: four done on both sides, one for the trunk. Watch each joint pass (or miss) its threshold, then try the teaching calculator with the 2017 age-adjusted cut-offs and the five-part questionnaire.</p></div>
+  <p class="banner" role="note"><b>A teaching tool</b>A high score is common in healthy people and is not a diagnosis of EDS. The Beighton score was built as an epidemiological screening tool, not a diagnostic test. [[Malek2021C]]</p>
+  <div class="stepper" id="beSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="beSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="An illustrative adult performs the five Beighton manoeuvres in turn, left side then right side: the little finger bends back past a dashed 90-degree line, the thumb folds to the forearm, the elbow and the knee straighten past a dashed 10-degree hyperextension line, and the trunk bends forward until the palms rest flat on the floor. A scoreboard ticks each side separately and the total builds to 7 of 9, which is then compared with the cut-offs of 6, 5 and 4."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="bePlay">Play</button><label class="stage-cap tl" for="beT">Manoeuvre <input type="range" id="beT" min="0" max="1" step="0.001" value="0.165"></label></div>
+      <div class="readout" id="beRead"></div>
+      <p class="stage-cap">One illustrative adult; angles are schematic, not measurements. Thresholds as reproduced from the 2017 criteria. [[Thwaites2022,Carroll2023,Malfait2017]]</p>
+    </div>
+    <aside class="note" id="beNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Try it: a teaching calculator</h3>
+  <p class="callout">Tick each manoeuvre as positive or not, side by side, and pick the age group. The calculator applies the 2017 hEDS cut-offs for generalised joint hypermobility (Criterion 1) and the five-part questionnaire rule. It shows how the published rule works; it does not examine anyone. In real clinics angles are checked by a trained examiner, ideally with a goniometer. [[Thwaites2022,Fairweather2025,Smits-Engelsman2011]]</p>
+  <div class="ctrls" role="group" aria-label="Calculator part"><span class="kicker">Part</span>
+    <button class="btn" data-betab="bs" aria-pressed="true">Beighton score (9 points)</button>
+    <button class="btn" data-betab="pq" aria-pressed="false">Five-part questionnaire (5PQ)</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div id="bePaneBs">
+        <div class="be-grid" id="beGrid"></div>
+        <div class="be-row" style="margin-top:14px">
+          <label for="beAge">Age group (sets the cut-off)
+            <select id="beAge">
+              <option value="6">Prepubertal child or adolescent (≥6 of 9)</option>
+              <option value="5" selected>Pubertal or adult, up to age 50 (≥5 of 9)</option>
+              <option value="4">Over 50 (≥4 of 9)</option>
+            </select></label>
+          <button class="btn ghost" id="beReset">Clear all</button>
+        </div>
+      </div>
+      <div id="bePanePq" hidden>
+        <p class="stage-cap" style="margin-bottom:8px">Hakim and Grahame's five questions, as published. Tap the ones answered "yes". [[Hakim2003,Carroll2023]]</p>
+        <div class="be-pq" id="bePq"></div>
+      </div>
+      <div class="scroll"><svg id="beCalcSvg" viewBox="0 0 720 120" style="min-width:560px" role="img" aria-label="A ruler from 0 to 9 with the age-adjusted cut-off marked and a pointer at the current Beighton total, and five dots for the questionnaire answers with the two-yes threshold."></svg></div>
+    </div>
+    <aside class="note" id="beCalcNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How common is a "high" score?</h3>
+  <p class="prose">Generalised joint hypermobility is commonest in young children, falls quickly through childhood and more slowly in adulthood, and is more common in girls and women at every age. Studies differ in cut-off and method, so compare within a study, not across them. [[Malek2021C,Remvig2007,Clinch2011]]</p>
+  <div class="ctrls be-pop" role="group" aria-label="Population" id="bePopBtns"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="bePopSvg" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="An icon array of 100 people in which the share with generalised joint hypermobility in the chosen population is filled in."></svg></div>
+      <p class="stage-cap">Each figure is 1 in 100 people, rounded. Population statistics, not a forecast for any one person.</p>
+    </div>
+    <aside class="note" id="bePopNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The nine points, item by item</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Item (points)</th><th>How it is measured</th><th>Common measurement problems</th><th>Reliability reported</th></tr></thead>
+    <tbody>
+      <tr><th>1. Little finger (2: left and right)</th><td>Passive dorsiflexion of the fifth finger at the knuckle (metacarpophalangeal joint) to 90° or more. [[Thwaites2022,Malfait2017]]</td><td>Sources word the threshold differently ("beyond 90°" or "≥ 90°"). Two-thirds of the scored joints are in the upper limbs. [[Malek2021C,Thwaites2022]]</td><td>Item kappa 0.60 or more for the fifth fingers, lower than most items (above 0.80). Video estimates against a goniometer: rho 0.786. [[Juul-Kristensen2007,Sabo2024]]</td></tr>
+      <tr><th>2. Thumb to forearm (2)</th><td>Passive apposition of the thumb to the flexor (volar) surface of the same-side forearm. [[Thwaites2022,Carroll2023]]</td><td>Only one plane of motion is tested, and the item says nothing about how severe the hypermobility is. [[Malek2021C]]</td><td>Item kappas were generally above 0.80 in a three-phase study. [[Juul-Kristensen2007]]</td></tr>
+      <tr><th>3. Elbow (2)</th><td>Hyperextension of the elbow by 10° or more. [[Thwaites2022,Carroll2023]]</td><td>A 10° angle is hard to judge by eye; the score was shown valid in children "when goniometry is used". [[Smits-Engelsman2011]]</td><td>Item kappa 0.60 or more for the elbows. With a structured protocol in degrees, raters agreed within 5°. Video rho 0.722. [[Juul-Kristensen2007,Schlager2018,Sabo2024]]</td></tr>
+      <tr><th>4. Knee (2)</th><td>Hyperextension of the knee by 10° or more. [[Thwaites2022,Carroll2023]]</td><td>Major joints such as the shoulders, hips and ankles are not scored at all. [[Malek2021C]]</td><td>Video estimates against a goniometer: rho 0.608. [[Sabo2024]]</td></tr>
+      <tr><th>5. Palms flat (1)</th><td>Forward flexion of the trunk so both palms rest flat on the floor, knees locked straight, feet together. [[Thwaites2022,Carroll2023]]</td><td>Can be trained (as in ballet) and is limited by short hamstrings: 84.2% of over 200 hypermobile people (score 5 or more) could not do it. [[Malek2021C]]</td><td>Whole-score inter-rater ICC 0.72–0.82 in 49 healthy adults measured in degrees. [[Schlager2018]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">How far can the score be trusted?</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Reliable, but not perfect</h4><p>A 2021 systematic review (24 studies, 1,333 people aged 4–71) found 12 of 19 inter-rater kappas (63.2%) substantial to almost perfect. A narrative review reports most kappas at 0.4–0.8, and below 0.6 has been called inadequate. A 2017 COSMIN review rated every study "fair" or "poor". [[Bockhorn2021,Malek2021C,Juul-Kristensen2017]]</p></div>
+    <div class="card"><span class="tag dx">Validity</span><h4>Not the whole picture</h4><p>The original paper gives no evidence-based reason for its joints or for the usual adult cut-off of 4. In over 100 people strongly suspected of EDS, 45 scored below 4, yet their shoulder abduction was still 20° above normal. Agreement with clinicians' judgement of systemic laxity was poor (kappa 0.39–0.45). [[Malek2021C,Bernhoff2022]]</p></div>
+    <div class="card"><span class="tag dx">Age and sex</span><h4>Scores fall with age</h4><p>The chance of meeting GJH fell by 5.5% per year of age in one dataset; among 200 people over 70, nobody scored above 2. In one cohort most diagnosed people over 33 no longer reached 4. That is why the 2017 cut-off drops to 4 after 50 and why past flexibility can be asked about. [[Malek2021C,Fairweather2025]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Apps, video and self-report</h4><p>A video-based tool flagged 91.9% of people with GJH but its specificity was only 42.4%. Self-reported line drawings matched blinded goniometry well in 50 people (sensitivity 0.87, specificity 0.99). Neither is validated for diagnosis. [[Sabo2026,Cooper2018]]</p></div>
+    <div class="card"><span class="tag dx">Other scales</span><h4>Beyond nine points</h4><p>The Upper Limb Hypermobility Assessment Tool scores 12 items (cut-point 7 or more; ICC 0.92). The paediatric working group recommends it and the Lower Limb Assessment Score for detailed phenotyping beyond the Beighton score. [[Nicholson2018,Tofts2023]]</p></div>
+    <div class="card"><span class="tag dx">Next</span><h4>Where the score fits</h4><p>A positive score is only Criterion 1 of three for hypermobile EDS, and hypermobility with symptoms but without the full criteria is called hypermobility spectrum disorder. <a href="#criteria" data-go="criteria">See the 2017 hEDS criteria</a> and <a href="#hsd" data-go="hsd">hEDS or HSD?</a> [[Fairweather2025,Castori2017]]</p></div>
+  </div>
+</section>

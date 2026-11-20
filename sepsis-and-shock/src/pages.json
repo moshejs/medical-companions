@@ -1,0 +1,106 @@
+{
+ "home": {
+  "title": "Sepsis and septic shock explained: an animated guide",
+  "description": "An animated, cited guide to sepsis and septic shock: what it is, warning signs, Sepsis-3 and qSOFA, the first hour of treatment, and recovery after sepsis."
+ },
+ "what": {
+  "title": "What is sepsis? Septic shock and how common it is",
+  "description": "What sepsis and septic shock are under Sepsis-3, animated, with the global burden: 48.9 million cases and 11 million deaths a year, germs and sources."
+ },
+ "immune": {
+  "title": "Sepsis immunology: PAMPs, TLR4, cytokines and NETs",
+  "description": "Animated sepsis immune cascade: PAMPs and DAMPs, TLR4 and NF-κB, cytokines, neutrophil NETs, immunoparalysis, and why anti-inflammatory trials failed."
+ },
+ "endothelium": {
+  "title": "Sepsis, endothelium and DIC: leak, microclots, organs",
+  "description": "How sepsis sheds the glycocalyx, makes vessels leak, forms microclots and fails organs, with a teaching SIC and ISTH overt DIC score calculator."
+ },
+ "shock": {
+  "title": "Shock and haemodynamics: cardiac output, MAP and shock types",
+  "description": "How blood pressure, cardiac output and vessel tone fit together, the four types of shock, MAP and the shock index, with animations and teaching calculators."
+ },
+ "risk": {
+  "title": "Who is at risk of sepsis? Age, illness, immunity, pregnancy",
+  "description": "Who is more likely to get sepsis: babies and older adults, long-term illness, cancer, weak immunity, pregnancy, recent healthcare and unequal risk."
+ },
+ "recognise": {
+  "title": "Recognising sepsis: warning signs and NEWS2 explained",
+  "description": "The warning signs of sepsis in plain words, how a NEWS2 early warning score rises as someone deteriorates, and a teaching-only NEWS2 calculator."
+ },
+ "definitions": {
+  "title": "qSOFA and SOFA scores: Sepsis-3 definitions explained",
+  "description": "How sepsis was defined from SIRS in 1991 to Sepsis-3 in 2016 and SOFA-2, why qSOFA screens poorly, with teaching qSOFA and SOFA calculators."
+ },
+ "tests": {
+  "title": "Lactate, blood cultures and procalcitonin in sepsis",
+  "description": "Why lactate rises in sepsis, what its thresholds mean, how blood cultures are taken and read, procalcitonin stop rules and rapid tests, as published."
+ },
+ "firsthour": {
+  "title": "Sepsis Hour-1 bundle and time to antibiotics explained",
+  "description": "The Hour-1 sepsis bundle on an animated clock, what studies found on time to antibiotics, the EGDT trials from Rivers to PRISM, and the SEP-1 debate."
+ },
+ "fluids": {
+  "title": "Fluids in sepsis: 30 mL/kg, Frank–Starling and the trials",
+  "description": "Fluid resuscitation in septic shock: fluid responsiveness, leaky vessels, balanced crystalloids versus saline, albumin, starches and the restrictive trials."
+ },
+ "pressors": {
+  "title": "Vasopressors and steroids in septic shock: MAP targets",
+  "description": "Noradrenaline, vasopressin, adrenaline and angiotensin II explained, with MAP targets from SEPSISPAM and the 65 trial, and the hydrocortisone trials compared."
+ },
+ "source": {
+  "title": "Sepsis source control and antibiotic stewardship explained",
+  "description": "Draining the source of sepsis, the first antibiotic, de-escalation, 7-day courses, procalcitonin, prolonged infusions and antimicrobial resistance."
+ },
+ "icu": {
+  "title": "Sepsis in intensive care: ventilation, dialysis, ICU trials",
+  "description": "Organ support in sepsis: lung-protective ventilation, prone positioning, oxygen, dialysis timing, glucose, transfusion, sedation, delirium and families."
+ },
+ "othershock": {
+  "title": "Cardiogenic, hypovolaemic, obstructive & anaphylactic shock",
+  "description": "Non-septic shock explained: heart attack shock and its trials, bleeding and tranexamic acid, tamponade and pulmonary embolism, and anaphylaxis adrenaline."
+ },
+ "children": {
+  "title": "Sepsis in babies and children: signs, Phoenix criteria",
+  "description": "Early signs parents notice, newborn early and late onset sepsis, the 2024 Phoenix criteria with a teaching calculator, and what FEAST showed about fluids."
+ },
+ "maternal": {
+  "title": "Maternal sepsis: pregnancy, after birth and warning signs",
+  "description": "Why pregnancy can hide sepsis, how common maternal sepsis is, group A strep after birth, obstetric warning scores and trials preventing infection."
+ },
+ "after": {
+  "title": "Life after sepsis: post-sepsis syndrome, PICS and families",
+  "description": "The year after sepsis: weakness, memory, mood, readmission, return to work and late risks, what helps recovery, and support for families and the bereaved."
+ },
+ "nursing": {
+  "title": "Sepsis nursing care: NEWS2, escalation and bundles",
+  "description": "Sepsis nursing: NEWS2 and escalation, cultures and antibiotics on time, urine output, vasopressor line care, CLABSI and CAUTI bundles, exam questions."
+ },
+ "prevention": {
+  "title": "Preventing sepsis: hand hygiene, vaccines and early signs",
+  "description": "How clean hands, line and catheter bundles, vaccines, care around birth and knowing the early signs prevent the infections that lead to sepsis."
+ },
+ "frontier": {
+  "title": "Sepsis research: failed trials, endotypes and immunotherapy",
+  "description": "From failed anti-inflammatory trials and vitamin C to sepsis endotypes, precision immunotherapy, rapid diagnostics and AI alerts, with evidence labels."
+ },
+ "history": {
+  "title": "History of sepsis: Semmelweis, penicillin to Sepsis-3",
+  "description": "An animated timeline of sepsis, from Semmelweis's handwashing, Lister and penicillin to SIRS, the Surviving Sepsis Campaign, Sepsis-3, Phoenix and SOFA-2."
+ },
+ "review": {
+  "title": "Sepsis flashcards and mnemonics: qSOFA, Hour-1 bundle",
+  "description": "Flip cards on sepsis and septic shock by part, with memory aids for qSOFA, Sepsis-3 and the Hour-1 bundle, each answer linked to its published source."
+ },
+ "quiz": {
+  "title": "Sepsis quiz: definitions, shock, treatment and trials",
+  "description": "Multiple-choice questions on sepsis and septic shock, from SIRS and qSOFA to fluids, vasopressors, steroids and recovery, each with a cited explanation."
+ },
+ "glossary": {
+  "title": "Sepsis glossary: qSOFA, lactate, SIRS, PICS and more",
+  "description": "A searchable glossary of about 100 sepsis and shock terms, from PAMPs and the glycocalyx to qSOFA, SOFA-2, procalcitonin, noradrenaline and PICS."
+ },
+ "sources": {
+  "title": "Sepsis Companion sources: trials, guidelines, reviews",
+  "description": "Every reference behind the Sepsis Companion: trials, meta-analyses, Surviving Sepsis Campaign guidelines and drug labels, filterable by research area."
+ }
+}

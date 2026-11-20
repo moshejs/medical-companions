@@ -1,0 +1,68 @@
+<!-- ================= 1.6 WHY LOST WEIGHT COMES BACK ================= -->
+<style>
+#m-adaptation .aa-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-adaptation .aa-row .btn{min-height:40px}
+#m-adaptation .card .ev{align-self:flex-start}
+#m-adaptation .card .aa-num{font-family:var(--display);font-weight:700;font-size:30px;line-height:1;color:var(--brand)}
+#m-adaptation .aa-hn{display:flex;flex-direction:column;gap:10px}
+#m-adaptation .aa-hn h4{font-family:var(--display);font-weight:700;font-size:21px;line-height:1.15;margin:0}
+#m-adaptation .aa-hn p{margin:0}
+</style>
+<section class="mod" id="m-adaptation" data-mod="adaptation" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · Understanding obesity</p><h2>Why lost weight comes back</h2>
+    <p class="lede">After weight loss the body pushes back: it burns a little less energy than expected and hunger signals rise, and both can last for years. [[Sumithran2011,Fothergill2016]] The Endocrine Society describes obesity as a disorder of the energy homeostasis system in which the defended level of fat mass is "reset" upward. [[Schwartz2017EndoSoc]] Regain is biology at work, not a failure of willpower.</p></div>
+
+  <div class="stepper" id="aaSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="aaSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="An energy-balance see-saw between energy in and energy out with hunger and fullness hormone markers, beside two charts over six years: weight change in a cohort of 16 people after a televised weight-loss competition, and how far their resting metabolic rate fell below what their body size predicted"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="aaPlay">%t:player.play%</button><label class="stage-cap tl" for="aaT">Weeks, then years <input type="range" id="aaT" min="0" max="1" step="0.001" value="0.05"></label></div>
+      <p class="stage-cap">Charts: dots are published group means from one small cohort (14 to 16 people) [[Johannsen2012,Fothergill2016]]; lines between them are schematic. The first 30 weeks are stretched. The see-saw and hormone markers are schematic. Population statistics, not a prediction for anyone.</p>
+    </div>
+    <aside class="note" id="aaNote" aria-live="polite"></aside>
+  </div>
+  <p class="support" role="note"><b>Regain is biology</b>Most people who lose weight regain some or most of it, and the body's defence of its fat stores is a main reason obesity is treated as a long-term condition. [[Schwartz2017EndoSoc,Rosenbaum2010]] Weight stigma causes physical and psychological harm and poorer care; experts call for a public narrative "coherent with modern scientific knowledge". [[Rubino2020Stigma]]</p>
+
+  <h3 class="sub">One year later: the hormones had not gone back</h3>
+  <div class="prose"><p>In 50 adults with overweight or obesity, a 10-week very-low-energy diet programme led to a mean loss of 13.5 kg. Appetite hormones were measured at the start, at 10 weeks and again at 62 weeks, a year after the weight loss. [[Sumithran2011]] Choose a hormone. The study abstract reports the direction of each change and its P value, not its size, so the bars show direction only.</p></div>
+  <div class="aa-row" id="aaHBtns" role="group" aria-label="Hormone or measure"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="aaHSvg" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Bars for the chosen hormone at baseline, 10 weeks and 62 weeks showing the direction of change, and a summary grid of all measured hormones with arrows at 10 and 62 weeks"></svg></div>
+      <p class="stage-cap">Bar heights are schematic and show direction only; the arrows and P values are as published. [[Sumithran2011]]</p></div>
+    <aside class="note aa-hn" id="aaHNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How big is the slowdown? The studies disagree</h3>
+  <div class="tbl"><table>
+    <caption class="sr">Studies of energy expenditure and appetite after weight loss</caption>
+    <thead><tr><th scope="col">Study</th><th scope="col">People</th><th scope="col">What it found</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Leibel 1995</th><td>Adults with and without obesity, held 10% below or above usual weight</td><td>Total energy expenditure fell by 6 ± 3 (never had obesity) and 8 ± 5 (obesity) kcal per kg fat-free mass per day at the lower weight, and rose by 9 ± 7 and 8 ± 4 at the higher weight: the changes oppose any move away from usual weight. [[Leibel1995]]</td></tr>
+      <tr class="hl"><th scope="row">Rosenbaum 2005</th><td>10 inpatients holding a 10% loss</td><td>Muscle worked more efficiently; sympathetic tone, leptin and thyroid hormones fell. Leptin injections brought these back to pre-loss values, so the reduced-weight state behaves like relative leptin deficiency. <span class="ev early">Early evidence</span> [[Rosenbaum2005]]</td></tr>
+      <tr><th scope="row">Johannsen 2012 / Fothergill 2016</th><td>16 contestants, baseline BMI 49.4</td><td>Adaptation −244 kcal/day at week 6 and −504 at week 30 despite vigorous exercise; −499 kcal/day at 6 years, with resting metabolic rate 704 kcal/day below baseline. [[Johannsen2012,Fothergill2016]]</td></tr>
+      <tr class="hl"><th scope="row">Martins 2020</th><td>171 women with overweight, about 12 kg lost, measured when weight was stable</td><td>Adaptation −54 ± 105 kcal/day after weight loss, and not significant at 1 and 2 years (−18 and −19 kcal/day). It did not predict regain, though they regained 52% and 89% of lost weight at 1 and 2 years. [[Martins2020]]</td></tr>
+      <tr><th scope="row">Polidori 2016</th><td>Model of a 52-week trial, n = 153</td><td>Intake rose by about 100 kcal/day for every kg lost, more than three times the matching fall in expenditure: appetite pushes back harder than metabolism. [[Polidori2016]]</td></tr>
+      <tr class="hl"><th scope="row">Ravussin 1988</th><td>95 Southwestern American Indian adults</td><td>Low energy expenditure (200 kcal/day below predicted) carried a fourfold risk of gaining more than 7.5 kg; expenditure clustered in families. [[Ravussin1988]]</td></tr>
+    </tbody></table></div>
+  <div class="prose"><p>The size of the slowdown depends on how much weight was lost and whether weight was stable when it was measured; appetite may be the bigger lever. [[Fothergill2016,Martins2020,Polidori2016]] The same push-back follows other treatments: when semaglutide and the trial's lifestyle programme stopped after 68 weeks in a STEP 1 extension (n = 327), people regained 11.6 percentage points of their 17.3% loss by week 120. [[Wilding2022STEP1ext]] More in <a href="#sideeffects" data-go="sideeffects">Side effects, safety &amp; stopping</a>.</p></div>
+
+  <h3 class="sub">How is body weight regulated? Competing models</h3>
+  <div class="cards">
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Set point</h4><p>Active feedback, presumably encoded in the brain, links fat stores to intake and expenditure. It fits much of the biology but struggles to explain the rise in obesity since the 1980s. [[Speakman2011]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Settling point</h4><p>Weight settles where passive feedback from the environment and expenditure balances out. It fits social and environmental effects but struggles with the genetics. Hybrid models such as the dual intervention point model try to bridge the two. [[Speakman2011]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Which fits best?</h4><p>Hall and Guo judged the set-point model most consistent with current data, and note that weight loss is resisted by counterbalancing physiology, so "eat less, move more" misreads the energy-balance equation. [[Hall2017Gastro]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Energy balance or carbohydrate-insulin?</h4><p>The energy balance model puts the brain at the centre, mostly below conscious awareness. [[Hall2022EBM]] The carbohydrate-insulin model proposes that hormonal responses to a high-glycaemic-load diet drive fat storage first. [[Ludwig2021CIM]] In 32 controlled feeding studies, fat loss was 16 g/day greater on lower-fat diets at equal calories. [[Hall2017Gastro]] An active debate.</p></div>
+  </div>
+
+  <h3 class="sub">Slow by nature</h3>
+  <div class="cards">
+    <div class="card"><span class="kicker">Half-time</span><span class="aa-num">~1 year</span><p>Body weight responds slowly to a lasting change in intake, with a half-time of about a year; people with more body fat take longer to reach a new steady state. [[Hall2011Lancet]]</p></div>
+    <div class="card"><span class="kicker">The "3500 kcal per pound" rule</span><span class="aa-num">32.2 MJ/kg</span><p>Roughly matches the energy in lost weight only when starting body fat is above 30 kg; it overestimates the deficit needed in people with less body fat. [[Hall2008]] Hall's simulator is a population model, not a personal prescription. [[Hall2011Lancet]]</p></div>
+    <div class="card"><span class="kicker">Relapse</span><span class="aa-num">&gt;80%</span><p>Rosenbaum and Leibel report relapse to pre-weight-loss body fat in over 80% after otherwise successful weight loss, driven by coordinated metabolic, behavioural, neuroendocrine and autonomic responses. [[Rosenbaum2010]] MacLean describes them as comprehensive, persistent and redundant. [[MacLean2011]]</p></div>
+  </div>
+  <p class="edcare" role="note"><b>If eating or weight is distressing</b>If eating or weight causes distress, or someone restricts, binges or purges, talk to a clinician or an eating-disorder service. The diets described here were research protocols, not advice.</p>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Holding a 10% lower weight lowers total energy expenditure by about 6 to 8 kcal/kg fat-free mass/day [[Leibel1995]]; one year after diet-induced loss, leptin, PYY and CCK stay low and ghrelin and hunger stay high [[Sumithran2011]]; appetite feedback is about 100 kcal/day per kg lost. [[Polidori2016]]</div>
+    <div class="pt"><b>In plain words</b>After weight loss, hunger hormones rise, fullness hormones fall, and the body burns a little less energy. These changes can last for years. That is why keeping weight off is hard, and why long-term care, covered in <a href="#lifestyle" data-go="lifestyle">Diet, activity &amp; behaviour</a> and <a href="#living" data-go="living">Living with obesity</a>, matters. [[Sumithran2011,Fothergill2016]]</div>
+  </div>
+</section>

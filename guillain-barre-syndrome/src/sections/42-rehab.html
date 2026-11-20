@@ -1,0 +1,130 @@
+<!-- ================= 4.2 REHABILITATION & RECOVERY ================= -->
+<style>
+#m-rehab .tbl table{min-width:640px}
+#m-rehab .card>.ev,#m-rehab .card>.tag{align-self:flex-start}
+#m-rehab .rhbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-rehab .rhbar .btn{min-height:40px}
+#m-rehab .rhcap{font-size:15px;line-height:1.5;max-width:76ch}
+#m-rehab .calc select{min-height:40px}
+#m-rehab .card .big-num{font-size:34px}
+#m-rehab .rhind{display:flex;flex-direction:column;gap:10px;max-width:760px}
+#m-rehab .rhind div{display:grid;grid-template-columns:minmax(110px,170px) minmax(0,1fr) 54px;gap:10px;align-items:center;font-size:14.5px}
+#m-rehab .rhind span.b{height:16px;border-radius:5px;background:var(--panel-2);overflow:hidden;display:block}
+#m-rehab .rhind span.b i{display:block;height:100%;background:var(--rec)}
+#m-rehab .rhind b{font:700 14px var(--mono);text-align:right}
+</style>
+<section class="mod" id="m-rehab" data-mod="rehab" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Recovery</p><h2>Rehabilitation and the long recovery</h2>
+    <p class="lede">Recovery from Guillain-Barré syndrome is measured in months and years, and rehabilitation runs through all of it. Follow one Swedish cohort for two years, see the two ways a nerve gets back to work, and compare exercise programmes from the trials.</p></div>
+
+  <div class="cards">
+    <div class="card"><span class="big-num">About 40%</span><p>of people hospitalised with GBS need inpatient rehabilitation; earlier ventilator support most strongly predicted a longer stay [[Meythaler1997]].</p></div>
+    <div class="card"><span class="big-num">82 days</span><p>was the mean hospital stay in an unselected Swedish cohort of 41 people [[Forsberg2006Burden]].</p></div>
+    <div class="card"><span class="big-num">68% vs 32%</span><p>improved in function with high- against low-intensity outpatient rehabilitation in the largest randomised trial [[Khan2011RCT]].</p></div>
+    <div class="card"><span class="big-num">5+ years</span><p>Recovery from remaining problems can still happen more than 5 years after onset [[Leonhard2019]].</p></div>
+  </div>
+  <div class="prose"><p>The ten-step guideline calls arranging rehabilitation with a rehabilitation specialist, physiotherapist and occupational therapist a crucial step: first to reduce disability, and later to restore movement, sensation and fitness [[Leonhard2019]]. A consensus group recommends that disabled people be treated by a multidisciplinary rehabilitation team with an assistive exercise programme [[Hughes2005]].</p></div>
+
+  <div class="rhbar" role="group" aria-label="Measures on the chart">
+    <button class="btn" data-rhm="walk" aria-pressed="true">Walking 10 m</button>
+    <button class="btn" data-rhm="str" aria-pressed="true">Overall strength</button>
+    <button class="btn" data-rhm="grip" aria-pressed="false">Grip</button>
+    <button class="btn" data-rhm="sens" aria-pressed="true">Sensation</button>
+    <button class="btn" data-rhm="face" aria-pressed="false">Face</button>
+    <button class="btn" data-rhm="adl" aria-pressed="true">Personal care</button>
+    <button class="btn" data-rhm="iadl" aria-pressed="false">Instrumental tasks</button>
+  </div>
+  <div class="stepper" id="rhSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="rhSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A chart of the share of a Swedish cohort with each problem at 2 weeks, 1 year and 2 years after onset of GBS, drawn up to the point on the timeline. Beside it, a body outline whose weakness wash fades and a label for the care setting, from acute ward to inpatient rehabilitation, home and the years after. Most lines fall steeply in the first year and flatten in the second."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="rhPlay">%t:player.play%</button><label class="stage-cap tl" for="rhT">Timeline <input type="range" id="rhT" min="0" max="1" step="0.002" value="0.04"></label></div>
+      <p class="stage-cap">Straight lines join the three published time points (2 weeks, 1 year, 2 years) of one cohort of 42 adults [[Forsberg2004Impairment,Forsberg2005Disability]]. The body wash and the time spacing are schematic.</p></div>
+    <aside class="note" id="rhNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Two ways a nerve gets back to work</h3>
+  <div class="prose"><p>How fast strength returns depends partly on what the immune attack did. Where antibodies only stopped the signal at the nodes of Ranvier, conduction can come back within weeks [[Kokubun2010,Kuwabara1998GM1]]. Where the axon itself broke down, the nerve has to regrow, and that takes months or longer [[Kuwabara2001,Capasso2011]]. Choose a route and press Play. The nerve damage itself is drawn in <a href="#subtypes" data-go="subtypes">Subtypes: AIDP &amp; AMAN</a>.</p></div>
+  <div class="stage">
+    <div class="rhbar" role="group" aria-label="Route of recovery">
+      <button class="btn" data-rhr="block" aria-pressed="true">The block clears</button>
+      <button class="btn" data-rhr="regrow" aria-pressed="false">The fibre regrows</button>
+    </div>
+    <div class="scroll"><svg id="rhNerve" viewBox="0 0 720 240" style="min-width:560px" role="img" aria-label="A motor nerve fibre running to a muscle on the right. In the first route, antibodies at the nodes stop the travelling impulse, then fade, and the impulse passes through to the muscle. In the second route, the axon is broken and a growth cone slowly advances from the break until impulses reach the muscle again."></svg></div>
+    <div class="ctrls"><button class="btn primary" id="rhNPlay">%t:player.play%</button><label class="stage-cap tl" for="rhNT">Repair <input type="range" id="rhNT" min="0" max="1" step="0.002" value="0.1"></label></div>
+    <p class="rhcap" id="rhNCap" aria-live="polite"></p>
+  </div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>AMAN can recover as fast as AIDP (median 31 against 32 days to walk 5 m with help in northern China): too fast for regrowth of the whole nerve. Reversal of changes at the node and regrowth of nerve terminals in the muscle are the proposed reasons [[Ho1997Recovery,Griffin1996Nodal]].</div>
+    <div class="pt"><b>In plain words</b>If the signal was only blocked, strength can come back fairly quickly. If the nerve fibre itself was damaged, it has to regrow, which can take many months, and some people keep improving for years [[Kuwabara2001,Hiraga2005]].</div>
+  </div>
+
+  <h3 class="sub">From the ward to home</h3>
+  <div class="prose"><p>In an Israeli rehabilitation cohort of 70 people, the average stay was 20 days on acute wards and 61 days in rehabilitation. The total Functional Independence Measure (FIM) rose by 30 points and the GBS disability score improved by a mean of 1.23, with similar gains after IVIg or plasma exchange [[Bondi2021]]. In 47 inpatients, the Spinal Cord Independence Measure rose from 50 at admission to 80 at discharge and 95 at a mean of 7.5 years [[Shniper2022]].</p>
+    <p>Not every skill comes back at the same speed. In US data from 2019, the share independent at the end of inpatient rehabilitation was [[Andrews2023]]:</p></div>
+  <div class="rhind" role="list" aria-label="Share independent at the end of inpatient rehabilitation">
+    <div role="listitem"><span>Communication</span><span class="b"><i style="width:87.5%"></i></span><b>87.5%</b></div>
+    <div role="listitem"><span>Social cognition</span><span class="b"><i style="width:74.8%"></i></span><b>74.8%</b></div>
+    <div role="listitem"><span>Self-care</span><span class="b"><i style="width:35.9%"></i></span><b>35.9%</b></div>
+    <div role="listitem"><span>Transfers</span><span class="b"><i style="width:34.2%"></i></span><b>34.2%</b></div>
+    <div role="listitem"><span>Walking and moving about</span><span class="b"><i style="width:24.7%"></i></span><b>24.7%</b></div>
+  </div>
+  <div class="prose"><p>Of 1,304 people in US inpatient rehabilitation, 81.8% went home or to the community, and gains in bed, chair and wheelchair transfers were the strongest predictor of going home [[Kushner2023]]. After discharge the gaps show: in a UK survey of 216 people, over a quarter did not receive community physiotherapy, and age and body pain predicted falls [[Davidson2022Falls]]. In Colombia, 22% had no rehabilitation in the acute episode and 16% none after discharge [[AceroGarces2024]].</p></div>
+
+  <h3 class="sub">What the trials show</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Study</th><th>What was compared</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><th>Cochrane review, 2010</th><td>Multidisciplinary care</td><td>No randomised or controlled trials; three very-low-quality observational studies gave tentative support to high-intensity inpatient programmes [[Khan2010Cochrane]]</td></tr>
+      <tr class="hl"><th>Largest RCT, 79 people</th><td>High- or low-intensity outpatient rehabilitation over 12 months, in the chronic phase</td><td>Function improved in 68% against 32% (mobility, transfers, continence and walking; all p&lt;0.005) <span class="ev est">Established</span> in one trial [[Khan2011RCT]]</td></tr>
+      <tr><th>Small RCT, 16 people</th><td>Supervised exercise (60 minutes, 2 to 3 times a week, 12 weeks) against home exercise, at least 6 months after onset</td><td>At 6 months, fatigue fell more (median difference -13 on a 0 to 63 scale) and strength rose more (+8 on the MRC scale) [[Shah2022]]</td></tr>
+      <tr><th>Bicycle training, 20 people</th><td>12 weeks of training in severe fatigue (16 GBS, 4 CIDP), uncontrolled</td><td>Self-reported fatigue fell 20% (p = 0.001), with better fitness and quality of life <span class="ev early">Early evidence</span> [[Garssen2004Training]]; the gains were not explained by fitness alone [[Bussmann2007]]</td></tr>
+      <tr><th>Electrical muscle stimulation, 17 people</th><td>Early in GBS</td><td>Safe and feasible, but no effect on strength [[Harbo2019]]</td></tr>
+      <tr><th>Reviews</th><td>2012, 2016, 2021, 2025, 2026</td><td>Multidisciplinary evidence graded good and physiotherapy satisfactory [[Khan2012Review]]; exercise promising but low-quality [[SimatosArsenault2016]]; only three RCTs, no definite conclusions [[Sulli2021]]; support for strengthening, functional and endurance training [[Kiper2025]]; best results with supervised, individual sessions [[DeLeonMunoz2026]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Exercise programmes compared</h3>
+  <p class="teach" role="note"><b>Teaching tool</b>This compares a made-up schedule with the programmes described in published studies. It is not an exercise prescription. Exercise intensity must be monitored, because overwork can cause fatigue [[Leonhard2019]]; therapists set and adjust any real programme.</p>
+  <div class="stage">
+    <div class="calc">
+      <label for="rhMin">Minutes per session<select id="rhMin"><option value="30">30</option><option value="45">45</option><option value="60" selected>60</option><option value="90">90</option></select></label>
+      <label for="rhSes">Sessions per week<select id="rhSes"><option value="1">1</option><option value="2">2</option><option value="3" selected>3</option><option value="4">4</option><option value="5">5</option></select></label>
+      <label for="rhWk">Weeks<select id="rhWk"><option value="6">6</option><option value="8">8</option><option value="12" selected>12</option><option value="16">16</option><option value="24">24</option></select></label>
+    </div>
+    <div class="scroll"><svg id="rhDose" viewBox="0 0 720 236" style="min-width:560px" role="img" aria-label="A calendar of weeks and days filled with exercise sessions for the chosen schedule, and three scales comparing session length, sessions per week and number of weeks with the ranges described in a 2026 systematic review and the programme of a 2022 randomised trial."></svg></div>
+    <p class="rhcap" id="rhDoseCap" aria-live="polite"></p>
+  </div>
+  <div class="pt"><b>In plain words</b>Pushing too hard can make tiredness worse, so therapists adjust the effort as you go. Programmes that were supervised and built up over about three months did best in the studies [[Leonhard2019,DeLeonMunoz2026,Shah2022]].</div>
+
+  <h3 class="sub">Complications that slow rehabilitation</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Problem</th><th>Linked with</th><th>What studies found</th></tr></thead>
+    <tbody>
+      <tr><th>Contractures and bone forming in soft tissue (heterotopic ossification)</th><td>Long, severe weakness [[Leonhard2019]]</td><td>Heterotopic ossification in 4 of 65 (6%) rehabilitation patients, all with reduced hip movement that affected mobility [[Zeilig2006]]</td></tr>
+      <tr><th>Pressure ulcers and compression neuropathy</th><td>Immobility [[Leonhard2019]]</td><td>Bed sores in 40% of one ventilated series [[deBoisanger2016]]</td></tr>
+      <tr><th>Corneal ulcers</th><td>Facial weakness [[Leonhard2019]]</td><td>Facial muscle problems fell from 38% at 2 weeks to 12% at 2 years in Sweden [[Forsberg2004Impairment]]</td></tr>
+      <tr><th>Choking and nutrition problems</th><td>Weak swallowing muscles [[Leonhard2019]]</td><td>Among 76 intensive care patients, two-thirds had at least one major complication, most often pneumonia (54%) [[Dhar2008]]</td></tr>
+      <tr><th>Interruptions to early rehabilitation</th><td>The early weeks [[Meythaler1997]]</td><td>Deep vein thrombosis, joint contractures, high calcium from immobility and pressure sores [[Meythaler1997]]</td></tr>
+      <tr><th>Foot drop</th><td>Residual weakness, worst in the lower legs [[deJager1991]]</td><td>Present in 60% and still in 34% at 1 year, using ankle-foot orthoses; 80% had neuropathic pain needing medication [[Gupta2010Orthosis]]. Severe residual deficits sat distally in the legs, worst in nerves along entrapment sites [[deJager1991]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout">Therapy should not overfatigue the motor unit, which has been associated with paradoxical weakening, according to an expert review [[Meythaler1997]]. That warning rests on expert opinion, not trials [[Meythaler1997,Leonhard2019]].</div>
+
+  <h3 class="sub">How the first two years go</h3>
+  <div class="cards">
+    <div class="card"><h4>Fastest early</h4><p>In 6 treated people, strength measured on machines rose fastest in the first 6 months and more slowly from 6 to 18 months, still improving at 18 months; the authors suggest at least 24 months of follow-up. A longer plateau went with less recovery of knee and elbow strength [[ElMhandi2007]].</p></div>
+    <div class="card"><h4>Quality of life</h4><p>In a systematic review of 14 studies, the three that followed people over time found large gains in quality of life in the first year, but not clearly after it; most studies were cross-sectional and of low quality [[Darweesh2014]].</p></div>
+    <div class="card"><h4>Work at two years</h4><p>Everyone working before GBS was unable to work at 2 weeks; 17% were still unable to work at 2 years [[Forsberg2005Disability]]. More in <a href="#after" data-go="after">Life after GBS</a>.</p></div>
+  </div>
+
+  <h3 class="sub">Open questions</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Question</th><th>Evidence each way</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><th>What is the right rehabilitation dose?</th><td>High intensity beat low intensity in one RCT [[Khan2011RCT]], and supervised beat home exercise in a small one [[Shah2022]]; a systematic review declines firm conclusions [[Sulli2021]]. Overwork warnings rest on expert opinion [[Meythaler1997,Leonhard2019]].</td><td>No dose-finding trial found</td></tr>
+      <tr><th>Does early electrical stimulation help?</th><td>Safe and feasible but no strength effect in a pilot of 17 [[Harbo2019]].</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><th>Why does exercise ease fatigue?</th><td>Fatigue and mobility changes were not explained by fitness change, suggesting other effects of training [[Bussmann2007]].</td><td><span class="ev hyp">Hypothesis</span></td></tr>
+    </tbody>
+  </table></div>
+  <p class="support"><b>Support</b>Rehabilitation is long, and progress can feel slow. Connecting with others who have had GBS can help guide people through it, and patient organisations can build those networks [[Leonhard2019]].</p>
+</section>

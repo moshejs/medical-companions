@@ -1,0 +1,98 @@
+<!-- ================= 2.1 DSM-5-TR CRITERIA ================= -->
+<style>
+#m-criteria .cr-try{align-items:start}
+#m-criteria .cr-ring{position:relative;width:100%;max-width:500px;aspect-ratio:1/1;margin:0 auto}
+#m-criteria .cr-ring svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+#m-criteria .cr-tile{position:absolute;width:23%;height:13.5%;transform:translate(-50%,-50%);border:1.5px solid var(--line);background:var(--panel);border-radius:12px;padding:3px 4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;cursor:pointer;font-size:12.5px;font-weight:700;line-height:1.12;text-align:center;transition:background .2s,border-color .2s,transform .2s;overflow-wrap:anywhere}
+#m-criteria .cr-tile b{font:600 10.5px var(--mono);color:var(--muted)}
+#m-criteria .cr-tile:hover{border-color:var(--dx)}
+#m-criteria .cr-tile[aria-pressed="true"]{background:var(--dx-soft);border-color:var(--dx);color:var(--dx);transform:translate(-50%,-50%) scale(1.05)}
+#m-criteria .cr-tile[aria-pressed="true"] b{color:var(--dx)}
+#m-criteria .cr-tile.last{box-shadow:0 0 0 3px var(--dx-soft)}
+@media (max-width:520px){#m-criteria .cr-tile{font-size:10.5px;border-radius:9px;padding:2px}#m-criteria .cr-tile b{font-size:9.5px}}
+#m-criteria .cr-side{display:flex;flex-direction:column;gap:14px;min-width:0}
+#m-criteria .cr-det{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--dx);border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:6px;min-height:118px;transform-origin:50% 0}
+#m-criteria .cr-det h4{margin:0;font-family:var(--display);font-weight:800;font-size:20px;line-height:1.15}
+#m-criteria .cr-det.flip{animation:crFlip .45s ease}
+@keyframes crFlip{0%{transform:perspective(700px) rotateX(-80deg);opacity:.2}100%{transform:none;opacity:1}}
+#m-criteria .cr-gate{border:1px solid var(--line);border-radius:var(--r);background:var(--panel);padding:12px 14px;margin:0;display:flex;flex-direction:column;gap:8px}
+#m-criteria .cr-gate legend{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:0 4px}
+#m-criteria .cr-gate label{display:flex;gap:9px;align-items:flex-start;font-size:14.5px;line-height:1.35}
+#m-criteria .cr-gate input{width:18px;height:18px;margin:1px 0 0;flex:none;accent-color:var(--dx)}
+#m-criteria .cr-freq{display:flex;flex-direction:column;gap:6px;position:relative}
+#m-criteria .cr-row{display:grid;grid-template-columns:minmax(150px,210px) minmax(0,1fr) 46px minmax(0,1.1fr);gap:4px 12px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-size:14px}
+#m-criteria .cr-row .lb{font-weight:700;min-width:0}
+#m-criteria .cr-row .lb b{font:600 11px var(--mono);color:var(--muted);margin-right:6px}
+#m-criteria .cr-row .br{height:12px;border-radius:6px;background:var(--panel-2);overflow:hidden}
+#m-criteria .cr-row .br i{display:block;height:100%;border-radius:6px;background:var(--dx);transition:width .6s ease}
+#m-criteria .cr-row .vl{font:600 13px var(--mono);text-align:right}
+#m-criteria .cr-row .ef{font-size:13px;color:var(--muted);min-width:0}
+#m-criteria .cr-row.top{border-color:var(--dx)}
+#m-criteria .cr-freq.noef .ef{display:none}
+#m-criteria .cr-freq.noef .cr-row{grid-template-columns:minmax(150px,210px) minmax(0,1fr) 46px}
+@media (max-width:760px){#m-criteria .cr-row,#m-criteria .cr-freq.noef .cr-row{grid-template-columns:minmax(0,1fr) 46px}#m-criteria .cr-row .lb{grid-column:1/-1}#m-criteria .cr-row .ef{grid-column:1/-1}}
+#m-criteria .cr-mn{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px;margin:0;padding:0;list-style:none}
+#m-criteria .cr-mn li{display:flex;gap:8px;align-items:baseline;font-size:14px}
+#m-criteria .cr-mn li b{font:800 22px/1 var(--display);color:var(--dx);min-width:18px}
+#m-criteria .card>.tag,#m-criteria .card>.ev{align-self:flex-start}
+</style>
+<section class="mod" id="m-criteria" data-mod="criteria" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · Diagnosis</p><h2>DSM-5-TR criteria</h2>
+    <p class="lede">DSM-5-TR lists nine criteria for borderline personality disorder and asks for at least five. Watch two people reach the same diagnosis by different routes, count the 256 ways to qualify, then try the counter and see which criteria are most common.</p></div>
+  <div class="stepper" id="crSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="crSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Nine DSM-5-TR criterion tiles on a ring. Person A lights criteria 1 to 5 and reaches the threshold of five; person B lights criteria 5 to 9; only criterion 5 is shared. Bars then build up the 256 ways to meet five or more of nine (126, 84, 36, 9 and 1), and finally network lines show identity disturbance and affective instability as the most central criteria."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="crPlay">Play</button><label class="stage-cap tl" for="crT">Step <input type="range" id="crT" min="0" max="1" step="0.001" value="0.1"></label></div>
+      <p class="stage-cap">Criterion wording is paraphrased from the DSM-5-TR criteria table as reproduced in a peer-reviewed review. Persons A and B are illustrations, not cases. [[APA2022,Kaess2025,Mulay2019]]</p>
+    </div>
+    <aside class="note" id="crNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Try it: the criteria counter</h3>
+  <p class="callout"><b>A teaching tool, not a self-test.</b> Ticking tiles here cannot tell anyone whether they have BPD. In practice each criterion has to be pervasive and long-standing, and a clinician confirms it in a semi-structured interview, which is how BPD is diagnosed reliably. [[Leichsenring2024WP,Kaess2025]] Tap a tile to count it and read its full wording; then work through the general personality disorder criteria.</p>
+  <div class="split2 cr-try">
+    <div><div class="cr-ring" id="crRing"><svg id="crRingSvg" viewBox="0 0 100 100" aria-hidden="true"></svg></div></div>
+    <div class="cr-side">
+      <div class="ctrls"><button class="btn" id="crExA">Example: person A</button><button class="btn" id="crExB">Example: person B</button><button class="btn ghost" id="crClear">Clear</button></div>
+      <div class="cr-det" id="crDet" aria-live="polite"></div>
+      <fieldset class="cr-gate" id="crGate"><legend>General personality disorder criteria</legend>
+        <label><input type="checkbox" data-g="0"> <span><b>Enduring and deviant:</b> the pattern differs markedly from cultural expectations in at least two of cognition, affectivity, interpersonal functioning and impulse control.</span></label>
+        <label><input type="checkbox" data-g="1"> <span><b>Inflexible and pervasive:</b> it shows across a broad range of personal and social situations, not in one relationship or one setting.</span></label>
+        <label><input type="checkbox" data-g="2"> <span><b>Long-standing:</b> stable, of long duration, with onset traceable to adolescence or early adulthood (under 18, features present for at least 1 year), causing clinically significant distress or impairment.</span></label>
+        <label><input type="checkbox" data-g="3"> <span><b>Not better explained:</b> not better accounted for by another mental disorder, and not due to a substance or a medical condition.</span></label>
+      </fieldset>
+      <div class="verdict" id="crVerdict" aria-live="polite"></div>
+      <p class="readout" id="crCombo"></p>
+      <p class="stage-cap">General criteria in short form from DSM-5-TR; the under-18 rule as reproduced in Kaess and Cavelti. [[APA2022,Kaess2025]]</p>
+    </div>
+  </div>
+
+  <h3 class="sub">How common is each criterion?</h3>
+  <p class="prose">Mean ratings (0 = absent, 1 = subthreshold, 2 = present) for each criterion in the Collaborative Longitudinal Personality Disorders Study (CLPS) adult sample, alongside what diagnostic-efficiency studies found. Sensitivity and positive predictive value have been published for only some criteria, so they are shown as findings rather than as a sortable column. [[Peters2023]]</p>
+  <div class="ctrls" role="group" aria-label="Sort the criteria"><span class="kicker">Sort</span>
+    <button class="btn" data-crs="dsm" aria-pressed="true">DSM order</button>
+    <button class="btn" data-crs="mean" aria-pressed="false">Most common first</button>
+    <button class="btn" data-crs="ef" aria-pressed="false">Studied for accuracy first</button>
+    <button class="btn" id="crEfT" aria-pressed="true">Show accuracy findings</button>
+  </div>
+  <div class="cr-freq" id="crFreq"></div>
+  <p class="stage-cap">CLPS adults, mean symptom rating out of 2 [[Peters2023]]. In the adolescent clinical sample the order differed: suicidal or self-injurious behaviour had the highest mean (1.16), ahead of affective instability (0.99). [[Peters2023]]</p>
+
+  <h3 class="sub">Reading the criteria well</h3>
+  <div class="cards">
+    <div class="card"><span class="tag dx">Pervasive</span><h4>What counts as pervasive</h4><p>A criterion counts only when it belongs to an enduring, inflexible pattern that appears across many personal and social situations, causes distress or impairment, and dates back to adolescence or early adulthood. A stormy month after a break-up is not a personality pattern. [[APA2022]] ICD-11 states the duration explicitly: more than 2 years. See <a href="#icd" data-go="icd">ICD-11 &amp; dimensional models</a>. [[Bach2018BMC]]</p></div>
+    <div class="card"><span class="tag dx">Adolescence</span><h4>Teenagers can be diagnosed</h4><p>DSM-5-TR uses the same nine criteria for adolescents; under 18, the features must have been present for at least 1 year. Evidence supports diagnosis from age 12, the diagnosis is as reliable and valid as in adults, and an expert review found "no justification for failing to make an early diagnosis". [[Kaess2025,Kaess2014Adolescence,Fonagy2015]] Among help-seeking 12–17-year-olds, most (86.8%) fitted a broad "borderline" profile and 13.2% an "impulsive" profile high only on impulsivity and anger. [[Cavelti2021]]</p></div>
+    <div class="card"><span class="tag dx">Judgement</span><h4>The clinician's job, not the checklist's</h4><p>Counting is the easy part. A clinician asks whether each feature is pervasive and long-standing, rules out other explanations (see <a href="#differential" data-go="differential">BPD or something else?</a>), and combines interview and self-report, which together identify criteria best. [[Hopwood2008]] Missing the diagnosis can lead to drug treatment that rarely helps, so clinicians are urged to ask actively about relationships and identity. [[Gunderson2018]]</p></div>
+    <div class="card"><span class="tag warn">Below 5</span><h4>Fewer than five still matters</h4><p>In 1,976 outpatients, people with a single BPD criterion had more co-occurring disorders, hospital admissions and time off work than people with none. [[Zimmerman2012JCP]] Chronic emptiness on its own marked impairment on every index of psychosocial functioning, [[Ellison2016]] and in youth the number of criteria predicted poor functioning even below the threshold. [[Thompson2020]]</p></div>
+    <div class="card"><span class="tag good">Recovery</span><h4>A diagnosis describes now, not forever</h4><p>In a cohort of 290 people with severe BPD, 68.6% were in remission by 6 years and only 5.9% of remissions were followed by recurrence; by 16 years, 78% to 99% had reached sustained remission. These are population figures from one inpatient cohort. [[Zanarini2003Course,Zanarini2012]] More in <a href="#course" data-go="course">Course &amp; recovery</a>.</p></div>
+    <div class="card"><span class="tag accent">Mnemonic</span><h4>Exam hook: IMPULSIVE</h4>
+      <ul class="cr-mn">
+        <li><b>I</b><span>Impulsivity (4)</span></li><li><b>M</b><span>Mood instability (6)</span></li><li><b>P</b><span>Paranoia or dissociation under stress (9)</span></li>
+        <li><b>U</b><span>Unstable self-image (3)</span></li><li><b>L</b><span>Labile, intense relationships (2)</span></li><li><b>S</b><span>Suicidal or self-harming behaviour (5)</span></li>
+        <li><b>I</b><span>Inappropriate, intense anger (8)</span></li><li><b>V</b><span>Vulnerability to abandonment (1)</span></li><li><b>E</b><span>Emptiness (7)</span></li>
+      </ul>
+      <p>A memory aid for the nine criteria; the numbers are the DSM order. [[APA2022,Kaess2025]]</p></div>
+  </div>
+  <p class="crisis"><b>Support</b><span>If you are in crisis or thinking about suicide, contact local emergency services or a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123). BPD is treatable, and asking for help works.</span></p>
+</section>

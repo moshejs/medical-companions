@@ -1,0 +1,184 @@
+<!-- ================= 4.1 DIAGNOSIS & THE ACR/EULAR SCORE ================= -->
+<section class="mod" id="m-dx" data-mod="dx" hidden>
+<style>
+/* the polarised-light field keeps its own optical colours: magenta background, yellow and blue crystals */
+#m-dx{--dx-mag:#b4458c;--dx-magd:#7d2c61;--dx-yel:#f3d02c;--dx-blu:#2e6ee6;--dx-rim:#2a1b2c}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) #m-dx{--dx-mag:#93376f;--dx-magd:#5e1f48;--dx-yel:#f7dc4f;--dx-blu:#6a9bff;--dx-rim:#05040a}}
+:root[data-theme="dark"] #m-dx{--dx-mag:#93376f;--dx-magd:#5e1f48;--dx-yel:#f7dc4f;--dx-blu:#6a9bff;--dx-rim:#05040a}
+#m-dx .dx-form{display:flex;flex-direction:column;gap:12px}
+#m-dx fieldset{border:1px solid var(--line);border-radius:12px;padding:10px 12px 12px;margin:0;display:flex;flex-direction:column;gap:7px;min-width:0}
+#m-dx legend{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:0 4px}
+#m-dx .dx-ck{display:flex;gap:9px;align-items:flex-start;font-size:14.5px;line-height:1.35;cursor:pointer;overflow-wrap:anywhere}
+#m-dx .dx-ck input{margin:2px 0 0;accent-color:var(--terra);flex:none;width:17px;height:17px}
+#m-dx .dx-ck .pts{margin-left:auto;font:600 12px var(--mono);color:var(--muted);white-space:nowrap;padding-left:8px}
+#m-dx .dx-ck .pts.neg{color:var(--bad)}
+#m-dx .dx-def{font-size:13.5px;color:var(--muted);line-height:1.45}
+#m-dx .dx-def b{color:var(--ink)}
+#m-dx .dx-num{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:14px}
+#m-dx .dx-num input{width:96px;font:inherit;padding:6px 8px;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--ink)}
+#m-dx .dx-verdict{border-radius:10px;padding:12px 14px;font-size:15px;border:1px solid var(--line);background:var(--panel-2);display:flex;flex-direction:column;gap:6px;transition:background .3s,border-color .3s}
+#m-dx .dx-verdict.yes{background:var(--good-soft);border-color:var(--good)}
+#m-dx .dx-verdict.na{background:var(--warn-soft);border-color:var(--warn)}
+#m-dx .dx-verdict strong{font-family:var(--display);font-size:20px;line-height:1.15}
+#m-dx .dx-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+#m-dx .dx-perf{display:flex;flex-direction:column;gap:8px;border-radius:10px;padding:8px;border:1px solid transparent;transition:border-color .3s,background .3s}
+#m-dx .dx-perf.on{border-color:var(--terra);background:var(--terra-soft)}
+#m-dx .dx-pr{display:grid;grid-template-columns:minmax(0,1fr);gap:3px;font-size:13.5px}
+#m-dx .dx-pr .lbl{color:var(--muted);font-size:13px}
+#m-dx .dx-bars{display:grid;grid-template-columns:38px minmax(0,1fr) 52px;gap:3px 8px;align-items:center;font:500 11.5px var(--mono);color:var(--muted)}
+#m-dx .dx-bars i{display:block;height:9px;border-radius:5px;background:var(--panel-2);overflow:hidden}
+#m-dx .dx-bars i b{display:block;height:100%;border-radius:5px;transition:width .6s cubic-bezier(.3,.7,.2,1)}
+#m-dx .dx-live{position:sticky;bottom:0;z-index:2;display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px 12px;box-shadow:0 -6px 14px -10px var(--ink);font:500 13px var(--mono);color:var(--muted)}
+#m-dx .dx-live b{font:800 20px var(--display);color:var(--ink)}
+#m-dx .dx-live b.ok{color:var(--good)}
+#m-dx #dxGauge,#m-dx #dxJnSvg{max-width:560px;margin:0 auto}
+#m-dx .dx-img svg{width:100%;height:auto;display:block;background:var(--field);border-radius:10px;border:1px solid var(--line)}
+#m-dx .dx-panel{display:flex;flex-direction:column;gap:12px}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 4 · Diagnosis &amp; complications</p><h2>Diagnosis &amp; the ACR/EULAR score</h2>
+    <p class="lede">Seeing urate crystals in joint fluid settles the diagnosis; without them, the 2015 ACR/EULAR criteria add up points, and 8 or more classifies as gout. Turn the compensator to see the crystals change colour, score a case in the calculator, then step through the diagnostic pathway.</p></div>
+
+  <h3 class="sub">Under the polarised microscope</h3>
+  <div class="ctrls" role="group" aria-label="Crystals shown">
+    <span class="kicker">Show</span>
+    <button class="btn" data-msv="both" aria-pressed="true">Both crystal types</button>
+    <button class="btn" data-msv="msu" aria-pressed="false">MSU only (gout)</button>
+    <button class="btn" data-msv="cpp" aria-pressed="false">CPP only (CPPD)</button>
+  </div>
+  <div class="stepper" id="dxMsSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="dxMsSvg" viewBox="0 0 720 400" style="min-width:540px" role="img" aria-label="Compensated polarised light field with urate needles and CPP rhomboids changing colour as the compensator turns"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="dxMsPlay">Play</button><label class="stage-cap tl" for="dxMsT">Compensator <input type="range" id="dxMsT" min="0" max="1" step="0.002" value="0"></label></div>
+      <div class="readout" id="dxMsRead"></div>
+      <p class="stage-cap">Schematic field, not to scale. The colour rule follows published descriptions of compensated polarised microscopy. [[Zhang2016SciRep,Ragab2017,Jokic2020]]</p></div>
+    <aside class="note" id="dxMsNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">2015 ACR/EULAR classification calculator</h3>
+  <p class="callout">These are <b>classification criteria</b>, built so that research studies enrol comparable patients. Their authors say they are not meant for making a diagnosis in clinic, and that joint or tophus aspiration remains essential to establish one. [[Neogi2015]] There are no exclusion criteria, because gout can coexist with other diseases and microscopy can miss crystals. [[Neogi2015]]</p>
+  <div class="ctrls" role="group" aria-label="Examples">
+    <span class="kicker">Load an example</span>
+    <button class="btn" data-dxex="pod">Classic podagra</button>
+    <button class="btn" data-dxex="first">First flare, urate in the flare</button>
+    <button class="btn" data-dxex="retest">Same person, retested at 6 weeks</button>
+    <button class="btn" data-dxex="knee">Knee, older woman (CPPD-like)</button>
+    <button class="btn" data-dxex="toph">Tophaceous</button>
+    <button class="btn" data-dxex="clr">Clear all</button>
+  </div>
+  <p class="stage-cap">Examples are worked from the published weights, not patients from a study. [[Neogi2015]]</p>
+  <div class="lab even">
+    <div class="stage dx-form" id="dxForm">
+      <fieldset><legend>Step 1 · Entry criterion</legend>
+        <label class="dx-ck"><input type="checkbox" id="dxEntry"><span>At least 1 episode of swelling, pain or tenderness in a peripheral joint or bursa</span></label>
+        <p class="dx-def">The criteria are applied only to people who meet it. [[Neogi2015]]</p>
+      </fieldset>
+      <fieldset><legend>Step 2 · Sufficient criterion</legend>
+        <label class="dx-ck"><input type="checkbox" id="dxSuff"><span>MSU crystals seen by a trained examiner in a symptomatic joint or bursa (synovial fluid) or in a tophus</span></label>
+        <p class="dx-def">If yes, the person is classified as having gout and nothing is scored. [[Neogi2015]]</p>
+      </fieldset>
+      <fieldset><legend>Step 3 · Clinical: joint pattern (ever)</legend>
+        <label class="dx-ck"><input type="radio" name="dxJoint" value="0" checked><span>Other joints, or only as part of a polyarticular episode</span><span class="pts">0</span></label>
+        <label class="dx-ck"><input type="radio" name="dxJoint" value="1"><span>Ankle or midfoot in a mono- or oligoarticular episode, first MTP never involved</span><span class="pts">+1</span></label>
+        <label class="dx-ck"><input type="radio" name="dxJoint" value="2"><span>First MTP in a mono- or oligoarticular episode</span><span class="pts">+2</span></label>
+        <p class="dx-def">First MTP, ankle or midfoot count only in a mono- or oligoarticular episode; in a polyarticular presentation they are not specific, as they also occur in rheumatoid arthritis. [[Neogi2015]]</p>
+      </fieldset>
+      <fieldset><legend>Clinical: features of an episode (ever)</legend>
+        <label class="dx-ck"><input type="checkbox" data-tr="red"><span>Redness over the joint (reported or seen)</span><span class="pts">+1</span></label>
+        <label class="dx-ck"><input type="checkbox" data-tr="touch"><span>Can't bear touch or pressure on the joint</span><span class="pts">+1</span></label>
+        <label class="dx-ck"><input type="checkbox" data-tr="walk"><span>Great difficulty walking, or unable to use the joint</span><span class="pts">+1</span></label>
+        <p class="dx-def">One point each, up to 3, scored whatever anti-inflammatory treatment was taken. [[Neogi2015]]</p>
+      </fieldset>
+      <fieldset><legend>Clinical: time course (ever)</legend>
+        <p class="dx-def">A <b>typical episode</b> has at least 2 of: maximal pain in under 24 hours; resolution within 14 days; complete resolution between episodes. [[Neogi2015]]</p>
+        <label class="dx-ck"><input type="radio" name="dxCourse" value="0" checked><span>No typical episode</span><span class="pts">0</span></label>
+        <label class="dx-ck"><input type="radio" name="dxCourse" value="1"><span>One typical episode</span><span class="pts">+1</span></label>
+        <label class="dx-ck"><input type="radio" name="dxCourse" value="2"><span>Recurrent typical episodes</span><span class="pts">+2</span></label>
+      </fieldset>
+      <fieldset><legend>Clinical: tophus</legend>
+        <label class="dx-ck"><input type="checkbox" id="dxToph"><span>Clinical tophus: a draining or chalk-like nodule under transparent skin, often with vessels over it, in a typical place (joints, ears, elbow bursae, finger pads, tendons)</span><span class="pts">+4</span></label>
+        <p class="dx-def">Definition from the criteria. [[Neogi2015]]</p>
+      </fieldset>
+      <fieldset><legend>Laboratory: serum urate (required)</legend>
+        <label class="dx-ck"><input type="radio" name="dxUr" value="none" checked><span>Not measured</span><span class="pts">needed</span></label>
+        <label class="dx-ck"><input type="radio" name="dxUr" value="u0"><span>Under 4 mg/dL (under 240 µmol/L)</span><span class="pts neg">−4</span></label>
+        <label class="dx-ck"><input type="radio" name="dxUr" value="u1"><span>4 to under 6 mg/dL (240 to under 360 µmol/L)</span><span class="pts">0</span></label>
+        <label class="dx-ck"><input type="radio" name="dxUr" value="u2"><span>6 to under 8 mg/dL (360 to under 480 µmol/L)</span><span class="pts">+2</span></label>
+        <label class="dx-ck"><input type="radio" name="dxUr" value="u3"><span>8 to under 10 mg/dL (480 to under 600 µmol/L)</span><span class="pts">+3</span></label>
+        <label class="dx-ck"><input type="radio" name="dxUr" value="u4"><span>10 mg/dL or more (600 µmol/L or more)</span><span class="pts">+4</span></label>
+        <div class="dx-num"><label for="dxUrN">Or type the highest value</label><input type="number" id="dxUrN" min="0" max="25" step="0.1" inputmode="decimal" placeholder="mg/dL"><span id="dxUrConv" class="dx-def"></span></div>
+        <label class="dx-ck"><input type="checkbox" id="dxFlareU"><span>This value was taken within 4 weeks of a flare starting, or on urate-lowering therapy</span></label>
+        <p class="dx-def">Measured by the uricase method. Score the <b>highest value</b>, whenever it was taken. Ideally it is measured off urate-lowering therapy and <b>more than 4 weeks</b> after a flare began; if practicable, retest under those conditions. At 10 mg/dL (600 µmol/L) or more there is no need to retest. [[Neogi2015]]</p>
+      </fieldset>
+      <fieldset><legend>Laboratory: synovial fluid</legend>
+        <label class="dx-ck"><input type="radio" name="dxFluid" value="0" checked><span>Not done</span><span class="pts">0</span></label>
+        <label class="dx-ck"><input type="radio" name="dxFluid" value="-2"><span>Examined by a trained observer: no MSU crystals</span><span class="pts neg">−2</span></label>
+        <p class="dx-def">Crystals found? That is the sufficient criterion in step 2. [[Neogi2015]]</p>
+      </fieldset>
+      <fieldset><legend>Imaging (a symptomatic joint, ever)</legend>
+        <label class="dx-ck"><input type="checkbox" id="dxImg"><span>Urate deposition: ultrasound double-contour sign, or urate on dual-energy CT</span><span class="pts">+4</span></label>
+        <label class="dx-ck"><input type="checkbox" id="dxEro"><span>Gout-type erosion on a hand or foot X-ray (not the DIP joints, not "gull wing")</span><span class="pts">+4</span></label>
+        <p class="dx-def">Imaging not done scores 0, the same as a negative result. [[Neogi2015]]</p>
+      </fieldset>
+      <div class="dx-live" id="dxLive" aria-hidden="true"></div>
+    </div>
+    <div class="stage dx-panel">
+      <svg id="dxGauge" viewBox="0 0 400 250" role="img" aria-label="ACR/EULAR 2015 score from minus 6 to 23 with the threshold at 8, split by domain"></svg>
+      <div class="dx-verdict" id="dxVerdict" aria-live="polite"></div>
+      <div class="dx-two">
+        <div class="dx-perf" id="dxPerfF"><span class="kicker">Full criteria (fluid and imaging)</span><div id="dxPerfFb"></div></div>
+        <div class="dx-perf" id="dxPerfC"><span class="kicker">Clinical-only (no fluid, no imaging)</span><div id="dxPerfCb"></div></div>
+      </div>
+      <p class="stage-cap">Performance in the independent SUGAR validation set (n = 330), with microscopy as the reference. The box that matches the items you have used is outlined. At the chosen cut-off, 13.9% were false negatives and 10.5% false positives. [[Neogi2015]]</p>
+    </div>
+  </div>
+
+  <h3 class="sub">A primary-care rule without joint fluid</h3>
+  <div class="prose"><p>The Janssens (Nijmegen) rule was built in 328 Dutch primary-care patients with one hot joint, with crystals as the reference. Its 7 items had an AUC of 0.85 (0.81–0.90). [[Janssens2010]] It is a probability aid, not a substitute for aspiration when infection is possible. [[Lee2015]]</p></div>
+  <div class="lab even">
+    <div class="stage dx-form" id="dxJnForm"></div>
+    <div class="stage dx-panel">
+      <svg id="dxJnSvg" viewBox="0 0 400 210" role="img" aria-label="Janssens rule score from 0 to 13 with its three probability bands"></svg>
+      <div class="dx-verdict" id="dxJnOut" aria-live="polite"></div>
+      <p class="stage-cap">Weights and bands from Janssens 2010 as reproduced by Lee 2015. Band prevalences are from the derivation study, as reported by Lee 2015. Secondary-care validation: a score of 8 or more had a PPV of 0.87 and a score of 4 or less an NPV of 0.95 (AUC 0.86). [[Janssens2010,Lee2015,Kienhorst2015]]</p>
+    </div>
+  </div>
+
+  <h3 class="sub">Imaging that sees urate</h3>
+  <div class="cards">
+    <div class="card dx-img"><svg id="dxUsSvg" viewBox="0 0 260 140" role="img" aria-label="Schematic ultrasound of the double-contour sign"></svg>
+      <h4>Ultrasound: the double-contour sign</h4>
+      <p>A bright, irregular line over the surface of the cartilage, running parallel to the bone line. A real one stays when the probe angle changes; an artefact disappears. [[Neogi2015]] It was seen in 92% of 37 crystal-proven gouty joints and in none of 33 controls. [[Thiele2007]] In SUGAR, any of double contour, tophus or snowstorm had sensitivity 76.9% and specificity 84.3%. [[Ogdie2017]]</p>
+      <p>It fades: it vanished in every joint where serum urate stayed under 6 mg/dL (360 µmol/L) for 7–18 months. [[Thiele2010]] EULAR names ultrasound as the first imaging choice when crystals cannot be sought. [[Richette2020]]</p></div>
+    <div class="card dx-img"><svg id="dxCtSvg" viewBox="0 0 260 140" role="img" aria-label="Dual-energy CT sensitivity overall and in disease of 6 weeks or less"></svg>
+      <h4>Dual-energy CT: colour-coded urate</h4>
+      <p>Scans at 80 and 140 kV separate urate from calcium. Nail-bed, skin, motion, beam-hardening and vascular artefacts do not count. [[Neogi2015]] In one accuracy study sensitivity was 0.90 and specificity 0.83; all 4 false negatives were first flares with symptoms under 6 weeks, and all 7 false positives had advanced knee osteoarthritis. [[Bongartz2015]]</p>
+      <p>Pooled joint-level sensitivity was 0.83, but only <b>0.55</b> in disease of 6 weeks or less. [[Gamala2019]] Some artefact appeared in 90% of 50 scans. [[Mallinson2014]] <span class="ev est">Established</span> A negative DECT does not exclude early gout. [[Gamala2019,Bongartz2015]]</p></div>
+    <div class="card dx-img"><svg id="dxXrSvg" viewBox="0 0 260 140" role="img" aria-label="Schematic X-ray of a gouty erosion with an overhanging edge"></svg>
+      <h4>X-ray: the overhanging edge</h4>
+      <p>The criteria erosion is a cortical break with a sclerotic margin and an overhanging edge. DIP joints and the "gull wing" pattern are excluded because they occur in osteoarthritis. [[Neogi2015]] X-rays add little early; in late or severe gout, asymmetrical swelling (LR 4.13) and subcortical cysts without erosion (LR 6.39) help. [[Zhang2006Dx]]</p>
+      <p>Erosions are driven by tophus: all 56 CT erosions larger than 7.5 mm contained tophus. [[Dalbeth2009]]</p></div>
+  </div>
+  <p class="callout"><span class="ev early">Early evidence</span> One meta-analysis found DECT more accurate overall (0.89/0.91), but ultrasound more sensitive in disease of 2 years or less (0.93 vs 0.75). [[Shang2022]]</p>
+
+  <h3 class="sub">The diagnostic pathway</h3>
+  <div class="stepper" id="dxPathSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="dxPathSvg" viewBox="0 0 720 420" style="min-width:540px" role="img" aria-label="Animated diagnostic pathway for a suspected gout flare"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="dxPathPlay">Play</button><label class="stage-cap tl" for="dxPathT">Pathway <input type="range" id="dxPathT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap">A simplified teaching sequence drawn from the guidelines and studies cited in the notes. Real work-ups overlap and loop back.</p></div>
+    <aside class="note" id="dxPathNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Entry: at least 1 episode of peripheral joint or bursa swelling, pain or tenderness. Sufficient: <b>MSU crystals</b>. Otherwise <b>≥8 of 23</b> points. Two items subtract: urate under 4 mg/dL (<b>−4</b>) and MSU-negative fluid (<b>−2</b>). Full criteria 0.92/0.89 (AUC 0.95); clinical-only 0.85/0.78 (AUC 0.89). [[Neogi2015]]</div>
+    <div class="pt"><b>In plain words</b>Seeing the crystals settles it. A doctor takes a little fluid from the swollen joint and looks at it under a special microscope; gout crystals look like thin needles. If that cannot be done, doctors add up points for where the pain is, how fast it came, the blood urate level and scan results. Your urate can look normal during a flare, so it is worth checking again about a month later.</div>
+  </div>
+  <div class="cards">
+    <div class="card"><h4>Trained eyes agree</h4><p>Trained observers identified MSU crystals with sensitivity 95.3%, specificity 97.2% and kappa 0.93; for CPP, 92.7%, 92.1% and 0.79. [[Lumbreras2005]] In an online test of 110 participants, only 39% met the primary outcome. [[Berendsen2017]]</p></div>
+    <div class="card"><h4>Crystals stay between flares</h4><p>In quiet, previously inflamed knees or first MTPs, crystals were found in all 43 people not on urate-lowering drugs and in 34 of 48 who were; 90% of positive samples showed them in the first 5 microscope fields. [[Pascual1999]] In untreated gout, 36 of 37 previously inflamed knees held crystals. [[Pascual1991]]</p></div>
+    <div class="card"><h4>Handle the sample well</h4><p>MSU crystal concentration falls over time at room temperature but not in the fridge, and dried cytospin preparations allowed delayed analysis for at least 12 months. [[Graf2013]] A lab report should state birefringence, shape, inside or outside cells, and number per high-power field. [[Jokic2020]]</p></div>
+    <div class="card"><h4>A normal urate in a flare</h4><p>In 41 patients, serum urate was normal during the flare in 20 (49%): mean 7.5 mg/dL (446 µmol/L) in flares vs 8.5 mg/dL (506 µmol/L) between them. [[Urano2002]] In 339 people, 14% had a urate of 6 mg/dL (357 µmol/L) or less at the flare. [[Schlesinger2009]]</p></div>
+    <div class="card"><h4>Not on urate alone</h4><p>EULAR 2018: gout should not be diagnosed on hyperuricaemia alone, and every person with suspected gout should have a search for crystals. [[Richette2020]] In people with asymptomatic hyperuricaemia, a first-MTP double contour was found in 0.31 (pooled). [[Stewart2019]] G-CAN calls this "asymptomatic MSU crystal deposition", not gout. [[Bursill2019ARD]]</p></div>
+    <div class="card"><h4>How the older criteria did</h4><p>In the same validation set, ACR 1977 had sensitivity 1.00 but specificity 0.51; Rome 0.97/0.78; New York 1.00/0.78; Mexico 1.00/0.44; Netherlands 0.95/0.59. [[Neogi2015]] Across older sets, sensitivity was better in established disease and specificity in early disease. [[Taylor2016]]</p></div>
+  </div>
+</section>

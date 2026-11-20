@@ -1,0 +1,144 @@
+<!-- ================= 2.2 MGFA CLASS & SCORES ================= -->
+<style>
+#m-classes .cl-rung{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--panel-2);font-size:14.5px;display:flex;flex-direction:column;gap:4px}
+#m-classes .cl-rung b:first-child{font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+#m-classes .cl-adl{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+#m-classes fieldset{border:1px solid var(--line);border-radius:12px;padding:8px 10px 10px;margin:0;display:flex;flex-direction:column;gap:5px;min-width:0;background:var(--panel)}
+#m-classes legend{font:600 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:0 4px;max-width:100%;white-space:normal}
+#m-classes .cl-opt{display:flex;gap:9px;align-items:flex-start;text-align:left;border:1px solid var(--line);background:var(--panel);border-radius:8px;padding:6px 9px;cursor:pointer;font-size:14px;line-height:1.3;width:100%}
+#m-classes .cl-opt b{font:700 12px var(--mono);color:var(--muted);min-width:12px;padding-top:1px}
+#m-classes .cl-opt[aria-pressed="true"]{border-color:var(--nerve);background:var(--nerve-soft)}
+#m-classes .cl-opt[aria-pressed="true"] b{color:var(--nerve)}
+#m-classes .cl-dom{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:6px;vertical-align:baseline}
+#m-classes .cl-base{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+#m-classes .cl-base label{display:flex;gap:8px;align-items:center;font:600 12px var(--mono);color:var(--muted);flex:1;min-width:200px}
+#m-classes .cl-base output{font:700 18px var(--body);color:var(--ink);min-width:24px}
+#m-classes .cl-out{border-radius:10px;padding:10px 12px;background:var(--panel-2);font-size:14.5px}
+#m-classes .cl-out.good{background:var(--good-soft)} #m-classes .cl-out.warn{background:var(--warn-soft)}
+#m-classes .cl-out strong{display:block;font-family:var(--display);font-size:20px;line-height:1.15;margin-bottom:3px}
+#m-classes .cl-q{display:flex;flex-direction:column;gap:6px}
+#m-classes .cl-q .ctrls .btn{white-space:normal;text-align:left;font-size:13.5px}
+#m-classes .cl-w{display:grid;grid-template-columns:minmax(0,130px) minmax(0,1fr) 28px;gap:4px 8px;align-items:center;font-size:13.5px}
+#m-classes .cl-w i{display:block;height:10px;border-radius:5px;background:var(--nerve)}
+#m-classes .cl-w i.hi{background:var(--ab)}
+#m-classes .cl-w span:nth-child(3n){font:600 12px var(--mono);text-align:right}
+#m-classes .cl-vs{display:flex;flex-direction:column;gap:8px}
+#m-classes .cl-vs blockquote{margin:0;border-left:3px solid var(--line);padding:2px 0 2px 12px;font-size:15px}
+</style>
+<section class="mod" id="m-classes" data-mod="classes" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · Diagnosis</p><h2>MGFA class &amp; scores</h2>
+    <p class="lede">The MGFA clinical classes I to V, the post-intervention status, and the MG-ADL, QMG and MG Composite scores. Press play to follow a schematic patient across the classes over months, then score the MG-ADL yourself.</p></div>
+
+  <div class="ctrls" role="group" aria-label="Course and breathing support">
+    <span class="kicker">Course</span>
+    <button class="btn" data-clc="b" aria-pressed="true">Bulbar, with crisis</button>
+    <button class="btn" data-clc="l" aria-pressed="false">Limb-predominant</button>
+    <button class="btn" data-clc="o" aria-pressed="false">Ocular only</button>
+    <span class="kicker" style="margin-left:8px">At the crisis</span>
+    <button class="btn" data-clv="int" aria-pressed="true">Intubation</button>
+    <button class="btn" data-clv="niv" aria-pressed="false">BiPAP mask only</button>
+  </div>
+  <div class="stepper" id="clSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="clSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="The MGFA clinical classification drawn as a ladder of rows, from no weakness and Class I (ocular only) through IIa, IIb, IIIa, IIIb, IVa and IVb to Class V (intubation). A patient token moves across 30 months of a schematic course, leaving a stepped trail, while a band underneath shows the MGFA post-intervention status: improved, minimal manifestations, remission or exacerbation. With non-invasive ventilation at the crisis, a ghost token marks the 2016 consensus reading of Class V."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="clPlay">Play</button><label class="stage-cap tl" for="clT">Months <input type="range" id="clT" min="0" max="1" step="0.002" value="0.02"></label></div>
+      <div class="readout" id="clRead"></div>
+      <div class="cl-rung" id="clRung"></div>
+      <p class="stage-cap">A schematic course, not a real patient and not a typical one. Class wording is the MGFA's own; click a class on the ladder to read it.</p></div>
+    <aside class="note" id="clNote" aria-live="polite"></aside>
+  </div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>MG-ADL: 8 items, total 0 to 24; a 2-point fall indicates clinical improvement. MGFA Class V means intubation (not routine post-operative); a feeding tube without intubation is IVb. The 2016 consensus treatment goal is minimal manifestations or better. [[MGNetADL2022,Muppidi2011,MGFAClass2016,Sanders2016]]</div>
+    <div class="pt"><b>In plain words</b>Doctors give MG two kinds of labels. The class says how weak a person is today and which muscles are involved. The scores add up how much MG affects talking, chewing, swallowing, breathing, brushing teeth, standing up, double vision and drooping lids.</div>
+  </div>
+
+  <h3 class="sub">Class V and the breathing mask: two definitions</h3>
+  <div class="split2">
+    <div class="card cl-vs"><span class="kicker">MGFA clinical classification, 2000</span><blockquote>Class V: "Defined as intubation, with or without mechanical ventilation, except when employed during routine postoperative management. The use of a feeding tube without intubation places the patient in class IVb."</blockquote><p>Non-invasive ventilation is not mentioned. Read strictly, a person kept off a ventilator by a BiPAP mask is not Class V. [[Jaretzki2000,MGFAClass2016]]</p></div>
+    <div class="card cl-vs"><span class="kicker">International consensus guidance, 2016</span><blockquote>Manifest myasthenic crisis: MGFA Class V, meaning worsening of myasthenic weakness "requiring intubation or noninvasive ventilation to avoid intubation".</blockquote><p>The same label now covers people treated with a mask. Claytor and colleagues likewise define crisis as respiratory insufficiency needing invasive or non-invasive ventilation. [[Sanders2016,Claytor2023]]</p></div>
+  </div>
+  <p class="callout">Why the gap matters: in a Mayo series of 60 crisis episodes, BiPAP was the first support in 24 and intubation was avoided in 14 of them (about 58%); in the first BiPAP series it was avoided in 7 of 11 trials. Under the 2000 wording those people would stay in IVb; under the 2016 definition they are Class V. Counts of "Class V" or "crisis" in different studies may therefore not mean the same thing. [[Seneviratne2008,Rabinstein2002,Sanders2016]] Trouble breathing or swallowing in MG is an emergency; see <a href="#crisis" data-go="crisis">Myasthenic crisis</a>.</p>
+
+  <h3 class="sub">The MGFA classes, word for word</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Class</th><th>Published wording</th></tr></thead>
+    <tbody>
+      <tr><th>I</th><td>"Any ocular muscle weakness; may have weakness of eye closure. All other muscle strength is normal."</td></tr>
+      <tr><th>II</th><td>"Mild weakness affecting muscles other than ocular muscles; may also have ocular muscle weakness of any severity."</td></tr>
+      <tr><th>III</th><td>"Moderate weakness affecting muscles other than ocular muscles; may also have ocular muscle weakness of any severity."</td></tr>
+      <tr><th>IV</th><td>"Severe weakness affecting muscles other than ocular muscles; may also have ocular muscle weakness of any severity."</td></tr>
+      <tr><th>a (IIa, IIIa, IVa)</th><td>"Predominantly affecting limb, axial muscles, or both. May also have lesser involvement of oropharyngeal muscles."</td></tr>
+      <tr><th>b (IIb, IIIb, IVb)</th><td>"Predominantly affecting oropharyngeal, respiratory muscles, or both. May also have lesser or equal involvement of limb, axial muscles, or both."</td></tr>
+      <tr class="hl"><th>V</th><td>"Defined as intubation, with or without mechanical ventilation, except when employed during routine postoperative management. The use of a feeding tube without intubation places the patient in class IVb."</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Wording from the MGFA clinical classification [[Jaretzki2000,MGFAClass2016]]. The class describes the disease at that examination; the 2025 MGFA task force says it should be updated every 3 to 6 months [[Ruzhansky2025]].</p>
+
+  <h3 class="sub">Post-intervention status</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Status</th><th>Definition (MGFA-PIS)</th></tr></thead>
+    <tbody>
+      <tr><th>Complete stable remission (CSR)</th><td>No symptoms or signs of MG for at least 1 year and no MG therapy during that time; no weakness of any muscle on careful examination by someone skilled in neuromuscular evaluation. Isolated weakness of eyelid closure is accepted.</td></tr>
+      <tr><th>Pharmacologic remission (PR)</th><td>The same criteria as CSR, except the patient continues some form of MG therapy. Patients taking cholinesterase inhibitors are excluded, because their use suggests weakness.</td></tr>
+      <tr><th>Minimal manifestations (MM)</th><td>No symptoms of functional limitation from MG, but some weakness on examination of some muscles. MM-0: no MG treatment for at least 1 year. MM-1: continuing immunosuppression, no cholinesterase inhibitors or other symptomatic therapy. MM-2: only low-dose cholinesterase inhibitors (under 120 mg pyridostigmine a day) for at least 1 year. MM-3: cholinesterase inhibitors or other symptomatic therapy plus some immunosuppression during the past year.</td></tr>
+      <tr><th>Improved (I)</th><td>A substantial decrease in pre-treatment manifestations, or a sustained substantial reduction in MG medications; in prospective studies, a specific decrease in QMG score.</td></tr>
+      <tr><th>Unchanged (U)</th><td>No substantial change.</td></tr>
+      <tr><th>Worse (W)</th><td>A substantial increase in manifestations or in MG medications.</td></tr>
+      <tr><th>Exacerbation (E)</th><td>A patient who met CSR, PR or MM criteria and then developed findings beyond those criteria.</td></tr>
+      <tr><th>Died of MG (D of MG)</th><td>Death from MG, from complications of therapy, or within 30 days after thymectomy.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">[[Jaretzki2000,MGFAPIS2016]] The 2016 consensus excludes from remission anyone taking a cholinesterase inhibitor every day with reasonable evidence of benefit, and calls MG refractory when PIS is unchanged or worse after corticosteroids and at least 2 other immunosuppressive agents at adequate dose and duration. [[Sanders2016]]</p>
+
+  <div class="lab even">
+    <div class="stage cl-q">
+      <span class="kicker">Status finder · teaching tool</span>
+      <p>Over the past year, on careful examination:</p>
+      <div class="ctrls" role="group" aria-label="Findings"><button class="btn" data-clq1="none" aria-pressed="true">No symptoms or signs (eye-closure weakness only, at most)</button><button class="btn" data-clq1="weak" aria-pressed="false">Some weakness on exam, no functional limitation</button><button class="btn" data-clq1="func" aria-pressed="false">Symptoms that limit function</button></div>
+      <p>MG treatment during that time:</p>
+      <div class="ctrls" role="group" aria-label="Treatment"><button class="btn" data-clq2="none" aria-pressed="true">None</button><button class="btn" data-clq2="is" aria-pressed="false">Immunosuppression, no cholinesterase inhibitor</button><button class="btn" data-clq2="che" aria-pressed="false">Low-dose cholinesterase inhibitor only</button><button class="btn" data-clq2="both" aria-pressed="false">Cholinesterase inhibitor or other symptomatic therapy plus immunosuppression</button></div>
+      <p>Has this lasted at least 1 year?</p>
+      <div class="ctrls" role="group" aria-label="Duration"><button class="btn" data-clq3="y" aria-pressed="true">Yes</button><button class="btn" data-clq3="n" aria-pressed="false">Not yet</button></div>
+    </div>
+    <div class="stage"><div class="cl-out" id="clPisOut" aria-live="polite"></div>
+      <p class="stage-cap">Applies the MGFA-PIS definitions word by word. The 2025 MGFA task force describes PIS as the evaluator's overall clinical judgement, which needs no defined change on any score. [[MGFAPIS2016,Ruzhansky2025]]</p></div>
+  </div>
+
+  <h3 class="sub">MG-ADL, scored live</h3>
+  <p class="prose"><span>The MG Activities of Daily Living profile has 8 items scored 0 to 3: 2 ocular, 3 oropharyngeal, 1 respiratory and 2 extremity items, for a total of 0 to 24. Current MGNet instructions: the person completes it, rating their average function over the last 7 days, taking their current MG medicines into account and counting only symptoms from MG. If torn between two scores, record the higher. [[Wolfe1999,MGADLForm,MGNetADL2022]]</span></p>
+  <div class="ctrls" role="group" aria-label="Examples"><span class="kicker">Load</span>
+    <button class="btn" data-clex="gen">Example: bulbar and limb</button>
+    <button class="btn" data-clex="ocu">Example: ocular only</button>
+    <button class="btn" data-clex="zero">All zero</button></div>
+  <div class="cl-adl" id="clAdl"></div>
+  <div class="stage">
+    <svg id="clAdlSvg" viewBox="0 0 720 200" role="img" aria-label="MG-ADL total from 0 to 24 as a stacked bar coloured by ocular, oropharyngeal, respiratory and extremity items, with the minimal symptom expression range and the PASS threshold marked, and below it the change from baseline with the 2-point improvement line."></svg>
+    <div class="cl-base"><label for="clBase">Baseline <input type="range" id="clBase" min="0" max="24" step="1" value="13"><output id="clBaseV">13</output></label><button class="btn" id="clBaseSet">Use current total as baseline</button></div>
+    <div class="cl-out" id="clAdlOut" aria-live="polite"></div>
+    <p class="stage-cap">Anchor wording from the MG-ADL form (© 1997 UT Southwestern) [[MGADLForm,Wolfe1999]]. Thresholds: 2-point improvement [[Muppidi2011]]; minimal symptom expression 0 or 1, PASS threshold 2, and a floor effect, as collected by MGNet [[MGNetSummaries2023]]. The examples are invented. Not a clinical tool.</p>
+  </div>
+
+  <h3 class="sub">The other scales</h3>
+  <div class="cards">
+    <div class="card"><span class="kicker">Clinician-scored</span><h4>QMG (Quantitative MG score)</h4><p>13 items, each 0 (none) to 3 (severe), total 0 to 39: diplopia on lateral gaze, ptosis on upward gaze, facial muscles, swallowing, speech, right and left arm outstretched, forced vital capacity, right and left hand grip, head lift, right and left leg outstretched. It takes about 20 to 30 minutes and needs a spirometer, a stopwatch and a dynamometer. [[MGNetSummaries2023,MGNetQMGR2022]]</p>
+      <p><b>Meaningful change:</b> at least 2 points if baseline QMG is 0 to 16, at least 3 if above 16; other estimates 2.3 and 2.6. The individual minimum detectable change, 4.3, may exceed the MCID. [[Katzberg2014,MGNetSummaries2023,Bedlack2005,Barohn1998]]</p></div>
+    <div class="card"><span class="kicker">Clinician-scored, weighted</span><h4>MG Composite</h4><p>10 items with weighted scoring, maximum 50. A 3-point improvement was optimal for signifying clinical improvement in 175 patients at 11 centres, and test-retest reliability was 98%. [[Burns2008,Burns2010,MGNetMGC2022]] The weights put breathing highest:</p>
+      <div class="cl-w" aria-label="MG Composite maximum points per item">
+        <span>Ptosis on upgaze</span><i style="width:33%"></i><span>3</span>
+        <span>Diplopia, lateral gaze</span><i style="width:44%"></i><span>4</span>
+        <span>Eye closure</span><i style="width:22%"></i><span>2</span>
+        <span>Talking</span><i style="width:67%"></i><span>6</span>
+        <span>Chewing</span><i style="width:67%"></i><span>6</span>
+        <span>Swallowing</span><i style="width:67%"></i><span>6</span>
+        <span>Breathing</span><i class="hi" style="width:100%"></i><span>9</span>
+        <span>Neck flexion or extension</span><i style="width:44%"></i><span>4</span>
+        <span>Shoulder abduction</span><i style="width:56%"></i><span>5</span>
+        <span>Hip flexion</span><i style="width:56%"></i><span>5</span>
+      </div>
+      <p>Diplopia within 1–10 s scores 3 but ptosis in the same time scores 2. Limb grades: mild is MRC 4+, moderate 4 to 4−, severe 3 or less. [[Burns2008,MGNetMGC2022]]</p></div>
+    <div class="card"><span class="kicker">Quality of life</span><h4>MG-QOL15r</h4><p>The MG-QOL15 was revised after Rasch analysis of more than 1,300 surveys: 3 items were reworded and a 3-response format worked best. It is the preferred quality-of-life instrument. With 15 items scored 0 to 2, the range is 0 to 30, a figure inferred from the item structure rather than stated in the abstract. [[Burns2016]]</p>
+      <p><b>Meaningful change:</b> anchored to the MG-ADL in ADAPT (157 people) and MyRealWorld-MG (92), the MCID ranged from 1.6 to 3.0; the authors suggest 2- and 3-point thresholds. [[Ben2026]]</p></div>
+    <div class="card"><span class="kicker">Patient-reported</span><h4>How the MG-ADL holds up</h4><p>In the original 254 encounters, mean MG-ADL was 4.89 and mean QMG 10.80, with a correlation of 0.583. In 87 patients the MG-ADL correlated with the MG Composite at r = 0.85, and a 2-point improvement indicated clinical improvement. An MG-ADL of 0 or 1, "minimal symptom expression", is used as a trial endpoint. [[Wolfe1999,Muppidi2011,MGNetSummaries2023]]</p>
+      <div class="hook"><b>Exam hook</b>MG-ADL 0–24, 2 points. QMG 0–39, 2 to 3 points. MG Composite 0–50, 3 points. MG-QOL15r 0–30, 2 to 3 points.</div></div>
+  </div>
+</section>

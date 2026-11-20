@@ -1,0 +1,74 @@
+<!-- ================= 3.1 HOW URATE-LOWERING DRUGS WORK ================= -->
+<section class="mod" id="m-ult" data-mod="ult" hidden>
+  <style>
+    #m-ult .ul-pick{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+    #m-ult .ul-pick .kicker{margin-right:4px}
+    #m-ult .ul-pick .sep{flex-basis:100%;height:0}
+    #m-ult .ul-grp{font:600 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:0 2px 0 6px}
+    #m-ult .tbl table{min-width:820px}
+    #m-ult .ul-num{font:800 26px/1.1 var(--display);color:var(--sea);display:block}
+    #m-ult .ul-drug{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--panel-2)}
+    #m-ult .ul-drug .kv dd{font-size:14.5px}
+  </style>
+  <div class="mhead"><p class="eyebrow">Part 3 · Lowering urate</p><h2>How urate-lowering drugs work</h2>
+    <p class="lede">There are three ways to lower urate: make less of it, pass more of it out, or break it down. Press play to follow urate from purines to the blood and out through the kidney and gut, then pick a drug to light up the step it blocks.</p></div>
+  <div class="ul-pick" role="group" aria-label="Choose a drug">
+    <span class="kicker">Drug</span>
+    <button class="btn" data-ul="auto" aria-pressed="true">Follow the scenes</button>
+    <button class="btn" data-ul="none" aria-pressed="false">No drug</button>
+    <span class="sep"></span><span class="ul-grp">Make less</span>
+    <button class="btn" data-ul="allo" aria-pressed="false">Allopurinol</button>
+    <button class="btn" data-ul="febu" aria-pressed="false">Febuxostat</button>
+    <span class="sep"></span><span class="ul-grp">Excrete more</span>
+    <button class="btn" data-ul="prob" aria-pressed="false">Probenecid</button>
+    <button class="btn" data-ul="benz" aria-pressed="false">Benzbromarone</button>
+    <button class="btn" data-ul="dotin" aria-pressed="false">Dotinurad</button>
+    <button class="btn" data-ul="lesin" aria-pressed="false">Lesinurad (+ XO inhibitor)</button>
+    <span class="sep"></span><span class="ul-grp">Break it down</span>
+    <button class="btn" data-ul="peg" aria-pressed="false">Pegloticase</button>
+    <span class="sep"></span><span class="ul-grp">Mild side effect</span>
+    <button class="btn" data-ul="losartan" aria-pressed="false">Losartan</button>
+    <button class="btn" data-ul="feno" aria-pressed="false">Fenofibrate</button>
+    <button class="btn" data-ul="sglt2" aria-pressed="false">SGLT2 inhibitors</button>
+  </div>
+  <div class="stepper" id="ulSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="ulSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="Urate pathway from purines through hypoxanthine and xanthine to blood urate, out through kidney and gut, with the step each drug blocks lit up"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="ulPlay">Play</button><label class="stage-cap tl" for="ulT">Scene <input type="range" id="ulT" min="0" max="1" step="0.001" value="0.06"></label></div>
+      <div class="readout" id="ulRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> Dots are urate (gold), its precursors (muted) and allantoin (indigo); they are not to scale. The gauge applies the average change reported in one study of each drug to an illustrative starting urate of 8.5 mg/dL [about 506 µmol/L]. The studies differ in people, doses and timing, so the bars are not a head-to-head comparison.</p></div>
+    <aside class="note" id="ulNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="split2">
+    <div class="callout"><p><b>Where urate goes.</b> Xanthine oxidoreductase makes urate in two steps, hypoxanthine to xanthine and xanthine to uric acid. Humans have no working uricase, so urate is the end of the line. [[Chen2016,Oda2002]] About two thirds is excreted by the kidney and one third by the gut, and at least 90% of the urate filtered by the kidney is reabsorbed. [[Ohashi2023,Chen2016]] Most people with gout under-excrete urate through the kidney. [[PerezRuiz2002Renal,So2010]]</p></div>
+    <div class="callout"><p><b>Which route first.</b> ACR 2020 strongly recommends allopurinol as the first-line drug, including in CKD stage ≥3. It strongly prefers allopurinol or febuxostat over probenecid in CKD stage ≥3. It recommends pegloticase only when the other drugs have failed and flares or tophi persist, and strongly recommends against it as a first-line drug. [[FitzGerald2020]]</p></div>
+  </div>
+
+  <h3 class="sub">The drugs side by side</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Drug</th><th>How it lowers urate</th><th>Half-life</th><th>Given</th><th>Approval and status</th></tr></thead>
+    <tbody>
+      <tr><th>Allopurinol</th><td>Xanthine oxidase inhibitor; purine (hypoxanthine) analogue; active metabolite oxypurinol [[FDA-Zyloprim,Day2007]]</td><td>1.2 h; oxypurinol 23.3 h, cleared by the kidney [[Day2007]]</td><td>Tablet, once daily [[FDA-Zyloprim]]</td><td>US 19 Aug 1966 (Zyloprim) [[DrugsFDA-ULT]]</td></tr>
+      <tr><th>Febuxostat</th><td>Non-purine selective xanthine oxidase inhibitor [[Becker2005,White2018]]</td><td>About 5–8 h [[FDA-Uloric]]</td><td>Tablet, once daily [[FDA-Uloric]]</td><td>EU 21 Apr 2008; US 13 Feb 2009; US boxed warning for cardiovascular death 2019 [[EMA-Adenuric,DrugsFDA-ULT,FDA-Uloric]]</td></tr>
+      <tr><th>Probenecid</th><td>Uricosuric: more uric acid excreted in urine [[FDA-Probenecid]]</td><td>Not quoted in our sources</td><td>Tablet, twice daily [[FDA-Probenecid]]</td><td>Current US generic label; "may not be effective" at GFR ≤30 mL/min [[FDA-Probenecid]]</td></tr>
+      <tr><th>Benzbromarone</th><td>Uricosuric [[PerezRuiz1998,Lee2008]]</td><td>Not quoted; metabolised by CYP2C9 [[Lee2008]]</td><td>Tablet, 100 mg/day in the trial quoted here [[PerezRuiz1998]]</td><td>Withdrawn by Sanofi-Synthélabo in 2003 for liver toxicity, still sold by others; never approved in the US [[Lee2008,DrugsFDA-ULT]]</td></tr>
+      <tr><th>Dotinurad</th><td>Selective URAT1 inhibitor [[Taniguchi2020]]</td><td>Not quoted in our sources</td><td>Tablet, 2–4 mg in trials [[Hosoya2020a,Sun2025]]</td><td>Japan, January 2020 (URECE); US and European phase 3 trials recruiting [[Taniguchi2020,NCT07089875]]</td></tr>
+      <tr><th>Lesinurad</th><td>URAT1 inhibitor, only with a xanthine oxidase inhibitor [[FDA-Zurampic]]</td><td>Not quoted in our sources</td><td>Tablet, 200 mg/day [[FDA-Zurampic]]</td><td>US 22 Dec 2015, later discontinued; EU withdrawal notified 31 Jul 2020 [[DrugsFDA-ULT,EMA-Zurampic]]</td></tr>
+      <tr><th>Pegloticase</th><td>PEGylated recombinant uricase: urate to allantoin [[FDA-Krystexxa]]</td><td>Shortened by anti-drug antibodies [[Lipsky2014]]</td><td>IV infusion every 2 weeks, with methotrexate [[FDA-Krystexxa]]</td><td>US 14 Sep 2010; EU authorised 2013, withdrawn 30 Jun 2016 [[DrugsFDA-ULT,EMA-Krystexxa]]</td></tr>
+      <tr class="hl"><th>Losartan · fenofibrate · SGLT2 inhibitors</th><td>Mild urate lowering as a side effect of a drug given for something else [[Wurzner2001,Feher2003,Zhao2018]]</td><td colspan="3">Not licensed for gout. ACR 2020 conditionally favours losartan for blood pressure when feasible and conditionally recommends against adding or switching to fenofibrate. [[FitzGerald2020]]</td></tr>
+    </tbody></table></div>
+
+  <div class="cards">
+    <div class="card"><h4>Why allopurinol depends on the kidney</h4><p><span class="ul-num">23.3 h</span>Oxypurinol, the metabolite that does most of the work, has a half-life of 23.3 ± 6.0 h with normal kidney function and is cleared almost entirely in urine. [[Day2007]] Its clearance falls with creatinine clearance, which is why kidney disease raises exposure. Hande 1984 turned that into creatinine-clearance-based dosing after 78 cases of a severe toxicity syndrome. [[Hande1984]]</p><p>Later trials raised the dose above that cap to reach target, including in renal impairment. [[Stamp2011,Stamp2017RCT]] See <a href="#t2t" data-go="t2t">Treat to target</a>.</p></div>
+    <div class="card"><h4>The enzyme humans lost</h4><p>Most mammals have uricase, which turns urate into allantoin, about 100 times more soluble. [[Chen2016,So2010]] In humans, chimpanzees and orangutans a shared nonsense mutation silenced the gene, and gibbons lost it separately. [[Wu1992,Oda2002]] Resurrected ancestral enzymes show activity falling steadily along the primate line before the gene was switched off. [[Kratzer2014]]</p><p>Pegloticase puts a version of that enzyme back, by infusion. [[FDA-Krystexxa]]</p></div>
+    <div class="card"><h4>When drug treatment starts</h4><ul><li>ACR 2020 strongly recommends urate-lowering therapy with ≥1 tophus, radiographic damage from gout, or ≥2 flares a year. [[FitzGerald2020]]</li><li>It conditionally recommends against it after a first flare, unless that flare comes with CKD stage ≥3, serum urate >9 mg/dL [&gt;535 µmol/L] or kidney stones. [[FitzGerald2020]]</li><li>It conditionally recommends against drugs for asymptomatic hyperuricaemia; Japan's guideline considers them from 8–9 mg/dL. [[FitzGerald2020,Hisatome2021]]</li><li>EULAR 2016: consider it from the first presentation. [[Richette2017]]</li></ul></div>
+    <div class="card"><h4>Why some people respond less <span class="ev est">Established</span></h4><p>ABCG2 exports urate in the kidney and gut. [[Matsuo2009,HalperinKuhns2021]] Its common Q141K variant (rs2231142) predicts serum urate staying ≥6 mg/dL despite more than 300 mg/day of allopurinol in adherent people (OR 2.71, 95% CI 1.70–4.48; replication meta-analysis OR 2.43). [[Roberts2017,Wallace2018]] A genome-wide study found that ABCG2 also transports allopurinol. [[Wen2015]]</p></div>
+    <div class="card"><h4>In the pipeline <span class="ev early">Early evidence</span></h4><p>New xanthine oxidase inhibitors and URAT1 inhibitors are in trials. Tigulixostat 200 mg brought 62.2% below 5 mg/dL at week 12 against 2.9% on placebo. [[Terkeltaub2023]] In China, dotinurad 4 mg brought 73.6% to ≤6 mg/dL at week 24 against 38.1% on febuxostat 40 mg. [[Sun2025]] Two placebo-controlled phase 3 trials of AR882 have completed. [[NCT06846515,NCT06439602]] More in <a href="#cure" data-go="cure">Toward a cure</a>.</p></div>
+  </div>
+
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Allopurinol is a <b>purine analogue</b>; its active metabolite <b>oxypurinol</b> (t½ about 23 h) is cleared by the kidney. Febuxostat is a <b>non-purine</b> XO inhibitor. Uricosurics act on <b>URAT1</b>; pegloticase turns urate into <b>allantoin</b>. [[Day2007,FDA-Zyloprim,FDA-Uloric,Enomoto2002,FDA-Krystexxa]]</div>
+    <div class="pt"><b>In plain words</b>There are three ways to lower uric acid: make less of it (allopurinol, febuxostat), pass more in the urine (probenecid and similar drugs), or break it down with an enzyme drip (pegloticase). [[FDA-Zyloprim,FDA-Probenecid,FDA-Krystexxa]]</div>
+  </div>
+</section>

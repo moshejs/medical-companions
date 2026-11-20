@@ -1,0 +1,83 @@
+<!-- ================= 2.2 BIPOLAR I, II, CYCLOTHYMIA & SPECIFIERS ================= -->
+<style>
+#m-types .card>.tag,#m-types .card>.ev{align-self:flex-start}
+#m-types .tbl table{min-width:640px}
+#m-types .tbl td code{font:600 12.5px var(--mono)}
+#m-types .ty-vig{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+#m-types .ty-v{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+#m-types .ty-v.ok{border-left-color:var(--good)} #m-types .ty-v.no{border-left-color:var(--bad)}
+#m-types .ty-v p{margin:0;font-size:15px}
+#m-types .ty-v .kicker{color:var(--dx)}
+#m-types .ty-opts{display:flex;flex-wrap:wrap;gap:6px}
+#m-types .ty-opts button{font:600 12.5px var(--body);padding:6px 11px;border-radius:999px;border:1px solid var(--line);background:var(--panel-2);color:var(--ink);cursor:pointer}
+#m-types .ty-opts button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+#m-types .ty-fb{font-size:14px;line-height:1.45}
+#m-types .ty-fb:empty{display:none}
+#m-types .ty-v.ok .ty-fb b:first-child{color:var(--good)} #m-types .ty-v.no .ty-fb b:first-child{color:var(--bad)}
+#m-types .ty-score{font:600 14px var(--mono)}
+</style>
+<section class="mod" id="m-types" data-mod="types" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · Diagnosis</p><h2>Bipolar I, II, cyclothymia &amp; specifiers</h2>
+    <p class="lede">The diagnosis depends on which episodes a person has had over their life, not on how they feel today. Scrub three illustrative life charts to see the moment each one meets its rule, then switch on the specifiers that describe the course in more detail.</p></div>
+  <div class="stepper" id="tySteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="tySvg" viewBox="0 0 720 470" style="min-width:560px" role="img" aria-label="Three stacked life charts over 36 months for bipolar I, bipolar II and cyclothymic disorder. As time passes each line is drawn, the defining episodes are marked when they reach their minimum length, and a rule box beside each chart ticks off its requirements: one manic episode for bipolar I; at least one hypomanic and one major depressive episode, and never mania, for bipolar II; at least two years of numerous highs and lows below episode thresholds for cyclothymic disorder."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="tyPlay">Play</button><label class="stage-cap tl" for="tyT">Months <input type="range" id="tyT" min="0" max="1" step="0.001" value="0.03"></label></div>
+      <div class="readout" id="tyRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> Three illustrative people, not predictions. Line heights and band edges are drawing conventions: what makes an episode manic, hypomanic or major depressive is its symptoms, duration and impact, as in <a href="#criteria" data-go="criteria">DSM-5-TR criteria</a>. Rules are quoted for learning, not for self-diagnosis. [[APA2022,Yatham2018]]</p>
+    </div>
+    <aside class="note" id="tyNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Specifiers: describing the course</h3>
+  <div class="prose"><p>Specifiers add detail to the diagnosis. Some describe an episode (anxious distress, mixed features, psychotic features, catatonia, peripartum onset; melancholic or atypical features for depression); two describe the illness course (rapid cycling, seasonal pattern). [[Yatham2018,APA2022]] Switch them on to overlay what each one looks at on one illustrative year.</p></div>
+  <div class="ctrls" role="group" aria-label="Specifiers"><span class="kicker">Overlay</span>
+    <button class="btn" data-ts="rapid" aria-pressed="true">Rapid cycling</button>
+    <button class="btn" data-ts="mixed" aria-pressed="false">Mixed features</button>
+    <button class="btn" data-ts="psych" aria-pressed="false">Psychotic features</button>
+    <button class="btn" data-ts="peri" aria-pressed="false">Peripartum onset</button>
+    <button class="btn" data-ts="season" aria-pressed="false">Seasonal pattern</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="tySpec" viewBox="0 0 720 340" style="min-width:560px" role="img" aria-label="One illustrative year on a life chart with four mood episodes: a hypomanic, a major depressive, a manic and a second depressive episode. With rapid cycling on, numbered markers count the episodes as the line is drawn, with the two-month gaps and the switch between them marked, until the count reaches four. Other overlays shade a mixed stretch, mark a psychotic symptom at the peak of mania, place a delivery before an episode, and add a strip of seasons."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="tySpPlay">Play</button><label class="stage-cap tl" for="tySpT">Months <input type="range" id="tySpT" min="0" max="1" step="0.001" value="1"></label></div>
+      <p class="stage-cap"><b>Schematic.</b> One invented year. The overlays show what each specifier is about; they are not drawn to any one person's data.</p>
+    </div>
+    <aside class="note" id="tySpNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Which type? Six teaching vignettes</h3>
+  <div class="prose"><p>Short, invented stories for practising the rules above. Pick an answer for each to see the reasoning. Real diagnosis takes a full assessment, the person's history over time, and ruling out other causes such as substances, medicines and medical conditions (see <a href="#differential" data-go="differential">Bipolar or something else?</a>). [[APA2022,Yatham2018]]</p></div>
+  <div class="ty-vig" id="tyVig"></div>
+  <div class="ctrls"><span class="ty-score" id="tyScore" aria-live="polite">0 of 6 answered</span><button class="btn ghost" id="tyVReset">Start again</button></div>
+
+  <h3 class="sub">DSM-5-TR and ICD-11 compared</h3>
+  <div class="tbl"><table>
+    <thead><tr><th scope="col">Topic</th><th scope="col">DSM-5-TR (APA, 2022)</th><th scope="col">ICD-11 (WHO)</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Names and codes</th><td>Bipolar I disorder; bipolar II disorder; cyclothymic disorder; plus substance/medication-induced, due to another medical condition, other specified and unspecified bipolar and related disorders [[APA2022,Yatham2018]]</td><td><code>6A60</code> bipolar type I disorder; <code>6A61</code> bipolar type II disorder; <code>6A62</code> cyclothymic disorder [[Harter2025]]</td></tr>
+      <tr><th scope="row">Current episode</th><td>Recorded with the diagnosis, with severity (mild, moderate, severe) and remission (partial or full) specifiers [[Yatham2018,APA2022]]</td><td>Subcodes, e.g. <code>6A60.0</code> current manic episode without psychotic symptoms, <code>6A60.1</code> with psychotic symptoms, <code>6A60.2</code> current hypomanic episode, <code>6A60.F</code> currently in full remission [[Harter2025]]</td></tr>
+      <tr><th scope="row">Bipolar I needs</th><td>At least one manic episode [[APA2022,McIntyre2020Lancet]]</td><td>One or more manic <b>or mixed</b> episodes. ICD-10 had needed two or more episodes of elevated mood [[Stein2020BMC,Harter2025]]</td></tr>
+      <tr><th scope="row">Mania</th><td>At least 1 week (any duration if hospitalised); at least 3 of 7 symptoms, 4 if mood is only irritable [[APA2022,Yatham2018]]</td><td>At least 1 week unless shortened by treatment; characteristic symptoms described, with no fixed count [[Stein2020BMC]]</td></tr>
+      <tr><th scope="row">Hypomania</th><td>At least 4 consecutive days [[APA2022,Yatham2018]]</td><td>"At least several days", without marked impairment [[Stein2020BMC]]</td></tr>
+      <tr><th scope="row">Mixed states</th><td>A "with mixed features" specifier on manic, hypomanic or depressive episodes [[Yatham2018]]</td><td>A mixed <b>episode</b>: rapid alternation or admixture of prominent manic and depressive symptoms for at least 2 weeks (<code>6A60.9</code>/<code>6A60.A</code> current mixed episode, without/with psychotic symptoms) [[Stein2020BMC,Harter2025]]</td></tr>
+      <tr><th scope="row">Bipolar II</th><td>At least one hypomanic and one major depressive episode, never mania [[APA2022,Yatham2018]]</td><td>Given "equal status" with type I; ICD-10 had placed it under "other bipolar affective disorders" [[Stein2020BMC]]</td></tr>
+      <tr><th scope="row">Cyclothymia</th><td>At least 2 years (1 year in children and adolescents) of numerous subthreshold hypomanic and depressive periods [[APA2022,Yatham2018]]</td><td>Moved from ICD-10's "persistent affective disorders" into the bipolar grouping; at least 2 years [[Stein2020BMC,Harter2025]]</td></tr>
+      <tr><th scope="row">Course descriptors</th><td>Specifiers, including rapid cycling and seasonal pattern [[Yatham2018,APA2022]]</td><td>Qualifiers under <code>6A80</code>: e.g. <code>6A80.4</code> seasonal pattern, <code>6A80.5</code> rapid cycling, <code>6A80.0</code> prominent anxiety symptoms; no "predominant polarity" qualifier [[Harter2025,Stein2020BMC]]</td></tr>
+      <tr><th scope="row">Depressive episode</th><td>5 of 9 symptoms for 2 weeks [[APA2022,Yatham2018]]</td><td>At least 5 symptoms, one from the affective cluster (ICD-10 required four) [[Harter2025]]</td></tr>
+      <tr><th scope="row">Style</th><td colspan="2">Berk and Vieta: DSM-5 keeps fixed symptom counts, while ICD-11 gives descriptive requirements that let the clinician "pattern-fit" the diagnosis. Across 103 disorders in both systems, 19.4% showed major differences and 30.1% were essentially identical. [[Stein2020BMC,First2021]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Beyond the three main types</h3>
+  <div class="cards">
+    <div class="card"><span class="tag dx">Bipolar II</span><h4>Not "bipolar lite"</h4><p>CANMAT calls the idea of bipolar II as a less severe form "long-standing but discredited": disability is comparable to bipolar I, the economic burden up to four times greater, and people spend as much time symptomatic, mostly depressed. Rates of attempted suicide are similar in the two types, a population statistic that is a reason for regular, kind check-ins and early help, not for fear. The diagnosis is generally stable, with a possibly higher chance of conversion to bipolar I early in the illness. [[Yatham2018]]</p></div>
+    <div class="card"><span class="tag dx">How common</span><h4>Population figures</h4><p>In WHO World Mental Health surveys of 61,392 adults in 11 countries, lifetime prevalence was 0.6% for bipolar I, 0.4% for bipolar II and 1.4% for subthreshold bipolar disorder: 2.4% for the whole spectrum. These describe populations, not anyone's personal chance. [[Merikangas2011]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Cyclothymia is under-recognised</h4><p>Van Meter and colleagues describe cyclothymic disorder as rarely diagnosed despite evidence that it "may be the most prevalent form of bipolar disorder", as highly impairing, and as a possible diathesis for major mood disorders. [[VanMeter2012]]</p></div>
+    <div class="card"><span class="tag dx">Other categories</span><h4>Other specified and unspecified</h4><p>DSM-5 replaced "bipolar disorder not otherwise specified" with "other specified" and "unspecified" bipolar and related disorder. Examples of other specified include short hypomanias (2–3 days) with major depressive episodes, and hypomanic episodes with too few symptoms, with major depressive episodes. Severus and Bauer warn that a diagnosis made after treatment has started can be shaped by that treatment. [[Severus2014,Yatham2018]]</p></div>
+    <div class="card"><span class="tag dx">Other causes</span><h4>Substance, medicine or medical condition</h4><p>DSM-5 has separate categories for substance/medication-induced bipolar and related disorder and for bipolar and related disorder due to another medical condition. A manic episode needs Criterion D: not attributable to a substance or another medical condition. The exception is a full manic episode that emerges on antidepressant treatment and persists at a fully syndromal level beyond the treatment's effect, which counts towards bipolar I. [[APA2022,Yatham2018]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>A wider "soft" spectrum?</h4><p>In the Zurich cohort, softer criteria gave a "soft bipolar spectrum" of 23.7%, and the authors argued that hypomania should be defined by 3 of 7 symptoms plus a change in functioning, whatever its length. In the US NCS-R, nearly 40% of people with major depression had a history of subthreshold hypomania (early evidence). These ideas are not current criteria. [[Angst2003,Angst2010NCSR]]</p></div>
+  </div>
+</section>

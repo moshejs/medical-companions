@@ -1,0 +1,152 @@
+<!-- ================= 3.1 ALCOHOL WITHDRAWAL: THE TIMELINE ================= -->
+<style>
+#m-withdrawal .wd-src{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-withdrawal .wd-paws{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:900px){#m-withdrawal .wd-paws{grid-template-columns:minmax(0,1fr)}}
+#m-withdrawal .wd-list{display:flex;flex-direction:column;gap:6px;margin:0;padding:0;border:0;min-width:0}
+#m-withdrawal .wd-list+.wd-list{margin-top:14px}
+#m-withdrawal .wd-list legend{font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:0;margin:6px 0 4px}
+#m-withdrawal .wd-list label{display:flex;gap:10px;align-items:flex-start;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:var(--panel);font-size:14.5px;cursor:pointer;line-height:1.35}
+#m-withdrawal .wd-list label:hover{border-color:var(--muted)}
+#m-withdrawal .wd-list input{margin-top:3px;accent-color:var(--accent);flex:none;width:16px;height:16px}
+#m-withdrawal .wd-list label.gate{background:var(--accent-soft);border-color:var(--accent)}
+#m-withdrawal .wd-list label.off{opacity:.5}
+#m-withdrawal .wd-out{display:flex;flex-direction:column;gap:12px;position:sticky;top:12px}
+@media (max-width:900px){#m-withdrawal .wd-out{position:static}}
+#m-withdrawal .wd-out svg{width:100%;height:auto;display:block;max-width:360px;margin:0 auto}
+#m-withdrawal .tbl td b{white-space:nowrap}
+#m-withdrawal .wd-signs{columns:2 220px;margin:0;padding-left:18px;font-size:15px}
+#m-withdrawal .wd-signs li{break-inside:avoid;margin-bottom:4px}
+</style>
+<section class="mod" id="m-withdrawal" data-mod="withdrawal" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Withdrawal &amp; acute care</p><h2>Alcohol withdrawal: the timeline</h2>
+    <p class="lede">What happens in the hours and days after the last drink in a person whose brain has adapted to heavy, regular drinking: early tremor and sweating, hallucinosis, seizures and, later, delirium tremens. Scrub through 120 hours, then see why repeated withdrawals matter and how the PAWSS flags people at higher risk.</p></div>
+
+  <div class="safety"><b>Safety</b>Stopping suddenly after long, heavy daily drinking can be dangerous: it can cause seizures or delirium tremens. Get medical help to stop safely. Withdrawal can be managed safely, often at home or in a clinic with daily check-ins, and sometimes in hospital. Drinking alcohol is not a treatment for withdrawal. [[ASAM2020Withdrawal,Mirijello2015]]</div>
+
+  <div class="ctrls wd-src" role="group" aria-label="Which source's delirium tremens window to show">
+    <span class="kicker">DT onset as published by</span>
+    <button class="btn" data-wsrc="both" aria-pressed="true">Both sources</button>
+    <button class="btn" data-wsrc="mir" aria-pressed="false">Mirijello 2015: 48–72 h</button>
+    <button class="btn" data-wsrc="asam" aria-pressed="false">ASAM 2020: 72–96 h</button>
+  </div>
+  <div class="stepper" id="wdSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="wdSvg" viewBox="0 0 720 388" style="min-width:560px" role="img" aria-label="A clock dial counts the hours since the last drink, from 0 to 120. Inside it, a person pictogram shows withdrawal signs as they appear: shaking hands and sweat drops from about 6 hours, a rising schematic pulse, perceptual disturbances from 12 hours, a seizure alert near 24 hours and a confusion swirl when delirium tremens begins after 48 hours. Beside it, a timeline shows the published windows for minor withdrawal, hallucinosis, seizures and delirium tremens, each lighting up while the playhead is inside it."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="wdPlay">Play</button><label class="stage-cap tl" for="wdT">Hours <input type="range" id="wdT" min="0" max="1" step="0.001" value="0.025"></label></div>
+      <div class="readout" id="wdRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> The bands are typical windows from published sources, not a prediction for any one person. The pictogram shows every complication so that each window can be seen; most people with withdrawal never have seizures or delirium tremens, and not everyone passes through the stages in order. The pulse number is drawn, not measured. [[ASAM2020Withdrawal,Mirijello2015,Jesse2017]]</p>
+    </div>
+    <aside class="note" id="wdNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What counts as withdrawal</h3>
+  <div class="prose">
+    <p>Withdrawal happens in people who are physically dependent on alcohol when they stop or cut down: alcohol's depressant effect on the brain is suddenly reversed. Its most severe results are seizure, delirium and death. The older word "detoxification" has been replaced by "withdrawal management". [[ASAM2020Withdrawal]] For the brain side of this, see <a href="#brain" data-go="brain">Alcohol and the brain</a>.</p>
+    <p>DSM-5, as reproduced in ASAM 2020, requires stopping or cutting down after heavy and prolonged use, then two or more of these eight signs within several hours to a few days: [[ASAM2020Withdrawal]]</p>
+  </div>
+  <ul class="wd-signs">
+    <li>Autonomic hyperactivity (for example sweating or pulse &gt;100 bpm)</li>
+    <li>Increased hand tremor</li>
+    <li>Insomnia</li>
+    <li>Nausea or vomiting</li>
+    <li>Transient visual, tactile or auditory hallucinations or illusions</li>
+    <li>Psychomotor agitation</li>
+    <li>Anxiety</li>
+    <li>Generalised tonic-clonic seizures</li>
+  </ul>
+  <div class="cards">
+    <div class="card"><span class="tag accent">How common</span><h4>Symptoms are common; severe withdrawal is not</h4><p>Up to 50% of people with alcohol use disorder have withdrawal symptoms, and only a minority need medical treatment. [[Mirijello2015]] ASAM 2020 estimates that 2–7% of hospital patients with heavy alcohol use develop moderate to severe withdrawal. [[ASAM2020Withdrawal]]</p></div>
+    <div class="card"><span class="tag accent">Complicated withdrawal</span><h4>Seizures or delirium tremens</h4><p>Complicated withdrawal occurs in up to 15% of people with alcohol use disorder (Jesse 2017) and "in up to 20% of cases" among medically ill inpatients (Maldonado 2015). In a family study of 1648 alcohol-dependent adults, 12.8% reported at least one lifetime episode of delirium tremens and/or withdrawal convulsions. [[Jesse2017,Maldonado2015,Schuckit1995]]</p></div>
+    <div class="card"><span class="tag rx">A first step</span><h4>Withdrawal care is a door, not the treatment</h4><p>ASAM 2020 says withdrawal management alone "is not an effective treatment for alcohol use disorder": it should be a way into treatment. Getting through withdrawal is a first step; ongoing care is what helps recovery last. [[ASAM2020Withdrawal]] See <a href="#detox" data-go="detox">Managing withdrawal safely</a> and <a href="#medicines" data-go="medicines">Approved medicines</a>.</p></div>
+  </div>
+
+  <h3 class="sub">The windows, source by source</h3>
+  <div class="prose"><p>Published windows differ, so a timeline should show bands, not points. All times are hours after the last drink unless stated. [[ASAM2020Withdrawal,Mirijello2015]]</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Stage</th><th>ASAM 2020</th><th>Mirijello 2015</th><th>Jesse 2017 · Saitz 1998 · Hillbom 2003</th></tr></thead>
+    <tbody>
+      <tr><th>Minor withdrawal</th><td>Begins <b>6–24 h</b>. Mild, low-risk patients can be watched for up to 36 h, "after which more severe withdrawal is unlikely to develop".</td><td>Stage I, <b>6–12 h</b>: tremor, sweating, nausea or vomiting, hypertension, tachycardia, hyperthermia, tachypnoea.</td><td>Jesse: starts about 6 h, early withdrawal lasts <b>4–48 h</b>.</td></tr>
+      <tr><th>Hallucinosis</th><td>Develops within <b>12–24 h</b>, usually resolves within 24–48 h unless delirium appears.</td><td>Stage II, <b>12–24 h</b>.</td><td>Saitz: within 1–2 days, and distinct from delirium tremens.</td></tr>
+      <tr class="glu"><th>Seizures</th><td>From as early as <b>8 h</b>, up to 48 h, <b>peak about 24 h</b>.</td><td>Stage III, <b>24–48 h</b>.</td><td>Jesse and Hillbom: <b>6–48 h</b>. Saitz: a second seizure "generally happens within 6 hours of the first".</td></tr>
+      <tr class="glu"><th>Delirium tremens</th><td>Onset <b>72–96 h</b>, lasting a few hours to usually 2–3 days (initial-assessment section); another passage gives "24-48 hours", or "as many as 3-5 days later".</td><td>Stage IV, <b>48–72 h</b>; "could begin up to 10 days later"; normally lasts 5–7 days.</td><td>Jesse: <b>48–72 h</b>, may last up to 2 weeks. Saitz: 1–4 days after withdrawal begins, lasting up to 3–4 days.</td></tr>
+      <tr><th>Afterwards</th><td colspan="3">Mild to moderate withdrawal often resolves within 2–7 days; some symptoms can last weeks to months ("protracted" withdrawal). [[Mirijello2015]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Sources: [[ASAM2020Withdrawal,Mirijello2015,Jesse2017,Saitz1998AHRW,Hillbom2003]]. ASAM also notes that older adults can follow a different timeline. Not every seizure in a person who drinks is a withdrawal seizure: in a 1988 case-control study, 16% of first seizures in drinkers fell outside the usual withdrawal period. [[ASAM2020Withdrawal,Ng1988NEJM]]</p>
+
+  <h3 class="sub">Delirium tremens: how deadly, then and now</h3>
+  <div class="prose"><p>Each figure below is a group statistic from a particular era and setting, not a prediction for any one person. With early detection and modern hospital care, most people with delirium tremens survive. [[Jesse2017,MayoSmith2004Delirium]] Delirium tremens is a medical emergency, managed in intensive care or a ward with vital-sign monitoring. [[Mainerova2015]]</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Source</th><th>Setting</th><th>Deaths</th></tr></thead>
+    <tbody>
+      <tr><th>Jesse 2017</th><td>Review: early detection and appropriate treatment</td><td><b>about 1% or less</b></td></tr>
+      <tr><th>Mayo-Smith 2004</th><td>Meta-analysis of 9 controlled trials: patients treated with benzodiazepines or barbiturates</td><td><b>no deaths in 217</b>; with neuroleptics instead, relative risk of death 6.6</td></tr>
+      <tr><th>Mirijello 2015</th><td>Review</td><td><b>1–5%</b></td></tr>
+      <tr><th>Saitz 1998</th><td>Historical series (Victor &amp; Adams 1953; Cutshall 1964)</td><td><b>about 5%</b>, from metabolic or cardiovascular complications, trauma or infection</td></tr>
+      <tr><th>Monte 2010</th><td>Spanish general hospital, 1987–2003, 539 withdrawal admissions (71.1% with DT)</td><td><b>6.6%</b> (95% CI 4.2–9.1%); risk higher with cirrhosis, DT at diagnosis, other chronic illness, intubation</td></tr>
+      <tr><th>Kattimani 2013</th><td>Review</td><td><b>about 8%</b></td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Sources: [[Jesse2017,MayoSmith2004Delirium,Mirijello2015,Saitz1998AHRW,Monte2010,Kattimani2013]]. In one case-control study of 35 deaths, restraint use (OR 5.8) and hyperthermia in the first 24 h (OR 6.1) were associated with death: an association, not proof of cause. Delirium tremens often follows no treatment or undertreatment. [[Khan2008AEM,Mirijello2015]]</p>
+
+  <h3 class="sub">Kindling: why each withdrawal can be worse than the last</h3>
+  <div class="stepper" id="wdKSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="wdKSvg" viewBox="0 0 720 320" style="min-width:560px" role="img" aria-label="Repeated withdrawal episodes appear one after another as waves that grow taller, while a synapse beside them gains more NMDA glutamate receptors and more over-excitation sparks. Then two bars build up: in Brown 1988, 48% of men with withdrawal seizures had 5 or more previous detoxifications, against 12% of men without seizures."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="wdKPlay">Play</button><label class="stage-cap tl" for="wdKT">Episodes <input type="range" id="wdKT" min="0" max="1" step="0.001" value="0.1"></label></div>
+      <p class="stage-cap"><b>Schematic.</b> Wave heights and receptor counts are drawn to show the idea, not measured. The bars are the published Brown 1988 percentages. [[Becker1998,Brown1988Kindling]]</p>
+    </div>
+    <aside class="note" id="wdKNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Who is at higher risk of complicated withdrawal</h3>
+  <div class="split2">
+    <div class="card"><span class="tag accent">ASAM 2020</span><h4>Risk factors</h4><ul>
+      <li>Past withdrawal delirium or withdrawal seizure</li>
+      <li>Numerous prior withdrawal episodes</li>
+      <li>Medical or surgical illness, especially traumatic brain injury</li>
+      <li>Age over 65</li>
+      <li>Long duration of heavy, regular drinking</li>
+      <li>A seizure in the current episode</li>
+      <li>Marked autonomic hyperactivity</li>
+      <li>Physiological dependence on benzodiazepines or barbiturates</li></ul>
+      <p>Other substance use, a positive blood alcohol level alongside withdrawal signs, and an active co-occurring psychiatric disorder may add risk. Several factors together raise it further. [[ASAM2020Withdrawal]]</p></div>
+    <div class="card"><span class="tag dx">What the studies found</span><h4>Predictors, with numbers</h4><ul>
+      <li>A past similar event is the strongest predictor: OR 2.58 for DT and 2.8 for seizures; lower platelets and lower potassium predicted DT; sex and liver disease did not (meta-analysis of 15 studies). [[Goodson2014]]</li>
+      <li>Structural brain lesions predicted DT at admission (OR 5.8) and seizures (OR 6.5) in 827 inpatients. [[Eyer2011]]</li>
+      <li>A history of DT (LR 2.9) and systolic BP ≥140 mm Hg (LR 1.7) raised the likelihood of severe withdrawal; no single sign ruled it out. [[Wood2018JAMA]]</li>
+      <li>In 200 inpatients, DT developed in 9% with neither more days since the last drink nor an acute medical illness, 25% with one and 54% with both. [[Ferguson1996]]</li></ul></div>
+  </div>
+
+  <h3 class="sub">PAWSS: a teaching checklist</h3>
+  <div class="prose"><p>The Prediction of Alcohol Withdrawal Severity Scale (PAWSS) has 10 items drawn from a systematic review of risk factors for complicated withdrawal. It predicts risk <em>before</em> symptoms appear, whereas the <a href="#ciwa" data-go="ciwa">CIWA-Ar</a> measures how severe withdrawal is once it has started. [[Maldonado2014,ASAM2020Withdrawal]]</p></div>
+  <div class="safety"><b>Teaching tool</b>This checklist shows how the published scale is built. It is not a self-test, it is not for reading your own or anyone else's risk, and it cannot tell anyone whether it is safe to stop drinking without help. Anyone who drinks heavily every day and wants to stop should get medical help to stop safely.</div>
+  <div class="wd-paws">
+    <div>
+      <fieldset class="wd-list" id="wdPawsGate"><legend>Threshold question</legend></fieldset>
+      <fieldset class="wd-list" id="wdPawsHx"><legend>History (asked of the patient)</legend></fieldset>
+      <fieldset class="wd-list" id="wdPawsCl"><legend>Clinical evidence</legend></fieldset>
+      <p class="stage-cap" style="margin-top:8px">Item names follow the AAST 2022 summary of the scale, which splits concomitant substances into two items; the original scale has the exact wording. One point per item, maximum 10. [[Seshadri2022AAST,Maldonado2014]]</p>
+    </div>
+    <div class="wd-out">
+      <svg id="wdPawsSvg" viewBox="0 0 320 190" role="img" aria-label="A half-dial gauge from 0 to 10 showing the teaching PAWSS score, with the published threshold of 4 marked."></svg>
+      <div id="wdPawsOut" aria-live="polite"></div>
+    </div>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Study</th><th>Setting</th><th>At a cut-off of 4</th></tr></thead>
+    <tbody>
+      <tr><th>Maldonado 2014 pilot</th><td>68 patients</td><td>Sensitivity, specificity, PPV and NPV all 100%</td></tr>
+      <tr><th>Maldonado 2015 validation</th><td>403 medically ill inpatients</td><td>Sensitivity 93.1% (95% CI 77.2–99.2), specificity 99.5% (98.1–99.9), PPV 93.1%, NPV 99.5%; inter-rater concordance 0.963</td></tr>
+      <tr><th>Wood 2018 (JAMA review)</th><td>14 studies, 71,295 patients</td><td>≥4: LR 174 (95% CI 43–696); ≤3: LR 0.07 (0.02–0.26). PAWSS was the most useful combined tool.</td></tr>
+      <tr><th>Crepeault 2025</th><td>Community detox unit, 228 people, 75% with severe withdrawal</td><td>The cut-off of 4 did not perform well; best cut-offs about 6–7, with sensitivity 44–55% and specificity 71–85%.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Sources: [[Maldonado2014,Maldonado2015,Wood2018JAMA,Crepeault2025]]. ASAM 2020 describes the PAWSS end-point, complicated withdrawal, as a CIWA-Ar score ≥15. The scale performed best in the setting it was built for, medically ill inpatients. [[ASAM2020Withdrawal]]</p>
+
+  <div class="crisis"><b>Get help</b><span>If you or someone else may have alcohol poisoning or severe withdrawal (seizure, confusion, hallucinations), call emergency services. For help with drinking in the US, SAMHSA's National Helpline is free and confidential: 1-800-662-4357. If you are in crisis or thinking about suicide, contact a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123).</span></div>
+  <div class="callout"><p>Do not mix alcohol with sleeping pills, benzodiazepines, opioids or other sedatives: together they can slow or stop breathing. [[FDA-Valium,ASAM2020Withdrawal]] Next: how nurses and doctors score withdrawal with the <a href="#ciwa" data-go="ciwa">CIWA-Ar</a>, and why thiamine matters in <a href="#wernicke" data-go="wernicke">Wernicke encephalopathy</a>.</p></div>
+</section>

@@ -1,0 +1,68 @@
+<style>
+#m-cure .btn{min-height:40px}
+#m-cure .ev.neg{background:var(--bad-soft);color:var(--bad)}
+#m-cure .ev.none{background:var(--panel-2);color:var(--muted)}
+#m-cure .cards{grid-template-columns:repeat(auto-fill,minmax(min(100%,360px),1fr))}
+#m-cure .cu-it{display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--line);padding-top:10px}
+#m-cure .cu-h{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center}
+#m-cure .cu-h b{font-size:15px}
+#m-cure .cu-h .ev{white-space:normal;line-height:1.3;max-width:100%}
+#m-cure .cu-reg{font:500 12px/1.45 var(--mono);color:var(--muted);overflow-wrap:anywhere}
+#m-cure .cu-it ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px;font-size:14.5px}
+#m-cure .qa{display:flex;flex-direction:column;gap:8px;max-width:76ch}
+#m-cure .qa details{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 14px;min-width:0}
+#m-cure .qa summary{cursor:pointer;font-weight:700;font-size:15.5px;line-height:1.35;min-height:24px;overflow-wrap:anywhere}
+#m-cure .qa p{margin-top:8px;font-size:14.5px}
+#m-cure .sym{display:inline-block;width:10px;height:10px;margin-right:6px;vertical-align:middle}
+#m-cure .sym.est{border-radius:50%;background:var(--good)}
+#m-cure .sym.early{background:var(--warn);transform:rotate(45deg);width:9px;height:9px}
+#m-cure .sym.hyp{border-radius:50%;border:2px solid var(--umn)}
+#m-cure .sym.neg{width:auto;height:auto;color:var(--bad);font:700 13px/1 var(--body)}
+#m-cure .sym.none{background:var(--muted);width:8px;height:8px}
+#m-cure .warncard{border-left:3px solid var(--warn)}
+</style>
+<!-- ================= 4.3 TOWARD A CURE ================= -->
+<section class="mod" id="m-cure" data-mod="cure" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Living &amp; the future</p><h2>Toward a cure</h2>
+    <p class="lede">Researchers are trying to slow, stop or prevent ALS at every step from the faulty gene to the weakening muscle. Press Play to move along the pathway; each step lights the routes that act there. Use the filter to show only routes with one evidence label. The route cards below give the trial numbers and their status on ClinicalTrials.gov. Nothing here is advice to any reader.</p></div>
+
+  <div class="ctrls" id="cuFilter" role="group" aria-label="Filter routes by evidence label"></div>
+  <div class="legend" aria-hidden="true">
+    <span><i class="sym est"></i>Established</span><span><i class="sym early"></i>Early evidence</span><span><i class="sym hyp"></i>Hypothesis</span><span><b class="sym neg">✕</b>Tested and negative</span><span><i class="sym none"></i>Measure, no label</span>
+  </div>
+  <div class="stepper" id="cuSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="cuSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="The ALS pathway from gene to RNA, protein, aggregation, neurons and glia, circuit and muscle, with a marker for each research route at the point where it acts, shaped by its evidence label"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="cuPlay">Play</button><label class="stage-cap tl" for="cuT">Pathway <input type="range" id="cuT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap" id="cuCap">Schematic pathway, not to scale.</p></div>
+    <aside class="note" id="cuNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="callout"><p><b>Reading the labels.</b> <span class="ev est">Established</span> a randomised trial or a regulatory approval shows an effect on a biomarker or a clinical outcome. <span class="ev early">Early evidence</span> case series, small or uncontrolled early human data, or a positive topline result not yet peer reviewed. <span class="ev hyp">Hypothesis</span> laboratory or animal data only. <span class="ev neg">Tested and negative</span> an adequately sized randomised trial, or a registry termination, showed no benefit. ALS has a long history of promising phase 2 results that then failed in phase 3. [[Benatar2025e]]</p></div>
+
+  <h3 class="sub">Route by route</h3>
+  <p class="stage-cap">Trial status and last-update dates as read from ClinicalTrials.gov on 20 October 2026. The filter above also applies here.</p>
+  <div class="cards" id="cuCards"></div>
+
+  <div class="callout"><p><b>About the FUS result.</b> The FUSION phase 3 topline of 22 September 2026 comes from a news report of the companies' announcement. It is not peer reviewed. The report gives a P value for the primary endpoint but no effect sizes, and ulefnersen is not approved anywhere. [[NeurologyLive2026]]</p></div>
+
+  <h3 class="sub">Open questions</h3>
+  <p class="lede">Gaps that recent reviews name themselves. Each is a place where a study could change the picture.</p>
+  <div class="qa" id="cuQA"></div>
+
+  <h3 class="sub">Unproven stem-cell clinics</h3>
+  <div class="cards">
+    <div class="card warncard"><h4>What published guidance says</h4>
+      <p>A JAMA Neurology viewpoint describes "stem cell tourism" as an Internet-based industry that sells unproven procedures to people with incurable neurological diseases, including ALS, with a risk of illness and death. It calls on medical societies and licensing boards to address it. [[Bowman2015]]</p>
+      <p>The International Society for Stem Cell Research (ISSCR) guide warns about treatments that have not undergone proper testing or regulatory approval and are marketed by clinics. It encourages caution and decisions taken together with treating clinicians. [[ISSCR-Guide]]</p>
+      <p>Under trial conditions, the cell therapy NurOwn did not meet its phase 3 primary endpoint. [[Cudkowicz2022]]</p>
+      <div class="pt"><b>In plain words</b>Some clinics sell stem-cell treatments for ALS that have not been properly tested. Guidance from experts is to be cautious and to talk any offer through with the treating team first.</div>
+    </div>
+    <div class="card"><h4>The big picture</h4>
+      <p>About 97% of all ALS has TDP-43 accumulation. For sporadic ALS, a 2026 review calls today's disease-modifying therapies "of limited utility", which is why gene-specific routes have produced the first targeted successes. [[EstevezFraga2026]]</p>
+      <p>A 2022 Lancet Seminar noted that most recent advances "have yet to translate into patient benefit". [[Feldman2022]]</p>
+      <div class="hook"><b>Exam hook</b>Gene-specific ALS (<b>SOD1, FUS</b>) is where targeted therapy has worked first; most ALS is sporadic and TDP-43-driven. [[EstevezFraga2026]]</div>
+      <div class="pt"><b>In plain words</b>Researchers are trying many routes. A few work for small genetic groups, and none yet for most people with ALS.</div>
+    </div>
+  </div>
+</section>

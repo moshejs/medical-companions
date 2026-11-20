@@ -1,0 +1,39 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Rubik:wght@400;700&family=Source+Code+Pro:wght@400;700&display=swap">
+<style>
+/* Obesity Companion share card, 1200x630: python3 tools/share_card.py obesity/src/share-card.html obesity/share-card.png */
+html,body{margin:0;width:1200px;height:630px;overflow:hidden;background:#0e1514;color:#e6efed;font-family:'Rubik',sans-serif}
+.l{position:absolute;left:76px;top:50px;width:640px}
+.k{font:700 23px 'Source Code Pro',monospace;letter-spacing:.14em;text-transform:uppercase;color:#5fd0bd}
+h1{font:700 88px/1 'Lora',serif;letter-spacing:-.015em;margin:18px 0 24px}
+p{font-size:26px;line-height:1.36;color:#a2b3af;margin:0 0 28px;max-width:600px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;max-width:640px}
+.chips span{font:700 17px 'Source Code Pro',monospace;padding:8px 13px;border-radius:999px;border:1px solid #2d3b38}
+.chips .a{color:#5fd0bd;background:#12352f;border-color:#21564d}.chips .b{color:#92bbf2;background:#15263c;border-color:#2a4466}.chips .c{color:#f2a26f;background:#3a2416;border-color:#64401f}.chips .d{color:#a8d67c;background:#1c3013;border-color:#345324}
+.url{position:absolute;left:76px;bottom:46px;font:700 24px 'Source Code Pro',monospace;color:#5fd0bd}
+svg{position:absolute;right:50px;top:55px;width:420px;height:520px}
+</style></head><body>
+<div class="l"><div class="k">Obesity Companion</div><h1>Obesity, explained</h1><p>An animated, cited guide for students, people living with obesity, families and caregivers</p>
+<div class="chips"><span class="a">the gut-brain loop</span><span class="c">fat tissue as an organ</span><span class="b">GLP-1 medicines</span><span class="b">metabolic surgery</span></div></div>
+<div class="url">%HOST%/obesity</div>
+<svg viewBox="0 0 420 520" aria-hidden="true">
+  <!-- the brain's arc over a fat cell, with signals travelling up and down it -->
+  <path d="M40 250Q210 -40 380 250" fill="none" stroke="#5fd0bd" stroke-width="10" stroke-linecap="round"/>
+  <path d="M40 250Q210 -40 380 250" fill="none" stroke="#0e1514" stroke-width="2" stroke-dasharray="3 14"/>
+  <circle cx="210" cy="105" r="30" fill="#3a3048" stroke="#b8a6d6" stroke-width="3"/>
+  <circle cx="200" cy="112" r="7" fill="#4fd1bf"/><path d="M222 104l8 13h-16z" fill="#ffa45c"/>
+  <circle cx="92" cy="160" r="11" fill="#ff8a5c" stroke="#0e1514" stroke-width="2"/>
+  <path d="M328 150l12 12-12 12-12-12z" fill="#f0c14a" stroke="#0e1514" stroke-width="2"/>
+  <path d="M130 108l10 0 5 9-5 9-10 0-5-9z" transform="translate(-6 -12)" fill="#6eaaf0" stroke="#0e1514" stroke-width="2"/>
+  <circle cx="300" cy="96" r="15" fill="none" stroke="#6eaaf0" stroke-width="2.5"/><path d="M291 96l4.5-8h9l4.5 8-4.5 8h-9z" fill="#6eaaf0"/>
+  <!-- neighbouring fat cells -->
+  <circle cx="72" cy="420" r="58" fill="#3a2a1e" stroke="#f0b58a" stroke-width="3"/><circle cx="70" cy="418" r="50" fill="#d39a6a"/>
+  <circle cx="352" cy="430" r="52" fill="#3a2a1e" stroke="#f0b58a" stroke-width="3"/><circle cx="350" cy="428" r="44" fill="#d39a6a"/>
+  <!-- the central adipocyte -->
+  <circle cx="210" cy="360" r="118" fill="#3a2a1e" stroke="#f0b58a" stroke-width="4"/>
+  <circle cx="204" cy="352" r="104" fill="#d39a6a"/>
+  <circle cx="172" cy="318" r="24" fill="#e6efed" opacity=".25"/>
+  <ellipse cx="292" cy="438" rx="32" ry="11" transform="rotate(-48 292 438)" fill="#b49bd0"/>
+  <circle cx="114" cy="402" r="6" fill="#b49bd0"/><circle cx="330" cy="404" r="6" fill="#b49bd0"/>
+</svg>
+</body></html>

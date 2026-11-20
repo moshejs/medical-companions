@@ -1,0 +1,80 @@
+<!-- ================= 1.1 WHAT ALZHEIMER'S IS ================= -->
+<style>
+#m-what .wh-big{font-family:var(--display);font-weight:800;font-size:30px;line-height:1.05;letter-spacing:-.01em}
+#m-what .wh-src{font-size:13px;color:var(--muted)}
+#m-what .wh-surv{width:100%;height:auto;display:block}
+#m-what .card .chips{margin-top:2px}
+</style>
+<section class="mod" id="m-what" data-mod="what" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · The disease</p><h2>What Alzheimer's is</h2>
+    <p class="lede">Dementia is not one disease. It is a pattern of decline that several diseases can cause, and Alzheimer's disease is the most common of them. Press play to build the picture, then see how the odds change with age.</p></div>
+  <div class="stepper" id="whSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="whSvg" viewBox="0 0 720 410" style="min-width:560px" role="img" aria-label="Dementia drawn as an umbrella region holding its causes, with Alzheimer's disease the largest and overlapping vascular and Lewy body disease, beside bars for Alzheimer's share of dementia and a 50-dot autopsy breakdown of mixed pathology."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="whPlay">Play</button><label class="stage-cap tl" for="whT">Timeline <input type="range" id="whT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap">Schematic. Circle sizes are not to scale; the bars and dots are.</p></div>
+    <aside class="note" id="whNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Age is the strongest risk factor</h3>
+  <div class="ctrls" role="group" aria-label="What the figures show">
+    <span class="kicker">Show</span>
+    <button class="btn" id="whPrev" aria-pressed="true">Living with Alzheimer's dementia</button>
+    <button class="btn" id="whInc" aria-pressed="false">New cases each year</button>
+  </div>
+  <div class="stepper" id="whAgeSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="whAge" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="Four groups of 100 people by age band fill in with the share who have Alzheimer's dementia in the US: very few under 65, 5.1 at 65 to 74, 13.2 at 75 to 84 and 33.4 at 85 and over, as an age marker moves from 30 to 100."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="whAgePlay">Play</button><label class="stage-cap tl" for="whAgeT">Age <input type="range" id="whAgeT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap" id="whAgeCap">Each figure is 1 person in 100. US figures, Alzheimer's Association 2025.</p></div>
+    <aside class="note" id="whAgeNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The numbers, and where sources disagree</h3>
+  <p class="prose">Counts depend on who is counting, which year, and whether they mean all dementia or Alzheimer's alone. Each card names its source so the figures can be compared fairly.</p>
+  <div class="cards">
+    <div class="card"><span class="kicker">Worldwide, now</span><p class="wh-big">57 million</p>
+      <p>people were living with dementia in 2021, over 60% of them in low- and middle-income countries, with nearly 10 million new cases each year. [[WHO2026Dementia]] A secondary analysis of GBD 2021 counted 9.84 million new cases and 1.95 million deaths in 2021. [[Xu2025]]</p>
+      <p class="wh-src">These are counts for all dementia, not Alzheimer's alone.</p></div>
+    <div class="card"><span class="kicker">Worldwide, forecast</span><p class="wh-big">152.8 million by 2050</p>
+      <p>GBD 2019 projected a rise from 57.4 million in 2019. The age-standardised rate stays almost flat, so the growth comes from more people reaching old age. Projected increases range from 53% in high-income Asia Pacific to 367% in north Africa and the Middle East. [[GBD2019Forecasting]]</p>
+      <p>Against that, age-specific incidence seems to be falling in high-income countries. In Framingham, 5-year incidence fell from 3.6 to 2.0 per 100 people between the late 1970s and early 2010s, but only among people with at least a high-school diploma. [[Satizabal2016]]</p>
+      <p class="wh-src">WHO's 57 million (2021) and GBD's 57.4 million (2019) are different years and methods, not a contradiction.</p></div>
+    <div class="card"><span class="kicker">United States</span><p class="wh-big">7.2 million</p>
+      <p>Americans aged 65 and older were living with Alzheimer's dementia in 2025, about 1 in 9. About 22% of people over 65 have mild cognitive impairment, and roughly 5 to 7 million may have MCI due to Alzheimer's, an estimate the report says needs refining. [[AA2025Facts]]</p>
+      <p><span class="ev early">Sources differ</span> The 2025 report projects 13.8 million by 2060. An earlier census-based model reached the same 13.8 million by 2050, a decade sooner. [[AA2025Facts,Hebert2013]]</p></div>
+    <div class="card"><span class="kicker">Costs</span><p class="wh-big">$384 billion</p>
+      <p>US payments in 2025 for health care, long-term care and hospice for people with Alzheimer's or other dementias. Medicare and Medicaid pay $246 billion (64%), and out-of-pocket spending is $97 billion (25%). Annual payments are projected to reach just under $1 trillion by 2050. The lifetime cost of care for one person was estimated at $405,262, about 70% of it borne by families. [[AA2025Facts]]</p>
+      <p>Worldwide, WHO puts the cost at US$1.3 trillion in 2019, about half of it attributable to informal carers. [[WHO2026Dementia]]</p></div>
+    <div class="card"><span class="kicker">Unpaid care</span><p class="wh-big">19.2 billion hours</p>
+      <p>In 2024, 11.9 million US family members and other unpaid caregivers gave an estimated 19.2 billion hours of care, valued at $413.5 billion. That averages nearly 31 hours per caregiver per week. [[AA2025Facts]]</p>
+      <p>Worldwide, women provide 70% of the care hours for people living with dementia. [[WHO2026Dementia]] See <a href="#living" data-go="living">Living with dementia and caregiving</a>.</p></div>
+    <div class="card"><span class="kicker">Women and men</span><p class="wh-big">4.4 vs 2.8 million</p>
+      <p>Almost two-thirds of older Americans with Alzheimer's dementia are women: 12% of women and 10% of men aged 65 and over. At age 45 the lifetime risk was about 1 in 5 for women and 1 in 10 for men in Framingham data. [[AA2025Facts]] Globally GBD estimated 1.69 women for every man with dementia in 2019. [[GBD2019Forecasting]]</p>
+      <p><span class="ev early">Debated</span> Why?</p>
+      <ul>
+        <li><b>Longevity.</b> Women live longer, and age is the strongest risk factor. Most US incidence studies find no meaningful sex difference at any given age.</li>
+        <li><b>Survival bias.</b> Men who survive to 65 tend to have healthier hearts and vessels.</li>
+        <li><b>Biology</b> <span class="ev hyp">Hypothesis</span> Hormonal or reproductive factors, or a possibly stronger effect of APOE e4 in women.</li>
+        <li><b>Social and gender factors.</b> The report says more research is needed. [[AA2025Facts]]</li>
+      </ul>
+      <p>A review argues that symptoms, rates of decline and brain atrophy differ by sex, and that sex should be used to stratify research and care. [[Ferretti2018]]</p></div>
+    <div class="card"><span class="kicker">Survival after diagnosis</span><p class="wh-big">4 to 8 years</p>
+      <p>on average for people diagnosed at 65 or older, and some live 20 years. [[AA2025Facts]] Age at diagnosis matters most:</p>
+      <svg class="wh-surv" viewBox="0 0 300 104" role="img" aria-label="Median survival after an Alzheimer's diagnosis: 8.3 years when diagnosed at 65 and 3.4 years when diagnosed at 90.">
+        <line x1="78" x2="78" y1="8" y2="84" class="axis"/>
+        <text x="72" y="30" class="t-sm t-end">at 65</text>
+        <rect x="78" y="17" width="157.7" height="18" rx="4" style="fill:var(--sage)"/>
+        <text x="241" y="30" class="t-sm" style="fill:var(--ink)">8.3 y</text>
+        <text x="72" y="66" class="t-sm t-end">at 90</text>
+        <rect x="78" y="53" width="64.6" height="18" rx="4" style="fill:var(--rose)"/>
+        <text x="148" y="66" class="t-sm" style="fill:var(--ink)">3.4 y</text>
+        <text x="78" y="100" class="t-xs">median years, by age at diagnosis</text>
+      </svg>
+      <p>Baltimore Longitudinal Study of Aging, with no significant difference between men and women. [[Brookmeyer2002]] A review found median survival of 3.2 to 6.6 years from diagnosis, and 7 to 10 years from onset in most studies. [[Todd2013]]</p></div>
+    <div class="card"><span class="kicker">Causes of death</span><p class="wh-big">7th</p>
+      <p>Alzheimer's was the seventh-leading cause of death in the US in 2022, with 120,122 recorded deaths, up more than 142% since 2000. Death certificates often name pneumonia instead, so the true count is higher. [[AA2025Facts]] Worldwide, WHO ranks dementia seventh too. [[WHO2026Dementia]]</p>
+      <p>Pneumonia is the most commonly identified immediate cause, and swallowing problems can lead to aspiration pneumonia. [[AA2025Facts]] In 524 autopsies of people with dementia, bronchopneumonia caused 38.4% of deaths and ischaemic heart disease 23.1%, against 2.8% bronchopneumonia in the general older population. [[Brunnstrom2009]] In nursing-home residents with advanced dementia, 41.1% developed pneumonia over 18 months, and 46.7% died within six months of it. [[Mitchell2009NEJM]]</p></div>
+  </div>
+  <div class="hook"><b>Exam hook</b>US prevalence by age band: 5.1% (65–74), 13.2% (75–84), 33.4% (85+). Median survival falls from 8.3 years if diagnosed at 65 to 3.4 at 90. Pneumonia is the most common immediate cause of death. [[AA2025Facts,Brookmeyer2002]]</div>
+</section>

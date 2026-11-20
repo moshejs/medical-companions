@@ -1,0 +1,89 @@
+<!-- ================= 4.3 THE MTA STUDY & LONG-TERM TREATMENT ================= -->
+<style>
+#m-mta .card>.ev,#m-mta .card>.tag{align-self:flex-start}
+#m-mta .tbl table{min-width:560px}
+#m-mta .mtrow{display:flex;flex-wrap:wrap;gap:6px}
+</style>
+<section class="mod" id="m-mta" data-mod="mta" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Behavioural &amp; psychological care</p><h2>The MTA study &amp; long-term treatment</h2>
+    <p class="lede">In the 1990s, 579 children with ADHD were randomly given one of four treatment strategies for 14 months, then followed into their mid-twenties. Scrub through the follow-ups to see the arms separate, then come back together, and why.</p></div>
+  <div class="ctrls" role="group" aria-label="Outcome">
+    <span class="kicker">Outcome</span>
+    <button class="btn" data-mt-out="sym" aria-pressed="true">ADHD symptoms</button>
+    <button class="btn" data-mt-out="height" aria-pressed="false">Adult height</button>
+    <button class="btn" data-mt-out="sub" aria-pressed="false">Substance use</button>
+  </div>
+  <div class="stepper" id="mtSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="mtSvg" viewBox="0 0 720 440" style="min-width:560px" role="img" aria-label="A follow-up timeline from randomisation to 16 years. Four lines, one per treatment arm (combined, medication management, behavioural treatment and community care), fall from the same starting point, separate at 14 months with the two medication arms lowest, then come back together by 36 months and stay together. A second chart below shows the share of children taking medication most of the time in each arm, which rises in the behavioural arm and falls in the medication arms after the trial ended. The outcome buttons switch the top chart to adult height or substance use."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="mtPlay">Play</button><label class="stage-cap tl" for="mtT">Follow-up <input type="range" id="mtT" min="0" max="1" step="0.001" value="0.17"></label></div>
+      <div class="readout" id="mtRead"></div>
+      <p class="stage-cap"><b>Schematic top chart.</b> The MTA papers report comparisons between arms, not a single symptom score at every visit, so the lines are drawn through the published findings (which arm was ahead, and when the differences stopped being significant). The circles mark the 14-month result; the figures in the legend and the whole lower chart are published values. Time is not to scale. [[MTA1999,Jensen2007MTA,Molina2009]]</p>
+    </div>
+    <aside class="note" id="mtNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The design: four arms, one randomisation</h3>
+  <p class="prose">Children aged 7 to 9.9 with ADHD combined type were randomised to one of four strategies for 14 months, and all outcomes were analysed by intention to treat. Play the randomisation, then pick an arm to read its protocol. The last frame colours the children who met the "success" definition (low symptoms on averaged parent and teacher ratings) at the end of treatment. [[MTA1999,Swanson2001MTA]]</p>
+  <div class="mtrow" role="group" aria-label="Choose an arm">
+    <button class="btn" data-mt-arm="0" aria-pressed="false">Medication management</button>
+    <button class="btn" data-mt-arm="1" aria-pressed="false">Behavioural treatment</button>
+    <button class="btn" data-mt-arm="2" aria-pressed="false">Combined</button>
+    <button class="btn" data-mt-arm="3" aria-pressed="false">Community care</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="mtRndSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="579 small person figures in a grid move into four boxes, one per treatment arm. Each box then shows its protocol. In the last frame, the share of figures in each box coloured as 'success' at 14 months is 56% for medication management, 34% for behavioural treatment, 68% for combined treatment and 25% for community care."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="mtRndPlay">Play</button><label class="stage-cap tl" for="mtRndT">Randomise <input type="range" id="mtRndT" min="0" max="1" step="0.001" value="1"></label></div>
+      <p class="stage-cap">Arms drawn with equal shares; the published arm sizes are not shown. Only 19.7% of participants were girls (114 of 579), which limits how far the results generalise. [[Molina2009]]</p>
+    </div>
+    <aside class="note" id="mtRndNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What the MTA did and did not show</h3>
+  <div class="split2">
+    <div class="card"><span class="ev est">Established</span><h4>What it showed</h4><ul>
+      <li>Over 14 months, carefully managed medication, alone or combined, beat intensive behavioural treatment and community care on core ADHD symptoms. [[MTA1999]]</li>
+      <li>Combined treatment did not beat medication alone on core symptoms, but gave "modest advantages" on oppositional behaviour, internalising symptoms, social skills, parent-child relations and reading, and on a composite outcome (effect size 0.28 against medication management). [[MTA1999,Conners2001]]</li>
+      <li>The study medication strategy beat community care even though about two-thirds of community-care children were taking medication. [[MTA1999]]</li>
+      <li>Children with anxiety disorders did relatively well with behavioural treatment. [[MTA1999Moderators]]</li></ul></div>
+    <div class="card"><span class="tag warn">Limits</span><h4>What it could not show</h4><ul>
+      <li>Treatment was randomised only for 14 months. After that, families chose freely, so the follow-ups compare self-selected treatment, not the original arms. [[Jensen2007MTA,Molina2009]]</li>
+      <li>It cannot say whether years of medication improve adult outcomes: in naturalistic subgroups, longer stimulant use was not linked to lower adult symptoms, but it was linked to shorter adult height. [[Swanson2017MTA]]</li>
+      <li>About 1 in 5 participants were girls, and all had the combined presentation. [[Molina2009,MTA1999]]</li>
+      <li>Register studies find fewer substance-related emergencies during medicated months, while the MTA found no effect on adolescent substance use: different designs, different questions. [[Quinn2017,Molina2013]]</li></ul></div>
+  </div>
+
+  <h3 class="sub">Which comes first? The sequencing trial</h3>
+  <p class="prose">A sequential multiple-assignment randomised trial (146 children aged 5 to 12, one school year) started children on either low-intensity behavioural treatment (8 group parent-training sessions plus a teacher-run daily report card) or low-dose extended-release methylphenidate. Children who needed more were re-randomised to more of the same or to add the other treatment. [[Pelham2016]]</p>
+  <div class="ctrls" role="group" aria-label="Starting treatment">
+    <span class="kicker">Start with</span>
+    <button class="btn" data-mt-smart="beh" aria-pressed="true">Behavioural treatment</button>
+    <button class="btn" data-mt-smart="med" aria-pressed="false">Medication</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="mtSmartSvg" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Paired bars for the two starting strategies in the sequencing trial: classroom rule violations per hour, children needing added treatment at school, children with normalised teacher ratings, parents who attended no parent-training sessions when it was added later, and the cost of a school year of treatment."></svg></div>
+      <p class="stage-cap">One trial of 146 children; it has not been replicated at scale. Costs are in 2013 US dollars. [[Pelham2016,Page2016]]</p>
+    </div>
+    <aside class="note" id="mtSmartNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Does medication keep working? Breaks and discontinuation</h3>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="mtDiscSvg" viewBox="0 0 720 280" style="min-width:560px" role="img" aria-label="A 7-week chart of ADHD rating scale scores in a double-blind discontinuation trial: the group that continued methylphenidate stays almost flat, from 21.4 to 21.9, while the group tapered to placebo rises from 19.6 to 24.7. Bars then show clinical worsening in 15.9% who continued and 40.4% who stopped."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="mtDiscPlay">Play</button><label class="stage-cap tl" for="mtDiscT">Weeks <input type="range" id="mtDiscT" min="0" max="1" step="0.001" value="1"></label></div>
+      <p class="stage-cap">Only the start and week-7 means are published; the lines between them are drawn straight. Doses are quoted as reported in the trial, not as advice. [[Matthijssen2019]]</p>
+    </div>
+    <aside class="note" id="mtDiscNote" aria-live="polite"></aside>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>A randomised answer, after 2 years</h4><p>94 children and adolescents who had taken methylphenidate in regular care for over 2 years either continued (36 or 54 mg/day extended-release) or were tapered to placebo over 3 weeks. Scores worsened more after withdrawal (difference −4.6, 95% CI −8.7 to −0.56), yet some could stop without deterioration, which supports periodic review of the need to continue. [[Matthijssen2019]]</p></div>
+    <div class="card"><span class="tag beh">NICE NG87</span><h4>Planned breaks and trial periods</h4><p>NICE suggests considering a planned break over school holidays to allow "catch-up" growth if medication has clearly affected a child's height, and trial periods of stopping or reducing the dose when the balance of benefit and harm suggests it. [[NICE2018F]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Drug holidays in practice</h4><p>A review of 22 studies found drug holidays in 25% to 70% of families, mostly in school holidays. Longer breaks were linked to better growth, and shorter breaks could reduce insomnia and improve appetite. These were mainly observational studies. [[Ibrahim2015]]</p></div>
+    <div class="card"><span class="tag warn">Evidence gap</span><h4>Long-term evidence is thin for every treatment</h4><p>An umbrella review of 221 re-estimated meta-analyses found "no high certainty, long term evidence" at 52 weeks for any ADHD intervention, and the largest network meta-analysis of ADHD medicines did not find sufficient data at 26 and 52 weeks. [[Gosling2025,Cortese2018]]</p></div>
+  </div>
+  <p class="callout">The MTA's adult follow-ups also feed the persistence and outcome figures in <a href="#outcomes" data-go="outcomes">Course &amp; outcomes</a>. The behavioural treatments themselves are explained in <a href="#parenting" data-go="parenting">Parent training &amp; classroom support</a>.</p>
+</section>

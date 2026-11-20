@@ -1,0 +1,56 @@
+<!-- ================= 1.4 A FLARE, HOUR BY HOUR ================= -->
+<section class="mod" id="m-flare" data-mod="flare" hidden>
+<style>
+#m-flare .fl-fig{display:flex;flex-direction:column;gap:10px}
+#m-flare .fl-fig svg{width:100%;height:auto;display:block}
+#m-flare .fl-fig h4{margin:0;font-family:var(--display);font-weight:800;font-size:19px;line-height:1.18}
+#m-flare td .tag{margin-right:4px}
+#m-flare .card .ev{align-self:flex-start}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 1 · The disease</p><h2>A flare, hour by hour</h2>
+    <p class="lede">A gout flare starts when immune cells in the joint swallow urate crystals and fire the NLRP3 inflammasome, which releases the alarm signal IL-1β. That alarm floods the joint with neutrophils. Scrub through fourteen days: the first 24 hours take half the track, because that is when most of the biology happens.</p></div>
+  <div class="ctrls" role="group" aria-label="Show where a flare drug acts">
+    <span class="kicker">Show where a drug acts</span>
+    <button class="btn" data-fld="none" aria-pressed="true">No drug</button>
+    <button class="btn" data-fld="colch" aria-pressed="false">Colchicine</button>
+    <button class="btn" data-fld="nsaid" aria-pressed="false">NSAID</button>
+    <button class="btn" data-fld="gc" aria-pressed="false">Glucocorticoid</button>
+    <button class="btn" data-fld="il1" aria-pressed="false">IL-1 blocker</button>
+  </div>
+  <div class="stepper" id="flSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="flSvg" viewBox="0 0 720 470" style="min-width:560px" role="img" aria-label="A macrophage in the joint swallows urate crystals, assembles the NLRP3 inflammasome and releases IL-1β, neutrophils pour in from a venule and later form nets, with pain and CRP curves over 14 days"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="flPlay">Play</button><label class="stage-cap tl" for="flT">Time since onset <input type="range" id="flT" min="0" max="1" step="0.001" value="0.02"></label></div>
+      <div class="readout" id="flRead"></div>
+      <p class="stage-cap"><b>Teaching sketch.</b> The hour boundaries are schematic. Human data give only a few fixed points: maximal pain within 24 hours, resolution within 14 days, synovial fluid sampled at 0–48 hours, days 3–4 and days 5–7, and skin blisters at 16 and 40 hours. The 4-hour and 24-hour neutrophil anchors come from mice and rabbits. The pain and CRP curves are drawn shapes, not measured averages. [[Neogi2015,Scanu2012,Yagnik2004,Busso2010]]</p></div>
+    <aside class="note" id="flNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Where each flare drug acts</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Drug</th><th>Where it is drawn</th><th>What the trials show</th></tr></thead>
+    <tbody>
+      <tr><th><span class="tag crocus">Colchicine</span></th><td>Microtubules: NLRP3 assembly inside the macrophage, and neutrophil sticking and migration at the vessel wall [[Misawa2013,Leung2015,Cronstein1995]]</td><td>Low dose (1.2 mg then 0.6 mg 1 h later): ≥ 50% pain reduction at 24 h in 37.8% vs 15.5% on placebo, with diarrhoea in 23.0% vs 76.9% on the high dose [[Terkeltaub2010]]. EULAR 2016 recommends starting within 12 h of onset [[Richette2017]].</td></tr>
+      <tr><th><span class="tag sea">NSAID</span></th><td>Cyclo-oxygenase in the inflamed tissue, downstream of the inflammasome. Non-selective NSAIDs and COX-2 inhibitors relieve flare pain about equally [[vanDurme2021]]</td><td>Naproxen and low-dose colchicine gave the same pain change over 7 days in CONTACT, with less diarrhoea on naproxen (20.0% vs 45.9%) [[Roddy2020]].</td></tr>
+      <tr><th><span class="tag sea">Glucocorticoid</span></th><td>Inflammatory gene activity in the nucleus. This placement is a simplification: glucocorticoids act broadly</td><td>Prednisolone 35 mg once daily for 5 days matched naproxen 500 mg twice daily [[Janssens2008]]. Across 6 trials, pain was no different from NSAIDs, with less indigestion, nausea and vomiting [[Billy2018]].</td></tr>
+      <tr><th><span class="tag sea">IL-1 blocker</span></th><td>IL-1β and its receptor, the step that tells the vessel wall to let neutrophils in [[Chen2006]]</td><td>Canakinumab 150 mg: 72-hour pain 25.0 vs 35.7 mm on triamcinolone 40 mg [[Schlesinger2012]]. ACR 2020 conditionally recommends IL-1 inhibition when the other options are ineffective, poorly tolerated or contraindicated [[FitzGerald2020]].</td></tr>
+    </tbody>
+  </table></div>
+  <p class="callout">ACR 2020 strongly recommends colchicine, NSAIDs or glucocorticoids as first-line flare treatment, chosen by the person's other conditions; the network meta-analysis found similar efficacy, so none is ranked above another [[FitzGerald2020]]. Treatment choices are covered in <a href="#flarerx" data-go="flarerx">Treating a flare</a>.</p>
+
+  <h3 class="sub">Clues in the timing</h3>
+  <div class="split2">
+    <div class="stage fl-fig">
+      <h4>Flares start at night</h4>
+      <svg id="flClock" viewBox="0 0 360 290" role="img" aria-label="A 24-hour dial with three 8-hour sectors sized by the number of flares that began in each"></svg>
+      <p class="stage-cap">724 people with 1,433 flares. Sector area is proportional to the number of flares. Overnight odds ratio 2.36 (95% CI 2.05–2.73) against the daytime; evening 1.26. [[Choi2015]]</p>
+    </div>
+    <div class="stage fl-fig">
+      <h4>Serum urate can look normal</h4>
+      <svg id="flUrate" viewBox="0 0 360 290" role="img" aria-label="Mean serum urate during and between flares, and 41 people of whom 20 had a normal serum urate during the flare"></svg>
+      <p class="stage-cap">41 people: urate was lower during the flare than between flares (p &lt; 0.0001), and the fall tracked CRP and IL-6 and a rise in urate excretion [[Urano2002]]. In 339 people from two flare trials, 14% had urate ≤ 6 mg/dL at the flare [[Schlesinger2009]].</p>
+    </div>
+  </div>
+
+  <div class="cards" id="flCards"></div>
+</section>

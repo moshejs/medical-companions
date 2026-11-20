@@ -1,0 +1,56 @@
+<!-- ================= 5.3 NURSING CARE ================= -->
+<style>
+#m-nursing p.prose{display:block}
+#m-nursing .vb{display:flex;flex-direction:column;gap:8px}
+#m-nursing .vb .row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 14px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:11px 13px}
+#m-nursing .vb .row>b{font-size:15px}
+#m-nursing .vb .opts3{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end}
+#m-nursing .vb .opts3 .btn{font-size:13px;padding:6px 11px}
+#m-nursing .vb .fb{grid-column:1/-1;font-size:14px;border-radius:10px;padding:8px 11px}
+#m-nursing .vb .fb.ok{background:var(--good-soft)} #m-nursing .vb .fb.off{background:var(--warn-soft)}
+#m-nursing .vb .fb:empty{display:none}
+@media (max-width:700px){#m-nursing .vb .row{grid-template-columns:minmax(0,1fr)} #m-nursing .vb .opts3{justify-content:flex-start}}
+#m-nursing .qnav{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+#m-nursing .qnav .bar{flex:1;min-width:120px}
+#m-nursing .card>.ev,#m-nursing .card>.tag{align-self:flex-start}
+</style>
+<section class="mod" id="m-nursing" data-mod="nursing" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Treatment &amp; living</p><h2>Nursing care</h2>
+    <p class="lede">One day shift with a person admitted with decompensated cirrhosis: what to measure, what to watch for, and why, step by step from handover to handover. Then sort the first hour of a variceal bleed and try seven exam-style scenarios.</p></div>
+
+  <p class="callout">People with cirrhosis need "constant and rigorous monitoring both in and outside the hospital", and the LiverHope nursing project says nurses with liver expertise should be part of the inpatient and outpatient team, bridging clinicians, families and primary care. [[Fabrellas2020LiverHope]] Cirrhosis has many causes (MASLD, alcohol, viral hepatitis, autoimmune, cholestatic and genetic diseases); the nursing priorities below apply to all of them. [[Gines2021Lancet]]</p>
+
+  <div class="stepper" id="nuSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="nuSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="A 12-hour ward shift from 07:00 to 19:00. On the left, a person with ascites whose belly fluid falls after a paracentesis; in the middle, an observation chart that fills in through the shift with daily weight, intake and output, a tally of stools on lactulose against the two published targets, and blood-pressure checks after paracentesis, every 15 minutes and then every 30 minutes; on the right, the nursing priorities for the current hour tick off one by one."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="nuPlay">Play</button><label class="stage-cap tl" for="nuT">Shift <input type="range" id="nuT" min="0" max="1" step="0.001" value="0.04"></label></div>
+      <p class="stage-cap"><b>Illustrative patient.</b> Weights, volumes and stool times are invented to show how a chart fills in. The monitoring intervals and priorities are quoted from the LiverHope nursing project, Baveno VII, ACG 2024 and AASLD guidance as published, not as orders: local protocols and prescribers decide. [[Fabrellas2020LiverHope,deFranchis2022BavenoVII,Jophlin2024ACG,Lai2021AASLD]]</p>
+    </div>
+    <aside class="note" id="nuNote" aria-live="polite"></aside>
+  </div>
+
+  <p class="crisis" role="note"><b>Urgent care</b><span>Vomiting blood, black or tarry stools, new confusion or drowsiness, or fever or belly pain with a swollen abdomen need urgent care: call your local emergency number or go to an emergency department.</span></p>
+
+  <h3 class="sub">Variceal bleed: sort the first hours</h3>
+  <p class="prose">A person with cirrhosis vomits blood on the ward. For each action, choose when the sources place it. The full medical picture is in <a href="#portal" data-go="portal">portal hypertension &amp; varices</a>.</p>
+  <p class="readout" id="nuVbScore" aria-live="polite"></p>
+  <div class="vb" id="nuVb"></div>
+  <p class="stage-cap">Statements quoted from Baveno VII and the LiverHope nursing project as published; doses and orders come from the treating team. [[deFranchis2022BavenoVII,Fabrellas2020LiverHope]]</p>
+
+  <h3 class="sub">Exam-style scenarios</h3>
+  <div class="qcard" id="nuQ" aria-live="polite"></div>
+  <div class="qnav"><button class="btn" id="nuPrev">Previous</button><div class="bar" aria-hidden="true"><i id="nuBar"></i></div><span class="stage-cap" id="nuQn"></span><button class="btn primary" id="nuNext">Next</button></div>
+
+  <h3 class="sub">Teaching, safety and support</h3>
+  <div class="cards">
+    <div class="card"><span class="tag rx">Patient teaching</span><h4>Diuretics</h4><p>The spironolactone label says to start it in hospital in cirrhosis and titrate slowly, to check potassium within a week of starting, and warns of high potassium, low sodium, breast enlargement and, in cirrhosis with ascites, sudden fluid and electrolyte shifts that may worsen hepatic encephalopathy. [[FDA-Aldactone]] The furosemide label warns that sudden shifts may precipitate hepatic coma, and that potassium supplements or an aldosterone antagonist help prevent low potassium. [[FDA-Lasix]] Starting both together resolved ascites more often than one after the other (76% vs 56%), with less high potassium (4% vs 18%). [[Tapper2023JAMA]]</p></div>
+    <div class="card"><span class="tag rx">Patient teaching</span><h4>Lactulose and rifaximin</h4><p>The lactulose label targets "2 or 3 soft stools daily"; LiverHope's nursing table uses 3–4 bowel movements a day, reflecting European practice, so follow the prescriber's target. [[FDA-Enulose,Fabrellas2020LiverHope]] Gas, bloating and cramps affect about 20%; too much causes diarrhoea with fluid loss, low potassium and high sodium. [[FDA-Enulose]] Rifaximin's label: 550 mg twice daily to reduce the risk of overt hepatic encephalopathy recurring, with lactulose in 91% of the pivotal trial. [[FDA-Xifaxan]]</p></div>
+    <div class="card"><span class="tag rx">Patient teaching</span><h4>Carvedilol and other beta-blockers</h4><p>The carvedilol label says not to stop it abruptly, warns of slow heart rate, low blood pressure and fluid retention, and lists severe hepatic impairment as a contraindication, while Baveno VII names it the preferred beta-blocker in compensated cirrhosis with clinically significant portal hypertension. [[FDA-Coreg,deFranchis2022BavenoVII]] LiverHope suggests teaching home blood pressure and pulse checks. Baveno VII 7.7: with ascites, reduce or stop if systolic pressure stays under 90 mmHg or mean arterial pressure under 65 mmHg and/or with HRS-AKI. [[Fabrellas2020LiverHope,deFranchis2022BavenoVII]]</p></div>
+    <div class="card"><span class="tag bad">Safety</span><h4>Falls with hepatic encephalopathy</h4><p>In 122 outpatients the 1-year probability of a fall was 52.3% with cognitive dysfunction against 6.5% without (OR 10.2). [[Soriano2012]] After a fall, people with cirrhosis had higher adjusted risks of bleeding in the skull (2.33) and pelvic fracture (1.71). [[Ezaz2018]] <span class="ev early">Early evidence</span> In LiveSMART, lactulose then tele-tai-chi cut injurious falls from 12% to 4%. [[Tapper2026LiveSMART]] LiverHope lists falls awareness among the three main teaching aims. [[Fabrellas2020LiverHope]]</p></div>
+    <div class="card"><span class="tag rx">Transplant evaluation</span><h4>Supporting someone through assessment</h4><p>AASLD 2021: frailty or sarcopenia should not be used as an absolute contraindication to transplant. [[Lai2021AASLD]] ACG 2024: selecting people with severe alcohol-associated hepatitis needs rigorous psychosocial evaluation by a multidisciplinary team, using tools such as SIPAT. [[Jophlin2024ACG]] AASLD 2022 asks for goals-of-care conversations during transplant evaluation. [[Rogal2022AASLD]] See <a href="#transplant" data-go="transplant">liver transplant</a>.</p></div>
+    <div class="card"><span class="tag accent">Readmission</span><h4>Why discharge teaching matters</h4><p>After a decompensation, 14% of 402 people were readmitted within a week and 37% within a month; 22% of early readmissions were judged possibly preventable. [[Volk2012Readmit]] Hepatic encephalopathy was most strongly linked with readmission (OR 1.77). [[Tapper2016Readmit]] A checklist in electronic ordering (goal-directed lactulose, rifaximin, SBP prophylaxis prompts) went with 40% lower adjusted odds of 30-day readmission. [[Tapper2016QI]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Albumin with large-volume paracentesis</h4><p>A meta-analysis of 17 trials (1,225 patients) found albumin reduced circulatory dysfunction after paracentesis (OR 0.39), low sodium (OR 0.58) and death (OR 0.64) compared with alternatives. [[Bernardi2012Hepatology]] In 4,729 paracenteses severe bleeding occurred in 0.19%, unrelated to INR or platelets, mostly in people with severe liver failure and kidney dysfunction. [[Pache2005]]</p></div>
+    <div class="card"><span class="tag accent">Care models</span><h4>Does nurse-coordinated care help?</h4><p><span class="ev early">Early evidence</span> A coordinated outpatient model for ascites reported 12-month mortality of 23.1% vs 45.7% (non-randomised). [[Morando2013]] The ALFIE randomised trial of a liver-nurse-coordinated model found no reduction in overall liver-related emergency admissions (IRR 0.89), but fewer encephalopathy admissions and better quality-of-care measures. [[Wigg2025ALFIE]]</p></div>
+  </div>
+</section>

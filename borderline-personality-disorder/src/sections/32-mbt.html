@@ -1,0 +1,64 @@
+<!-- ================= 3.2 MENTALIZATION-BASED TREATMENT ================= -->
+<style>
+#m-mbt .card>.ev,#m-mbt .card>.tag{align-self:flex-start}
+#m-mbt .tbl table{min-width:560px}
+#m-mbt #mbTrBtns{gap:6px}
+#m-mbt #mbTrBtns .btn{font-size:13px;padding:7px 12px}
+#m-mbt .mb-sum{font-size:15px;max-width:72ch}
+</style>
+<section class="mod" id="m-mbt" data-mod="mbt" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Psychotherapies</p><h2>Mentalization-based treatment</h2>
+    <p class="lede">Mentalizing means making sense of yourself and other people through thoughts, feelings and intentions. Watch it switch off as attachment stress climbs, then come back when the conversation slows down. Then compare what the MBT trials actually measured.</p></div>
+
+  <div class="ctrls" role="group" aria-label="Stress level">
+    <span class="kicker">Scenario</span>
+    <button class="btn" data-mbs="hi" aria-pressed="true">High attachment stress</button>
+    <button class="btn" data-mbs="lo" aria-pressed="false">Low stress</button>
+  </div>
+  <div class="stepper" id="mbSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="mbSvg" viewBox="0 0 720 390" style="min-width:560px" role="img" aria-label="Two people, Maya and Jo, talk. Thought bubbles over their heads show how each reads the other's mind. An arousal gauge rises; once it passes a dashed threshold the bubbles change from flexible guesses to psychic equivalence, teleological thinking and pretend mode, and the line between them breaks. A therapist then slows the conversation down, arousal falls and the bubbles return to curious, mentalizing thoughts. A strip along the bottom records which mode was active at each moment."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="mbPlay">Play</button><label class="stage-cap tl" for="mbT">Conversation <input type="range" id="mbT" min="0" max="1" step="0.001" value="0.05"></label></div>
+      <div class="readout" id="mbRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> Maya and Jo are invented, and the thought bubbles are illustrative examples of each mode, not quotations. The arousal scale and its threshold are drawn to show the idea of the mentalizing model, which is a theory, not a measured curve. Mode definitions: [[Chung2026]].</p>
+    </div>
+    <aside class="note" id="mbNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Three ways mentalizing goes offline</h3>
+  <div class="prose"><p>The MBT literature describes three "pre-mentalizing" modes. Everyone uses them sometimes, especially when upset; the model proposes that in BPD they take over faster and more often under attachment stress. <span class="ev hyp">Hypothesis</span> [[Chung2026,FonagyLuyten2009]]</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Mode</th><th>Definition, as published</th><th>How it can sound (illustrative)</th></tr></thead>
+    <tbody>
+      <tr><th>Psychic equivalence</th><td>Treating inner experience as if it were outer reality. [[Chung2026]]</td><td>"I feel rejected, so you have rejected me."</td></tr>
+      <tr><th>Teleological thinking</th><td>Focusing on physical, goal-directed actions as the only proof of what someone feels or intends. [[Chung2026]]</td><td>"If you cared, you would come over right now."</td></tr>
+      <tr><th>Pretend mode</th><td>Appearing to mentalize while cut off from real inner states and reality. [[Chung2026]]</td><td>Long, fluent talk about feelings that changes nothing and feels empty.</td></tr>
+      <tr><th>Mentalizing</th><td>"The capacity to understand others and oneself in terms of internal mental states", along four dimensions: automatic–controlled, internal–external focus, self–other, cognitive–affective. [[Luyten2020]]</td><td>"You seem quiet. Was it a hard day, or is it something between us?"</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">In a Korean sample of 90 people with BPD and 47 controls, psychic equivalence was linked both to having the diagnosis and to symptom severity. <span class="ev early">Early evidence</span> [[Chung2026]]</p>
+
+  <h3 class="sub">The MBT trials on one timeline</h3>
+  <div class="prose"><p>Pick a trial. The top strip places it in publication history; the middle strip shows when, counted from the day patients entered the trial, treatment ran and outcomes were measured; the bottom panel plots the outcomes the abstract reports. Where an abstract gives a direction but no numbers, the panel says so instead of inventing bars.</p></div>
+  <div class="ctrls" id="mbTrBtns" role="group" aria-label="Choose an MBT trial"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="mbTr" viewBox="0 0 600 430" style="min-width:520px" role="img" aria-label="A comparator for mentalization-based treatment trials: a publication timeline from 1999 to 2025, a strip showing treatment and measurement times in years since trial entry, and paired bars or interval plots of the selected trial's published outcomes, MBT against its comparison treatment."></svg></div>
+      <p class="stage-cap" id="mbTrCap"></p>
+    </div>
+    <aside class="note" id="mbTrNote" aria-live="polite"></aside>
+  </div>
+  <p class="crisis" role="note"><b>Need help now?</b><span>If you are in crisis or thinking about suicide, contact local emergency services or a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123).</span></p>
+
+  <h3 class="sub">How MBT is delivered</h3>
+  <div class="cards">
+    <div class="card"><span class="tag rx">Structure</span><h4>Individual plus group, over months</h4><p>The first trial used psychoanalytically oriented partial hospitalisation with individual and group psychotherapy for up to 18 months. [[Bateman1999]] The 2009 outpatient trial ran for 18 months. [[Bateman2009]] A Danish trial gave 2 years of twice-weekly combined MBT. [[Jorgensen2013MBT]]</p><p>MBT is "a time-limited treatment which structures interventions that promote the further development of mentalizing", and worked when delivered by mental health professionals with limited extra training and moderate supervision. [[Bateman2010WP]]</p></div>
+    <div class="card"><span class="tag rx">Stance</span><h4>Too much guessing about minds</h4><p>People with BPD traits tend to <b>hypermentalize</b>, making excessive, inaccurate guesses about others' mental states, and in adolescent inpatients emotion-regulation difficulties accounted for 43.5% of the hypermentalizing-to-BPD-traits path. <span class="ev early">Early evidence</span> [[Sharp2011]] Across 36 studies, hypermentalizing was linked to psychopathology in general (r 0.24), not more to BPD (r 0.26). [[McLaren2022]]</p></div>
+    <div class="card"><span class="tag rx">Young people</span><h4>MBT-A and MBT in groups</h4><p>In 80 adolescents who self-harmed and were depressed, MBT-A reduced self-harm and depression more than usual treatment over 12 months; the benefit was explained by better mentalizing and less attachment avoidance. [[Rossouw2012MBTA]] Group MBT for 112 adolescents did not beat usual care: 29% remitted in both groups, and 29% in MBT-G attended fewer than half their sessions (7% of controls). [[Beck2020MBTG]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>How long does it need to be?</h4><p>In 166 outpatients, 5 months of MBT matched 14 months on BPD symptoms at 16 months (mean difference 0.99; 95% CI −1.06 to 3.03) [[Juul2023]] and at 24 months (−0.56; −2.67 to 1.54); the longer group had better quality of life, but 40% of that data was missing. [[Juul2025]] Other researchers argue the trial was flawed in design. [[Philips2024]]</p></div>
+    <div class="card"><span class="tag warn">Certainty</span><h4>What the pooled evidence says</h4><p>The 2020 Cochrane review found MBT reduced self-harm (RR 0.62; 95% CI 0.49–0.80; 3 trials) and suicidality (RR 0.10; 0.04–0.30; 3 trials) against usual care, all low-certainty evidence. [[Storebo2020]] A 2022 focused meta-analysis gave RR 0.51 for self-harm and 0.10 for suicide-related outcomes for standalone MBT, again low certainty. [[StoffersWinterling2022BJP]] No therapy has been shown superior to another: see <a href="#compare" data-go="compare">Therapies compared</a>. [[Leichsenring2024]]</p></div>
+    <div class="card"><span class="tag warn">Exam hook</span><h4>Name the mode</h4><ul><li><b>Psychic equivalence</b>: inner = outer. "I feel it, so it is true."</li><li><b>Teleological</b>: only actions count as proof.</li><li><b>Pretend</b>: mentalizing talk cut off from real feeling.</li></ul><p>Bateman 2008: 8 years after entry, 13% vs 87% still met BPD criteria after MBT partial hospitalisation vs usual care. [[Chung2026,Bateman2008]]</p></div>
+  </div>
+  <p class="callout">Where the model comes from: the developmental mentalizing model links early attachment and later stress to unstable mentalizing; it is covered in <a href="#causes" data-go="causes">Causes &amp; the biosocial model</a> and <a href="#brain" data-go="brain">Brain &amp; stress systems</a>. Most people with BPD reach symptom remission over time, and treatment can speed it up: see <a href="#course" data-go="course">Course &amp; recovery</a>. [[Gunderson2018]]</p>
+</section>

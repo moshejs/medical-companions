@@ -1,0 +1,72 @@
+<!-- ================= 3.4 COMPLEMENT & FCRN INHIBITORS ================= -->
+<section class="mod" id="m-biologics" data-mod="biologics" hidden>
+<style>
+#m-biologics .bi-ctl{display:flex;flex-direction:column;gap:10px}
+#m-biologics .bi-ctl>div{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-biologics .bi-ctl .kicker{min-width:92px}
+#m-biologics .bi-clin{background:var(--drug-soft);border-radius:12px;padding:12px 14px;font-size:15px;max-width:none;border-left:0}
+#m-biologics .bi-clin b{color:var(--drug)}
+#m-biologics .note .readout{border-top:1px solid var(--line);padding-top:10px}
+#m-biologics .note .bi-lab{font-size:14px;color:var(--muted);border-top:1px solid var(--line);padding-top:10px}
+#m-biologics .note .bi-lab b{color:var(--ink)}
+#m-biologics .bi-debate .card h4{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+#m-biologics .tbl table{min-width:880px}
+#m-biologics .tbl td,#m-biologics .tbl th{font-size:13.5px}
+#m-biologics .tbl tbody th small{display:block;font:500 11.5px var(--mono);color:var(--muted)}
+#m-biologics .tbl .cls{font:600 10.5px var(--mono);letter-spacing:.06em}
+#m-biologics .card>.ev{align-self:flex-start}
+#m-biologics .cardnote{font-size:13px;color:var(--muted)}
+#m-biologics .bi-new{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+#m-biologics .bi-new .card h4{font-size:17px}
+#m-biologics .bi-new .num{font:600 13px var(--mono);color:var(--drug)}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 3 · Treatment</p><h2>Complement &amp; FcRn inhibitors</h2>
+    <p class="lede">Complement C5 inhibitors and FcRn blockers for generalised myasthenia gravis, trial week by trial week. Pick a drug, press Play and watch the junction, the MG-ADL score and the drug's effect on complement or IgG move together.</p></div>
+  <p class="callout bi-clin"><b>Published trial and label information only.</b> Everything on this page reports what the trials, labels and regulators published: doses, schedules and warnings are quoted from them for education. Whether any of these drugs suits a particular person, and how it is given, are decisions for the treating neurologist with the person with MG.</p>
+
+  <div class="bi-ctl" role="group" aria-label="Animation settings">
+    <div><span class="kicker">Complement C5</span>
+      <button class="btn" data-bid="ecu" aria-pressed="true">Eculizumab · REGAIN</button>
+      <button class="btn" data-bid="rav" aria-pressed="false">Ravulizumab · CHAMPION-MG</button>
+      <button class="btn" data-bid="zil" aria-pressed="false">Zilucoplan · RAISE</button>
+      <button class="btn" data-bid="gef" aria-pressed="false">Gefurulimab · PREVAIL</button></div>
+    <div><span class="kicker">FcRn</span>
+      <button class="btn" data-bid="efg" aria-pressed="false">Efgartigimod IV · ADAPT</button>
+      <button class="btn" data-bid="efs" aria-pressed="false">Efgartigimod SC · ADAPT-SC</button>
+      <button class="btn" data-bid="roz" aria-pressed="false">Rozanolixizumab · MycarinG</button>
+      <button class="btn" data-bid="nip" aria-pressed="false">Nipocalimab · Vivacity-MG3</button></div>
+    <div><span class="kicker">Show</span>
+      <button class="btn" id="biPbo" aria-pressed="true">Placebo arm</button>
+      <button class="btn" id="biOle" aria-pressed="false">Open-label extension</button></div>
+  </div>
+  <div class="stepper" id="biSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="biSvg" viewBox="0 0 720 596" style="min-width:560px" role="img" aria-label="Three linked panels over the trial weeks. Left: the neuromuscular junction, where a C5 inhibitor stops the membrane attack complex from forming, or where an FcRn blocker sends IgG to be broken down so fewer antibodies reach the receptors. Top right: MG-ADL change from baseline on drug and on placebo, with published values as filled dots and label, sponsor or calculated values as open dots. Bottom right: complement inhibition or total IgG reduction over time, the dose ticks, and the vaccination and safety lane."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="biPlay">Play</button><label class="stage-cap tl" for="biT">Week <input type="range" id="biT" min="0" max="26" step="0.05" value="0"></label><span class="stage-cap" id="biWk" aria-hidden="true">baseline</span></div>
+      <p class="stage-cap">The junction is a schematic, not to scale. Filled dots are values printed in a trial paper; open dots are label, sponsor, press or congress values, or values calculated from published numbers. Lines between dots are interpolated shapes, not measurements, and dashed lines are schematic.</p></div>
+    <aside class="note" id="biNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How big is the benefit?</h3>
+  <p class="prose">Most pivotal trials met their primary endpoint (REGAIN's prespecified worst-rank analysis did not), yet the placebo arms improved too, and many drug-minus-placebo differences sit below the 2-point MG-ADL change that best predicted a person's own sense of improvement. Pick a view, then a row, to see what the number is and how it is read. Specialists disagree on how to weigh this, so both readings are shown below.</p>
+  <div class="ctrls" role="group" aria-label="View"><span class="kicker">View</span>
+    <button class="btn" id="biMagD" aria-pressed="true">Drug minus placebo</button>
+    <button class="btn" id="biMagP" aria-pressed="false">Placebo arm and drug arm</button></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="biMag" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Horizontal bars compare each trial's published MG-ADL difference between drug and placebo, or each placebo arm's own improvement, with the 2-point line for a meaningful change in one person."></svg></div>
+      <div class="ctrls" id="biMagBtns" role="group" aria-label="Choose a row to explain"></div>
+      <p class="stage-cap">Bars: point estimate, drawn as points of improvement. Whiskers: published 95% confidence interval. Outlined bars: label or congress values. Dashed line: the 2-point MG-ADL threshold.</p></div>
+    <aside class="note" id="biMagNote" aria-live="polite"></aside>
+  </div>
+  <div class="split2 bi-debate" id="biDebate"></div>
+
+  <h3 class="sub">Targets, routes and labels</h3>
+  <div class="tbl" id="biTargets"></div>
+
+  <h3 class="sub">Newer agents</h3>
+  <div class="cards bi-new" id="biNew"></div>
+
+  <h3 class="sub">Mechanism, safety and comparisons</h3>
+  <div class="cards" id="biCards"></div>
+  <p class="callout bi-clin"><b>A reminder.</b> Labels, approved populations and access rules differ between countries and change over time. The figures here are for understanding the evidence, not for choosing a treatment; that choice belongs with the treating clinician.</p>
+</section>

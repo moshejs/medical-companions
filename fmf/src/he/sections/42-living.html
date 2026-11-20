@@ -1,0 +1,63 @@
+<!-- ================= 4.2 LIVING WITH FMF ================= -->
+<section class="mod" id="m-living" data-mod="living" hidden>
+  <div class="mhead"><p class="eyebrow">חלק 4 · טיפול והעתיד</p><h2>לחיות עם FMF</h2>
+    <p class="lede">את FMF מנהלים לאורך שנים, לא לאורך ביקורים. לחצו על הפעלה כדי לעבור שנה אחת סביב הטבעת: הבדיקות השגרתיות מגיעות בזמנן, והמתגים מכניסים לאותה שנה מצבים מהחיים, כל אחד עם מה שהספרות שפורסמה אומרת עליו. כל מה שמופיע כאן הוא מה שמחקרים והנחיות מדווחים, לא ייעוץ.</p></div>
+  <div class="ctrls" role="group" aria-label="הוספת מצב מהחיים לשנה">
+    <span class="kicker">הוספה לשנה הזו</span>
+    <button class="btn" id="lvPreg" aria-pressed="false">היריון</button>
+    <button class="btn" id="lvSurg" aria-pressed="false">ניתוח מתוכנן</button>
+    <button class="btn" id="lvVacc" aria-pressed="false">חיסון בזמן טיפול ביולוגי</button>
+    <button class="btn" id="lvExam" aria-pressed="false">תקופת מבחנים</button>
+    <button class="btn" id="lvTrav" aria-pressed="false">נסיעה ארוכה, עמידה ממושכת</button>
+  </div>
+  <div class="stepper" id="lvSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="lvSvg" viewBox="0 0 720 440" style="min-width:560px" role="img" aria-label="שנה עם FMF: טבעת של שנים־עשר חודשים, עם אירועי מעקב ומצבים מהחיים"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="lvPlay">הפעלה</button><label class="stage-cap tl" for="lvT">לאורך השנה <input type="range" id="lvT" min="0" max="1" step="0.002" value="0.02"></label></div>
+      <p class="stage-cap" id="lvCap">שנה סכמטית. המרווחים לפי ההנחיות שפורסמו, לא לפי מרפאה מסוימת.</p></div>
+    <aside class="note" id="lvNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">מה הראיות על גורמים מעוררים מראות בפועל</h3>
+  <div class="stage">
+    <div class="scroll"><svg id="lvTrig" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="עמודות מונפשות של גורמים מעוררים שדווחו להתקפים, ושל ממצאי מחקר ה־case-crossover"></svg></div>
+    <div class="ctrls"><button class="btn primary" id="lvTPlay">הפעלה</button><label class="stage-cap tl" for="lvTR">הצמחת העמודות <input type="range" id="lvTR" min="0" max="1" step="0.002" value="1"></label></div>
+    <p class="stage-cap">אחוזי השאלונים הם מה שמטופלים מדווחים, וזה לא אותו דבר כמו מה שגורם להתקפים. מבנה ה־case-crossover משווה כל מטופל לעצמו, ולכן הוא הראיה החזקה יותר. [[Karadag2013,Parlar2024,Yenokyan2012]]</p>
+    <p class="stage-cap">התזונה היא החוליה החלשה ביותר בספרות הזו: סקירה מצאה רק 7 מחקרים מתאימים, עם תוצאות סותרות לגבי מזון שומני ומלוח ותפקיד אפשרי לחיטה, ואין ניסוי מבוסס שמראה שדיאטה כלשהי מונעת התקפים. [[Mansueto2022]]</p>
+  </div>
+
+  <h3 class="sub">בית ספר, עבודה ומצב רוח</h3>
+  <div class="stage">
+    <div class="scroll"><svg id="lvQol" viewBox="0 0 720 440" style="min-width:560px" role="img" aria-label="שורות של עשרים דמויות, מוצללות לפי האחוז שפורסם, המשוות מדדי עבודה ומצב רוח ב־FMF ובקבוצת ביקורת"></svg></div>
+    <div class="ctrls"><button class="btn primary" id="lvQPlay">הפעלה</button><label class="stage-cap tl" for="lvQ">הצללת השורות <input type="range" id="lvQ" min="0" max="1" step="0.002" value="1"></label></div>
+    <div class="legend"><span><i style="background:var(--terra)"></i>FMF</span><span><i style="background:var(--muted)"></i>קבוצת ביקורת</span></div>
+    <p class="stage-cap">ממצאים קבוצתיים ממחקרים נפרדים, כל אחד עם אוכלוסייה משלו. [[Suticen2021,Lidor2021,Sezer2024]]</p>
+  </div>
+
+  <h3 class="sub">פרוגנוזה, מעקב ואנשים</h3>
+  <div class="cards" id="lvCards"></div>
+  <div class="split2">
+    <div class="card"><h4>רשימת המעקב בהנחיה של 2016</h4>
+      <ul>
+        <li>התגובה, הרעילות וההיענות נבחנות <b>כל 6 חודשים</b>, בתדירות גבוהה יותר בשנה הראשונה או כשסמני השלב החריף מוגברים, ופעם בשנה כשהמצב יציב.</li>
+        <li>הבדיקות המפורטות: <b>SAA ו/או CRP</b>, ספירת דם, אנזימי כבד, תפקודי כליה, CPK, ובדיקת שתן לחלבון בשתן (פרוטאינוריה).</li>
+        <li><b>בדיקת שתן בכל ביקור במרפאה</b>, כדי לזהות חלבון בשתן מוקדם.</li>
+        <li>מינון הקולכיצין מופחת אם אנזימי הכבד עולים מעל פי שניים מהגבול העליון של הנורמה.</li>
+        <li>ערכי SAA גבוהים משותפים עם המטופל, במכוון, כדי לתמוך בהיענות לטיפול.</li>
+        <li>העדכון של 2024 אינו קובע מרווח קבוע, ומבקש מעקב תכוף יותר בזמן האבחנה וכשהמחלה אינה מאוזנת, מול מערך תוצאות מינימלי. [[Ozen2016,Ozen2025,RheumNow2025]]</li>
+      </ul></div>
+    <div class="card"><h4>שאלות שאנשים מביאים לביקור במרפאה</h4>
+      <p>גרסאות במילים פשוטות למה שההנחיות עצמן אומרות שצריך לדון בו. הן נקודות פתיחה לשיחה עם איש צוות רפואי, לא תסריט ולא ייעוץ.</p>
+      <ul>
+        <li>מה רמת ה־SAA או ה־CRP שלי בין התקפים, והאם היא בטווח התקין?</li>
+        <li>האם נמצא היום חלבון בשתן שלי?</li>
+        <li>האם המינון שלי הוא מה שההנחיות היו מגדירות אצלי כמינון המרבי הנסבל, ויש מקום להעלות אותו?</li>
+        <li>כמה התקפים היו לי ב־3 החודשים האחרונים, כשסופרים אותם ולא מסתמכים על הזיכרון?</li>
+        <li>אם ההתקפים ימשיכו במינון הזה, מה יהיה הצעד הבא?</li>
+        <li>מה צריך לקרות לטיפול שלי אם מתוכנן היריון, או אם יש צורך בניתוח או בחיסונים?</li>
+        <li>כל כמה זמן צריך לראות אותי, ואילו בדיקות לעשות בכל פעם?</li>
+      </ul>
+      <div class="pt"><b>במילים פשוטות</b>שני מספרים עושים את רוב העבודה בביקור: כמה התקפים היו מאז הפעם הקודמת, ומה אומרים סמני הדלקת בין ההתקפים.</div></div>
+  </div>
+  <div class="callout" id="lvOrg"></div>
+</section>

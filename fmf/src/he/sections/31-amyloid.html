@@ -1,0 +1,78 @@
+<!-- ================= 3.1 AA AMYLOIDOSIS ================= -->
+<section class="mod" id="m-amyloid" data-mod="amyloid" hidden>
+  <style>
+    /* microscope colours are fixed in both themes, like a real slide */
+    #m-amyloid{--am-black:#05080a;--am-light:#f8f2ee;--am-tissue:#f2c3cc;--am-septa:#d79aa8;--am-salmon:#e57f78;--am-hema:#5a4a96;--am-green:#8fe04a}
+    #m-amyloid .am-chips{display:flex;flex-wrap:wrap;gap:6px}
+    #m-amyloid .lab.am-wide{grid-template-columns:minmax(0,1fr)}
+    #m-amyloid .am-num{font:800 26px/1.1 var(--display);color:var(--terra);display:block}
+  </style>
+  <div class="mhead"><p class="eyebrow">חלק 3 · סיבוכים ואבחון</p><h2>עמילואידוזיס מסוג AA</h2>
+    <p class="lede">הסיבוך החמור ביותר של FMF שאינה מאוזנת מתפתח בשקט במשך שנים. הכבד ממשיך לייצר עמילואיד A בסרום (SAA), מקטע ממנו מתקפל לא נכון לסיבים, והסיבים סותמים את המסננים של הכליה. לחצו על הפעלה כדי לצפות בשני עשורים, ואז עברו ל"הורד אל מתחת ל־10 mg/L" כדי לראות מה משנה השליטה בדלקת.</p></div>
+  <div class="ctrls" role="group" aria-label="SAA בין התקפים">
+    <span class="kicker">SAA בין התקפים</span>
+    <button class="btn" data-am="high" aria-pressed="true">גבוה באופן מתמשך</button>
+    <button class="btn" data-am="low" aria-pressed="false">הורד אל מתחת ל־10 mg/L (משנה 10)</button>
+  </div>
+  <div class="stepper" id="amSteps"></div>
+  <div class="lab am-wide">
+    <div class="stage"><div class="scroll"><svg id="amSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="מ־SAA שמיוצר בכבד ועד משקעי עמילואיד בפקעית הכליה ואי-ספיקת כליות, לאורך עשרים שנה"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="amPlay">הפעלה</button><label class="stage-cap tl" for="amT">שנים <input type="range" id="amT" min="0" max="1" step="0.001" value="0.05"></label></div>
+      <div class="readout" id="amRead"></div>
+      <p class="stage-cap">סכמטי. ציר הזמן עוקב אחר החציון המדווח של כ־17 שנים מתחילת הדלקת ועד האבחון, שמשתנה מאוד מאדם לאדם. המשקעים מצוירים בצבע של צביעת קונגו רד. המצב המבוקר משקף את Lachmann 2007 (המשקעים נסוגו אצל 60% מהחולים שה־SAA החציוני שלהם היה מתחת ל־10 mg/L), ואינו תחזית לאף אדם.</p></div>
+    <aside class="note" id="amNote" aria-live="polite"></aside>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="amOrg" viewBox="0 0 720 286" style="min-width:560px" role="img" aria-label="האיברים שבהם שוקע עמילואיד AA, מתמלאים בהתאם לציר הזמן שלמעלה"></svg></div>
+    <p class="stage-cap">האיברים מתמלאים בהתאם לציר הזמן שלמעלה (הצללה סכמטית). השכיחויות לקוחות מ־EULAR 2016 ומסקירה מ־2024. [[Ozen2016,Mirioglu2024]]</p>
+  </div>
+
+  <h3 class="sub">מתחת למיקרוסקופ: קונגו רד</h3>
+  <div class="ctrls" role="group" aria-label="דגימת ביופסיה">
+    <span class="kicker">דגימה</span>
+    <button class="btn" data-amx="kidney" aria-pressed="true">ביופסיית כליה</button>
+    <button class="btn" data-amx="fat" aria-pressed="false">שאיבת שומן בטני</button>
+  </div>
+  <div class="lab am-wide">
+    <div class="stage"><div class="scroll"><svg id="amMic" viewBox="0 0 720 360" style="min-width:560px" role="img" aria-label="חתך צבוע בקונגו רד, נצפה דרך מקטבים מקבילים ואחר כך מוצלבים"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="amMPlay">הפעלה</button><label class="stage-cap tl" for="amMT">זווית המקטב <input type="range" id="amMT" min="0" max="1" step="0.002" value="0"></label></div>
+      <p class="stage-cap">צבעים סכמטיים. בשקפים אמיתיים המראה משתנה לפי עובי החתך, איכות הצביעה וכיוון הסיבים.</p></div>
+    <aside class="note" id="amMicNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">מי בסיכון</h3>
+  <div class="stage">
+    <div class="ctrls"><button class="btn primary" id="amRPlay">הפעלה חוזרת</button><button class="btn" id="amCI" aria-pressed="true">הצגת רווח סמך 95%</button></div>
+    <div class="scroll"><svg id="amRisk" viewBox="0 0 720 346" style="min-width:560px" role="img" aria-label="גורמי סיכון לעמילואידוזיס בסולם לוגריתמי של יחסי סיכויים"></svg></div>
+    <p class="stage-cap">סולם לוגריתמי. כל עמודה היא יחס סיכויים (או יחס סיכונים, עבור M694V ב־Kasifoglu 2014) ממחקר, מאוכלוסייה וממודל סטטיסטי שונים. אי אפשר להשוות ביניהם, ואי אפשר להכפיל אותם זה בזה כדי לקבל סיכון אישי. הנתונים של SAA1 ושל מין זכר מגיעים מקבוצה אחת, ארמנית ברובה; מחקר נפרד של 124 הומוזיגוטים ל־M694V העריך את השפעת המין הזכרי כנמוכה יותר, OR 2.37, לצד התקפים של דלקת פרקים עם OR 3.27. [[Touitou2007,Kasifoglu2014,Vitale2025,Cazeneuve2000,GershoniBaruch2003]]</p>
+  </div>
+  <div class="split2">
+    <div class="card"><h4>גורמים בלי מספר אחד</h4><div class="am-chips"><span class="tag terra">היסטוריה משפחתית של עמילואידוזיס</span><span class="tag terra">אבחון מאוחר</span><span class="tag terra">היענות נמוכה לטיפול</span><span class="tag terra">מינון לא מספק</span><span class="tag terra">דלקת פרקים</span><span class="tag terra">זיהומים</span><span class="tag terra">אללים של MICA</span><span class="tag terra">החולה הראשון שאובחן במשפחה</span><span class="tag terra">משך מחלה ארוך יותר</span></div>
+      <p>אלה מופיעים כגורמי סיכון בסקירות ובמחקרי קבוצה, בלי גודל אפקט מצורף. [[GulBenChetrit2025,Kasifoglu2014,Touitou2007,Vitale2025]]</p>
+      <p>בקבוצה אחת, אבחון מאוחר העלה את שכיחות העמילואידוזיס מ־2.6% ל־10%, והומוזיגוטים ל־M694V מפתחים עמילואידוזיס מוקדם יותר (בסביבות גיל 27) מהטרוזיגוטים (בסביבות גיל 41). [[GulBenChetrit2025]]</p></div>
+    <div class="card"><h4>למה הארץ חשובה יותר מכול</h4><p>בקרב 2,482 חולים עם אישור גנטי מ־35 מרכזים ב־14 ארצות, ארץ הגיוס הייתה גורם הסיכון החזק ביותר, לפני הומוזיגוטיות ל־M694V. הסיכון לפי ארץ היה במתאם עם תמותת תינוקות, מה שמצביע על גורם סביבתי. עמילואידוזיס דווחה אצל כ־24% מהארמנים בארמניה, אבל כמעט לא נמצאה בקרב אמריקאים ממוצא ארמני בקליפורניה. [[Touitou2007,Sari2014]]</p></div>
+  </div>
+
+  <h3 class="sub">עד כמה זה שכיח, אז והיום</h3>
+  <div class="stage">
+    <div class="scroll"><svg id="amPrev" viewBox="0 0 720 320" style="min-width:560px" role="img" aria-label="שכיחות מדווחת של עמילואידוזיס בקבוצות חולי FMF, מ־1967 עד 2025"></svg></div>
+    <div class="ctrls"><button class="btn primary" id="amPPlay">הפעלה</button><label class="stage-cap tl" for="amPT">שנה <input type="range" id="amPT" min="0" max="1" step="0.002" value="1"></label></div>
+    <p class="stage-cap" id="amPCap"></p>
+  </div>
+
+  <h3 class="sub">מה עוד כדאי לדעת</h3>
+  <div class="cards">
+    <div class="card"><h4>למה קולכיצין מונע אותה גם כשההתקפים נמשכים</h4><p>עמילואיד נבנה מ־SAA, ולכן הסיכון תלוי בכמות ה־SAA שמיוצרת לאורך שנים, ולא רק במספר ההתקפים. SAA יכול להישאר גבוה בין התקפים. אצל 26 ילדים שלא היו להם התקפים בשנה הקודמת אבל היה להם SAA גבוה, העלאת מינון הקולכיצין הורידה את ה־SAA החציוני מ־244 ל־35.5 mg/L עד הבדיקה החוזרת אחרי 2 חודשים. בקבוצה של Zemer, שכללה 1,070 חולים, שיעור הפרוטאינוריה המצטבר היה 1.7% אחרי 11 שנים אצל חולים שהקפידו על הטיפול, לעומת 48.9% אחרי 9 שנים אצל אלה שדיווחו שלא נטלו אותו באופן קבוע. [[Lachmann2006,Duzova2003,Zemer1986]]</p></div>
+    <div class="card"><h4>טיפול בעמילואידוזיס שכבר התפתחה</h4><p>EULAR 2016 ממליץ להגביר את הקולכיצין למינון המרבי הנסבל, בתוספת תרופות ביולוגיות לפי הצורך; העדכון של 2024 מציג את הטיפול המשלים באותו אופן, כשלחוסמי IL-1 יש התמיכה הטובה ביותר. בקרב 68 חולים עם עמילואידוזיס על רקע FMF שנעקבו לפחות 5 שנים, הפרוטאינוריה נסוגה אצל 15, והחמרה הייתה קשורה לקריאטינין התחלתי ≥1.5 mg/dL ולמינונים ≤1.5 mg/day. סקירה שיטתית מ־2025 מצאה שהראיות לטיפול במחלה שכבר התפתחה הן תצפיתיות, אבל העריכה אותן כמרגיעות; נתונים רטרוספקטיביים מרמזים שטוסיליזומאב (tocilizumab) עשוי לעזור לחולים נבחרים. [[Ozen2016,Ozen2025,Livneh1994,Sag2025,Mertz2025]]</p></div>
+    <div class="card"><h4>סערת עמילואיד</h4><p>הידרדרות מהירה, לרוב בעקבות זיהום: בתוך 2 שבועות הקריאטינין והפרוטאינוריה עולים לפחות פי שניים, וה־CRP עולה יותר מפי עשרה. בסדרה של 20 חולים, 16 הגיעו למחלת כליות סופנית או למוות בתוך שנה (לעומת 3 מתוך 20 בקבוצת הביקורת); זיהום היה הגורם ל־17 מתוך 20 הסערות. [[Kukuy2021,GulBenChetrit2025]]</p></div>
+    <div class="card"><h4>אפרודיסאט <span class="ev early">ראיות מעורבות</span></h4><p>תרופה שמפריעה ליצירת הסיבים. בניסוי EFAST, שכלל 183 חולים, החמרה בתפקוד הכליות או מוות התרחשו אצל 27% לעומת 40% בקבוצת הפלצבו (P = 0.06; HR 0.58), עם ירידה איטית יותר בפינוי הכלייתי (clearance), אבל בלי השפעה מובהקת על דיאליזה או מוות. ניסוי האישוש בשלב 3, שכלל 261 חולים, לא עמד בנקודת הסיום העיקרית שלו ב־2016. [[Dember2007,KiactaPh3]]</p></div>
+    <div class="card"><h4>השתלת כליה</h4><ul><li>מצרים, תורמים חיים (23 מושתלים עם עמילואידוזיס, 16 מהם עם FMF): הישרדות השתל דומה לקבוצת הביקורת; הישרדות החולים ל־10 שנים 68% לעומת 87%; הישנות אצל 1. [[Sherif2003]]</li><li>טורקיה, 17 מושתלים עם FMF: הישרדות שתל וחולים של כ־89–90% אחרי 5 שנים; הישנות אצל 2. [[Keven2004]]</li><li>ישראל: הישרדות של 73% לעומת 84% אחרי 5 שנים, ו־39% לעומת 63% אחרי 15 שנים. [[Green2017]]</li></ul><p>מחלות לב וכלי דם הן הגורם העיקרי למוות אחרי ההשתלה; הישנות בשתל הפכה לנדירה. [[Mirioglu2024]]</p></div>
+    <div class="card"><h4>פנוטיפ II</h4><p>עמילואידוזיס לפני ההתקפים הטיפוסיים, או במקומם. היא לא שכיחה: מתוך 461 קרובי משפחה של חולים עם עמילואידוזיס על רקע FMF, רק אצל 2 נמצאה פרוטאינוריה משמעותית בלי תסמינים, והביופסיות הרקטליות שלהם לא הראו עמילואיד. ההערכות שונות: לכל היותר 0.3% במרשם הטורקי של 2,838 חולים, וכ־0.6% בסקירה מאוחרת יותר, שמחבריה גם מטילים ספק בכך שמדובר בישות נפרדת. [[Melikoglu2000,Tunca2005,GulBenChetrit2025]]</p></div>
+    <div class="card"><h4>מעקב</h4><ul><li>EULAR 2016: בדיקת שתן כללית בכל ביקור, כדי לשלול פרוטאינוריה. [[Ozen2016]]</li><li>בעמילואידוזיס: בדיקות SAA תכופות עם יעד מתחת ל־10 mg/L, וגם מעקב אחר הפרוטאינוריה וה־GFR; CRP הוא תחליף לא מושלם. [[Ozen2016]]</li><li>העדכון של 2024 דורש שליטה מלאה ומתמשכת בדלקת הביוכימית. [[Ozen2025,RheumNow2025]]</li><li>כליות עם עמילואיד רגישות לזרימת דם נמוכה, ליתר לחץ דם, לתרופות רעילות לכליות ולניתוחים. [[Ozen2016]]</li></ul></div>
+    <div class="card"><h4>למה זה חשוב</h4><p><span class="am-num">סיבת המוות המובילה</span>בקבוצה טורקית של 587 חולים, עמילואידוזיס הייתה סיבת המוות המובילה והמנבא המובהק היחיד לתמותה. בקבוצה ישראלית של 1.25 מיליון מתבגרים (1,225 מהם עם FMF), התמותה הייתה גבוהה יותר בקרב בעלי FMF, ועמילואידוזיס כלייתית גרמה ל־35% מהמקרים של מוות בגברים ול־60% בנשים עם FMF. [[Akar2012,Twig2014]]</p></div>
+  </div>
+  <div class="split2">
+    <div class="hook"><b>לבחינה</b>עמילואיד AA נוצר כך: <b>SAA</b> בן 122 חומצות אמינו ← <b>AA</b> בן 76 ← <b>סיבי cross-β</b>. בכליה הוא מתבטא קודם כ<b>פרוטאינוריה</b>. אבחון: <b>קונגו רד + שבירה כפולה ירוקת-תפוח</b>, ואימונוהיסטוכימיה נגד SAA. יעד: <b>SAA &lt; 10 mg/L</b>.</div>
+    <div class="pt"><b>במילים פשוטות</b>שנים של דלקת סמויה גורמות לחלבון מהדם להצטבר בכליות כחוטים דביקים. כיבוי מלא של הדלקת, גם בין התקפים, עוצר את ההצטברות ויכול לאפשר לחלק ממנה להתפנות לאט. לכן בדיקות שתן ודם חשובות גם כשמרגישים טוב.</div>
+  </div>
+</section>

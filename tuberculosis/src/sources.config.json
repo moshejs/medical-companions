@@ -1,0 +1,12 @@
+{
+ "areas": {
+  "A": "Epidemiology, global burden & history",
+  "B": "Transmission, risk factors & host susceptibility",
+  "C": "Microbiology, immunology & pathogenesis",
+  "D": "Clinical presentation & diagnosis",
+  "E": "Treatment of drug-susceptible TB disease & TB infection",
+  "F": "Drug-resistant TB, comorbidity & outcomes",
+  "G": "Living with TB, infection control & nursing",
+  "H": "Vaccines, the End TB Strategy & research"
+ }
+}

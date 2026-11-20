@@ -1,0 +1,60 @@
+<!-- ================= 6.1 HISTORY & PEOPLE ================= -->
+<style>
+#m-history .card>.tag,#m-history .card>.ev{align-self:flex-start}
+#m-history .card .hi-who{font:500 12px var(--mono);color:var(--muted)}
+#m-history #hiYears .tag small{font:inherit;opacity:.7;margin-right:4px}
+#m-history .hi-pos{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
+@media (max-width:700px){#m-history .hi-pos{grid-template-columns:minmax(0,1fr)}}
+#m-history .hi-pos>div{background:var(--panel-2);border-radius:10px;padding:10px 12px;font-size:14px;display:flex;flex-direction:column;gap:4px}
+#m-history .hi-pos b.k{font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+</style>
+<section class="mod" id="m-history" data-mod="history" hidden>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>History &amp; people</h2>
+    <p class="lede">From Crichton's "mental restlessness" in 1798 to DSM-5-TR in 2022: the people who described ADHD, the first stimulants, and the names the manuals gave it. Watch the name change as the timeline passes each manual.</p></div>
+  <div class="stepper" id="hiSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="hiSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="A timeline from 1790 to 2023. At the top, the name of the condition changes as time passes: mental restlessness, defect of moral control, postencephalitic behaviour disorder, hyperkinetic disease, minimal brain dysfunction, hyperkinetic reaction of childhood, attention deficit disorder, attention-deficit hyperactivity disorder, then ADHD with subtypes and presentations. A shelf fills with diagnostic manuals from DSM-II to DSM-5-TR and ICD-11, two gauges show the age-of-onset rule moving from 7 to 12 and the adult symptom threshold, and dots on the timeline mark each event."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="hiPlay">Play</button><label class="stage-cap tl" for="hiT">Year <input type="range" id="hiT" min="0" max="1" step="0.001" value="0.04"></label></div>
+      <div class="readout" id="hiRead"></div>
+      <p class="stage-cap">The axis is stretched for the busy decades after 1960. Each dot is a milestone listed below, with its sources in the note panel. Older names are historical descriptions that only partly match ADHD as defined today. [[Lange2010]]</p>
+    </div>
+    <aside class="note" id="hiNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Jump to a year</h3>
+  <div class="chips" id="hiYears" role="group" aria-label="Jump to a milestone"></div>
+
+  <h3 class="sub">How the thresholds changed</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Manual</th><th>Name</th><th>What changed</th></tr></thead>
+    <tbody>
+      <tr><th>DSM-II (1968)</th><td>Hyperkinetic Reaction of Childhood</td><td>Two sentences focused on overactivity, noting that the behaviour "usually diminishes by adolescence". [[Lange2010,Epstein2013]]</td></tr>
+      <tr><th>DSM-III (1980)</th><td>Attention Deficit Disorder (with or without hyperactivity)</td><td>Separate symptom lists for inattention, impulsivity and hyperactivity. [[Lange2010,Epstein2013]]</td></tr>
+      <tr><th>DSM-III-R (1987)</th><td>Attention-deficit Hyperactivity Disorder</td><td>Renamed ADHD; the two subtypes were dropped. [[Lange2010]]</td></tr>
+      <tr><th>DSM-IV (1994)</th><td>ADHD, three subtypes</td><td>Predominantly inattentive, predominantly hyperactive-impulsive and combined, from a field trial of young people up to age 17. Impairing symptoms were required before age 7. [[Lange2010,Epstein2013]]</td></tr>
+      <tr><th>DSM-5 (2013)</th><td>ADHD, three presentations</td><td>Several symptoms before age 12 instead of 7; 5 symptoms for older adolescents and adults; symptoms (not impairment) in two or more settings; "presentations" instead of "types"; autism no longer excludes ADHD; severity and partial-remission specifiers. [[Epstein2013]]</td></tr>
+      <tr><th>ICD-11 (2019; in use 2022)</th><td>ADHD, 6A05</td><td>Moved from disruptive to neurodevelopmental disorders and replaced "hyperkinetic disorder"; uses presentations; no precise age of onset, duration or symptom count. [[Posner2020,TebartzVanElst2025,Reed2019ICD11]]</td></tr>
+      <tr><th>DSM-5-TR (2022)</th><td>ADHD</td><td>Text revision of DSM-5. Threshold: 6 or more symptoms in a domain up to age 16, 5 or more from age 17. [[APA2022DSM,Posner2020]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">The criteria themselves are worked through in <a href="#criteria" data-go="criteria">DSM-5-TR criteria calculator</a>.</p>
+
+  <h3 class="sub">Every milestone</h3>
+  <div class="cards" id="hiCards"></div>
+
+  <h3 class="sub">Two debates, stated neutrally</h3>
+  <div class="cards" style="grid-template-columns:repeat(auto-fill,minmax(320px,1fr))">
+    <div class="card"><span class="tag warn">Debate</span><h4>Who first described ADHD?</h4>
+      <div class="hi-pos"><div><b class="k">Proposed</b>Weikard in 1775, [[Barkley2012Weikard]] Crichton in 1798 [[Lange2010,Palmer2001]] and Still in 1902 [[Still1902]] have all been put forward.</div>
+      <div><b class="k">Caution</b>Historians note that these descriptions only partly match modern ADHD; Still's "defect of moral control" included other kinds of behaviour. [[Lange2010,MartinezBadia2015]]</div></div></div>
+    <div class="card"><span class="tag warn">Debate</span><h4>Wider criteria, more diagnoses: over-diagnosis?</h4>
+      <div class="hi-pos"><div><b class="k">Concern</b>A scoping review of 334 studies found evidence of over-diagnosis in milder cases; [[Kazda2021]] the youngest children in a school year are more likely to be diagnosed (RR 1.38). [[Frisira2025]]</div>
+      <div><b class="k">Counterpoint</b>The consensus statement attributes rising diagnosis to changes in administrative and clinical practice, not a true rise in prevalence; [[Faraone2021,Polanczyk2014]] the AAP notes that ADHD "goes undiagnosed in a considerable number of children and adolescents". [[Wolraich2019]]</div></div>
+      <p class="stage-cap">More in <a href="#frontiers" data-go="frontiers">Research frontiers</a> and <a href="#what" data-go="what">What ADHD is</a>.</p></div>
+  </div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Names by manual: DSM-II (1968) "Hyperkinetic Reaction of Childhood"; DSM-III (1980) "Attention Deficit Disorder with or without hyperactivity"; DSM-III-R (1987) ADHD; DSM-IV (1994) three subtypes; DSM-5 (2013) onset before 12, presentations; ICD-11 code 6A05. [[Lange2010,Epstein2013,TebartzVanElst2025]]</div>
+    <div class="pt"><b>In plain words</b>Doctors described children with ADHD-like problems more than 200 years ago. ADHD is not new; what changed is the name, the rules for diagnosing it, and the understanding that it often continues into adult life. [[Faraone2021,Lange2010]]</div>
+  </div>
+</section>

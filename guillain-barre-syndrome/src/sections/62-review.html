@@ -1,0 +1,75 @@
+<!-- ================= 6.2 FLASHCARDS & MNEMONICS ================= -->
+<section class="mod" id="m-review" data-mod="review" hidden>
+<style>
+#m-review .rv-lab{margin-top:14px}
+#m-review .mn .card p{margin:6px 0 0}
+#m-review .mn .card .tag{align-self:flex-start}
+#m-review .mn .card .tag.good{text-transform:none;letter-spacing:.02em}
+#m-review .mn .card .tag.accent{text-transform:none;letter-spacing:.02em}
+#m-review #gbrvSvg .rv-a{font:700 15px var(--body);fill:var(--ink)}
+#m-review #gbrvSvg .rv-c{font:500 13.5px var(--body);fill:var(--ink)}
+#m-review #gbrvSvg .rv-b{font:500 12px var(--body);fill:var(--muted)}
+#m-review #gbrvSvg .rv-n{font:700 14px var(--mono);fill:var(--on-brand)}
+#m-review #gbrvSvg .rv-m{font:700 12px var(--mono);fill:var(--on-brand)}
+#m-review #gbrvSvg .rv-q{font:700 12px var(--mono);fill:var(--ink)}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Flashcards &amp; mnemonics</h2>
+    <p class="lede">Flashcards on Guillain-Barré syndrome: what it is, AIDP, AMAN and Miller Fisher syndrome, the course to the nadir and back, red flags, the Brighton criteria, CSF and nerve conduction, breathing and the 20/30/40 rule, IVIg, plasma exchange, autonomic storms, intensive care, prognosis scores, rehabilitation, life after GBS, children, pregnancy, nursing, the research frontier and history. Every answer carries its source. Tap a card or press Space to flip it; arrow keys move through the deck. Filter by part, or shuffle.</p></div>
+  <div class="ctrls" id="fcFilter"></div>
+  <div class="fc-wrap"><div class="fc" id="fc" tabindex="0" role="button" aria-label="%t:cards.label%">
+    <div class="face front"><small id="fcTagF"></small><p id="fcFront"></p></div>
+    <div class="face back"><small id="fcTagB"></small><p id="fcBack"></p></div>
+  </div></div>
+  <div class="ctrls"><button class="btn" id="fcPrev">%t:nav.prev%</button><button class="btn primary" id="fcFlip">%t:cards.flip%</button><button class="btn" id="fcNext">%t:nav.next%</button><button class="btn ghost" id="fcShuf">%t:cards.shuffle%</button><span class="stage-cap" id="fcCount"></span></div>
+  <div class="bar"><i id="fcBar"></i></div>
+  <h3 class="sub">%t:cards.mnemonics%</h3>
+  <div class="prose"><p>The 20/30/40 rule, EGRIS and mEGOS are published names, and their cards are tagged so. Every other card is a <b>memory aid written for this guide</b>: a short phrase to hold a published fact in mind. None of those is an official grouping from any guideline, drug label or patient organisation, and none replaces the source it points to. Doses, thresholds and schedules are quoted as published, never as instructions.</p></div>
+  <div class="mn" id="mnList"></div>
+  <h3 class="sub">Mnemonic in motion: the 20/30/40 rule</h3>
+  <div class="prose"><p>The 20/30/40 rule names three bedside breathing measurements that flag a risk of respiratory failure in GBS [[Lawn2001]]. Play the animation to see each number in turn, the 30% fall that also counts, the single breath count, and the vital capacity triggers in the 2023 EAN/PNS guideline [[vanDoorn2023]]. For the published risk scores, EGRIS and mEGRIS, see <button class="btn ghost" style="padding:2px 9px" data-go="breathing">Breathing &amp; the 20/30/40 rule</button>.</p></div>
+  <div class="stepper" id="gbrvSteps"></div>
+  <div class="lab rv-lab">
+    <div class="stage"><div class="scroll"><svg id="gbrvSvg" viewBox="0 0 720 410" style="min-width:300px" role="img" aria-label="Animated walk through the 20/30/40 rule. Four tiles light in turn while schematic readings fall: vital capacity below 20 millilitres per kilogram, maximal inspiratory pressure below 30 centimetres of water, maximal expiratory pressure below 40 centimetres of water, or a fall of more than 30 percent in any of them. Two final panels show the single breath count, with 15 and 20 marked, and the vital capacity levels at which the EAN/PNS guideline says ventilation is considered or almost inevitable."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="gbrvPlay">%t:player.play%</button><label class="stage-cap tl" for="gbrvT">Number <input type="range" id="gbrvT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap">A teaching tool that explains how a published bedside rule is built. It is never for an individual's diagnosis, prognosis or treatment. The readings drawn are schematic, not measurements; the thresholds are quoted as published. [[Lawn2001,vanDoorn2023]]</p></div>
+    <aside class="note" id="gbrvNote" aria-live="polite"></aside>
+  </div>
+  <div class="callout prose"><p>These cards are for learning, not for deciding anything about one person's care. Outcome figures are population statistics from cohorts and trials, and they cannot predict what will happen to any one person. Weakness that is getting worse quickly, or trouble breathing or swallowing, needs emergency care [[Leonhard2019,vanDoorn2023]].</p></div>
+</section>
+
+<!-- ================= 6.3 QUIZ ================= -->
+<section class="mod" id="m-quiz" data-mod="quiz" hidden>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Quiz</h2>
+    <p class="lede">Multiple-choice questions on Guillain-Barré syndrome with cited explanations: how common it is, subtypes and Miller Fisher syndrome, the course, signs and red flags, criteria, CSF and nerve studies, look-alikes, breathing, IVIg and plasma exchange, steroids and fluctuations, autonomic problems, intensive care, prognosis, rehabilitation, life after GBS, children, pregnancy, nursing, the research frontier and history. The mixed quiz draws 20 at random; or choose a part.</p></div>
+  <div class="ctrls" id="qFilter"></div>
+  <div class="bar"><i id="qBar"></i></div>
+  <div class="qcard" id="qCard" aria-live="polite"></div>
+</section>
+
+<!-- ================= 6.4 GLOSSARY ================= -->
+<section class="mod" id="m-glossary" data-mod="glossary" hidden>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Glossary</h2>
+    <p class="lede">A searchable glossary of Guillain-Barré syndrome terms, from AIDP, AMAN and the node of Ranvier to anti-GQ1b, albuminocytological dissociation, sural sparing, the Brighton levels, EGRIS, mEGOS, IVIg, plasma exchange, A-CIDP, dysautonomia and neurofilament light. Type to filter; the arrow on each entry jumps to the module where the term matters most.</p></div>
+  <input class="search" id="glSearch" type="search" placeholder="Search terms, e.g. AMAN, Brighton, IVIg" aria-label="%t:glossary.search%">
+  <p class="stage-cap" id="glCount"></p>
+  <div class="gloss" id="glList"></div>
+</section>
+
+<!-- ================= 6.5 SOURCES ================= -->
+<section class="mod" id="m-sources" data-mod="sources" hidden>
+<style>
+#m-sources .srcs .tag.good{text-transform:none;letter-spacing:.02em}
+#m-sources #srcStats{margin:8px 0 0}
+#m-sources .srcs .tag{white-space:normal;max-width:100%;overflow-wrap:anywhere;text-align:left}
+#m-sources #srcFilter .btn{white-space:normal;text-align:left}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Sources</h2>
+    <p class="lede">Every reference behind the GBS Companion: randomised trials, Cochrane reviews, cohorts such as IGOS, the 2023 EAN/PNS guideline and the 2019 ten-steps guideline, US drug labels and trial registrations. The small numbers throughout the app point here; filter by research area or search.</p></div>
+  <div class="callout prose"><p>Research passes ran in parallel, one per area: epidemiology and history; triggers, vaccines and molecular mimicry; subtypes and electrophysiology; the course, diagnostic criteria, CSF and look-alikes; immunotherapy; breathing, autonomic problems and intensive care; prognosis, rehabilitation and long-term outcomes; children, pregnancy, nursing and living with GBS; and the research frontier. Before inclusion each source was checked, where possible, against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or the regulator's label, and the green tag on an entry names the service that confirmed it. Works found by more than one pass appear once, with any extra keys listed beside them.</p>
+    <p>Some guideline and criteria texts could not be read in full, including the original Brighton case definition and the 2014 classification criteria. Where that matters, modules say the statement is reported through a secondary source. Entries marked <span class="tag warn">%t:sources.check%</span> are pages with no PMID or DOI, or works that could not be confirmed.</p>
+    <p id="srcStats"></p></div>
+  <input class="search" id="srcSearch" type="search" placeholder="%t:sources.placeholder%" aria-label="%t:sources.search%">
+  <div class="ctrls" id="srcFilter"></div>
+  <p class="stage-cap" id="srcCount"></p>
+  <ol class="srcs" id="srcList"></ol>
+</section>

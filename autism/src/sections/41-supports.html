@@ -1,0 +1,81 @@
+<!-- ================= 4.1 SUPPORTS & THE EVIDENCE ================= -->
+<style>
+#m-supports .card>.ev,#m-supports .card>.tag{align-self:flex-start}
+#m-supports .card ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:5px;font-size:14.5px}
+#m-supports .tbl table{min-width:540px}
+#m-supports .ctrls .kicker{margin-right:4px}
+</style>
+<section class="mod" id="m-supports" data-mod="supports" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Supports &amp; interventions</p><h2>Supports &amp; the evidence</h2>
+    <p class="lede">What early supports can do, and how sure we are. Watch the largest review of early autism interventions apply stricter and stricter tests, then follow one parent-coaching trial for six years.</p></div>
+
+  <p class="teach"><b>Words</b><span>Many autistic adults prefer identity-first language ("autistic child"), while many families and professionals use person-first language ("child with autism"). A UK survey of 3,470 people found no single term that everyone accepts, so this guide uses both. [[Kenny2016]] The aim of support is not to make anyone "less autistic": it is to help a person communicate, learn the skills they want and live well. [[Hyman2020,Pellicano2014]]</span></p>
+
+  <h3 class="sub">An evidence map that shrinks under scrutiny</h3>
+  <div class="stepper" id="suSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="suSvg" viewBox="0 0 720 396" style="min-width:560px" role="img" aria-label="Project AIM evidence map. Seven intervention families sit in rows; each circle is a significant pooled effect from randomised trials, placed by its effect size. As the filters are applied, removing caregiver and teacher reports and then outcomes at high risk of detection bias, the circles slide to zero until one effect is left: NDBI on diagnostic characteristics, g 0.30."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="suPlay">Play</button><label class="stage-cap tl" for="suT">Filters <input type="range" id="suT" min="0" max="1" step="0.001" value="0.25"></label></div>
+      <div class="readout" id="suRead"></div>
+      <p class="stage-cap"><b>Schematic layout.</b> Circles are the significant summary effects (Hedges' g) the 2023 Project AIM update reported for randomised trials; equal-sized, because the review's per-family study counts are not reproduced here. Whiskers are 95% confidence intervals where published. Hollow circles at zero: no longer significant. These are study-population statistics, not predictions for any child. [[Sandbank2023BMJ,Sandbank2020]]</p>
+    </div>
+    <aside class="note" id="suNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">One trial over six years: PACT</h3>
+  <div class="prose"><p>PACT coached parents to notice and respond to their child's communication. It randomised 152 children aged 2 years to 4 years 11 months at three UK centres: 77 to PACT plus treatment as usual and 75 to treatment as usual alone. [[Green2010]]</p></div>
+  <div class="ctrls" role="group" aria-label="Group in focus">
+    <span class="kicker">Focus</span>
+    <button class="btn" data-sug="pact" aria-pressed="true">Therapy (PACT)</button>
+    <button class="btn" data-sug="tau" aria-pressed="false">Usual care</button>
+  </div>
+  <div class="stepper" id="suPSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="suPSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="The PACT trial over time. A parent and child take turns communicating; in the therapy group more of the parent's responses fall in step with the child. On the right, effect sizes appear as the trial reaches each time point: parent synchrony 1.22 and child initiations 0.41 at 13 months, no significant symptom difference at 13 months, then symptom severity effects of 0.64, 0.70 and 0.55 at six-year follow-up, with no language difference."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="suPPlay">Play</button><label class="stage-cap tl" for="suPT">Years <input type="range" id="suPT" min="0" max="1" step="0.001" value="0.3"></label></div>
+      <div class="readout" id="suPRead"></div>
+      <p class="stage-cap"><b>Schematic dyad.</b> The turn-taking strip illustrates what "synchrony" means; it is not trial data. Effect sizes are as published, drawn so that right of zero favours PACT (the 13-month ADOS-G effect was published as −0.24 because a lower score is better). Each pictogram stands for about 8 children. [[Green2010,Pickles2016]]</p>
+    </div>
+    <aside class="note" id="suPNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Reading intervention research</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Who rates the outcome matters</h4><p>In the 2023 Project AIM update, removing caregiver- and teacher-reported outcomes left three significant effects; also removing outcomes at high risk of detection bias left one: NDBI on diagnostic characteristics, g 0.30 (95% CI 0.03 to 0.57). Parents and teachers who know which group a child is in may rate change more generously. [[Sandbank2023BMJ]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>More hours, bigger effects?</h4><p>Intensive programmes of 20–40 hours a week are routinely recommended, but across 144 studies (9,038 children) intervention amount was not linked to effect size within any intervention type. [[Sandbank2024JAMAPed]] An RCT of 87 toddlers found no main effect of 15 versus 25 hours a week, or of NDBI versus discrete trial style. [[Rogers2021]]</p></div>
+    <div class="card"><span class="tag warn">Harms</span><h4>Side effects are rarely counted</h4><p>Only 11 of 150 early-intervention reports mentioned adverse events. [[BottemaBeutel2021AE]] The 2023 update concluded that adverse events were "poorly monitored, but possibly common". [[Sandbank2023BMJ]]</p></div>
+    <div class="card"><span class="tag warn">Conflicts of interest</span><h4>Who wrote the study?</h4><p>70% of early-intervention reports had at least one conflict of interest, but only about 6% fully disclosed them. Every type of conflict had a larger, though not significantly larger, point estimate. [[BottemaBeutel2021COI]] In a 5-year update of applied behaviour analysis journals, 93% of "no conflict" statements were false. [[BottemaBeutel2026]]</p></div>
+    <div class="card"><span class="tag rx">What helps</span><h4>Practices with an evidence base</h4><p>The US NCAEP review screened 31,779 articles, synthesised 972 and identified 28 focused practices that met its criteria for evidence-based practice. [[Hume2021]] The American Academy of Pediatrics describes "an increasing evidence base" for interventions aimed at specific skills, and calls for shared decision-making with families. [[Hyman2020]]</p></div>
+    <div class="card"><span class="tag rx">Better trials</span><h4>Raising the standard</h4><p>A 2025 INSAR group of autistic people, clinicians and researchers recommended that autism journals require trial registration, published protocols and analysis plans. [[LaPoint2025]] A Project AIM review found that most "problem behaviour" measures mixed harmful behaviour with behaviour that was "nonnormative but not inherently harmful". [[BottemaBeutel2025]]</p></div>
+  </div>
+
+  <h3 class="sub">Goals that matter</h3>
+  <div class="cards">
+    <div class="card"><h4>Everyday life first</h4><p>UK consultation found a gap between where research money went and what autistic adults, families and practitioners wanted: research that makes a difference to "day-to-day lives". [[Pellicano2014]] Seven priority-setting studies agreed on real-world change and lifelong skills. [[Roche2021]]</p></div>
+    <div class="card"><h4>Communication and participation</h4><p>Autistic adults and guardians ranked life skills, co-occurring conditions, work and education, public services, health-care access and, "above all", public acceptance as top priorities. [[Gotham2015]] A project co-led by autistic adults set five mental-health research priorities. [[Benevides2020]]</p></div>
+    <div class="card"><h4>Not "looking less autistic"</h4><p>Stimming helps many autistic people calm down or show strong feelings, and autistic adults object to treatment that aims to eliminate it. [[Kapp2019]] Camouflaging (masking) is linked with exhaustion. [[Hull2017]] A goal worth setting improves a person's life as they experience it. <a href="#aba" data-go="aba">ABA and the debate</a> covers the arguments.</p></div>
+  </div>
+
+  <h3 class="sub">Guidance</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Source</th><th>What it says (as published)</th></tr></thead>
+    <tbody>
+      <tr><th>NICE and SCIE guidance for under-19s (England, 2013, summarised in the BMJ)</th><td>Do not use antipsychotics, antidepressants, anticonvulsants or exclusion diets (such as gluten- or casein-free diets) to manage the core features of autism. [[Kendall2013]]</td></tr>
+      <tr><th>NICE guidance for adults (2012, summarised in the BMJ)</th><td>Antidepressants should not be used for the routine management of core features of autism in adults. [[Pilling2012]]</td></tr>
+      <tr><th>American Academy of Pediatrics clinical report (2020)</th><td>"An increasing evidence base" for behavioural and other interventions for specific skills and symptoms; choose interventions through shared decision-making with the family. [[Hyman2020]]</td></tr>
+      <tr><th>NCAEP third-generation review (2021)</th><td>28 focused intervention practices met its criteria for evidence-based practice. [[Hume2021]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Medicines are covered in <a href="#meds" data-go="meds">Medication</a>; treatments to avoid in <a href="#unproven" data-go="unproven">Unproven &amp; harmful treatments</a>.</p>
+
+  <h3 class="sub">Questions to ask any provider</h3>
+  <div class="cards">
+    <div class="card"><h4>Goals</h4><ol><li>Which goals will we work on, and who chose them?</li><li>How does each goal link to my child's quality of life, now and later?</li><li>Will any goal reduce a harmless autistic behaviour, such as stimming?</li></ol></div>
+    <div class="card"><h4>Assent and comfort</h4><ol><li>How will you tell if my child is unhappy or wants to stop?</li><li>What happens then?</li><li>Can I watch any session?</li></ol></div>
+    <div class="card"><h4>Hours and cost</h4><ol><li>How many hours a week, and why that number? Studies have not found that more hours give bigger effects. [[Sandbank2024JAMAPed,Rogers2021]]</li><li>Who delivers it, and with what training?</li></ol></div>
+    <div class="card"><h4>Measuring progress</h4><ol><li>How will progress be measured, and by whom?</li><li>When will we review it, and what if nothing changes?</li><li>Which side effects or downsides do you track? [[BottemaBeutel2021AE]]</li></ol></div>
+  </div>
+  <p class="callout">Autism is not caused by vaccines: a Danish cohort of 657,461 children and a meta-analysis of more than 1.2 million children found no link. [[Hviid2019,Taylor2014Vaccine]] No therapy "cures" autism, and that is not the goal. [[Hyman2020]]</p>
+</section>

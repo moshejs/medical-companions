@@ -1,0 +1,10 @@
+{
+  "foot.not_advice": "<b>It is not medical advice.</b> It cannot diagnose ADHD, and nothing here should start, stop or change a treatment without your own clinician. Rating scales and the criteria calculator are teaching tools, not tests. Criteria, doses and guideline statements are quoted as published. Please check the original sources, which are listed in full in the <a href=\"#sources\" data-go=\"sources\">Sources</a> module.",
+  "quiz.answer_is": "The answer is {l}.",
+  "shell.disclaimer": "The ADHD Companion is an educational synthesis of published literature for study and for understanding ADHD. It does not replace a doctor, nurse or psychologist, and its screeners and calculators cannot diagnose anyone. Doses, criteria and guideline statements are reported as published, not as instructions. Do not start, stop or change a medicine without the prescriber.",
+  "shell.home": "ADHD Companion home",
+  "shell.note": "An animated, cited guide for students, people with ADHD, parents and families. Educational only, not medical advice. Your place is saved on this device.",
+  "shell.skip": "Skip to the module",
+  "shell.tagline": "Children and adults",
+  "sources.stats": "{all} sources in all. {ok} were confirmed against a database before inclusion (some by more than one: {svc}). {chk} are marked <span class=\"tag warn\">check</span>."
+}

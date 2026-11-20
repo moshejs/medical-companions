@@ -1,0 +1,68 @@
+<!-- ================= 6.2 FLASHCARDS & MNEMONICS ================= -->
+<section class="mod" id="m-review" data-mod="review" hidden>
+<style>
+#m-review .rv-lab{margin-top:14px}
+#m-review .mn .card p{margin:6px 0 0}
+#m-review .mn .card .tag{align-self:flex-start}
+@media (max-width:820px){#m-review #rvSvg .t-xs{font-size:12px}#m-review #rvSvg .t-sm{font-size:13px}}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Flashcards &amp; mnemonics</h2>
+    <p class="lede">Flashcards on cirrhosis, from the global burden, the lobule and stellate cells to alcohol, MASLD, hepatitis B and C and the rarer causes, FIB-4 and elastography, Child–Pugh and MELD, varices, ascites, SBP, encephalopathy, liver cancer surveillance, transplant, nutrition, nursing care and history. Tap a card or press Space to flip it; arrow keys move through the deck. Filter by part, or shuffle.</p></div>
+  <div class="ctrls" id="fcFilter"></div>
+  <div class="fc-wrap"><div class="fc" id="fc" tabindex="0" role="button" aria-label="%t:cards.label%">
+    <div class="face front"><small id="fcTagF"></small><p id="fcFront"></p></div>
+    <div class="face back"><small id="fcTagB"></small><p id="fcBack"></p></div>
+  </div></div>
+  <div class="ctrls"><button class="btn" id="fcPrev">%t:nav.prev%</button><button class="btn primary" id="fcFlip">%t:cards.flip%</button><button class="btn" id="fcNext">%t:nav.next%</button><button class="btn ghost" id="fcShuf">%t:cards.shuffle%</button><span class="stage-cap" id="fcCount"></span></div>
+  <div class="bar"><i id="fcBar"></i></div>
+  <h3 class="sub">%t:cards.mnemonics%</h3>
+  <div class="prose"><p>Cards tagged <b>memory aid</b> are short phrases written for this guide, or used in teaching, to hold a published fact in mind. They are not official groupings from AASLD, EASL, Baveno or a drug label, and none replaces the source; the one tagged Baveno VII uses that consensus's own name. Doses, albumin amounts and thresholds are quoted as published, not as instructions.</p></div>
+  <div class="mn" id="mnList"></div>
+  <h3 class="sub">Mnemonic in motion: the ABCDE of Child–Pugh</h3>
+  <p class="prose">Child–Pugh adds five measures, each worth 1 to 3 points, into a total from 5 to 15 and a class of A, B or C [[Costa2023ChildB,InfanteRivard1987]]. As a memory aid, the letters A to E hold the five: albumin, bilirubin, clotting, distension (ascites) and encephalopathy. Play the animation to watch an example patient's points fill in, the 1973 swap that put clotting in, the two items that rest on bedside judgement, and the total landing in a class. The points shown are an example, not the per-measure cut-offs; the class ranges and the MELD calculators are in <button class="btn ghost" style="padding:2px 9px" data-go="scores">Child–Pugh &amp; MELD scores</button>.</p>
+  <div class="stepper" id="rvSteps"></div>
+  <div class="lab rv-lab">
+    <div class="stage"><div class="scroll"><svg id="rvSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Animated walk through the Child–Pugh score as the ABCDE memory aid. Five tiles, albumin, bilirubin, clotting, distension and encephalopathy, light in turn and fill with one to three example points each; a panel shows that albumin and bilirubin are lab values, that Pugh replaced nutritional status with prothrombin time in 1973, that ascites and encephalopathy are bedside judgements, a stacked bar adding the points on a 5 to 15 scale, and a marker landing in class A, B or C"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="rvPlay">Play</button><label class="stage-cap tl" for="rvT">Letters <input type="range" id="rvT" min="0" max="1" step="0.002" value="0.12"></label></div>
+      <p class="stage-cap">Example points are illustrative, not from a real patient. ABCDE is a memory aid, not the published layout. A teaching tool, never for diagnosis, prognosis or transplant decisions. [[Costa2023ChildB,Pugh1973,Johnson2015ALBI]]</p></div>
+    <aside class="note" id="rvNote" aria-live="polite"></aside>
+  </div>
+  <div class="callout prose"><p>These cards are for learning, not for working out your own stage, score or treatment. Vomiting blood, black or tarry stools, new confusion or drowsiness, or fever or belly pain with a swollen abdomen need urgent care: call your local emergency number or go to an emergency department [[Fabrellas2020LiverHope]].</p></div>
+</section>
+
+<!-- ================= 6.3 QUIZ ================= -->
+<section class="mod" id="m-quiz" data-mod="quiz" hidden>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Quiz</h2>
+    <p class="lede">Multiple-choice questions on cirrhosis with cited explanations: burden and course, liver biology and fibrosis, alcohol, MASLD, viral hepatitis and the rarer causes, blood tests, FIB-4, elastography, Child–Pugh and MELD, varices and bleeding, ascites, SBP and kidney injury, hepatic encephalopathy, liver cancer, transplant, nutrition, nursing, living well and history. The mixed quiz draws 20 at random; or choose a part.</p></div>
+  <div class="ctrls" id="qFilter"></div>
+  <div class="bar"><i id="qBar"></i></div>
+  <div class="qcard" id="qCard" aria-live="polite"></div>
+</section>
+
+<!-- ================= 6.4 GLOSSARY ================= -->
+<section class="mod" id="m-glossary" data-mod="glossary" hidden>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Glossary</h2>
+    <p class="lede">A searchable glossary of cirrhosis terms, from ACLF, the space of Disse and stellate cells to MASLD, MetALD, FIB-4, the rule of 5, HVPG, SAAG, SBP, West Haven grades, LI-RADS, MELD 3.0 and the Liver Frailty Index. Type to filter; the arrow on each entry jumps to the module where the term matters most.</p></div>
+  <input class="search" id="glSearch" type="search" placeholder="Search terms, e.g. MELD, varices, ammonia" aria-label="%t:glossary.search%">
+  <p class="stage-cap" id="glCount"></p>
+  <div class="gloss" id="glList"></div>
+</section>
+
+<!-- ================= 6.5 SOURCES ================= -->
+<section class="mod" id="m-sources" data-mod="sources" hidden>
+<style>
+#m-sources .srcs .tag.good{text-transform:none;letter-spacing:.02em}
+#m-sources #srcStats{margin:8px 0 0}
+#m-sources .srcs .tag{white-space:normal;max-width:100%;overflow-wrap:anywhere;text-align:left}
+#m-sources #srcFilter .btn{white-space:normal;text-align:left}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Sources</h2>
+    <p class="lede">Every reference behind the Cirrhosis Companion: journal articles, systematic reviews and meta-analyses, AASLD, EASL, ACG and Baveno guidance, drug labels and trial registrations. The small numbers throughout the app point here; filter by research area or search.</p></div>
+  <div class="callout prose"><p>Eight research passes ran in parallel, one per area: epidemiology, burden, natural history and history; liver biology, fibrosis and regression; alcohol-related liver disease and MASLD; viral hepatitis and the other causes; diagnosis, staging scores and liver cancer surveillance; portal hypertension, varices, ascites, SBP and kidney injury; hepatic encephalopathy, nutrition, medicine safety and transplant; and living with cirrhosis, nursing and palliative care. Before inclusion each source was checked, where possible, against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or openFDA, and the green tag on an entry names the service that confirmed it. Works found by more than one pass appear once, with any extra keys listed beside them.</p>
+    <p>Entries marked <span class="tag warn">%t:sources.check%</span> are pages with no PMID or DOI, or works that could not be confirmed. They are not cited for any fact in this guide.</p>
+    <p id="srcStats"></p></div>
+  <input class="search" id="srcSearch" type="search" placeholder="%t:sources.placeholder%" aria-label="%t:sources.search%">
+  <div class="ctrls" id="srcFilter"></div>
+  <p class="stage-cap" id="srcCount"></p>
+  <ol class="srcs" id="srcList"></ol>
+</section>

@@ -1,0 +1,67 @@
+<!-- ================= 4.2 ABA AND THE DEBATE ================= -->
+<style>
+#m-aba .card>.ev,#m-aba .card>.tag{align-self:flex-start}
+#m-aba .card ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:5px;font-size:14.5px}
+#m-aba .abc-sup{display:flex;flex-direction:column;gap:10px}
+#m-aba .abc-sup ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px}
+#m-aba .ctrls .kicker{margin-right:4px}
+</style>
+<section class="mod" id="m-aba" data-mod="aba" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Supports &amp; interventions</p><h2>ABA and the debate</h2>
+    <p class="lede">Applied behaviour analysis (ABA) is the most debated support in autism. Follow sixty years of behavioural approaches, then switch the timeline to see what proponents and autistic critics each argue, with the evidence behind both.</p></div>
+
+  <div class="ctrls" role="group" aria-label="Timeline view">
+    <span class="kicker">View</span>
+    <button class="btn" data-abv="ev" aria-pressed="true">Events</button>
+    <button class="btn" data-abv="pc" aria-pressed="false">Proponents | critics</button>
+  </div>
+  <div class="stepper" id="abSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="abSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A timeline from 1965 to 2026 of behavioural approaches to autism: aversive methods in 1969, Lovaas 1987 with about 40 hours a week, functional analysis in 1994 and positive behaviour support in 2002, naturalistic developmental behavioural interventions from 2010, the autistic critique from 2017, and the evidence reviews of 2018 to 2026. A toggle splits the timeline into proponents' arguments above the line and critics' arguments below it."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="abPlay">Play</button><label class="stage-cap tl" for="abT">Years <input type="range" id="abT" min="0" max="1" step="0.001" value="0.3"></label></div>
+      <p class="stage-cap"><b>Timeline.</b> Dots mark publications and events; labels show the current era. In the split view, positions are placed by the year each argument was published. Where the evidence is unsettled, both sides are shown without a verdict. [[Kirkham2017,Leaf2022JADD]]</p>
+    </div>
+    <aside class="note" id="abNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What a functional assessment asks: the ABC analyser</h3>
+  <div class="prose"><p>Functional analysis tests which events keep a behaviour going by briefly and repeatedly changing the situation: play materials, demands and attention. In the original 1994 study, 6 of 9 people showed self-injury mostly in one specific condition, so the behaviour served an identifiable function. [[Iwata1994]] It became "a hallmark" of behavioural assessment. [[Hanley2003]] Positive behaviour support builds on it, with a focus on quality of life, prevention and the person's own participation. [[Carr2002PBS]]</p></div>
+  <div class="ctrls" role="group" aria-label="Possible function of the behaviour">
+    <span class="kicker">Why might she leave?</span>
+    <button class="btn" data-abf="sens" aria-pressed="true">Sensory</button>
+    <button class="btn" data-abf="esc" aria-pressed="false">Escape a demand</button>
+    <button class="btn" data-abf="att" aria-pressed="false">Attention</button>
+    <button class="btn" data-abf="tan" aria-pressed="false">Tangible</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="abcSvg" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="A scenario in three boxes: antecedent, behaviour and consequence. A child leaves a noisy classroom. Choosing a function changes what came before and what followed, and the support suggested."></svg></div>
+      <p class="stage-cap"><b>Teaching scenario,</b> invented for illustration. A real functional assessment is done by a trained professional, with direct observation, and starts by checking for pain, illness or distress.</p>
+    </div>
+    <aside class="note abc-sup" id="abcNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What ABA is, and is not</h3>
+  <div class="cards">
+    <div class="card"><h4>A family of methods</h4><p>Early intensive behavioural intervention (EIBI) is ABA-based treatment delivered for several years at 20–40 hours a week. [[Reichow2018Cochrane]] Naturalistic developmental behavioural interventions (NDBIs) such as ESDM and JASPER also use behavioural strategies, but in natural settings, with shared control between child and adult. [[Schreibman2015]]</p></div>
+    <div class="card"><h4>Not one fixed programme</h4><p>Behaviour analysts argue that critics' concerns should be answered by changing goals and procedures, not by abandoning the approach. [[Leaf2022JADD]] Others in the field call for listening "with humility" and adopting the neurodiversity paradigm. [[Mathur2024]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Not proven to "recover" children</h4><p>Lovaas 1987 reported 47% "normal functioning", but the study was not randomised. [[Mudford2001,Gresham1998]] Cochrane rated the EIBI evidence low or very low certainty. [[Reichow2018Cochrane]] An RCT found no extra benefit from 25 rather than 15 hours a week. [[Rogers2021]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Not proven to harm, or to be safe</h4><p>Autistic adults describe trauma and masking. [[McGill2020,Anderson2023]] The only quantitative study is a self-selected survey now under an expression of concern. [[Kupferstein2018,AiA2025EOC]] Only 11 of 150 intervention reports mentioned adverse events, so harm is under-measured. [[BottemaBeutel2021AE]]</p></div>
+  </div>
+
+  <h3 class="sub">What many autistic adults ask for</h3>
+  <div class="cards">
+    <div class="card"><h4>Keep stims</h4><p>In 32 autistic adults, stimming served to soothe or to express intense emotion, and participants objected to treatment that aims to eliminate it. [[Kapp2019]]</p></div>
+    <div class="card"><h4>No compliance for its own sake</h4><p>One commentary argued that long-term ABA can amount to abuse because of its emphasis on compliance; behaviour analysts published a direct rebuttal. [[SandovalNorton2019,Gorycki2020]] Adults interviewed about childhood ABA rejected being made to behave like peers. [[Anderson2023]]</p></div>
+    <div class="card"><h4>Don't train masking</h4><p>Autistic adults describe camouflaging as masking and compensation, with exhaustion and threats to self-perception as consequences. [[Hull2017]] Critics link compliance-focused goals to masking. <span class="ev hyp">Hypothesis</span> [[Hull2017,Anderson2023]]</p></div>
+    <div class="card"><h4>Measure what matters</h4><p>Most "problem behaviour" measures in early-intervention trials mixed harmful behaviour with behaviour that is "nonnormative but not inherently harmful", such as repetitive movements. [[BottemaBeutel2025]]</p></div>
+  </div>
+
+  <h3 class="sub">Questions families can ask an ABA provider</h3>
+  <div class="cards">
+    <div class="card"><ol><li>Which behaviours will you try to reduce, and is each one harmful to my child or others?</li><li>Will you try to stop stimming or other harmless autistic behaviour?</li><li>Have you done a functional assessment, and what did it find?</li></ol></div>
+    <div class="card"><ol><li>How do you notice when my child does not want to take part, and what do you do then?</li><li>How many hours, and why? [[Sandbank2024JAMAPed,Rogers2021]]</li><li>How will you measure progress, and which downsides do you track? [[BottemaBeutel2021AE]]</li></ol></div>
+  </div>
+  <p class="stage-cap">The evidence map for all early interventions is in <a href="#supports" data-go="supports">Supports &amp; the evidence</a>; communication approaches in <a href="#therapies" data-go="therapies">Communication, AAC &amp; therapies</a>.</p>
+</section>

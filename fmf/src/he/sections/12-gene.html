@@ -1,0 +1,82 @@
+<!-- ================= 1.2 THE GENE & INHERITANCE ================= -->
+<section class="mod" id="m-gene" data-mod="gene" hidden>
+<style>
+#m-gene .gn-chips{display:flex;flex-wrap:wrap;gap:6px}
+#m-gene .gn-chips .btn{font:600 12.5px var(--mono);padding:6px 10px}
+#m-gene .gn-var{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+#m-gene .gn-var h4{font-family:var(--display);font-weight:800;font-size:22px;margin:0;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-gene .gn-var dl{margin:0;display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+#m-gene .gn-var dt{font:600 10.5px/1.2 var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+#m-gene .gn-var dd{margin:0;font-size:15px}
+#m-gene .gn-pick{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;align-items:end}
+#m-gene .gn-pick label{display:flex;flex-direction:column;gap:5px;font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+#m-gene .gn-pick select{font:600 15px var(--body);color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:9px 10px;width:100%;letter-spacing:0;text-transform:none}
+#m-gene .gn-out{display:flex;flex-direction:column;gap:12px}
+#m-gene .gn-verdict{border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+#m-gene .gn-verdict.conf{background:var(--terra-soft)} #m-gene .gn-verdict.non{background:var(--warn-soft)} #m-gene .gn-verdict.none{background:var(--panel-2)}
+#m-gene .gn-verdict b.v{font-family:var(--display);font-weight:800;font-size:22px;line-height:1.15}
+#m-gene .gn-stack{display:flex;height:16px;border-radius:99px;overflow:hidden;border:1px solid var(--line)}
+#m-gene .gn-stack i{display:block;height:100%}
+#m-gene .gn-cls{font:600 10.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:4px 7px;border-radius:5px;white-space:nowrap}
+#m-gene .gn-cls.P{background:var(--bad-soft);color:var(--bad)} #m-gene .gn-cls.LP{background:var(--terra-soft);color:var(--terra)}
+#m-gene .gn-cls.VUS{background:var(--warn-soft);color:var(--warn)} #m-gene .gn-cls.LB,#m-gene .gn-cls.B{background:var(--good-soft);color:var(--good)}
+#m-gene .gn-cls.none{background:var(--panel-2);color:var(--muted)}
+#m-gene .gn-al{display:flex;flex-direction:column;gap:6px}
+#m-gene .gn-al div{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:15px}
+</style>
+  <div class="mhead"><p class="eyebrow">חלק 1 · המחלה</p><h2>הגן והתורשה</h2>
+    <p class="lede">FMF נגרמת מווריאנטים בגן אחד, <i>MEFV</i>, שמייצר את החלבון פירין. לחצו על הפעלה כדי להתקרב מכרומוזום 16 עד לחומצות אמינו בודדות, ואז הקישו על סיכה של וריאנט. בהמשך, צפו באללים שעוברים מההורים לילדים, ותרגלו קריאה של דוח גנטי.</p></div>
+
+  <div class="stepper" id="gnSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="gnSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="התקרבות מכרומוזום 16 אל הפס 16p13.3, אל 10 האקסונים של הגן MEFV, אל התחומים של חלבון הפירין ואל הווריאנטים השכיחים"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="gnPlay">הפעלה</button><label class="stage-cap tl" for="gnT">התקרבות <input type="range" id="gnT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap">הגדלים של הכרומוזום, הפס והאקסונים סכמטיים. תחומי החלבון מצוירים לפי הקואורדינטות של UniProt O15553; תמונת הנקודה החמה מוגדלת. צבע הסיכה = הסיווג הנוכחי ב־Infevers.</p>
+    </div>
+    <aside class="note" id="gnNote" aria-live="polite"></aside>
+  </div>
+  <div class="split2">
+    <div class="stage">
+      <span class="kicker">סייר הווריאנטים · הקישו על סיכה או על כפתור</span>
+      <div class="gn-chips" id="gnChips" role="group" aria-label="וריאנטים"></div>
+      <div class="legend" id="gnLegend"></div>
+    </div>
+    <div class="gn-var" id="gnVar" aria-live="polite"></div>
+  </div>
+
+  <h3 class="sub">טבלת פאנט מונפשת</h3>
+  <div class="ctrls" role="group" aria-label="הצלבה"><span class="kicker">הצלבה</span><div class="gn-chips" id="gnCross"></div></div>
+  <div class="stepper" id="gnPSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="gnPun" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="טבלת פאנט: האללים של ההורים נפרדים לגמטות ומתחברים לארבעה ילדים אפשריים, בסבירות שווה"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="gnPPlay">הפעלה</button><label class="stage-cap tl" for="gnPT">ציר זמן <input type="range" id="gnPT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <div class="readout" id="gnPRead"></div>
+      <p class="stage-cap">כל אחת מארבע המשבצות היא תוצאה בסבירות שווה בכל היריון. "שני וריאנטים" פירושו הגנוטיפ, לא מחלה ודאית: החדירות אינה מלאה.</p>
+    </div>
+    <aside class="note" id="gnPNote" aria-live="polite"></aside>
+  </div>
+  <div class="callout"><p><b>פסאודו-דומיננטיות.</b> מכיוון שנשאים שכיחים כל כך, להורה חולה יש לעתים קרובות בן או בת זוג נשאים. אז מחצית מהילדים יורשים שני וריאנטים, ו־FMF מופיעה בכל דור, כאילו הייתה דומיננטית. Cazeneuve ועמיתיו תיעדו את ההעברה הפסאודו-דומיננטית הזאת במשפחות ארמניות. [[Cazeneuve1999]]</p></div>
+
+  <h3 class="sub">קריאת תוצאה גנטית</h3>
+  <div class="prose"><p>בחרו את שני האללים שדוח עשוי לציין. הכלי מציג את הסיווג הנוכחי של כל וריאנט ב־Infevers, ואת האופן שבו הזוג נספר בקריטריוני הסיווג של Eurofever/PRINTO משנת 2019. זהו כלי עזר ללמידה, לא פענוח של בדיקה של אדם כלשהו. [[Gattorno2019,Infevers2026]]</p></div>
+  <div class="lab even">
+    <div class="stage">
+      <div class="gn-pick">
+        <label for="gnA1">אלל 1 (עותק אחד של כרומוזום 16)<select id="gnA1"></select></label>
+        <label for="gnA2">אלל 2 (העותק השני)<select id="gnA2"></select></label>
+      </div>
+      <svg id="gnRes" viewBox="0 0 360 120" role="img" aria-label="שני העותקים של MEFV, ועליהם מסומנים הווריאנטים שנבחרו"></svg>
+      <div>
+        <span class="kicker">סיווגי MEFV ב־Infevers: ‏412 וריאנטים, נקראו ב־2026-10-16; הסיווגים מתעדכנים ככל שמצטברות ראיות</span>
+        <div class="gn-stack" id="gnStack" style="margin-top:6px"></div>
+        <div class="legend" id="gnStackLeg" style="margin-top:6px"></div>
+      </div>
+    </div>
+    <div class="gn-out" id="gnOut" aria-live="polite"></div>
+  </div>
+
+  <h3 class="sub">מעבר לדפוס של ספרי הלימוד</h3>
+  <div class="cards" id="gnCards"></div>
+</section>

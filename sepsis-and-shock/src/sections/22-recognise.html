@@ -1,0 +1,128 @@
+<!-- ================= 2.2 RECOGNISING SEPSIS ================= -->
+<style>
+#m-recognise .rcres{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:10px}
+#m-recognise .rcres div{border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--panel);min-width:0}
+#m-recognise .rcres b{display:block;font:700 28px/1.05 var(--display);color:var(--accent)}
+#m-recognise .rcres small{font:600 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+#m-recognise .rcpts{display:flex;flex-wrap:wrap;gap:6px}
+#m-recognise .rcpts span{font:500 12px var(--mono);border:1px solid var(--line);border-radius:8px;padding:4px 8px;background:var(--panel)}
+#m-recognise .rcpts span.p1{background:var(--warn-soft)} #m-recognise .rcpts span.p2{background:var(--accent-soft)} #m-recognise .rcpts span.p3{background:var(--bad-soft);color:var(--bad);font-weight:600}
+#m-recognise .rcsign{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+#m-recognise .rcsign div{border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:0 12px 12px 0;padding:10px 12px;background:var(--panel);font-size:14.5px}
+#m-recognise .rcsign b{font:700 22px/1 var(--display);color:var(--accent);margin-right:6px}
+#m-recognise td.num{font-family:var(--mono);white-space:nowrap}
+#m-recognise .card>.tag,#m-recognise .card>.ev{align-self:flex-start}
+#m-recognise p.prose{display:block}
+</style>
+<section class="mod" id="m-recognise" data-mod="recognise" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · Who is at risk &amp; recognising it</p><h2>Recognising sepsis</h2>
+    <p class="lede">Sepsis often starts with signs that look like any other infection. The clues are a person who is suddenly much more unwell than expected, and observations (breathing, pulse, blood pressure, temperature, alertness) that keep getting worse. This module shows the warning signs in plain words, then how hospitals turn the numbers into a score such as NEWS2.</p></div>
+
+  <p class="crisis" role="note"><b>Call now</b><span>Sepsis is a medical emergency. If someone with an infection becomes very unwell (confused or very drowsy, breathing very fast, cold, mottled or bluish skin, passing little or no urine), call your local emergency number or go to an emergency department now and ask: could this be sepsis?</span></p>
+
+  <h3 class="sub">The warning signs, one at a time</h3>
+  <p class="prose">One public message spells the signs as <b>SEPSIS</b>. It was written by the World Sepsis Day committee to raise awareness and, as its own evaluators point out, it "has not been validated" as a test. The animation walks through each letter and shows how often each sign was reported by 437 people with sepsis arriving at a Thai emergency department. [[Wattanapaiboon2020SEPSIS]]</p>
+  <div class="stepper" id="rcSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <svg id="rcSvg" viewBox="0 0 720 380" role="img" aria-label="A person standing on the left shows each SEPSIS warning sign in turn: question marks circle the head for slurred speech or confusion; the body shakes and a thermometer rises for extreme shivering, muscle pain or fever; an empty urine drop and a clock show no urine passed all day; fast breath puffs and glowing lungs show severe breathlessness; a speech bubble says it feels like they are going to die; and mottled, bluish patches spread over the arms and legs for mottled or discoloured skin. On the right the six letters S, E, P, S, I, S light up one by one, each with a bar for the share of 437 Thai emergency patients with sepsis who reported that sign: 22.2, 54.9, 4.1, 41.4, 1.1 and 1.1 percent. A last panel shows that 14.9 percent reported none of them."></svg>
+      <div class="ctrls"><button class="btn primary" id="rcPlay">Play</button><label class="stage-cap tl" for="rcT">Signs <input type="range" id="rcT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <div class="readout" id="rcRead"></div>
+      <p class="stage-cap">Schematic person. Percentages are the share of 437 adults with sepsis in one Thai emergency department who reported each sign. [[Wattanapaiboon2020SEPSIS]]</p>
+    </div>
+    <aside class="note" id="rcNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Why sepsis is easy to miss</h3>
+  <div class="cards">
+    <div class="card"><span class="tag accent">Vague at first</span><h4>No single sign is reliable</h4><p>In the Thai cohort, 14.9% of people with sepsis had none of the SEPSIS signs, so a "negative" mnemonic does not rule sepsis out. Vague presenting symptoms were independently linked with in-hospital death (adjusted OR 2.17). [[Wattanapaiboon2020SEPSIS]]</p></div>
+    <div class="card"><span class="tag accent">Who it happens to</span><h4>Often people already in contact with care</h4><p>A CDC review of 246 adults and 79 children with severe sepsis or septic shock in four New York hospitals found that 72% had a health-care factor in the previous 30 days, or a chronic condition needing frequent care. Pneumonia was the commonest infection behind it. [[Novosad2016MMWR]]</p></div>
+    <div class="card"><span class="tag accent">Children</span><h4>Early signs come before the rash</h4><p>In 448 UK children with meningococcal disease, leg pain, cold hands and feet and abnormal skin colour first appeared at a median of 8 hours, well before the classic rash and the median hospital admission at 19 hours. <button class="btn ghost" data-go="children">Sepsis in babies and children</button> [[Thompson2006Meningococcal]]</p></div>
+    <div class="card"><span class="tag accent">Awareness</span><h4>Many parents would not spot it</h4><p>In an Australian poll of 3,352 parents (2023), 61.6% had heard the word sepsis. Only 27.8% of those parents thought they could recognise it in their child. [[Peters2023Awareness]]</p></div>
+  </div>
+
+  <h3 class="sub">Watching the numbers: how a score rises</h3>
+  <p class="prose">In hospital, nurses record six observations again and again: breathing rate, oxygen saturation (and whether oxygen is being given), blood pressure, pulse, level of consciousness and temperature. NEWS2, the National Early Warning Score used across the UK NHS, gives each one 0 to 3 points and adds them up. The animation follows an <b>invented example patient</b> through five sets of observations, scored with the published NEWS2 chart. [[Verma2023NEWS2]]</p>
+  <div class="stepper" id="rcSteps2"></div>
+  <div class="lab">
+    <div class="stage">
+      <svg id="rcSvg2" viewBox="0 0 720 380" role="img" aria-label="A chart of an invented patient's observations over 8 hours, recorded every 2 hours. Six rows show breathing rate, oxygen saturation, systolic blood pressure, pulse, temperature and consciousness, each as a coloured cell holding the measured value and its NEWS2 points from 0 to 3. Below, the total NEWS2 score is drawn as a line that climbs from 0 at hour 0, to 2 at hour 2, 5 at hour 4 (the medium band), 7 at hour 6 (the high band) and 14 at hour 8 when new confusion appears. Bands for low (0 to 4), medium (5 to 6) and high (7 or more) are shaded behind the line."></svg>
+      <div class="ctrls"><button class="btn primary" id="rcPlay2">Play</button><label class="stage-cap tl" for="rcT2">Hours <input type="range" id="rcT2" min="0" max="1" step="0.001" value="0.1"></label></div>
+      <div class="readout" id="rcRead2"></div>
+      <p class="stage-cap">Invented example, not a real patient. Points and bands as in the NEWS2 chart reproduced by Verma 2023 from the Royal College of Physicians. [[Verma2023NEWS2]]</p>
+    </div>
+    <aside class="note" id="rcNote2" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Try it: the NEWS2 chart</h3>
+  <p class="teach"><b>A teaching tool, not for self-triage</b>This calculator shows how the published NEWS2 chart turns observations into points. It is for learning how the score is built. It must never be used at home to decide whether someone is ill, or whether to seek care: anyone who seems very unwell with an infection needs urgent medical help, whatever a score says. In hospital, NEWS2 supports clinical judgement and does not replace it.</p>
+  <div class="lab">
+    <div class="stage">
+      <div class="calc">
+        <label for="rcRR">Respiration rate (breaths/min)<input type="number" id="rcRR" min="0" max="80" step="1" value="18" inputmode="numeric"></label>
+        <label for="rcSp">Oxygen saturation SpO₂ (%)<input type="number" id="rcSp" min="50" max="100" step="1" value="97" inputmode="numeric"></label>
+        <label for="rcScale">SpO₂ scale<select id="rcScale"><option value="1" selected>Scale 1 (most patients)</option><option value="2">Scale 2 (confirmed hypercapnic respiratory failure)</option></select></label>
+        <label for="rcO2">Air or oxygen<select id="rcO2"><option value="air" selected>Air</option><option value="o2">Oxygen</option></select></label>
+        <label for="rcSBP">Systolic blood pressure (mmHg)<input type="number" id="rcSBP" min="40" max="300" step="1" value="124" inputmode="numeric"></label>
+        <label for="rcHR">Pulse (beats/min)<input type="number" id="rcHR" min="20" max="250" step="1" value="82" inputmode="numeric"></label>
+        <label for="rcAvpu">Consciousness<select id="rcAvpu"><option value="a" selected>Alert</option><option value="c">New confusion, or responds only to voice, pain, or unresponsive</option></select></label>
+        <label for="rcTemp">Temperature (°C)<input type="number" id="rcTemp" min="30" max="43" step="0.1" value="37.2" inputmode="decimal"></label>
+      </div>
+      <div class="rcres" id="rcRes"></div>
+      <div class="rcpts" id="rcPts"></div>
+      <div class="ctrls"><button class="btn" id="rcEx">Load the hour-6 example</button><button class="btn ghost" id="rcReset">Reset</button></div>
+    </div>
+    <aside class="note" id="rcCalcNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="tbl"><table>
+    <caption class="sr">NEWS2 points for each observation, as published</caption>
+    <thead><tr><th>Observation</th><th>3</th><th>2</th><th>1</th><th>0</th><th>1</th><th>2</th><th>3</th></tr></thead>
+    <tbody>
+      <tr><td><b>Respiration rate</b> (/min)</td><td class="num">≤8</td><td></td><td class="num">9–11</td><td class="num">12–20</td><td></td><td class="num">21–24</td><td class="num">≥25</td></tr>
+      <tr><td><b>SpO₂ scale 1</b> (%)</td><td class="num">≤91</td><td class="num">92–93</td><td class="num">94–95</td><td class="num">≥96</td><td></td><td></td><td></td></tr>
+      <tr><td><b>Air or oxygen</b></td><td></td><td>Oxygen</td><td></td><td>Air</td><td></td><td></td><td></td></tr>
+      <tr><td><b>Systolic BP</b> (mmHg)</td><td class="num">≤90</td><td class="num">91–100</td><td class="num">101–110</td><td class="num">111–219</td><td></td><td></td><td class="num">≥220</td></tr>
+      <tr><td><b>Pulse</b> (/min)</td><td class="num">≤40</td><td></td><td class="num">41–50</td><td class="num">51–90</td><td class="num">91–110</td><td class="num">111–130</td><td class="num">≥131</td></tr>
+      <tr><td><b>Consciousness</b></td><td></td><td></td><td></td><td>Alert</td><td></td><td></td><td>New confusion, V, P or U</td></tr>
+      <tr><td><b>Temperature</b> (°C)</td><td class="num">≤35.0</td><td></td><td class="num">35.1–36.0</td><td class="num">36.1–38.0</td><td class="num">38.1–39.0</td><td class="num">≥39.1</td><td></td></tr>
+    </tbody></table></div>
+  <p class="prose">Scale 2 for oxygen saturation gives 3 points at 83% or less, 2 at 84–85%, 1 at 86–87%, 0 at 88–92% (or 93% or more on air), then 1, 2 and 3 points at 93–94%, 95–96% and 97% or more on oxygen. It "should only be used in patients confirmed to have a hypercapnic respiratory failure on blood gas analysis". The total runs from 0 to 20: 0–4 is low clinical risk, 5–6 medium and 7 or more high, and a score of 3 in any single observation is treated as low-medium risk. "V, P or U" means the person responds only to voice, only to pain, or not at all. [[Verma2023NEWS2]]</p>
+
+  <h3 class="sub">How the scores compare</h3>
+  <p class="prose">Several bedside tools compete for the same job: spotting the infected patient who is about to get much worse. qSOFA (3 items) and SIRS (4 items) come from the sepsis definitions, explained in <button class="btn ghost" data-go="definitions">Definitions &amp; scores</button>. NEWS and NEWS2 are general early warning scores. Every figure below is a population statistic from the study named.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Study</th><th>Who</th><th>What it found</th></tr></thead>
+    <tbody>
+      <tr><td><b>Smith 2013</b></td><td>198,755 observation sets, 35,585 acute medical admissions</td><td>The original NEWS discriminated death within 24 h with AUROC 0.894, better than all 33 other early warning scores tested (0.813–0.858). [[Smith2013NEWS]]</td></tr>
+      <tr><td><b>Churpek 2017</b></td><td>30,677 ward and ED patients with suspected infection</td><td>AUROC for in-hospital death: NEWS 0.77, MEWS 0.73, qSOFA 0.69, SIRS 0.65. For death or ICU transfer, qSOFA ≥2 had 54% sensitivity against 67% for NEWS ≥8 and 91% for SIRS ≥2. [[Churpek2017]]</td></tr>
+      <tr><td><b>Goulden 2018</b></td><td>1,818 UK emergency admissions treated as sepsis</td><td>Sensitivity for in-hospital death: NEWS ≥5 74%, SIRS ≥2 80%, qSOFA ≥2 37%. Specificity 43%, 21% and 79%. [[Goulden2018]]</td></tr>
+      <tr><td><b>Usman 2019</b></td><td>130,595 emergency department visits</td><td>For spotting severe sepsis or septic shock at triage: AUROC NEWS 0.91, SIRS 0.88, qSOFA 0.81; sensitivity NEWS ≥4 84.2%, SIRS ≥2 86.1%, qSOFA ≥2 28.5%. [[Usman2019]]</td></tr>
+      <tr><td><b>Verma 2023</b></td><td>373 emergency department sepsis patients in India</td><td>NEWS2 AUC 0.781 against 0.729 for qSOFA, for mortality. [[Verma2023NEWS2]]</td></tr>
+    </tbody></table></div>
+  <p class="callout">The Surviving Sepsis Campaign 2021 guideline puts it plainly: "We recommend against using qSOFA compared to SIRS, NEWS, or MEWS as a single screening tool for sepsis or septic shock" (strong recommendation, moderate-quality evidence). It adds that "neither SIRS nor qSOFA are ideal screening tools". [[Evans2021SSC]]</p>
+
+  <h3 class="sub">Screening systems, alerts and the evidence</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Screening as part of a programme</h4><p>SSC 2021 recommends that hospitals and health systems use a performance improvement programme including "sepsis screening for acutely ill, high-risk patients" (strong recommendation). A meta-analysis of 50 observational studies linked such programmes with lower mortality (OR 0.66); a pooled analysis of three randomised trials of active screening showed no clear mortality benefit (RR 0.90, 95% CI 0.51–1.58). [[Evans2021SSC]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>NEWS across a whole region</h4><p>In the West of England (2015–2019), using NEWS across community, primary and secondary care was followed by falling suspected-sepsis mortality not seen in the rest of England. This was a quality-improvement study, not a randomised trial. [[Pullyblank2020]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Not every alert works</h4><p>A widely used proprietary sepsis model, validated externally in 38,455 hospitalisations, had an AUROC of 0.63. It missed 67% of sepsis cases while alerting on 18% of all patients. [[Wong2021Epic]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Alerts that are acted on</h4><p>With the TREWS machine-learning alert (590,736 patients, 5 hospitals), confirmation of the alert by a clinician within 3 hours was associated with an 18.7% relative reduction in in-hospital mortality. The study was a prospective cohort, not randomised. [[Adams2022TREWS]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>NEWS2 plus a blood test</h4><p>The PRONTO trial added procalcitonin to NEWS2 in emergency departments in England and Wales. It did not change intravenous antibiotic starts at 3 hours (48.4% vs 48.2%); 28-day mortality was lower with the procalcitonin-guided algorithm (13.6% vs 16.6%), an effect the authors say needs further research. [[Todd2026PRONTO]]</p></div>
+    <div class="card"><span class="tag accent">Shock index</span><h4>Pulse divided by blood pressure</h4><p>Shock index is heart rate ÷ systolic blood pressure. In 2,524 emergency patients with suspected infection, those with a shock index of 0.7 or more were about three times as likely to have a lactate of 4.0 mmol/L or more (15.8% vs 4.9%); 1.0 or more was the most specific cut-off. A single-centre pilot. [[Berger2013SI]]</p></div>
+  </div>
+
+  <h3 class="sub">In hospital: NEWS2 in the UK guidance</h3>
+  <p class="prose">NICE's 2024 update of its sepsis guidance brought NEWS2 in for assessing people with suspected sepsis who are aged 16 or over, are not pregnant or recently pregnant, and are in an acute hospital, an acute mental health setting or an ambulance. [[Gildea2024NICE]] The score is a trend tool: Churpek and colleagues found that patients who went on to die or need intensive care first met 2 or more SIRS criteria a median of 17 hours before that outcome, and 2 or more qSOFA criteria only 5 hours before. Repeated observations are what reveal the slope. [[Churpek2017]] A lactate blood test often sits beside the score: SSC 2021 suggests measuring blood lactate in adults suspected of having sepsis (weak recommendation, low-quality evidence), while noting that lactate "alone is neither sensitive nor specific enough to rule-in or rule-out the diagnosis". See <button class="btn ghost" data-go="tests">Lactate, cultures &amp; tests</button>. [[Evans2021SSC]]</p>
+
+  <h3 class="sub">If you are worried about someone</h3>
+  <div class="rcsign">
+    <div><b>S</b>Slurred speech or confusion</div>
+    <div><b>E</b>Extreme shivering or muscle pain, fever</div>
+    <div><b>P</b>Passing no urine all day</div>
+    <div><b>S</b>Severe breathlessness</div>
+    <div><b>I</b>It feels like you are going to die</div>
+    <div><b>S</b>Skin mottled or discoloured</div>
+  </div>
+  <p class="gentle"><b>Trust your sense that something is wrong</b>You know the person best. Say clearly that you think they are much more unwell than usual, and ask: could this be sepsis? A person can have sepsis without any one of these signs, and the mnemonic is an awareness message, not a test. [[Wattanapaiboon2020SEPSIS]] Fever is not the only temperature warning: NEWS2 also gives points for a low temperature, 36.0°C or below. [[Verma2023NEWS2]]</p>
+</section>

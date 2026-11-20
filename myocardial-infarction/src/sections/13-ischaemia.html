@@ -1,0 +1,60 @@
+<!-- ================= 1.3 ISCHAEMIA: TIME IS MUSCLE ================= -->
+<style>
+#m-ischaemia .card>.ev,#m-ischaemia .card>.tag{align-self:flex-start}
+#m-ischaemia .tbl table{min-width:560px}
+#m-ischaemia .readout{min-height:2.6em}
+#m-ischaemia #isRep[aria-pressed="true"]{background:var(--good);border-color:var(--good);color:var(--bg)}
+</style>
+<section class="mod" id="m-ischaemia" data-mod="ischaemia" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · Understanding heart attack</p><h2>Ischaemia: time is muscle</h2>
+    <p class="lede">When a clot blocks a coronary artery, the heart muscle it feeds is starved of oxygen (ischaemia). Within minutes to hours it begins to die, from the inner layer of the wall outward. The sooner blood flow is restored, the more muscle can be saved. [[Reimer1977,Gersh2005JAMA]]</p></div>
+  <p class="crisis" role="note"><b>Call now</b><span>If you think you or someone else is having a heart attack, call your local emergency number now (911 in the US, 999 in the UK, 112 in the EU).</span></p>
+  <div class="stepper" id="isSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="isSvg" viewBox="0 0 720 380" role="img" aria-label="A slab of left-ventricle wall below a blocked coronary artery, made of rows of heart-muscle cells. The territory the artery feeds turns grey-violet (ischaemic) at once. After about 15 minutes, cells start to die in the inner layer next to the cavity, and a dark wavefront of dead cells spreads outward toward the outer surface over hours, reaching 38% of the wall thickness at 40 minutes, 57% at 3 hours, 71% at 6 hours and 85% at 24 hours in dogs. Counters show how much of the muscle at risk is dead and how much could still be saved. Pressing Reopen the artery freezes the wave."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="isPlay">Play</button><button class="btn" id="isRep" aria-pressed="false">Reopen the artery now</button><label class="stage-cap tl" for="isT">Time since the artery blocked <input type="range" id="isT" min="0" max="1" step="0.001" value="0.03"></label></div>
+      <div class="readout" id="isRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> The wavefront numbers come from dogs with a total proximal occlusion (Reimer and Jennings). In people the timing varies with collateral flow and preconditioning, so these hours are not a deadline for anyone. [[Reimer1977,Reimer1979]]</p>
+    </div>
+    <aside class="note" id="isNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Every 30 minutes counts</h3>
+  <p class="prose">Studies in people agree on the direction: earlier reperfusion goes with fewer deaths and smaller infarcts. The exact shape of the curve is uncertain. [[Gersh2005JAMA,Boersma1996,DeLuca2004]] Drag the time and switch between three kinds of evidence. These are population statistics from trials and cohorts, not predictions for one person.</p>
+  <div class="ctrls" role="group" aria-label="Evidence shown">
+    <button class="btn" data-isv="pci" aria-pressed="true">Primary PCI: risk of death at 1 year</button>
+    <button class="btn" data-isv="lysis" aria-pressed="false">Clot-busting drugs: lives saved</button>
+    <button class="btn" data-isv="cmr" aria-pressed="false">Cardiac MRI: muscle lost and saved</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="isDelay" viewBox="0 0 720 330" role="img" aria-label="A chart that changes with the chosen evidence. Primary PCI: relative risk of death at 1 year rising by a factor of 1.075 for every 30 minutes of delay. Clot-busting drugs: 65, 37, 26 and 29 lives saved per 1000 treated when treatment started 0 to 1, 1 to 2, 2 to 3 and 3 to 6 hours after symptoms began. Cardiac MRI: infarct size rising from 8% to 17.9% of the left ventricle while salvaged muscle falls from 8.5% to 2.1% as the time from symptoms to balloon grows."></svg></div>
+      <div class="ctrls"><label class="stage-cap tl" for="isD">Minutes <input type="range" id="isD" min="0" max="1" step="0.0025" value="0.25"></label></div>
+      <div class="readout" id="isDRead"></div>
+    </div>
+    <aside class="note" id="isDNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Muscle lost and saved by time to reperfusion</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Symptom onset to balloon</th><th>Infarct size (% of LV)</th><th>Salvaged muscle (% of LV)</th><th>Microvascular obstruction (% of LV)</th></tr></thead>
+    <tbody>
+      <tr><th>≤90 minutes</th><td>8</td><td>8.5</td><td>0.5</td></tr>
+      <tr><th>&gt;90–150 minutes</th><td>11.7</td><td>3.2</td><td>1.5</td></tr>
+      <tr><th>&gt;150–360 minutes</th><td>12.7</td><td>2.4</td><td>3.7</td></tr>
+      <tr><th>&gt;360 minutes</th><td>17.9</td><td>2.1</td><td>6.6</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Cardiac MRI after primary PCI in 70 people with STEMI. Salvage was "markedly reduced" once reperfusion took more than 90 minutes. [[Francone2009]] Pooled data from 10 primary-PCI trials (2632 patients) put the median infarct size at 17.9% of the left ventricle. [[Stone2016InfarctSize]]</p>
+
+  <h3 class="sub">What happens to the muscle that survives</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Stunning</h4><p>Muscle saved by reperfusion can stay weak for a while: prolonged contractile dysfunction after ischaemia, in muscle that is alive. Ischaemia may "hit, run and stun". [[Braunwald1982]] Proposed mechanisms include oxygen free radicals and altered calcium handling; stunning has been seen after angioplasty, unstable angina, stress-induced ischaemia, thrombolysis and cardiopulmonary bypass. [[Kloner2001Stunning]]</p><p>In plain words: some muscle that stops working after a heart attack is only stunned and can recover over days to weeks. [[Braunwald1982]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Hibernation</h4><p>Hibernating myocardium is weak at rest because of reduced coronary blood flow, and can improve partly or fully with revascularisation or by lowering oxygen demand. It is distinct from stunning, which follows a bout of ischaemia that has ended. [[Rahimtoola1989]] Revascularisation choices are in <a href="#cabg" data-go="cabg">Stents or bypass?</a></p></div>
+    <div class="card"><span class="tag warn">No proven therapy</span><h4>Reperfusion injury</h4><p>Restoring flow can itself kill heart cells, and as of 2013 there was no effective therapy for it. [[Hausenloy2013JCI]] Cells die by necrosis, apoptosis, necroptosis and pyroptosis, and the small vessels are injured too. Many treatments that shrink infarcts in animals have translated poorly into better outcomes for patients. [[Heusch2020]] See <a href="#frontier" data-go="frontier">Research toward better treatment</a>.</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>No-reflow</h4><p>In dogs, after 40 minutes of ischaemia, tracers reached the damaged tissue evenly on reperfusion. After 90 minutes, parts of the inner wall were not reperfused because of severe capillary damage and cell swelling. The most severely ischaemic cells died before the capillary damage began. [[Kloner1974NoReflow]] In people, microvascular obstruction rose with delay, from 0.5% to 6.6% of the LV. [[Francone2009]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Preconditioning</h4><p>Four 5-minute occlusions before a 40-minute occlusion limited infarct size to 25% of that in controls, but gave no benefit with a 3-hour occlusion. [[Murry1986]] It has been seen in "virtually every species" studied. [[Kloner2001Stunning]] <span class="ev hyp">Hypothesis</span> Angina in the days before an infarct, and the angina "warm-up" phenomenon, may be human counterparts. [[Kloner2001Stunning]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Why infarct size matters</h4><p>Infarct size is a major determinant of prognosis. [[Heusch2020]] Across 10 primary-PCI trials, each 5% larger infarct was associated with higher 1-year all-cause mortality (adjusted HR 1.19) and hospitalisation for heart failure (HR 1.20), but not with reinfarction. [[Stone2016InfarctSize]] Complications are in <a href="#complications" data-go="complications">Complications &amp; cardiogenic shock</a>.</p></div>
+  </div>
+</section>

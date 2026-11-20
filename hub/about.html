@@ -1,0 +1,43 @@
+<h1>About Medical Companions</h1>
+<p class="lede">Animated, cited guides to one disease each, for students and for people living with the disease. This page says who is responsible for them, how AI is used to make them, and what has not been checked yet.</p>
+
+<h2>Who is responsible</h2>
+<div class="card" id="editor">
+  <p><b>Moshe Malka</b>, founder and editor. Moshe is not a clinician. He decides which diseases get a companion, sets the rules every guide is built to, and fixes errors that readers report. The site is built and run by <a href="https://quentin.software">Quentin.Code</a>.</p>
+  <p>Questions and corrections: <a href="mailto:hello@medcompanions.org">hello@medcompanions.org</a></p>
+</div>
+
+<h2>How the guides are made</h2>
+<p>We would rather you know exactly how this works than guess. Each companion is researched and written by AI agents (Claude, made by Anthropic), working to a fixed method:</p>
+<ol>
+  <li><b>Research passes.</b> Separate agents research one area each (genetics, diagnosis, treatment, safety, daily life, nursing care, research toward a cure). Each returns facts with a source for every one.</li>
+  <li><b>Every source is checked by software.</b> Each source is looked up in PubMed, Europe PMC, Crossref, ClinicalTrials.gov or the official drug label, and its record is saved with the guide. Anything that can't be traced to a source is dropped.</li>
+  <li><b>Written only from those facts.</b> The modules are written from the checked research, and every claim carries a small number that opens its source. The build fails if a number points to a source that isn't in the list.</li>
+  <li><b>Automated checks before publishing.</b> Each guide is tested in a browser for errors, broken animations, phone layout and screen-reader descriptions before it goes live.</li>
+</ol>
+<p>What this does <b>not</b> include, yet: a person reading every line before it is published, and review by a doctor, nurse or pharmacist. AI can misread a paper or overstate a finding. That is why every claim links to its source, so you can check it yourself.</p>
+
+<h2>Medical review</h2>
+<div class="card">
+  <p><b>No guide on this site has been reviewed by a clinician yet.</b> When one is, its pages will name the reviewer, their credentials and the review date. Until then the guides say so in their footer.</p>
+  <p>If you are a doctor, nurse, pharmacist or other clinician and would review a guide in your field, we would be grateful: <a href="mailto:hello@medcompanions.org?subject=Reviewing%20a%20guide">hello@medcompanions.org</a>. Corrections from anyone are welcome too.</p>
+  <p>The Hebrew guides were translated with AI and have not been reviewed by a Hebrew-speaking clinician.</p>
+</div>
+
+<h2>How to read the labels</h2>
+<dl>
+  <dt><span class="tag">Established</span> <span class="tag">Early evidence</span> <span class="tag">Hypothesis</span></dt>
+  <dd>How strong the evidence is behind a research claim. Where experts disagree, the guide shows the disagreement.</dd>
+  <dt><span class="tag">Not confirmed in the original</span></dt>
+  <dd>A figure or statement that is widely repeated, but that we could not find in the original paper or document, usually because the original could not be accessed. It is shown with that warning, or left out.</dd>
+  <dt>Notes on each source</dt>
+  <dd>In each guide's Sources list, every entry says how it was checked (for example "validated: PubMed") and how much of it was read: the full text, the abstract only, a drug label or a web page. A source marked <span class="tag">not matched in a research database</span> is one, such as a press release or a government web page, that isn't indexed in PubMed, Europe PMC or Crossref.</dd>
+</dl>
+
+<h2>Not medical advice</h2>
+<p>These guides explain what published studies and guidelines say. They cannot diagnose you, and nothing here should change a treatment or care decision without your own clinical team. Doses and guideline thresholds are quoted as published.</p>
+
+<h2>Money</h2>
+<p>The guides are free to read and carry no advertising.</p>
+
+<p class="updated">Last updated 4 November 2026.</p>

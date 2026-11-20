@@ -1,0 +1,104 @@
+<!-- ================= 4.1 PORTAL HYPERTENSION & VARICES ================= -->
+<style>
+#m-portal .card>.ev,#m-portal .card>.tag{align-self:flex-start}
+#m-portal .tbl table{min-width:560px}
+#m-portal .bav{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:18px;align-items:start}
+@media (max-width:900px){#m-portal .bav{grid-template-columns:minmax(0,1fr)}}
+#m-portal .bav .calc{grid-template-columns:minmax(0,1fr)}
+#m-portal .bav label.chk{flex-direction:row;align-items:center;gap:8px;font-weight:700}
+#m-portal .bav .rng{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+#m-portal .bav .rng output{font:700 15px var(--mono);color:var(--ink)}
+#m-portal #poBavSvg{width:100%;height:auto;display:block}
+#m-portal .ico-ctrls .btn{font-size:13px}
+#m-portal .ico-cap{font-size:14.5px;max-width:72ch}
+</style>
+<section class="mod" id="m-portal" data-mod="portal" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Complications</p><h2>Portal hypertension &amp; varices</h2>
+    <p class="lede">Scar makes it hard for blood from the gut to pass through the liver, so pressure builds in the portal vein. Watch the pressure gauge climb, blood find detours, a varix bleed, and treatment bring the pressure down.</p></div>
+
+  <p class="crisis" role="note"><b>Urgent care</b><span>Vomiting blood, black or tarry stools, new confusion or drowsiness, or fever or belly pain with a swollen abdomen need urgent care: call your local emergency number or go to an emergency department.</span></p>
+
+  <div class="stepper" id="poSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="poSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="An animated map of the portal circulation beside a pressure gauge. As scar builds up in the liver, the gauge needle for the hepatic venous pressure gradient rises past 5, 10 and 12 mmHg; the gut arteries widen, the spleen enlarges, swollen veins (varices) bulge in the lower oesophagus and around the navel, one varix bleeds, and then treatment (a beta-blocker, band ligation and a TIPS stent) brings the pressure down."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="poPlay">Play</button><label class="stage-cap tl" for="poT">Disease course <input type="range" id="poT" min="0" max="1" step="0.001" value="0.1"></label></div>
+      <div class="readout" id="poRead" aria-live="off"></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> The needle follows one illustrative person; the coloured zones are the published thresholds: above 5 mmHg is portal hypertension and 10 mmHg or more is clinically significant portal hypertension (CSPH) [[deFranchis2022BavenoVII]]; no variceal bleeding occurred below 12 mmHg in a 1985 series [[GarciaTsao1985Hepatology]]; above 20 mmHg at the time of a bleed is one criterion for pre-emptive TIPS [[deFranchis2022BavenoVII]].</p>
+    </div>
+    <aside class="note" id="poNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The pressure thresholds</h3>
+  <div class="prose"><p>Doctors measure portal pressure indirectly as the hepatic venous pressure gradient (HVPG): a balloon catheter is passed through the jugular vein into a hepatic vein, and the free pressure is subtracted from the wedged pressure [[DiazSoto2022TAG]]. Baveno VII prefers a compliant balloon-occlusion catheter and at least 1 minute of stabilisation for the wedged reading [[deFranchis2022BavenoVII]].</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>HVPG</th><th>What the sources say</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><th>&gt;5 mmHg</th><td>"HVPG values &gt;5 mmHg indicate sinusoidal portal hypertension" (Baveno VII wording).</td><td>[[deFranchis2022BavenoVII]]</td></tr>
+      <tr class="portal"><th>≥10 mmHg</th><td>Clinically significant portal hypertension (CSPH). An HVPG above 10 mmHg is the strongest predictor of varices and of any decompensating event.</td><td>[[deFranchis2022BavenoVII,DiazSoto2022TAG]]</td></tr>
+      <tr><th>Each 1 mmHg</th><td>In 213 people with compensated cirrhosis and no varices, each 1 mmHg raised the hazard of decompensation (HR 1.11). With HVPG below 10 mmHg, the probability of not decompensating over a median of about 4 years was 90%.</td><td>[[Ripoll2007Gastro]]</td></tr>
+      <tr class="hl"><th>≥12 mmHg</th><td>In 93 people with alcohol-related cirrhosis, none of the 49 who had bled from varices had an HVPG below 12 mmHg. Mean HVPG was 20.4 mmHg in those who had bled versus 16.0 mmHg in those who had not.</td><td>[[GarciaTsao1985Hepatology]]</td></tr>
+      <tr><th>&gt;20 mmHg at a bleed</th><td>One of the Baveno VII criteria for pre-emptive covered TIPS within 72 hours.</td><td>[[deFranchis2022BavenoVII]]</td></tr>
+      <tr class="liver"><th>A fall of ≥20%, or to ≤12</th><td>After a bleed, a fall of 20% or more on propranolol went with a 3-year rebleeding rate of 9% versus 66% with a smaller fall. No one whose HVPG fell to 12 mmHg or less rebled.</td><td>[[Feu1995Lancet]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">In primary biliary cholangitis an extra pre-sinusoidal component means HVPG may underestimate portal hypertension [[deFranchis2022BavenoVII]]. Without a catheter, liver stiffness and the platelet count can rule CSPH in or out: see the endoscopy rule below and <a href="#noninvasive" data-go="noninvasive">Measuring scarring without a biopsy</a>.</p>
+
+  <h3 class="sub">A variceal bleed: the first hours, as the guidelines lay them out</h3>
+  <div class="prose"><p>Bleeding from varices is an emergency. Each bleed carries a 6-week mortality of about 15–25% in the EASL guideline, and 15–20% in recent series [[EASL2018Decomp,DiazSoto2022TAG]]. Hospitals treat it as a bundle: medicine through a drip, antibiotics, a camera test to put bands on the veins, and careful blood transfusion [[deFranchis2022BavenoVII]]. Scrub the clock, or pick a step, to see what Baveno VII states and what the trials found. This describes hospital care as published; it is not a set of instructions.</p></div>
+  <div class="stepper" id="poBunSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="poBun" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="A timeline of the first five days after a variceal bleed. Lanes for a vasoactive drug, antibiotics, restrictive transfusion, endoscopy with band ligation and pre-emptive TIPS light up and tick off as the clock moves past arrival, 12 hours, 72 hours and day 5."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="poBunPlay">Play</button><label class="stage-cap tl" for="poBunT">Hours since arrival <input type="range" id="poBunT" min="0" max="1" step="0.001" value="0.02"></label></div>
+      <p class="stage-cap">Time runs on a square-root scale so the first 12 hours have room. Windows are the Baveno VII statements [[deFranchis2022BavenoVII]]; outcomes are population results from the trials named in the note.</p>
+    </div>
+    <aside class="note" id="poBunNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What the trials found, as 100 people</h3>
+  <div class="ctrls ico-ctrls" role="group" aria-label="Choose a trial">
+    <button class="btn" data-ic="predesci" aria-pressed="true">PREDESCI: β-blockers</button>
+    <button class="btn" data-ic="tips" aria-pressed="false">Early TIPS</button>
+    <button class="btn" data-ic="trans" aria-pressed="false">Restrictive transfusion</button>
+    <button class="btn" data-ic="carv" aria-pressed="false">Carvedilol vs banding</button>
+    <button class="btn" data-ic="era" aria-pressed="false">1980 vs 2000</button>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="poIco" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Two icon arrays of 100 people each compare the outcome in the treatment group with the comparison group of the chosen trial."></svg></div>
+    <p class="ico-cap" id="poIcoCap"></p>
+  </div>
+
+  <h3 class="sub">Who needs a screening endoscopy? The Baveno VII rule</h3>
+  <div class="bav">
+    <div class="calc">
+      <p class="safety"><b>Teaching tool</b>This shows how a published rule is built. It is never for diagnosis or for deciding anyone's care: only a care team can do that.</p>
+      <label for="poLsm"><span class="rng">Liver stiffness (transient elastography) <output id="poLsmO">14 kPa</output></span><input type="range" id="poLsm" min="5" max="60" step="0.5" value="14"></label>
+      <label for="poPlt"><span class="rng">Platelet count <output id="poPltO">180 ×10⁹/L</output></span><input type="range" id="poPlt" min="40" max="350" step="5" value="180"></label>
+      <label class="chk" for="poNsbb"><input type="checkbox" id="poNsbb"> Already taking a non-selective beta-blocker to prevent decompensation</label>
+      <div class="verdict yes" id="poBavV" aria-live="polite"></div>
+      <p class="stage-cap" id="poBavC"></p>
+    </div>
+    <div class="stage"><svg id="poBavSvg" viewBox="0 0 400 300" role="img" aria-label="A map with liver stiffness on the horizontal axis and platelet count on the vertical axis. The corner with stiffness below 20 kPa and platelets above 150 is shaded as the zone where a screening endoscopy can be avoided; a dot marks the chosen values."></svg>
+      <p class="stage-cap">Rule as stated by Baveno VII for people who cannot take NSBBs: endoscopy if liver stiffness is ≥20 kPa or platelets ≤150×10⁹/L; below both thresholds, endoscopy can be avoided and elastography and platelets repeated yearly [[deFranchis2022BavenoVII]].</p>
+    </div>
+  </div>
+
+  <h3 class="sub">Preventing problems before they start</h3>
+  <div class="cards">
+    <div class="card"><span class="tag accent">Baveno VII</span><h4>Skipping the camera test</h4><p>People on NSBBs to prevent decompensation do not need screening endoscopy, because the result would not change management. Those who cannot take NSBBs can avoid it if liver stiffness is below 20 kPa and platelets above 150×10⁹/L [[deFranchis2022BavenoVII]]. In the ANTICIPATE cohort (518 people), stiffness plus platelets picked out 30% of patients with a &lt;5% risk of varices needing treatment [[Abraldes2016Anticipate]].</p></div>
+    <div class="card"><span class="tag rx">Medicine</span><h4>Carvedilol</h4><p>Baveno VII names carvedilol the preferred NSBB in compensated cirrhosis: it adds anti-α1-adrenergic vasodilation to non-selective β-blockade and lowers HVPG more [[deFranchis2022BavenoVII,DiazSoto2022TAG]]. In a meta-analysis of 4 trials (352 people with CSPH) it lowered decompensation (SHR 0.506) and death (SHR 0.417) [[Villanueva2022Carvedilol]]. Against band ligation (152 people), first bleeds were 10% vs 23%, with no difference in mortality [[Tripathi2009Hepatology]]. Its US label warns against stopping abruptly and lists bradycardia, hypotension and fluid retention; it is contraindicated in severe hepatic impairment [[FDA-Coreg]].</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Treating the cause lowers the pressure</h4><p>Removing or suppressing the cause, such as hepatitis C cure, hepatitis B suppression or long-term abstinence from alcohol, produces potentially meaningful falls in HVPG in most people and substantially reduces the risk of decompensation [[deFranchis2022BavenoVII]]. Cirrhosis has many causes, including MASLD, viral hepatitis, genetic and autoimmune disease: see <a href="#masld" data-go="masld">fatty liver disease</a> and <a href="#hepatitis" data-go="hepatitis">hepatitis B and C</a>.</p></div>
+    <div class="card"><span class="tag warn">Not for everyone</span><h4>When β-blockers do not help</h4><p>Timolol did not prevent varices in unselected people with HVPG ≥6 mmHg (39% vs 40%) and caused more serious adverse events (18% vs 6%) [[Groszmann2005NEJM]]. Baveno VII states there is no indication for NSBBs without CSPH [[deFranchis2022BavenoVII]]. In people with ascites it advises reducing or stopping them if systolic pressure falls below 90 mmHg, mean arterial pressure below 65 mmHg, or HRS-AKI develops [[deFranchis2022BavenoVII]].</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Statins</h4><p>Statins may lower portal pressure. Baveno VII encourages them for people with cirrhosis who have an approved indication, at a lower dose in Child–Pugh B/C (as published, simvastatin up to 20 mg/day) [[deFranchis2022BavenoVII,DiazSoto2022TAG]]. See <a href="#frontier" data-go="frontier">Research toward better treatment</a>.</p></div>
+    <div class="card"><span class="tag portal">How often</span><h4>Varices and first bleeds</h4><p>Oesophageal varices are present in 50–60% of people with compensated cirrhosis and up to 85% with decompensated cirrhosis. A first bleed occurs at 10–15% a year, depending on risk factors [[DiazSoto2022TAG]]. In 206 people with no or small varices, new varices appeared in 5% at 1 year and 28% at 3 years [[Merli2003JHepatol]]. Gastric varices occur in about 20% and bleed less often but more severely [[EASL2018Decomp,Sarin1992Hepatology]].</p></div>
+  </div>
+
+  <h3 class="sub">Where the evidence is still argued</h3>
+  <div class="cards">
+    <div class="card"><span class="tag accent">Controversy</span><h4>Pre-emptive TIPS in Child–Pugh B</h4><p>A 34-centre observational study found no mortality benefit in Child–Pugh B with active bleeding, while in Child–Pugh C 1-year mortality was 22% vs 47% [[HernandezGea2019Hepatology]]. An individual-patient meta-analysis of 1327 patients did find a benefit, without more encephalopathy [[NicoaraFarcau2021Gastro]]. Baveno VII includes Child–Pugh B &gt;7 with active bleeding [[deFranchis2022BavenoVII]].</p></div>
+    <div class="card"><span class="tag accent">Controversy</span><h4>Restrictive transfusion in Child–Pugh C</h4><p>In the 2013 trial the survival benefit of a restrictive threshold was significant in Child–Pugh A/B (HR 0.30) but not in Child–Pugh C (HR 1.04), and portal pressure rose with liberal transfusion [[Villanueva2013NEJM]]. Baveno VII keeps a target of 7–8 g/dl, adjusted for heart disease, age, haemodynamics and ongoing bleeding [[deFranchis2022BavenoVII]].</p></div>
+    <div class="card"><span class="tag bile">Rescue</span><h4>When bleeding will not stop</h4><p>Up to 10–15% of people keep bleeding or rebleed early despite drugs, ligation and antibiotics; salvage covered TIPS is the rescue therapy [[EASL2018Decomp,deFranchis2022BavenoVII]]. Balloon tamponade or a self-expanding oesophageal stent is only a bridge, and EASL limits tamponade to 24 hours [[deFranchis2022BavenoVII,EASL2018Decomp]]. In a 28-patient trial the stent succeeded more often (66% vs 20%) with fewer serious adverse events [[Escorsell2016Hepatology]].</p></div>
+  </div>
+  <p class="callout">The survival numbers on this page describe large groups of people and cannot predict what will happen to any one person. Care has improved a lot: at one French centre, in-hospital mortality after a variceal bleed fell from 42.6% in 1980 to 14.5% in 2000 [[Carbonell2004Hepatology]]. Ascites, infection and kidney injury continue in <a href="#ascites" data-go="ascites">the next module</a>.</p>
+</section>

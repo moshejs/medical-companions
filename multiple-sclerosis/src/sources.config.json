@@ -1,0 +1,12 @@
+{
+ "areas": {
+  "A": "Epidemiology, course & history",
+  "B": "Genetics & risk factors",
+  "C": "Mechanism & pathology",
+  "D": "Diagnosis & differential",
+  "E": "Disease-modifying therapies",
+  "F": "Relapses, symptoms & living",
+  "G": "Research & cure",
+  "H": "Nursing care"
+ }
+}

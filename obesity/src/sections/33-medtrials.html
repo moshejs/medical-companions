@@ -1,0 +1,102 @@
+<!-- ================= 3.3 SEMAGLUTIDE & TIRZEPATIDE TRIALS ================= -->
+<style>
+#m-medtrials .mt-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-medtrials .mt-row .btn{min-height:40px}
+#m-medtrials .mt-row .lbl{font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-right:4px}
+#m-medtrials .mt-sw{display:inline-block;width:16px;height:4px;border-radius:2px;vertical-align:middle;margin-right:6px}
+#m-medtrials .mt-rnote{display:flex;flex-direction:column;gap:10px}
+#m-medtrials .mt-rnote h4{font-family:var(--display);font-weight:700;font-size:21px;line-height:1.15;margin:0}
+#m-medtrials .card .mt-num{font-family:var(--display);font-weight:700;font-size:30px;line-height:1;color:var(--tx)}
+#m-medtrials .card .mt-sub{font:500 12px var(--mono);color:var(--muted)}
+#m-medtrials td.n{white-space:nowrap;font-variant-numeric:tabular-nums}
+#m-medtrials .mt-bar{display:inline-block;height:10px;border-radius:5px;background:var(--tx);vertical-align:middle;margin-right:8px}
+</style>
+<section class="mod" id="m-medtrials" data-mod="medtrials" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Treatment</p><h2>Semaglutide &amp; tirzepatide trials</h2>
+    <p class="lede">Large randomised trials compared these medicines with placebo, with each other and against heart, lung and joint outcomes. Every number here is an average for a group of people in a trial, never a prediction for one person: some people lose much more, some much less. [[Wilding2021STEP1,Jastreboff2022SURMOUNT1]]</p></div>
+
+  <div class="stepper" id="mtSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="mtSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Mean percentage body-weight change over weeks in the pivotal trials: placebo, liraglutide, semaglutide and tirzepatide, then the head-to-head trials and the weight regained after treatment stopped"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="mtPlay">%t:player.play%</button><label class="stage-cap tl" for="mtT">Trials, in order <input type="range" id="mtT" min="0" max="1" step="0.001" value="0.6"></label></div>
+      <div class="mt-row" id="mtChips" role="group" aria-label="Show or hide medicines"><span class="lbl">Show</span></div>
+      <p class="stage-cap">Mean % change in body weight from the start of each trial. Each line joins the published start and end points; the shape between them is schematic. Different trials enrolled different people, so only the head-to-head trials compare medicines directly. [[Wilding2021STEP1,Jastreboff2022SURMOUNT1,FDA-Saxenda,Wharton2025STEPUP,Aronne2025SURMOUNT5,Rubino2022STEP8,Wilding2022STEP1ext,Aronne2024SURMOUNT4]]</p>
+    </div>
+    <aside class="note" id="mtNote" aria-live="polite"></aside>
+  </div>
+  <p class="teach" role="note"><b>Averages, not a forecast</b>Weight-change results are population averages from trials, with lifestyle support in both arms. They are not a target or a prediction for any one person, and nobody should start, stop or change a medicine without a clinician.</p>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>STEP 1: semaglutide 2.4 mg −14.9% vs −2.4% at 68 weeks. [[Wilding2021STEP1]] SURMOUNT-1: tirzepatide 15 mg −20.9% vs −3.1% at 72 weeks. [[Jastreboff2022SURMOUNT1]] SURMOUNT-5 head-to-head: −20.2% vs −13.7%. [[Aronne2025SURMOUNT5]] People with type 2 diabetes lose less on the same drug: STEP 2 −9.6%. [[Davies2021STEP2]]</div>
+    <div class="pt"><b>In plain words</b>In the big trials, people on semaglutide lost about 15% of their weight on average, and on tirzepatide about 20%. When the medicine stopped, much of the weight came back. That is biology, not failure. [[Wilding2021STEP1,Jastreboff2022SURMOUNT1,Wilding2022STEP1ext,Aronne2024SURMOUNT4]]</div>
+  </div>
+
+  <h3 class="sub">How many people reached 5, 10, 15 or 20%?</h3>
+  <div class="prose"><p>An average hides a spread. Trials also report the share of people who lost at least a given percentage of their starting weight. Pick a trial and a threshold: each figure stands for one person in a group of 100.</p></div>
+  <div class="mt-row" id="mtTrialBtns" role="group" aria-label="Trial"><span class="lbl">Trial</span></div>
+  <div class="mt-row" id="mtThrBtns" role="group" aria-label="Weight-loss threshold"><span class="lbl">Lost at least</span></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="mtResp" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Two blocks of 100 figures, one for the medicine arm and one for the comparison arm, with the share who reached the chosen weight-loss threshold highlighted"></svg></div>
+      <p class="stage-cap">Shares rounded to whole people for the drawing; the exact published figure is printed above each block. Population results from one trial each.</p>
+    </div>
+    <aside class="note mt-rnote" id="mtRespNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The pivotal weight trials at a glance</h3>
+  <div class="tbl"><table>
+    <caption class="sr">Mean body-weight change in the main trials</caption>
+    <thead><tr><th scope="col">Trial</th><th scope="col">Medicine</th><th scope="col">People</th><th scope="col">Weeks</th><th scope="col">Mean weight change: medicine vs comparator</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">SCALE</th><td>Liraglutide 3.0 mg daily</td><td class="n">3731</td><td class="n">56</td><td>−8.4 vs −2.8 kg (journal); −7.4% vs −3.0% (label) [[PiSunyer2015SCALE,FDA-Saxenda]]</td></tr>
+      <tr class="tx"><th scope="row">STEP 1</th><td>Semaglutide 2.4 mg weekly</td><td class="n">1961</td><td class="n">68</td><td><span class="mt-bar" style="width:75px"></span>−14.9% vs −2.4% [[Wilding2021STEP1]]</td></tr>
+      <tr><th scope="row">STEP 2 (type 2 diabetes)</th><td>Semaglutide 2.4 mg</td><td class="n">1210</td><td class="n">68</td><td><span class="mt-bar" style="width:48px"></span>−9.6% vs −3.4% [[Davies2021STEP2]]</td></tr>
+      <tr><th scope="row">STEP 3 (with intensive behavioural therapy)</th><td>Semaglutide 2.4 mg</td><td class="n">611</td><td class="n">68</td><td><span class="mt-bar" style="width:80px"></span>−16.0% vs −5.7% [[Wadden2021STEP3]]</td></tr>
+      <tr><th scope="row">STEP 5 (2 years)</th><td>Semaglutide 2.4 mg</td><td class="n">304</td><td class="n">104</td><td><span class="mt-bar" style="width:76px"></span>−15.2% vs −2.6% [[Garvey2022STEP5]]</td></tr>
+      <tr><th scope="row">STEP 8 (open-label)</th><td>Semaglutide 2.4 mg vs liraglutide 3.0 mg</td><td class="n">338</td><td class="n">68</td><td><span class="mt-bar" style="width:79px"></span>−15.8% vs −6.4% [[Rubino2022STEP8]]</td></tr>
+      <tr class="tx"><th scope="row">STEP UP</th><td>Semaglutide 7.2 mg vs 2.4 mg</td><td class="n">1407</td><td class="n">72</td><td><span class="mt-bar" style="width:94px"></span>−18.7% vs −15.6% (placebo −3.9%) [[Wharton2025STEPUP]]</td></tr>
+      <tr><th scope="row">OASIS 1</th><td>Oral semaglutide 50 mg daily</td><td class="n">667</td><td class="n">68</td><td><span class="mt-bar" style="width:76px"></span>−15.1% vs −2.4% [[Knop2023OASIS1]]</td></tr>
+      <tr><th scope="row">OASIS 4</th><td>Oral semaglutide 25 mg daily (Wegovy tablet)</td><td class="n">307</td><td class="n">64</td><td><span class="mt-bar" style="width:68px"></span>−13.6% vs −2.2% [[Wharton2025OASIS4]]</td></tr>
+      <tr class="tx"><th scope="row">SURMOUNT-1</th><td>Tirzepatide 5 / 10 / 15 mg weekly</td><td class="n">2539</td><td class="n">72</td><td><span class="mt-bar" style="width:105px"></span>−15.0 / −19.5 / −20.9% vs −3.1% [[Jastreboff2022SURMOUNT1]]</td></tr>
+      <tr><th scope="row">SURMOUNT-2 (type 2 diabetes)</th><td>Tirzepatide 10 / 15 mg</td><td class="n">938</td><td class="n">72</td><td><span class="mt-bar" style="width:74px"></span>−12.8 / −14.7% vs −3.2% [[Garvey2023SURMOUNT2]]</td></tr>
+      <tr><th scope="row">SURMOUNT-3 (after a lifestyle programme)</th><td>Tirzepatide</td><td class="n">—</td><td class="n">72</td><td><span class="mt-bar" style="width:92px"></span>a further −18.4% vs +2.5%, after ≥5% lost in a 12-week lead-in [[Wadden2023SURMOUNT3]]</td></tr>
+      <tr class="tx"><th scope="row">SURMOUNT-5 (open-label)</th><td>Tirzepatide vs semaglutide</td><td class="n">751</td><td class="n">72</td><td><span class="mt-bar" style="width:101px"></span>−20.2% vs −13.7% [[Aronne2025SURMOUNT5]]</td></tr>
+      <tr><th scope="row">ATTAIN-1</th><td>Orforglipron 6 / 12 / 36 mg daily (trial doses)</td><td class="n">3127</td><td class="n">72</td><td><span class="mt-bar" style="width:56px"></span>−7.5 / −8.4 / −11.2% vs −2.1% [[Wharton2025ATTAIN1]]</td></tr>
+    </tbody></table></div>
+  <p class="stage-cap">Bars show the medicine arm's mean loss (top dose where several). Foundayo's label lists the 36 mg trial arm as 17.2 mg. [[FDA-Foundayo]]</p>
+
+  <h3 class="sub">Beyond the scales: outcome trials</h3>
+  <div class="prose"><p>Weight is a means, not the goal. These trials asked whether the medicines change heart events, heart-failure symptoms, sleep apnoea, knee pain or diabetes.</p></div>
+  <div class="cards">
+    <div class="card"><span class="kicker">SELECT · semaglutide 2.4 mg</span><span class="mt-num">HR 0.80</span><span class="mt-sub">heart attack, stroke or CV death: 6.5% vs 8.0%</span><p>17,604 adults aged 45 or over with established cardiovascular disease, BMI 27 or more and no diabetes, followed for a mean 39.8 months (95% CI 0.72 to 0.90). Adverse events led 16.6% vs 8.2% to stop. [[Lincoff2023SELECT]] Weight change at 4 years was −10.2% vs −1.5%. [[Ryan2024SELECT]] <span class="ev est">Established</span></p></div>
+    <div class="card"><span class="kicker">STEP-HFpEF · semaglutide 2.4 mg</span><span class="mt-num">+16.6</span><span class="mt-sub">KCCQ symptom score vs +8.7 on placebo</span><p>529 people with heart failure with preserved ejection fraction and BMI 30 or more, 52 weeks. The 6-minute walk improved by 21.5 vs 1.2 m; serious adverse events 13.3% vs 26.7%. [[Kosiborod2023STEPHFpEF]] <span class="ev est">Established</span></p></div>
+    <div class="card"><span class="kicker">SUMMIT · tirzepatide</span><span class="mt-num">HR 0.62</span><span class="mt-sub">CV death or worsening heart failure: 9.9% vs 15.3%</span><p>731 people with HFpEF and BMI 30 or more, median 104 weeks (95% CI 0.41 to 0.95). Cardiovascular death alone was 2.2% vs 1.4%, too few events to interpret. [[Packer2025SUMMIT]] <span class="ev est">Established</span></p></div>
+    <div class="card"><span class="kicker">SURMOUNT-OSA · tirzepatide</span><span class="mt-num">−25.3</span><span class="mt-sub">apnoea-hypopnoea events per hour vs −5.3</span><p>Moderate-to-severe obstructive sleep apnoea, baseline about 50 events an hour, 52 weeks, without PAP; −29.3 vs −5.5 on PAP. [[Malhotra2024SURMOUNTOSA]] Zepbound is now labelled for this use. [[FDA-Zepbound]] <span class="ev est">Established</span></p></div>
+    <div class="card"><span class="kicker">STEP 9 · semaglutide 2.4 mg</span><span class="mt-num">−41.7</span><span class="mt-sub">WOMAC knee pain (0–100) vs −27.5</span><p>407 people with knee osteoarthritis and obesity, 68 weeks; weight change −13.7% vs −3.2%. [[Bliddal2024STEP9]] <span class="ev est">Established</span></p></div>
+    <div class="card"><span class="kicker">SURMOUNT-1, 3 years · tirzepatide</span><span class="mt-num">1.3%</span><span class="mt-sub">developed type 2 diabetes vs 13.3% (HR 0.07)</span><p>1032 people with prediabetes over 176 weeks; weight change −19.7% (15 mg) vs −1.3%. [[Jastreboff2025SURMOUNT1]] In SCALE's 3-year arm, liraglutide: 2% vs 6% (HR 0.21). [[leRoux2017SCALE]] <span class="ev est">Established</span></p></div>
+  </div>
+
+  <h3 class="sub">Trials and everyday life</h3>
+  <div class="prose">
+    <p>Outside trials, many people stop. In US insurance data on 195,915 new users in 2021, 36.5% had stopped a GLP-1 medicine by 12 months, and 50.3% of those with obesity but no diabetes. [[Do2024Discontinuation]] In US health records, 1-year discontinuation was 64.8% without type 2 diabetes vs 46.5% with it, and higher income went with staying on treatment. [[Rodriguez2025Discontinuation]]</p>
+    <p>In an Ohio and Florida health system, mean 1-year weight loss on injectable semaglutide or tirzepatide was 8.7%: 3.6% in those who stopped within 3 months, 6.8% in those who stopped at 3 to 12 months and 11.9% in those who stayed on; 80.8% were on lower maintenance doses. [[Gasoyan2025Weight]] Among people who stopped, the reasons were cost or insurance (47.6%), side effects (14.6%), shortages (11.8%), a switch to a compounded product (2.4%) and unsatisfactory weight loss (1.7%). [[Gasoyan2025Reasons]]</p>
+  </div>
+  <div class="tbl"><table>
+    <caption class="sr">Reasons for stopping within a year</caption>
+    <thead><tr><th scope="col">Reason for stopping within a year (sample of 288)</th><th scope="col">Share</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Cost or insurance</th><td><span class="mt-bar" style="width:143px"></span>47.6%</td></tr>
+      <tr><th scope="row">Side effects</th><td><span class="mt-bar" style="width:44px"></span>14.6%</td></tr>
+      <tr><th scope="row">Shortages</th><td><span class="mt-bar" style="width:35px"></span>11.8%</td></tr>
+      <tr><th scope="row">Switched to a compounded product</th><td><span class="mt-bar" style="width:7px"></span>2.4%</td></tr>
+      <tr><th scope="row">Unsatisfactory weight loss</th><td><span class="mt-bar" style="width:5px"></span>1.7%</td></tr>
+    </tbody></table></div>
+  <p class="stage-cap">Source: [[Gasoyan2025Reasons]]</p>
+
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>STEP 4: after a 20-week run-in, continuing semaglutide gave a further −7.9% while switching to placebo gave +6.9%. [[Rubino2021STEP4]] SURMOUNT-4: −5.5% vs +14.0% after a 36-week lead-in. [[Aronne2024SURMOUNT4]] SELECT: MACE HR 0.80. [[Lincoff2023SELECT]]</div>
+    <div class="pt"><b>In plain words</b>Obesity is a long-term condition. When the medicine stops, the body tends to regain weight. Cost is the most common reason people stop, so ask the care team about coverage before starting. [[Wilding2022STEP1ext,Gasoyan2025Reasons]]</div>
+  </div>
+  <p class="edcare" role="note"><b>If eating or weight is distressing</b>If eating or weight causes distress, or someone restricts, binges or purges, talk to a clinician or an eating-disorder service.</p>
+  <p class="callout">How these medicines act is in <a href="#glp" data-go="glp">How GLP-1 medicines work</a>. Side effects, warnings and what to expect on stopping are in <a href="#sideeffects" data-go="sideeffects">Side effects, safety &amp; stopping</a>; why the body pushes weight back up is in <a href="#adaptation" data-go="adaptation">Why lost weight comes back</a>; newer molecules are in <a href="#frontier" data-go="frontier">Research frontier</a>.</p>
+</section>

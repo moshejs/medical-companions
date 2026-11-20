@@ -1,0 +1,105 @@
+<!-- ================= 5.3 NURSING CARE ================= -->
+<style>
+#m-nursing .typebar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-nursing .tbl table{min-width:760px}
+#m-nursing .fcs{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+#m-nursing button.fc{display:block;width:100%;border:0;background:none;padding:0;text-align:left;font:inherit;color:inherit;min-height:230px}
+#m-nursing .fc .face{padding:20px}
+#m-nursing .fc .front p{font-size:21px}
+#m-nursing .fc .back p{font-size:15px}
+#m-nursing .checks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+#m-nursing .checks label{display:flex;gap:9px;align-items:flex-start;font-size:14.5px;cursor:pointer}
+#m-nursing .checks input{margin-top:4px;accent-color:var(--accent);flex:none}
+#m-nursing .verdict{font-weight:400}
+#m-nursing .verdict b{font-weight:700}
+</style>
+<section class="mod" id="m-nursing" data-mod="nursing" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Living with EDS</p><h2>Nursing care</h2>
+    <p class="lede">A ward stay from admission to discharge teaching, with the EDS-specific points the published sources give at each step, and how they change when the patient has vascular EDS.</p></div>
+
+  <div class="banner"><b>Educational, not a protocol</b>Follow your local policy and your senior clinicians. This page summarises published sources for teaching. Where no validated EDS-specific source exists (for example tourniquet technique for blood tests, intramuscular injections, dressing brands or dislocation first aid), it says so instead of filling the gap. [[Wiesmann2014,Byers2025GeneReviews]]</div>
+
+  <div class="typebar" role="group" aria-label="Patient's type">
+    <span class="kicker">Patient</span>
+    <button class="btn" data-nuty="h" aria-pressed="true">hEDS / HSD</button>
+    <button class="btn" data-nuty="v" aria-pressed="false">Vascular EDS</button>
+  </div>
+  <div class="stepper" id="nuSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="nuSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A ward pathway with six stations: admission, observations, moving and positioning, procedures and skin, deterioration, and discharge teaching. A patient figure walks along it. At each station a vignette animates: an admission checklist ticking, a blood-pressure cuff inflating with bruises appearing, a joint slipping and then being supported by pillows, tape peeling the top layer of skin with local-anaesthetic numbness bars, a dislocation or an artery tear for vascular EDS, and an emergency card. Nursing points from the sources appear beside each vignette."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="nuPlay">Play</button><label class="stage-cap tl" for="nuT">Ward stay <input type="range" id="nuT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <p class="stage-cap"><b>Schematic.</b> The points are condensed from the cited sources, most of them expert opinion, case series or consensus rather than trials. Check the note for the exact published wording. [[Wiesmann2014,Amaral2026,Pezaro2024]]</p>
+    </div>
+    <aside class="note" id="nuNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Active stand: plotting lying and standing observations</h3>
+  <div class="prose"><p>A teaching chart, not a diagnostic tool. The 2019 NIH consensus defines the heart-rate criterion for POTS as a sustained rise of at least 30 beats/min within 10 minutes of standing (at least 40 at ages 12–19), without a sustained systolic fall of 20 mmHg or more, with orthostatic symptoms for at least 3 months. It notes that POTS can usually be identified by recording heart rate and blood pressure lying down and during a 10-minute stand. [[Vernino2021]]</p></div>
+  <div class="ctrls" role="group" aria-label="Example readings">
+    <span class="kicker">Examples</span>
+    <button class="btn" data-nuex="pots" aria-pressed="true">Heart-rate rise</button>
+    <button class="btn" data-nuex="oh" aria-pressed="false">Blood-pressure fall</button>
+    <button class="btn" data-nuex="none" aria-pressed="false">Neither</button>
+  </div>
+  <div class="lab even">
+    <div class="stage">
+      <div class="calc" id="nuCalc">
+        <label>Age group<select id="nuAge"><option value="a">Adult (20 and over)</option><option value="t">Adolescent (12–19)</option></select></label>
+        <label>Lying HR (beats/min)<input type="number" id="nuHr0" min="30" max="200" value="72"></label>
+        <label>Lying systolic BP (mmHg)<input type="number" id="nuSb0" min="60" max="220" value="112"></label>
+        <label>HR at 2 min standing<input type="number" id="nuHr2" min="30" max="220" value="98"></label>
+        <label>HR at 5 min<input type="number" id="nuHr5" min="30" max="220" value="106"></label>
+        <label>HR at 10 min<input type="number" id="nuHr10" min="30" max="220" value="110"></label>
+        <label>SBP at 2 min<input type="number" id="nuSb2" min="50" max="220" value="110"></label>
+        <label>SBP at 5 min<input type="number" id="nuSb5" min="50" max="220" value="108"></label>
+        <label>SBP at 10 min<input type="number" id="nuSb10" min="50" max="220" value="109"></label>
+      </div>
+      <div id="nuVerdict"></div>
+    </div>
+    <div class="stage">
+      <div class="scroll"><svg id="nuStand" viewBox="0 0 520 300" style="min-width:0" role="img" aria-label="Line chart of heart rate and systolic blood pressure over 5 minutes lying and 10 minutes standing, with a dashed threshold line 30 (or 40) beats above the lying heart rate and a dashed line 20 mmHg below the lying systolic pressure."></svg></div>
+      <p class="stage-cap">Example values are invented for teaching. In 45 young women, POTS on an active stand was found in 47% with generalised HSD, 27% with hEDS and 13% of controls, but head-up tilt gave different figures (43%, 7% and 7%): the method matters. [[Peebles2022]] See <a href="#autonomic" data-go="autonomic">POTS &amp; the autonomic link</a>.</p>
+    </div>
+  </div>
+
+  <h3 class="sub">Skin and tissue: flip cards</h3>
+  <div class="prose"><p>Tap a card to turn it. A general skin-tear classification is not included: the research behind this guide found no validated EDS-specific source for one.</p></div>
+  <div class="fcs" id="nuFc"></div>
+
+  <h3 class="sub">A nursing care plan, from the sources</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Problem</th><th>Assessment</th><th>Intervention (as published)</th><th>Rationale</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><th>Risk of skin damage from adhesives and cuffs</th><td>Inspect skin; record bruises and where they came from.</td><td>Adhesive tapes and dressings should be easy to remove, or avoided. Be aware that repeated non-invasive cuff inflations can cause bruising and haematoma.</td><td>Fragile skin risks severe damage.</td><td>[[Wiesmann2014]]</td></tr>
+      <tr><th>Risk of subluxation or dislocation during handling</th><td>Ask about past dislocations and which joints are unstable.</td><td>Position and mobilise carefully; pad to reduce shear and pressure; use wedges, pillows and bed adaptations; take care with the jaw during mask ventilation.</td><td>Subluxations are common and may occur with minimal trauma; physical treatments must avoid causing them.</td><td>[[Wiesmann2014,Pezaro2024,Hakim2024GeneReviews]]</td></tr>
+      <tr><th>Acute and chronic pain</th><td>Validated tools used in EDS research: Multidimensional Pain Inventory and Sickness Impact Profile (adults); PedsQL 4.0 and Pediatric Pain Questionnaire (children). Parent report is a reasonable proxy (r = 0.6–0.84).</td><td>Validate the person's experience; use multidisciplinary care, including equipment such as cushions, compression garments and braces.</td><td>Nearly 90% report chronic pain in one study cited by the 2017 pain review.</td><td>[[Rombaut2011,Pacey2015,Chopra2017,Pezaro2024]]</td></tr>
+      <tr><th>Local anaesthetic that fails or wears off</th><td>Ask about earlier failed local anaesthesia, for example at the dentist.</td><td>Record the history before procedures; perinatal guidance states that "higher doses of local anesthesia may be needed".</td><td>Lidocaine numbed 53% of people with EDS at 30 minutes vs 80% of controls.</td><td>[[Wiesmann2014,Pezaro2024,Bourne2026RAPM]]</td></tr>
+      <tr><th>Orthostatic intolerance</th><td>Heart rate and blood pressure lying down and over a 10-minute stand.</td><td>Report against the published criteria; non-drug care in hEDS includes education, avoiding triggers, fitness and hydration.</td><td>Orthostatic intolerance in 74% of 39 women with EDS-HT vs 34% of controls.</td><td>[[Vernino2021,Hakim2017,DeWandele2014Mech]]</td></tr>
+      <tr><th>vEDS: risk of arterial, bowel or uterine rupture</th><td>Sudden, unexplained pain; signs of bleeding or perforation; the emergency card.</td><td>Treat sudden unexplained pain as an emergency and escalate. Arteriography is discouraged except to find life-threatening bleeding before surgery; avoid central venous access and arterial puncture whenever possible; ultrasound guidance is "mandatory" if a central line is needed.</td><td>Arterial dissection or rupture, bowel perforation or organ rupture are the presenting signs in most adults; invasive procedures are "potentially dangerous".</td><td>[[Byers2025GeneReviews,Wiesmann2014,Bowen2023vEDS,Corrao2026]]</td></tr>
+      <tr><th>vEDS: blood pressure</th><td>Regular blood pressure.</td><td>The consensus recommends keeping blood pressure in the normal range and treating hypertension aggressively; avoid invasive arterial monitoring in non-emergency surgery.</td><td>Expert consensus.</td><td>[[Byers2017,Wiesmann2014]]</td></tr>
+      <tr><th>Anxiety, low mood and self-doubt</th><td>Ask about mood and past experiences of care.</td><td>Integrated psychological care alongside physiotherapy; compassionate, validating communication.</td><td>Depression RR 3.4 in a national cohort; 73% questioned their own pain after dismissal.</td><td>[[Bulbena2017,Cederlof2016,Halverson2025]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Patient-teaching checklists</h3>
+  <div class="cards">
+    <div class="card"><span class="tag brand">hEDS / HSD</span><h4>Before going home</h4>
+      <ul class="checks">
+        <li><label><input type="checkbox"> Numbing injections may wear off sooner; tell the nurse or dentist if you can still feel things. [[Bourne2026RAPM]]</label></li>
+        <li><label><input type="checkbox"> Physical treatments should not cause joints to slip out; chiropractic adjustment and yoga are "not contraindicated" when done that way. [[Hakim2024GeneReviews]]</label></li>
+        <li><label><input type="checkbox"> Exercise advice from a physiotherapist goes with more weekly exercise (OR 1.75). [[Simmonds2019]]</label></li>
+        <li><label><input type="checkbox"> Anxiety and low mood are common in EDS, and help is available. [[Cederlof2016,Bulbena2017]]</label></li>
+        <li><label><input type="checkbox"> Dizziness on standing can be checked with lying and standing heart rate and blood pressure. [[Vernino2021]]</label></li>
+      </ul></div>
+    <div class="card"><span class="tag vas">Vascular EDS</span><h4>Before going home</h4>
+      <ul class="checks">
+        <li><label><input type="checkbox"> Carry documentation of the diagnosis: a MedicAlert bracelet or necklace, an emergency letter or a vEDS "passport". [[Byers2025GeneReviews]]</label></li>
+        <li><label><input type="checkbox"> Sudden, unexplained pain is an emergency: seek care immediately and show the card. [[Byers2025GeneReviews]]</label></li>
+        <li><label><input type="checkbox"> Avoid collision sports, heavy lifting and extreme weight training; regular gentle exercise is still advised. [[Byers2025GeneReviews,Bowen2023vEDS]]</label></li>
+        <li><label><input type="checkbox"> Blood pressure kept in the normal range; vascular imaging "if feasible on an annual basis". [[Byers2017]]</label></li>
+        <li><label><input type="checkbox"> Parents, brothers, sisters and children can be offered a test for the same gene change. [[Byers2025GeneReviews]]</label></li>
+      </ul></div>
+  </div>
+  <p class="callout">An AJN continuing-education article notes that EDS has historically been misunderstood and underdiagnosed, and that nurses are increasingly likely to care for people with it. [[Anderson2015]] Anaesthesia detail is in <a href="#surgery" data-go="surgery">Surgery &amp; anaesthesia</a>; the arteries in <a href="#vascular" data-go="vascular">Vascular EDS</a>.</p>
+</section>

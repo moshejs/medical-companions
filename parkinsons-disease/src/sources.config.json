@@ -1,0 +1,20 @@
+{
+ "areas": {
+  "A": "Epidemiology, course, risk & history",
+  "B": "Pathology & circuit",
+  "C": "Genetics",
+  "D": "Diagnosis & differential",
+  "E": "Levodopa & medicines",
+  "F": "DBS & device-aided therapy",
+  "G": "Non-motor, living & caregiving",
+  "H": "Nursing care",
+  "I": "Research & cure"
+ },
+ "aliases": {
+  "NICE2017E": "NICE2017",
+  "NICE2017F": "NICE2017",
+  "NICE2017G": "NICE2017",
+  "NICE2017H": "NICE2017"
+ },
+ "validated_tag": false
+}

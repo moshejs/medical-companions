@@ -1,0 +1,55 @@
+<!-- ================= 4.1 RISK AND PROTECTION ================= -->
+<style>
+#m-risk .card .ev,#m-risk .card .tag{align-self:flex-start}
+#m-risk .rkbtns .btn{font-size:13px;padding:6px 11px}
+#m-risk .rkfx{min-height:120px}
+#m-risk .rkfx .callout{font-size:14.5px}
+</style>
+<section class="mod" id="m-risk" data-mod="risk" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Living, caring, preventing</p><h2>Risk and protection</h2>
+    <p class="lede">Some chemicals, head injuries and family history are linked to a higher chance of Parkinson's; being physically active is linked to a lower one. Each row below is an association from observational studies, not proof of cause. Play the plot to bring the evidence in, then pick any row for the details and the caveats.</p></div>
+  <div class="callout"><b>Age comes first.</b> The strongest risk factor is age: yearly incidence rises from 0.1 per 100,000 under 40 to 133.9 at 80 and over, and men are affected more often than women. [[Savica2016,GBD2018PD]] See <a href="#what" data-go="what">What Parkinson's is</a>.</div>
+  <div class="stepper" id="rkSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="rkSvg" viewBox="0 0 720 516" style="min-width:560px" role="img" aria-label="A forest plot on a log scale brings in risk factors one group at a time: paraquat, rotenone, pesticide groups, trichloroethylene, Camp Lejeune water, head injury, low-fat dairy, methamphetamine, melanoma and family history to the right of 1, linked to higher risk; smoking, coffee, high urate and physical activity to the left of 1, linked to lower risk. Each row carries an association badge, and the last step flags reverse causation."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="rkPlay">Play</button><label class="stage-cap tl" for="rkT">Timeline <input type="range" id="rkT" min="0" max="1" step="0.002" value="0.06"></label></div>
+      <p class="stage-cap">Dots are odds, hazard or risk ratios; lines are 95% confidence intervals, on a log scale. An arrow means the interval runs off the scale. A line that crosses 1 is compatible with no association. Click a row or use the buttons below.</p></div>
+    <aside class="note" id="rkNote" aria-live="polite"></aside>
+  </div>
+  <div class="ctrls rkbtns" role="group" aria-label="Pick a factor to see its evidence" id="rkBtns"></div>
+  <div class="note rkfx" id="rkFx" aria-live="polite"></div>
+
+  <h3 class="sub">From association to trial: neuroprotection tests</h3>
+  <p class="prose">If a factor really protected the brain, raising or copying it might slow the disease. Randomised trials test that. Pick a test to see the observation that inspired it and what the trial found.</p>
+  <div class="ctrls" role="group" aria-label="Which trial to show" id="rkTrBtns">
+    <span class="kicker">Test</span>
+    <button class="btn" data-rktr="0" aria-pressed="true">Urate: SURE-PD3</button>
+    <button class="btn" data-rktr="1" aria-pressed="false">Calcium-channel blocker: STEADY-PD III</button>
+    <button class="btn" data-rktr="2" aria-pressed="false">Exercise: SPARX</button>
+    <button class="btn" data-rktr="3" aria-pressed="false">Exercise: Park-in-Shape</button>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="rkTr" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="The observation that higher urate is linked to lower risk leads to the SURE-PD3 trial of inosine, where yearly worsening was 11.1 points on inosine and 9.9 on placebo, and the trial stopped early for futility."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="rkTrPlay">Play</button><label class="stage-cap tl" for="rkTrT">Reveal <input type="range" id="rkTrT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap" id="rkTrCap">Bars are trial results as published. Higher scores mean more symptoms.</p></div>
+    <aside class="note" id="rkTrNote" aria-live="polite"></aside>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Observation</th><th>Trial</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><th>Higher urate, lower risk (RR 0.43) [[Weisskopf2007]]</th><td>SURE-PD3: inosine in 298 people with early Parkinson's</td><td>Stopped early for futility; no slowing [[Schwarzschild2021]]</td></tr>
+      <tr><th>Calcium-channel blockers inversely associated [[Noyce2012]]</th><td>STEADY-PD III: isradipine in 336 people for 36 months</td><td>No effect on progression (P = 0.85) [[PSG2020STEADY]]</td></tr>
+      <tr><th>More activity, lower risk (RR 0.71) [[Fang2018]]</th><td>SPARX: high-intensity treadmill, 128 people, 6 months</td><td>Less motor worsening; only the high-intensity arm passed non-futility [[Schenkman2018]]</td></tr>
+      <tr><th>The same</th><td>Park-in-Shape: home aerobic cycling, 130 people, 6 months</td><td>4.2 points better than stretching, above the 3.5 threshold [[vanderKolk2019]]</td></tr>
+      <tr><th>The same</th><td>SPARX3: 80–85% versus 60–65% of maximum heart rate, 370 people</td><td>Active, not recruiting; primary completion estimated July 2027 [[SPARX3]]</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">What to take from it</h3>
+  <div class="cards">
+    <div class="card"><span class="ev early">Early evidence</span><h4>Exercise: the one prevention message</h4><p>A 2016 review concluded that promoting physical activity is the only intervention that currently seems justifiable for primary prevention of Parkinson's. [[Ascherio2016]] Exercise trials so far measured motor scores over 6 months; SPARX3 is testing intensity in a phase 3 trial that started on 30 August 2021. [[Schenkman2018,vanderKolk2019,SPARX3]] Exercise in daily life is covered in <a href="#living" data-go="living">Living with Parkinson's</a>.</p></div>
+    <div class="card"><span class="tag warn">Not advice</span><h4>Smoking and coffee</h4><p>The lower rates in smokers and coffee drinkers are associations. A Danish study found that former smokers who found quitting harder were less likely to develop Parkinson's, and the authors read "ease of quitting" as an early sign of the disease, not as proof that tobacco protects. [[Ritz2014]] These findings are not advice to smoke or to drink coffee.</p></div>
+    <div class="card"><span class="tag">Early signs, not causes?</span><h4>Constipation, anxiety, depression</h4><p>In a meta-analysis, constipation was linked to later Parkinson's (RR 2.34, 1.55 to 3.53), as were anxiety and depression, but these may be early features of the disease rather than causes. [[Noyce2012]] See <a href="#prodrome" data-go="prodrome">Before the tremor</a>.</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Family history and genes</h4><p>A first-degree relative with Parkinson's gave OR 3.23 (2.65 to 3.93), and any relative OR 4.45 (3.39 to 5.83), the strongest factors in that meta-analysis. [[Noyce2012]] How genes contribute is in <a href="#genes" data-go="genes">Genes and inheritance</a>.</p></div>
+  </div>
+  <div class="hook"><b>Exam hook</b>Smoking (RR 0.59 ever smokers) and coffee (RR 0.69) are inversely associated with Parkinson's; reverse causation and confounding are possible. Pesticides (paraquat, rotenone), trichloroethylene and head injury are linked to higher risk. Urate-raising inosine and isradipine failed as neuroprotection. [[Hernan2002,Ritz2014,Tanner2011,Goldman2012,Jafari2013,Schwarzschild2021,PSG2020STEADY]]</div>
+</section>

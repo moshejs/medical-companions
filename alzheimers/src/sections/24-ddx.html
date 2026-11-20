@@ -1,0 +1,74 @@
+<!-- ================= 2.4 DIFFERENTIAL ================= -->
+<style>
+#m-ddx .card>.ev{align-self:flex-start}
+#m-ddx .ddb{background:none;border:0;padding:0;font:inherit;font-weight:700;color:var(--ink);text-align:left;cursor:pointer;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px}
+#m-ddx .ddb:hover{color:var(--rose)}
+#m-ddx .ddb[aria-expanded="true"]{color:var(--rose)}
+#m-ddx tr.ddmore td{background:var(--panel-2);font-size:14px}
+#m-ddx #ddPick h4{font-family:var(--display);font-weight:800;font-size:23px;line-height:1.12;margin:0}
+#m-ddx .kv dd{font-size:15px}
+#m-ddx .pickrow .btn{font-size:13px;padding:6px 11px}
+</style>
+<section class="mod" id="m-ddx" data-mod="ddx" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · Course and diagnosis</p><h2>The differential</h2>
+    <p class="lede">Not every memory problem is Alzheimer's. How fast it started and what came first are among the strongest clues. Watch eight typical courses unfold on the same clock, then click any row for details.</p></div>
+  <div class="ctrls" role="group" aria-label="Time axis">
+    <span class="kicker">Time axis</span>
+    <button class="btn" id="ddLog" aria-pressed="true">Hours to 10 years (log)</button>
+    <button class="btn" id="ddLin" aria-pressed="false">0 to 10 years (even)</button>
+  </div>
+  <div class="stepper" id="ddSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="ddSvg" viewBox="0 0 720 452" style="min-width:560px" role="img" aria-label="Eight rows draw typical courses as a playhead moves from hours to ten years: delirium drops within hours and fluctuates, prion disease falls over weeks to months, and Alzheimer's, vascular, Lewy body, frontotemporal, hydrocephalus and depression patterns separate over months to years."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="ddPlay">Play</button><label class="stage-cap tl" for="ddT">Time <input type="range" id="ddT" min="0" max="1" step="0.002" value="0.12"></label></div>
+      <p class="stage-cap" id="ddCap">Typical patterns, schematic: higher line means better function. Solid line: thinking. Dashed line: the domain that leads (behaviour, gait or mood). Real people rarely follow a textbook course, and mixed causes are common.</p></div>
+    <aside class="note" id="ddNote" aria-live="polite"></aside>
+  </div>
+  <div class="ctrls pickrow" role="group" aria-label="Show details for a condition" id="ddPickBtns"></div>
+  <div class="note" id="ddPick" aria-live="polite"></div>
+
+  <h3 class="sub">The differential, condition by condition</h3>
+  <p class="prose">Click a condition to open what else the sources say about it.</p>
+  <div class="tbl"><table id="ddTable"><thead><tr><th scope="col">Condition</th><th scope="col">What points to it rather than Alzheimer's</th><th scope="col">Key tests and findings</th></tr></thead><tbody></tbody></table></div>
+
+  <h3 class="sub">Delirium or dementia?</h3>
+  <p class="prose">Delirium is a medical emergency that can look like dementia, and it often happens on top of dementia. The Confusion Assessment Method (CAM) asks four questions. Switch the features on and off to see how the algorithm combines them.</p>
+  <div class="ctrls" role="group" aria-label="CAM features present">
+    <span class="kicker">Features present</span>
+    <button class="btn" data-cam="0" aria-pressed="true">1 Acute onset, fluctuating</button>
+    <button class="btn" data-cam="1" aria-pressed="true">2 Inattention</button>
+    <button class="btn" data-cam="2" aria-pressed="false">3 Disorganised thinking</button>
+    <button class="btn" data-cam="3" aria-pressed="false">4 Altered consciousness</button>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="ddCam" viewBox="0 0 720 150" style="min-width:560px" role="img" aria-label="The CAM algorithm: feature 1 and feature 2 and either feature 3 or feature 4; boxes light up as features are switched on and the result shows whether the criteria are met."></svg></div>
+      <p class="stage-cap">Teaching illustration of the published algorithm, not a bedside tool. [[Inouye1990]]</p></div>
+    <aside class="note" id="ddCamNote" aria-live="polite"></aside>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th scope="col">Feature</th><th scope="col">Delirium</th><th scope="col">Typical Alzheimer's dementia</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Onset</th><td>Acute: hours to days (CAM feature 1). [[Inouye1990]]</td><td>Insidious, over months to years. [[McKhann2011]]</td></tr>
+      <tr><th scope="row">Course</th><td>Fluctuates, often within a day. [[Inouye1990]]</td><td>A clear history of gradual worsening. [[McKhann2011]]</td></tr>
+      <tr><th scope="row">First domain</th><td>Inattention, a required CAM feature. [[Inouye1990]]</td><td>Usually recent memory. [[GraffRadford2021,AA2025Facts]]</td></tr>
+      <tr><th scope="row">Arousal</th><td>Level of consciousness may be altered (CAM feature 4). [[Inouye1990]]</td><td>Dementia criteria require that delirium does not explain the symptoms. [[McKhann2011]]</td></tr>
+      <tr><th scope="row">Tools</th><td>CAM: under 5 minutes, 94 to 100% sensitivity and 90 to 95% specificity in validation. In people with dementia, one study found only 77% sensitivity. [[Inouye1990,Morandi2012]]</td><td>History from an informant, cognitive testing, then the workup in <a href="#dx" data-go="dx">Diagnosis and biomarkers</a>. [[Arvanitakis2019]]</td></tr>
+      <tr><th scope="row">Overlap</th><td colspan="2">Delirium on top of dementia was reported in 22 to 89% of older people with dementia and linked to faster decline, institutional care and death. Fluctuating attention and arousal are also core features of Lewy body dementia. [[Fick2002,McKeith2017]]</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">The reversible-causes workup</h3>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="ddRev" viewBox="0 0 720 250" style="min-width:560px" role="img" aria-label="Of 1,000 dots standing for people with dementia, 90 turn into squares for a potentially reversible cause, and only 6 turn into rings for dementia that actually reversed."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="ddRevPlay">Play</button><label class="stage-cap tl" for="ddRevT">Reveal <input type="range" id="ddRevT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap">Rates from a 2003 meta-analysis of 39 studies (5,620 people), scaled to 1,000 people. Positions are random.</p></div>
+    <aside class="note" id="ddRevNote" aria-live="polite"></aside>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="ev est">Published guidance</span><h4>Routine in the AAN parameter</h4><p>Screening for depression, B12 deficiency and hypothyroidism, and a non-contrast CT or MRI, in the initial evaluation. This is a 2001 guideline. [[Knopman2001]]</p></div>
+    <div class="card"><h4>Only when suspected</h4><p>Syphilis serology when neurosyphilis is suspected. CSF or genetic testing is considered for atypical cases: onset before 65, rapid onset, or non-memory presentations. [[Knopman2001,Arvanitakis2019]]</p></div>
+    <div class="card"><h4>Medicines</h4><p>A medication review. The heaviest cumulative use of strong anticholinergics, most commonly tricyclic antidepressants, first-generation antihistamines and bladder antimuscarinics, was associated with dementia (hazard ratio 1.54). [[Gray2015]]</p></div>
+    <div class="card"><h4>Sleep</h4><p>Sleep-disordered breathing was associated with incident MCI or dementia in 298 older women (odds ratio 1.85), following low oxygen rather than broken sleep. [[Yaffe2011]]</p></div>
+    <div class="card"><h4>Gait first</h4><p>When walking changes first, imaging looks for the enlarged ventricles and DESH pattern of normal-pressure hydrocephalus; a CSF tap test may follow. [[Nakajima2021]]</p></div>
+    <div class="card"><h4>A sudden change</h4><p>A sudden worsening points to delirium and a search for medical and drug causes, even in someone already living with dementia. [[Inouye1990,Fick2002]]</p></div>
+  </div>
+</section>

@@ -1,0 +1,84 @@
+<!-- ================= 3.1 DIALECTICAL BEHAVIOUR THERAPY ================= -->
+<style>
+#m-dbt .card>.ev,#m-dbt .card>.tag{align-self:flex-start}
+#m-dbt .dbflips{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+#m-dbt .dbflip{text-align:left;border:1px solid var(--line);background:var(--panel);border-radius:var(--r);padding:14px 16px;cursor:pointer;display:flex;flex-direction:column;gap:6px;min-height:150px;min-width:0;transition:background .2s,border-color .2s}
+#m-dbt .dbflip:hover{border-color:var(--rx)}
+#m-dbt .dbflip small{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--rx)}
+#m-dbt .dbflip b{font:800 19px/1.2 var(--display)}
+#m-dbt .dbflip .bk{display:none;font-size:14.5px;line-height:1.45}
+#m-dbt .dbflip .fr{font-size:14px;color:var(--muted)}
+#m-dbt .dbflip[aria-pressed="true"]{background:var(--rx-soft);border-color:var(--rx)}
+#m-dbt .dbflip[aria-pressed="true"] .bk{display:block}
+#m-dbt .dbflip[aria-pressed="true"] .fr{display:none}
+#m-dbt .dbcut{display:flex;flex-wrap:wrap;gap:6px}
+#m-dbt .dbcut .btn{font-size:13px;padding:6px 11px}
+#m-dbt #dbChSvg{cursor:pointer}
+#m-dbt .tbl table{min-width:620px}
+</style>
+<section class="mod" id="m-dbt" data-mod="dbt" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Psychotherapies</p><h2>Dialectical behaviour therapy</h2>
+    <p class="lede">DBT is "a modular and hierarchical treatment": individual therapy, a skills group, phone coaching between sessions and a consultation team for the therapists. [[LinehanWilks2015]] Scrub through a programme week by week and watch the skills ring fill, the four modes run in parallel and the target hierarchy set each session's agenda.</p></div>
+  <div class="ctrls" role="group" aria-label="Programme">
+    <span class="kicker">Programme</span>
+    <button class="btn" data-dbv="std" aria-pressed="true">Standard DBT · 12 months</button>
+    <button class="btn" data-dbv="six" aria-pressed="false">DBT · 6 months (McMain 2022)</button>
+    <button class="btn" data-dbv="ado" aria-pressed="false">DBT-A · adolescents, 19 weeks</button>
+  </div>
+  <div class="stepper" id="dbSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="dbSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="A DBT programme over its weeks. On the left a skills ring with mindfulness at the centre and distress tolerance, emotion regulation and interpersonal effectiveness around it fills as the weeks pass. On the right four rows, one per mode of treatment (individual therapy, skills group, phone coaching and the therapists' consultation team), light up week by week along a time axis. Below them a three-step ladder ranks the targets: life-threatening behaviour first, then therapy-interfering behaviour, then quality-of-life problems."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="dbPlay">Play</button><label class="stage-cap tl" for="dbT">Weeks <input type="range" id="dbT" min="0" max="1" step="0.001" value="0.02"></label></div>
+      <div class="readout" id="dbRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> The weekly hours are the typical figures from a DBT review (individual about 1 hour, skills group about 1.5–2.5 hours, consultation team about 1–2 hours). [[Chapman2006DBT]] The order and pacing of the skills modules and the weeks with coaching calls are drawn for illustration: programmes differ.</p>
+    </div>
+    <aside class="note" id="dbNote" aria-live="polite"></aside>
+  </div>
+  <p class="crisis" role="note"><b>Need help now?</b><span>DBT was built for people at high risk of suicide. If you are in crisis or thinking about suicide, contact local emergency services or a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123). See <a href="#crisis" data-go="crisis">Suicide &amp; self-harm safety</a>.</span></p>
+
+  <h3 class="sub">Build a behaviour chain, then break it</h3>
+  <div class="prose"><p>After picking a target, therapist and patient work out what led up to the behaviour and which consequences may keep it going, then look for more skilful alternatives: a <b>chain analysis</b>. [[Chapman2006DBT,Lynch2006DBT]] Tap a link (or use the buttons) to choose where a skill goes in; everything after it changes.</p></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="dbcut" id="dbCut" role="group" aria-label="Where the skill goes in"></div>
+      <div class="scroll"><svg id="dbChSvg" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="A chain of seven links from left to right: vulnerability, prompting event, thoughts, emotions, urge, behaviour and consequences. A skill box drops in under the chosen link; the links after it fade and a dashed path leads to a different ending."></svg></div>
+      <p class="stage-cap">An illustrative chain. The behaviour is kept abstract on purpose. Which skill fits which link is a teaching sketch: in therapy the person and therapist find the links and the alternatives together. [[Chapman2006DBT]]</p>
+    </div>
+    <aside class="note" id="dbChNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The building blocks, flip by flip</h3>
+  <div class="dbflips" id="dbFlips"></div>
+  <p class="stage-cap">The research pass behind this guide reviewed how DBT is built and tested; it did not cover individual skill acronyms from the DBT manuals, so they are not listed here.</p>
+
+  <h3 class="sub">What the meta-analyses show</h3>
+  <div class="lab">
+    <div class="stage">
+      <div class="ctrls" role="group" aria-label="Comparison">
+        <button class="btn" data-dbc="all" aria-pressed="true">All BPD psychotherapies vs usual care</button>
+        <button class="btn" data-dbc="dbt" aria-pressed="false">DBT vs usual care</button>
+      </div>
+      <div class="scroll"><svg id="dbCoSvg" viewBox="0 0 620 250" style="min-width:520px" role="img" aria-label="Standardised mean differences from the 2020 Cochrane review, drawn as points with 95% confidence intervals where reported. Negative values favour therapy."></svg></div>
+      <p class="stage-cap" id="dbCoCap"></p>
+    </div>
+    <aside class="note" id="dbCoNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The trials</h3>
+  <div class="cards">
+    <div class="card"><span class="tag rx">1991 · first RCT</span><h4>Linehan 1991</h4><p>One year of DBT against community treatment as usual in chronically parasuicidal women with BPD. DBT meant fewer and less medically severe parasuicidal acts, more people staying in therapy and fewer inpatient days; depression, hopelessness, suicidal ideation and reasons for living did not differ. [[Linehan1991]]</p></div>
+    <div class="card"><span class="tag rx">2006 · against experts</span><h4>Linehan 2006</h4><p>101 women, 1 year of DBT or therapy by non-behavioural experts, plus a year of follow-up. People in DBT were "half as likely to make a suicide attempt" (hazard ratio 2.66), with fewer hospitalisations and emergency visits and lower dropout. The control arm was matched on therapist expertise, allegiance and prestige. [[Linehan2006]]</p><div class="hook"><b>Exam hook</b>Linehan 2006: the effect "cannot reasonably be attributed to general factors associated with expert psychotherapy". [[Linehan2006]]</div></div>
+    <div class="card"><span class="tag rx">2003 · Netherlands</span><h4>Verheul 2003</h4><p>58 women with BPD, 12 months of DBT against usual treatment: better retention and larger falls in self-mutilating and self-damaging impulsive behaviour, especially in those with frequent self-harm. [[Verheul2003]]</p></div>
+    <div class="card"><span class="tag rx">2015 · components</span><h4>Which part does the work?</h4><p>99 women were randomised to standard DBT, DBT skills plus case management, or DBT individual therapy without skills. All three improved similarly on suicide attempts and ideation; arms with skills training reduced non-suicidal self-injury more, and dropout was 24% with standard DBT against 48% without skills. [[Linehan2015]]</p><div class="hook"><b>Exam hook</b>"Interventions that include DBT skills training are more effective than DBT without skills training." [[Linehan2015]]</div></div>
+    <div class="card"><span class="tag rx">2009 · head to head</span><h4>DBT vs general psychiatric management</h4><p>180 people with BPD, 1 year of DBT or general psychiatric management: both groups improved, and "No significant differences across any outcomes were found between groups". [[McMain2009]] Gains held 2 years later; about two-thirds were in diagnostic remission, yet 53% were neither working nor studying. [[McMain2012]] See <a href="#gpm" data-go="gpm">Good psychiatric management</a>.</p></div>
+    <div class="card"><span class="tag rx">2017 · skills only</span><h4>A 20-week skills group</h4><p>84 suicidal outpatients with BPD: a 20-week DBT skills group reduced suicidal and self-injury episodes more than a waitlist by 32 weeks, and improved anger, distress tolerance and emotion regulation. [[McMain2017]]</p></div>
+    <div class="card"><span class="tag rx">2022 · dose</span><h4>6 months vs 12 months</h4><p>240 suicidal or self-harming people with BPD: 6 months of comprehensive DBT was non-inferior to 12 months for total self-harm at 6, 12 and 24 months, with faster falls in BPD symptoms and no difference in dropout. [[McMain2022]] At 24 months the difference was 0.12 against a margin of −1.25. [[McMain2022]]</p></div>
+    <div class="card"><span class="tag rx">Adolescents</span><h4>DBT-A</h4><p>Mehlum 2014: 77 adolescents with repeated self-harm; 19 weeks of DBT-A reduced self-harm, suicidal ideation and depressive symptoms more than enhanced usual care. [[Mehlum2014]] The self-harm advantage held at 1 year [[Mehlum2016]], and at 12.4 years self-harm episodes were more than twice as common after usual care, though the final difference was not statistically significant. [[Mehlum2026]] McCauley 2018 (173 adolescents at high suicide risk, 6 months): no suicide attempt in 90.3% with DBT against 78.9% with supportive therapy (OR 0.30), an advantage that shrank by 12 months. [[McCauley2018]]</p></div>
+    <div class="card"><span class="tag rx">2020 · trauma</span><h4>DBT-PTSD</h4><p>193 women with PTSD after childhood abuse and at least 3 BPD criteria: both DBT-PTSD and cognitive processing therapy helped, with a small advantage for DBT-PTSD (d 0.33), less early dropout (25.5% vs 39.0%) and more remission (58.4% vs 40.7%). [[Bohus2020DBTPTSD]]</p></div>
+    <div class="card"><span class="tag rx">2026 · DBT vs schema</span><h4>BOOTS</h4><p>204 outpatients at 9 Dutch centres, 2 years of DBT or schema therapy: no significant difference in BPD severity at 3 years, with large improvements in both. Dropout was 34% at 1 year and 52% at 2 years in DBT, 29% and 46% in schema therapy. [[Wibbelink2026BOOTS]] See <a href="#compare" data-go="compare">Therapies compared</a>.</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Pooled evidence</h4><p>Kliem 2010 (16 studies): moderate effects overall and on suicidal and self-injurious behaviour; dropout averaged 27.3%. [[Kliem2010]] DeCou 2019 (18 controlled trials): DBT reduced self-directed violence (d −0.324) and crisis-service use, with no significant pooled effect on suicidal ideation. [[DeCou2019]] In adolescents, DBT-A reduced self-harm (g −0.44) and suicidal ideation (g −0.31) against controls. [[Kothgassner2021]]</p></div>
+    <div class="card"><span class="tag">Guideline</span><h4>NICE wording</h4><p>NICE CG78 states: "For women with borderline personality disorder for whom reducing recurrent self-harm is a priority, consider a comprehensive dialectical behaviour therapy programme." It also states not to use brief psychological interventions of less than 3 months specifically for BPD outside a structured service. [[NICE2009]]</p></div>
+  </div>
+  <p class="callout">DBT works, and so do other structured therapies: head-to-head trials against general psychiatric management and schema therapy found no clear winner. [[McMain2009,Wibbelink2026BOOTS]] Families can learn the same skills: DBT-Family Skills Training aims to build a mutually validating environment at home. [[Hoffman1999]] See <a href="#families" data-go="families">Families &amp; carers</a>, and <a href="#emotion" data-go="emotion">The emotion wave</a> for what the skills are aiming at.</p>
+</section>

@@ -1,0 +1,449 @@
+# A · Epidemiology, drinking patterns, burden & history
+
+Pass date: 2026-11-04. Modules served: what, drinks, history, home.
+
+This pass covers how common alcohol use disorder (AUD) is in the US and worldwide, who it affects, how much death and disability alcohol causes, how often people get treatment, how a "drink" and "binge" are defined, and a dated history from Benjamin Rush to DSM-5 and ICD-11. Every number below is a population statistic from the source named. None of it predicts what will happen to one person.
+
+Access notes:
+- Numbers come from PubMed abstracts, checked with E-utilities efetch. Where an abstract lacked a figure I read the PMC full text: Grant 2015 tables, GBD 2016 and GBD 2020 results, Esser 2024 MMWR, White 2022 research letter, Pollard 2020, Han 2026, Kranzler 2018, Hasin 2013, Martin 2014, Witkiewitz 2019, Tabakoff 2013, Gross 2010 and Blocker 2006. Those facts carry the same citation key.
+- FDA approval dates come from Drugs@FDA records on openFDA (drugsfda endpoint), which carry the original approval and efficacy-supplement dates.
+- Kalinowski & Humphreys 2016 (standard drinks in 37 countries) is paywalled. I give only its abstract figures: modal 10 g, range 8–20 g. I found no validated record giving the UK 8 g unit as a separate statement, so it is not cited as such.
+- The WHO Global status report 2024 has no PubMed, Europe PMC or Crossref record that I could validate. For WHO-model global figures I use the WHO-funded Shield 2025 Lancet Public Health paper instead.
+- Facts dropped because no validated source supported them: the ICD-11 code "6C40.2"; the date ICD-11 came into effect (only the May 2019 publication is sourced); the NIAAA "heavy drinking" weekly limits (>3/day or >7/week for women, >4/day or >14/week for men); the Prohibition start year 1920 as a standalone sourced date (Blocker sources only the 1933 repeal); the Rush "Inquiry" title year as a publication date (Witkiewitz gives 1784 for his proposal).
+- Shared keys used and checked: Grant2015NESARC (PMID 26039070), GBD2016Alcohol (30146330), GBD2020Alcohol (35843246), Carvalho2019Lancet (31478502), USPSTF2018Alcohol (30422199), APA2022 (Crossref). APA2013 and vanEmmerikvanOortmerssen2012 reuse the keys and text already in other companions' sources.json.
+
+## Findings
+
+### what · How common AUD is in the US (NESARC-III, 2012–2013)
+- NESARC-III interviewed a nationally representative sample of 36,309 US adults (≥18 years), face to face, from April 2012 to June 2013. The overall response rate was 60.1% [[Grant2015NESARC]].
+- Under DSM-5 criteria, 13.9% of US adults had AUD in the past 12 months and 29.1% at some point in their lives [[Grant2015NESARC]].
+- Severity split, 12-month: mild 7.3%, moderate 3.2%, severe 3.4% of adults (these add to 13.9%) [[Grant2015NESARC]].
+- Severity split, lifetime: mild 8.6%, moderate 6.6%, severe 13.9% of adults (these add to 29.1%) [[Grant2015NESARC]].
+- 12-month AUD was 17.6% in men and 10.4% in women. Lifetime AUD was 36.0% in men [[Grant2015NESARC]].
+- 12-month severe AUD was 4.5% in men and 2.3% in women [[Grant2015NESARC]].
+- 12-month AUD by age: 26.7% at 18–29 years, 16.2% at 30–44, 10.0% at 45–64 and 2.3% at 65 years and older [[Grant2015NESARC]].
+- Lifetime AUD was 37.0% among adults aged 18–29 [[Grant2015NESARC]].
+- By group, 12-month and lifetime AUD were 14.0% and 32.6% among white respondents and 19.2% and 43.4% among Native American respondents. By marital status they were 25.0% and 35.5% among never-married adults and 11.4% and 27.1% among previously married adults [[Grant2015NESARC]].
+- Severe AUD was most common among respondents with the lowest income level [[Grant2015NESARC]].
+- Mean age at AUD onset was 26.2 years [[Grant2015NESARC]].
+- Disability rose with AUD severity, for both 12-month and lifetime AUD [[Grant2015NESARC]].
+- In the same survey, 12-month DSM-5 drug use disorder was 3.9% and lifetime drug use disorder 9.9%, against 13.9% and 29.1% for AUD. AUD is the more common disorder [[Grant2016DUD,Grant2015NESARC]].
+- The authors' conclusion: DSM-5 AUD is "highly prevalent, highly comorbid, disabling" and "often goes untreated" in the US [[Grant2015NESARC]].
+
+### what · US trends (NESARC 2001–2002 vs NESARC-III 2012–2013, and NSDUH 2021–2024)
+- From 2001–2002 to 2012–2013, 12-month alcohol use among US adults rose from 65.4% (95% CI 64.3–66.6) to 72.7% (71.4–73.9), a relative increase of 11.2% [[Grant2017JAMAPsych]].
+- Over the same period, high-risk drinking rose from 9.7% (9.3–10.2) to 12.6% (12.0–13.2), a relative increase of 29.9% [[Grant2017JAMAPsych]].
+- DSM-IV AUD rose from 8.5% (8.0–8.9) to 12.7% (12.1–13.3), a relative increase of 49.4% [[Grant2017JAMAPsych]].
+- Among high-risk drinkers, the share with 12-month DSM-IV AUD rose from 46.5% to 54.5% [[Grant2017JAMAPsych]].
+- The increases were greatest among women, older adults, racial/ethnic minorities, and people with lower education and family income [[Grant2017JAMAPsych]].
+- NSDUH 2021 to 2024 (186,823 adult participants, DSM-5 criteria), past-year AUD:
+  - men: 13.3% (12.4–14.2) in 2021 and 12.6% (11.9–13.3) in 2024
+  - women: 9.7% (8.9–10.6) and 8.2% (7.7–8.8) [[Han2026NSDUH]]
+- Moderate-to-severe past-year AUD, same years: men 5.8% to 5.2%; women 3.7% to 3.2%. The authors describe moderate-to-severe AUD as stable or declining over 2021–2024, while cannabis use disorder rose [[Han2026NSDUH]].
+- NSDUH and NESARC-III use different methods (self-administered survey vs in-person diagnostic interview), so their prevalence figures are not directly comparable [[Han2026NSDUH,Grant2015NESARC]].
+
+### what · Sex and age patterns
+- In a meta-regression of 68 studies covering birth cohorts from 1891 to 2001, the male-to-female ratio for problematic alcohol use fell from 3.0 (95% CI 1.5–6.0) in cohorts born in the early 1900s to 1.2 (1.1–1.4) in cohorts born in the late 1900s [[Slade2016]].
+- For any alcohol use, the same ratio fell from 2.2 to 1.1. For alcohol-related harms it fell from 3.6 to 1.3 [[Slade2016]].
+- The closing gap is most evident among young adults [[Slade2016]].
+- US alcohol-related deaths, 1999–2020: 605,948 deaths, an age-adjusted rate of 8.3 per 100,000. Men were 2.88 (95% CI 2.86–2.89) times more likely than women to die of alcohol-related causes [[Karaye2023]].
+- From 2018 to 2020, the alcohol-related death rate rose 12.5% per year in men and 14.7% per year in women [[Karaye2023]].
+- Among US adults aged 50 and older (NSDUH), past-month binge drinking rose 19.2% and AUD rose 23.3% in relative terms from 2005/2006 to 2013/2014, with significant increases among women [[Han2017Older]].
+- In the US, AUD prevalence and mortality among adults older than 70 rose from 2000 to 2021, against declining global age-standardised rates (GBD 2021). There were about 512,340 cases of AUD in this age group in 2021 [[Danpanichkul2025Older]].
+- Among US 8th, 10th and 12th graders (Monitoring the Future, 1991–2015, n = 1,065,022), frequent binge drinking declined. Cohorts born from 1985 to 1990 showed the greatest decline [[Jang2017]].
+- Frequent binge drinking in that study meant at least 2 occasions of 5 or more drinks in a row in the past 2 weeks [[Jang2017]].
+- In GBD 2020, 59.1% (95% UI 54.3–65.4) of people drinking harmful amounts of alcohol were aged 15–39 years, and 76.9% (73.0–81.3) were male [[GBD2020Alcohol]].
+
+### what · Global prevalence and burden
+- GBD 2016: AUD was the most prevalent substance use disorder worldwide, with 100.4 million estimated cases. The age-standardised prevalence was 1320.8 per 100,000 (95% UI 1181.2–1468.0) [[GBD2016AlcDrug]].
+- GBD 2016: 99.2 million DALYs (95% UI 88.3–111.2), 4.2% of all DALYs worldwide, were attributable to alcohol use [[GBD2016AlcDrug]].
+- GBD 2016: alcohol was the 7th leading risk factor for both deaths and DALYs globally in 2016 [[GBD2016Alcohol]].
+- GBD 2016: alcohol caused 2.2% (95% UI 1.5–3.0) of age-standardised female deaths and 6.8% (5.8–8.0) of male deaths [[GBD2016Alcohol]].
+- GBD 2016: 2.8 million deaths (95% UI 2.4–3.3) were attributed to alcohol use in 2016 [[GBD2016Alcohol]].
+- GBD 2016: at ages 15–49, alcohol was the leading risk factor for death worldwide. It caused 3.8% of female deaths and 12.2% of male deaths in this age group [[GBD2016Alcohol]].
+- At ages 15–49, attributable DALYs were 2.3% in women and 8.9% in men. The three leading attributable causes of death were tuberculosis (1.4% of total deaths), road injuries (1.2%) and self-harm (1.1%) [[GBD2016Alcohol]].
+- At ages 50 and older, cancers made up 27.1% of alcohol-attributable female deaths and 18.9% of male deaths [[GBD2016Alcohol]].
+- GBD 2016: 32.5% (95% UI 30.0–35.2) of people worldwide were current drinkers, about 2.4 billion people. That was 25% of women and 39% of men [[GBD2016Alcohol]].
+- GBD 2016: current drinkers averaged 0.73 standard drinks a day (female) and 1.7 (male), with a standard drink defined as 10 g of pure alcohol [[GBD2016Alcohol]].
+- GBD 2016: the level of drinking that minimised harm across health outcomes was zero (95% UI 0.0–0.8) standard drinks per week [[GBD2016Alcohol]].
+- GBD 2020: 1.34 billion people (95% UI 1.06–1.62) consumed harmful amounts of alcohol in 2020, meaning above the non-drinker equivalence level. That was 1.03 billion males and 312 million females [[GBD2020Alcohol]].
+- GBD 2020 estimated 1.78 million (95% UI 1.39–2.27) alcohol-attributable deaths in 2020 [[GBD2020Alcohol]].
+- GBD 2020: among people aged 15–39, the theoretical minimum-risk level ranged from 0 to 0.603 standard drinks a day by region. Among people 40 and older the risk curve was J-shaped, with a minimum-risk level of 0.114 to 1.87 drinks a day [[GBD2020Alcohol]].
+- The GBD 2020 authors concluded that alcohol advice should vary by age and location, with stronger interventions for younger people [[GBD2020Alcohol]].
+- Disagreement between estimates: GBD 2016 put the minimum-harm level at zero for the whole population [[GBD2016Alcohol]], while GBD 2020 found it varied by age and region [[GBD2020Alcohol]]. Neither study supports drinking to improve health. (See Open questions.)
+- WHO-model estimates (Shield 2020, comparative risk assessment): alcohol caused 3.0 million deaths (95% UI 2.6–3.6) and 131.4 million DALYs in 2016. That is 5.3% of all deaths and 5.0% of all DALYs [[Shield2020]].
+- In the same model, 52.4% of all alcohol-attributable deaths occurred in people younger than 60 [[Shield2020]].
+- Alcohol caused 17.7% of all injury deaths worldwide in 2016 [[Shield2020]].
+- WHO-funded update (Shield 2025): alcohol was associated with 2.6 million deaths (4.7% of all deaths) and 116.0 million DALYs (4.6%) in 2019 [[Shield2025]].
+- Between 2000 and 2019, alcohol-attributable deaths fell 31.0% and DALYs per 100,000 fell 27.4%, even though consumption rose [[Shield2025]].
+- The burden falls disproportionately on Eastern Europe, Central and Southern Sub-Saharan Africa, and young people [[Shield2025]].
+- An earlier estimate (2009 Lancet series) attributed 3.8% of all global deaths and 4.6% of global DALYs to alcohol [[Rehm2009Lancet]].
+- The same series found the social costs of alcohol exceed 1% of gross national product in high- and middle-income countries [[Rehm2009Lancet]].
+- GBD 2021: the global number of people with AUD rose 31.44% from 1990 to 2021, while the age-standardised prevalence rate fell 0.78% a year. China, India and the US carried the highest burden [[Liang2026GBD]].
+- Different modelling groups (GBD vs WHO/CAMH) give different global death totals for similar years: 2.8 million for 2016 in GBD 2016, and 3.0 million for 2016 or 2.6 million for 2019 in the WHO-model papers. Builders should label each figure with its source [[GBD2016Alcohol,Shield2020,Shield2025]].
+- Review summary: AUDs are among the most prevalent mental disorders worldwide, especially in high-income and upper-middle-income countries. Their high mortality and burden come mainly from medical consequences such as liver cirrhosis and injury [[Carvalho2019Lancet]].
+
+### what · Mortality and life expectancy in people with AUD
+- Nordic registers (Denmark, Finland, Sweden, 1987–2006, 1,158,486 person-years of people hospitalised with AUD): life expectancy was 24–28 years shorter than in the general population [[Westman2015]].
+- People hospitalised with AUD had an average life expectancy of 47–53 years (men) and 50–58 years (women) [[Westman2015]].
+- Mortality rate ratios against the general population: 3.0–5.2 for all causes, 2.3–4.8 for all diseases and medical conditions, and 9.3–35.9 for suicide [[Westman2015]].
+- From 1987 to 2006, the life-expectancy gap widened for men (by 1.0–2.6 years). For women it narrowed in Finland and Sweden [[Westman2015]].
+- Meta-analysis of 17 cohorts (28,087 patients treated for AUD, 6420 deaths): pooled standardised mortality ratios in men after 10 years were:
+  - liver cirrhosis 14.8 (95% CI 8.7–24.9)
+  - mental disorders 18.0 (11.2–30.3)
+  - injury 6.6 (5.0–8.8)
+  - cancer and cardiovascular disease about 2 [[Roerecke2014]]
+- SMRs were substantially higher in women, but fewer studies were available. For many outcomes the risk rose over time [[Roerecke2014]].
+- Meta-analysis of 24 studies (37.9 million participants): in longitudinal studies, AUD was associated with higher suicide mortality. Pooled odds ratios were 2.68 (95% CI 1.86–3.87) in males and 2.39 (1.50–3.81) in females [[Lange2024]].
+- The authors' conclusion was that the association is similar across the sexes and that treating AUD belongs in suicide prevention [[Lange2024]].
+
+### what · US deaths from alcohol
+- US adults aged 20–64, 2015–2019: an estimated 12.9% of deaths (89,697 a year) were attributable to excessive alcohol use. That is about 1 in 8 deaths [[Esser2022JNO]].
+- The share was 15.0% in men and 9.4% in women [[Esser2022JNO]].
+- At ages 20–49, alcohol-attributable deaths (44,981 a year) were 20.3% of all deaths, about 1 in 5 [[Esser2022JNO]].
+- By state, the share of deaths at ages 20–64 ranged from 9.3% in Mississippi to 21.7% in New Mexico [[Esser2022JNO]].
+- All ages: average annual deaths from excessive alcohol use rose 29.3%, from 137,927 in 2016–2017 to 178,307 in 2020–2021 [[Esser2024MMWR]].
+- The age-standardised rate rose from 38.1 to 47.6 per 100,000 [[Esser2024MMWR]].
+- Deaths among men rose 26.8% (94,362 to 119,606 a year) and among women 34.7% (43,565 to 58,701 a year) [[Esser2024MMWR]].
+- 2020–2021 breakdown:
+  - chronic causes: 117,245 deaths a year
+  - acute causes: 61,063
+  - fully alcohol-attributable causes: 51,665 (29.0%), a 46.2% increase over 2016–2017 [[Esser2024MMWR]]
+- Leading chronic causes, 2020–2021: 100% alcohol-attributable chronic conditions such as alcohol-associated liver disease (48,972), heart disease and stroke (37,317), cancer (17,072), and liver, gallbladder and pancreas conditions (12,719) [[Esser2024MMWR]].
+- Leading acute causes, 2020–2021: alcohol-related poisonings (21,806), motor-vehicle crashes (15,055), suicide (9801), and other acute causes such as falls, firearm injuries and homicide (14,400) [[Esser2024MMWR]].
+- The 2020–2021 total averages about 488 deaths a day from excessive drinking [[Esser2024MMWR]].
+- Deaths with alcohol on the death certificate rose from 78,927 in 2019 to 99,017 in 2020. That is a 25.5% rise in number and a 25.9% rise in rate (27.3 to 34.4 per 100,000) [[White2022JAMA]].
+- For comparison, the mean annual change from 1999 to 2017 was 2.2% [[White2022JAMA]].
+- The largest 2019–2020 rise was at ages 35–44: 22.9 to 32.0 per 100,000 (+39.7%) [[White2022JAMA]].
+- In a US panel (n = 1540), drinking days rose 14% from 2019 to 2020 (by 0.74 days a month). Among women, heavy drinking days rose 41% and alcohol problems rose 39% [[Pollard2020]].
+- The USPSTF 2018 statement cited an estimated 88,000 alcohol-attributable US deaths a year for 2006–2010, from both acute and chronic conditions [[USPSTF2018Alcohol]].
+- Costs: excessive drinking cost the US $249.0 billion in 2010, about $2.05 per drink. Binge drinking accounted for $191.1 billion (76.7%), and government paid $100.7 billion (40.4%) [[Sacks2015]].
+
+### what · Comorbidity (other conditions that often occur with AUD)
+- NESARC-III odds ratios for 12-month AUD with other disorders range from 1.2 (95% CI 1.08–1.36) to 6.4 (5.76–7.22). The disorders significantly associated are other substance use disorders, major depression, bipolar I, and antisocial and borderline personality disorders [[Grant2015NESARC]].
+- Adjusted odds ratios, 12-month any AUD:
+  - any drug use disorder 3.3 (2.88–3.76)
+  - nicotine use disorder 2.5 (2.24–2.69)
+  - borderline personality disorder 1.9 (1.66–2.23)
+  - antisocial personality disorder 1.6 (1.28–1.94)
+  - bipolar I 1.4 (1.08–1.78)
+  - major depressive disorder 1.2 (1.08–1.36) [[Grant2015NESARC]]
+- For severe 12-month AUD, the odds ratio with any drug use disorder rises to 5.3 (4.52–6.27). For major depressive disorder it rises to 1.4 (1.19–1.76) [[Grant2015NESARC]].
+- After adjustment in NESARC-III, 12-month AUD was not significantly associated with 12-month PTSD (AOR 1.0, 0.86–1.22) or generalised anxiety disorder (1.0, 0.86–1.22) [[Grant2015NESARC]].
+- In lifetime and severity-level analyses, associations with panic disorder, specific phobia and GAD were modest, with odds ratios of 1.2–1.4 [[Grant2015NESARC]].
+- In a meta-analysis of 22 population surveys (1990–2014), AUD was associated with major depression (pooled OR 2.42, 95% CI 2.22–2.64) and any anxiety disorder (OR 2.11, 2.03–2.19) [[Lai2015]].
+- In the same meta-analysis, odds ratios were higher for dependence than for abuse [[Lai2015]].
+- The higher pooled ORs in Lai 2015 than the adjusted ORs in NESARC-III reflect different adjustment. Lai pooled mostly less-adjusted survey estimates [[Lai2015,Grant2015NESARC]].
+- In clinical samples of people with bipolar disorder (1990–2015), alcohol use disorder was the most common substance use disorder, at 42% [[Hunt2016]].
+- In treatment populations for substance use disorders, 23.1% (95% CI 19.4–27.2) met DSM criteria for ADHD [[vanEmmerikvanOortmerssen2012]].
+- In US veterans with lifetime PTSD (NESARC-III), the adjusted OR for AUD was 2.1 (1.5–3.1) [[Smith2016PTSD]].
+- European primary care: patients with alcohol dependence had higher rates of physical problems (for example liver disease and hypertension) and mental problems (for example depression and anxiety) [[Rehm2015BMCFam]].
+
+### what · Treatment gap and stigma
+- NESARC-III: only 19.8% of people with lifetime AUD and 7.7% of those with 12-month AUD had ever sought treatment or help [[Grant2015NESARC]].
+- Global meta-analysis (32 articles): 17.3% (95% CI 12.8–22.3) of people with AUD received any treatment, about 1 in 6 [[Mekonen2021]].
+- In low and lower-middle-income countries the treatment rate was 9.3% (4.0–15.7) [[Mekonen2021]].
+- Kranzler & Soyka: AUD is present in 14% of US adults, and only 7% of affected individuals are seen in an alcohol treatment facility [[Kranzler2018JAMA]].
+- Of the 15.8 million US adults who needed alcohol treatment in 2015, 8.3% received specialty alcohol treatment [[Kranzler2018JAMA]].
+- In a US retail study (2002–2007), fewer than 9% of patients who needed AUD treatment received a single prescription for any of the four FDA-approved medicines [[Kranzler2018JAMA]].
+- NSDUH 2019: only 10.9% of adults in alcohol treatment received a medication for AUD, against 40.9% of adults in opioid treatment who received a medication for opioid use disorder [[Bensley2025]].
+- European primary care, 6 countries (8476 patients interviewed): alcohol dependence prevalence was 8.7% (8.1–9.3), and 22.3% (19.4–25.2) of those affected were treated [[Rehm2015BMCFam]].
+- Another European study found 12-month AUD prevalence of 11.8% in primary care, with 17.6% receiving current treatment [[Rehm2015EurPsych]].
+- Of 1008 European primary-care patients with AUD, 810 had no treatment. Of those who gave a reason, 55.3% named lack of problem awareness, 28.6% stigma or shame, 22.8% barriers to care, and 20.9% wanting to cope alone [[Probst2015]].
+- Population studies show people with alcohol dependence are held more responsible for their condition than people with other mental disorders. They also face more social rejection and more structural discrimination [[Schomerus2011]].
+- An updated review (2010–2020, 16 studies) found public desire for social distance consistently higher for people with AUD. Stigma toward AUD remains comparatively high [[Kilian2021]].
+- Review summary: AUD is undertreated partly because of high stigma and partly because of insufficient systematic screening in primary care, even though effective, cost-effective psychosocial and drug treatments exist [[Carvalho2019Lancet]].
+- Recovery is common at population level. In a US probability survey (39,809 adults screened), 9.1% said they used to have an alcohol or drug problem but no longer do. Of these, 46% identified as "in recovery" and 53.9% had used an assisted pathway such as mutual help, treatment or recovery services. These are group figures, not a promise for any individual [[Kelly2017Recovery]].
+
+### drinks · Standard drinks and drinking patterns
+- There is no single international standard drink. Of 75 national governments examined, 37 had a definition. The most common size was 10 g of pure alcohol, but definitions ranged from 8 to 20 g [[Kalinowski2016]].
+- National low-risk drinking guidelines vary widely: 10–42 g a day for women and 10–56 g a day for men, or 98–140 g a week for women and 150–280 g a week for men [[Kalinowski2016]].
+- GBD and WHO-model studies use a 10 g standard drink [[GBD2016Alcohol,GBD2020Alcohol]].
+- US standard drink as published in a JAMA review: 0.6 oz of ethanol. Examples are 12 oz of 5% beer, 5 oz of 12% wine, or 1.5 oz of 40% spirits [[Kranzler2018JAMA]].
+- 0.6 US fl oz of ethanol is about 14 g (0.6 × 29.57 mL × 0.789 g/mL ≈ 14.0 g). This is my arithmetic, not a figure quoted by the source [[Kranzler2018JAMA]].
+- Binge drinking as used in US federal surveys (NSDUH): 5 or more standard drinks for males, or 4 or more for females, on the same occasion [[Kranzler2018JAMA]].
+- Heavy alcohol use in the same surveys: binge drinking on 5 or more days in the past month [[Kranzler2018JAMA]].
+- In 2016, 26.2% of US adults reported at least one binge-drinking day in the past month, and 6.6% reported heavy alcohol use [[Kranzler2018JAMA]].
+- The NIAAA definition of binge drinking reflects drinking that raises blood alcohol concentration to about 0.08 g%. An NIAAA task force recommended adding a 2-hour time qualifier to the 5+/4+ drink criterion [[Corbin2014]].
+- Corbin and colleagues found that the original binge measure (no time limit) predicted negative consequences at least as well as the 2-hour version [[Corbin2014]].
+- High-intensity drinking means 8 or more drinks for women and 10 or more for men, two or more times the binge thresholds [[Patrick2023HID]].
+- In young adults (Monitoring the Future, ages 19–20), high-intensity drinking days lasted 5.2 hours on average, with a peak estimated BAC of 0.30% and a pace of 2.58 drinks an hour [[Patrick2023HID]].
+- Most people who drink excessively do not have alcohol dependence. In NSDUH 2009–2011 (138,100 adults), 10.2% of excessive drinkers, 10.5% of binge drinkers and 1.3% of non-binge drinkers met DSM-IV dependence criteria. About 90% of excessive drinkers did not [[Esser2014PCD]].
+- Excessive drinking, binge drinking and dependence were most common among men and people aged 18–24. Binge drinking was most common at family incomes of $75,000 or more, but dependence was most common at incomes under $25,000 [[Esser2014PCD]].
+- The USPSTF uses "unhealthy alcohol use" for a spectrum of behaviours from risky drinking to AUD. It recommends screening adults 18 and older, including pregnant women, in primary care [[USPSTF2018Alcohol]].
+- Global drinking trends: adult per-capita consumption rose from 5.9 L of pure alcohol in 1990 to 6.5 L in 2017, and is forecast to reach 7.6 L by 2030 [[Manthey2019Lancet]].
+- Lifetime abstinence fell from 46% to 43% between 1990 and 2017. Current drinking rose from 45% to 47% [[Manthey2019Lancet]].
+- Heavy episodic drinking (at least 60 g on one occasion in the past 30 days) was 20% of adults in 2017, against 18.5% in 1990. It is forecast to reach 23% by 2030 [[Manthey2019Lancet]].
+- A WHO-funded series using different methods estimated average adult consumption at 5.1 L in 2000, 5.5 L in 2019 and 4.9 L in 2020 [[Shield2025]].
+- The research does not support drinking for health. GBD 2016 found the harm-minimising level across outcomes was zero drinks [[GBD2016Alcohol]], and GBD 2020 found that for people aged 15–39 the minimum-risk level was 0–0.6 drinks a day [[GBD2020Alcohol]].
+
+### history · From disease concept to DSM-5 and ICD-11
+- 1784: Benjamin Rush proposed an aversion remedy for problem drinking [[Witkiewitz2019]].
+- Near the end of the 18th century, the Pennsylvania physician Benjamin Rush described loss of control over alcohol [[Witkiewitz2019]].
+- Rush described habitual heavy drinking as a disease caused by alcohol itself [[Tabakoff2013]].
+- Rush ran a public health education campaign on the hazards of distilled spirits, describing more than a dozen alcohol-related health problems [[Katcher1993]].
+- The term "alcoholism" (the older, lay name for what is now called alcohol use disorder) was introduced by Magnus Huss in Sweden (cited as Huss 1849) [[Tabakoff2013]].
+- Huss described "alcoholismus chronicus", emphasising the medical consequences of chronic heavy drinking [[Martin2014]].
+- 1800s to early 1900s: the temperance movement laid groundwork for later mutual-help organisations [[Witkiewitz2019]].
+- US National Prohibition (the Eighteenth Amendment and the Volstead Act) came out of a century-long temperance campaign [[Blocker2006]].
+- The Volstead Act defined "intoxicating" as 0.5% or more alcohol by volume [[Blocker2006]].
+- Repeal became possible in 1933, mainly because the Great Depression changed the economic context [[Blocker2006]].
+- Blocker's assessment is that Prohibition did lower consumption. After repeal, yearly per-capita intake was about 1.2 US gallons, less than half the pre-Prohibition level [[Blocker2006]].
+- Alcoholics Anonymous dates its founding to 10 June 1935, the sobriety date of co-founder Dr Bob Smith, after he met Bill Wilson in Akron, Ohio [[Gross2010AA]].
+- By 2010, AA reported some 2 million members in more than 160 countries [[Gross2010AA]].
+- 1948: Hald and Jacobsen reported in the Lancet a drug that sensitises the body to alcohol. This was disulfiram [[Hald1948]].
+- 1951: disulfiram (Antabuse) was the first medicine approved by the FDA for AUD [[Witkiewitz2019]]. Drugs@FDA lists the Antabuse original approval date as 28 August 1951 [[FDA-DrugsFDA-AUD]].
+- 1952: the first DSM was published [[Tabakoff2013]].
+- 1960: E. M. Jellinek's "The Disease Concept of Alcoholism" codified the idea of problem drinking as a disease of loss of control over drinking [[Tabakoff2013,Kelly2019Jellinek]].
+- 1976: Griffith Edwards and Milton Gross described the "alcohol dependence syndrome" in the BMJ, a syndrome not defined by consequences [[Edwards1976,Martin2014]].
+- Their 1976 paper was the first to use the word "salience" for this purpose [[Tabakoff2013]].
+- Elements of the Edwards–Gross formulation were taken into DSM-IV and ICD-10 [[Li2007ADS]].
+- The alcohol dependence syndrome shaped international classification systems. It also underpins brief interventions for early-stage problem drinking [[Stockwell2015]].
+- 1980: DSM-III described two separate disorders, Substance Dependence and Substance Abuse [[Martin2014]].
+- 1987: DSM-III-R kept an abuse diagnosis defined partly by consequences [[Martin2014]].
+- 1994: DSM-IV was published, keeping separate abuse and dependence diagnoses [[Hasin2013]].
+- The DSM-IV hierarchy created "diagnostic orphans": people with two dependence criteria and no abuse criteria, who received no diagnosis [[Hasin2013]].
+- NESARC findings indicated that DSM-IV abuse and dependence were not distinct entities but a continuum of severity [[Li2007ADS]].
+- 1994: naltrexone was approved by the FDA for alcohol dependence [[Witkiewitz2019]]. Revia's efficacy supplement is dated 30 December 1994, and its original approval (for opioid dependence) 20 November 1984 [[FDA-DrugsFDA-AUD]].
+- 1989: acamprosate was first approved for alcohol dependence in Europe [[Witkiewitz2019]].
+- 2004: acamprosate (Campral) was approved in the US. Drugs@FDA lists the original approval as 29 July 2004 [[FDA-DrugsFDA-AUD]].
+- 2006: extended-release injectable naltrexone was approved by the FDA [[Witkiewitz2019]]. Drugs@FDA lists the Vivitrol original approval as 13 April 2006 [[FDA-DrugsFDA-AUD]].
+- 2013: nalmefene was approved for alcohol dependence in Europe [[Witkiewitz2019]].
+- 2018: baclofen was approved for AUD in France [[Witkiewitz2019]].
+- 2013: DSM-5 combined abuse and dependence into a single "alcohol use disorder" [[APA2013,Hasin2013]].
+- This change rested on consistent findings from more than 200,000 study participants. It also dropped legal problems as a criterion and added craving [[Hasin2013]].
+- DSM-5 diagnoses AUD at 2 or more of 11 criteria. Severity is mild (2–3 criteria), moderate (4–5) or severe (6 or more) [[Hasin2013]].
+- Agreement between DSM-IV and DSM-5 prevalence was greatest at the 2-criterion threshold [[Hasin2013]].
+- Because any 2 of 11 criteria qualify, two people with DSM-5 AUD can share few or no symptoms. One review states there are 2048 qualifying symptom combinations [[Witkiewitz2019]]; see Open questions.
+- 2022: DSM-5-TR was published [[APA2022]].
+- May 2019: ICD-11 was formally published. Its alcohol diagnoses include Alcohol Dependence, Harmful Pattern of Use of Alcohol, Alcohol Intoxication, Alcohol Withdrawal and alcohol-induced mental disorders. Hazardous Alcohol Use is listed separately as a health risk factor [[Saunders2019ICD11]].
+- Today only three medicines are approved by the US FDA for AUD: disulfiram, naltrexone (oral and extended-release) and acamprosate [[Witkiewitz2019]].
+
+### home · Key framing facts
+- AUD is a medical condition defined by compulsive heavy alcohol use and loss of control over intake. Effective and cost-effective treatments exist [[Carvalho2019Lancet]].
+- About 3 in 10 US adults meet DSM-5 AUD criteria at some point in their lives, and about 1 in 7 in any given year [[Grant2015NESARC]].
+- Fewer than 1 in 5 people with AUD ever get treatment or help, in the US and worldwide [[Grant2015NESARC,Mekonen2021]].
+- Excessive drinking causes about 1 in 8 deaths among US adults aged 20–64 [[Esser2022JNO]].
+- Many people resolve alcohol or drug problems. About 9.1% of US adults report having done so [[Kelly2017Recovery]].
+
+### Exam hooks
+- DSM-5 12-month AUD prevalence in US adults (NESARC-III) is 13.9%; lifetime is 29.1% [[Grant2015NESARC]].
+- Only 19.8% of people with lifetime AUD in NESARC-III were ever treated [[Grant2015NESARC]].
+- Global AUD treatment rate is about 1 in 6 (17.3%), and 9.3% in low and lower-middle-income countries [[Mekonen2021]].
+- 12-month AUD is highest at ages 18–29 (26.7%) and lowest at 65+ (2.3%) [[Grant2015NESARC]].
+- Mean age at AUD onset in NESARC-III: 26.2 years [[Grant2015NESARC]].
+- Alcohol was the leading risk factor for death and DALYs at ages 15–49 worldwide (GBD 2016) [[GBD2016Alcohol]].
+- AUD is the most prevalent substance use disorder worldwide (100.4 million cases in 2016) [[GBD2016AlcDrug]].
+- People hospitalised with AUD die 24–28 years earlier than the general population (Nordic registers) [[Westman2015]].
+- About 90% of excessive drinkers do not meet alcohol dependence criteria [[Esser2014PCD]].
+- Binge drinking in US surveys means ≥5 drinks (males) or ≥4 drinks (females) on one occasion. A US standard drink contains 0.6 oz of ethanol [[Kranzler2018JAMA]].
+- The modal national standard drink is 10 g of ethanol, but definitions range from 8 to 20 g [[Kalinowski2016]].
+- DSM-5 merged abuse and dependence, dropped legal problems, added craving, and set the threshold at ≥2 of 11 criteria [[Hasin2013]].
+- DSM-5 severity: mild 2–3, moderate 4–5, severe ≥6 criteria [[Hasin2013]].
+- Edwards & Gross described the alcohol dependence syndrome in 1976 [[Edwards1976]].
+- Disulfiram was discovered by Hald & Jacobsen (Lancet 1948) and FDA-approved in 1951 [[Hald1948,Witkiewitz2019]].
+- FDA approvals for AUD: naltrexone 1994, acamprosate 2004, extended-release naltrexone 2006 [[Witkiewitz2019,FDA-DrugsFDA-AUD]].
+- AA dates its founding to 1935 in Akron, Ohio [[Gross2010AA]].
+- The strongest NESARC-III comorbidity of 12-month AUD is with drug use disorders (AOR 3.3; 5.3 for severe AUD) [[Grant2015NESARC]].
+- AUD is associated with about 2.4–2.7 times higher odds of suicide death in longitudinal studies, similar in both sexes [[Lange2024]].
+
+### In plain words
+- Alcohol use disorder is a medical condition. A person keeps drinking even when it causes harm, and finds it hard to cut down. It is not a moral failing [[Carvalho2019Lancet]].
+- It is common. About 3 in 10 US adults have had it at some point in their lives [[Grant2015NESARC]].
+- It is most common in people in their twenties, but it can start or continue at any age [[Grant2015NESARC,Han2017Older]].
+- Most people who have it never get treatment, often because they do not see it as a problem or feel ashamed [[Grant2015NESARC,Probst2015]].
+- Many people do get better. Millions of US adults say they used to have a problem with alcohol or drugs and no longer do. These are group numbers, not a promise for any one person [[Kelly2017Recovery]].
+- A "standard drink" is not the same everywhere. In the US it is about a 12 oz beer, a 5 oz glass of wine, or a 1.5 oz shot of spirits [[Kranzler2018JAMA,Kalinowski2016]].
+- Drinking a lot at once, such as 4 or more drinks for women or 5 or more for men, is called binge drinking. It raises the risk of injuries and other harm [[Kranzler2018JAMA,Corbin2014]].
+- Most people who drink too much do not have alcohol dependence. Even so, binge drinking causes most of alcohol's costs to society [[Esser2014PCD,Sacks2015]].
+- Research does not show that drinking is good for your health. The largest global study found the lowest-risk level of drinking was zero [[GBD2016Alcohol]].
+- Alcohol is a leading cause of death in young and middle-aged adults. In the US it causes about 1 in 8 deaths between ages 20 and 64 [[GBD2016Alcohol,Esser2022JNO]].
+- People with alcohol use disorder often also live with depression, anxiety or other substance use. A good care team looks at both [[Lai2015,Grant2015NESARC]].
+- AUD is linked to a higher risk of suicide. If you or someone else is in crisis, contact a crisis line (in the US call or text 988) [[Lange2024]].
+- Stopping suddenly after long, heavy daily drinking can be dangerous. Get medical help to stop safely.
+- Doctors have understood problem drinking as a health condition for more than 200 years. Medicines to treat it have existed since 1951 [[Witkiewitz2019,Tabakoff2013]].
+
+## Numbers for the animations
+- us_aud_12mo_by_severity | mild | 7.3 | % of US adults | [[Grant2015NESARC]]
+- us_aud_12mo_by_severity | moderate | 3.2 | % of US adults | [[Grant2015NESARC]]
+- us_aud_12mo_by_severity | severe | 3.4 | % of US adults | [[Grant2015NESARC]]
+- us_aud_lifetime_by_severity | mild | 8.6 | % of US adults | [[Grant2015NESARC]]
+- us_aud_lifetime_by_severity | moderate | 6.6 | % of US adults | [[Grant2015NESARC]]
+- us_aud_lifetime_by_severity | severe | 13.9 | % of US adults | [[Grant2015NESARC]]
+- us_aud_12mo_by_age | 18-29 | 26.7 | % | [[Grant2015NESARC]]
+- us_aud_12mo_by_age | 30-44 | 16.2 | % | [[Grant2015NESARC]]
+- us_aud_12mo_by_age | 45-64 | 10.0 | % | [[Grant2015NESARC]]
+- us_aud_12mo_by_age | 65+ | 2.3 | % | [[Grant2015NESARC]]
+- us_aud_12mo_by_sex | men | 17.6 | % | [[Grant2015NESARC]]
+- us_aud_12mo_by_sex | women | 10.4 | % | [[Grant2015NESARC]]
+- us_aud_treated | lifetime AUD ever treated | 19.8 | % | [[Grant2015NESARC]]
+- us_aud_treated | 12-month AUD treated | 7.7 | % | [[Grant2015NESARC]]
+- us_dsm4_aud_trend | 2001-2002 | 8.5 | % of US adults | [[Grant2017JAMAPsych]]
+- us_dsm4_aud_trend | 2012-2013 | 12.7 | % of US adults | [[Grant2017JAMAPsych]]
+- us_highrisk_drinking_trend | 2001-2002 | 9.7 | % of US adults | [[Grant2017JAMAPsych]]
+- us_highrisk_drinking_trend | 2012-2013 | 12.6 | % of US adults | [[Grant2017JAMAPsych]]
+- us_alcohol_use_trend | 2001-2002 | 65.4 | % of US adults | [[Grant2017JAMAPsych]]
+- us_alcohol_use_trend | 2012-2013 | 72.7 | % of US adults | [[Grant2017JAMAPsych]]
+- nsduh_aud_men | 2021 | 13.3 | % | [[Han2026NSDUH]]
+- nsduh_aud_men | 2024 | 12.6 | % | [[Han2026NSDUH]]
+- nsduh_aud_women | 2021 | 9.7 | % | [[Han2026NSDUH]]
+- nsduh_aud_women | 2024 | 8.2 | % | [[Han2026NSDUH]]
+- us_excess_alcohol_deaths | 2016-2017 | 137927 | deaths per year | [[Esser2024MMWR]]
+- us_excess_alcohol_deaths | 2020-2021 | 178307 | deaths per year | [[Esser2024MMWR]]
+- us_excess_alcohol_death_rate | 2016-2017 | 38.1 | per 100,000 (age-standardised) | [[Esser2024MMWR]]
+- us_excess_alcohol_death_rate | 2020-2021 | 47.6 | per 100,000 (age-standardised) | [[Esser2024MMWR]]
+- us_excess_alcohol_deaths_men | 2016-2017 | 94362 | deaths per year | [[Esser2024MMWR]]
+- us_excess_alcohol_deaths_men | 2020-2021 | 119606 | deaths per year | [[Esser2024MMWR]]
+- us_excess_alcohol_deaths_women | 2016-2017 | 43565 | deaths per year | [[Esser2024MMWR]]
+- us_excess_alcohol_deaths_women | 2020-2021 | 58701 | deaths per year | [[Esser2024MMWR]]
+- us_alcohol_death_cause_2020_21 | chronic | 117245 | deaths per year | [[Esser2024MMWR]]
+- us_alcohol_death_cause_2020_21 | acute | 61063 | deaths per year | [[Esser2024MMWR]]
+- us_alcohol_induced_deaths | 2019 | 78927 | deaths | [[White2022JAMA]]
+- us_alcohol_induced_deaths | 2020 | 99017 | deaths | [[White2022JAMA]]
+- us_deaths_attributable_share_20_64 | 2015-2019 | 12.9 | % of all deaths | [[Esser2022JNO]]
+- us_deaths_attributable_share_20_49 | 2015-2019 | 20.3 | % of all deaths | [[Esser2022JNO]]
+- global_per_capita_consumption | 1990 | 5.9 | L pure alcohol per adult | [[Manthey2019Lancet]]
+- global_per_capita_consumption | 2017 | 6.5 | L pure alcohol per adult | [[Manthey2019Lancet]]
+- global_per_capita_consumption | 2030 (forecast) | 7.6 | L pure alcohol per adult | [[Manthey2019Lancet]]
+- global_heavy_episodic_drinking | 1990 | 18.5 | % of adults | [[Manthey2019Lancet]]
+- global_heavy_episodic_drinking | 2017 | 20 | % of adults | [[Manthey2019Lancet]]
+- global_heavy_episodic_drinking | 2030 (forecast) | 23 | % of adults | [[Manthey2019Lancet]]
+- global_lifetime_abstinence | 1990 | 46 | % of adults | [[Manthey2019Lancet]]
+- global_lifetime_abstinence | 2017 | 43 | % of adults | [[Manthey2019Lancet]]
+- global_lifetime_abstinence | 2030 (forecast) | 40 | % of adults | [[Manthey2019Lancet]]
+- who_model_consumption | 2000 | 5.1 | L per adult | [[Shield2025]]
+- who_model_consumption | 2019 | 5.5 | L per adult | [[Shield2025]]
+- who_model_consumption | 2020 | 4.9 | L per adult | [[Shield2025]]
+- global_alcohol_deaths | 2016 (GBD 2016) | 2.8 | million | [[GBD2016Alcohol]]
+- global_alcohol_deaths | 2016 (WHO model) | 3.0 | million | [[Shield2020]]
+- global_alcohol_deaths | 2019 (WHO model) | 2.6 | million | [[Shield2025]]
+- global_alcohol_deaths | 2020 (GBD 2020) | 1.78 | million | [[GBD2020Alcohol]]
+- deaths_attributable_15_49_2016 | female | 3.8 | % of deaths | [[GBD2016Alcohol]]
+- deaths_attributable_15_49_2016 | male | 12.2 | % of deaths | [[GBD2016Alcohol]]
+- current_drinkers_2016 | female | 25 | % | [[GBD2016Alcohol]]
+- current_drinkers_2016 | male | 39 | % | [[GBD2016Alcohol]]
+- harmful_drinkers_2020 | male | 1.03 | billion | [[GBD2020Alcohol]]
+- harmful_drinkers_2020 | female | 0.312 | billion | [[GBD2020Alcohol]]
+- sex_ratio_problem_drinking | born early 1900s | 3.0 | male:female ratio | [[Slade2016]]
+- sex_ratio_problem_drinking | born late 1900s | 1.2 | male:female ratio | [[Slade2016]]
+- treatment_rate_global | all countries | 17.3 | % with AUD treated | [[Mekonen2021]]
+- treatment_rate_global | low/lower-middle income | 9.3 | % with AUD treated | [[Mekonen2021]]
+- life_expectancy_lost_AUD_hospitalised | Nordic 1987-2006 | 24-28 | years | [[Westman2015]]
+- smr_aud_men_10y | liver cirrhosis | 14.8 | SMR | [[Roerecke2014]]
+- smr_aud_men_10y | mental disorders | 18.0 | SMR | [[Roerecke2014]]
+- smr_aud_men_10y | injury | 6.6 | SMR | [[Roerecke2014]]
+- smr_aud_men_10y | cancer / cardiovascular | 2 | SMR (approx.) | [[Roerecke2014]]
+- aud_comorbidity_aor_12mo | any drug use disorder | 3.3 | AOR | [[Grant2015NESARC]]
+- aud_comorbidity_aor_12mo | nicotine use disorder | 2.5 | AOR | [[Grant2015NESARC]]
+- aud_comorbidity_aor_12mo | borderline PD | 1.9 | AOR | [[Grant2015NESARC]]
+- aud_comorbidity_aor_12mo | antisocial PD | 1.6 | AOR | [[Grant2015NESARC]]
+- aud_comorbidity_aor_12mo | bipolar I | 1.4 | AOR | [[Grant2015NESARC]]
+- aud_comorbidity_aor_12mo | major depression | 1.2 | AOR | [[Grant2015NESARC]]
+- dependence_among_drinkers | excessive drinkers | 10.2 | % dependent | [[Esser2014PCD]]
+- dependence_among_drinkers | binge drinkers | 10.5 | % dependent | [[Esser2014PCD]]
+- dependence_among_drinkers | non-binge drinkers | 1.3 | % dependent | [[Esser2014PCD]]
+- us_cost_excess_drinking | 2010 | 249.0 | US$ billion | [[Sacks2015]]
+- history_timeline | 1784 | Rush proposes aversion remedy | year | [[Witkiewitz2019]]
+- history_timeline | 1849 | Huss names the condition | year | [[Tabakoff2013]]
+- history_timeline | 1933 | US Prohibition repealed | year | [[Blocker2006]]
+- history_timeline | 1935 | AA founded (10 June) | year | [[Gross2010AA]]
+- history_timeline | 1948 | Hald & Jacobsen report disulfiram effect | year | [[Hald1948]]
+- history_timeline | 1951 | Disulfiram FDA-approved | year | [[Witkiewitz2019,FDA-DrugsFDA-AUD]]
+- history_timeline | 1952 | DSM-I | year | [[Tabakoff2013]]
+- history_timeline | 1960 | Jellinek, Disease Concept of Alcoholism | year | [[Tabakoff2013,Kelly2019Jellinek]]
+- history_timeline | 1976 | Edwards & Gross alcohol dependence syndrome | year | [[Edwards1976]]
+- history_timeline | 1980 | DSM-III abuse and dependence | year | [[Martin2014]]
+- history_timeline | 1994 | DSM-IV; naltrexone FDA-approved for alcohol | year | [[Hasin2013,Witkiewitz2019]]
+- history_timeline | 2004 | Acamprosate US approval | year | [[FDA-DrugsFDA-AUD]]
+- history_timeline | 2006 | Extended-release naltrexone | year | [[Witkiewitz2019,FDA-DrugsFDA-AUD]]
+- history_timeline | 2013 | DSM-5 merges into AUD | year | [[Hasin2013,APA2013]]
+- history_timeline | 2019 | ICD-11 published (May) | year | [[Saunders2019ICD11]]
+- history_timeline | 2022 | DSM-5-TR | year | [[APA2022]]
+
+## Open questions and controversies
+- **Is any amount of drinking "safe"?** GBD 2016 found the harm-minimising level across outcomes was zero drinks a week [[GBD2016Alcohol]]. GBD 2020 found the minimum-risk level was near zero for people aged 15–39 but slightly above zero (0.114–1.87 drinks a day) for people 40 and older, depending on region [[GBD2020Alcohol]]. Status: the age- and region-specific curves are debated. Neither study supports starting to drink for health, and national low-risk guidelines vary widely [[Kalinowski2016]].
+- **How many people die from alcohol worldwide?** The answer depends on the model: 2.8 million in 2016 (GBD 2016) [[GBD2016Alcohol]], 3.0 million in 2016 (WHO model) [[Shield2020]], 2.6 million in 2019 [[Shield2025]] and 1.78 million in 2020 (GBD 2020) [[GBD2020Alcohol]]. Status: the totals differ because the methods and risk curves differ, not because deaths fell that fast. Always pair a figure with its source.
+- **Is US AUD prevalence rising or falling?** NESARC showed a large rise in DSM-IV AUD from 2001–2002 to 2012–2013 [[Grant2017JAMAPsych]]. NSDUH 2021–2024 shows stable or slightly falling DSM-5 AUD [[Han2026NSDUH]]. Alcohol deaths rose sharply in 2020–2021 [[Esser2024MMWR,White2022JAMA]]. Status: the surveys use different methods, and deaths lag behind prevalence, so these trends are not contradictory but are not directly comparable.
+- **One disorder or two?** DSM-5 merged abuse and dependence into one AUD, on data from more than 200,000 participants [[Hasin2013]]. ICD-11 keeps Alcohol Dependence separate from Harmful Pattern of Use [[Saunders2019ICD11]]. Stockwell argues that DSM-5 conflates dependence with consequences, departing from Edwards and Gross [[Stockwell2015]]. Status: the two systems still differ.
+- **How heterogeneous is a DSM-5 diagnosis?** Witkiewitz and colleagues state that 2048 symptom combinations meet the criteria [[Witkiewitz2019]]. A direct count of subsets of 11 criteria with 2 or more members gives 2036. Builders should quote the source's 2048 with attribution or present the arithmetic, not both as fact.
+- **Should binge drinking carry a 2-hour time limit?** An NIAAA task force added one. Corbin and colleagues found the original 5+/4+ measure predicted consequences at least as well [[Corbin2014]]. Patrick and colleagues found time limits do not improve risk distinctions for high-intensity drinking [[Patrick2023HID]]. Status: unresolved (Early evidence).
+- **Did Prohibition "work"?** Blocker argues that the conventional view of failure rests on a weak historical base: Prohibition lowered consumption, and repeal followed the economic shift of the Depression [[Blocker2006]]. Status: historians still dispute it.
+- **Why is the treatment gap so large?** Lack of problem awareness and stigma are the most common reasons people give [[Probst2015]]. Public stigma toward AUD is higher than toward most other mental disorders [[Schomerus2011,Kilian2021]]. Underuse of approved medicines is also large [[Kranzler2018JAMA,Bensley2025]]. Status: Established that the gap exists; which interventions close it best is open.
+
+## Sources
+- [Grant2015NESARC] Grant BF, Goldstein RB, Saha TD, Chou SP, Jung J, Zhang H, et al. Epidemiology of DSM-5 Alcohol Use Disorder: Results From the National Epidemiologic Survey on Alcohol and Related Conditions III. JAMA Psychiatry. 2015;72(8):757-66. PMID 26039070; PMCID PMC5240584; doi:10.1001/jamapsychiatry.2015.0584. (validated: PubMed)
+- [Grant2017JAMAPsych] Grant BF, Chou SP, Saha TD, Pickering RP, Kerridge BT, Ruan WJ, et al. Prevalence of 12-Month Alcohol Use, High-Risk Drinking, and DSM-IV Alcohol Use Disorder in the United States, 2001-2002 to 2012-2013: Results From the National Epidemiologic Survey on Alcohol and Related Conditions. JAMA Psychiatry. 2017;74(9):911-923. PMID 28793133; PMCID PMC5710229; doi:10.1001/jamapsychiatry.2017.2161. (validated: PubMed)
+- [Grant2016DUD] Grant BF, Saha TD, Ruan WJ, Goldstein RB, Chou SP, Jung J, et al. Epidemiology of DSM-5 Drug Use Disorder: Results From the National Epidemiologic Survey on Alcohol and Related Conditions-III. JAMA Psychiatry. 2016;73(1):39-47. PMID 26580136; PMCID PMC5062605; doi:10.1001/jamapsychiatry.2015.2132. (validated: PubMed)
+- [GBD2016Alcohol] GBD 2016 Alcohol Collaborators. Alcohol use and burden for 195 countries and territories, 1990-2016: a systematic analysis for the Global Burden of Disease Study 2016. Lancet. 2018;392(10152):1015-1035. PMID 30146330; PMCID PMC6148333; doi:10.1016/S0140-6736(18)31310-2. (validated: PubMed)
+- [GBD2016AlcDrug] GBD 2016 Alcohol and Drug Use Collaborators. The global burden of disease attributable to alcohol and drug use in 195 countries and territories, 1990-2016: a systematic analysis for the Global Burden of Disease Study 2016. Lancet Psychiatry. 2018;5(12):987-1012. PMID 30392731; PMCID PMC6251968; doi:10.1016/S2215-0366(18)30337-7. (validated: PubMed)
+- [GBD2020Alcohol] GBD 2020 Alcohol Collaborators. Population-level risks of alcohol consumption by amount, geography, age, sex, and year: a systematic analysis for the Global Burden of Disease Study 2020. Lancet. 2022;400(10347):185-235. PMID 35843246; PMCID PMC9289789; doi:10.1016/S0140-6736(22)00847-9. (validated: PubMed)
+- [Carvalho2019Lancet] Carvalho AF, Heilig M, Perez A, Probst C, Rehm J. Alcohol use disorders. Lancet. 2019;394(10200):781-792. PMID 31478502; doi:10.1016/S0140-6736(19)31775-1. (validated: PubMed)
+- [Kalinowski2016] Kalinowski A, Humphreys K. Governmental standard drink definitions and low-risk alcohol consumption guidelines in 37 countries. Addiction. 2016;111(7):1293-8. PMID 27073140; doi:10.1111/add.13341. (validated: PubMed)
+- [Westman2015] Westman J, Wahlbeck K, Laursen TM, Gissler M, Nordentoft M, Hällgren J, et al. Mortality and life expectancy of people with alcohol use disorder in Denmark, Finland and Sweden. Acta Psychiatr Scand. 2015;131(4):297-306. PMID 25243359; PMCID PMC4402015; doi:10.1111/acps.12330. (validated: PubMed)
+- [Esser2022JNO] Esser MB, Leung G, Sherk A, Bohm MK, Liu Y, Lu H, et al. Estimated Deaths Attributable to Excessive Alcohol Use Among US Adults Aged 20 to 64 Years, 2015 to 2019. JAMA Netw Open. 2022;5(11):e2239485. PMID 36318209; PMCID PMC9627409; doi:10.1001/jamanetworkopen.2022.39485. (validated: PubMed)
+- [Esser2024MMWR] Esser MB, Sherk A, Liu Y, Naimi TS. Deaths from Excessive Alcohol Use - United States, 2016-2021. MMWR Morb Mortal Wkly Rep. 2024;73(8):154-161. PMID 38421934; PMCID PMC10907037; doi:10.15585/mmwr.mm7308a1. (validated: PubMed)
+- [White2022JAMA] White AM, Castle IP, Powell PA, Hingson RW, Koob GF. Alcohol-Related Deaths During the COVID-19 Pandemic. JAMA. 2022;327(17):1704-1706. PMID 35302593; PMCID PMC8933830; doi:10.1001/jama.2022.4308. (validated: PubMed)
+- [Karaye2023] Karaye IM, Maleki N, Hassan N, Yunusa I. Trends in Alcohol-Related Deaths by Sex in the US, 1999-2020. JAMA Netw Open. 2023;6(7):e2326346. PMID 37505494; PMCID PMC10383009; doi:10.1001/jamanetworkopen.2023.26346. (validated: PubMed)
+- [Mekonen2021] Mekonen T, Chan GCK, Connor J, Hall W, Hides L, Leung J. Treatment rates for alcohol use disorders: a systematic review and meta-analysis. Addiction. 2021;116(10):2617-2634. PMID 33245581; doi:10.1111/add.15357. (validated: PubMed)
+- [Rehm2015EurPsych] Rehm J, Manthey J, Struzzo P, Gual A, Wojnar M. Who receives treatment for alcohol use disorders in the European Union? A cross-sectional representative study in primary and specialized health care. Eur Psychiatry. 2015;30(8):885-93. PMID 26647862; doi:10.1016/j.eurpsy.2015.07.012. (validated: PubMed)
+- [Rehm2015BMCFam] Rehm J, Allamani A, Elekes Z, Jakubczyk A, Manthey J, Probst C, et al. Alcohol dependence and treatment utilization in Europe - a representative cross-sectional study in primary care. BMC Fam Pract. 2015;16:90. PMID 26219430; PMCID PMC4518612; doi:10.1186/s12875-015-0308-8. (validated: PubMed)
+- [Probst2015] Probst C, Manthey J, Martinez A, Rehm J. Alcohol use disorder severity and reported reasons not to seek treatment: a cross-sectional study in European primary care practices. Subst Abuse Treat Prev Policy. 2015;10:32. PMID 26264215; PMCID PMC4534056; doi:10.1186/s13011-015-0028-z. (validated: PubMed)
+- [Hald1948] Hald J, Jacobsen E. A drug sensitizing the organism to ethyl alcohol. Lancet. 1948;2(6539):1001-4. PMID 18103475; doi:10.1016/s0140-6736(48)91514-1. (validated: PubMed)
+- [Edwards1976] Edwards G, Gross MM. Alcohol dependence: provisional description of a clinical syndrome. Br Med J. 1976;1(6017):1058-61. PMID 773501; PMCID PMC1639901; doi:10.1136/bmj.1.6017.1058. (validated: PubMed)
+- [Hasin2013] Hasin DS, O'Brien CP, Auriacombe M, Borges G, Bucholz K, Budney A, et al. DSM-5 criteria for substance use disorders: recommendations and rationale. Am J Psychiatry. 2013;170(8):834-51. PMID 23903334; PMCID PMC3767415; doi:10.1176/appi.ajp.2013.12060782. (validated: PubMed)
+- [Saunders2019ICD11] Saunders JB, Degenhardt L, Reed GM, Poznyak V. Alcohol Use Disorders in ICD-11: Past, Present, and Future. Alcohol Clin Exp Res. 2019;43(8):1617-1631. PMID 31194891; doi:10.1111/acer.14128. (validated: PubMed)
+- [Martin2014] Martin CS, Langenbucher JW, Chung T, Sher KJ. Truth or consequences in the diagnosis of substance use disorders. Addiction. 2014;109(11):1773-8. PMID 24913314; PMCID PMC4441015; doi:10.1111/add.12615. (validated: PubMed)
+- [Li2007ADS] Li TK, Hewitt BG, Grant BF. The Alcohol Dependence Syndrome, 30 years later: a commentary. the 2006 H. David Archibald lecture. Addiction. 2007;102(10):1522-30. PMID 17680851; doi:10.1111/j.1360-0443.2007.01911.x. (validated: PubMed)
+- [Stockwell2015] Stockwell T. The alcohol dependence syndrome: a legacy of continuing clinical and scientific importance. Addiction. 2015;110 Suppl 2:8-11. PMID 26042560; doi:10.1111/add.12901. (validated: PubMed)
+- [Tabakoff2013] Tabakoff B, Hoffman PL. The neurobiology of alcohol consumption and alcoholism: an integrative history. Pharmacol Biochem Behav. 2013;113:20-37. PMID 24141171; PMCID PMC3867277; doi:10.1016/j.pbb.2013.10.009. (validated: PubMed)
+- [Witkiewitz2019] Witkiewitz K, Litten RZ, Leggio L. Advances in the science and treatment of alcohol use disorder. Sci Adv. 2019;5(9):eaax4043. PMID 31579824; PMCID PMC6760932; doi:10.1126/sciadv.aax4043. (validated: PubMed)
+- [Katcher1993] Katcher BS. Benjamin Rush's educational campaign against hard drinking. Am J Public Health. 1993;83(2):273-81. PMID 8427341; PMCID PMC1694575; doi:10.2105/ajph.83.2.273. (validated: PubMed)
+- [Blocker2006] Blocker JS Jr. Did prohibition really work? Alcohol prohibition as a public health innovation. Am J Public Health. 2006;96(2):233-43. PMID 16380559; PMCID PMC1470475; doi:10.2105/AJPH.2005.065409. (validated: PubMed)
+- [Gross2010AA] Gross M. Alcoholics Anonymous: still sober after 75 years. 1935. Am J Public Health. 2010;100(12):2361-3. PMID 21068418; PMCID PMC2978172; doi:10.2105/AJPH.2010.199349. (validated: PubMed)
+- [Kelly2019Jellinek] Kelly JF. E. M. Jellinek's Disease Concept of Alcoholism. Addiction. 2019;114(3):555-559. PMID 30064157; doi:10.1111/add.14400. (validated: PubMed)
+- [Esser2014PCD] Esser MB, Hedden SL, Kanny D, Brewer RD, Gfroerer JC, Naimi TS. Prevalence of alcohol dependence among US adult drinkers, 2009-2011. Prev Chronic Dis. 2014;11:E206. PMID 25412029; PMCID PMC4241371; doi:10.5888/pcd11.140329. (validated: PubMed)
+- [Manthey2019Lancet] Manthey J, Shield KD, Rylett M, Hasan OSM, Probst C, Rehm J. Global alcohol exposure between 1990 and 2017 and forecasts until 2030: a modelling study. Lancet. 2019;393(10190):2493-2502. PMID 31076174; doi:10.1016/S0140-6736(18)32744-2. (validated: PubMed)
+- [Rehm2009Lancet] Rehm J, Mathers C, Popova S, Thavorncharoensap M, Teerawattananon Y, Patra J. Global burden of disease and injury and economic cost attributable to alcohol use and alcohol-use disorders. Lancet. 2009;373(9682):2223-33. PMID 19560604; doi:10.1016/S0140-6736(09)60746-7. (validated: PubMed)
+- [Sacks2015] Sacks JJ, Gonzales KR, Bouchery EE, Tomedi LE, Brewer RD. 2010 National and State Costs of Excessive Alcohol Consumption. Am J Prev Med. 2015;49(5):e73-e79. PMID 26477807; doi:10.1016/j.amepre.2015.05.031. (validated: PubMed)
+- [Slade2016] Slade T, Chapman C, Swift W, Keyes K, Tonks Z, Teesson M. Birth cohort trends in the global epidemiology of alcohol use and alcohol-related harms in men and women: systematic review and metaregression. BMJ Open. 2016;6(10):e011827. PMID 27797998; PMCID PMC5093369; doi:10.1136/bmjopen-2016-011827. (validated: PubMed)
+- [Pollard2020] Pollard MS, Tucker JS, Green HD Jr. Changes in Adult Alcohol Use and Consequences During the COVID-19 Pandemic in the US. JAMA Netw Open. 2020;3(9):e2022942. PMID 32990735; PMCID PMC7525354; doi:10.1001/jamanetworkopen.2020.22942. (validated: PubMed)
+- [Roerecke2014] Roerecke M, Rehm J. Cause-specific mortality risk in alcohol use disorder treatment patients: a systematic review and meta-analysis. Int J Epidemiol. 2014;43(3):906-19. PMID 24513684; doi:10.1093/ije/dyu018. (validated: PubMed)
+- [Lange2024] Lange S, Kim KV, Lasserre AM, Orpana H, Bagge C, Roerecke M, et al. Sex-Specific Association of Alcohol Use Disorder With Suicide Mortality: A Systematic Review and Meta-Analysis. JAMA Netw Open. 2024;7(3):e241941. PMID 38470417; PMCID PMC10933726; doi:10.1001/jamanetworkopen.2024.1941. (validated: PubMed)
+- [Lai2015] Lai HM, Cleary M, Sitharthan T, Hunt GE. Prevalence of comorbid substance use, anxiety and mood disorders in epidemiological surveys, 1990-2014: A systematic review and meta-analysis. Drug Alcohol Depend. 2015;154:1-13. PMID 26072219; doi:10.1016/j.drugalcdep.2015.05.031. (validated: PubMed)
+- [Hunt2016] Hunt GE, Malhi GS, Cleary M, Lai HM, Sitharthan T. Prevalence of comorbid bipolar and substance use disorders in clinical settings, 1990-2015: Systematic review and meta-analysis. J Affect Disord. 2016;206:331-349. PMID 27476137; doi:10.1016/j.jad.2016.07.011. (validated: PubMed)
+- [vanEmmerikvanOortmerssen2012] van Emmerik-van Oortmerssen K, van de Glind G, van den Brink W, Smit F, Crunelle CL, Swets M, et al. Prevalence of attention-deficit hyperactivity disorder in substance use disorder patients: a meta-analysis and meta-regression analysis. Drug Alcohol Depend. 2012;122(1-2):11-19. PMID 22209385; doi:10.1016/j.drugalcdep.2011.12.007. (validated: PubMed)
+- [Smith2016PTSD] Smith SM, Goldstein RB, Grant BF. The association between post-traumatic stress disorder and lifetime DSM-5 psychiatric disorders among veterans: Data from the National Epidemiologic Survey on Alcohol and Related Conditions-III (NESARC-III). J Psychiatr Res. 2016;82:16-22. PMID 27455424; PMCID PMC5026976; doi:10.1016/j.jpsychires.2016.06.022. (validated: PubMed)
+- [Han2017Older] Han BH, Moore AA, Sherman S, Keyes KM, Palamar JJ. Demographic trends of binge alcohol use and alcohol use disorders among older adults in the United States, 2005-2014. Drug Alcohol Depend. 2017;170:198-207. PMID 27979428; PMCID PMC5241162; doi:10.1016/j.drugalcdep.2016.11.003. (validated: PubMed)
+- [Jang2017] Jang JB, Patrick ME, Keyes KM, Hamilton AD, Schulenberg JE. Frequent Binge Drinking Among US Adolescents, 1991 to 2015. Pediatrics. 2017;139(6):e20164023. PMID 28562275; PMCID PMC5470505; doi:10.1542/peds.2016-4023. (validated: PubMed)
+- [Danpanichkul2025Older] Danpanichkul P, Duangsonk K, Tham EKJ, Tothanarungroj P, Auttapracha T, Prasitsumrit V, et al. Increased mortality from alcohol use disorder, alcohol-associated liver disease, and liver cancer from alcohol among older adults in the United States: 2000 to 2021. Alcohol Clin Exp Res (Hoboken). 2025;49(2):368-378. PMID 39701596; PMCID PMC11828968; doi:10.1111/acer.15516. (validated: PubMed)
+- [Liang2026GBD] Liang X, Lyu Y, Li J, Yin C, Chi C. Global, Regional, and National Age-Sex-Specific Burden of Alcohol-Related Diseases, 1990-2021: A Comprehensive Analysis for the Global Burden of Disease Study 2021. J Stud Alcohol Drugs. 2026;87(4):642-654. PMID 41379091; doi:10.15288/jsad.25-00259. (validated: PubMed)
+- [Han2026NSDUH] Han B, Compton WM, Hobin JA, Volkow ND. Trends in the Prevalence and Severity of Alcohol and Cannabis Use Disorders Among US Adults. JAMA Psychiatry. 2026;83(10):1056-1061. PMID 42616541; PMCID PMC13491236; doi:10.1001/jamapsychiatry.2026.2497. (validated: PubMed)
+- [Shield2025] Shield K, Franklin A, Wettlaufer A, Sohi I, Bhulabhai M, Farkouh EK, et al. National, regional, and global statistics on alcohol consumption and associated burden of disease 2000-20: a modelling study and comparative risk assessment. Lancet Public Health. 2025;10(9):e751-e761. PMID 40883042; PMCID PMC12394792; doi:10.1016/S2468-2667(25)00174-4. (validated: PubMed)
+- [Shield2020] Shield K, Manthey J, Rylett M, Probst C, Wettlaufer A, Parry CDH, et al. National, regional, and global burdens of disease from 2000 to 2016 attributable to alcohol use: a comparative risk assessment study. Lancet Public Health. 2020;5(1):e51-e61. PMID 31910980; doi:10.1016/S2468-2667(19)30231-2. (validated: PubMed)
+- [Kranzler2018JAMA] Kranzler HR, Soyka M. Diagnosis and Pharmacotherapy of Alcohol Use Disorder: A Review. JAMA. 2018;320(8):815-824. PMID 30167705; PMCID PMC7391072; doi:10.1001/jama.2018.11406. (validated: PubMed)
+- [Corbin2014] Corbin WR, Zalewski S, Leeman RF, Toll BA, Fucito LM, O'Malley SS. In with the old and out with the new? A comparison of the old and new binge drinking standards. Alcohol Clin Exp Res. 2014;38(10):2657-63. PMID 25346506; PMCID PMC9328028; doi:10.1111/acer.12514. (validated: PubMed)
+- [Patrick2023HID] Patrick ME, Parks MJ, Peterson SJ. High-intensity drinking and hours spent drinking. Alcohol Clin Exp Res (Hoboken). 2023;47(11):2081-2089. PMID 38226758; PMCID PMC10792248; doi:10.1111/acer.15189. (validated: PubMed)
+- [Bensley2025] Bensley KMK, Karriker-Jaffe KJ, Delk J, Li L, Ye Y, Phillips AZ, et al. Receipt of Medications for Alcohol and Opioid Use Disorders: The Importance of Service Utilization Patterns. J Behav Health Serv Res. 2025;52(1):123-138. PMID 39638958; PMCID PMC12447625; doi:10.1007/s11414-024-09918-y. (validated: PubMed)
+- [USPSTF2018Alcohol] US Preventive Services Task Force; Curry SJ, Krist AH, Owens DK, Barry MJ, Caughey AB, Davidson KW, et al. Screening and Behavioral Counseling Interventions to Reduce Unhealthy Alcohol Use in Adolescents and Adults: US Preventive Services Task Force Recommendation Statement. JAMA. 2018;320(18):1899-1909. PMID 30422199; doi:10.1001/jama.2018.16789. (validated: PubMed)
+- [Schomerus2011] Schomerus G, Lucht M, Holzinger A, Matschinger H, Carta MG, Angermeyer MC. The stigma of alcohol dependence compared with other mental disorders: a review of population studies. Alcohol Alcohol. 2011;46(2):105-12. PMID 21169612; doi:10.1093/alcalc/agq089. (validated: PubMed)
+- [Kilian2021] Kilian C, Manthey J, Carr S, Hanschmidt F, Rehm J, Speerforck S, et al. Stigmatization of people with alcohol use disorders: An updated systematic review of population studies. Alcohol Clin Exp Res. 2021;45(5):899-911. PMID 33970504; doi:10.1111/acer.14598. (validated: PubMed)
+- [Kelly2017Recovery] Kelly JF, Bergman B, Hoeppner BB, Vilsaint C, White WL. Prevalence and pathways of recovery from drug and alcohol problems in the United States population: Implications for practice, research, and policy. Drug Alcohol Depend. 2017;181:162-169. PMID 29055821; PMCID PMC6076174; doi:10.1016/j.drugalcdep.2017.09.028. (validated: PubMed)
+- [APA2013] American Psychiatric Association. Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition (DSM-5). Arlington, VA: American Psychiatric Association; 2013. doi:10.1176/appi.books.9780890425596. (validated: Crossref)
+- [APA2022] American Psychiatric Association. Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition, Text Revision (DSM-5-TR). Washington, DC: American Psychiatric Association Publishing; 2022. doi:10.1176/appi.books.9780890425787. (validated: Crossref)
+- [FDA-DrugsFDA-AUD] US Food and Drug Administration. Drugs@FDA application records via openFDA (api.fda.gov/drug/drugsfda.json): Antabuse NDA007883 (original approval 1951-08-28); Revia NDA018932 (original 1984-11-20; efficacy supplement 10 approved 1994-12-30); Campral NDA021431 (original 2004-07-29); Vivitrol NDA021897 (original 2006-04-13; efficacy supplement 15 approved 2010-10-12). Accessed 2026-11-04. (validated: openFDA)
+
+## Provenance
+- Every PubMed record was checked with an E-utilities esummary batch call on 2026-11-04. Authors, title, journal, year, volume, pages, PMID, PMCID and DOI in the Sources lines are copied from that record. Numbers were read from efetch abstracts. Where marked in the access notes, they come from PMC full text read through pmc.ncbi.nlm.nih.gov.
+- APA2013 and APA2022 were confirmed on Crossref (DOIs 10.1176/appi.books.9780890425596, issued 2013-05-22, and 10.1176/appi.books.9780890425787, issued 2022-03-18). Their text matches the existing entries in other companions' sources.json.
+- FDA-DrugsFDA-AUD was confirmed on the openFDA drugsfda endpoint (application numbers NDA007883, NDA018932, NDA021431, NDA021897). The 1951 Antabuse date is the earliest submission listed in Drugs@FDA. Witkiewitz 2019 independently gives 1951.
+- Huss 1849 and Jellinek 1960 are sourced through secondary histories (Tabakoff 2013; Martin 2014; Kelly 2019). The original works are not indexed. The Kelly 2019 Jellinek essay has no abstract and was validated only as a record. Two 1851–1852 British and Foreign Medico-Chirurgical Review notices of a work titled "Chronic Alcoholism, or the Chronic Alcohol-Disease" exist in PubMed (PMIDs 30164036, 30164060). They do not name Huss on their PubMed or PMC pages, so they are not cited.
+- Hald & Jacobsen 1948 and Edwards & Gross 1976 have no PubMed abstracts. Their dates and content descriptions come from the records plus Tabakoff 2013 and Martin 2014.
+- Dropped for lack of a validated source:
+  - the ICD-11 code 6C40.2
+  - the ICD-11 effective date (January 2022)
+  - NIAAA weekly heavy-drinking limits
+  - a stand-alone 1920 Prohibition start date
+  - the UK 8 g unit as a specific statement
+  - WHO Global status report 2024 figures
+  - per-drink relative-risk percentages from GBD 2016 (not found in the accessible text)
+- No source is marked (unverified).

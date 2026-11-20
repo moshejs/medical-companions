@@ -1,0 +1,46 @@
+<!-- ================= 1.1 WHAT MS IS ================= -->
+<section class="mod" id="m-what" data-mod="what" hidden>
+<style>
+#m-what .wh-chips{display:flex;flex-direction:column;gap:6px}
+#m-what .wh-chip{display:grid;grid-template-columns:14px minmax(0,1fr);gap:10px;align-items:center;width:100%;text-align:left;padding:9px 12px;border-radius:10px;border:1px solid var(--line);background:var(--panel);cursor:pointer;font-size:14.5px;font-weight:700;line-height:1.25}
+#m-what .wh-chip:hover{border-color:var(--muted)}
+#m-what .wh-chip[aria-pressed="true"]{border-color:var(--attack);background:var(--attack-soft)}
+#m-what .wh-chip .dot{width:12px;height:12px;border-radius:50%;background:var(--attack);opacity:.85}
+#m-what .wh-chip[data-site="periph"] .dot{background:var(--muted)}
+#m-what .wh-chip small{display:block;font:500 11.5px var(--mono);color:var(--muted);margin-top:2px}
+#m-what .wh-body{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:12px;display:flex;flex-direction:column;gap:10px;min-width:0}
+#m-what .wh-body svg{width:100%;max-width:340px;height:auto;display:block;margin:0 auto}
+#m-what .wh-cnsnote{display:flex;flex-direction:column;gap:8px;font-size:15px}
+#m-what .wh-cnsnote h4{font-family:var(--display);font-weight:800;font-size:20px;margin:0;line-height:1.15}
+#m-what .wh-hl{transition:opacity .35s}
+#m-what .big{font-family:var(--display);font-weight:800;font-size:30px;line-height:1.05;color:var(--attack)}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 1 · The disease</p><h2>What MS is</h2>
+    <p class="lede">Multiple sclerosis is a long-term disease in which the immune system damages myelin, the insulation on nerve fibres in the brain, optic nerves and spinal cord. Step through the numbers, who gets it and where it strikes, then pick a symptom to see where it comes from.</p></div>
+
+  <div class="stepper" id="whSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="whSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="Four animated scenes: worldwide counts and prevalence by region, the sex ratio and age at diagnosis, the latitude gradient with Israel as an example, and the first-attack sites lighting up on an outline of the central nervous system"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="whPlay">Play</button><label class="stage-cap tl" for="whT">Timeline <input type="range" id="whT" min="0" max="1" step="0.002" value="0.2"></label></div>
+      <p class="stage-cap">Bars use published figures. The latitude bars are schematic: they show the direction and steepness of the gradient, not values for any place.</p>
+    </div>
+    <aside class="note" id="whNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Symptoms and where they come from</h3>
+  <div class="prose"><p>MS can affect any part of the central nervous system, so what a person notices depends on where the lesions are. Pick a symptom, or hover over one, to light the part it usually comes from. These are typical links, not a way to tell what is causing anyone's symptoms.</p></div>
+  <div class="split2">
+    <div class="wh-chips" id="whChips" role="group" aria-label="Symptoms"></div>
+    <div class="wh-body">
+      <svg id="whCns" viewBox="0 0 320 370" role="img" aria-label="Side view of the head and spine showing the brain, cerebellum, brainstem, optic nerve and spinal cord, with the part linked to the selected symptom highlighted"></svg>
+      <div class="wh-cnsnote" id="whCnsNote" aria-live="polite"></div>
+    </div>
+  </div>
+  <div class="hook"><b>Exam hook</b>MS is a disease of the <b>central</b> nervous system. CNS myelin is made by oligodendrocytes, peripheral myelin by Schwann cells, and the peripheral nerves are not the MS target. [[Kister2022]] Typical patient: a young adult woman; mean age at diagnosis 32, female to male about 2–3 : 1. [[Walton2020,Wallin2019]]</div>
+  <div class="pt"><b>In plain words</b>MS is when the body's defence system damages the insulation on the nerve wires of the brain, eyes and spinal cord. Messages along those wires slow down or stop, and what a person feels depends on which wires are hit. It is not contagious.</div>
+
+  <h3 class="sub">Key facts</h3>
+  <div class="cards" id="whCards"></div>
+  <p class="callout">To watch what happens to one nerve fibre when its myelin is stripped, open <a href="#myelin" data-go="myelin">Myelin &amp; demyelination, animated</a>.</p>
+</section>

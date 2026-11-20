@@ -1,0 +1,9 @@
+{
+ "_note": "Validated corrections applied by compile_sources.py after merging the research passes.",
+ "WHO-GTR2025": {
+  "text": "World Health Organization. Global tuberculosis report 2025. Geneva: World Health Organization; 2025. ISBN 9789240116924 (electronic version). WHO IRIS hdl:10665/383364. 2024 data; web chapters read on who.int. (validated: WHO IRIS)",
+  "link": "https://iris.who.int/handle/10665/383364",
+  "validated": "WHO IRIS",
+  "verified": true
+ }
+}

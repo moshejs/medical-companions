@@ -1,0 +1,84 @@
+<!-- ================= 3.5 SIDE EFFECTS, SAFETY & MISUSE ================= -->
+<style>
+#m-safety .sfpick{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:flex-end}
+#m-safety .sfpick label{display:flex;flex-direction:column;gap:5px;font-size:14px;font-weight:700;min-width:0;max-width:100%}
+#m-safety .sfpick select{font:inherit;font-weight:400;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink);max-width:100%;min-width:0}
+#m-safety .card>.ev,#m-safety .card>.tag{align-self:flex-start}
+#m-safety .sfsigns{columns:2;column-gap:18px}
+@media (max-width:600px){#m-safety .sfsigns{columns:1}}
+#m-safety .sfgo{align-self:flex-start}
+</style>
+<section class="mod" id="m-safety" data-mod="safety" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Medication</p><h2>Side effects, safety &amp; misuse</h2>
+    <p class="lede">Most side effects of ADHD medicines are mild and can be managed by changing the dose or the medicine. Scrub through the years on a stimulant to see what the evidence says about growth, weight, blood pressure and heart rate, then compare side-effect rates with placebo, and read how misuse and diversion are handled. [[Faraone2021]]</p></div>
+  <div class="stepper" id="sfSteps"></div>
+  <div class="ctrls" role="group" aria-label="What to show on the chart"><span class="kicker">Show</span>
+    <button class="btn" data-sfm="h" aria-pressed="true">Height</button>
+    <button class="btn" data-sfm="w" aria-pressed="false">Weight</button>
+    <button class="btn" data-sfm="v" aria-pressed="false">Blood pressure &amp; heart rate</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="sfSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Years on a stimulant, from the first dose to adulthood. In height and weight views, a dashed expected growth curve and a teal on-medicine curve run side by side on the left, almost overlapping, while the right-hand chart magnifies the gap between them, with published points from the label, the PATS preschool study and the MTA follow-up. In the blood pressure and heart rate view, bars show the mean changes reported in labels, guidelines and a network meta-analysis, and a step chart shows cardiovascular odds rising slightly with cumulative years of use."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="sfPlay">Play</button><label class="stage-cap tl" for="sfT">Years on a stimulant <input type="range" id="sfT" min="0" max="1" step="0.001" value="0.1875"></label></div>
+      <div class="readout" id="sfRead"></div>
+      <p class="stage-cap" id="sfCap"></p>
+    </div>
+    <aside class="note" id="sfNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Side effects per 100 people: medicine versus placebo</h3>
+  <p class="prose">Label tables report how many people had each side effect on the medicine and on placebo in the same trials. Some people on placebo report headaches or stomach aches too, so the useful number is the difference. Pick a medicine and a side effect. These are trial percentages for groups, not a forecast for one person.</p>
+  <div class="lab">
+    <div class="stage">
+      <div class="sfpick">
+        <label for="sfMed">Medicine and trial population
+          <select id="sfMed"></select></label>
+      </div>
+      <div class="ctrls" id="sfAeBtns" role="group" aria-label="Side effect"></div>
+      <div class="scroll"><svg id="sfAeSvg" viewBox="0 0 720 290" style="min-width:560px" role="img" aria-label="Two grids of 100 person icons. The left grid shows how many people on placebo reported the chosen side effect; the right grid shows how many on the medicine reported it, with the extra people above the placebo rate in coral."></svg></div>
+      <p class="stage-cap" id="sfAeCap"></p>
+    </div>
+    <aside class="note" id="sfAeNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The heart, mood, tics and seizures</h3>
+  <div class="cards">
+    <div class="card"><span class="tag rx">Cardiovascular events</span><h4>Serious events are rare, and short-term use has not raised them</h4>
+      <p>In 1.2 million children and young adults aged 2 to 24, serious cardiovascular events occurred at 3.1 per 100,000 person-years, and current use did not raise the risk (adjusted HR 0.75, 95% CI 0.31–1.85), though a doubling could not be ruled out. [[Cooper2011]] In 443,198 adults aged 25 to 64, current use was not linked to more heart attacks, sudden cardiac death or stroke compared with remote use (RR 1.03). [[Habel2011]] A meta-analysis of 19 observational studies (3.9 million people) found no significant link, though a modest rise in arrhythmia or cardiac arrest "could not be ruled out". [[Zhang2022JNO]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Duration may matter</h4>
+      <p>A Swedish case-control study of 278,027 people with ADHD found cardiovascular risk rising by about 4% for each extra year of use (AOR 1.04), mostly hypertension (AOR 1.80 after more than 5 years). [[Zhang2024JAMAPsych]] In the 6 months after starting methylphenidate, events were 1.51 per 10,000 person-weeks, with "little evidence for an increased risk of 20% or higher". [[GarciaArgibay2024]] The authors of a 2025 network meta-analysis advise monitoring "any pharmacological intervention, and not stimulants only". [[Farhat2025CV]] These are population statistics.</p></div>
+    <div class="card"><span class="tag dz">Psychosis &amp; mania</span><h4>Amphetamine carries a higher signal than methylphenidate</h4>
+      <p>Among 221,846 people aged 13 to 25 starting a stimulant, new psychosis occurred in about 1 in 660: 0.10% on methylphenidate and 0.21% on amphetamine (HR 1.65, 95% CI 1.31–2.09). [[Moran2019NEJM]] In people aged 16 to 35, past-month prescription amphetamine was linked to psychosis or mania (aOR 2.68), rising to 5.28 above 30 mg dextroamphetamine equivalents; methylphenidate was not (aOR 0.91). [[Moran2024AJP]] In Hong Kong, psychotic events were not more frequent during methylphenidate exposure (IRR 1.02) but were higher before the first prescription (IRR 4.64). [[Man2016Psychosis]] These are observational studies.</p></div>
+    <div class="card"><span class="tag dz">Suicidality</span><h4>Boxed warnings on two non-stimulants</h4>
+      <p>Atomoxetine's label carries a boxed warning for suicidal thoughts and behaviours in children 6 and older: suicidal ideation in 0.4% (5/1,357) versus 0% (0/851) on placebo in short-term trials. [[FDA-Strattera]] Viloxazine's boxed warning reports 0.9% versus 0.4% in children. [[FDA-Qelbree]] For methylphenidate, suicide attempts were most frequent in the 90 days before treatment (IRR 6.55) and back to baseline during ongoing treatment, which does "not support a causal association". [[Man2017Suicide]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Tics: no more common than on placebo</h4>
+      <p>In 22 randomised trials (2,385 children), new or worsening tics occurred in 5.7% on stimulants and 6.5% on placebo (RR 0.99, 0.78–1.27). [[Cohen2015Tics]] Labels still ask prescribers to check for a personal or family history of tics or Tourette's syndrome before starting. [[FDA-Concerta]]</p></div>
+    <div class="card"><span class="tag good">Seizures</span><h4>Fewer seizures during medicated months</h4>
+      <p>In 801,838 patients, months on ADHD medication carried lower odds of seizures with a prior seizure history (OR 0.71) and without one (OR 0.71). [[Wiggs2018]] In 21,557 Swedes with a seizure history, medicated periods had fewer acute seizures (HR 0.73), and the authors conclude "epilepsy should not automatically preclude" medication. [[Brikell2019]]</p></div>
+    <div class="card"><span class="tag warn">Sleep</span><h4>Falling asleep takes longer</h4>
+      <p>In a meta-analysis of objective sleep measures (9 studies, 246 children), stimulants lengthened sleep latency (effect size 0.54) and shortened total sleep (−0.59); the effect was smaller with longer time on medication. [[Kidwell2015]] The Vyvanse and Adderall XR labels say afternoon doses should be avoided because of insomnia. [[FDA-Vyvanse,FDA-AdderallXR]]</p></div>
+    <div class="card"><span class="tag warn">Rarer warnings</span><h4>Circulation and priapism</h4>
+      <p>Stimulant labels warn about peripheral vasculopathy, including Raynaud's phenomenon, and about priapism, which with methylphenidate often followed a dose increase and has also occurred during withdrawal. Sustained or painful erections need immediate medical help. [[FDA-Concerta]]</p></div>
+  </div>
+
+  <h3 class="sub">Misuse, diversion and the law</h3>
+  <p class="prose">Prescribed as labelled, stimulants treat ADHD. Taken by someone else, in larger amounts or by another route, they carry real risk. The facts below are stated as the labels and studies report them.</p>
+  <div class="cards">
+    <div class="card"><span class="tag bad">Boxed warning</span><h4>Abuse, misuse and addiction</h4>
+      <p>After a class-wide update, every stimulant label carries the same boxed warning: the drug "has a high potential for abuse and misuse, which can lead to the development of a substance use disorder, including addiction". Misuse "can result in overdose and death", and the risk "is increased with a higher dosage or unapproved methods of administration, such as snorting or injection". [[FDA-Concerta,FDA-Vyvanse,FDA-AdderallXR,FDA-Focalin,FDA-Zenzedi,FDA-Azstarys]]</p>
+      <p>Prescribers are told to assess each person's risk before prescribing, teach safe storage and disposal, and reassess throughout treatment. [[FDA-Concerta,FDA-Vyvanse]]</p></div>
+    <div class="card"><span class="tag">Schedule II</span><h4>Controlled drugs</h4>
+      <p>Methylphenidate and lisdexamfetamine are Schedule II controlled substances in the US, and so is amphetamine. [[FDA-Concerta,FDA-Vyvanse,FDA-AdderallXR]] Atomoxetine and guanfacine ER are not controlled; the guanfacine ER label says it "has no known potential for abuse or dependence". [[FDA-Strattera,FDA-Intuniv]] Labels advise storing stimulants "in a safe place, preferably locked" and not giving them to anyone else. [[FDA-Concerta,FDA-Vyvanse]]</p></div>
+    <div class="card"><span class="tag accent">How common</span><h4>Non-medical use and diversion</h4>
+      <p>A meta-analysis estimated that 17% of college students (95% CI 13–23%) misuse stimulant medication, mostly for academic reasons, usually from peers with prescriptions. [[Benson2015]] Among US adults, 6.6% used prescription stimulants in a year, 1.9% misused them without a use disorder and 0.2% had a use disorder; the commonest motive was "to help be alert or concentrate". [[Compton2018]] 16% to 29% of students with prescriptions had been asked to give, sell or trade them. [[Wilens2008]]</p></div>
+    <div class="card"><span class="tag accent">Does it work?</span><h4>Grades without ADHD</h4>
+      <p>A review of 111 studies found "little evidence that academic performance is improved" by non-medical use in people without ADHD. Most non-medical use was oral with no or minor effects, but serious outcomes including death occurred, "particularly when administered by non-oral routes". [[Faraone2020NMU]]</p></div>
+    <div class="card"><span class="tag bad">Overdose &amp; misuse signs</span><h4>What the label lists</h4>
+      <ul class="sfsigns"><li>Raised heart rate, breathing rate or blood pressure</li><li>Sweating</li><li>Dilated pupils</li><li>Hyperactivity, restlessness</li><li>Insomnia, poor appetite</li><li>Tremor, loss of coordination</li><li>Anxiety, hostility, aggression</li><li>Psychosis</li></ul>
+      <p>Signs of stimulant misuse or abuse as listed in the label. [[FDA-Concerta]] Treatment itself is linked to less substance misuse: in a Swedish target trial emulation, 58.7 versus 69.1 per 1,000 person-years (IRR 0.85). [[Zhang2025BMJ]]</p></div>
+    <div class="card"><span class="tag rx">Monitoring</span><h4>Put it into practice</h4>
+      <p>Height, weight, blood pressure and heart rate at baseline and on a schedule, plus questions about sleep, appetite, mood and misuse risk. The full NICE checklist and a chart you can plot are in Nursing care. [[NICE2018F]]</p>
+      <button class="btn sfgo" data-go="nursing">Open the monitoring checklist (5.3)</button></div>
+  </div>
+</section>

@@ -1,0 +1,110 @@
+{
+ "home": {
+  "title": "Stroke explained: an animated, cited guide to stroke",
+  "description": "Stroke in animations: blocked or burst arteries, core and penumbra, BE-FAST, NIHSS, thrombolysis, thrombectomy, prevention and recovery. Every claim cited."
+ },
+ "what": {
+  "title": "What is a stroke? Ischaemic and haemorrhagic stroke explained",
+  "description": "Blocked or burst: an animated guide to ischaemic and haemorrhagic stroke, how common stroke is, lifetime risk, survival, disability and recurrence."
+ },
+ "vessels": {
+  "title": "Brain blood supply: circle of Willis, arterial territories, syndromes",
+  "description": "Click an artery to see its territory and deficits: ACA, MCA, PCA, basilar and lacunar syndromes, the circle of Willis, collaterals and how often it varies."
+ },
+ "cascade": {
+  "title": "Core and penumbra: time is brain, CBF thresholds, ischaemic cascade",
+  "description": "Scrub the ischaemic core and penumbra against the clock: 1.9 million neurons a minute, blood-flow thresholds, collaterals, the cascade and reperfusion."
+ },
+ "causes": {
+  "title": "Causes of ischaemic stroke: TOAST, AF, ESUS, stroke in the young",
+  "description": "Follow a clot from the heart, a carotid plaque or a small vessel. TOAST subtype shares, ESUS, AF monitoring trials, dissection, PFO and rare causes."
+ },
+ "bleeds": {
+  "title": "Bleeding strokes: ICH, subarachnoid haemorrhage, Ottawa rule, CAA",
+  "description": "How intracerebral and subarachnoid haemorrhage unfold, animated: haematoma growth, thunderclap headache, the Ottawa rule, 6-hour CT and Boston criteria."
+ },
+ "tia": {
+  "title": "TIA (mini stroke): definition, ABCD2 score and early stroke risk",
+  "description": "How a TIA is defined by tissue, not time. An ABCD2 teaching calculator and its limits, stroke risk over 2, 7 and 90 days, EXPRESS, SOS-TIA and mimics."
+ },
+ "signs": {
+  "title": "Recognising stroke: FAST, BE-FAST, mimics and missed strokes",
+  "description": "Animated BE-FAST signs, a sensitivity and specificity explorer for stroke scales, mimics, chameleons, missed strokes and mobile stroke units. Cited."
+ },
+ "imaging": {
+  "title": "Stroke imaging: CT, ASPECTS, CTA, perfusion and door-to-needle",
+  "description": "Scrub the stroke pathway from door to needle or groin, score ASPECTS, test core and penumbra against DAWN and DEFUSE 3, and see DWI-FLAIR mismatch."
+ },
+ "nihss": {
+  "title": "NIH Stroke Scale calculator and modified Rankin Scale explained",
+  "description": "Try every NIHSS item with teaching notes, see the total and severity bands, the left hemisphere and posterior biases, and the mRS. A teaching tool. Cited."
+ },
+ "lysis": {
+  "title": "Thrombolysis for stroke: alteplase vs tenecteplase, animated",
+  "description": "How clot-dissolving drugs work, what delay does to benefit, bleeding risk, tenecteplase trials and late-window evidence, animated and cited."
+ },
+ "evt": {
+  "title": "Thrombectomy for stroke: stent retriever, HERMES, late-window trials",
+  "description": "Watch a stent retriever remove a clot, then explore HERMES, DAWN, DEFUSE 3, large-core, basilar and medium-vessel trials and the cost of delay."
+ },
+ "ich": {
+  "title": "Treating intracerebral haemorrhage: ICH score, BP, reversal, surgery",
+  "description": "ICH care, animated: the ICH score as a teaching calculator, blood pressure trials, reversal, the INTERACT3 bundle, surgery trials and restarting."
+ },
+ "sah": {
+  "title": "Subarachnoid haemorrhage care: day 0 to 21, coil or clip, nimodipine",
+  "description": "Scrub day 0 to 21 after subarachnoid haemorrhage: rebleeding, hydrocephalus, DCI on days 4 to 14. Coil versus clip, ISAT, nimodipine, long-term issues."
+ },
+ "unit": {
+  "title": "Stroke unit care: FeSS, complications and craniectomy explained",
+  "description": "Why stroke units save lives, first-week complications, the QASC FeSS bundle, malignant MCA infarct and craniectomy, and AVERT early mobilisation. Cited."
+ },
+ "prevent": {
+  "title": "Stroke prevention: INTERSTROKE, blood pressure, statins, smoking",
+  "description": "Which risk factors drive stroke? Explore INTERSTROKE, blood pressure and lipid trials, diabetes, smoking, diet and salt substitutes, with citations."
+ },
+ "af": {
+  "title": "AF and stroke: CHA2DS2-VASc, DOAC timing, dual antiplatelets, LAAO",
+  "description": "How atrial fibrillation causes stroke, a CHA2DS2-VASc teaching tool, DOACs and their timing, the dual antiplatelet window and appendage closure trials."
+ },
+ "carotid": {
+  "title": "Carotid stenosis and PFO: NASCET, surgery, CREST-2, RoPE, PASCAL",
+  "description": "Measure carotid stenosis the NASCET way, see surgery benefit by stenosis and timing, asymptomatic trials and CREST-2, and PFO closure with RoPE and PASCAL."
+ },
+ "rehab": {
+  "title": "Stroke rehabilitation & recovery: the curve, arm, walking, aphasia",
+  "description": "How recovery unfolds after stroke: the Copenhagen curve, plasticity, the proportional recovery debate, arm, walking, aphasia and the 2026 guideline."
+ },
+ "after": {
+  "title": "Life after stroke: fatigue, mood, cognition, work and driving",
+  "description": "The invisible effects of stroke over time, plus work, driving rules, sex and relationships, carers, younger people, pregnancy and long-term needs. Cited."
+ },
+ "nursing": {
+  "title": "Stroke nursing care: the first 72 hours, swallow screen, neuro obs",
+  "description": "Stroke nursing: the first 72 hours, swallow screen first, post-thrombolysis observations, GCS and NIHSS, bladder, skin, falls and aphasia. Cited."
+ },
+ "frontier": {
+  "title": "Stroke research frontier: factor XI, neuroprotection, VNS, ICH",
+  "description": "Stroke research with evidence labels: factor XI inhibitors, OCEANIC-STROKE, nerinetide, remote conditioning, vagus nerve stimulation, cell therapy, FASTEST."
+ },
+ "history": {
+  "title": "History of stroke: from apoplexy to thrombectomy and beyond",
+  "description": "A scrubbable timeline of stroke: apoplexy, Wepfer, Willis, Virchow, Moniz, CT, the penumbra, t-PA, the 2015 thrombectomy wave and the 2026 guidelines."
+ },
+ "review": {
+  "title": "Stroke flashcards and mnemonics: 109 cited cards, BE-FAST, ABCD2",
+  "description": "Flip-card review of stroke: vessels, TIA, NIHSS, alteplase, thrombectomy, ICH, SAH, prevention and rehabilitation, each cited, with an animated ABCD2."
+ },
+ "quiz": {
+  "title": "Stroke quiz: 100 questions with cited explanations",
+  "description": "Test yourself on stroke: territories, TIA, imaging, NIHSS, thrombolysis, thrombectomy, bleeds, stroke units, prevention and rehabilitation, with sources."
+ },
+ "glossary": {
+  "title": "Stroke glossary: penumbra, ASPECTS, NIHSS, tenecteplase and more",
+  "description": "Searchable stroke glossary: circle of Willis, penumbra, ASPECTS, NIHSS, mRS, mTICI, FeSS, CHA2DS2-VASc, PFO and aphasia, each cited, linked to its module."
+ },
+ "sources": {
+  "title": "Stroke sources: every cited reference, searchable",
+  "description": "All references behind the Stroke Companion: trials, meta-analyses, reviews, AHA/ASA, ESO and NICE guidance and US drug labels, with PubMed and DOI links."
+ }
+}

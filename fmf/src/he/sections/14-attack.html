@@ -1,0 +1,25 @@
+<!-- ================= 1.4 ATTACK ================= -->
+<section class="mod" id="m-attack" data-mod="attack" hidden>
+  <div class="mhead"><p class="eyebrow">חלק 1 · המחלה</p><h2>התקף, שעה אחר שעה</h2>
+    <p class="lede">התקף FMF טיפוסי נמשך 12 עד 72 שעות ואז חולף מעצמו. בחרו היכן הוא פוגע, ואז הזיזו את המחוון לאורך ההתקף. סצנת הרקמה וארבע העקומות זזות יחד.</p></div>
+  <div class="ctrls" id="atSites" role="group" aria-label="מיקום"></div>
+  <div class="ctrls" id="atVars" role="group" aria-label="סוג ההתקף"></div>
+  <div class="stepper" id="atSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="atSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="הנפשה של התקף עם עקומות של חום, כאב, CRP ו־SAA"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="atPlay">הפעלה</button><label class="stage-cap tl" for="atT"><span id="atUnit">שעות</span> <input type="range" id="atT" min="0" max="1" step="0.002" value="0.02"></label></div>
+      <div class="readout" id="atRead"></div>
+      <p class="stage-cap"><b>להמחשה.</b> אין מחקר שפורסם שנותן עקומת חום או כאב שעה אחר שעה. הצורות מבוססות על תיאורים שפורסמו (הופעה בתוך שעות, חלוף בתוך 12–72 h, חציוני SAA/CRP בזמן התקף ובין התקפים). התקפים של אנשים שונים משתנים.</p>
+    </div>
+    <aside class="note" id="atNote" aria-live="polite"></aside>
+  </div>
+  <h3 class="sub">דפוסי התקפים לאורך השנים</h3>
+  <p class="prose" id="atYearsTxt"></p>
+  <div class="stage">
+    <div class="ctrls" id="atFreq" role="group" aria-label="דפוס"></div>
+    <div class="scroll"><svg id="atYears" viewBox="0 0 720 230" style="min-width:560px" role="img" aria-label="התקפים לאורך חמש שנים"></svg></div>
+    <div class="ctrls"><button class="btn primary" id="ayPlay">הפעלה</button><label class="stage-cap tl" for="ayT">שנים <input type="range" id="ayT" min="0" max="1" step="0.002" value="1"></label><button class="btn" id="ayCol" aria-pressed="false">התחלת קולכיצין בשנה 2</button></div>
+    <p class="stage-cap" id="ayCap"></p>
+  </div>
+</section>

@@ -1,0 +1,85 @@
+<!-- ================= 3.2 MEASURING SCARRING WITHOUT A BIOPSY ================= -->
+<style>
+#m-noninvasive .niwarn{border:1px solid var(--line);border-left:4px solid var(--bile);background:var(--gold-soft);border-radius:10px;padding:10px 14px;font-size:14.5px;max-width:78ch}
+#m-noninvasive .niwarn b:first-child{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--warn);display:block;margin-bottom:2px}
+#m-noninvasive .nirow{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:flex-end}
+#m-noninvasive .nirow label{display:flex;flex-direction:column;gap:5px;font-size:14px;font-weight:700;min-width:0;flex:1 1 180px}
+#m-noninvasive .nirow select{font:inherit;font-weight:400;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink);max-width:100%}
+#m-noninvasive .niform{font:600 14px/1.5 var(--mono);overflow-wrap:anywhere}
+#m-noninvasive td.num{font-family:var(--mono);white-space:nowrap}
+#m-noninvasive .card>.tag,#m-noninvasive .card>.ev{align-self:flex-start}
+</style>
+<section class="mod" id="m-noninvasive" data-mod="noninvasive" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Diagnosis &amp; staging</p><h2>Measuring scarring without a biopsy</h2>
+    <p class="lede">A free blood-test score first, a liver-stiffness scan next, and a specialist when the risk stays up. Follow people through the pathway, then try the FIB-4 and elastography explainers.</p></div>
+  <div class="stepper" id="niSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="niSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A pathway diagram. The FIB-4 formula, age times AST divided by platelets times the square root of ALT, fills in with an example person's numbers. Dots representing people then flow into low, intermediate and high FIB-4 boxes. Those above the low band move on to a FibroScan, drawn as a probe sending pulses into the liver beside a dial marked at 10, 15, 20 and 25 kilopascals, the Baveno VII rule of five. Finally the dots settle into a primary-care box or a specialist-referral box, and a bar shows that about 1 in 5 stiffness measurements fail or are unreliable."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="niPlay">Play</button><label class="stage-cap tl" for="niT">Pathway <input type="range" id="niT" min="0" max="1" step="0.001" value="0.15"></label></div>
+      <div class="readout" id="niRead"></div>
+      <p class="stage-cap">Schematic: the dots show the route people take, not the proportions in any study. Cut-offs as published. [[Rinella2023AASLD,Shah2009FIB4,deFranchis2022BavenoVII]]</p>
+    </div>
+    <aside class="note" id="niNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Try it: a teaching FIB-4 calculator</h3>
+  <p class="niwarn"><b>A teaching tool, not a diagnosis</b>FIB-4 estimates the chance of advanced scarring in groups of people. It cannot diagnose or rule out cirrhosis in one person, and it must not be used to make decisions about your care. Discuss any result with your care team, who will interpret it with your history, examination and scans.</p>
+  <div class="lab">
+    <div class="stage">
+      <div class="calc">
+        <label for="niAge">Age (years)<input type="number" id="niAge" min="1" max="110" step="1" value="58" inputmode="numeric"></label>
+        <label for="niAst">AST (U/L)<input type="number" id="niAst" min="1" max="5000" step="1" value="45" inputmode="numeric"></label>
+        <label for="niAlt">ALT (U/L)<input type="number" id="niAlt" min="1" max="5000" step="1" value="38" inputmode="numeric"></label>
+        <label for="niPlt">Platelets (×10⁹/L)<input type="number" id="niPlt" min="1" max="1500" step="1" value="180" inputmode="numeric"></label>
+      </div>
+      <div class="nirow"><label for="niSet">Cut-offs to compare against
+        <select id="niSet">
+          <option value="nafld">Fatty liver (Shah 2009; AASLD 2023): 1.3 and 2.67</option>
+          <option value="age65">Age 65 or over (McPherson 2017): 2.0</option>
+          <option value="orig">Original HIV/HCV study (Sterling 2006): 1.45 and 3.25</option>
+          <option value="cirr">Cirrhosis specifically (AASLD 2023): 1.67 and 3.48</option>
+        </select></label></div>
+      <div class="scroll"><svg id="niFibSvg" viewBox="0 0 720 120" style="min-width:560px" role="img" aria-label="A FIB-4 number line from 0 to 5 with the chosen published cut-offs shaded as bands and a marker at the calculated value."></svg></div>
+      <div class="ctrls"><button class="btn ghost" id="niReset">Reset example</button></div>
+    </div>
+    <aside class="note" id="niFibNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Reading a FibroScan result: the kPa bands</h3>
+  <p class="niwarn"><b>A teaching tool, not a diagnosis</b>Liver stiffness readings depend on the method, the cause of liver disease, recent meals and the quality of the scan: VCTE and MR elastography both report kPa but on different scales, a high reading is repeated while fasting, and nearly 1 in 5 readings cannot be interpreted. The bands below are quoted from Baveno VII and AASLD as published; a specialist interprets a real result. [[Rinella2023AASLD,deFranchis2022BavenoVII,Castera2010Pitfalls,Pavlov2016ALD]]</p>
+  <div class="lab">
+    <div class="stage">
+      <div class="nirow">
+        <label for="niKpa">Liver stiffness (kPa): <output id="niKpaOut">12.0</output><input type="range" id="niKpa" min="2" max="40" step="0.5" value="12"></label>
+        <label for="niKPlt">Platelet count
+          <select id="niKPlt"><option value="hi">150 ×10⁹/L or more</option><option value="lo">Below 150 ×10⁹/L</option></select></label>
+        <label for="niKCause">Cause of liver disease
+          <select id="niKCause"><option value="va">Viral or alcohol-related</option><option value="nob">MASH (NASH), not obese</option><option value="ob">MASH (NASH), with obesity</option></select></label>
+      </div>
+      <div class="scroll"><svg id="niKSvg" viewBox="0 0 720 150" style="min-width:560px" role="img" aria-label="Two kPa rulers from 2 to 40: the upper one shaded with the Baveno VII bands at 10, 15, 20 and 25 kPa, the lower one with the AASLD 2023 fatty liver bands at 8 and 12 kPa, with a marker at the chosen stiffness."></svg></div>
+    </div>
+    <aside class="note" id="niKNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The tests compared</h3>
+  <p class="prose">AUROC (area under the ROC curve) summarises how well a test separates people with and without a given stage of scarring: higher is better. Numbers from different populations and stages are not directly comparable, and one elastography meta-analysis cautioned that stage cut-offs varied widely and had not been validated. [[Tsochatzis2011TE]]</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Test</th><th>What it uses</th><th>Published accuracy</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td><b>FIB-4</b></td><td>Age, AST, ALT, platelets</td><td>AUROC 0.765 (derivation, HIV/HCV); 0.802 for advanced fibrosis in 541 adults with NAFLD; 0.76 in an individual-patient meta-analysis (NAFLD) [[Sterling2006FIB4,Shah2009FIB4,Mozes2022IPD]]</td><td>Poor at age ≤35 (AUROC 0.60); specificity falls to 35% at ≥65 [[McPherson2017Age]]</td></tr>
+      <tr><td><b>APRI</b></td><td>AST and platelets</td><td>Validation AUROCs 0.88 (significant fibrosis) and 0.94 (cirrhosis) in hepatitis C; meta-analysis 0.77, 0.80 and 0.83; at 1.0, 76% sensitive and 72% specific for cirrhosis [[Wai2003APRI,Lin2011APRI]]</td><td>Less accurate in HIV/HCV coinfection [[Lin2011APRI]]</td></tr>
+      <tr><td><b>ELF</b></td><td>Hyaluronic acid, TIMP-1, PIIINP (proprietary)</td><td>AUROC 0.804 in the original 1021-patient cohort; in NAFLD, &gt;0.90 sensitivity to exclude fibrosis at 7.7 [[Rosenberg2004ELF,Vali2020ELF]]</td><td>AASLD: ELF ≥9.8 marks increased risk of progression; ≥11.3 predicts liver-related events [[Rinella2023AASLD]]</td></tr>
+      <tr><td><b>VCTE (FibroScan)</b></td><td>Liver stiffness, kPa</td><td>Mean AUROC 0.94 for cirrhosis across 50 studies; 0.85 for advanced fibrosis in NAFLD [[FriedrichRust2008TE,Mozes2022IPD]]</td><td>3.1% failed and 15.8% unreliable in 13,369 exams [[Castera2010Pitfalls]]</td></tr>
+      <tr><td><b>MR elastography</b></td><td>Stiffness by MRI, kPa (a different scale)</td><td>AUROCs 0.88, 0.93 and 0.92 for significant fibrosis, advanced fibrosis and cirrhosis; failed in 4.3% [[Singh2015MRE]]</td><td>AASLD: MRE ≥5 kPa suggests cirrhosis [[Rinella2023AASLD]]</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">Worth knowing</h3>
+  <div class="cards">
+    <div class="card"><span class="tag dx">Names</span><h4>NAFLD is now MASLD</h4><p>In 2023 NAFLD became metabolic dysfunction-associated steatotic liver disease (MASLD): steatosis plus at least 1 of 5 cardiometabolic risk factors. Many studies on this page use the older "NAFLD/NASH" names. [[Rinella2023MASLD]]</p></div>
+    <div class="card"><span class="tag dx">Not only fatty liver</span><h4>Cut-offs depend on the cause</h4><p>For alcohol-related liver disease a cut-off of about 12.5 kPa was suggested, with caution; in NAFLD a 13.6 kPa cut-off was found for cirrhosis. Baveno VII's rule of five is cause-agnostic and is used for prognosis. [[Pavlov2016ALD,Eddowes2019FibroScan,deFranchis2022BavenoVII]]</p></div>
+    <div class="card"><span class="tag dx">Two steps</span><h4>Sequencing reduces biopsies, not to zero</h4><p>FIB-4 (&lt;1.3; ≥2.67) followed by VCTE (&lt;8.0; ≥10.0 kPa) gave 66% sensitivity and 86% specificity for advanced fibrosis, with 33% still needing a biopsy. [[Mozes2022IPD]]</p></div>
+    <div class="card"><span class="tag dx">Over time</span><h4>Stiffness can fall</h4><p>Baveno VII counts a fall of 20% or more to below 20 kPa, or any fall to below 10 kPa, as a clinically meaningful decrease linked with lower risk. <button class="btn ghost" data-go="fibrosis">Can scar regress? →</button> [[deFranchis2022BavenoVII]]</p></div>
+  </div>
+  <p class="callout">Before this: <button class="btn ghost" data-go="tests">Blood tests, scans &amp; biopsy</button> · Next: <button class="btn ghost" data-go="scores">Child–Pugh &amp; MELD scores</button> · Portal pressure: <button class="btn ghost" data-go="portal">Portal hypertension &amp; varices</button></p>
+</section>

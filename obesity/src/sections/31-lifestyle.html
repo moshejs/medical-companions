@@ -1,0 +1,75 @@
+<!-- ================= 3.1 DIET, ACTIVITY & BEHAVIOUR ================= -->
+<style>
+#m-lifestyle .lf-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-lifestyle .lf-row .btn{min-height:40px}
+#m-lifestyle .lf-read{display:flex;flex-direction:column;gap:6px;font-size:14.5px}
+#m-lifestyle .lf-read p{display:flex;gap:8px;align-items:baseline;margin:0}
+#m-lifestyle .lf-read i{flex:none;display:inline-block;width:18px;height:0;border-top:3px solid var(--muted);transform:translateY(-3px)}
+#m-lifestyle .card .lf-num{font-family:var(--display);font-weight:700;font-size:30px;line-height:1;color:var(--tx)}
+#m-lifestyle .lf-dn{display:flex;flex-direction:column;gap:10px}
+#m-lifestyle .lf-dn h4{font-family:var(--display);font-weight:700;font-size:21px;line-height:1.15;margin:0}
+#m-lifestyle .lf-dn p{margin:0}
+</style>
+<section class="mod" id="m-lifestyle" data-mod="lifestyle" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Treatment</p><h2>Diet, activity &amp; behaviour</h2>
+    <p class="lede">A comprehensive lifestyle intervention has three parts: a moderately reduced-calorie diet, more physical activity, and behavioural strategies to help people stick to both. [[Jensen2014Guideline]] Here is what the big trials found, as group averages over months and years.</p></div>
+  <p class="edcare" role="note"><b>If eating or weight is distressing</b>If eating or weight causes distress, or someone restricts, binges, purges or exercises compulsively, talk to a clinician or an eating-disorder service before changing how they eat. Some diet trials excluded people with eating disorders, so their results may not apply.</p>
+  <p class="teach" role="note"><b>Numbers, not instructions</b>Calorie levels, session counts and activity minutes on this page are quoted as the trials and guidelines published them; they are not targets for anyone. Weight changes are trial averages: individual results vary widely and cannot be predicted. [[Jensen2014Guideline]]</p>
+
+  <div class="stepper" id="lfSteps"></div>
+  <div class="lf-row" id="lfChips" role="group" aria-label="Trial shown"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="lfSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Weight change over up to 15 years in lifestyle trials, one trial at a time: DIETFITS, POUNDS LOST, Look AHEAD, DiRECT, DROPLET, the National Weight Control Registry, and diabetes risk reduction in the Diabetes Prevention Program"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="lfPlay">%t:player.play%</button><label class="stage-cap tl" for="lfT">Years since the programme began <input type="range" id="lfT" min="0" max="1" step="0.001" value="0.05"></label></div>
+      <div class="lf-read" id="lfRead"></div>
+      <p class="stage-cap">Dots are published group means; lines joining them are schematic. The first 2 years are stretched. Each trial has its own scale and units, so curves are not comparable across trials. Trial averages, not predictions.</p>
+    </div>
+    <aside class="note" id="lfNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Diet comparator: what head-to-head trials found</h3>
+  <div class="prose"><p>Pick a question. Each bar is a trial arm's average result, as published; bars are scaled within each trial, so compare arms of the same trial, not different trials.</p></div>
+  <div class="lf-row" id="lfDietBtns" role="group" aria-label="Comparison"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="lfDiet" viewBox="0 0 720 360" style="min-width:560px" role="img" aria-label="Horizontal bars comparing the arms of diet trials for the chosen question: macronutrient mix, meal timing, meal replacement and very-low-energy diets, or exercise"></svg></div>
+      <p class="stage-cap">Average weight change or difference as published in each trial; minus means loss. Research protocols, not advice.</p></div>
+    <aside class="note lf-dn" id="lfDietNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Programmes, from a 30-second offer to intensive support</h3>
+  <div class="tbl"><table>
+    <caption class="sr">Behavioural programme results as published</caption>
+    <thead><tr><th scope="col">Programme or recommendation</th><th scope="col">People</th><th scope="col">Result as published</th></tr></thead>
+    <tbody>
+      <tr class="tx"><th scope="row">USPSTF 2018</th><td>Adults with BMI ≥30</td><td>Clinicians should offer or refer to intensive, multicomponent behavioural interventions (grade B); harms "small to none". [[Curry2018USPSTF]] Pooled effect 2.39 kg more loss than control at 12 to 18 months (122 RCTs); prediabetes progression RR 0.67. [[LeBlanc2018]]</td></tr>
+      <tr><th scope="row">AHA/ACC/TOS 2013 guideline</th><td>Adults with overweight or obesity</td><td>High-intensity on-site programmes, "≥14 sessions in 6 mo", produce "average weight losses of approximately 8 kg"; maintenance programmes with at least monthly contact for ≥1 year still see regain of 1 to 2 kg a year. [[Jensen2014Guideline]]</td></tr>
+      <tr class="tx"><th scope="row">BWeL: a brief GP offer</th><td>1882 adults, 137 English practices</td><td>A 30-second offer of referral gave 1.43 kg more loss at 12 months than 30 seconds of advice; 81% found it appropriate and helpful. [[Aveyard2016BWeL]]</td></tr>
+      <tr><th scope="row">Hopkins POWER: remote vs in person</th><td>415 adults</td><td>24-month change −0.8 kg self-directed, −4.6 kg remote support, −5.1 kg in person; remote and in-person did not differ. [[Appel2011POWER]]</td></tr>
+      <tr class="tx"><th scope="row">WRAP: commercial programmes</th><td>1267 adults in England</td><td>1-year change −3.26 kg brief advice, −4.75 kg with 12 weeks of a commercial programme, −6.76 kg with 52 weeks. [[Ahern2017WRAP]]</td></tr>
+      <tr><th scope="row">POWER-UP: primary care</th><td>390 adults</td><td>2-year loss 1.7 kg usual care, 2.9 kg brief counselling, 4.6 kg enhanced counselling. [[Wadden2011POWERUP]]</td></tr>
+      <tr class="tx"><th scope="row">Digital</th><td>11 RCTs; 471 young adults</td><td>Web programmes helped short term (−2.13 kg under 6 months) but not long term [[Beleigoli2019]]; adding a wearable gave less loss at 24 months (3.5 vs 5.9 kg). [[Jakicic2016IDEA]]</td></tr>
+      <tr><th scope="row">Psychological approaches</th><td>Cochrane, 36 trials; RCT of 190</td><td>CBT with diet and exercise added 4.9 kg over diet and exercise alone [[Shaw2005Psych]]; acceptance-based treatment gave 13.3% vs 9.8% at 12 months. <span class="ev early">Early evidence</span> [[Forman2016]]</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">Activity: small for weight, large for health</h3>
+  <div class="cards">
+    <div class="card"><span class="kicker">Aerobic exercise alone</span><span class="lf-num">−1.6 kg</span><p>At 6 months in 14 RCTs (−1.7 kg at 12 months); the authors called it "not an effective weight loss therapy" on its own. [[Thorogood2011]] Exercise without weight loss still lowered blood pressure, triglycerides and fasting glucose. [[Shaw2006Exercise]]</p></div>
+    <div class="card"><span class="kicker">Guidelines, as published</span><span class="lf-num">150–300 min</span><p>Weekly moderate-intensity aerobic activity, or 75 to 150 minutes vigorous, plus muscle strengthening on 2 or more days; the least active gain most from modest increases. [[Piercy2018]]</p></div>
+    <div class="card"><span class="kicker">Keeping it off</span><span class="lf-num">&gt;250 min</span><p>Per week went with better maintenance in observational studies, but no well-designed RCT shows it prevents regain. [[Donnelly2009ACSM]] Women who kept off ≥10% reported about 275 min a week. [[Jakicic2008]]</p></div>
+    <div class="card"><span class="kicker">Protecting muscle</span><span class="lf-num">−5% vs −2%</span><p>Lean mass lost with aerobic vs resistance training during about 9% weight loss in older adults; function improved most with combined training. [[Villareal2017]] With tirzepatide, resistance exercise reduced lean loss by 1.09 kg. <span class="ev early">Early evidence</span> [[Green2026Tirzepatide]]</p></div>
+    <div class="card"><span class="kicker">Everyday movement</span><span class="lf-num">2 h</span><p>More sitting a day in sedentary people with mild obesity than in lean people, unchanged by weight loss or gain, which suggests posture is partly biologically set. <span class="ev early">Early evidence</span> [[Levine2005]] Non-exercise movement explained a 10-fold range in fat gain with overfeeding. [[Levine1999]]</p></div>
+  </div>
+
+  <h3 class="sub">Weight is not the only outcome</h3>
+  <div class="cards">
+    <div class="card"><span class="kicker">Diabetes Prevention Program</span><span class="lf-num">58%</span><p>Lower diabetes incidence with the lifestyle programme (goals ≥7% weight loss, ≥150 min/week activity) vs placebo over 2.8 years; 31% with metformin. [[Knowler2002DPP,DPPRG2002Lifestyle]] Still 27% lower at 15 years. [[DPPRG2015]] More in <a href="#diabetes" data-go="diabetes">Obesity &amp; type 2 diabetes</a>.</p></div>
+    <div class="card"><span class="kicker">Look AHEAD heart outcomes</span><span class="lf-num">HR 0.95</span><p>No difference in the primary cardiovascular outcome (95% CI 0.83 to 1.09); stopped for futility at a median 9.6 years. [[LookAHEAD2013]] People who lost ≥10% in year 1 had fewer events in a post-hoc, non-randomised analysis. <span class="ev early">Early evidence</span> [[LookAHEAD2016LDE]]</p></div>
+    <div class="card"><span class="kicker">Benefits that outlast the weight</span><span class="lf-num">5 years</span><p>Across 124 trials, behavioural programmes still lowered cholesterol ratio and HbA1c 5 years after they ended, despite regain, though benefits dwindled as weight returned. [[HartmannBoyce2023]]</p></div>
+  </div>
+  <p class="support" role="note"><b>Regain is not failure</b>Programmes are followed by a plateau at about 6 months and gradual regain; reviews attribute this to biological, behavioural and environmental factors and say long-term clinical care is needed. [[Hall2018Maintenance,Franz2007]] Why it happens is in <a href="#adaptation" data-go="adaptation">Why lost weight comes back</a>. Binge-eating disorder is a treatable condition; see <a href="#living" data-go="living">Living with obesity</a>.</p>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>DPP: lifestyle −58%, metformin −31% diabetes incidence; NNT over 3 years 6.9 and 13.9. [[Knowler2002DPP]] Look AHEAD: 8.6% vs 0.7% loss at 1 year, 6.0% vs 3.5% at the end, cardiovascular HR 0.95. [[LookAHEAD2007,LookAHEAD2013]]</div>
+    <div class="pt"><b>In plain words</b>Programmes with regular support work better than advice alone, and support can be in person, by phone or online. [[Appel2011POWER,Jensen2014Guideline]] All these numbers are averages; weight is only one part of health. [[Jensen2014Guideline]]</div>
+  </div>
+</section>

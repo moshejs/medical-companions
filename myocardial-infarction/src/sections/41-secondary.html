@@ -1,0 +1,62 @@
+<!-- ================= 4.1 MEDICINES AFTER A HEART ATTACK ================= -->
+<style>
+#m-secondary .card>.tag,#m-secondary .card>.ev{align-self:flex-start}
+#m-secondary .seq{font-style:italic}
+#m-secondary .selist{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}
+#m-secondary .selist .card{gap:6px}
+#m-secondary .selist .card.ap{border-left:4px solid var(--rx)}
+#m-secondary .selist .card.ds{border-left:4px solid var(--warn)}
+#m-secondary .selist .card p{margin:0}
+#m-secondary .selist .meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-secondary .sehead{font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:6px 0 0}
+#m-secondary .card svg{width:100%;height:auto;display:block}
+</style>
+<section class="mod" id="m-secondary" data-mod="secondary" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Medicines &amp; revascularisation</p><h2>Medicines after a heart attack</h2>
+    <p class="lede">After a heart attack (myocardial infarction, MI), most people leave hospital with several medicines, each aimed at a different way another heart attack or heart failure can happen. Watch them arrive one by one with the trial behind each, including the recent beta-blocker trials that changed the picture for people whose heart still pumps normally.</p></div>
+  <div class="stepper" id="seSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="seSvg" viewBox="0 0 720 440" style="min-width:560px" role="img" aria-label="A timeline from the heart attack to two years later with seven lanes: aspirin, P2Y12 inhibitor, statin, beta-blocker, ACE inhibitor or ARB, mineralocorticoid receptor antagonist and SGLT2 inhibitor. Each lane appears in turn with the window in which its trial started it, a status label, and below the timeline a small forest plot of the hazard ratios from the trials behind it; the last step shows how many people stop their medicines over time."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="sePlay">Play</button><label class="stage-cap tl" for="seT">Medicines <input type="range" id="seT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <p class="stage-cap">Start windows are those used in the trials cited, not instructions. Time axis is stretched (logarithmic) so the first days are visible. Hazard ratios below 1 favour the medicine; each is from a different population and outcome. [[ISIS2_1988,Schwartz2001MIRACL,Pfeffer1992SAVE,Pfeffer2003VALIANT,Munkhaugen2025BETAMI,Butler2024EMPACT]]</p>
+    </div>
+    <aside class="note" id="seNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Which statements apply? A teaching selector</h3>
+  <p class="teach" role="note"><b>Teaching tool</b>Pick a few features of a heart attack to see which published label and guideline statements, and which trials, speak to them. It is not a prescription and leaves out much that matters (kidney function, blood pressure, allergies, other medicines, what the person wants). Decisions belong to each person and their care team; never start or stop a medicine on your own.</p>
+  <div class="ctrls" role="group" aria-label="Ejection fraction">
+    <span class="kicker">Pumping (LVEF)</span>
+    <button class="btn" data-sef="r" aria-pressed="false">Reduced (≤40%)</button>
+    <button class="btn" data-sef="m" aria-pressed="false">Mildly reduced (40–49%)</button>
+    <button class="btn" data-sef="p" aria-pressed="true">Preserved (≥50%)</button>
+  </div>
+  <div class="ctrls" role="group" aria-label="Other conditions">
+    <span class="kicker">Also has</span>
+    <button class="btn" data-sx="dm" aria-pressed="false">Type 2 diabetes</button>
+    <button class="btn" data-sx="hf" aria-pressed="false">Heart failure</button>
+    <button class="btn" data-sx="af" aria-pressed="false">Atrial fibrillation</button>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="seBox" viewBox="0 0 720 170" style="min-width:560px" role="img" aria-label="A pill organiser with eight compartments: aspirin, P2Y12 inhibitor, statin, beta-blocker, ACE inhibitor or ARB, MRA, SGLT2 inhibitor and anticoagulant. Tablets drop into the compartments that the chosen statements address; compartments where the evidence is debated are outlined, and the rest stay empty."></svg></div>
+    <div class="legend"><span><i style="background:var(--rx)"></i>a statement or trial result applies</span><span><i style="background:var(--warn)"></i>debated or depends on more than shown</span><span><i style="background:var(--line)"></i>not addressed by these statements</span></div>
+  </div>
+  <div id="seList" aria-live="polite"></div>
+
+  <h3 class="sub">Beyond the tablets</h3>
+  <div class="cards">
+    <div class="card"><span class="tag rx">Adherence</span><h4>Many people stop within two years</h4>
+      <svg id="seAdh" viewBox="0 0 300 140" role="img" aria-label="A line falling from 100% at discharge to 58.9% at 6 months and 41.6% at 2 years: the share of older US adults still taking a high-intensity statin with high adherence after a heart attack."></svg>
+      <p>In US Medicare patients aged 66–75 who filled a high-intensity statin after MI, 58.9% were still taking it with high adherence at 6 months and 41.6% at 2 years. [[Colantonio2017]] In the PREMIER registry, 184 of 1521 people had stopped aspirin, beta-blocker and statin by 1 month, and they had lower 1-year survival (88.5% vs 97.7%; an observational association). [[Ho2006]]</p>
+      <p>Gaps were larger for African American and Hispanic patients, which points to access and support, not personal failings. Full drug coverage raised adherence by 4–6 points in MI FREEE. [[Colantonio2017,Choudhry2011FREEE]]</p></div>
+    <div class="card"><span class="tag rx">Polypill</span><h4>Three medicines in one tablet (SECURE)</h4>
+      <p>SECURE gave 2499 people within 6 months of MI a polypill (aspirin 100 mg, ramipril 2.5/5/10 mg, atorvastatin 20/40 mg) or usual care. Major cardiovascular events were 9.5% vs 12.7% over a median 36 months (HR 0.76), and patient-reported adherence was higher. [[Castellano2022SECURE]]</p></div>
+    <div class="card"><span class="tag rx">Vaccination</span><h4>A flu jab after a heart attack (IAMI)</h4>
+      <p>In IAMI (2571 people, nearly all shortly after MI), influenza vaccine cut death, MI or stent thrombosis at 12 months from 7.2% to 5.3% (HR 0.72), and all-cause death from 4.9% to 2.9%. [[Frobert2021IAMI]] It stopped early because of COVID-19, so the effect may be overestimated, but it agrees with an earlier meta-analysis (RR 0.45 after a recent ACS). [[Frobert2021IAMI,Udell2013]] <span class="ev early">Early evidence</span></p></div>
+    <div class="card"><span class="tag rx">Smoking</span><h4>Quitting is one of the biggest steps</h4>
+      <p>Across 20 cohort studies of people with coronary heart disease, those who quit smoking had a 36% lower risk of death than those who continued (RR 0.64). These are observational data, so some confounding is possible. [[Critchley2003]] Help works: varenicline started in hospital after ACS raised abstinence at 24 weeks to 47.3% from 32.5%. [[Eisenberg2016EVITA]]</p></div>
+  </div>
+  <p class="prose">Cholesterol targets and the add-on medicines (ezetimibe, PCSK9 inhibitors, inclisiran, bempedoic acid) have their own page: <a href="#lipids" data-go="lipids">Lowering LDL cholesterol</a>. Antiplatelet choices and how long to take them are in <a href="#antithrombotic" data-go="antithrombotic">Antiplatelets &amp; anticoagulants</a>; exercise and support in <a href="#rehab" data-go="rehab">Cardiac rehabilitation</a>.</p>
+  <p class="crisis" role="note"><b>Call now</b><span>If you think you or someone else is having a heart attack, call your local emergency number now (911 in the US, 999 in the UK, 112 in the EU).</span></p>
+</section>

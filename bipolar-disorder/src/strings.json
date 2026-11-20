@@ -1,0 +1,10 @@
+{
+  "foot.not_advice": "<b>It is not medical advice.</b> It cannot diagnose, and nothing here should start, stop or change a medicine without your own care team. Criteria, screening tools and the lithium level explainer are for learning, not self-diagnosis or reading your own results. Doses, levels and monitoring schedules are quoted as published in labels and guidelines, never as instructions; suspected lithium toxicity is an emergency. Please check the original sources, which are listed in full in the <a href=\"#sources\" data-go=\"sources\">Sources</a> module.",
+  "quiz.answer_is": "The answer is {l}.",
+  "shell.disclaimer": "The Bipolar Companion is an educational synthesis of published literature for study and understanding. It does not replace a psychiatrist, nurse, pharmacist or other clinician. The criteria counter, screening tools and lithium level explainer are teaching aids, not self-tests, and doses and lithium levels are quoted as published, never as instructions. Suspected lithium toxicity is an emergency. <span class=\"crisisline\">If you are in crisis or thinking about suicide, contact local emergency services or a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123).</span>",
+  "shell.home": "Bipolar Companion home",
+  "shell.note": "An animated, cited guide for students, people living with bipolar disorder, and their families and carers. Educational only, not medical advice. Your place is saved on this device.",
+  "shell.skip": "Skip to the module",
+  "shell.tagline": "Mood, sleep, lithium",
+  "sources.stats": "{all} sources in all. {ok} were confirmed against a database before inclusion (some by more than one: {svc}). Marked <span class=\"tag warn\">check</span> (not cited anywhere in the guide): {chk}."
+}

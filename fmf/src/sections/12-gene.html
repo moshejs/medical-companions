@@ -1,0 +1,82 @@
+<!-- ================= 1.2 THE GENE & INHERITANCE ================= -->
+<section class="mod" id="m-gene" data-mod="gene" hidden>
+<style>
+#m-gene .gn-chips{display:flex;flex-wrap:wrap;gap:6px}
+#m-gene .gn-chips .btn{font:600 12.5px var(--mono);padding:6px 10px}
+#m-gene .gn-var{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+#m-gene .gn-var h4{font-family:var(--display);font-weight:800;font-size:22px;margin:0;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-gene .gn-var dl{margin:0;display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+#m-gene .gn-var dt{font:600 10.5px/1.2 var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+#m-gene .gn-var dd{margin:0;font-size:15px}
+#m-gene .gn-pick{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;align-items:end}
+#m-gene .gn-pick label{display:flex;flex-direction:column;gap:5px;font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+#m-gene .gn-pick select{font:600 15px var(--body);color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:9px 10px;width:100%;letter-spacing:0;text-transform:none}
+#m-gene .gn-out{display:flex;flex-direction:column;gap:12px}
+#m-gene .gn-verdict{border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+#m-gene .gn-verdict.conf{background:var(--terra-soft)} #m-gene .gn-verdict.non{background:var(--warn-soft)} #m-gene .gn-verdict.none{background:var(--panel-2)}
+#m-gene .gn-verdict b.v{font-family:var(--display);font-weight:800;font-size:22px;line-height:1.15}
+#m-gene .gn-stack{display:flex;height:16px;border-radius:99px;overflow:hidden;border:1px solid var(--line)}
+#m-gene .gn-stack i{display:block;height:100%}
+#m-gene .gn-cls{font:600 10.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:4px 7px;border-radius:5px;white-space:nowrap}
+#m-gene .gn-cls.P{background:var(--bad-soft);color:var(--bad)} #m-gene .gn-cls.LP{background:var(--terra-soft);color:var(--terra)}
+#m-gene .gn-cls.VUS{background:var(--warn-soft);color:var(--warn)} #m-gene .gn-cls.LB,#m-gene .gn-cls.B{background:var(--good-soft);color:var(--good)}
+#m-gene .gn-cls.none{background:var(--panel-2);color:var(--muted)}
+#m-gene .gn-al{display:flex;flex-direction:column;gap:6px}
+#m-gene .gn-al div{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:15px}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 1 · The disease</p><h2>The gene &amp; inheritance</h2>
+    <p class="lede">FMF comes from variants in one gene, <i>MEFV</i>, which makes the protein pyrin. Press play to zoom from chromosome 16 down to single amino acids, then tap a variant pin. Below, watch alleles pass from parents to children, and practise reading a genetic report.</p></div>
+
+  <div class="stepper" id="gnSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="gnSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="Zoom from chromosome 16 to band 16p13.3, the MEFV gene's 10 exons, the pyrin protein's domains and the common variants"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="gnPlay">Play</button><label class="stage-cap tl" for="gnT">Zoom <input type="range" id="gnT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap">Chromosome, band and exon sizes are schematic. Protein domains are drawn at UniProt O15553 coordinates; the hot-spot inset is magnified. Pin colour = current Infevers class.</p>
+    </div>
+    <aside class="note" id="gnNote" aria-live="polite"></aside>
+  </div>
+  <div class="split2">
+    <div class="stage">
+      <span class="kicker">Variant explorer · tap a pin or a chip</span>
+      <div class="gn-chips" id="gnChips" role="group" aria-label="Variants"></div>
+      <div class="legend" id="gnLegend"></div>
+    </div>
+    <div class="gn-var" id="gnVar" aria-live="polite"></div>
+  </div>
+
+  <h3 class="sub">Animated Punnett square</h3>
+  <div class="ctrls" role="group" aria-label="Cross"><span class="kicker">Cross</span><div class="gn-chips" id="gnCross"></div></div>
+  <div class="stepper" id="gnPSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="gnPun" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="Punnett square: parents' alleles split into gametes and combine into four equally likely children"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="gnPPlay">Play</button><label class="stage-cap tl" for="gnPT">Timeline <input type="range" id="gnPT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <div class="readout" id="gnPRead"></div>
+      <p class="stage-cap">Each of the four boxes is an equally likely outcome for every pregnancy. "Two variants" means the genotype, not certain illness: penetrance is incomplete.</p>
+    </div>
+    <aside class="note" id="gnPNote" aria-live="polite"></aside>
+  </div>
+  <div class="callout"><p><b>Pseudodominance.</b> Because carriers are so common, an affected parent often has a carrier partner. Then half the children inherit two variants, and FMF appears in every generation, as if it were dominant. Cazeneuve and colleagues documented this pseudodominant transmission in Armenian families. [[Cazeneuve1999]]</p></div>
+
+  <h3 class="sub">Read a genetic result</h3>
+  <div class="prose"><p>Pick the two alleles a report might list. The tool shows each variant's current Infevers class and how the pair counts in the Eurofever/PRINTO 2019 classification criteria. It is a study aid, not an interpretation of anyone's test. [[Gattorno2019,Infevers2026]]</p></div>
+  <div class="lab even">
+    <div class="stage">
+      <div class="gn-pick">
+        <label for="gnA1">Allele 1 (one copy of chromosome 16)<select id="gnA1"></select></label>
+        <label for="gnA2">Allele 2 (the other copy)<select id="gnA2"></select></label>
+      </div>
+      <svg id="gnRes" viewBox="0 0 360 120" role="img" aria-label="The two copies of MEFV with the chosen variants marked"></svg>
+      <div>
+        <span class="kicker">Infevers MEFV classes, 412 variants read on 2026-10-16; classes are revised as evidence accumulates</span>
+        <div class="gn-stack" id="gnStack" style="margin-top:6px"></div>
+        <div class="legend" id="gnStackLeg" style="margin-top:6px"></div>
+      </div>
+    </div>
+    <div class="gn-out" id="gnOut" aria-live="polite"></div>
+  </div>
+
+  <h3 class="sub">Beyond the textbook pattern</h3>
+  <div class="cards" id="gnCards"></div>
+</section>

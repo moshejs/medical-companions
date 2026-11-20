@@ -1,0 +1,125 @@
+<!-- ================= 2.3 COLCHICINE DOSING & SAFETY ================= -->
+<section class="mod" id="m-coldose" data-mod="coldose" hidden>
+  <style>
+    #m-coldose .cd-who{border:1px solid var(--crocus);background:var(--crocus-soft);border-radius:var(--r);padding:12px 16px;font-size:15px;max-width:78ch}
+    #m-coldose .cd-who b{color:var(--crocus)}
+    #m-coldose .cd-warn{border:2px solid var(--bad);background:var(--bad-soft);border-radius:var(--r);padding:14px 18px;display:flex;flex-direction:column;gap:6px;max-width:86ch}
+    #m-coldose .cd-warn h4{margin:0;font-family:var(--display);font-weight:800;font-size:20px;color:var(--bad)}
+    #m-coldose .cd-warn p{font-size:15px}
+    #m-coldose .cd-pulse{animation:cdPulse 1.5s ease-in-out infinite}
+    @keyframes cdPulse{0%,100%{opacity:.15}50%{opacity:.6}}
+    #m-coldose .lab.cd-wide{grid-template-columns:minmax(0,1fr)}
+    #m-coldose .cd-org svg{max-width:340px;margin:0 auto}
+    /* narrow draws its own 400-wide body map, so let it use the whole stage */
+    @media (max-width:820px){ #m-coldose .cd-org svg{max-width:none} }
+    #m-coldose .cd-num{font:800 26px/1.1 var(--display);color:var(--crocus);display:block}
+    #m-coldose #cdRenSvg{max-width:600px}
+    #m-coldose .tl output{font:600 13px var(--mono);color:var(--ink);min-width:58px}
+  </style>
+  <div class="mhead"><p class="eyebrow">Part 2 · Treating a flare</p><h2>Colchicine dosing &amp; safety</h2>
+    <p class="lede">Colchicine treats a gout flare at low doses but has a narrow safety margin, and a few common drugs can push its blood level up several-fold. Pick an interacting drug and press play to watch ten days of prophylaxis, then compare the published flare and prophylaxis schedules, the organs that are watched, and the kidney and liver rules.</p></div>
+  <p class="cd-who" role="note"><b>Dosing for any person is set by their own clinician.</b> This module reports what the US labels (COLCRYS tablets, MITIGARE capsules), EULAR 2016 and the ACR guidelines publish. It is a study aid, not a dosing guide. [[FDA-Colcrys,FDA-Mitigare,Richette2017,Khanna2012P2,FitzGerald2020]]</p>
+  <div class="cd-warn" role="note"><h4>Interactions can be fatal</h4><p>Strong CYP3A4 inhibitors (such as clarithromycin, ketoconazole, itraconazole, ritonavir) and P-glycoprotein inhibitors (such as cyclosporine) stop the body clearing colchicine. The US label contraindicates them with colchicine in people with kidney or liver impairment, because fatal toxicity has occurred at therapeutic doses. EULAR 2016 says not to give colchicine with strong P-gp and/or CYP3A4 inhibitors. [[FDA-Colcrys,Richette2017]]</p></div>
+
+  <h3 class="sub">1 · The exposure window</h3>
+  <div class="ctrls" role="group" aria-label="Interacting drug or condition added on day 3">
+    <span class="kicker">Added on day 3</span>
+    <button class="btn" data-cd="none" aria-pressed="false">Nothing</button>
+    <button class="btn" data-cd="clari" aria-pressed="true">Clarithromycin</button>
+    <button class="btn" data-cd="keto" aria-pressed="false">Ketoconazole / itraconazole</button>
+    <button class="btn" data-cd="rito" aria-pressed="false">Ritonavir</button>
+    <button class="btn" data-cd="cyclo" aria-pressed="false">Cyclosporine</button>
+    <button class="btn" data-cd="vera" aria-pressed="false">Verapamil</button>
+    <button class="btn" data-cd="dilt" aria-pressed="false">Diltiazem</button>
+    <button class="btn" data-cd="azi" aria-pressed="false">Azithromycin</button>
+    <button class="btn" data-cd="grape" aria-pressed="false">Grapefruit juice</button>
+    <button class="btn" data-cd="renal" aria-pressed="false">Severe kidney impairment</button>
+  </div>
+  <div class="ctrls"><button class="btn" id="cdCap" aria-pressed="false">Apply the label's prophylaxis dose adjustment</button></div>
+  <div class="stepper" id="cdSteps"></div>
+  <div class="lab cd-wide">
+    <div class="stage"><div class="scroll"><svg id="cdSvg" viewBox="0 0 720 372" style="min-width:560px" role="img" aria-label="Schematic colchicine blood exposure over ten days of twice-daily prophylaxis, with an interacting drug added on day 3"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="cdPlay">Play</button><label class="stage-cap tl" for="cdT">Days <input type="range" id="cdT" min="0" max="1" step="0.001" value="1"></label></div>
+      <div class="readout" id="cdRead"></div>
+      <div class="legend"><span><i style="background:var(--crocus)"></i>exposure, illustrated at 0.6 mg twice daily</span><span><i style="background:var(--muted)"></i>dashed: no interaction</span><span><i style="background:var(--good-soft)"></i>usual range</span><span><i style="background:var(--bad)"></i>toxicity risk zone</span></div>
+      <p class="stage-cap"><b>Schematic.</b> The curve heights come from the label's single-dose (0.6 mg) AUC studies in healthy volunteers, scaled to twice-daily dosing with a half-life of about 29 hours; inhibition is modelled as a mix of higher absorption and slower clearance. That 29 hours sits inside the label's repeated-dose range of 26.6–31.2 hours, but a study after an intravenous dose found 57.8 hours, so the curve would be flatter or steeper with other values. [[FDA-Colcrys,Ferron1996]] The zone boundaries are illustrative: there is no sharp line between safe and toxic levels. [[Finkelstein2010]] 0.6 mg twice daily is the top of the label's prophylaxis range, chosen for the picture.</p></div>
+    <aside class="note" id="cdNote" aria-live="polite"></aside>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Added drug or food</th><th>Label group</th><th>Mean colchicine AUC change (single 0.6 mg dose)</th><th>Label flare dose if there is no alternative</th><th>Label prophylaxis dose (if 0.6 mg twice daily was intended)</th></tr></thead>
+    <tbody>
+      <tr><th>Ritonavir (and most protease inhibitors)</th><td>Strong CYP3A4 inhibitor</td><td>+296%</td><td>0.6 mg, then 0.3 mg 1 h later; not repeated within 3 days</td><td>0.3 mg once daily</td></tr>
+      <tr><th>Clarithromycin</th><td>Strong CYP3A4 inhibitor</td><td>+282%</td><td>0.6 mg, then 0.3 mg 1 h later; not repeated within 3 days</td><td>0.3 mg once daily</td></tr>
+      <tr><th>Cyclosporine (and ranolazine)</th><td>P-gp inhibitor</td><td>+259%</td><td>0.6 mg once; not repeated within 3 days</td><td>0.3 mg once daily</td></tr>
+      <tr><th>Ketoconazole (itraconazole listed with it)</th><td>Strong CYP3A4 inhibitor</td><td>+212% (ketoconazole)</td><td>0.6 mg, then 0.3 mg 1 h later; not repeated within 3 days</td><td>0.3 mg once daily</td></tr>
+      <tr><th>Verapamil</th><td>Moderate CYP3A4 inhibitor</td><td>+103%</td><td>1.2 mg once; not repeated within 3 days</td><td>0.3 mg twice daily or 0.6 mg once daily</td></tr>
+      <tr><th>Diltiazem</th><td>Moderate CYP3A4 inhibitor</td><td>+93%</td><td>1.2 mg once; not repeated within 3 days</td><td>0.3 mg twice daily or 0.6 mg once daily</td></tr>
+      <tr><th>Azithromycin</th><td>Not in the label's adjustment lists</td><td>+57%</td><td>None listed</td><td>None listed</td></tr>
+      <tr><th>Grapefruit juice</th><td>Moderate CYP3A4 inhibitor</td><td>−2% in the label's own study</td><td>1.2 mg once; not repeated within 3 days</td><td>0.3 mg twice daily or 0.6 mg once daily</td></tr>
+      <tr class="hl"><th>Statins, fibrates</th><td>Added muscle toxicity</td><td>Not quantified in our sources</td><td colspan="2">Warning: myopathy and rhabdomyolysis</td></tr>
+    </tbody></table></div>
+  <p class="stage-cap">Sources: COLCRYS label interaction studies and dose table; the adjustments also apply within 14 days of stopping the interacting drug. The 3-day interval appears only in this table. [[FDA-Colcrys]] Other moderate inhibitors in the same label row include erythromycin, fluconazole and aprepitant. [[FDA-Colcrys]]</p>
+  <div class="cards">
+    <div class="card"><h4>The clarithromycin study</h4><p><span class="cd-num">10.2% vs 3.6%</span>In a retrospective study, 9 of 88 inpatients (10.2%) given clarithromycin and colchicine at the same time died, versus 1 of 28 (3.6%) given them one after the other. A longer overlap (RR 2.16), baseline kidney impairment (RR 9.1) and pancytopenia (RR 23.4) predicted death. [[Hung2005]]</p><p>Pharmacokinetic studies support no adjustment with azithromycin. [[Terkeltaub2011]]</p></div>
+    <div class="card"><h4>How big are the cuts?</h4><p><span class="cd-num">33–66% · 50–75%</span>A dose-reduction algorithm built from pharmacokinetic studies supports cutting the flare dose by 33–66% and the prophylaxis dose by 50–75% with most CYP3A4 or P-gp inhibitors. [[Terkeltaub2011]]</p></div>
+    <div class="card"><h4>Statins and fibrates</h4><p>The concern here is muscle. Statins, fibrates and cyclosporine can potentiate colchicine myopathy and rhabdomyolysis, and older people and people with kidney dysfunction are at higher risk. [[FDA-Colcrys]]</p></div>
+    <div class="card"><h4>Grapefruit: a label paradox</h4><p>The label lists grapefruit juice in its table of moderate CYP3A4 inhibitors, with the matching dose cuts, yet its own interaction study found colchicine AUC changed by −2%. Both sit in the same document, and it does not resolve the conflict. [[FDA-Colcrys]]</p></div>
+    <div class="card"><h4>Two products, two wordings</h4><p>COLCRYS contraindicates P-gp or strong CYP3A4 inhibitors in renal or hepatic impairment. MITIGARE contraindicates drugs that inhibit both P-gp and CYP3A4 in renal or hepatic impairment, and use at all in combined renal and hepatic impairment. [[FDA-Colcrys,FDA-Mitigare]]</p></div>
+  </div>
+
+  <h3 class="sub">2 · Published gout schedules</h3>
+  <div class="ctrls" id="cdRegs" role="group" aria-label="Published schedule"></div>
+  <div class="stage">
+    <div class="scroll"><svg id="cdRegSvg" viewBox="0 0 720 264" style="min-width:560px" role="img" aria-label="Timeline of a published colchicine schedule: tablets by hour and the running total in mg"></svg></div>
+    <div class="readout" id="cdRegRead"></div>
+    <p class="stage-cap">Each schedule is drawn as published, not as a dose for anyone; a dose for a person is set by their clinician. Tablet size shows the mg taken; the line shows the running total over the first 48 hours.</p>
+  </div>
+  <aside class="note" id="cdRegNote" aria-live="polite"></aside>
+  <div class="cards">
+    <div class="card"><h4>What the US label publishes</h4><ul><li>Flare: 1.2 mg at the first sign, then 0.6 mg 1 hour later; maximum 1.8 mg over 1 hour. "Higher doses have not been found to be more effective." [[FDA-Colcrys]]</li><li>Prophylaxis (adults and adolescents over 16): 0.6 mg once or twice daily, maximum 1.2 mg/day. [[FDA-Colcrys]]</li><li>Flare during prophylaxis: up to 1.2 mg, then 0.6 mg 1 hour later; wait 12 hours, then resume the prophylactic dose. [[FDA-Colcrys]]</li><li>Repeat flare courses: safety and efficacy have not been evaluated. [[FDA-Colcrys]]</li><li>MITIGARE capsules are labelled for prophylaxis only. [[FDA-Mitigare]]</li></ul></div>
+    <div class="card"><h4>What guidelines add</h4><ul><li>EULAR 2016: 1 mg, then 0.5 mg 1 hour later on day 1, within 12 hours of onset; prophylaxis 0.5–1 mg/day for the first 6 months of urate lowering, reduced in kidney impairment. [[Richette2017]]</li><li>ACR 2012: colchicine only if the flare began 36 hours or less earlier; after the loading doses, 0.6 mg once or twice daily from 12 hours until the flare resolves. [[Khanna2012P2]]</li><li>ACR 2020: low-dose over high-dose colchicine (strong recommendation); prophylaxis for 3–6 months rather than less than 3 when starting urate lowering. [[FitzGerald2020]]</li><li>Hong Kong 2023: prophylaxis 0.5 mg once or twice daily for 3–6 months. [[Yip2023]]</li></ul></div>
+    <div class="card"><h4>Why the low dose won</h4><p><span class="cd-num">6.2 vs 6.8 ng/mL</span>The low-dose flare schedule (1.8 mg over 1 hour) reached a mean peak of 6.2 ng/mL; the old high dose (4.8 mg over 6 hours) reached 6.8 ng/mL. [[FDA-Colcrys]] In a Cochrane review, high dose gave no extra benefit but more adverse events (number needed to harm 2). [[vanEchteld2014]]</p></div>
+    <div class="card"><h4>Prophylaxis works</h4><p><span class="cd-num">0.52 vs 2.91</span>mean flares with colchicine 0.6 mg twice daily vs placebo while starting allopurinol, in a trial of 43 people (P = 0.008). Months 3–6: 0 vs 1.05 flares. [[Borstad2004]] The label says prophylaxis "may be beneficial for at least the first six months" of urate lowering. [[FDA-Colcrys]]</p></div>
+  </div>
+
+  <h3 class="sub">3 · Toxicity and what is watched</h3>
+  <div class="lab even">
+    <div class="stage cd-org">
+      <div class="ctrls" role="group" aria-label="Organ">
+        <button class="btn" data-org="gut" aria-pressed="true">Gut</button>
+        <button class="btn" data-org="muscle" aria-pressed="false">Muscle</button>
+        <button class="btn" data-org="nerves" aria-pressed="false">Nerves</button>
+        <button class="btn" data-org="marrow" aria-pressed="false">Marrow</button>
+        <button class="btn" data-org="liver" aria-pressed="false">Liver</button>
+        <button class="btn" data-org="kidney" aria-pressed="false">Kidney</button>
+      </div>
+      <svg id="cdOrgSvg" viewBox="0 0 360 430" role="img" aria-label="Body map of organs affected by colchicine toxicity; click an organ"></svg>
+      <p class="stage-cap">Click an organ or a button. Schematic body map.</p>
+    </div>
+    <aside class="note" id="cdOrgNote" aria-live="polite"></aside>
+  </div>
+  <div class="split2">
+    <div class="callout"><p><b>Narrow margin, serious overdose.</b> Colchicine has a narrow therapeutic index, with no clear line between non-toxic, toxic and lethal doses; the lowest reported lethal oral doses are 7–26 mg. [[Finkelstein2010]] In a review of 150 overdoses in the label, people who took under 0.5 mg/kg survived with mostly gut effects, 0.5–0.8 mg/kg caused severe reactions such as myelosuppression, and over 0.8 mg/kg was fatal in every case. [[FDA-Colcrys]]</p></div>
+    <div class="callout"><p><b>How toxicity unfolds.</b> Acute toxicity typically begins within 24 hours with abdominal pain, nausea, vomiting and diarrhoea; multi-organ failure follows at 24–72 hours. Gut symptoms are often the first sign. [[FDA-Colcrys,FDA-Mitigare]]</p></div>
+  </div>
+
+  <h3 class="sub">4 · Kidneys and liver</h3>
+  <div class="lab even">
+    <div class="stage">
+      <div class="ctrls"><label class="stage-cap tl" for="cdCr">CrCl <input type="range" id="cdCr" min="5" max="120" step="1" value="90"><output id="cdCrOut" for="cdCr">90</output></label><button class="btn" id="cdDial" aria-pressed="false">On dialysis</button></div>
+      <div class="scroll"><svg id="cdRenSvg" viewBox="0 0 460 236" style="min-width:320px" role="img" aria-label="Creatinine clearance gauge with the label's gout dosing rules for flare and prophylaxis"></svg></div>
+      <p class="stage-cap">Creatinine clearance (CrCl) in mL/min. Categories and rules follow the COLCRYS label's gout sections.</p>
+    </div>
+    <aside class="note" id="cdRenNote" aria-live="polite"></aside>
+  </div>
+  <div class="card"><h4>Liver impairment</h4><p>COLCRYS label (gout): no dose change in mild to moderate hepatic impairment, with close monitoring. In severe impairment, consider a lower prophylaxis dose, and repeat flare courses no more than once every 2 weeks. ACR 2012 lists hepatic disease as a limit for colchicine, NSAIDs and COX-2 inhibitors. [[FDA-Colcrys,Khanna2012P2]]</p></div>
+
+  <h3 class="sub">5 · Pregnancy and breastfeeding</h3>
+  <div class="cards">
+    <div class="card"><h4>What a 2023 guideline says</h4><p>The British Society for Rheumatology says colchicine "may be considered during pregnancy" and "may be used in breastfeeding". It rests on a meta-analysis of 550 exposed pregnancies, mostly in FMF at 1–2 mg/day, against 1263 unexposed, with no rise in malformations or miscarriage. [[Schreiber2023,Indraratna2018]]</p></div>
+  </div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Colchicine toxicity = <b>gut first</b>, then <b>muscle + nerve</b> (myoneuropathy, high CK, usually with kidney impairment), then <b>marrow</b>. Danger rises with <b>CYP3A4/P-gp inhibitors</b> and <b>low CrCl</b>. On dialysis the flare dose is a <b>single 0.6 mg</b>, no more than once every 2 weeks. [[FDA-Colcrys,Kuncl1987]]</div>
+    <div class="pt"><b>In plain words</b>Colchicine is safe for most people at the published doses, but a few antibiotics, antifungals, HIV drugs and heart drugs make it build up. Tell every doctor and pharmacist that you take it, and keep the tablets away from children.</div>
+  </div>
+</section>

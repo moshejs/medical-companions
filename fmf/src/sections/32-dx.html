@@ -1,0 +1,126 @@
+<!-- ================= 3.2 DIAGNOSIS & CRITERIA ================= -->
+<section class="mod" id="m-dx" data-mod="dx" hidden>
+<style>
+#m-dx .dx-form{display:flex;flex-direction:column;gap:12px}
+#m-dx fieldset{border:1px solid var(--line);border-radius:12px;padding:10px 12px 12px;margin:0;display:flex;flex-direction:column;gap:7px;min-width:0}
+#m-dx legend{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:0 4px}
+#m-dx .dx-ck{display:flex;gap:9px;align-items:flex-start;font-size:14.5px;line-height:1.35;cursor:pointer;overflow-wrap:anywhere}
+#m-dx .dx-ck input{margin:2px 0 0;accent-color:var(--terra);flex:none;width:17px;height:17px}
+#m-dx .dx-ck small{color:var(--muted);font-size:12.5px}
+#m-dx .dx-def{font-size:13.5px;color:var(--muted);line-height:1.45}
+#m-dx .dx-def b{color:var(--ink)}
+#m-dx .dx-verdict{border-radius:10px;padding:12px 14px;font-size:15px;border:1px solid var(--line);background:var(--panel-2);display:flex;flex-direction:column;gap:6px;transition:background .3s,border-color .3s}
+#m-dx .dx-verdict.yes{background:var(--good-soft);border-color:var(--good)}
+#m-dx .dx-verdict.na{background:var(--warn-soft);border-color:var(--warn)}
+#m-dx .dx-verdict strong{font-family:var(--display);font-size:20px;line-height:1.15}
+#m-dx .dx-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+#m-dx .dx-perf{display:flex;flex-direction:column;gap:8px}
+#m-dx .dx-pr{display:grid;grid-template-columns:minmax(0,1fr);gap:3px;font-size:13.5px}
+#m-dx .dx-pr .lbl{color:var(--muted);font-size:13px}
+#m-dx .dx-bars{display:grid;grid-template-columns:38px minmax(0,1fr) 52px;gap:3px 8px;align-items:center;font:500 11.5px var(--mono);color:var(--muted)}
+#m-dx .dx-bars i{display:block;height:9px;border-radius:5px;background:var(--panel-2);overflow:hidden}
+#m-dx .dx-bars i b{display:block;height:100%;border-radius:5px;transition:width .6s cubic-bezier(.3,.7,.2,1)}
+#m-dx .dx-dots{display:flex;gap:5px;flex-wrap:wrap;align-items:center;font:500 12px var(--mono);color:var(--muted)}
+#m-dx .dx-dots span{width:14px;height:14px;border-radius:50%;border:2px solid var(--line);display:inline-block;transition:background .3s,border-color .3s}
+#m-dx .dx-dots span.on{background:var(--terra);border-color:var(--terra)}
+#m-dx .dx-dots span.on.mn{background:var(--gold);border-color:var(--gold)}
+#m-dx .dx-dots span.on.sp{background:var(--sea);border-color:var(--sea)}
+#m-dx .dx-dots em{font-style:normal;margin:0 4px 0 2px}
+#m-dx .dx-panel{display:flex;flex-direction:column;gap:12px}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 3 · Complications &amp; diagnosis</p><h2>Diagnosis &amp; criteria</h2>
+    <p class="lede">There is no single test that proves FMF. The diagnosis rests on the attack pattern, blood markers in and between attacks, the gene test and the response to colchicine. Tick features in the calculators below, then press play on the lab timeline and the diagnostic pathway.</p></div>
+
+  <h3 class="sub">Eurofever/PRINTO 2019 calculator</h3>
+  <p class="callout">These are <b>classification criteria</b>, built so that research studies enrol comparable patients. They are not a diagnostic test for one person, and a doctor can diagnose FMF in someone who does not meet them. [[Gattorno2019]]</p>
+  <div class="ctrls" role="group" aria-label="Examples">
+    <span class="kicker">Load an example</span>
+    <button class="btn" data-dxex="typ">Typical, two variants</button>
+    <button class="btn" data-dxex="het">One variant, abdominal attacks</button>
+    <button class="btn" data-dxex="pfapa">PFAPA-like child</button>
+    <button class="btn" data-dxex="clr">Clear all</button>
+  </div>
+  <div class="lab even">
+    <div class="stage dx-form">
+      <fieldset><legend>Step 1 · Prerequisites (both needed)</legend>
+        <label class="dx-ck"><input type="checkbox" id="dxPre1"><span>Acute-phase reactants (ESR, CRP or SAA) are raised in correspondence with the flares</span></label>
+        <label class="dx-ck"><input type="checkbox" id="dxPre2"><span>Confounders considered (cancer, infection, autoimmune disease, other inborn errors of immunity) <b>and</b> at least 6 months of recurrent activity</span></label>
+      </fieldset>
+      <fieldset><legend>Step 2 · MEFV genotype</legend>
+        <div class="ctrls" role="group" aria-label="Genotype">
+          <button class="btn" data-gt="conf" aria-pressed="false">Confirmatory</button>
+          <button class="btn" data-gt="non" aria-pressed="false">Non-confirmatory</button>
+          <button class="btn" data-gt="none" aria-pressed="true">None / not tested</button>
+        </div>
+        <p class="dx-def" id="dxGtDef"></p>
+      </fieldset>
+      <fieldset><legend>Step 3 · Clinical items</legend>
+        <p class="dx-def">Used by both arms of the criteria:</p>
+        <label class="dx-ck"><input type="checkbox" data-ci="ep"><span>Episodes lasting 1–3 days</span></label>
+        <label class="dx-ck"><input type="checkbox" data-ci="arth"><span>Arthritis</span></label>
+        <label class="dx-ck"><input type="checkbox" data-ci="chest"><span>Chest pain</span></label>
+        <label class="dx-ck"><input type="checkbox" data-ci="abd"><span>Abdominal pain</span></label>
+        <p class="dx-def">Only in the clinical-only arm:</p>
+        <label class="dx-ck"><input type="checkbox" data-ci="eth"><span>Eastern Mediterranean ethnicity</span></label>
+        <p class="dx-def">These count in favour of FMF when they are <b>absent</b>. Tick them only if the person has them:</p>
+        <label class="dx-ck"><input type="checkbox" data-ab="aph"><span>Aphthous stomatitis (mouth ulcers)</span></label>
+        <label class="dx-ck"><input type="checkbox" data-ab="urt"><span>Urticarial rash</span></label>
+        <label class="dx-ck"><input type="checkbox" data-ab="mp"><span>Maculopapular rash</span></label>
+        <label class="dx-ck"><input type="checkbox" data-ab="ln"><span>Painful lymph nodes</span></label>
+      </fieldset>
+    </div>
+    <div class="stage">
+      <svg id="dxGauge" viewBox="0 0 400 262" role="img" aria-label="Score gauges for the two arms of the Eurofever/PRINTO criteria"></svg>
+      <div class="dx-verdict" id="dxVerdict" aria-live="polite"></div>
+      <div class="dx-two">
+        <div class="dx-perf"><span class="kicker">Genotype + clinical arm</span><div id="dxPerfG"></div></div>
+        <div class="dx-perf"><span class="kicker">Clinical-only arm</span><div id="dxPerfC"></div></div>
+      </div>
+      <p class="stage-cap">Sensitivity and specificity from Gattorno et al. 2019 (derivation set, then validation set). In Turkish children the criteria showed sensitivity 96% and specificity 73.1%; a Turkish referral cohort classified 98.2% of homozygotes and 80.2% of heterozygotes, and no controls. [[Gattorno2019,Sag2020,Tanatar2020]]</p>
+    </div>
+  </div>
+
+  <h3 class="sub">The older criteria sets</h3>
+  <div class="ctrls" role="group" aria-label="Criteria set">
+    <button class="btn" data-crit="th" aria-pressed="true">Tel Hashomer</button>
+    <button class="btn" data-crit="liv" aria-pressed="false">Livneh 1997</button>
+    <button class="btn" data-crit="yo" aria-pressed="false">Yalçınkaya–Özen (children)</button>
+  </div>
+  <div class="lab even">
+    <div class="stage dx-form" id="dxCritForm"></div>
+    <div class="stage dx-panel">
+      <div class="dx-verdict" id="dxCritOut" aria-live="polite"></div>
+      <div id="dxCritPerf" class="dx-perf"></div>
+    </div>
+  </div>
+
+  <h3 class="sub">Blood markers across an attack</h3>
+  <div class="ctrls" role="group" aria-label="Between-attack pattern">
+    <span class="kicker">Between attacks</span>
+    <button class="btn" id="dxLabNorm" aria-pressed="true">Markers settle</button>
+    <button class="btn" id="dxLabPers" aria-pressed="false">Inflammation persists</button>
+  </div>
+  <div class="stepper" id="dxLabSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="dxLabSvg" viewBox="0 0 720 410" style="min-width:500px" role="img" aria-label="Laboratory markers before, during and after an FMF attack"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="dxLabPlay">Play</button><label class="stage-cap tl" for="dxLabT">Days <input type="range" id="dxLabT" min="0" max="1" step="0.002" value="0.04"></label></div>
+      <div class="readout" id="dxLabRead"></div>
+      <p class="stage-cap">Curve shapes are schematic. The attack and between-attack values for SAA and CRP are the medians from Lachmann et al. 2006; the other rows show direction of change only.</p></div>
+    <aside class="note" id="dxLabNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The diagnostic pathway</h3>
+  <div class="stepper" id="dxPathSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="dxPathSvg" viewBox="0 0 720 440" style="min-width:500px" role="img" aria-label="Animated diagnostic pathway for suspected FMF"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="dxPathPlay">Play</button><label class="stage-cap tl" for="dxPathT">Pathway <input type="range" id="dxPathT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap">A simplified teaching sequence drawn from published reviews and guidelines. Real work-ups overlap and loop back.</p></div>
+    <aside class="note" id="dxPathNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Tel Hashomer: <b>2 major, or 1 major + 2 minor</b>. Livneh: <b>≥1 major or ≥2 minor</b>. Yalçınkaya–Özen (children): <b>≥2 of 5</b>. Eurofever/PRINTO: confirmatory genotype + <b>≥1</b> of 4, non-confirmatory + <b>≥2</b> of 4, or clinical-only <b>≥6 of 9</b>. Colchicine response is a <b>major</b> criterion in Tel Hashomer and a <b>minor</b> one in Livneh. [[Pras1998,Livneh1997,Yalcinkaya2009,Gattorno2019]]</div>
+    <div class="pt"><b>In plain words</b>Doctors recognise FMF from the story: short bouts of fever with belly, chest or joint pain that stop by themselves, with blood tests that are high during an attack and calmer in between. A gene test helps but can be negative in people who really have FMF. Sometimes the clearest answer is whether daily colchicine stops the attacks.</div>
+  </div>
+  <div class="cards" id="dxCards"></div>
+</section>

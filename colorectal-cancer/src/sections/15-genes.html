@@ -1,0 +1,119 @@
+<!-- ================= 1.5 LYNCH SYNDROME &amp; FAP ================= -->
+<style>
+#m-genes .tbl table{min-width:560px}
+#m-genes .card>.ev,#m-genes .card>.tag{align-self:flex-start}
+#m-genes .gn-kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+#m-genes .gn-kpi div{background:var(--panel-2);border-radius:10px;padding:10px 12px;font-size:14px}
+#m-genes .gn-kpi b{display:block;font:800 22px/1.1 var(--display);color:var(--tumour)}
+#m-genes td.num{font-family:var(--mono);white-space:nowrap}
+</style>
+<section class="mod" id="m-genes" data-mod="genes" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · The disease</p><h2>Lynch syndrome &amp; FAP</h2>
+    <p class="lede">A minority of colorectal cancers start with a gene change inherited from a parent. Follow one family through three generations, watch the DNA spell-checker that fails in Lynch syndrome, and compare cancer risk by gene.</p></div>
+
+  <div class="gn-kpi">
+    <div><b>1 in 279</b>people carry a Lynch syndrome (mismatch repair) gene variant [[Win2017]]</div>
+    <div><b>9.9%</b>of unselected colorectal cancer patients carry a pathogenic germline variant; 3.1% Lynch [[Yurgelun2017]]</div>
+    <div><b>16%</b>of people diagnosed before 50 carry one; a third did not meet testing criteria [[Pearlman2017]]</div>
+    <div><b>2–10%</b>of colorectal cancer arises in a defined syndrome, depending on the source [[Jasperson2010,Zaffaroni2024,Monahan2020]]</div>
+  </div>
+
+  <h3 class="sub">A family, three generations</h3>
+  <div class="ctrls" role="group" aria-label="Syndrome">
+    <span class="kicker">Syndrome</span>
+    <button class="btn" data-gnm="lynch" aria-pressed="true">Lynch syndrome (dominant)</button>
+    <button class="btn" data-gnm="fap" aria-pressed="false">FAP (dominant)</button>
+    <button class="btn" data-gnm="map" aria-pressed="false">MUTYH polyposis (recessive)</button>
+  </div>
+  <div class="stepper" id="gnSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="gnSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="A three-generation pedigree. Squares are males, circles females, filled symbols have the disease, half-filled symbols are unaffected carriers, an arrow marks the proband. Scrubbing shows the proband's diagnosis, the family history, transmission from a carrier parent to each child, cascade testing of relatives and the surveillance that follows. A side panel shows the inheritance odds: 50% for a dominant syndrome, 25% affected and 50% carriers for a recessive one."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="gnPlay">Play</button><label class="stage-cap tl" for="gnT">Family story <input type="range" id="gnT" min="0" max="1" step="0.001" value="0.36"></label></div>
+      <div class="readout" id="gnRead"></div>
+      <p class="stage-cap"><b>Illustrative family</b>, not a real pedigree. Ages are chosen to match published patterns; the odds are standard Mendelian arithmetic. [[Syngal2015,Galiatsatos2006]]</p>
+    </div>
+    <aside class="note" id="gnNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Mismatch repair: the DNA spell-checker</h3>
+  <div class="ctrls" role="group" aria-label="Mismatch repair status">
+    <span class="kicker">Cell</span>
+    <button class="btn" data-gnr="p" aria-pressed="true">Repair working (pMMR)</button>
+    <button class="btn" data-gnr="d" aria-pressed="false">Repair lost (dMMR)</button>
+  </div>
+  <div class="stepper" id="gnMmrSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="gnMmr" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="DNA polymerase copies a strand through a microsatellite of repeated A bases. The new strand slips and an extra base loops out. With mismatch repair working, MutS alpha (MSH2 and MSH6) clamps the loop, MutL alpha (MLH1 and PMS2) joins, exonuclease 1 removes the error-containing stretch and polymerase delta refills it, restoring 10 repeats. Without repair the loop stays, and the next copy carries 11 repeats: microsatellite instability."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="gnMmrPlay">Play</button><label class="stage-cap tl" for="gnMmrT">Replication <input type="range" id="gnMmrT" min="0" max="1" step="0.001" value="0.3"></label></div>
+      <p class="stage-cap">Schematic, not to scale: one strand pair, ten repeats, proteins drawn as labelled shapes. [[Vilar2010,Boland2010,Li2008]]</p>
+    </div>
+    <aside class="note" id="gnMmrNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Colorectal cancer risk by gene</h3>
+  <div class="ctrls" role="group" aria-label="Genes shown">
+    <span class="kicker">Gene</span>
+    <button class="btn" data-gng="MLH1" aria-pressed="true">MLH1</button>
+    <button class="btn" data-gng="MSH2" aria-pressed="true">MSH2</button>
+    <button class="btn" data-gng="MSH6" aria-pressed="true">MSH6</button>
+    <button class="btn" data-gng="PMS2" aria-pressed="true">PMS2</button>
+    <span class="kicker" style="margin-left:8px">Sex</span>
+    <button class="btn" data-gns="F" aria-pressed="true">Women</button>
+    <button class="btn" data-gns="M" aria-pressed="false">Men</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="gnCurve" viewBox="0 0 720 360" style="min-width:560px" role="img" aria-label="Cumulative colorectal cancer incidence by age from 30 to 75 in carriers of each mismatch repair gene from the Prospective Lynch Syndrome Database: MLH1 and MSH2 rise to about half by 75, MSH6 to about a fifth, PMS2 to about a tenth. A general-population point at age 70 is shown for comparison."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="gnCurvePlay">Play</button><label class="stage-cap tl" for="gnCurveT">Age <input type="range" id="gnCurveT" min="0" max="1" step="0.001" value="1"></label></div>
+      <div class="readout" id="gnCurveRead"></div>
+      <p class="stage-cap">Circles are published cumulative incidences (PLSD 2020, 6,350 carriers, under surveillance); lines join them straight, so values between circles are interpolated. General population to 70: Win 2014. [[DominguezValentin2020,Win2014]]</p>
+    </div>
+    <aside class="note" id="gnCurveNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="tbl"><table>
+    <thead><tr><th>Gene</th><th>Carrier frequency</th><th>CRC to 75, women / men</th><th>Endometrial to 75</th><th>Ovarian to 75</th><th>Colonoscopy, as published</th></tr></thead>
+    <tbody>
+      <tr><th>MLH1</th><td class="num">1 in 1,946</td><td class="num">48.3% / 57.1%</td><td class="num">37.0%</td><td class="num">11.0%</td><td>ACG: from 20–25, every 1–2 years. Europe: every 2–3 years from 25. UK: every 2 years from 25 to 75.</td></tr>
+      <tr><th>MSH2</th><td class="num">1 in 2,841</td><td class="num">46.6% / 51.4%</td><td class="num">48.9%</td><td class="num">17.4%</td><td>As for MLH1. Upper GI cancers to 75: 12.8% (women), 19.5% (men).</td></tr>
+      <tr><th>MSH6</th><td class="num">1 in 758</td><td class="num">20.3% / 18.2%</td><td class="num">41.1%</td><td class="num">10.8%</td><td>ACG: from 25–30. Europe: every 2–3 years from 35. UK: every 2 years from 35.</td></tr>
+      <tr><th>PMS2</th><td class="num">1 in 714</td><td class="num">10.4% (both)</td><td class="num">12.8%</td><td class="num">3.0%</td><td>ACG: from 25–30. Europe: from 35, 5-yearly may be considered. UK: every 2 years from 35.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Sources: carrier frequencies [[Win2017]]; cumulative incidence [[DominguezValentin2020]]; guidelines [[Syngal2015,Seppala2021,Monahan2020]]. EPCAM 3′ deletions silence the neighbouring MSH2 gene and also cause Lynch syndrome. [[Ligtenberg2009]]</p>
+
+  <h3 class="sub">Finding Lynch syndrome</h3>
+  <div class="split2">
+    <div class="card"><span class="tag">Family criteria</span><h4>Amsterdam II: "3-2-1-0"</h4><p>At least three relatives with a Lynch-associated cancer (colorectal, endometrium, small bowel, ureter or renal pelvis), and all of: one is a first-degree relative of the other two; two successive generations affected; at least one diagnosed before 50; FAP excluded; tumours verified where possible. [[Vasen1999,Syngal2015]]</p></div>
+    <div class="card"><span class="tag">Tumour testing criteria</span><h4>Revised Bethesda</h4><p>Includes colorectal cancer before 50; synchronous or metachronous Lynch-related tumours at any age; MSI-H histology before 60; colorectal cancer with one or more first-degree relatives with a Lynch-related cancer, one diagnosed before 50. [[Umar2004,Syngal2015]]</p></div>
+  </div>
+  <div class="callout"><p><b>Universal tumour testing.</b> ACG 2015: "All newly diagnosed colorectal cancers (CRCs) should be evaluated for mismatch repair deficiency" by immunohistochemistry and/or MSI; tumours with MLH1 loss should have BRAF or MLH1 promoter-methylation testing. [[Syngal2015]] The European 2021 guideline says all colorectal and endometrial cancers should be tested. [[Seppala2021]] In 10,206 probands, universal testing had 100% sensitivity against 87.8% for the Bethesda guidelines, and 28% of Lynch cases in an Ohio cohort did not meet them. [[Moreira2012,Hampel2008]] Each Lynch proband had on average three relatives who also carried the variant. [[Hampel2008]]</p></div>
+
+  <h3 class="sub">What helps carriers</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Colonoscopy: 6% vs 16%</h4><p>In a controlled 15-year Finnish trial in Lynch families, colorectal cancer developed in 6% of those having colonoscopy every 3 years against 16% without (a 62% reduction). There were no colorectal cancer deaths in the screened group against 9 in controls. [[Jarvinen2000]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Aspirin: CAPP2, 9% vs 13%</h4><p>861 carriers took aspirin 600 mg or placebo for about 2 years. At about 10 years, colorectal cancer occurred in 9% (40/427) vs 13% (58/434): ITT HR 0.65 (0.43–0.97); per-protocol HR 0.56. No effect on other Lynch cancers. [[Burn2020]] Europe 2021 tells carriers there is a "high probability that daily aspirin will reduce their cancer risk", minimum 75–100 mg daily; the UK advises it with the best dose uncertain; ACG 2015 (before this report) did not recommend standard use. [[Seppala2021,Monahan2020,Syngal2015]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Weight in CAPP2</h4><p>Obese carriers had a 2.41-fold colorectal cancer risk, seen only in the placebo arm. [[Movahedi2015]]</p></div>
+    <div class="card"><span class="tag">Gynaecological risk</span><h4>Hysterectomy timing</h4><p>Risk-reducing hysterectomy at 25 would prevent endometrial cancer before 50 in 15% (MLH1), 18% (MSH2), 13% (MSH6) and 0% (PMS2) of carriers; little is gained before 40. [[DominguezValentin2021]]</p></div>
+  </div>
+
+  <h3 class="sub">Polyposis syndromes</h3>
+  <div class="cards">
+    <div class="card"><span class="tag tumour">FAP · APC · dominant</span><h4>Hundreds of adenomas</h4><p>Germline APC variants on 5q21 cause hundreds of adenomas; untreated, cancer follows at an average 35–40. [[Galiatsatos2006]] About 1 in 8,300 births, under 1% of colorectal cancer; about 70% have a family history and 15–30% of variants arise de novo. [[Half2009,Zaffaroni2024]] St Mark's: average age at cancer 39; 87% by 45, 93% by 50. [[Syngal2015]] Risk is "virtually 100% by 60 years" without prophylactic treatment. [[Zaffaroni2024]]</p></div>
+    <div class="card"><span class="tag tumour">FAP · care</span><h4>From age 12, then surgery</h4><p>Europe 2024: colonoscopy from 12 in classic FAP, by 18–20 in attenuated FAP; UK 2020: from 12–14, every 1–3 years, upper GI surveillance from 25. [[Zaffaroni2024,Monahan2020]] Prophylactic colectomy is usually advised by the late teens or early twenties; in 303 surgical cases, ages predicting cancer were 27 (profuse), 31 (sparse) and 46 (attenuated). [[Half2009,Zaffaroni2024]] Registry-found patients had 3–10% cancer at presentation against 50–70% when they presented with symptoms. [[Monahan2020]]</p></div>
+    <div class="card"><span class="tag tumour">FAP · beyond the colon</span><h4>Duodenum and desmoids</h4><p>Duodenal adenomas reach 90% by 70; duodenal cancer 4.5% by 57; desmoids in about 8% of men and 13% of women; thyroid cancer 1.5–12%; also CHRPE, osteomas and hepatoblastoma. After colectomy, duodenal cancer and desmoids are the two main causes of death. [[Bulow2004,Half2009,Zaffaroni2024]]</p></div>
+    <div class="card"><span class="tag">Attenuated FAP</span><h4>10 to 100 adenomas</h4><p>Usually 10–100 adenomas, appearing later, with a lower cancer risk. [[Half2009]]</p></div>
+    <div class="card"><span class="tag accent">MAP · MUTYH · recessive</span><h4>Both copies needed</h4><p>Biallelic MUTYH variants cause about 7% of adenomatous polyposis and 0.7% of colorectal cancer; 77.4% have fewer than 100 adenomas; lifetime CRC risk about 50.5%, mean age 47.85. [[Zaffaroni2024]] ACG: 19% by 50 and 43% by 60. [[Syngal2015]] One in 45 people carries a MUTYH variant, mostly one copy; single-copy carriers have 7.2% (men) and 5.6% (women) risk to 70 against 2.9% and 2.1% in the general population, yet UK guidance does not advise extra colonoscopy for them. [[Win2017,Win2014,Monahan2020]]</p></div>
+    <div class="card"><span class="tag">Serrated polyposis</span><h4>Most common, often missed</h4><p>WHO 2019: at least 5 serrated lesions proximal to the rectum, all ≥5 mm with 2 or more ≥10 mm; or more than 20 serrated lesions anywhere with at least 5 proximal, counted across colonoscopies. [[Monahan2020]] No common germline cause is known; first-degree relatives should have colonoscopic screening. [[Rex2026SPS]]</p></div>
+    <div class="card"><span class="tag">Hamartomatous</span><h4>Peutz–Jeghers and juvenile polyposis</h4><p>Peutz–Jeghers: autosomal dominant, usually STK11, with mucocutaneous pigmentation; 1 in 50,000–200,000 births; lifetime colorectal cancer risk 39%. [[Beggs2010,Syngal2015]] Juvenile polyposis: dominant, five or more juvenile polyps; CRC RR 34.0, lifetime risk 38.7%, mean age 43.9. [[Brosens2007,Syngal2015]]</p></div>
+  </div>
+
+  <h3 class="sub">Where the evidence disagrees</h3>
+  <div class="cards">
+    <div class="card"><span class="tag warn">Controversy</span><h4>How often to look?</h4><p>ACG says every 1–2 years, Europe every 2–3 years with consensus split, the UK every 2 years; PMS2 may be 5-yearly in Europe. Colorectal cancer still occurs in about half of MLH1/MSH2 carriers by 75 under surveillance, which challenges the idea that adenomas are always the precursor. [[Syngal2015,Seppala2021,Monahan2020,DominguezValentin2020]]</p></div>
+    <div class="card"><span class="tag warn">Controversy</span><h4>Penetrance depends on how carriers were found</h4><p>Clinic-based PLSD cohorts and family-based studies differ, especially for MSH6 and PMS2: for example PMS2 to 70, 3.4% in PLSD vs 19% in men and 11% in women in PMS2 families; MSH6 to 70, 12% in French families. [[DominguezValentin2020,tenBroeke2015,Bonadona2011]]</p></div>
+    <div class="card"><span class="tag warn">Controversy</span><h4>Aspirin dose</h4><p>European and UK guidelines endorse aspirin; ACG 2015 did not. The best dose is unknown; the CAPP3 dose trial had no results in PubMed at the time of this pass. [[Seppala2021,Monahan2020,Syngal2015]]</p></div>
+  </div>
+</section>

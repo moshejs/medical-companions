@@ -1,0 +1,12 @@
+{
+ "areas": {
+  "A": "Epidemiology, presentation, burden & history",
+  "B": "Causes: genetics, family risk & environment",
+  "C": "Mechanisms: circadian rhythm, brain networks & how lithium works",
+  "D": "Diagnosis: DSM-5-TR & ICD-11, types & specifiers, screening and differential",
+  "E": "Lithium: evidence, pharmacokinetics, monitoring, toxicity & interactions",
+  "F": "Other medicines: anticonvulsants, antipsychotics, antidepressants, ECT & guidelines",
+  "G": "Psychological care, suicide safety, living well, families & nursing",
+  "H": "Course, comorbidity, pregnancy & special groups, and research toward better treatment"
+ }
+}

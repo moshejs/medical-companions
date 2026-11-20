@@ -1,0 +1,103 @@
+<!-- ================= 2.1 ALCOHOL-RELATED LIVER DISEASE ================= -->
+<style>
+#m-alcohol .card>.ev,#m-alcohol .card>.tag{align-self:flex-start}
+#m-alcohol .tbl table{min-width:540px}
+#m-alcohol .lab+.readout{margin-top:-10px}
+</style>
+<section class="mod" id="m-alcohol" data-mod="alcohol" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · Causes</p><h2>Alcohol-related liver disease</h2>
+    <p class="lede">Alcohol is one of the two commonest causes of cirrhosis in many countries, alongside fatty liver disease linked to metabolism. Viral hepatitis, genetic and autoimmune diseases cause it too. Follow 100 people who drink heavily from fatty liver to scarring, and see what stopping does. [[Seitz2018NRDP,Younossi2023Hepatology]]</p></div>
+
+  <div class="stepper" id="alSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="alSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="On the left a liver and three magnified liver cells change as drinking continues: fat droplets fill the cells, the cells swell and inflame, then scar strands and nodules form; when drinking stops, fat clears and scar thins. On the right an array of 100 person icons shows that about 90 of 100 heavy drinkers develop fatty liver and only about 10 to 20 develop severe alcohol-associated hepatitis or cirrhosis."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="alPlay">Play</button><label class="stage-cap tl" for="alT">Years of heavy drinking <input type="range" id="alT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <div class="readout" id="alRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> The icon array shows the published shares (about 90% fatty liver; about 10–20% severe disease) as one group of 100, not a prediction for anyone. Steatohepatitis has no single published share, so it is not counted. Time is not to scale. [[Singal2018ACG]]</p>
+    </div>
+    <aside class="note" id="alNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How much, and how often?</h3>
+  <div class="prose"><p>A 2019 meta-analysis pooled 7 cohort and 2 case-control studies: 2,629,272 people and 5,505 cases of cirrhosis. It compared each drinking level with long-term abstainers. Press the buttons to show women, men or both, and move the cursor along the drinking scale. [[Roerecke2019Cirrhosis]]</p></div>
+  <div class="ctrls" role="group" aria-label="Show which sex">
+    <span class="kicker">Show</span>
+    <button class="btn" data-alsex="f" aria-pressed="true">Women</button>
+    <button class="btn" data-alsex="m" aria-pressed="true">Men</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="alDose" viewBox="0 0 720 340" style="min-width:560px" role="img" aria-label="Relative risk of cirrhosis by drinks per day on a log scale, compared with long-term abstainers. Women: relative risk 12.44 at 5 to 6 drinks a day and 24.58 at 7 or more. Men: 3.80 at 5 to 6 drinks a day and 6.93 at 7 or more. Occasional drinking did not raise risk; one drink a day raised risk in women but not in men."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="alDosePlay">Play</button><label class="stage-cap tl" for="alDoseT">Drinks a day <input type="range" id="alDoseT" min="0" max="1" step="0.001" value="1"></label></div>
+      <p class="stage-cap"><b>Points as published, lines drawn between them.</b> Whiskers are 95% confidence intervals; the y-axis is logarithmic. The paper's standard drink is about 12 g of alcohol. Risks for 2–4 drinks a day appear only in the paper's figures, so they are not plotted. Observational data based on self-report. [[Roerecke2019Cirrhosis]]</p>
+    </div>
+    <aside class="note" id="alDoseNote" aria-live="polite"></aside>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="tag liver">Sex</span><h4>Smaller amounts harm women's livers</h4><p>In the Copenhagen City Heart Study (13,285 adults, 12 years), alcohol-related cirrhosis occurred at 0.2% a year in men and 0.03% a year in women overall, but at any given intake women had the higher relative risk. Risk became significantly raised from 7–13 drinks a week in women and from 14–27 in men; the lowest risk was at 1–6 drinks a week. An earlier meta-analysis of 17 studies agrees. [[Becker1996Hepatology,Rehm2010Cirrhosis]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Daily drinking carries more risk</h4><p>At the same total intake, drinking every day rather than on some days raised cirrhosis risk: RR 1.71 in men and 1.56 in women in a meta-analysis of 5 studies. In a Danish cohort of 55,917 adults, daily drinking in men carried HR 3.65 compared with drinking 2–4 days a week, and recent intake (ages 40–59) mattered more than intake at ages 20–39. [[LlamosasFalcon2023,Askgaard2015JHep]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Is wine different?</h4><p>Among Danish men drinking 14–28 drinks a week, risk compared with under 14 a week was HR 7.47 when almost none of it was wine and HR 1.69 (95% CI 0.79–3.65) when most of it was. The authors say wine "might be" linked to lower risk; lifestyle differences between wine and beer or spirits drinkers may explain it. [[Askgaard2015JHep]]</p></div>
+    <div class="card"><span class="tag good">Cutting down</span><h4>Every step down helps</h4><p>In a US national survey of 21,925 current drinkers followed for 3 years, very-high-risk drinkers who dropped 1, 2 or 3 WHO drinking-risk levels had lower odds of liver disease (adjusted OR 0.34, 0.23 and 0.17), without stopping completely. Stopping helps most. [[Knox2018Liver,Xie2014HepatolRes]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Genes change the odds</h4><p>A genome-wide study of alcohol-related cirrhosis confirmed <i>PNPLA3</i> rs738409 (the I148M variant) as a major risk locus and found <i>TM6SF2</i> and <i>MBOAT7</i>, all involved in handling fat. The risk allele is more frequent in Hispanic populations. The same variant raises risk in metabolic fatty liver disease. [[Buch2015NatGenet,Romeo2008PNPLA3,Singal2018ACG]]</p></div>
+    <div class="card"><span class="tag">What counts as a drink</span><h4>Standard drinks</h4><p>ACG 2018 defines a US standard drink as about 14 g of alcohol: 12 oz of 5% beer, 5 oz of wine or 1.5 oz of 40–45% liquor. It describes heavy drinking as more than 3 drinks a day for men and more than 2 for women; binge drinking (NIAAA) is more than 5 drinks for men and more than 4 for women within 2 hours. [[Singal2018ACG]]</p></div>
+  </div>
+
+  <h3 class="sub">Alcohol-associated hepatitis</h3>
+  <div class="prose"><p>Severe steatohepatitis, with or without cirrhosis, can present suddenly as alcohol-associated hepatitis: jaundice, liver failure and a high risk of death. It needs hospital care. Step through how it is recognised, graded and treated. [[Seitz2018NRDP,Jophlin2024ACG]]</p></div>
+  <p class="crisis" role="note"><b>Urgent care</b><span>Vomiting blood, black or tarry stools, new confusion or drowsiness, or fever or belly pain with a swollen abdomen need urgent care: call your local emergency number or go to an emergency department.</span></p>
+  <div class="stepper" id="alAhSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="alAh" viewBox="0 0 720 360" style="min-width:560px" role="img" aria-label="Five panels on alcohol-associated hepatitis: the published laboratory pattern, a severity gauge with MELD above 20 as severe, the 28-day mortality in the four STOPAH trial arms, the day-7 Lille split between responders and non-responders, and 6-month survival with early transplant versus matched controls."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="alAhPlay">Play</button><label class="stage-cap tl" for="alAhT">Hospital course <input type="range" id="alAhT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <p class="stage-cap"><b>Published numbers, schematic layout.</b> Mortality and survival figures are population statistics from the trials and cohorts named; they do not predict any one person's outcome. The Lille model and MELD are shown as concepts, not calculators.</p>
+    </div>
+    <aside class="note" id="alAhNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What stopping does</h3>
+  <div class="prose"><p>ACG 2024 calls abstinence "a crucial determinant of long-term outcomes", and the disease primer calls it "the best treatment for all stages". Scrub through five years after a diagnosis of alcohol-related cirrhosis. [[Jophlin2024ACG,Seitz2018NRDP]]</p></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="alAbs" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="Left: the hazard ratio for death with abstinence compared with continued drinking, from 0.5 to 5 years; it falls below 1 throughout and becomes statistically significant from 1.5 years. Right: the cumulative share of people with decompensated alcohol-related cirrhosis who stopped drinking and regained compensation: 12.3% at 1 year, 23.4% at 2 years and 33.8% at 5 years."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="alAbsPlay">Play</button><label class="stage-cap tl" for="alAbsT">Years after diagnosis <input type="range" id="alAbsT" min="0" max="1" step="0.001" value="1"></label></div>
+      <p class="stage-cap"><b>Published points, smooth lines drawn between them.</b> Left: meta-analysis of 7 cohorts, 1,235 people. Right: 633 people with decompensated cirrhosis who stopped drinking, 17 centres. Population statistics, not a promise for any one person. [[Xie2014HepatolRes,Hofer2026JHep]]</p>
+    </div>
+    <aside class="note" id="alAbsNote" aria-live="polite"></aside>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Biopsy cohort, 192 people with ARLD</th><th>Liver-related mortality</th><th>What it shows</th></tr></thead>
+    <tbody>
+      <tr><th>Early or compensated disease</th><td>13% at 5 years</td><td>Stage matters: half of this "early" group (52%) already had severe fibrosis (F3/4).</td></tr>
+      <tr><th>Decompensated disease</th><td>43% at 5 years</td><td>Complications had already appeared.</td></tr>
+      <tr><th>Early disease, fibrosis F0–2</th><td>0% at 10 years</td><td rowspan="2">Fibrosis stage separated outcomes within the early group (p &lt; 0.001).</td></tr>
+      <tr><th>Early disease, fibrosis F3/4</th><td>45% at 10 years</td></tr>
+      <tr class="hl"><th>Abstinence</th><td colspan="2">Predicted survival in both early and decompensated disease. The paper reports this as a predictor, not as a single survival percentage.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Source: [[Lackner2017JHep]]. Population statistics from one biopsy cohort.</p>
+
+  <h3 class="sub">Treating alcohol use disorder alongside liver disease</h3>
+  <div class="callout"><p>ACG 2024 notes that people with alcohol-related liver disease are "rarely treated for AUD", and calls for integrated care with hepatology, addiction medicine and social work. Among 35,682 US veterans with cirrhosis and alcohol use disorder, only 14% received AUD treatment within 180 days: 0.4% received a medicine alone and 1% a medicine plus behavioural therapy. [[Jophlin2024ACG,Rogal2020Hepatology]]</p></div>
+  <div class="cards">
+    <div class="card"><span class="ev early">Early evidence</span><h4>Treatment goes with fewer complications</h4><p>In those veterans, AUD treatment was linked to less hepatic decompensation (6.5% vs 11.6%; adjusted OR 0.63) and lower long-term mortality (51% vs 58%; adjusted OR 0.87). In 9,635 people with AUD in a US biobank, medicine for AUD was linked to less new alcohol-related liver disease (adjusted OR 0.37) and, with cirrhosis, less decompensation (adjusted OR 0.35). Both studies are observational. [[Rogal2020Hepatology,Vannier2022]]</p></div>
+    <div class="card"><span class="ev est">Randomised trial</span><h4>Baclofen in cirrhosis</h4><p>In 84 people with AUD and cirrhosis, 71% on baclofen achieved and kept abstinence over 12 weeks vs 29% on placebo (OR 6.3), with no hepatic side effects recorded. ACG 2018 states that of the AUD medicines, "only baclofen ... has been found to be safe in patients with ALD and cirrhosis". Quoted as published, not as advice. [[Addolorato2007Lancet,Singal2018ACG]]</p></div>
+    <div class="card"><span class="tag rx">Label</span><h4>Acamprosate</h4><p>The US label states that acamprosate "is not metabolized by the liver" and that its pharmacokinetics "are not altered" in Child–Pugh A or B hepatic impairment. It is cleared by the kidneys: contraindicated at creatinine clearance ≤30 mL/min, with a reduced dose at 30–50 mL/min. [[FDA-Campral]]</p></div>
+    <div class="card"><span class="ev early">Practice is moving</span><h4>Naltrexone</h4><p>The tablet label reports cases of hepatitis and "clinically significant liver dysfunction", often with alcohol-related liver disease, viral hepatitis or other hepatotoxic drugs as contributors. In 3,285 US veterans with cirrhosis who started naltrexone, 2% had enzyme rises and no case was classed as drug-induced liver injury; a smaller cohort says "more safety data are needed" in decompensated cirrhosis. [[FDA-Naltrexone,Thompson2024JHEP,Ayyala2022]]</p></div>
+    <div class="card"><span class="tag rx">Transplant</span><h4>Early transplant for severe hepatitis</h4><p>The old rule asked for 6 months of abstinence first, yet most deaths from severe alcohol-associated hepatitis come within 2 months. Early transplant for carefully selected people now has published survival of 94% at 1 year and 84% at 3 years, with return to drinking still debated. <a href="#transplant" data-go="transplant">See Liver transplant</a>. [[Mathurin2011NEJM,Lee2018Gastro,Louvet2022Lancet]]</p></div>
+    <div class="card"><span class="tag brand">Companion</span><h4>More on alcohol use disorder</h4><p>How alcohol use disorder is diagnosed, how cravings and withdrawal work, and every treatment option, cited and animated, in the <a href="../../alcohol-use-disorder/">Alcohol Use Disorder Companion</a>. Talking to a doctor or a support service is a strong first step.</p></div>
+  </div>
+
+  <h3 class="sub">Trends in the United States</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Measure</th><th>Change</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><th>Cirrhosis deaths a year</th><td>Up 65% from 1999 to 2016, to 34,174. People aged 25–34 had the fastest rise (10.5% a year, 2009–2016), "driven entirely by alcohol related liver disease".</td><td>[[Tapper2018BMJ]]</td></tr>
+      <tr><th>Advanced fibrosis in ARLD</th><td>Overall prevalence stable (8.8% to 8.1%, 2001–2016), but the share with stage ≥3 fibrosis by FIB-4 rose from 2.2% to 6.6%.</td><td>[[Dang2020AJG]]</td></tr>
+      <tr><th>Transplant listings for ARLD</th><td>Up 63.4% from 2007 to 2017.</td><td>[[Dang2020AJG]]</td></tr>
+      <tr><th>ARLD deaths per 100,000 (age-adjusted, ages ≥25)</th><td>Men 13.1 → 16.9 and women 5.6 → 7.7, 2017 to 2020; monthly growth accelerated from February 2020.</td><td>[[DeutschLink2022]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">A word on words: guidelines now say "alcohol-associated" or "alcohol-related" liver disease, and "person with alcohol use disorder", in place of older labels. [[Crabb2020AASLD]]</p>
+</section>

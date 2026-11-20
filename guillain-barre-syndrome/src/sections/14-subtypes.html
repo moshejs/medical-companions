@@ -1,0 +1,98 @@
+<!-- ================= 1.4 SUBTYPES: AIDP, AMAN AND AMSAN ================= -->
+<style>
+#m-subtypes .tbl table{min-width:680px}
+#m-subtypes .card>.ev,#m-subtypes .card>.tag{align-self:flex-start}
+#m-subtypes .sbbar{display:flex;flex-wrap:wrap;gap:8px}
+#m-subtypes .sbbar .btn{min-height:40px}
+#m-subtypes .sbcap{font-size:15px;line-height:1.5;max-width:76ch}
+#m-subtypes .card b.num{font:700 30px/1 var(--display);color:var(--brand)}
+</style>
+<section class="mod" id="m-subtypes" data-mod="subtypes" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · Understanding GBS</p><h2>Subtypes: AIDP, AMAN and AMSAN</h2>
+    <p class="lede">The immune attack in Guillain-Barré syndrome can land on the myelin sheath or on the nerve fibre itself. Watch both happen on one motor fibre, see the two ways an axonal attack can end, then compare how common each subtype is around the world.</p></div>
+
+  <div class="prose">
+    <p>GBS is not one disease. When 12 people who died with GBS in Hebei Province, China, were examined at autopsy, 3 had acute inflammatory demyelinating polyneuropathy (AIDP), with lymphocytes in the nerve and macrophages stripping myelin; 6 had mainly axonal damage; and 3 had only very mild changes in roots and sciatic nerves although they had been paralysed [[Griffin1995]]. Among the 6 axonal cases, 3 had degeneration of sensory as well as motor fibres (acute motor-sensory axonal neuropathy, AMSAN) and 3 almost only of motor fibres (acute motor axonal neuropathy, AMAN) [[Griffin1995]].</p>
+    <p>An axonal form was first described in 1986, in 5 people whose motor nerves could not be stimulated at all [[Feasby1986]]. AMAN was named in northern China, where 88 of 90 people with acute flaccid paralysis had normal motor latencies and velocities, small muscle responses and normal sensory responses [[McKhann1993]]. Pick a step or press Play.</p>
+  </div>
+
+  <div class="stepper" id="sbSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="sbSvg" viewBox="0 0 720 352" style="min-width:560px" role="img" aria-label="Two motor nerve fibres, one above the other, each carrying an impulse from left to right, with a close-up of one node of Ranvier beside them. In the upper fibre, labelled AIDP, antibodies and complement land on the myelin and macrophages strip it, so the impulse slows and stops; later thin new myelin grows back. In the lower fibre, labelled AMAN, antibodies and complement attack the axon at the nodes and the impulse stops there; then the fibre splits into two outcomes, a block that lifts and an axon that breaks and slowly regrows. One scene shows that in AMSAN sensory axons break too, and a last scene compares recovery times."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="sbPlay">%t:player.play%</button><label class="stage-cap tl" for="sbT">Timeline <input type="range" id="sbT" min="0" max="1" step="0.002" value="0.06"></label></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> The impulse is drawn jumping node to node; where myelin is lost it creeps or stops. Recovery figures in the last scene are group medians and percentages from the cited studies [[Ho1997Recovery,Hiraga2005]].</p>
+    </div>
+    <aside class="note" id="sbNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Three patterns side by side</h3>
+  <div class="tbl"><table>
+    <thead><tr><th></th><th><span class="tag demy">AIDP</span></th><th><span class="tag axonal">AMAN</span></th><th><span class="tag axonal">AMSAN</span></th></tr></thead>
+    <tbody>
+      <tr><th>First target</th><td>Outer surface of the Schwann cell; C3d and C5b-9 there, myelin changes into vesicles before macrophages arrive <span class="ev early">Early evidence</span> [[HaferMacko1996AIDP]]</td><td>Axolemma of motor fibres, mostly at the node: IgG and C3d bound there [[HaferMacko1996AMAN]]</td><td>Axons of motor and sensory fibres, in ventral and dorsal roots and nerves [[Griffin1996AMSAN]]</td></tr>
+      <tr><th>What the tissue shows</th><td>Lymphocytes and macrophage-stripped myelin [[Griffin1995]]</td><td>Lengthened nodes, then macrophages under intact myelin; little inflammation [[Griffin1996Nodal,HaferMacko1996AMAN]]</td><td>Wallerian-like degeneration with minimal demyelination [[Griffin1996AMSAN]]</td></tr>
+      <tr><th>Sensory fibres</th><td>Sensory nerve studies abnormal in 85% [[Kuwabara2004Sensory]]</td><td>Spared on pathology [[HaferMacko1996AMAN]]; sensory studies abnormal in 6% [[Kuwabara2004Sensory]]</td><td>Degenerate along with motor fibres [[Griffin1996AMSAN]]</td></tr>
+      <tr><th>Antibodies most linked</th><td>None consistently [[Shahrizaila2014]]</td><td>IgG to GM1, GD1a, GalNAc-GD1a, GM1b [[Ho1999,Yuki1999AMSAN,Shahrizaila2014]]</td><td>The same profile as AMAN [[Yuki1999AMSAN]]</td></tr>
+      <tr><th>Who, in IGOS</th><td colspan="3">People with the axonal subtype were younger, had fewer sensory deficits and showed a trend towards poorer recovery than those with the demyelinating subtype, in every region [[Doets2018]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Where each subtype is common</h3>
+  <div class="prose"><p>Pick a cohort. Each block is 100 people; the dots fill in that cohort's split between demyelinating, axonal and everything else. Studies used different criteria, one or several nerve studies, and different years, so they are not strictly comparable.</p></div>
+  <div class="sbbar" role="group" aria-label="Choose a cohort">
+    <button class="btn" data-sbreg="eu" aria-pressed="true">IGOS: Europe &amp; Americas</button>
+    <button class="btn" data-sbreg="asia" aria-pressed="false">IGOS: Asia</button>
+    <button class="btn" data-sbreg="bd" aria-pressed="false">IGOS: Bangladesh</button>
+    <button class="btn" data-sbreg="trial" aria-pressed="false">1990s trial</button>
+    <button class="btn" data-sbreg="china" aria-pressed="false">Northern China</button>
+    <button class="btn" data-sbreg="japan" aria-pressed="false">Japan</button>
+    <button class="btn" data-sbreg="spain" aria-pressed="false">Spain</button>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="sbReg" viewBox="0 0 720 250" style="min-width:560px" role="img" aria-label="A block of 100 dots coloured and shaped by nerve-study subtype for the chosen cohort: filled circles for demyelinating, diamonds for axonal and open rings for equivocal, inexcitable, normal or unclassified studies, with the percentage of each written beside it."></svg></div>
+    <p class="sbcap" id="sbRegCap" aria-live="polite"></p>
+  </div>
+  <p class="callout">Is axonal GBS really commoner in Asia? Bangladesh (67% axonal among 100 people in Dhaka) and historic northern China say yes [[Islam2010,Ho1995]]. IGOS found only 6% axonal in Asia outside Bangladesh, but from just 65 studies [[Doets2018]], and figures differ inside one region too: 67% AIDP in northeast China in 2006–10, yet 54% AMAN in a water-linked epidemic there in 2007 [[Ye2013China,Ye2010Epidemic]]. A 2014 review calls the question largely unresolved, partly because a single nerve study misses axonal cases [[Bae2014]].</p>
+
+  <div class="cards">
+    <div class="card"><b class="num">55%</b><p>demyelinating in Europe and the Americas in IGOS, against 6% axonal [[Doets2018]].</p></div>
+    <div class="card"><b class="num">36%</b><p>axonal in Bangladesh, the highest IGOS share; demyelinating was still 40% [[Doets2018]].</p></div>
+    <div class="card"><b class="num">31 vs 32</b><p>median days to walk 5 metres with help, AMAN against AIDP, in northern China [[Ho1997Recovery]].</p></div>
+    <div class="card"><b class="num">50%</b><p>dead or unable to walk unaided at 48 weeks with inexcitable nerves (6 of 12), against 15% for everyone else in the 1990s trial cohort [[Hadden1998]].</p></div>
+  </div>
+
+  <h3 class="sub">Antibodies and triggers</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Molecular mimicry</h4><p>The sugar coat (lipo-oligosaccharide) of <i>Campylobacter jejuni</i> mimics the gangliosides GM1 and GD1a. Rabbits sensitised with it made anti-GM1 IgG and developed flaccid weakness with GBS-like nerve changes [[Yuki2004,Yuki2007]].</p></div>
+    <div class="card"><h4>GD1a separates the subtypes</h4><p>In 138 Chinese people, IgG anti-GD1a above 1:100 was found in 60% with AMAN and 4% with AIDP. Anti-GM1 above 1:100 was 57% against 35%, a difference that was not significant [[Ho1999]].</p></div>
+    <div class="card"><span class="tag warn">Debated</span><h4>Is anti-GM1 an axonal marker?</h4><p>Serial studies tie it to AMAN and reversible conduction failure [[Kuwabara1998GM1,Shahrizaila2014]]. The largest profile so far, 1,413 people, found 92.6% positive for at least one antibody on a combinatorial array, and anti-GM1 in every subtype [[Thomma2025Brain]].</p></div>
+    <div class="card"><h4>After <i>Campylobacter</i></h4><p>In IGOS (768 people with serology), 30% had recent <i>C. jejuni</i>, 10% <i>Mycoplasma pneumoniae</i>, 4% cytomegalovirus, 3% hepatitis E and 1% Epstein-Barr virus. Axonal and pure motor forms were commoner in Asian than in American or European <i>C. jejuni</i>-positive people [[Leonhard2022IGOS]].</p></div>
+    <div class="card"><h4>An AIDP label that changed</h4><p>With weekly studies, all 5 people with strict <i>C. jejuni</i> evidence first classed as AIDP normalised their distal latency within 2 weeks and ended as AMAN. After cytomegalovirus or Epstein-Barr virus, AIDP latencies kept rising for 8 weeks [[Kuwabara2004Cj]].</p></div>
+    <div class="card"><h4>Testing, per the guideline</h4><p>The 2023 EAN/PNS guideline says anti-ganglioside testing is of limited clinical value in most people with typical motor-sensory GBS; it advises anti-GQ1b testing when Miller Fisher syndrome is suspected, and nodal-paranodal antibodies when autoimmune nodopathy is suspected (good practice points) [[vanDoorn2023]].</p></div>
+  </div>
+
+  <h3 class="sub">Reversible conduction failure</h3>
+  <div class="prose">
+    <p>A conduction block does not prove demyelination. In 34 people studied repeatedly, those with IgG anti-GM1 had slowing and block that resolved within days, and distal responses that grew back without the slow, dispersed components that new myelin produces; the authors place the problem in conduction at the node [[Kuwabara1998GM1]]. Definite block was much commoner across the ulnar elbow segment (39%) than in the forearm (6%), but the elbow is an entrapment site, and IGOS left that segment out [[Kokubun2010,Arends2024]].</p>
+    <p>Proposed criteria for reversible failure in one nerve: a 50% rise in distal amplitude, or a proximal block that resolves with a fall in distal latency or response duration, or a rise in velocity. In 82 people, 45% met them [[Chan2017]]. Sensory fibres can show it too: serial recordings found sensory involvement in 69% of people with AMAN [[Capasso2011]]. It can recover without immunotherapy [[Kokubun2013JNS]], and a non-randomised series of 72 people found more early reversible block after IVIg or plasma exchange than in the natural course [[Kalita2024]].</p>
+  </div>
+  <div class="split2">
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>"Nodo-paranodopathy"</h4><p>Uncini and colleagues proposed one category spanning transient conduction failure through to axonal degeneration, to explain axonal neuropathy with fast recovery [[Uncini2013,Uncini2018,Uncini2023]], and later a classification by fibre domain and target antigen [[Uncini2022]]. It is a proposal from one group, not an agreed classification; the 2023 guideline uses only the term autoimmune nodopathy [[vanDoorn2023]].</p></div>
+    <div class="card"><h4>Reflexes can be brisk</h4><p>Hyperreflexia during early recovery was seen in 13% of 54 people, more often in AMAN (6 of 23) than AIDP (1 of 18) and with anti-GM1 (7 of 26 against 0 of 28) [[Kuwabara1999]]. In a Dutch cohort of 494, 2% kept normal reflexes in weak arms [[Fokke2014]].</p></div>
+  </div>
+
+  <div class="hook"><b>Exam hook</b>Worldwide, demyelinating is still the most frequent subtype in all three IGOS regions, including Bangladesh (40% against 36% axonal) [[Doets2018]]. A conduction block can be axonal in mechanism, so it does not prove AIDP [[Kokubun2010,Uncini2010]].</div>
+  <div class="pt"><b>In plain words</b>Which type is common depends on where you live. People in Europe and the Americas rarely have the axonal type; in Bangladesh it is much more common. The label for your type can change on a later test, and that does not always mean you are getting worse.</div>
+
+  <h3 class="sub">Open questions</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Question</th><th>Evidence each way</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><th>Do axonal forms recover worse?</th><td>A trend to worse in IGOS [[Doets2018]]; slow recovery in 14% against 6% in Japan [[Hiraga2005]]; similar median recovery in China [[Ho1997Recovery]]; no significant difference at 48 weeks, with few axonal cases, in the 1990s trial [[Hadden1998]], where treatment effect also did not differ by category.</td><td>Unresolved</td></tr>
+      <tr><th>Does <i>C. jejuni</i> cause true AIDP?</th><td>Serial studies say no [[Kuwabara2004Cj,Kokubun2013CNP]]; IGOS found demyelinating classification most frequent even after <i>C. jejuni</i>, though less so than after cytomegalovirus [[Leonhard2022IGOS]].</td><td>May reflect single against serial testing</td></tr>
+      <tr><th>Is anti-GM1 an axonal marker?</th><td>Traditional association [[Kuwabara1998GM1,Shahrizaila2014]]; array data find it in all subtypes [[Thomma2025Brain]].</td><td>Assay method and antigen complexes matter</td></tr>
+      <tr><th>Is subtyping useful?</th><td>Serial studies are needed to get it right [[Uncini2010]]; IGOS finds the subtype changes on a second study in 38–45% and concludes that subtyping adds no value [[Arends2026]].</td><td>See <a href="#ncs" data-go="ncs">Nerve conduction studies</a></td></tr>
+    </tbody>
+  </table></div>
+</section>

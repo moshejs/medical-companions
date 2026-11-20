@@ -1,0 +1,49 @@
+<!-- ================= 1.3 The immune attack ================= -->
+<section class="mod" id="m-immune" data-mod="immune" hidden>
+<style>
+#m-immune .imrx{border-left:3px solid var(--rx);background:var(--rx-soft);border-radius:0 10px 10px 0;padding:10px 12px;font-size:15px;display:flex;flex-direction:column;gap:6px}
+#m-immune .imrx b.h{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--rx)}
+#m-immune .imrx ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
+#m-immune .card .ev{align-self:flex-start}
+#m-immune .tbl td a{white-space:nowrap}
+#m-immune .imtog{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 1 · The disease</p><h2>The immune attack</h2>
+    <p class="lede">How immune cells switched on in a lymph node leave it, cross the blood-brain barrier and strip myelin, then smoulder behind a closed barrier. Step through the attack, or turn on where each drug class acts.</p></div>
+  <div class="imtog"><button class="btn" id="imRx" aria-pressed="false">Show where drugs act</button><span class="stage-cap">Teal numbered badges mark the step each drug class targets. Mechanism only; trial results are in <a href="#dmt" data-go="dmt">How the drugs work</a>.</span></div>
+  <div class="stepper" id="imSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="imSvg" viewBox="0 0 720 460" style="min-width:560px" role="img" aria-label="Animation in three zones, a lymph node, a blood vessel with the blood-brain barrier, and brain tissue with myelinated nerve fibres: T and B cells are activated in the node, leave along the S1P gradient, grip VCAM-1 with VLA-4 to cross the vessel wall, are reactivated and strip myelin with macrophages and microglia while gadolinium leaks, and finally persist as smouldering inflammation behind a closed barrier with a meningeal B-cell follicle and an iron-rim lesion."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="imPlay">Play</button><label class="stage-cap tl" for="imT">Timeline <input type="range" id="imT" min="0" max="1" step="0.002" value="0.12"></label></div>
+      <p class="stage-cap">Schematic, not to scale. Cells are drawn large; the order of events follows the working model of relapsing MS.</p></div>
+    <aside class="note" id="imNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Why removing B cells works before antibodies fall</h3>
+  <p class="prose">Anti-CD20 antibodies empty the blood of B cells within two weeks, yet antibody levels and the plasma cells that make them barely change. Scrub through the first year after a first infusion to see the order of events.</p>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="imBSvg" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Four stacked timelines over 48 weeks after a first anti-CD20 infusion: blood B cells fall to near zero by day 14, new gadolinium-enhancing lesions fall within about 8 to 12 weeks, while total IgG and CD20-negative plasma cells stay level."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="imBPlay">Play</button><label class="stage-cap tl" for="imBT">Week <input type="range" id="imBT" min="0" max="1" step="0.002" value="0.3"></label></div>
+      <p class="stage-cap">Schematic curves through the published anchor points (B cells low by day 14; response as early as 8–12 weeks; IgG generally unchanged with initial courses). Heights are not measured values.</p></div>
+    <aside class="note" id="imBNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Where each drug class acts in this sequence</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Step</th><th>Drug class</th><th>Published mechanism</th><th></th></tr></thead>
+    <tbody>
+      <tr><th>1 · Activation</th><td>Teriflunomide</td><td>Reversibly inhibits DHODH, an enzyme of new pyrimidine synthesis that rapidly dividing activated T and B cells depend on; resting cells use a salvage pathway, so proliferation slows without cell death. [[BarOr2014]]</td><td><a href="#dmt" data-go="dmt">4.1 →</a></td></tr>
+      <tr><th>1 · Activation</th><td>Glatiramer acetate</td><td>Binds MHC molecules and competes with myelin antigens for presentation; induces Th2 suppressor cells that release IL-10, TGF-β and BDNF in the brain ("bystander suppression"). [[Arnon2004]]</td><td><a href="#dmt" data-go="dmt">4.1 →</a></td></tr>
+      <tr><th>1 · Activation</th><td>Cladribine</td><td>A purine analogue that lymphocytes cannot inactivate; it accumulates in them, breaks DNA and kills them. Counts are lowest 2–3 months after each cycle. [[Murphy2010,Leist2011,MavencladLabel2026]]</td><td><a href="#dmt" data-go="dmt">4.1 →</a></td></tr>
+      <tr><th>1 · Activation</th><td>Alemtuzumab</td><td>Binds CD52 on T and B cells, NK cells and monocytes and depletes them; B cells usually recover within 6 months, T cells more slowly. [[LemtradaLabel2025]]</td><td><a href="#dmt" data-go="dmt">4.1 →</a></td></tr>
+      <tr><th>2 · Exit</th><td>S1P receptor modulators</td><td>Fingolimod-phosphate first activates S1P1, then causes its down-regulation (functional antagonism), so lymphocytes cannot leave the nodes. Siponimod binds S1P1 and S1P5. [[Chun2010,MayzentLabel2026]]</td><td><a href="#dmt" data-go="dmt">4.1 →</a></td></tr>
+      <tr><th>3 · Entry</th><td>Natalizumab</td><td>Binds the α4 subunit of α4β1 (VLA-4) and α4β7 integrins, blocking adhesion to VCAM-1 on activated endothelium and so blocking entry into inflamed tissue. [[TyrukoLabel2025,Yednock1992]]</td><td><a href="#dmt" data-go="dmt">4.1 →</a></td></tr>
+      <tr><th>3–4 · Entry, attack</th><td>Interferon-β</td><td>Raises anti-inflammatory and lowers proinflammatory cytokines, may reduce trafficking across the barrier; mechanism "multifactorial and incompletely understood". [[Kieseier2011]]</td><td><a href="#dmt" data-go="dmt">4.1 →</a></td></tr>
+      <tr><th>4 · Attack</th><td>Fumarates</td><td>Dimethyl fumarate and its metabolite monomethyl fumarate stabilise the antioxidant transcription factor Nrf2; monomethyl fumarate also activates the receptor HCAR2 (both shown in mouse EAE). [[Linker2011,Chen2014]]</td><td><a href="#dmt" data-go="dmt">4.1 →</a></td></tr>
+      <tr><th>5 · B cells</th><td>Anti-CD20 antibodies</td><td>Kill CD20+ pre-B and mature B cells; stem cells, many plasmablasts and long-lived plasma cells lack CD20 and are spared. [[OcrevusLabel2026,Greenfield2018]]</td><td><a href="#dmt" data-go="dmt">4.1 →</a></td></tr>
+      <tr><th>6 · Smouldering</th><td>BTK inhibitors <span class="ev hyp">Mostly in trials</span></td><td>Target B cells and microglia; CNS-penetrant ones could reach both sides of the barrier, which anti-CD20 antibodies penetrate poorly. [[Kramer2023]] Tolebrutinib was authorised in the EU in June 2026 for SPMS without relapses in the last 2 years; the FDA issued a complete response letter. [[EMA2026Cenrifki,Sanofi2025CRL]]</td><td><a href="#cure" data-go="cure">4.4 →</a></td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">Open questions</h3>
+  <div class="cards" id="imCards"></div>
+</section>

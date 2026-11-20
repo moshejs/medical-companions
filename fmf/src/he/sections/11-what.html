@@ -1,0 +1,62 @@
+<!-- ================= 1.1 WHAT FMF IS ================= -->
+<section class="mod" id="m-what" data-mod="what" hidden>
+<style>
+#m-what .wh-sites{display:flex;flex-direction:column;gap:6px}
+#m-what .wh-site{display:grid;grid-template-columns:minmax(0,9.5em) minmax(0,1fr) 3.6em;gap:10px;align-items:center;width:100%;text-align:left;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--panel);cursor:pointer;font-size:14.5px;font-weight:700;line-height:1.2}
+#m-what .wh-site:hover{border-color:var(--muted)}
+#m-what .wh-site[aria-pressed="true"]{border-color:var(--terra);background:var(--terra-soft)}
+#m-what .wh-site .tr{height:10px;border-radius:99px;background:var(--panel-2);overflow:hidden}
+#m-what .wh-site .tr i{display:block;height:100%;border-radius:99px;background:var(--terra);width:0;transition:width .7s cubic-bezier(.3,.7,.2,1)}
+#m-what .wh-site .v{font:600 12.5px var(--mono);text-align:right;color:var(--ink)}
+#m-what .wh-body{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:12px;display:flex;flex-direction:column;gap:10px;min-width:0}
+#m-what .wh-body svg{width:100%;max-width:260px;height:auto;display:block;margin:0 auto}
+#m-what .wh-hl{transition:opacity .45s}
+#m-what .wh-pops{display:flex;flex-wrap:wrap;gap:6px}
+#m-what .wh-pops .btn{font-size:13px;padding:7px 11px}
+#m-what .big{font-family:var(--display);font-weight:800;font-size:30px;line-height:1;color:var(--terra)}
+#m-what .wh-sitenote{display:flex;flex-direction:column;gap:8px}
+#m-what .wh-sitenote h4{font-family:var(--display);font-weight:800;font-size:20px;margin:0}
+</style>
+  <div class="mhead"><p class="eyebrow">חלק 1 · המחלה</p><h2>מהי FMF</h2>
+    <p class="lede">קדחת ים תיכונית משפחתית (FMF) היא המחלה האוטו-דלקתית התורשתית השכיחה ביותר [[Tufan2020]]: התקפים קצרים של חום שחולפים מעצמם, עם דלקת בקרום שמצפה את הבטן, את בית החזה או את המפרקים. בחרו אוכלוסייה ולחצו על הפעלה כדי לראות כמה שכיחים וריאנטי הגן, ולמה הרבה פחות אנשים חולים ממה שהווריאנטים לבדם היו מנבאים.</p></div>
+
+  <div class="ctrls" role="group" aria-label="אוכלוסייה"><span class="kicker">אוכלוסייה</span><div class="wh-pops" id="whPops"></div></div>
+  <div class="stepper" id="whSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="whSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="100 אנשים, הנשאים שבהם מוארים, ואחר כך השכיחות הצפויה והנצפית של FMF"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="whPlay">הפעלה</button><label class="stage-cap tl" for="whT">ציר זמן <input type="range" id="whT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <div class="readout" id="whRead"></div>
+      <p class="stage-cap">כל דמות היא אדם 1 מתוך 100. שיעורי הנשאות לקוחים ממחקרים שונים, שבדקו פאנלים שונים של וריאנטים בשיטות שונות, ולכן אינם סדרה אחת שאפשר להשוות בתוכה. הנתון הצפוי הוא הערכה פשוטה: הוא מניח בחירת בני זוג אקראית, סופר רק את הווריאנטים שנבדקו באותו מחקר ומתעלם מחדירות מופחתת, ולכן אינו שיעור תחלואה.</p>
+    </div>
+    <aside class="note" id="whNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">למה נשאים כל כך שכיחים?</h3>
+  <div class="prose"><p>וריאנטים שגורמים למחלה נשארים בדרך כלל נדירים, כי הם מהווים נטל. וריאנטי FMF הגיעו לשיעורי נשאות של כ־1 מכל 5 בכמה אוכלוסיות. הסבר אחד הוא שנשיאת עותק אחד עזרה בעבר לאנשים לשרוד זיהום. גררו לאורך אלפיים שנה.</p></div>
+  <div class="stepper" id="whSelSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="whSel" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="שכיחות האלל עולה בהשפעת ברירה חיובית מכ־200 לפנה״ס עד 2000 לספירה, ומגפות הדבר מסומנות"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="whSelPlay">הפעלה</button><label class="stage-cap tl" for="whSelT">שנים <input type="range" id="whSelT" min="0" max="1" step="0.001" value="0.02"></label></div>
+      <div class="readout" id="whSelRead"></div>
+      <p class="stage-cap">מודל סכמטי, לא שחזור: ברירה קבועה לפי המקדמים שהעריכו פארק (Park) ועמיתיו ב־2020 (s ≈ 0.077 לדור ל־M694V ו־0.068 ל־V726A, דורות של 25 שנה), כשכל וריאנט מתחיל כעותק נדיר אחד בגיל שהעריך עבורו מודל HMM. שיטת Gamma באותו מאמר ממקמת את האב המשותף הקרוב ביותר מוקדם יותר, כ־3,541 שנים ל־M694V ו־3,372 ל־V726A, כך שתחילת כל עקומה היא הצעירה מבין שתי הערכות שפורסמו. השכיחות ההתחלתית היא להמחשה בלבד. סביר שהברירה בפועל לא הייתה אחידה.</p>
+    </div>
+    <aside class="note" id="whSelNote" aria-live="polite"></aside>
+  </div>
+  <div class="cards" id="whSelCards"></div>
+
+  <h3 class="sub">התקף במבט אחד</h3>
+  <div class="prose"><p>באיזו תדירות כל אזור מעורב, לפי המאגר הלאומי הטורקי של 2,838 חולים. [[Tunca2005]] הקישו על עמודה כדי לראות היכן האזור נמצא ואיך הוא מרגיש.</p></div>
+  <div class="split2">
+    <div class="wh-sites" id="whSites" role="group" aria-label="אזורי ההתקף"></div>
+    <div class="wh-body">
+      <svg id="whBody" viewBox="0 0 260 400" role="img" aria-label="תרשים גוף שמדגיש את אזור ההתקף שנבחר"></svg>
+      <div class="wh-sitenote" id="whSiteNote" aria-live="polite"></div>
+    </div>
+  </div>
+  <p class="callout">חום ודלקת הצפק יחד הם ההתקף הקלאסי. למה שקורה שעה אחר שעה, עם עקומות CRP ו־SAA, ראו <a href="#attack" data-go="attack">התקף, שעה אחר שעה</a>.</p>
+
+  <h3 class="sub">מספרים מרכזיים</h3>
+  <div class="cards" id="whCards"></div>
+</section>

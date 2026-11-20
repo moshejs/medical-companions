@@ -1,0 +1,62 @@
+<!-- ================= 5.5 RESEARCH TOWARD BETTER TREATMENT ================= -->
+<style>
+#m-frontier svg[data-mode=n] .t-xs{font-size:10.5px}
+#m-frontier .frfil{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-frontier .frfil select{font:inherit;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink);max-width:100%}
+#m-frontier .frlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+#m-frontier .frlist .card .meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-frontier .frlist .card .st{font:500 12.5px var(--mono);color:var(--muted)}
+#m-frontier .frlist .card a.nct{font:700 12.5px var(--mono)}
+#m-frontier .card>.ev,#m-frontier .card>.tag{align-self:flex-start}
+#m-frontier .frcount{font:500 13px var(--mono);color:var(--muted)}
+</style>
+<section class="mod" id="m-frontier" data-mod="frontier" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Treatment &amp; living</p><h2>Research toward better treatment</h2>
+    <p class="lede">Programmes move along a pipeline from the lab to approval, and most of the evidence so far comes from people who do not yet have cirrhosis. Step through drugs for fatty liver scarring, trials in cirrhosis itself, statins, cell therapies and donor-liver technology, each with its evidence label.</p></div>
+  <div class="stepper" id="frSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="frSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="A research pipeline with five columns: lab and animal, first in humans, phase 2 and small randomised trials, phase 3 and outcome trials, approved. In each step, programme cards slide from the left to the furthest stage they have reached, each marked Established, Early evidence or Hypothesis; programmes that did not meet their goal are crossed out."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="frPlay">Play</button><label class="stage-cap tl" for="frT">Pipeline <input type="range" id="frT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <p class="stage-cap">Positions are the furthest stage reached as of November 2026, from published trials and registry entries. A crossed card did not meet its main goal. Not a ranking of how promising each idea is.</p>
+    </div>
+    <aside class="note" id="frNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Find a programme</h3>
+  <div class="frfil">
+    <div class="frfil" role="group" aria-label="Evidence level">
+      <span class="kicker">Evidence</span>
+      <button class="btn" data-fe="all" aria-pressed="true">All</button>
+      <button class="btn" data-fe="est" aria-pressed="false">Established</button>
+      <button class="btn" data-fe="early" aria-pressed="false">Early evidence</button>
+      <button class="btn" data-fe="hyp" aria-pressed="false">Hypothesis</button>
+    </div>
+    <label class="frfil" for="frTgt"><span class="kicker">Target</span>
+      <select id="frTgt">
+        <option value="all">All targets</option>
+        <option value="mash">MASH scarring, before cirrhosis</option>
+        <option value="cirr">Compensated cirrhosis outcomes</option>
+        <option value="statin">Statins and portal hypertension</option>
+        <option value="cell">Cell therapy and liver support</option>
+        <option value="organ">Donor livers and xenotransplant</option>
+      </select></label>
+    <label class="frfil" for="frNct"><input type="checkbox" id="frNct"> Only registered trials (NCT number)</label>
+  </div>
+  <p class="frcount" id="frCount" aria-live="polite"></p>
+  <div class="frlist" id="frList"></div>
+  <p class="stage-cap">Registry status and primary completion dates as listed on ClinicalTrials.gov on 4 November 2026; they change. Doses and label wording are quoted as published, never as instructions.</p>
+
+  <h3 class="sub">Reading research news</h3>
+  <div class="cards">
+    <div class="card"><span class="tag brand">How to read a headline</span><h4>"Reverses fibrosis" in whom, measured how?</h4><ul>
+      <li><b>Which stage?</b> Most positive drug trials enrolled F2–F3. In compensated cirrhosis, semaglutide showed no fibrosis benefit at 48 weeks, and efruxifermin missed its week-36 goal. [[Loomba2023SemaCirrhosis,Noureddin2025SYMMETRY]]</li>
+      <li><b>Biopsy or outcomes?</b> A one-stage biopsy improvement is a surrogate. Outcome trials in cirrhosis report from about 2026 to 2030. [[NCT05500222,NCT06528314]]</li>
+      <li><b>Against what?</b> Placebo groups improve too: 14.2% in MAESTRO-NASH, 22.4% in ESSENCE. [[Harrison2024MAESTRO,Sanyal2025ESSENCE]]</li>
+      <li><b>Primary or secondary?</b> BLEPS missed its main goal (rebleeding); its survival signal was secondary. [[Abraldes2016BLEPS]]</li>
+      <li><b>Open-label and small?</b> MATCH was a small open-label trial; a larger blinded one is needed. [[Brennan2026MATCHLTFU]]</li></ul></div>
+    <div class="card"><span class="ev est">Established</span><h4>The best-proven antifibrotic is removing the cause</h4><p>Treating hepatitis B or C, stopping alcohol and losing weight are among the best-proven ways to let scar regress. Curing or controlling the primary disease is the first of four antifibrotic strategies. See <a href="#fibrosis" data-go="fibrosis">From injury to scar</a>. [[Kisseleva2021,Lee2015Gut,Marcellin2013,VilarGomez2015]]</p></div>
+    <div class="card"><span class="tag rx">Joining research</span><h4>Asking about a trial</h4><p>Trials listed here are registered on ClinicalTrials.gov, where each NCT number shows who can take part, where and whether it is still recruiting. A liver team can say whether a trial fits someone's stage and health, and what taking part would involve. Questions worth asking: what is being compared, how long it lasts, and what happens at the end.</p></div>
+    <div class="card"><span class="tag accent">Caution</span><h4>Label and guideline wording</h4><p>The US resmetirom label covers adults with noncirrhotic MASH and moderate to advanced fibrosis (F2–F3) under accelerated approval, and says to avoid use in decompensated cirrhosis. EASL–EASD–EASO 2024: "No MASH-targeted pharmacotherapy can currently be recommended for the cirrhotic stage." Quoted as published. [[FDA-Rezdiffra,EASL2024MASLD]]</p></div>
+  </div>
+</section>

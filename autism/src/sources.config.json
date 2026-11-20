@@ -1,0 +1,12 @@
+{
+ "areas": {
+  "A": "Epidemiology, identity, language & history",
+  "B": "Genetics, causes & risk factors (and what does not cause autism)",
+  "C": "Neuroscience, brain development & sensory processing",
+  "D": "Early signs, screening, DSM-5-TR/ICD-11 criteria & assessment",
+  "E": "Supports & non-pharmacological interventions (incl. the ABA debate)",
+  "F": "Medication, unproven treatments & research",
+  "G": "Co-occurring conditions, physical health, course & outcomes",
+  "H": "Family, school, work, adulthood & nursing"
+ }
+}

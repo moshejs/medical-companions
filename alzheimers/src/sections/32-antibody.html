@@ -1,0 +1,71 @@
+<!-- ================= 3.2 ANTI-AMYLOID ANTIBODIES ================= -->
+<section class="mod" id="m-antibody" data-mod="antibody" hidden>
+<style>
+#m-antibody .ab-ctl{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center}
+#m-antibody .ab-ctl>div{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-antibody .ab-clin{background:var(--sky-soft);border-radius:12px;padding:12px 14px;font-size:15px;max-width:none}
+#m-antibody .ab-clin b{color:var(--sky)}
+#m-antibody .note .readout{border-top:1px solid var(--line);padding-top:10px}
+#m-antibody .ab-debate .card h4{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+#m-antibody .ab-bars{display:flex;flex-direction:column;gap:9px;margin:0;padding:0;list-style:none}
+#m-antibody .ab-bars li{display:flex;flex-direction:column;gap:3px;font-size:14px}
+#m-antibody .ab-bars .tr{height:9px;background:var(--panel-2);border-radius:99px;overflow:hidden}
+#m-antibody .ab-bars .tr i{display:block;height:100%;background:var(--sky);border-radius:99px}
+#m-antibody .ab-bars .tr i.lt{background:var(--sky-soft);box-shadow:inset 0 0 0 1.5px var(--sky)}
+#m-antibody .tbl table{min-width:640px}
+#m-antibody .tbl td:first-child{white-space:nowrap;font:600 12.5px var(--mono);color:var(--muted)}
+#m-antibody .reg-tag{font:600 10.5px var(--mono);letter-spacing:.06em}
+#m-antibody .card>.ev{align-self:flex-start}
+#m-antibody .cardnote{font-size:13px;color:var(--muted)}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 3 · Treatment</p><h2>Anti-amyloid antibodies over time</h2>
+    <p class="lede">Lecanemab and donanemab are antibodies infused into the blood that help the brain's immune cells clear amyloid plaque. Follow the published trials month by month: plaque falls fast, ARIA (brain swelling or small bleeds on MRI) shows up early, and the clinical benefit appears slowly and stays modest.</p></div>
+  <p class="callout ab-clin"><b>Published trial and label information only.</b> Everything here reports what the trials, labels and regulators published. Whether a particular person is eligible, and whether treatment is right for them, are decisions for specialist clinicians together with the person and their family.</p>
+
+  <div class="ab-ctl" role="group" aria-label="Animation settings">
+    <div><span class="kicker">Drug</span>
+      <button class="btn" id="abLec" aria-pressed="true">Lecanemab (CLARITY AD)</button>
+      <button class="btn" id="abDon" aria-pressed="false">Donanemab (TRAILBLAZER-ALZ 2)</button></div>
+    <div><span class="kicker">APOE4 copies</span>
+      <button class="btn" id="abG0" aria-pressed="false">None</button>
+      <button class="btn" id="abG1" aria-pressed="true">One</button>
+      <button class="btn" id="abG2" aria-pressed="false">Two</button></div>
+    <div><span class="kicker">Time span</span>
+      <button class="btn" id="abOle" aria-pressed="false">Add open-label years</button></div>
+  </div>
+  <div class="stepper" id="abSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="abSvg" viewBox="0 0 720 556" style="min-width:560px" role="img" aria-label="Three linked panels over the trial months: amyloid plaques shrink as antibodies bind and microglia clear them while amyloid PET falls; CDR-SB worsens on both drug and placebo with a slowly widening gap; ARIA-E risk rises mostly in the first months, with MRI checks marked on the timeline."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="abPlay">Play</button><label class="stage-cap tl" for="abT">Month <input type="range" id="abT" min="0" max="18" step="0.05" value="0"></label><span class="stage-cap" id="abMo" aria-hidden="true">0</span></div>
+      <p class="stage-cap" id="abCap">Tissue is schematic, not to scale. Filled dots are published trial values; open dots are sponsor figures or values calculated from published numbers; the lines between them are interpolated shapes. In the open-label view, lecanemab dose ticks after month 18 show the current label's every-4-week maintenance option, not the extension's own schedule.</p></div>
+    <aside class="note" id="abNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How big is the benefit?</h3>
+  <p class="prose">The same trial numbers are read in two very different ways. Pick a scale, then pick any row to see what it is and how each side reads it. This is a live debate among specialists, so both readings are shown side by side.</p>
+  <div class="ctrls" role="group" aria-label="Scale"><span class="kicker">Scale</span>
+    <button class="btn" id="abMagPts" aria-pressed="true">CDR-SB points</button>
+    <button class="btn" id="abMagMo" aria-pressed="false">Months of time saved</button></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="abMag" viewBox="0 0 720 260" style="min-width:560px" role="img" aria-label="Horizontal bars compare the published drug-versus-placebo differences, or the estimated months of time saved, with the thresholds proposed for a clinically meaningful change."></svg></div>
+      <div class="ctrls" id="abMagBtns" role="group" aria-label="Choose a row to explain"></div>
+      <p class="stage-cap">Bars: point estimate. Whiskers: published 95% confidence interval or range. Vertical lines: proposed thresholds.</p></div>
+    <aside class="note" id="abMagNote" aria-live="polite"></aside>
+  </div>
+  <div class="split2 ab-debate" id="abDebate"></div>
+
+  <h3 class="sub">What each antibody binds, and what happened</h3>
+  <div class="tbl" id="abTargets"></div>
+
+  <h3 class="sub">Eligibility, ARIA, dosing and the history</h3>
+  <div class="cards" id="abCards"></div>
+
+  <h3 class="sub">Regulatory timeline</h3>
+  <div class="ctrls" role="group" aria-label="Filter the timeline by region"><span class="kicker">Show</span>
+    <button class="btn" data-reg="all" aria-pressed="true">All</button>
+    <button class="btn" data-reg="US" aria-pressed="false">US (FDA, Medicare)</button>
+    <button class="btn" data-reg="EU" aria-pressed="false">EU (EMA)</button>
+    <button class="btn" data-reg="UK" aria-pressed="false">England (NICE)</button></div>
+  <div class="tbl" id="abReg"></div>
+  <p class="callout ab-clin"><b>A reminder.</b> Labels, eligibility rules and coverage differ between countries and change over time. The published criteria summarised here are for understanding the evidence, not for deciding about any one person. Those decisions belong with specialist clinicians.</p>
+</section>

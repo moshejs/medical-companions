@@ -1,0 +1,153 @@
+<!-- ================= 4.3 NURSING CARE ================= -->
+<style>
+#m-nursing .nu-scope{background:var(--sky-soft);border-radius:var(--r);padding:12px 16px;font-size:15px;max-width:none;display:flex;gap:10px;align-items:flex-start}
+#m-nursing .nu-scope b:first-child{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--sky);white-space:nowrap;padding-top:3px}
+@media (max-width:600px){#m-nursing .nu-scope{flex-direction:column;gap:2px}}
+#m-nursing .nu-jump{display:flex;flex-wrap:wrap;gap:8px}
+#m-nursing .nu-part{display:flex;flex-direction:column;gap:18px;border-top:1px solid var(--line);padding-top:24px;scroll-margin-top:90px}
+#m-nursing .nu-part>h3.sub{margin-top:0}
+#m-nursing h4.nu-h{font-family:var(--display);font-weight:800;font-size:21px;line-height:1.15;margin:6px 0 0}
+#m-nursing .nu-tool{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:14px;min-width:0}
+#m-nursing .nu-item{display:flex;flex-direction:column;gap:6px}
+#m-nursing .nu-item>span{font-weight:700;font-size:14.5px}
+#m-nursing .nu-opts{display:flex;flex-wrap:wrap;gap:6px}
+#m-nursing .nu-opts .btn{font-size:13px;font-weight:600;padding:7px 11px;text-align:left;line-height:1.25}
+#m-nursing .nu-opts .btn b{font-family:var(--mono);font-weight:600;margin-right:4px}
+#m-nursing .nu-out{border-radius:10px;background:var(--panel-2);padding:12px 14px;font-size:15px;display:flex;flex-direction:column;gap:6px}
+#m-nursing .nu-out .big{font:800 30px/1 var(--display)}
+#m-nursing .nu-teach{font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--warn)}
+#m-nursing .nu-checks{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px;font-size:14.5px}
+#m-nursing .nu-entry{background:var(--field);border:1px dashed var(--line);border-radius:10px;padding:12px 14px;font-size:14.5px;display:grid;grid-template-columns:minmax(0,1fr);gap:6px}
+#m-nursing .nu-entry dt{font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+#m-nursing .nu-entry dd{margin:0 0 4px}
+#m-nursing .nu-entry .flag{background:var(--bad-soft);color:var(--bad);border-radius:8px;padding:6px 9px;font-size:14px}
+#m-nursing .nu-bars{display:flex;flex-direction:column;gap:7px;font-size:13.5px}
+#m-nursing .nu-bars div{display:grid;grid-template-columns:minmax(0,8.5em) minmax(0,1fr) auto;gap:8px;align-items:center}
+#m-nursing .nu-bars i{display:block;height:10px;border-radius:99px;background:var(--rose)}
+#m-nursing .nu-bars s{display:block;height:10px;border-radius:99px;background:var(--panel-2);text-decoration:none;overflow:hidden}
+#m-nursing .nu-bars b{font:600 12px var(--mono);text-align:right;white-space:nowrap;min-width:3.4em}
+#m-nursing .nu-gaps{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:15px}
+#m-nursing #nuFourSvg,#m-nursing #nuPainSvg,#m-nursing #nuAbcSvg{max-width:620px;margin:0 auto}
+#m-nursing .card ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px}
+</style>
+<section class="mod" id="m-nursing" data-mod="nursing" hidden>
+  <div class="mhead"><p class="eyebrow">חלק 4 · חיים, טיפול ומניעה</p><h2>טיפול סיעודי</h2>
+    <p class="lede">ארבעה תחומים בטיפול הסיעודי באדם החי עם דמנציה: הערכה סיעודית, מתן תרופות, תקשורת וגישות טיפול, ותיעוד ובטיחות. בכל תחום יש הנפשה או כלי להתנסות, וכל טענה מקושרת למקור שלה.</p></div>
+  <p class="nu-scope" role="note"><b>היקף</b><span>המודול מתאר את מה שאומרים הנחיות, עלוני תרופות ומחקרים שפורסמו. הוא אינו תוכנית טיפול. הוא אינו מחליף נהלים מקומיים, את תחום הסמכות המקצועית של הצוות הסיעודי או את הגורם הרושם. במקומות שבהם המקורות מציינים שאין ראיות ייחודיות לדמנציה, המודול אומר זאת במפורש ואינו ממלא את החסר.</span></p>
+  <div class="nu-jump" role="group" aria-label="מעבר לתחום">
+    <button class="btn" data-nu-jump="nuP1">1 · הערכה סיעודית</button>
+    <button class="btn" data-nu-jump="nuP2">2 · מתן תרופות</button>
+    <button class="btn" data-nu-jump="nuP3">3 · תקשורת וטיפול</button>
+    <button class="btn" data-nu-jump="nuP4">4 · תיעוד ובטיחות</button>
+  </div>
+
+  <!-- ---------- 1 ASSESSMENT ---------- -->
+  <div class="nu-part" id="nuP1">
+    <h3 class="sub">1 · הערכה סיעודית</h3>
+    <h4 class="nu-h">דליריום על רקע דמנציה, שעה אחר שעה</h4>
+    <p class="prose">דמנציה משתנה לאורך חודשים ושנים. דליריום משתנה בתוך שעות, והוא בא והולך. כשהשניים חופפים, השינוי הפתאומי עלול להסתתר בתוך השינוי האיטי. לחצו על הפעלה כדי לראות שבועיים חולפים.</p>
+    <div class="ctrls" role="group" aria-label="אפשרויות התצוגה של הדליריום">
+      <span class="kicker">סוג הדליריום</span>
+      <button class="btn" id="nuDlHyper" aria-pressed="true">היפראקטיבי</button>
+      <button class="btn" id="nuDlHypo" aria-pressed="false">היפואקטיבי</button>
+      <span class="kicker" style="margin-left:6px">שכבה נוספת</span>
+      <button class="btn" id="nuDlChecks" aria-pressed="true">בדיקה פעם ביום ב־10:00</button>
+    </div>
+    <div class="stepper" id="nuDlSteps"></div>
+    <div class="lab">
+      <div class="stage"><div class="scroll"><svg id="nuDlSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="לאורך ארבעה עשר יום, קו בסיס של דמנציה שנע לאט נקטע באירוע דליריום שמתחיל בתוך שעות, צולל בעיקר בלילה ומשתפר ביום, ובדיקות הבוקר היומיות נופלות על השעות הצלולות יותר."></svg></div>
+        <div class="ctrls"><button class="btn primary" id="nuDlPlay">הפעלה</button><label class="stage-cap tl" for="nuDlT">ימים <input type="range" id="nuDlT" min="0" max="1" step="0.001" value="0.06"></label></div>
+        <p class="stage-cap" id="nuDlCap">כלי לימוד: עקומה סכמטית, לא נתונים של מטופל כלשהו.</p></div>
+      <aside class="note" id="nuDlNote" aria-live="polite"></aside>
+    </div>
+
+    <h4 class="nu-h">ה־4AT, עם ניקוד</h4>
+    <div class="lab even">
+      <div class="nu-tool" id="nuFour" role="group" aria-label="פריטי ה־4AT">
+        <p class="nu-teach">כלי לימוד, לא רשומה קלינית</p>
+      </div>
+      <div class="stage">
+        <svg id="nuFourSvg" viewBox="0 0 520 150" role="img" aria-label="סולם של 0 עד 12 עם תחומים ל־0, ל־1 עד 3 ול־4 ומעלה, וסמן בציון הכולל הנוכחי של ה־4AT."></svg>
+        <div class="nu-out" id="nuFourOut" aria-live="polite"></div>
+        <p style="font-size:14.5px">דיוק: מטא־אנליזה מ־2021 (17 מחקרים, 3,702 תצפיות) מצאה רגישות וסגוליות משוקללות של 0.88 כל אחת. [[Tieges2021]] אצל 785 מטופלים במחלקות פנימיות בני 70 ומעלה, ל־4AT הייתה רגישות של 76% וסגוליות של 94%, ואילו ל־CAM, כשהופעל בתנאי השגרה, 40% ו־100%. [[Shenkin2019]]</p>
+      </div>
+    </div>
+    <div class="callout"><span class="ev early">ההנחיות שונות</span> הנחיית NICE CG103 (עדכון 2023) מציינת את ה־4AT כשיש סימנים מחשידים לדליריום, ואת CAM-ICU או ICDSC בטיפול נמרץ. [[NICE2023CG103]] הנחיית NICE NG97 (2018) מציעה את ה־CAM המלא או את Observational Scale of Level of Arousal למאושפזים עם פגיעה קוגניטיבית שסיבתה אינה ידועה. לפי NG97, כלים לבדם אינם אמורים להבחין בין דליריום לבין דליריום על רקע דמנציה, וכשאי אפשר להבחין ביניהם מטפלים קודם בדליריום. [[NICE2018NG97]] סקירה מ־2012 מצאה רק 9 מחקרים, עם 50 משתתפים שהיה להם דליריום על רקע דמנציה, שתיקפו כלי כלשהו לדליריום אצל אנשים עם דמנציה. [[Morandi2012]]</div>
+
+    <h4 class="nu-h">PAINAD: כאב כשהאדם אינו יכול לומר</h4>
+    <div class="lab even">
+      <div class="nu-tool" id="nuPain" role="group" aria-label="פריטי PAINAD">
+        <p class="nu-teach">כלי לימוד, לא רשומה קלינית</p>
+      </div>
+      <div class="stage">
+        <div class="scroll"><svg id="nuPainSvg" viewBox="0 0 520 330" role="img" aria-label="פנים שמשתנות לפי ציון הבעת הפנים, סולם PAINAD של 0 עד 10 עם התחומים שמשוכפלים בדרך כלל, ושני עמודים שמראים שאנשים עם דמנציה מתקדמת קיבלו שליש מכמות האופיואידים שקיבלו אנשים ללא פגיעה קוגניטיבית אחרי שבר בירך."></svg></div>
+        <div class="nu-out" id="nuPainOut" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <h4 class="nu-h">שאר ההערכה</h4>
+    <div class="cards" id="nuAssessCards"></div>
+  </div>
+
+  <!-- ---------- 2 MEDICINES ---------- -->
+  <div class="nu-part" id="nuP2">
+    <h3 class="sub">2 · מתן תרופות</h3>
+    <p class="prose">חלק מהבדיקות לפני מתן מנה זהות בכל פעם. אחרות תלויות במצב. בחרו מצב כדי לראות מה מתארים העלונים וההנחיות, ואז לחצו על הפעלה.</p>
+    <div class="ctrls" role="group" aria-label="מצב" id="nuMedBtns"></div>
+    <div class="stepper" id="nuMedSteps"></div>
+    <div class="lab">
+      <div class="stage"><div class="scroll"><svg id="nuMedSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="הנפשה של הבדיקות לפני מתן מנה במצב שנבחר."></svg></div>
+        <div class="ctrls" id="nuMedCtrls"><button class="btn primary" id="nuMedPlay">הפעלה</button><label class="stage-cap tl" for="nuMedT">ציר זמן <input type="range" id="nuMedT" min="0" max="1" step="0.001" value="0.05"></label></div>
+        <div class="ctrls" id="nuPatchErrRow" hidden><span class="kicker">טעות במדבקה</span><button class="btn" id="nuPatchErr" aria-pressed="false">המדבקה הישנה נשארה</button></div>
+        <p class="stage-cap" id="nuMedCap">סכמטי, לא בקנה מידה.</p></div>
+      <aside class="note" id="nuMedNote" aria-live="polite"></aside>
+    </div>
+
+    <h4 class="nu-h">תוכניות להפחתת תרופות אנטי־פסיכוטיות</h4>
+    <p class="prose">תרופות אנטי־פסיכוטיות שניתנות בגלל מצוקה בדמנציה כרוכות בסיכון מוגבר למוות, ותוכניות בבריטניה ובארצות הברית יצאו לצמצם את השימוש בהן. העמודים מציגים את הנתונים שפורסמו.</p>
+    <div class="stage">
+      <div class="scroll"><svg id="nuApSvg" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="זוגות עמודים: תמותה עם תרופות אנטי־פסיכוטיות לא טיפוסיות לעומת פלצבו, הישרדות לאחר 36 חודשים בניסוי ההפסקה DART-AD, שימוש באנטי־פסיכוטיות אחרי הדרכת צוות בטיפול ממוקד אדם, ושימוש באנטי־פסיכוטיות בקרב שוהים לטווח ארוך במוסדות סיעודיים בארצות הברית ב־2011 וב־2019."></svg></div>
+      <div class="ctrls"><button class="btn" id="nuApReplay">הפעלה חוזרת של העמודים</button></div>
+    </div>
+    <div class="cards" id="nuApCards"></div>
+  </div>
+
+  <!-- ---------- 3 COMMUNICATION ---------- -->
+  <div class="nu-part" id="nuP3">
+    <h3 class="sub">3 · תקשורת וגישות טיפול</h3>
+    <p class="prose">מה מוצאות הסקירות לגבי הגישות המוכרות ביותר? ההנפשה מציבה את ממצאי Cochrane זה לצד זה, ואחר כך מציגה שני מחקרים על האופן שבו הצוות מדבר ומארגן את הטיפול.</p>
+    <div class="stepper" id="nuCoSteps"></div>
+    <div class="lab">
+      <div class="stage"><div class="scroll"><svg id="nuCoSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="גדלי אפקט מסקירות על גירוי קוגניטיבי, העלאת זיכרונות, מוזיקה, התמצאות במציאות וטיפול ולידציה מופיעים בזה אחר זה על סולם משותף, ואחריהם מחקר הדיבור המתיילד (elderspeak) וניסוי CADRES בטיפול ממוקד אדם."></svg></div>
+        <div class="ctrls"><button class="btn primary" id="nuCoPlay">הפעלה</button><label class="stage-cap tl" for="nuCoT">ציר זמן <input type="range" id="nuCoT" min="0" max="1" step="0.001" value="0.05"></label></div>
+        <p class="stage-cap">גדלי האפקט כפי שדווחו, עם סימן שהופך כך שימינה תמיד פירושו תועלת. התוצאים שונים, ולכן יש להשוות בזהירות.</p></div>
+      <aside class="note" id="nuCoNote" aria-live="polite"></aside>
+    </div>
+    <div class="cards" id="nuCoCards"></div>
+  </div>
+
+  <!-- ---------- 4 DOCUMENTATION ---------- -->
+  <div class="nu-part" id="nuP4">
+    <h3 class="sub">4 · תיעוד ובטיחות</h3>
+    <h4 class="nu-h">בניית רישום ABC</h4>
+    <p class="prose">רישום ABC מתעד את הקודם (Antecedent, מה קרה רגע לפני), את ההתנהגות (Behaviour, מתוארת כפי שנראתה ונשמעה) ואת התוצאה (Consequence, מה קרה אחר כך). לאורך רישומים רבים, דפוס חוזר יכול להצביע על צורך. בחרו אפשרות אחת מכל קבוצה כדי להרכיב רישום לדוגמה. הדוגמה בדויה.</p>
+    <div class="lab even">
+      <div class="nu-tool" id="nuAbc" role="group" aria-label="בחירות לרישום ABC"></div>
+      <div class="stage">
+        <div class="scroll"><svg id="nuAbcSvg" viewBox="0 0 520 230" role="img" aria-label="שלוש תיבות מקושרות, קודם, התנהגות ותוצאה, עם לולאה מהתוצאה חזרה לקודם, שמראה שדפוסים לאורך רישומים רבים מרמזים על צורך שכדאי לבדוק."></svg></div>
+        <dl class="nu-entry" id="nuAbcEntry" aria-live="polite"></dl>
+      </div>
+    </div>
+    <p class="callout">סקירת Cochrane של 18 ניסויים מצאה שתוכניות המבוססות על ניתוח פונקציונלי, שרישום ABC הוא הבסיס שלו, הפחיתו את תדירות ההתנהגות המאתגרת ושיפרו את תגובות המטפלים בסוף ההתערבות, אך לא במעקב. לא היה אפשר להפריד את רכיב הניתוח משאר כל תוכנית. לא נמצא מחקר שמתקף את רישום ה־ABC עצמו ככלי תיעוד סיעודי בדמנציה. [[MonizCook2012]]</p>
+
+    <h4 class="nu-h">כשירות, טובתו המיטבית של האדם ומקבלי החלטות חלופיים</h4>
+    <div class="split2" id="nuCap"></div>
+
+    <h4 class="nu-h">התעללות, היגיינת הפה, הזנה ומדדי איכות</h4>
+    <div class="cards" id="nuSafeCards"></div>
+    <div class="tbl"><table id="nuFeedTbl"></table></div>
+
+    <h4 class="nu-h">פערים שהמקורות מציינים</h4>
+    <div class="callout"><ul class="nu-gaps" id="nuGaps"></ul></div>
+  </div>
+</section>

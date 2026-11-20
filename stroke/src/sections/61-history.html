@@ -1,0 +1,102 @@
+<!-- ================= 6.1 HISTORY & PEOPLE ================= -->
+<style>
+#m-history #hiYears .tag small{font:inherit;opacity:.75;margin-right:4px}
+#m-history #hiYears .tag{min-height:40px;align-items:center}
+#m-history #hiYears .tag[aria-pressed="true"]{background:var(--brand-soft);color:var(--brand);border-color:var(--brand)}
+#m-history .hs-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-history .hs-bar .btn,#m-history .ctrls .btn{min-height:40px}
+#m-history .hs-cap{font-size:15px;line-height:1.5;max-width:76ch}
+#m-history .card>.ev{align-self:flex-start}
+</style>
+<section class="mod" id="m-history" data-mod="history" hidden>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>History &amp; people</h2>
+    <p class="lede">For centuries people called stroke "apoplexy", meaning struck down. Treatment that opens the blocked artery is only about 30 years old [[Engelhardt2017,NINDS1995]]. Scrub through the words, the pictures and the trials that changed that, up to the 2026 guidelines.</p></div>
+
+  <div class="stepper" id="hiSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="hiSvg" viewBox="0 0 720 430" style="min-width:560px" role="img" aria-label="A timeline from antiquity to 2026. A marker moves along it and each milestone appears as a drawing: the word apoplexy, Wepfer's bleeding in the brain, the circle of Willis, Virchow's thrombosis, Moniz's angiogram, the first CT, the ischaemic penumbra, clot-dissolving treatment, stent retrievers pulling out a clot, and late-window selection by tissue. The axis is stretched in recent decades."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="hiPlay">%t:player.play%</button><label class="stage-cap tl" for="hiT">Timeline <input type="range" id="hiT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <p class="stage-cap"><b>Drawings are schematic; the time axis is not linear.</b> People and dates are as the cited sources give them. Textbook shorthand simplifies the record [[Karenberg1998,Bagot2008]].</p>
+    </div>
+    <aside class="note" id="hiNote" aria-live="polite"></aside>
+  </div>
+  <div class="chips" id="hiYears" role="group" aria-label="Jump to a milestone"></div>
+
+  <h3 class="sub">Who coined what</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Word</th><th>Who and when</th><th>What it meant</th></tr></thead>
+    <tbody>
+      <tr><th>Apoplexia</th><td>Greek physicians; first recorded in the Hippocratic Corpus</td><td>Struck down with violence. An umbrella term that also covered non-vascular and even non-cerebral events such as myocardial infarction and pulmonary embolism [[Engelhardt2017]]</td></tr>
+      <tr><th>Stroke</th><td>William Cole, 1689</td><td>First use of "stroke" for apoplexy in English medical writing [[Engelhardt2017]]</td></tr>
+      <tr><th>Neurologie</th><td>Thomas Willis</td><td>Coined by the same author who explained the arterial circle named after him [[ArraezAybar2015]]</td></tr>
+      <tr><th>Lacune</th><td>Dechambre, 1838</td><td>Introduced well before Fisher [[Engelhardt2017]]</td></tr>
+      <tr><th>Thrombosis, embolism</th><td>Rudolf Virchow, 1852</td><td>He also described embolic "apoplexia ischaemica" [[Engelhardt2017,Bagot2008]]</td></tr>
+      <tr><th>Infarct</th><td>Cohnheim, 1872</td><td>Tissue death after embolic obstruction of end arteries [[Engelhardt2017]]</td></tr>
+      <tr><th>Penumbra</th><td>Lindsay Symon, September 1975</td><td>Symon first said the word in his London laboratory [[Astrup2025]]; set out in print in 1981 [[Astrup1981]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="hook"><b>Exam hook</b>Dechambre "lacune" 1838; Virchow "thrombosis" and "embolism"; Cole "stroke" 1689 in English; Symon "penumbra" [[Engelhardt2017,Astrup2025]]. Moniz's Nobel was for leucotomy, not angiography [[Artico2017]].</div>
+
+  <h3 class="sub">People</h3>
+  <div class="cards">
+    <div class="card"><span class="kicker">1658</span><h4>Johann Jakob Wepfer</h4><p>Distinguished non-traumatic intracranial bleeding, splitting the unitary concept for the first time [[Engelhardt2017]]. A re-reading of his text shows his thinking stayed rooted in Galenic theory and iatrochemistry, so "first modern" overstates it [[Karenberg1998]].</p></div>
+    <div class="card"><span class="kicker">1664</span><h4>Thomas Willis</h4><p>Published <i>Cerebri anatome</i> in London and explained the pathological and functional meaning of the circular arterial anastomosis named after him [[ArraezAybar2015]]. The source marks the 350th anniversary in 2014; 1664 is calculated from that. Module 1.2 shows the circle.</p></div>
+    <div class="card"><span class="kicker">1852</span><h4>Rudolf Virchow</h4><p>Created the terms thrombosis and embolism [[Engelhardt2017,Bagot2008]]. A review casts doubt on the triad in its usual form: he was routinely credited with it only 100 years after his work [[Bagot2008]].</p></div>
+    <div class="card"><span class="kicker">1927</span><h4>Egas Moniz</h4><p>Showed the first cerebral angiogram on 28 June 1927, of a pituitary tumour in a young man [[Artico2017]]. He described the first carotid occlusion in 1936 [[Oliveira2018]]. His 1949 Nobel Prize was for prefrontal leucotomy, now unacceptable [[Artico2017]].</p></div>
+    <div class="card"><span class="kicker">1951, 1965</span><h4>Miller Fisher</h4><p>Carotid occlusions were thoroughly described in English only with his 1951 paper [[Oliveira2018,Fisher1951]]. His 1965 paper described lacunes as small deep infarcts [[Fisher1965]]. Through serial sections at necropsy he linked them to penetrating artery disease [[Caplan2015]].</p></div>
+    <div class="card"><span class="kicker">1971</span><h4>Hounsfield, Cormack, Ambrose</h4><p>Godfrey Hounsfield of EMI built the system; Allan Cormack, with earlier reconstruction work, shared the Nobel Prize with him. James Ambrose led the first scan of a live patient [[Schulz2021]]. The 1973 papers describe the system and clinical use [[Hounsfield1973,Ambrose1973]].</p></div>
+    <div class="card"><span class="kicker">1975</span><h4>Symon, Astrup and colleagues</h4><p>The penumbra was found in four experiments in September 1975 in Symon's London laboratory [[Astrup2025]]. In baboon cortex, electrical failure came at about 15 ml/100 g per minute and massive potassium release at a lower flow, median 6 [[Astrup1977]].</p></div>
+  </div>
+
+  <h3 class="sub">Clot-dissolving treatment: the trials in order</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial</th><th>Who, drug, window</th><th>Result</th><th>Bleeding or death</th></tr></thead>
+    <tbody>
+      <tr><th>ECASS, 1995</th><td>620 patients, 1.1 mg/kg, within 6 hours</td><td>No difference in primary end points by intention to treat. Authors could not recommend use in an unselected population [[Hacke1995]]</td><td>Not given here</td></tr>
+      <tr class="hl"><th>NINDS, 1995</th><td>624 patients, t-PA within 3 hours</td><td>Global OR for favourable outcome 1.7 (1.2-2.6); at least 30% more likely to have minimal or no disability at 3 months [[NINDS1995]]</td><td>Symptomatic ICH 6.4% against 0.6%; mortality 17% against 21% (P=0.30) [[NINDS1995]]</td></tr>
+      <tr><th>ECASS III, 2008</th><td>821 patients, 0.9 mg/kg, 3 to 4.5 hours</td><td>Favourable outcome 52.4% against 45.2% (OR 1.34, 1.02-1.76) [[Hacke2008]]</td><td>Symptomatic ICH 2.4% against 0.2% [[Hacke2008]]</td></tr>
+      <tr><th>Meta-analysis, 2014</th><td>6756 patients</td><td>Within 3 hours OR 1.75; 3 to 4.5 hours OR 1.26; beyond 4.5 hours OR 1.15 (0.95-1.40) [[Emberson2014]]</td><td>Not given here</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Doses are as published in the trials, not advice. Module 3.1 covers current treatment.</p>
+  <div class="hook"><b>Exam hook</b>NINDS: symptomatic ICH 6.4% against 0.6%, no mortality penalty at 3 months [[NINDS1995]]. Stroke unit benefit applies across age, sex, severity and stroke type [[Langhorne2020]].</div>
+
+  <h3 class="sub">Thrombectomy: failure, then the wave</h3>
+  <div class="prose"><p>Three neutral trials in 2013 nearly closed the question. Then retrievable stents and better selection changed the answer in 2015. Choose a group. Each row runs from the control group to the thrombectomy group.</p></div>
+  <div class="hs-bar" role="group" aria-label="Group of trials" id="hiTrBtns"></div>
+  <div class="stage">
+    <div class="scroll"><svg id="hiTr" viewBox="0 0 720 430" style="min-width:560px" role="img" aria-label="A dumbbell chart of nine thrombectomy trials. In the 2013 trials the control and intervention marks sit close together. In the 2015 and 2018 trials the intervention mark sits far to the right of the control mark."></svg></div>
+    <p class="hs-cap" id="hiTrCap" aria-live="polite"></p>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="kicker">HERMES, 2016, 1287 patients</span><span class="big-num">NNT 2.6</span><p>To reduce disability by at least one mRS level. Adjusted common OR 2.49 (1.76-3.53), with no heterogeneity across subgroups, including age 80 or over [[Goyal2016]].</p></div>
+    <div class="card"><span class="kicker">MR CLEAN, 2015</span><span class="big-num">13.5 points</span><p>Absolute difference in functional independence, 32.6% against 19.1%. Retrievable stents were used in 81.5% of the intervention group [[Berkhemer2015]].</p></div>
+    <div class="card"><h4>From clock to tissue</h4><p>DAWN and DEFUSE 3 moved selection from clock time toward tissue, the clinical use of the penumbra idea [[Yilmaz2025,Heiss2011]]. That link is an interpretation, not a claim of the trials themselves.</p></div>
+  </div>
+  <div class="pt"><b>In plain words</b>Doctors once saw stroke as something they could do little about. Clot-busting drugs, stroke units and clot-removal procedures changed that [[NINDS1995,Langhorne2020,Goyal2016]].</div>
+
+  <h3 class="sub">2025 and 2026: where the story stands</h3>
+  <div class="cards">
+    <div class="card"><span class="kicker">2026</span><h4>New early-management guideline</h4><p>The 2026 AHA/ASA guideline replaces the 2018 guideline and its 2019 update. Stated key updates include thrombolytic choice and eligibility and thrombectomy eligibility [[Prabhakaran2026,Powers2019]]. A correction has been issued, and outside authors have proposed further corrections [[Prabhakaran2026Correction,Albers2026]].</p></div>
+    <div class="card"><span class="kicker">2026</span><h4>New rehabilitation guideline</h4><p>Richards 2026 replaces the 2016 guideline. Rehabilitation should begin in the acute phase, and "uncertainty remains regarding the best treatment approaches, their timing, and dosing" [[Richards2026,Winstein2016]].</p></div>
+    <div class="card"><span class="kicker">4 March 2025</span><h4>Tenecteplase approved in the US</h4><p>FDA approval of TNKase for acute ischaemic stroke in adults was reported, resting on the AcT trial [[Genentech2025,FDA-TNKase]]. Module 3.1 has the trials.</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><span class="kicker">2026</span><h4>Later still</h4><p>LATE-MT (336 patients, 24 to 72 hours, salvageable tissue on imaging): common OR 1.74 (1.19-2.55), with symptomatic haemorrhage 4.8% against 0 and deaths 6.0% against 1.8%. A single trial, not yet reflected in the 2026 guideline [[Yang2026]].</p></div>
+    <div class="card"><span class="kicker">2025</span><h4>Smaller vessels: no gain</h4><p>ESCAPE-MeVO (530 patients): mRS 0 to 1, 41.6% against 43.1%, with mortality 13.3% against 8.4% [[Goyal2025]]. DISTAL (543 participants): common OR 0.90 (0.67-1.22) [[Psychogios2025]]. Thrombectomy's success did not simply extend downstream.</p></div>
+    <div class="card"><span class="ev est">Established, single phase 3 trial</span><span class="kicker">2026</span><h4>A new class for prevention</h4><p>OCEANIC-STROKE (12,327 people): asundexian against placebo, ischaemic stroke 6.2% against 8.4% (HR 0.74, 0.65-0.84), major bleeding 1.9% against 1.7% [[Sharma2026]]. Module 5.4 covers it.</p></div>
+    <div class="card"><span class="kicker">2025</span><h4>Fifty years of the penumbra</h4><p>Astrup's personal account dates the discovery to four experiments in September 1975 [[Astrup2025]].</p></div>
+  </div>
+
+  <h3 class="sub">Where the shorthand breaks</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Textbook line</th><th>The record</th></tr></thead>
+    <tbody>
+      <tr><th>"Wepfer was the first modern"</th><td>Credited with showing apoplexy results from brain haemorrhage or vessel occlusion, yet his text stays rooted in Galenic theory [[Engelhardt2017,Karenberg1998]]</td></tr>
+      <tr><th>"Virchow's triad"</th><td>Doubted in its usual form; routinely credited to him only 100 years after his work [[Bagot2008]]</td></tr>
+      <tr><th>"Moniz won the Nobel for angiography"</th><td>It was for prefrontal leucotomy [[Artico2017]]</td></tr>
+      <tr><th>"CT arrived in 1975"</th><td>One review says CT entered clinical practice in 1975 [[Artico2017]]; the first patient scan was 1 October 1971 [[Schulz2021]]</td></tr>
+      <tr><th>"Fisher named the lacune"</th><td>Dechambre introduced the word in 1838; Fisher's work gave it its modern meaning, and lipohyalinosis is attributed to a 1968 Fisher paper [[Engelhardt2017,Caplan2015]]</td></tr>
+      <tr><th>"Medieval medicine added nothing"</th><td>One account says medieval authors added no novel concepts [[Engelhardt2017]]; another says Islamic scholars expanded the knowledge and addressed contradictions [[Yilmaz2025]]</td></tr>
+    </tbody>
+  </table></div>
+</section>

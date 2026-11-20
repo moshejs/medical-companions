@@ -1,0 +1,85 @@
+<!-- ================= 2.2 FATTY LIVER DISEASE (MASLD & MASH) ================= -->
+<style>
+#m-masld .card>.ev,#m-masld .card>.tag{align-self:flex-start}
+#m-masld .tbl table{min-width:520px}
+#m-masld .namer{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:12px}
+#m-masld .namer .ctrls .kicker{min-width:190px}
+#m-masld .namer .verdict{font-weight:400}
+#m-masld .namer .verdict b{display:block;font-family:var(--display);font-size:22px;margin-bottom:2px}
+</style>
+<section class="mod" id="m-masld" data-mod="masld" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · Causes</p><h2>Fatty liver disease (MASLD &amp; MASH)</h2>
+    <p class="lede">About 3 in 10 adults worldwide store too much fat in the liver alongside a metabolic risk factor such as a large waist, high blood pressure or diabetes. Most never develop cirrhosis; how much scar the liver builds decides who does. [[Younossi2023Hepatology,Angulo2015]]</p></div>
+
+  <div class="ctrls" role="group" aria-label="Which outcome to chart">
+    <span class="kicker">Chart risk of</span>
+    <button class="btn" data-mameas="a" aria-pressed="true">Death or transplant (one cohort)</button>
+    <button class="btn" data-mameas="d" aria-pressed="false">Liver-related death (meta-analysis)</button>
+  </div>
+  <div class="stepper" id="maSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="maSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A liver and three magnified liver cells change over time: metabolic risk factors appear, fat droplets fill the cells, the cells inflame, then scar strands and nodules form. The right-hand panel shows in turn the metabolic risk factors, an array of 100 adults with about 30 affected worldwide, bars of the risk of death by fibrosis stage rising from 1 at F0 to 10.9 at F4, and the 2023 names: steatotic liver disease, MASLD, MASH, MetALD and cryptogenic steatotic liver disease."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="maPlay">Play</button><label class="stage-cap tl" for="maT">Years with metabolic risk <input type="range" id="maT" min="0" max="1" step="0.001" value="0.07"></label></div>
+      <div class="readout" id="maRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> Time is not to scale, and most people stay at the early stages. Bars are hazard or mortality rate ratios compared with fibrosis stage 0, as published. Population statistics, not a prediction for anyone. [[Angulo2015,Dulai2017]]</p>
+    </div>
+    <aside class="note" id="maNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Name it: the 2023 terms</h3>
+  <div class="prose"><p>In 2023, 236 panellists from 56 countries renamed non-alcoholic fatty liver disease. 61% and 66% of respondents felt "nonalcoholic" and "fatty" were stigmatising. Answer three questions to see which name fits. The labels below are the published definitions, used here for learning, not to diagnose anyone. [[Rinella2023MASLD]]</p></div>
+  <div class="namer">
+    <div class="ctrls" role="group" aria-label="Steatosis"><span class="kicker">Fat in the liver (steatosis)?</span>
+      <button class="btn" data-maq="st" data-v="1" aria-pressed="true">Yes</button><button class="btn" data-maq="st" data-v="0" aria-pressed="false">No</button></div>
+    <div class="ctrls" role="group" aria-label="Cardiometabolic risk factor"><span class="kicker">At least 1 of 5 cardiometabolic risk factors?</span>
+      <button class="btn" data-maq="cm" data-v="1" aria-pressed="true">Yes</button><button class="btn" data-maq="cm" data-v="0" aria-pressed="false">No</button></div>
+    <div class="ctrls" role="group" aria-label="Alcohol intake"><span class="kicker">Alcohol intake</span>
+      <button class="btn" data-maq="al" data-v="0" aria-pressed="true">Little or none</button><button class="btn" data-maq="al" data-v="1" aria-pressed="false">140–350 g/week (women) or 210–420 g/week (men)</button></div>
+    <div class="verdict" id="maName" aria-live="polite"></div>
+    <p class="stage-cap">The five criteria include body-mass index or waist circumference, blood pressure and HDL cholesterol; the paper gives the thresholds in a figure not reproduced here. A 2024 analysis found that 99% of people with NAFLD meet MASLD criteria, so older studies still apply. [[Rinella2023MASLD,Hagstrom2024]]</p>
+  </div>
+
+  <h3 class="sub">How much weight loss helps the liver?</h3>
+  <div class="prose"><p>In a 52-week lifestyle programme, 293 people with NASH had a liver biopsy before and after. Slide the weight lost to see the published bands. [[VilarGomez2015]]</p></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="maWl" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="As the weight-loss slider moves from 0 to 12 percent, a body outline slims and the liver's fat droplets shrink. Bars show the published results by band: in the whole programme 25% had NASH resolution and 19% fibrosis regression; with at least 5% weight loss, 58% had NASH resolution; with at least 10%, 90% had NASH resolution and 45% fibrosis regression."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="maWlPlay">Play</button><label class="stage-cap tl" for="maWlT">Weight lost <input type="range" id="maWlT" min="0" max="1" step="0.001" value="0.45"></label></div>
+      <p class="stage-cap"><b>Published bands, not a dose–response curve.</b> Results come from one programme with paired biopsies; only 30% of participants reached ≥5% weight loss. [[VilarGomez2015]]</p>
+    </div>
+    <aside class="note" id="maWlNote" aria-live="polite"></aside>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="tag rx">AASLD 2023</span><h4>Diet, exercise and alcohol</h4><p>Diets of different composition (low-carbohydrate, low-fat, Mediterranean, intermittent fasting) "appear comparable". At least 150 minutes of exercise a week can prevent or improve the condition. "Patients with clinically significant hepatic fibrosis (≥ F2) should abstain from alcohol use completely." Quoted as published. [[Rinella2023AASLD]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Bariatric surgery</h4><p>With repeat biopsies after bariatric surgery, NASH resolved without fibrosis worsening in 84% at 5 years, and fibrosis fell in 70.2%. In SPLENDOR (1,158 people with NASH and obesity), 10-year major adverse liver outcomes were 2.3% after surgery vs 9.6% without (adjusted HR 0.12); 0.6% died of surgical complications in the first year. [[Lassailly2020,Aminian2021JAMA]]</p></div>
+    <div class="card"><span class="tag liver">Who is at risk</span><h4>Diabetes and obesity</h4><p>In people with type 2 diabetes, 55.5% had NAFLD, 37.3% NASH, and 17.0% of those with NAFLD had advanced fibrosis. AASLD 2023 puts advanced fibrosis at 6–19% in type 2 diabetes and 4–33% in medically complicated obesity, against 0.9–2% in the background population. [[Younossi2019T2D,Rinella2023AASLD]]</p></div>
+    <div class="card"><span class="tag dx">Testing</span><h4>Finding the people with scar</h4><p>Because fibrosis decides outcomes, the first job is to find out how much scar there is, usually without a biopsy. The FIB-4 score and elastography are explained, with a teaching calculator, in <a href="#noninvasive" data-go="noninvasive">Measuring scarring without a biopsy</a>.</p></div>
+    <div class="card"><span class="tag">The heart too</span><h4>Most deaths are not from the liver</h4><p>Per 1,000 person-years, people with NAFLD had 12.60 deaths from all causes, 4.20 from heart disease and 0.92 from liver disease. In a Swedish nationwide biopsy cohort, most excess deaths were from cancers outside the liver, then cirrhosis, cardiovascular disease and liver cancer. AASLD 2023 calls statins "safe and recommended" for heart risk, including in compensated cirrhosis. [[Younossi2023Hepatology,Simon2021Gut,Rinella2023AASLD]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Genes, and lean MASLD</h4><p><i>PNPLA3</i> I148M impairs the breakdown of fat in liver droplets; <i>TM6SF2</i>, <i>MBOAT7</i> and <i>HSD17B13</i> also modify risk. Lean people with the condition are more often of Hispanic or Asian origin, partly because the variant is commoner. AASLD 2023: genetic testing "is currently not recommended, as it does not alter management". [[Rinella2023AASLD]]</p></div>
+  </div>
+
+  <h3 class="sub">Medicines for MASH</h3>
+  <div class="prose"><p>Two medicines are approved in the US for MASH with moderate to advanced scarring before cirrhosis. Both are accelerated approvals based on biopsy results; trials of clinical outcomes are still running. Doses and indications are quoted as published, not as advice. [[FDA-Rezdiffra,FDA-Wegovy]]</p></div>
+  <div class="cards">
+    <div class="card"><span class="ev est">Approved (accelerated)</span><h4>Resmetirom (Rezdiffra)</h4><p>Approved 14 March 2024. The label indication: "in conjunction with diet and exercise for the treatment of adults with noncirrhotic metabolic dysfunction-associated steatohepatitis (MASH) ... with moderate to advanced liver fibrosis (consistent with stages F2 to F3 fibrosis)." It says to "avoid use" in decompensated cirrhosis and in Child–Pugh B or C. In MAESTRO-NASH (966 people), NASH resolution was 25.9% (80 mg) and 29.9% (100 mg) vs 9.7% on placebo; fibrosis improved in 24.2% and 25.9% vs 14.2%. [[FDA-Rezdiffra,Harrison2024MAESTRO]]</p></div>
+    <div class="card"><span class="ev est">Approved (accelerated)</span><h4>Semaglutide (Wegovy)</h4><p>The current label includes treatment of "noncirrhotic metabolic dysfunction-associated steatohepatitis (MASH) ... with moderate to advanced liver fibrosis (consistent with stages F2 to F3 fibrosis) in adults"; Drugs@FDA lists the efficacy supplement on 15 August 2025. In ESSENCE (800 people, 2.4 mg weekly), steatohepatitis resolved in 62.9% vs 34.3%, fibrosis fell in 36.8% vs 22.4%, and weight fell 10.5% vs 2.0%. [[FDA-Wegovy,Sanyal2025ESSENCE]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Tirzepatide</h4><p>In the phase 2 SYNERGY-NASH trial (190 people, 52 weeks), MASH resolved without fibrosis worsening in 44%, 56% and 62% on 5, 10 and 15 mg vs 10% on placebo. Not approved for MASH. [[Loomba2024SYNERGY]]</p></div>
+    <div class="card"><span class="ev est">Older trial</span><h4>Vitamin E and pioglitazone</h4><p>In PIVENS (adults with NASH without diabetes), vitamin E improved NASH more often than placebo (43% vs 19%). Pioglitazone did not meet the primary endpoint, and neither improved fibrosis. [[Sanyal2010PIVENS]]</p></div>
+    <div class="card"><span class="ev hyp">Open question</span><h4>And in cirrhosis?</h4><p>EASL–EASD–EASO 2024: "No MASH-targeted pharmacotherapy can currently be recommended for the cirrhotic stage." In compensated NASH cirrhosis, semaglutide did not improve fibrosis (11% vs 29% on placebo). Resmetirom is being tested in Child–Pugh A MASH cirrhosis, with primary completion estimated for December 2026. [[EASL2024MASLD,Loomba2023SemaCirrhosis,NCT05500222]]</p></div>
+    <div class="card"><span class="tag">Research</span><h4>Still to be proven</h4><p>Approvals rest on biopsy endpoints. The outcome parts of MAESTRO-NASH (to January 2028) and ESSENCE (to April 2029) test whether the medicines prevent cirrhosis and its complications. See <a href="#frontier" data-go="frontier">Research toward better treatment</a>. [[NCT03900429,NCT04822181]]</p></div>
+  </div>
+
+  <h3 class="sub">Fibrosis stage and risk of death</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Fibrosis stage</th><th>Death or transplant, HR (619 people, 12.6 years)</th><th>All-cause death, MRR (5 cohorts)</th><th>Liver-related death, MRR (5 cohorts)</th></tr></thead>
+    <tbody>
+      <tr><th>F0</th><td>1 (reference)</td><td>1</td><td>1</td></tr>
+      <tr><th>F1</th><td>1.88</td><td>1.58</td><td>1.41</td></tr>
+      <tr><th>F2</th><td>2.89</td><td>2.52</td><td>9.57</td></tr>
+      <tr><th>F3</th><td>3.76</td><td>3.48</td><td>16.69</td></tr>
+      <tr class="hl"><th>F4 (cirrhosis)</th><td>10.9</td><td>6.40</td><td>42.30</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Sources: [[Angulo2015,Dulai2017]]. A meta-analysis of 13 studies (4,428 people) gave F4 vs F0 risk ratios of 3.42 for all-cause and 11.13 for liver-related death [[Taylor2020Gastro]]. In the NASH CRN cohort of 1,773 adults, deaths per 100 person-years were 0.32 at F0–F2, 0.89 at F3 and 1.76 at F4 [[Sanyal2021NAFLD]]. Population statistics.</p>
+</section>

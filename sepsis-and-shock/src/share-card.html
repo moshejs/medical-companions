@@ -1,0 +1,37 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@900&family=Work+Sans:wght@400;700&family=Inconsolata:wght@500;600&display=swap">
+<style>
+/* Sepsis Companion share card, 1200x630: python3 tools/share_card.py sepsis-and-shock/src/share-card.html sepsis-and-shock/share-card.png */
+html,body{margin:0;width:1200px;height:630px;overflow:hidden;background:#15110e;color:#f0e9e2;font-family:'Work Sans',sans-serif}
+.l{position:absolute;left:76px;top:62px;width:640px}
+.k{font:600 21px 'Inconsolata',monospace;letter-spacing:.14em;text-transform:uppercase;color:#ff9a5a}
+h1{font:900 76px/1.05 'Merriweather',serif;letter-spacing:-.02em;margin:18px 0 22px;color:#f3e4d9}
+p{font-size:26px;line-height:1.38;color:#b4a89d;margin:0 0 28px;max-width:600px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;max-width:640px}
+.chips span{font:600 17px 'Inconsolata',monospace;padding:8px 13px;border-radius:999px;border:1px solid #3b322b}
+.chips .a{color:#eca57c;background:#3b2317;border-color:#5e3824}.chips .d{color:#9fbbe6;background:#1c2a40;border-color:#2e4363}.chips .t{color:#6fcdbd;background:#0f312c;border-color:#1d5048}.chips .r{color:#b0d37f;background:#223214;border-color:#3a5222}
+.url{position:absolute;left:76px;bottom:42px;font:600 22px 'Inconsolata',monospace;color:#eca57c}
+svg{position:absolute;right:40px;top:40px;width:420px;height:550px}
+</style></head><body>
+<div class="l"><div class="k">Sepsis · septic shock · Sepsis-3</div><h1>Sepsis Companion</h1><p>An animated, cited guide for students, people who survive sepsis, and their families</p>
+<div class="chips"><span class="a">infection to organ failure</span><span class="d">qSOFA, SOFA &amp; NEWS2</span><span class="t">the first hour &amp; fluids</span><span class="r">life after sepsis</span></div></div>
+<div class="url">%HOST%/sepsis-and-shock</div>
+<svg viewBox="0 0 420 550">
+<circle cx="210" cy="215" r="190" fill="#1e1915" stroke="#2a231e" stroke-width="2"/>
+<!-- a blood drop holding a rod bacterium and cytokine embers -->
+<path d="M210 52C186 84 120 162 120 216C120 266 160 306 210 306C260 306 300 266 300 216C300 162 234 84 210 52Z" fill="#6b3519" stroke="#eca57c" stroke-width="4"/>
+<rect x="160" y="196" width="100" height="44" rx="22" transform="rotate(-32 210 218)" fill="#7cc46e" stroke="#a9dc9c" stroke-width="3"/>
+<ellipse cx="200" cy="214" rx="16" ry="7" transform="rotate(-32 210 218)" fill="#24561f" opacity=".5"/>
+<path d="M150 250L134 262M270 186L286 174" stroke="#a9dc9c" stroke-width="4" stroke-linecap="round"/>
+<g fill="#f0803f"><circle cx="240" cy="140" r="9"/><circle cx="168" cy="160" r="7"/><circle cx="254" cy="268" r="8"/><circle cx="170" cy="278" r="6"/><path d="M300 110l10 14-10 14-10-14z"/><path d="M110 120l8 11-8 11-8-11z"/><path d="M330 250l8 11-8 11-8-11z"/><circle cx="96" cy="230" r="5"/></g>
+<!-- blood-pressure gauge falling then rising -->
+<g transform="translate(110 360)">
+<rect x="-14" y="-6" width="228" height="170" rx="18" fill="#1e1915" stroke="#3b322b" stroke-width="2"/>
+<path d="M30 130A70 70 0 0 1 100 60" fill="none" stroke="#ff8079" stroke-width="16" opacity=".8"/>
+<path d="M100 60A70 70 0 0 1 150 80" fill="none" stroke="#f0bf4f" stroke-width="16" opacity=".8"/>
+<path d="M150 80A70 70 0 0 1 170 130" fill="none" stroke="#6fd08a" stroke-width="16" opacity=".8"/>
+<line x1="100" y1="130" x2="148" y2="96" stroke="#f0e9e2" stroke-width="6" stroke-linecap="round"/><circle cx="100" cy="130" r="8" fill="#f0e9e2"/>
+<text x="100" y="156" fill="#b4a89d" font-family="Inconsolata" font-size="18" text-anchor="middle">blood pressure</text>
+</g>
+</svg>
+</body></html>

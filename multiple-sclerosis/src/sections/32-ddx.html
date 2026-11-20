@@ -1,0 +1,75 @@
+<!-- ================= 3.2 THE DIFFERENTIAL ================= -->
+<section class="mod" id="m-ddx" data-mod="ddx" hidden>
+<style>
+#m-ddx .dd-row{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-ddx .dd-row .btn{font-size:13px;padding:6px 11px;text-align:left}
+#m-ddx .dd-out{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:12px 16px;display:flex;flex-direction:column;gap:6px;font-size:15px;min-height:64px}
+#m-ddx .dd-out b.big{font-family:var(--display);font-size:19px;line-height:1.2}
+#m-ddx .dd-cols{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px}
+#m-ddx .dd-cols label{display:inline-flex;gap:6px;align-items:center;cursor:pointer}
+#m-ddx .dd-cols input{accent-color:var(--brand);width:16px;height:16px}
+#m-ddx table{min-width:920px;font-size:14px}
+#m-ddx td,#m-ddx th{overflow-wrap:break-word;hyphens:auto}
+#m-ddx tbody th{min-width:140px}
+#m-ddx tbody th small{display:block;font-weight:500;color:var(--muted);font-size:12.5px}
+#m-ddx td.na{color:var(--muted)}
+#m-ddx tr.ref th,#m-ddx tr.ref td{background:var(--brand-soft)}
+#m-ddx tr.hl th,#m-ddx tr.hl td{background:var(--attack-soft)}
+#m-ddx tr.hl th::before{content:"⚑ ";color:var(--attack)}
+#m-ddx tr.dim{opacity:.45}
+#m-ddx tr.go{cursor:pointer}
+#m-ddx tr.go th u{text-decoration:underline dotted;text-underline-offset:3px}
+#m-ddx .dd-bars{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,2fr) 44px;gap:6px 10px;align-items:center;font-size:14px}
+#m-ddx .dd-bars i{display:block;height:12px;border-radius:6px;background:var(--panel-2);overflow:hidden}
+#m-ddx .dd-bars i b{display:block;height:100%;border-radius:6px;background:var(--attack)}
+#m-ddx .dd-bars span:last-child,#m-ddx .dd-bars .v{font:600 12px var(--mono);color:var(--muted)}
+#m-ddx .readout{margin-top:-4px}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 3 · Diagnosis</p><h2>The differential</h2>
+    <p class="lede">NMOSD, MOGAD, small-vessel disease, migraine and other conditions can look like MS. Watch MRI patterns morph from MS to NMOSD to MOGAD, then click red flags to see which mimics they point to.</p></div>
+  <p class="callout">MS is a diagnosis of exclusion: the criteria only apply when there is no better explanation [[IACCTMS2025Slides]]. Across studies, 5%–41% of MS diagnoses were wrong; the pooled figure was 15% [[Zurrer2024]]. A 2008 consensus scored 79 red flags (36 major, 32 intermediate, 11 minor), and a 2023 consensus updated them [[Miller2008,Solomon2023]].</p>
+
+  <h3 class="sub">Three MRI patterns</h3>
+  <div class="stepper" id="ddSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="ddSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="Schematic MRI of brain, spinal cord and optic nerves morphing from a typical MS pattern to NMOSD with a long cord lesion, then to MOGAD with fluffy lesions that later fade, with a live measure of cord lesion length in vertebral segments"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="ddPlay">Play</button><label class="stage-cap tl" for="ddT">Pattern <input type="range" id="ddT" min="0" max="1" step="0.002" value="0.1"></label></div>
+      <div class="readout" id="ddRead" aria-live="polite"></div>
+      <p class="stage-cap">Schematic composite, not real scans. Lesion lengths follow the published definitions (MS cord lesions under two segments; LETM at least three contiguous segments); positions and shapes are illustrative.</p></div>
+    <aside class="note" id="ddNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="callout"><span class="tag bad">Why the label matters</span> Several MS drugs may make NMOSD worse. The international NMOSD panel noted observational data that interferon-β, natalizumab and fingolimod may worsen NMO [[Wingerchuk2015]]. <span class="ev early">Early evidence</span> In 5 AQP4-positive people first treated as MS with natalizumab, 9 relapses occurred on treatment, 4 people accumulated disability and 1 died [[Kleiter2012]]. Relapses with rising AQP4 antibody titres on interferon beta-1a, and a catastrophic relapse after one natalizumab dose, have been reported; interferon-β, glatiramer acetate, fingolimod, natalizumab, alemtuzumab and dimethyl fumarate have all been linked to unexpected NMOSD exacerbations [[Palace2010,Kitley2014,Kira2017]].</div>
+
+  <h3 class="sub">Red flags</h3>
+  <p class="prose">Click a red flag. The conditions it points to are flagged in the table below, and the box explains why.</p>
+  <div class="dd-row" role="group" aria-label="Red flags" id="ddFlags"></div>
+  <div class="dd-out" id="ddFlagOut" aria-live="polite"></div>
+
+  <h3 class="sub">Conditions × features</h3>
+  <div class="dd-row" role="group" aria-label="Filter conditions" id="ddCats"></div>
+  <div class="dd-cols" role="group" aria-label="Columns to show" id="ddCols"></div>
+  <div class="tbl"><table>
+    <thead id="ddHead"></thead>
+    <tbody id="ddTbl"></tbody>
+  </table></div>
+  <p class="stage-cap">"—" means the sources used here give no distinguishing feature for that column, not that there is none. Rows marked with an underline jump the animation to that pattern. Routine syphilis or HIV testing: no source read for this guide gives consensus wording, so none is stated.</p>
+
+  <h3 class="sub">How misdiagnosis happens</h3>
+  <div class="split2">
+    <div class="card"><span class="ev est">Established</span><h4>What people misdiagnosed with MS really had</h4>
+      <p>110 patients at 4 US centres (Solomon 2016) [[Solomon2016]]:</p>
+      <div class="dd-bars" id="ddMis"></div>
+      <p>70% had received a disease-modifying therapy, 31% had unnecessary morbidity, and 33% had carried the wrong diagnosis for 10 years or more [[Solomon2016]].</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Referrals to two Los Angeles centres</h4>
+      <p>17% and 19% of referrals already carrying an MS diagnosis were misdiagnosed (Kaisey 2019). Commonest true diagnoses: migraine 16%, RIS 9%, spondylopathy 7%, neuropathy 7%. About 110 patient-years of unnecessary DMT had been given [[Kaisey2019]].</p>
+      <p><span class="ev early">Early evidence</span> In 2024, 21% (73 of 347) of referrals for suspected MS in London had other disorders, most often migraine or functional neurological disorder with non-specific or vascular white-matter lesions [[Brownlee2026]].</p>
+      <h4>The three commonest errors</h4>
+      <ul><li>Treating symptoms atypical for demyelination as attacks.</li><li>Accepting attacks without objective evidence of a CNS lesion.</li><li>Over-relying on MRI spots in people with non-specific symptoms [[Solomon2016]].</li></ul></div>
+  </div>
+
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Cord lesion over <b>≥3 vertebral segments</b> (LETM), <b>area postrema syndrome</b> (intractable hiccups or vomiting), <b>severe or bilateral optic neuritis</b>, CSF cells <b>&gt;50/μL</b> or <b>no OCB</b>: think NMOSD or MOGAD; their criteria rest on AQP4-IgG and MOG-IgG by cell-based assay. Interferon-β, natalizumab and fingolimod may worsen NMOSD. [[Wingerchuk2015,Banwell2023]]</div>
+    <div class="pt"><b>In plain words</b>Several other conditions can leave spots on a scan that look like MS: migraine, ageing blood vessels, low vitamin B12, other immune diseases and infections. Some, like NMOSD, need different medicines, and some MS medicines can make them worse. That is why doctors look hard for clues that point elsewhere before they say "MS".</div>
+  </div>
+</section>

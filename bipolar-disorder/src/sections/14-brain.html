@@ -1,0 +1,93 @@
+<!-- ================= 1.4 BRAIN, SLEEP & THE BODY CLOCK ================= -->
+<style>
+#m-brain .card>.ev,#m-brain .card>.tag{align-self:flex-start}
+#m-brain .tbl table{min-width:560px}
+#m-brain .brbtns{display:flex;flex-wrap:wrap;gap:8px}
+#m-brain .note .ev{margin-right:4px}
+</style>
+<section class="mod" id="m-brain" data-mod="brain" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · Understanding bipolar disorder</p><h2>Brain, sleep &amp; the body clock</h2>
+    <p class="lede">No one yet knows exactly what causes bipolar disorder, but sleep and daily rhythm are among the clearest links. Scrub through three weeks of one illustrative person's nights, then look at what brain scans and brain chemistry do and do not show.</p></div>
+  <div class="stepper" id="brSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="brSvg" viewBox="0 0 720 430" style="min-width:560px" role="img" aria-label="A 24-hour clock shows each night's sleep shrinking as bedtimes drift later, a stack of daily sleep bars fills in day by day, and a mood line rises from the steady band into hypomania and mania before settling again once a regular rhythm returns. A chain of four linked boxes, each arrow carrying its evidence label, lights up: routine disrupted, sleep lost, mood rises, less need for sleep."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="brPlay">Play</button><label class="stage-cap tl" for="brT">Days <input type="range" id="brT" min="0" max="1" step="0.001" value="0.06"></label></div>
+      <p class="stage-cap"><b>Schematic.</b> One illustrative person over 24 days, with time compressed: real prodromes and recoveries usually take longer, and many people's sleep and mood are not linked this tightly. The evidence labels on the chain are from the studies in the notes. [[Jackson2003,Bauer2006Sleep,Wehr1987]]</p>
+    </div>
+    <aside class="note" id="brNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Sleep and mood: what the studies found</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Study</th><th>Who</th><th>Finding</th></tr></thead>
+    <tbody>
+      <tr><th>Wehr 1982</th><td>9 rapid-cycling patients in a depressive phase kept awake 40 hours</td><td>8 switched out of depression; 7 were rated manic or hypomanic [[Wehr1982]]</td></tr>
+      <tr><th>Colombo 1999</th><td>206 people with bipolar depression, three cycles of therapeutic sleep deprivation</td><td>4.85% switched into mania and 5.83% into hypomania, rates the authors judged comparable to antidepressants [[Colombo1999]]</td></tr>
+      <tr><th>Bauer 2006</th><td>59 outpatients rating sleep and mood daily for about 169 days each</td><td>41% showed a significant sleep–mood link, most often with a one-day lag; a sleep change of more than 3 hours may signal a coming mood change [[Bauer2006Sleep]]</td></tr>
+      <tr><th>Leibenluft 1996</th><td>11 people with rapid cycling, daily logs for 18 months</td><td>Shorter sleep was the best predictor of mania or hypomania the next day; 4 of 11 showed no sleep–mood link [[Leibenluft1996]]</td></tr>
+      <tr><th>Jackson 2003</th><td>Review of 17 studies, 1,191 people</td><td>At least 80% can name early warning signs; sleep disturbance was the most robust early sign of mania (median 77%); manic prodromes averaged more than 20 days [[Jackson2003]]</td></tr>
+      <tr><th>Harvey 2005</th><td>20 euthymic people with bipolar disorder vs good sleepers</td><td>70% had a clinically significant sleep problem even between episodes [[Harvey2005Sleep]]</td></tr>
+      <tr><th>Ritter 2015</th><td>1,943 adolescents and young adults followed 10 years</td><td>Poor sleep quality raised the later risk of bipolar disorder (OR 1.75) <span class="ev early">Early evidence</span> [[Ritter2015]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">What brain scans and brain chemistry show</h3>
+  <div class="brbtns" role="group" aria-label="Brain findings">
+    <button class="btn" data-brl="cortex" aria-pressed="true">Thinner cortex</button>
+    <button class="btn" data-brl="sub" aria-pressed="false">Deeper structures</button>
+    <button class="btn" data-brl="wm" aria-pressed="false">White matter</button>
+    <button class="btn" data-brl="fmri" aria-pressed="false">Emotion &amp; reward circuits</button>
+    <button class="btn" data-brl="li" aria-pressed="false">On lithium</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="brBr" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A side view of the brain, front to the left, highlights the regions for the finding you choose, with ENIGMA effect sizes. Beside it a dopamine synapse releases more or fewer transmitter dots as the mood slider moves from depression through steady mood to mania, with evidence labels for the dopamine hypothesis."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="brBrPlay">Play</button><label class="stage-cap tl" for="brBrT">Mood, synapse panel <input type="range" id="brBrT" min="0" max="1" step="0.001" value="0.5"></label></div>
+      <p class="stage-cap"><b>Schematic.</b> Region positions are approximate and the synapse is a cartoon. Effect sizes are group averages from large pooled studies (ENIGMA); they overlap heavily with people without bipolar disorder. [[Hibar2018,Hibar2016,Ashok2017]]</p>
+    </div>
+    <aside class="note" id="brBrNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Why a scan cannot diagnose one person</h3>
+  <div class="lab even">
+    <div class="stage">
+      <div class="brbtns" role="group" aria-label="Effect size">
+        <button class="btn" data-brd="0.293" aria-pressed="true">Cortex, d −0.29</button>
+        <button class="btn" data-brd="0.232" aria-pressed="false">Hippocampus, d −0.23</button>
+        <button class="btn" data-brd="0.148" aria-pressed="false">Thalamus, d −0.15</button>
+      </div>
+      <div class="scroll"><svg id="brOv" viewBox="0 0 480 250" role="img" aria-label="Two almost entirely overlapping bell curves: a brain measure in people with and without bipolar disorder, separated by the chosen ENIGMA effect size."></svg></div>
+      <p class="stage-cap">Curves drawn from the published Cohen's d assuming normal distributions; the overlap figure is computed from d, not reported by the studies. [[Hibar2018,Hibar2016]]</p>
+    </div>
+    <div class="prose">
+      <p>The largest cortical effect in 1,837 adults with bipolar disorder was in the left pars opercularis, Cohen's d −0.293; the hippocampus was d −0.232 and the thalamus d −0.148. Effects this size mean the two groups overlap almost completely: most people with bipolar disorder have measures well inside the range of people without it. [[Hibar2018,Hibar2016]]</p>
+      <p>Medicines also confound scans. In a 2026 ENIGMA mega-analysis, people not taking medication had only mild ventricular enlargement (d 0.07), while antiepileptic and antipsychotic use went with smaller hippocampal and thalamic volumes. [[King2026ENIGMA]]</p>
+      <p class="callout">There is no brain-scan or blood test for bipolar disorder. Diagnosis rests on a careful history of mood episodes: see <a href="#criteria" data-go="criteria">DSM-5-TR criteria</a>. [[Hibar2018,Ching2022]]</p>
+    </div>
+  </div>
+
+  <h3 class="sub">Does each episode make the next more likely?</h3>
+  <div class="brbtns" role="group" aria-label="Kindling view">
+    <button class="btn" data-brk="data" aria-pressed="true">What registers show</button>
+    <button class="btn" data-brk="kindle" aria-pressed="false">Reading 1: kindling</button>
+    <button class="btn" data-brk="sev" aria-pressed="false">Reading 2: severity from the start</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="brKd" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Bars rise with the number of previous episodes, showing the direction of the Danish register finding without numbers. The kindling view adds a falling trigger threshold; the severity view splits the bars into a milder and a more severe group, each flat, whose mix changes with episode count."></svg></div>
+      <p class="stage-cap"><b>Direction only.</b> The Danish register abstracts give no recurrence percentages, so the bars have no scale. [[Kessing1998Recurrence,Kessing2004Course]]</p>
+    </div>
+    <aside class="note" id="brKdNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Other threads</h3>
+  <div class="cards">
+    <div class="card"><span class="ev early">Early evidence</span><h4>Daily routines as clock-setters</h4><p>The social zeitgeber theory proposes that people, meals and tasks help set the body clock, and that losing them can destabilise it. In 39 people, routine-disrupting life events were more common in the 8 weeks before a manic onset, but not before depression. In a trial of 175 adults with bipolar I, interpersonal and social rhythm therapy in the acute phase lengthened time well over 2 years, and people whose routines became more regular were less likely to relapse. [[Ehlers1988,MalkoffSchwartz1998,Frank2005IPSRT]] More in <a href="#therapy" data-go="therapy">Psychoeducation &amp; talking therapies</a>.</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Evening types and the seasons</h4><p>Across 42 studies, circadian disruption appeared even in people never treated and between episodes, with a delayed melatonin and cortisol rhythm and more evening chronotypes. Mania peaks in spring and summer and depression in early winter; a seasonal pattern was found for 15% of manic and 25% of depressive episodes. [[Melo2017,Geoffroy2014]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Clock genes, mostly in animals</h4><p>Mice with a Clock gene mutation are hyperactive, sleep less and value rewards more; lithium returned many behaviours to normal, and restoring the clock protein in a dopamine area rescued them. In people, the largest GWAS did not list core clock genes among its headline findings, and whether clock problems cause mood episodes remains controversial. [[Roybal2007,Mullins2021,McCarthy2012]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Inflammation and stress hormones</h4><p>CRP, IL-6 and TNF-α are raised on average; CRP and TNF-α behave like state markers, rising during episodes, while IL-6 stays raised. Cortisol and ACTH are higher, more so in mania. BDNF, a nerve-growth protein, falls in mania and depression and normalises between episodes. Whether any of this causes episodes or follows them is not settled. [[Solmi2021Inflammation,BelvederiMurri2016,Fernandes2015]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Many layers, no single cause</h4><p>Genes, the body clock, brain networks, cell energy, inflammation and stress are best seen as interacting layers rather than rival single causes. The cause of bipolar disorder is not known; heritability is around 70% in a Lancet review. [[McIntyre2020Lancet,Berk2011]] See <a href="#genes" data-go="genes">Genes &amp; family risk</a>.</p></div>
+    <div class="card"><span class="tag brand">For everyday life</span><h4>Protecting sleep</h4><p>Regular times for waking, eating, working and sleeping help keep the body clock steady. A change of more than about 3 hours from usual sleep can come a day before a large mood change, so it is worth noticing and telling the care team. [[Frank2005IPSRT,Bauer2006Sleep]] See <a href="#living" data-go="living">Living well: sleep, routine &amp; mood charting</a>.</p></div>
+  </div>
+</section>

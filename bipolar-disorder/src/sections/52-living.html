@@ -1,0 +1,108 @@
+<!-- ================= 5.2 LIVING WELL: SLEEP, ROUTINE & MOOD CHARTING ================= -->
+<style>
+#m-living .card>.ev,#m-living .card>.tag{align-self:flex-start}
+#m-living .calc input[type=date]{font:inherit;font-weight:400;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink);max-width:100%;min-width:0}
+#m-living .lw-msg{font-size:14px;color:var(--muted);min-height:1.4em}
+#m-living .lw-msg.ok{color:var(--good)}
+#m-living .note ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px;font-size:15px}
+#m-living .tbl table{min-width:560px}
+</style>
+<section class="mod" id="m-living" data-mod="living" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Course &amp; living</p><h2>Living well: sleep, routine &amp; mood charting</h2>
+    <p class="lede">Eight weeks of one illustrative mood chart: daily mood, the night's sleep and what was going on in life. Scrub through it to watch early warning signs gather before a high, and to see where an action plan made while well comes in.</p></div>
+  <div class="stepper" id="lwSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="lwSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="An illustrative eight-week personal mood chart that fills in day by day: daily mood from minus 3 to plus 3, nightly sleep hours as bars, and life events. In week 4 a run of late nights starts, sleep shortens, the person's own early warning signs appear, and mood starts to rise. In week 5 the action plan is used, sleep returns to its usual length and mood settles back to steady. A dashed line shows a schematic course in which the signs were missed."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="lwPlay">Play</button><label class="stage-cap tl" for="lwT">Day <input type="range" id="lwT" min="0" max="1" step="0.001" value="0.6"></label></div>
+      <div class="readout" id="lwRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> One made-up person's chart, not a prediction for anyone. The events, the warning signs and the 6-hour line are the kind of personal details a person writes into their own plan; everyone's signs and thresholds differ. The dashed course is drawn to show what the plan is for, not measured. [[Jackson2003,NICE2014CG185]]</p>
+    </div>
+    <aside class="note" id="lwNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Early warning signs: what the studies found</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Finding</th><th>Number as published</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><th>People with a mood disorder who can name at least one early sign</th><td>at least 80% (17 studies, 1,191 people)</td><td>[[Jackson2003]]</td></tr>
+      <tr class="up"><th>Most robust early sign of mania</th><td>sleep disturbance, median prevalence 77%</td><td>[[Jackson2003]]</td></tr>
+      <tr><th>How long the run-up lasts</th><td>manic prodromes more than 20 days on average (range 1–120); depressive prodromes less than 19 days (range 2–365)</td><td>[[Jackson2003]]</td></tr>
+      <tr class="down"><th>Spotting the low side</th><td>a quarter of people had difficulty detecting depressive prodromes</td><td>[[Lam2001Prodromes]]</td></tr>
+      <tr><th>Early-sign training (7–12 sessions), time to first manic relapse at the 25th centile</th><td>65 weeks vs 17 weeks with usual care; manic relapses cut by a median 30% over 18 months; no effect on depressive relapse</td><td>[[Perry1999BMJ]]</td></tr>
+      <tr><th>Sleep between episodes</th><td>longer time to fall asleep, more waking in the night and more variable sleep-wake patterns than controls (21 studies)</td><td>[[Ng2015Sleep]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Your own mood chart</h3>
+  <div class="prose">
+    <p>The NIMH Life Chart Method rates mood every day by how much it gets in the way of daily life, and its ratings tracked clinicians' scales closely in 270 people (depression r = −0.785 against the IDS-C; mania r = 0.656 against the YMRS). [[Denicoff2000]] The tracker below borrows that idea in a simple form: one mood rating and one sleep figure a day.</p>
+    <p><b>Your entries stay in this browser on this device.</b> Nothing is sent anywhere. This is a teaching tool for keeping a chart to share with your care team, not a test: it does not diagnose, score or predict anything.</p>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="calc">
+        <label for="lwDate">Date <input type="date" id="lwDate"></label>
+        <label for="lwMood">Mood today
+          <select id="lwMood">
+            <option value="3">+3 · high, can't function as usual</option>
+            <option value="2">+2 · high, clearly gets in the way</option>
+            <option value="1">+1 · a little high, still managing</option>
+            <option value="0" selected>0 · steady</option>
+            <option value="-1">−1 · a little low, still managing</option>
+            <option value="-2">−2 · low, clearly gets in the way</option>
+            <option value="-3">−3 · low, can't function as usual</option>
+          </select></label>
+        <label for="lwSleep">Hours slept last night <input type="number" id="lwSleep" min="0" max="24" step="0.5" value="7.5" inputmode="decimal"></label>
+      </div>
+      <div class="ctrls">
+        <button class="btn primary" id="lwSave">Save this day</button>
+        <button class="btn" id="lwDel">Remove this day</button>
+        <button class="btn" id="lwDemo" aria-pressed="false">Show an example fortnight</button>
+        <button class="btn ghost" id="lwCsv">Download as CSV</button>
+        <button class="btn ghost" id="lwClear">Clear my chart</button>
+      </div>
+      <p class="lw-msg" id="lwMsg" role="status"></p>
+      <div class="scroll"><svg id="lwMine" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Your own mood chart for the last 28 days: daily mood ratings as dots joined by a line, and hours of sleep as bars underneath."></svg></div>
+      <p class="stage-cap" id="lwMineCap"></p>
+    </div>
+    <aside class="note" id="lwMineNote">
+      <div class="kicker">Using a chart well</div>
+      <h4>A chart is a conversation starter</h4>
+      <ul>
+        <li>Write your own warning signs on your plan. Sleep change is the commonest, but each person's list is different. [[Jackson2003]]</li>
+        <li>Bring the chart to appointments. Self-monitoring of mood, thoughts and behaviour is part of the relapse-prevention care NICE recommends. [[NICE2014CG185]]</li>
+        <li>Monitoring alone is not treatment: in the MONARCA I trial, daily smartphone self-monitoring with feedback did not reduce symptoms compared with a control phone. What helps is the plan and the people acting on it. [[FaurholtJepsen2015]]</li>
+      </ul>
+      <div class="pt"><b>In plain words</b>Keeping a daily mood chart helps you and your team spot changes early. [[Denicoff2000,Perry1999BMJ]]</div>
+    </aside>
+  </div>
+
+  <h3 class="sub">Staying well: what the evidence says</h3>
+  <div class="cards">
+    <div class="card"><span class="tag brand">Plans</span><h4>A relapse-prevention plan, made while well</h4>
+      <p>NICE CG185 says to develop a plan jointly with the person and their carer covering triggers and early warning signs, the person's own coping strategies, how services will respond, and who to contact in a crisis (recommendation 1.4.1). [[NICE2014CG185]]</p>
+      <p>Joint crisis plans cut compulsory admission or treatment from 27% to 13% in one trial; the larger CRIMSON trial found no significant effect (18% vs 20%), possibly because plans were not fully put into practice. [[Henderson2004BMJ,Thornicroft2013CRIMSON]] Across 13 trials, advance statements reduced compulsory admissions by 23% (RR 0.77). [[deJong2016]]</p>
+      <p>NICE advises discussing a lasting power of attorney when mania or hypomania has caused money problems (1.1.5). [[NICE2014CG185]] See also <a href="#families" data-go="families">Families, work &amp; school</a>.</p></div>
+    <div class="card"><span class="tag up">Sleep &amp; routine</span><h4>Protecting sleep and a regular day</h4>
+      <p><span class="ev hyp">Hypothesis</span> Sleep loss can trigger a switch into mania, and mania cuts sleep further: a self-reinforcing loop, with sleep reduction proposed as a "final common pathway". [[Wehr1987]]</p>
+      <p><span class="ev early">Early evidence</span> In IPSRT, people who made their daily rhythms more regular were less likely to have a recurrence. In a pilot of insomnia-focused CBT, days in a mood episode over 6 months were 3.3 vs 25.5 with psychoeducation. [[Frank2005IPSRT,Harvey2015CBTI]] More in <a href="#therapy" data-go="therapy">talking therapies</a> and <a href="#brain" data-go="brain">the body clock</a>.</p></div>
+    <div class="card"><span class="tag warn">Substances</span><h4>Alcohol, drugs and smoking</h4>
+      <p>In national surveys, about a third of people with bipolar disorder (33%) had a substance use disorder: 24% alcohol and 17% illicit drugs. In clinical samples alcohol use disorder reached 42% and cannabis 20%, and substance use went with earlier onset and more hospital stays. [[Hunt2016Surveys,Hunt2016Clinical]]</p>
+      <p>Smoking is more common than in the general population (OR 3.5), and quitting is less common (OR 0.34). [[Jackson2015Smoking]]</p></div>
+    <div class="card"><span class="tag rx">Physical health</span><h4>The yearly health check</h4>
+      <p>NICE CG185 says the annual physical health check should cover weight or BMI, diet, nutrition and activity; pulse and blood pressure; fasting glucose or HbA1c and lipids; and liver, kidney and thyroid function and calcium (1.2.12). People on antipsychotics and long-term medicines should be offered a healthy-eating and activity programme (1.8.2). [[NICE2014CG185]]</p>
+      <p>Metabolic syndrome affects 37.3% of people with bipolar disorder (45.3% on antipsychotics, 32.4% without). [[Vancampfort2013]] Severe mental illness carries a higher rate of cardiovascular disease (HR 1.78). [[Correll2017CVD]]</p></div>
+    <div class="card"><span class="tag bad">The mortality gap</span><h4>Why the heart matters</h4>
+      <p>As a population statistic, bipolar disorders are associated with about 10–20 potential years of life lost, mainly from excess cardiovascular deaths and suicide. [[McIntyre2020Lancet]] Natural causes matter, not only unnatural ones: the standardised mortality ratio is 1.64 for natural causes, 1.73 for circulatory and 2.92 for respiratory deaths. [[Hayes2015]] These are averages across large groups; regular checks and treatment of each risk factor are how the gap is narrowed for a person. [[NICE2014CG185,Correll2017CVD]]</p></div>
+    <div class="card"><span class="tag brand">Work &amp; study</span><h4>Working with bipolar disorder</h4>
+      <p>Across 25 studies, about 40–60% of people with established bipolar disorder were employed, more so early in the illness; 40–50% may slide in job status over time, which argues for early support. [[Marwaha2013]] Better verbal memory and executive function and more years of education went with better work outcomes; more hospital stays and depression with poorer ones. [[Tse2014]]</p>
+      <p>Getting back to work often lags behind feeling better: leftover low mood and thinking problems are the strongest links to poorer functioning. [[Gitlin2017]] NICE recommends supported employment for people who want to work (1.9.6). [[NICE2014CG185]]</p></div>
+    <div class="card"><span class="tag warn">Driving</span><h4>Driving</h4>
+      <p>A review states that people with acute mania are not fit to drive, but that driving ability can usually be confirmed after remission under psychiatric supervision; about 17% of people in remission had impaired driving performance in testing. [[Laux2014]] The lithium label cautions that lithium "may impair mental and/or physical abilities" and advises care with tasks that need alertness, such as driving. [[FDA-Lithobid]] Rules differ by country: check with your care team and licensing authority.</p></div>
+    <div class="card"><span class="tag accent">Stigma</span><h4>Self-stigma</h4>
+      <p>Across 25 studies, internalised (self-)stigma in bipolar disorder was moderate to high. [[Ellison2013Stigma]] In GAMIAN-Europe, 21.7% of people with bipolar disorder or depression reported moderate or high self-stigma and 71.6% perceived discrimination, but 59.7% also showed moderate or high stigma resistance. [[Brohan2011]]</p>
+      <p>Many people with bipolar disorder work [[Marwaha2013]], and adding psychosocial treatments and involving caregivers "have been shown to improve health outcomes". [[McIntyre2020Lancet]]</p></div>
+  </div>
+  <p class="crisis"><b>Crisis</b><span>If you are in crisis or thinking about suicide, contact local emergency services or a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123). Help works [[Nuij2021]], and you do not have to wait for a planned appointment. See <a href="#crisis" data-go="crisis">Suicide risk &amp; crisis safety</a>.</span></p>
+</section>

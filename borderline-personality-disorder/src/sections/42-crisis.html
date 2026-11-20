@@ -1,0 +1,75 @@
+<!-- ================= 4.2 SUICIDE & SELF-HARM SAFETY ================= -->
+<style>
+#m-crisis .card>.tag,#m-crisis .card>.ev{align-self:flex-start}
+#m-crisis .cs-row{display:flex;flex-wrap:wrap;gap:8px 22px;align-items:baseline}
+#m-crisis .cs-row>div{display:flex;flex-direction:column;gap:2px;min-width:120px}
+#m-crisis .cs-row small{font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+#m-crisis .cs-big{font:800 34px/1 var(--display);color:var(--accent)}
+</style>
+<section class="mod" id="m-crisis" data-mod="crisis" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Medication, safety &amp; research</p><h2>Suicide &amp; self-harm safety</h2>
+    <p class="lede">Thoughts of suicide and self-harm are common in BPD, and they are treatable: they usually become less frequent over the years, and specific therapies and safety planning reduce them. This module explains how a safety plan works, why risk is assessed by understanding a person rather than by a score, and what helps in a crisis.</p></div>
+  <p class="crisis"><b>Need help now?</b><span>If you are in crisis or thinking about suicide, contact local emergency services or a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123). Both are free and open around the clock. [[SAMHSA988,Samaritans116123]]</span></p>
+  <p class="callout">This page follows safe-messaging guidance: it describes no methods or means, and it focuses on help-seeking, coping and recovery. Stories of people getting through suicidal crises without acting on them have been linked to fewer suicides <span class="ev early">Early evidence</span> [[Niederkrotenthaler2010,SamaritansMedia]]</p>
+
+  <h3 class="sub">A safety plan, step by step</h3>
+  <div class="stepper" id="csSteps"></div>
+  <div class="ctrls" role="group" aria-label="View"><span class="kicker">View</span>
+    <button class="btn" data-csview="me" aria-pressed="true">Personal view</button>
+    <button class="btn" data-csview="clin" aria-pressed="false">Clinician view</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="csSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A six-step staircase of a safety plan rises one step at a time: warning signs, internal coping, people and places for distraction, people to ask for help, professionals and crisis lines, and making the surroundings safer. Behind it a schematic wave of distress rises to a crest and then passes back down while the plan is being used."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="csPlay">Play</button><label class="stage-cap tl" for="csT">Using the plan <input type="range" id="csT" min="0" max="1" step="0.001" value="0.12"></label></div>
+      <p class="stage-cap">Schematic: the wave shows the idea that intense distress crests and passes; it is not a measured curve. The steps follow the Safety Planning Intervention, a prioritised list of coping strategies written with a clinician. [[Stanley2018ED]]</p>
+    </div>
+    <aside class="note" id="csNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Chronic and acute risk</h3>
+  <p class="prose">Many people with BPD live with long-standing suicidal thoughts. Paris distinguishes this chronic suicidality, which in outpatient therapy "can be best understood as a way of communicating distress", from acute risk, the periods when danger rises above a person's usual level. [[Paris2002Chronic]] Both need a caring response; they call for different kinds of help.</p>
+  <div class="ctrls" role="group" aria-label="Lines shown"><span class="kicker">Show</span>
+    <button class="btn" data-csline="chronic" aria-pressed="true">Chronic baseline</button>
+    <button class="btn" data-csline="acute" aria-pressed="true">Acute spikes</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="csRisk" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="A schematic chart over ten years: a chronic baseline of suicidal thinking that slowly falls, and short acute spikes during crises that become fewer and lower over time."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="csRiskPlay">Play</button><label class="stage-cap tl" for="csRiskT">Years <input type="range" id="csRiskT" min="0" max="1" step="0.001" value="1"></label></div>
+      <p class="stage-cap">Schematic, not to scale and not one person's data. The downward trend reflects published cohorts in which suicidal behaviour and self-harm declined markedly over time. [[Soloff2019Suicidal,Zanarini2008SelfHarm]]</p>
+    </div>
+    <aside class="note" id="csRiskNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Long-term outcomes, as published</h3>
+  <p class="prose">These are population statistics from specific studies, not a prediction for any one person. They show two things at once: suicide risk in BPD is real and higher than in comparison groups, and most people with BPD do not die by suicide. [[Lak2025,Temes2019,Paris2001]]</p>
+  <div class="ctrls" role="group" aria-label="Study"><span class="kicker">Study</span>
+    <button class="btn" data-csout="0" aria-pressed="true">Meta-analysis, 35 studies</button>
+    <button class="btn" data-csout="1" aria-pressed="false">McLean, 24 years</button>
+    <button class="btn" data-csout="2" aria-pressed="false">Montreal, 27 years</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="csOut" viewBox="0 0 720 230" style="min-width:560px" role="img" aria-label="An icon array of 100 people showing the published long-term outcomes of the chosen study: most figures are shaded as alive, with a small number shaded for death by suicide and, in the McLean study, for death from other causes."></svg></div>
+      <div class="cs-row" id="csOutRead"></div>
+    </div>
+    <aside class="note" id="csOutNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What the evidence says about care</h3>
+  <div class="cards">
+    <div class="card"><span class="tag storm">Self-harm</span><h4>Why self-harm happens</h4><p>Across 18 studies, the best-supported function of self-injury is regulating emotion: overwhelming feelings come first and short-term relief follows <span class="ev est">Established</span> [[Klonsky2007]] In 101 women with BPD, most named several motives, and relief from negative emotion was "almost always involved". [[Kleindienst2008]] It is estimated to occur in about 65–80% of people with BPD. [[Brickman2014]] Therapy can teach other ways to get through those feelings: in Cochrane 2020, DBT reduced self-harm compared with usual care (SMD −0.28) and MBT reduced it too (RR 0.62). [[Storebo2020]]</p></div>
+    <div class="card"><span class="tag warn">NICE NG225</span><h4>Why risk scales should not predict</h4><p>NICE NG225: "Do not use risk assessment tools and scales to predict future suicide or repetition of self-harm", and do not use a global low, medium or high rating to decide who gets treatment or who is discharged. Instead, a risk formulation belongs in every psychosocial assessment. [[NICE2022NG225]] Pooled, risk scales had a positive predictive value of only 5.5% for suicide, and "No 'high-risk' classification was clinically useful". [[Carter2017PPV]] Sensitivity was 56% and specificity 79%, with no improvement in newer studies. [[Large2016]]</p></div>
+    <div class="card"><span class="tag med">Brief admission</span><h4>Brief admission by self-referral</h4><p>In Brief Admission Skåne, people agree a contract in advance and can admit themselves at times of rising risk, for up to 3 days and at most 3 times a month. [[Liljedahl2017BA]] In its RCT (125 participants), brief admission did not reduce hospital days at 12 months, though only that group showed within-group falls in compulsory admission days and self-injury. [[Westling2019BA,NCT02985047]] Cochrane 2022 found no clear benefit of crisis interventions over usual care, with low-certainty evidence. [[MonkCunliffe2022]]</p></div>
+    <div class="card"><span class="tag accent">Emergency department</span><h4>What helps in the ED</h4><ul>
+      <li>A calm, non-threatening attitude, trying to understand the crisis from the person's view, and validating statements. [[NICE2009]]</li>
+      <li>The psychosocial assessment should not wait until medical treatment is finished, nor be delayed because of alcohol levels. [[NICE2022NG225]]</li>
+      <li>A safety plan with at least two follow-up calls was followed by suicidal behaviour in 3.03% vs 5.29% over 6 months. [[Stanley2018ED]] Across 6 studies, safety planning cut suicidal behaviour (RR 0.57; NNT 16) <span class="ev est">Established</span> [[Nuij2021]]</li>
+      <li>Nobody should be excluded from a service because of their diagnosis or because they have self-harmed. [[NICE2009]]</li></ul></div>
+    <div class="card"><span class="tag accent">Friends &amp; family</span><h4>What friends can say</h4><p>Stay calm, listen without judging, and try to understand what the crisis feels like from their side; that is what NICE asks of clinicians too. [[NICE2009]] Saying "That sounds unbearable right now. I'm here, and I want to help you get through tonight" validates without minimising. Ask whether they have a safety plan and help them use it, including the people and crisis lines on it. If someone is in immediate danger, contact emergency services.</p></div>
+    <div class="card"><span class="tag med">Medicines</span><h4>Medicines in a crisis</h4><p>NICE CG78: short-term drug treatment "may be helpful" in a crisis, using a single drug with "relative safety in overdose", prescribing "fewer tablets more frequently" where needed, and usually stopping within 1 week. [[NICE2009]] NICE NG225 advises against drug treatment as a specific intervention to reduce self-harm. [[NICE2022NG225]] <button class="btn ghost" data-go="meds">Medication: the evidence →</button></p></div>
+  </div>
+  <p class="callout">Recovery is common. Self-harm and proneness to crisis "can decrease over time", and most people with BPD gradually enter remission <span class="ev est">Established</span> [[Gunderson2018]] <button class="btn ghost" data-go="course">Course &amp; recovery →</button></p>
+  <p class="crisis"><b>Need help now?</b><span>If you are in crisis or thinking about suicide, contact local emergency services or a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123).</span></p>
+</section>

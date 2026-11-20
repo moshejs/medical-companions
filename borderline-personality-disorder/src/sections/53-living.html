@@ -1,0 +1,62 @@
+<!-- ================= 5.3 LIVING WITH BPD ================= -->
+<style>
+#m-living .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+#m-living .tiles button{border:1px solid var(--line);background:var(--panel);border-radius:var(--r);padding:12px 14px;cursor:pointer;text-align:left;display:flex;flex-direction:column;gap:4px;min-width:0}
+#m-living .tiles button b{font-family:var(--display);font-weight:800;font-size:17px;line-height:1.15}
+#m-living .tiles button .num{font:800 24px/1 var(--display);color:var(--brand)}
+#m-living .tiles button small{font-size:13px;color:var(--muted);line-height:1.3}
+#m-living .tiles button[aria-pressed="true"]{border-color:var(--brand);background:var(--brand-soft);box-shadow:0 0 0 2px var(--brand-soft)}
+#m-living .dom{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px}
+@media (max-width:1100px){#m-living .dom{grid-template-columns:minmax(0,1fr)}}
+#m-living .dom svg{width:100%;height:auto;display:block}
+#m-living .dom h4{margin:0;font-family:var(--display);font-weight:800;font-size:22px;line-height:1.15}
+#m-living .dom ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:14.5px}
+#m-living .dom .col{display:flex;flex-direction:column;gap:10px;min-width:0}
+#m-living .dom .do{background:var(--accent-soft);border-radius:10px;padding:10px 12px}
+#m-living .dom .do b:first-child{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:4px}
+#m-living .card>.ev,#m-living .card>.tag{align-self:flex-start}
+</style>
+<section class="mod" id="m-living" data-mod="living" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Course &amp; living</p><h2>Living with BPD</h2>
+    <p class="lede">One illustrative week: work, relationships, sleep and therapy on one timeline. Stressful moments set off emotion waves; switch supports on and off to see how skills shorten them. Then explore what the research says about work, relationships, parenting, physical health and stigma.</p></div>
+
+  <div class="ctrls" role="group" aria-label="Supports this week">
+    <span class="kicker">This week</span>
+    <button class="btn" data-lis="1" aria-pressed="true">With skills and supports</button>
+    <button class="btn" data-lis="0" aria-pressed="false">Without supports</button>
+  </div>
+  <div class="stepper" id="liSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="liSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A week from Monday to Sunday. At the top an emotion wave rises at a work deadline, an unanswered text and a weekend argument; below it four lanes show work, relationships, sleep and health, and therapy. With supports switched on, skills markers appear after each trigger and the waves are lower and shorter; without supports they rise higher, last longer, and sleep is shorter."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="liPlay">Play</button><label class="stage-cap tl" for="liT">Week <input type="range" id="liT" min="0" max="1" step="0.001" value="0.09"></label></div>
+      <div class="readout" id="liRead"></div>
+      <p class="stage-cap"><b>Illustrative and schematic.</b> One made-up week, not a measured diary and not a prediction for anyone. Wave heights, sleep hours and the effect of skills are drawn to show a pattern. The dashed line is the same week without supports, for comparison.</p>
+    </div>
+    <aside class="note" id="liNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Explore: life domains</h3>
+  <p class="stage-cap">Pick a domain. Each opens cited findings and practical, guideline-based points. Figures are population statistics from studies, not forecasts for one person.</p>
+  <div class="tiles" id="liTiles" role="group" aria-label="Life domains">
+    <button data-lid="work" aria-pressed="true"><span class="num">40–60%</span><b>Work &amp; study</b><small>recovered by 16 years, including work or study</small></button>
+    <button data-lid="rel" aria-pressed="false"><span class="num">r = 0.48</span><b>Relationships</b><small>attachment anxiety and BPD traits</small></button>
+    <button data-lid="preg" aria-pressed="false"><span class="num">10.3%</span><b>Parenting &amp; pregnancy</b><small>malformations with valproate (EURAP)</small></button>
+    <button data-lid="health" aria-pressed="false"><span class="num">45%</span><b>Physical health</b><small>current substance use disorder</small></button>
+    <button data-lid="stigma" aria-pressed="false"><span class="num">24.7%</span><b>Stigma &amp; disclosure</b><small>of TikTok explainer videos had misinformation</small></button>
+  </div>
+  <div class="dom" id="liDom">
+    <div class="col"><h4 id="liDomH"></h4><svg id="liDomSvg" viewBox="0 0 520 224" role="img" aria-label="A bar chart of the published figures for the chosen life domain."></svg><p class="stage-cap" id="liDomCap"></p></div>
+    <div class="col" id="liDomTxt" aria-live="polite"></div>
+  </div>
+
+  <h3 class="sub">Perspectives and practicalities</h3>
+  <div class="cards">
+    <div class="card"><span class="tag accent">Lived experience</span><h4>What recovery feels like from inside</h4><p>Lived-experience research describes recovery as non-linear: from being stuck, through diagnosis, to an improving experience, driven by hope, active engagement, treatment and meaningful activities and relationships. [[Ng2019LivedRecovery]] Peer workers with their own lived experience can offer hope, connection and validation, with supervision and clear role boundaries. [[Barr2020]] Peer support fits personal recovery goals such as self-acceptance, hope and meaningful roles, though formal evaluations are few. [[Turner2024,Dufour2025]] <span class="ev early">Early evidence</span></p></div>
+    <div class="card"><span class="tag brand">Work</span><h4>Disclosure at work or college</h4><p>In an integrative review of 11 studies, barriers to work and study included symptoms, self-stigma and non-disclosure; enablers included boldness and honesty, and employment itself appeared to improve symptoms. [[Larcombe2022]] There is no single right answer about telling an employer. Some people tell a manager or occupational health only what they need (for example, "I have a health condition that affects stress; regular check-ins help"), without naming the diagnosis.</p></div>
+    <div class="card"><span class="tag brand">Rights</span><h4>Rights and reasonable adjustments</h4><p>NICE states that people with BPD "should not be excluded from any health or social care service because of their diagnosis or because they have self-harmed". [[NICE2009]] Care plans should include long-term goals such as employment and occupation, linked to short-term treatment aims. [[NICE2009]] Workplace rights and adjustments depend on the country's law; an occupational health service, union or advice service can explain what applies locally.</p></div>
+    <div class="card"><span class="tag storm">Stigma</span><h4>Self-stigma</h4><p>Women with BPD showed more self-stigma than women with social phobia, and self-stigma predicted lower self-esteem after accounting for depression and shame. [[Rusch2006]] A review of 30 studies found stigma themes including perceived untreatability and low BPD health literacy among patients and clinicians alike. [[Ring2019]] Combining recovery messages with biological explanations looks most promising for reducing public stigma. [[Ociskova2023]] <span class="ev early">Early evidence</span> Recovery is possible and attainable, as NICE asks clinicians to explain. [[NICE2009]]</p></div>
+  </div>
+  <p class="callout">Most people improve. In the McLean study, 93% had a remission lasting at least 2 years within 10 years and 50% reached full recovery, which also needs good work and social functioning; in the CLPS study, 85% remitted over 10 years. These are group figures. See <a href="#course" data-go="course">Course &amp; recovery</a> and <a href="#families" data-go="families">Families &amp; carers</a>. [[Zanarini2010Recovery,Gunderson2011]]</p>
+  <p class="crisis" role="note"><b>Need help now?</b><span>If you are in crisis or thinking about suicide, contact local emergency services or a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123).</span></p>
+</section>

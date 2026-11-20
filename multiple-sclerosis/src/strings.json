@@ -1,0 +1,10 @@
+{
+  "foot.not_advice": "<b>It is not medical advice.</b> It cannot diagnose, and nothing here should change a treatment without your own clinician. Criteria, doses and guideline statements are quoted as published. Please check the original sources, which are listed in full in the <a href=\"#sources\" data-go=\"sources\">Sources</a> module.",
+  "quiz.answer_is": "The answer is {l}.",
+  "shell.disclaimer": "MS Companion is an educational synthesis of published literature for study and patient understanding. It does not replace a neurologist or MS nurse. Doses, criteria and guideline statements are reported as published, not as instructions for any individual. Never stop or switch a medicine without your own team.",
+  "shell.home": "MS Companion home",
+  "shell.note": "An animated, cited guide for students, people with MS and their families. Educational only, not medical advice. Your place is saved on this device.",
+  "shell.skip": "Skip to the module",
+  "shell.tagline": "Multiple sclerosis",
+  "sources.stats": "{all} sources in all. {ok} were confirmed against a database before inclusion (some by more than one: {svc}). {chk} are marked <span class=\"tag warn\">check</span>."
+}

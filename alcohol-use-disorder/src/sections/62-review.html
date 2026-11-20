@@ -1,0 +1,69 @@
+<!-- ================= 6.2 FLASHCARDS & MEMORY AIDS ================= -->
+<section class="mod" id="m-review" data-mod="review" hidden>
+<style>
+#m-review .rv-lab{margin-top:14px}
+#m-review .mn .card p{margin:6px 0 0}
+#m-review .mn .card .tag{align-self:flex-start}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Flashcards &amp; memory aids</h2>
+    <p class="lede">Flashcards on alcohol use disorder, from standard drinks and the GABA–glutamate balance to AUDIT-C, DSM-5-TR criteria, CIWA-Ar, thiamine, the approved medicines, recovery and the liver. Tap a card or press Space to flip it; arrow keys move through the deck. Filter by part, or shuffle.</p></div>
+  <div class="ctrls" id="fcFilter"></div>
+  <div class="fc-wrap"><div class="fc" id="fc" tabindex="0" role="button" aria-label="%t:cards.label%">
+    <div class="face front"><small id="fcTagF"></small><p id="fcFront"></p></div>
+    <div class="face back"><small id="fcTagB"></small><p id="fcBack"></p></div>
+  </div></div>
+  <div class="ctrls"><button class="btn" id="fcPrev">%t:nav.prev%</button><button class="btn primary" id="fcFlip">%t:cards.flip%</button><button class="btn" id="fcNext">%t:nav.next%</button><button class="btn ghost" id="fcShuf">%t:cards.shuffle%</button><span class="stage-cap" id="fcCount"></span></div>
+  <div class="bar"><i id="fcBar"></i></div>
+  <div class="callout prose"><p>These cards are for study. The scores and thresholds on them (AUDIT, CIWA-Ar, PAWSS, Maddrey and others) are teaching facts, not self-tests, and the doses are quoted as published, not as instructions.</p></div>
+  <h3 class="sub">%t:cards.mnemonics%</h3>
+  <div class="prose"><p>Cards tagged <b>well known</b> are acronyms in common use; cards tagged <b>memory aid</b> were written for this guide to hold a published fact in mind. Neither replaces the source.</p></div>
+  <div class="mn" id="mnList"></div>
+  <h3 class="sub">Memory aid in motion: the withdrawal clock, 6 · 12 · 24 · 48</h3>
+  <p class="prose">Play the clock to watch the four numbers light up as the hours pass after the last drink: shakes from 6 hours, hallucinosis from 12, seizures peaking near 24, and delirium tremens from 48, with both published onset windows shown. The person's signs are drawn schematically.</p>
+  <div class="stepper" id="rvSteps"></div>
+  <div class="lab rv-lab">
+    <div class="stage"><div class="scroll"><svg id="rvSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Animated withdrawal clock from 0 to 120 hours after the last drink. A schematic person gains tremor and sweat drops from 6 hours, sees hallucinations from 12 hours, has seizure lines peaking at 24 hours and a confusion swirl from 48 hours, while four timeline rows labelled 6, 12, 24 and 48 fill in, the last showing delirium tremens onset at 48 to 72 hours in one source and 72 to 96 hours in another"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="rvPlay">Play</button><label class="stage-cap tl" for="rvT">Hours since the last drink <input type="range" id="rvT" min="0" max="1" step="0.002" value="0.07"></label></div>
+      <p class="stage-cap">Schematic timeline, not to scale for any one person; not everyone passes through every stage, and a seizure can occur without other prominent signs. [[ASAM2020Withdrawal,Mirijello2015,Jesse2017]]</p></div>
+    <aside class="note" id="rvNote" aria-live="polite"></aside>
+  </div>
+  <div class="callout prose"><p><b>Safety.</b> Stopping suddenly after long, heavy daily drinking can be dangerous (seizures, delirium tremens): get medical help to stop safely. If someone may have alcohol poisoning or severe withdrawal (seizure, confusion, hallucinations), call emergency services. Mixing alcohol with opioids, benzodiazepines or other sedatives is dangerous [[FDA-OxyContin,FDA-Xanax]]. </p><p><button class="btn ghost" data-go="withdrawal">→ Alcohol withdrawal: the timeline</button></p></div>
+</section>
+
+<!-- ================= 6.3 QUIZ ================= -->
+<section class="mod" id="m-quiz" data-mod="quiz" hidden>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Quiz</h2>
+    <p class="lede">Multiple-choice questions on alcohol use disorder with cited explanations: epidemiology, metabolism and the brain, screening and DSM-5-TR criteria, biomarkers, withdrawal and Wernicke, medicines and therapies, recovery, the liver and the whole body, pregnancy and history. The mixed quiz draws 20 at random; or choose a part.</p></div>
+  <div class="ctrls" id="qFilter"></div>
+  <div class="bar"><i id="qBar"></i></div>
+  <div class="qcard" id="qCard" aria-live="polite"></div>
+  <p class="stage-cap">Questions test published facts and thresholds for study. They are not a self-test and say nothing about any one person's drinking.</p>
+</section>
+
+<!-- ================= 6.4 GLOSSARY ================= -->
+<section class="mod" id="m-glossary" data-mod="glossary" hidden>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Glossary</h2>
+    <p class="lede">A searchable glossary of alcohol use disorder terms, from acetaldehyde and AUDIT-C to CIWA-Ar, PEth, the Lille model and twelve-step facilitation. Type to filter; the arrow on each entry jumps to the module where the term matters most.</p></div>
+  <input class="search" id="glSearch" type="search" placeholder="Search terms, e.g. PEth, CIWA, thiamine" aria-label="%t:glossary.search%">
+  <p class="stage-cap" id="glCount"></p>
+  <div class="gloss" id="glList"></div>
+</section>
+
+<!-- ================= 6.5 SOURCES ================= -->
+<section class="mod" id="m-sources" data-mod="sources" hidden>
+<style>
+#m-sources .srcs .tag.good{text-transform:none;letter-spacing:.02em}
+#m-sources #srcStats{margin:8px 0 0}
+#m-sources .srcs .tag{white-space:normal;max-width:100%;overflow-wrap:anywhere}
+#m-sources #srcFilter .btn{white-space:normal;text-align:left}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Sources</h2>
+    <p class="lede">Every reference behind the AUD Companion: journal articles, guidelines, drug labels, trial registrations and survey reports. The small numbers throughout the app point here; filter by research area or search.</p></div>
+  <div class="callout prose"><p>Eight research passes ran in parallel, one per area: epidemiology, drinking patterns, burden and history; alcohol in the body and brain; screening, diagnosis and biomarkers; alcohol withdrawal and Wernicke; medicines for AUD; psychosocial treatment, mutual help and recovery; medical harms; and nursing, harm reduction, special groups and the research frontier. Before inclusion each source was checked, where possible, against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or openFDA, and the green tag on an entry names the service that confirmed it. Works found by more than one pass appear once, with any extra keys listed beside them.</p>
+    <p>Entries marked <span class="tag warn">%t:sources.check%</span> could not be confirmed against a database, so treat them with extra care.</p>
+    <p id="srcStats"></p></div>
+  <input class="search" id="srcSearch" type="search" placeholder="%t:sources.placeholder%" aria-label="%t:sources.search%">
+  <div class="ctrls" id="srcFilter"></div>
+  <p class="stage-cap" id="srcCount"></p>
+  <ol class="srcs" id="srcList"></ol>
+</section>

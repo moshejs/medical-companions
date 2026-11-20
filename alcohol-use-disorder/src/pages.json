@@ -1,0 +1,106 @@
+{
+ "biomarkers": {
+  "title": "Alcohol biomarkers: PEth, EtG, CDT, GGT and MCV detection windows",
+  "description": "How long PEth, urine EtG, CDT, GGT and MCV stay raised after drinking stops, their accuracy and false positives, and the AST:ALT ratio."
+ },
+ "body": {
+  "title": "Alcohol and cancer, heart and brain risk, and the J-curve",
+  "description": "Organ-by-organ relative risks as daily alcohol rises: seven cancers, atrial fibrillation, blood pressure, pancreas, brain, and why the J-curve fails."
+ },
+ "brain": {
+  "title": "Alcohol and the brain: GABA, glutamate, tolerance and craving",
+  "description": "How alcohol boosts GABA and blocks NMDA, why tolerance and withdrawal follow, and the Koob and Volkow addiction cycle, animated and cited."
+ },
+ "ciwa": {
+  "title": "CIWA-Ar score: the 10 items and symptom-triggered care",
+  "description": "A teaching CIWA-Ar calculator (0–67) with ASAM 2020 bands, Saitz 1994 symptom-triggered vs fixed dosing animated, and when the scale doesn't fit."
+ },
+ "criteria": {
+  "title": "DSM-5-TR alcohol use disorder criteria and severity",
+  "description": "The 11 DSM-5-TR criteria for alcohol use disorder, mild to severe, early and sustained remission, the DSM-IV change and ICD-11 compared."
+ },
+ "detox": {
+  "title": "Alcohol withdrawal management: setting, benzodiazepines, thiamine",
+  "description": "How ASAM 2020 manages alcohol withdrawal: risk assessment, outpatient vs inpatient care, symptom-triggered benzodiazepines, phenobarbital and next steps."
+ },
+ "drinks": {
+  "title": "Standard drinks and blood alcohol: BAC curve and units",
+  "description": "How many grams are in a drink, why blood alcohol falls in a straight zero-order line, how ADH and ALDH make acetaldehyde, plus teaching calculators."
+ },
+ "families": {
+  "title": "Alcohol use disorder and families: CRAFT, Al-Anon and what to say",
+  "description": "Support for families of people with alcohol use disorder: CRAFT vs Al-Anon vs confrontation, effects on children, person-first language and safety tips."
+ },
+ "frontier": {
+  "title": "Alcohol use disorder research: GLP-1, psilocybin, ketamine",
+  "description": "Treatments under study for alcohol use disorder on a pipeline board: semaglutide, psilocybin, ketamine, deep TMS, mifepristone, with evidence labels."
+ },
+ "genes": {
+  "title": "Alcohol use disorder genetics: heritability, ALDH2, ADH1B",
+  "description": "Why about half of AUD risk is heritable, how ALDH2*2 flushing links to oesophageal cancer, what genome scans found, and why risk is not destiny."
+ },
+ "glossary": {
+  "title": "Alcohol use disorder glossary: 150 terms from AUDIT to Wernicke",
+  "description": "A searchable glossary of alcohol use disorder terms, from acetaldehyde, PEth and CIWA-Ar to the Lille model and CRAFT, each defined, cited and linked."
+ },
+ "history": {
+  "title": "History of alcohol use disorder: from Rush and Huss to DSM-5",
+  "description": "Timeline of alcohol use disorder from Benjamin Rush (1784) and Huss to AA, disulfiram, the dependence syndrome, DSM-IV, DSM-5, ICD-11 and today's medicines."
+ },
+ "liver": {
+  "title": "Alcohol-associated liver disease: fatty liver to cirrhosis",
+  "description": "Animated stages of alcohol liver disease from steatosis to cirrhosis, a Maddrey and Lille teaching calculator, STOPAH and early transplant trials."
+ },
+ "medicines": {
+  "title": "Naltrexone, acamprosate and disulfiram for AUD: how they work",
+  "description": "How naltrexone, acamprosate and disulfiram work, animated, with NNTs from two meta-analyses, the COMBINE trial and label warnings on opioids and the liver."
+ },
+ "nursing": {
+  "title": "Alcohol use disorder nursing care: CIWA-Ar and thiamine",
+  "description": "A 72-hour admission animated: AUDIT-C and PAWSS screening, CIWA-Ar checks, thiamine, seizure and delirium care, discharge linkage, priority questions."
+ },
+ "offlabel": {
+  "title": "Topiramate, gabapentin, baclofen for alcohol use disorder",
+  "description": "Topiramate, gabapentin, baclofen, nalmefene, sodium oxybate and others for alcohol use disorder: trial results, evidence labels and approval status by country."
+ },
+ "pregnancy": {
+  "title": "Alcohol in pregnancy and FASD: criteria, prevalence and support",
+  "description": "No known safe amount in pregnancy: a 40-week animation, FAS facial criteria (Hoyme 2016), FASD prevalence arrays, breastfeeding guidance and support."
+ },
+ "quiz": {
+  "title": "Alcohol use disorder quiz: 97 questions with cited answers",
+  "description": "Test yourself on alcohol use disorder: screening, DSM-5-TR criteria, withdrawal, Wernicke, medicines, recovery and liver harm, each answer cited."
+ },
+ "recovery": {
+  "title": "Alcohol use disorder recovery: course, relapse and levels of care",
+  "description": "How drinking changes over 20 years in 100 people with AUD (NESARC), lapse versus relapse, median two recovery attempts, and levels of care explained."
+ },
+ "review": {
+  "title": "Alcohol use disorder flashcards and memory aids for revision",
+  "description": "88 cited flashcards on alcohol use disorder, from AUDIT-C and DSM-5-TR criteria to CIWA-Ar, thiamine and naltrexone, plus memory aids and a withdrawal clock."
+ },
+ "screening": {
+  "title": "AUDIT and AUDIT-C alcohol screening: zones, cut-offs and SBIRT",
+  "description": "Score a teaching AUDIT (0–40) with WHO zones and AUDIT-C cut-offs, follow the SBIRT pathway, and compare screening tools on 100 people."
+ },
+ "sources": {
+  "title": "Alcohol use disorder sources: guidelines, trials and drug labels",
+  "description": "Every reference behind the AUD Companion: journal articles, guidelines, FDA labels and trial registrations, each checked against PubMed or other databases."
+ },
+ "therapy": {
+  "title": "Alcohol use disorder therapy: brief advice, CBT, MI, AA",
+  "description": "Animated guide to talking treatments for alcohol use disorder: brief intervention, MI, CBT, contingency management, AA and SMART, with Cochrane effect sizes."
+ },
+ "wernicke": {
+  "title": "Wernicke encephalopathy and Korsakoff: thiamine and triad",
+  "description": "Why heavy drinking drains thiamine, why the Wernicke triad is often absent, the Caine 2-of-4 criteria, published thiamine regimens and Korsakoff memory loss."
+ },
+ "what": {
+  "title": "What is alcohol use disorder? Prevalence and treatment gap",
+  "description": "Alcohol use disorder explained: how common it is (13.9% of US adults a year, 29.1% lifetime), mild to severe, who it affects, the treatment gap and stigma."
+ },
+ "withdrawal": {
+  "title": "Alcohol withdrawal timeline: seizures and delirium tremens",
+  "description": "Hour by hour from the last drink: tremor at 6–24 h, hallucinosis, seizures peaking near 24 h, DTs at 48–96 h, kindling and the PAWSS risk scale. Cited."
+ }
+}

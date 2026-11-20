@@ -1,0 +1,56 @@
+<!-- ================= 5.1 COURSE, RELAPSE & COMORBIDITY ================= -->
+<style>
+#m-course .tbl table{min-width:560px}
+#m-course .cm-btns{display:flex;flex-wrap:wrap;gap:6px}
+#m-course .card>.tag,#m-course .card>.ev{align-self:flex-start}
+#m-course .cm-panel h4{font-family:var(--display);font-weight:800;font-size:21px;margin:0}
+</style>
+<section class="mod" id="m-course" data-mod="course" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Course &amp; living</p><h2>Course, relapse &amp; comorbidity</h2>
+    <p class="lede">Bipolar disorder usually comes and goes over many years. Scrub through ten illustrative years after a first episode: recovery, the gap before daily life is back, the next episode, and the quieter symptoms in between. Then switch on maintenance treatment to see what the trials mean by "fewer relapses".</p></div>
+
+  <div class="ctrls" role="group" aria-label="Course shown">
+    <span class="kicker">Show</span>
+    <button class="btn" id="coRx" aria-pressed="false">With maintenance treatment (schematic)</button>
+  </div>
+  <div class="stepper" id="coSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="coSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="An illustrative ten-year life chart after a first manic episode: the mood line rises into mania, recovers into the steady band, then dips into depression, shows smaller residual symptoms, a brief hypomania, another depression, and a mania that switches straight into depression; a strip below shows return to usual work and living lagging behind mood recovery. A toggle overlays a schematic course with maintenance treatment, with fewer and milder episodes."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="coPlay">Play</button><label class="stage-cap tl" for="coT">Years <input type="range" id="coT" min="0" max="1" step="0.001" value="0.03"></label></div>
+      <div class="readout" id="coRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> One illustrative person, not a prediction for anyone: real courses vary widely, and many people stay well for long periods. The shape follows the published pattern (more time depressed than high, recurrence common, function lagging behind mood); the numbers in the note panel are from the studies cited. The treated course is drawn to illustrate a relative reduction in episodes; it is not measured data. [[Tohen2003,Perlis2006STEPBD,Judd2002,Severus2014E]]</p>
+    </div>
+    <aside class="note" id="coNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Three kinds of recovery</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Recovery</th><th>What it means</th><th>Within 2 years of a first mania (McLean-Harvard, 166 people)</th></tr></thead>
+    <tbody>
+      <tr><th>Syndromal</th><td>No longer meets criteria for a manic or depressive episode</td><td>98% (half by 5.4 weeks)</td></tr>
+      <tr><th>Symptomatic</th><td>Few or no remaining mood symptoms</td><td>72%</td></tr>
+      <tr><th>Functional</th><td>Back to the previous level of work and living</td><td>43%</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Source: [[Tohen2003]]. A meta-analysis of 8 first-episode mania cohorts (734 people) found syndromal recovery in 84.2% at 1 year but symptomatic recovery in only 62.1%. [[Gignac2015]] Subsyndromal depression and persistent cognitive problems are the strongest correlates of poorer function, which makes them treatment targets. [[Gitlin2017]] See <a href="#living" data-go="living">Living well</a> for early warning signs and routines, and <a href="#therapy" data-go="therapy">Psychoeducation &amp; talking therapies</a>.</p>
+
+  <h3 class="sub">The conditions that come along</h3>
+  <div class="prose"><p>In the worldwide surveys, three in four people with bipolar spectrum disorder met criteria for at least one other disorder. [[Merikangas2011]] Each of these can be treated, so it is worth telling the care team about them. Choose a condition.</p></div>
+  <div class="cm-btns" id="coCmBtns" role="group" aria-label="Choose a condition"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="coRing" viewBox="0 0 720 340" style="min-width:560px" role="img" aria-label="A ring of five conditions around bipolar disorder, each drawn with an arc showing its published prevalence among people with bipolar disorder: anxiety disorders 45% lifetime, alcohol use disorder 42% in clinical samples, migraine 34.8%, metabolic syndrome 37.3% and ADHD 17% in adults. The chosen condition's detailed figures appear as bars."></svg></div>
+      <p class="stage-cap">Prevalence among people with bipolar disorder, from meta-analyses; the arc around each circle is that percentage of a full turn. Population statistics, not individual risk.</p>
+    </div>
+    <aside class="note cm-panel" id="coCmNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">More about the long-term course</h3>
+  <div class="cards">
+    <div class="card"><span class="tag warn">Population statistic</span><h4>The mortality gap</h4><p>All-cause mortality in bipolar disorder is about twice that of the general population (SMR 2.05; risk ratio 2.02 in a larger 2023 meta-analysis). [[Hayes2015,Biazus2023]] Natural causes matter: cardiovascular mortality RR 1.76, respiratory 3.18, while cancer mortality was not raised. [[Biazus2023]] Pooled life expectancy was 66.88 years, 70.51 for women and 64.59 for men. [[Chan2022]] In Danish registers, unaffected siblings had no shortening of life, pointing to the illness rather than shared family factors. [[Kessing2021LifeExp]] The authors conclude that preventing suicide and promoting physical health are both needed. [[Biazus2023]] These are group averages, not a forecast for anyone.</p>
+      <p class="crisis" role="note"><b>Need help now?</b><span>If you are in crisis or thinking about suicide, contact local emergency services or a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123).</span></p></div>
+    <div class="card"><span class="tag">Specifier</span><h4>Rapid cycling</h4><p>Rapid cycling means 4 or more mood episodes in a year. In 8 studies of consecutively admitted patients, 16.3% had it, slightly more often women and people with bipolar II. [[Kupka2003]] It is linked to suicide attempts and poorer response to mood stabilisers. [[Miola2023]] With lithium, 34% of people with rapid cycling had no further recurrences against 47% without it, and partial response was common in both (59% and 65%). [[Kupka2003]] Hypothyroidism was associated with current rapid cycling, and whether antidepressants cause it is unproven <span class="ev hyp">Hypothesis</span>. [[Kupka2003]] See <a href="#types" data-go="types">specifiers</a>.</p></div>
+    <div class="card"><span class="tag">Later life</span><h4>Older age</h4><p>Older adults with bipolar disorder are a growing group; late onset, physical illness and cognitive decline are the main open questions. [[Sajatovic2015]] Even when mood is steady, small to moderate cognitive differences are found (effect sizes 0.26–0.63), not explained by residual symptoms or medicines. [[Bourne2013]] Dementia is more common (odds ratio 2.96 in 10 studies), and the number of mood episodes predicted it. [[Velosa2020]] In observational studies, lithium treatment went with lower dementia risk (OR 0.51) <span class="ev early">Early evidence</span>. [[Velosa2020]] In the GERI-BD trial in people aged 60 or older with mania, 9-week response was 79% with lithium and 73% with divalproex. [[Young2017GERIBD]]</p></div>
+  </div>
+</section>

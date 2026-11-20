@@ -1,0 +1,58 @@
+<!-- ================= 5.3 FAMILIES, WORK & SCHOOL ================= -->
+<style>
+#m-families .card>.ev,#m-families .card>.tag{align-self:flex-start}
+#m-families .fa-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+#m-families .fa-card{text-align:left;cursor:pointer;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:8px;min-height:150px;font-size:15px;line-height:1.45;transition:border-color .15s,background .15s}
+#m-families .fa-card:hover{border-color:var(--muted)}
+#m-families .fa-card .fa-f{font-family:var(--display);font-weight:800;font-size:17.5px;line-height:1.25;font-synthesis:none}
+#m-families .fa-card .fa-b{display:none;font-size:14.5px}
+#m-families .fa-card small{font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:auto}
+#m-families .fa-card[aria-pressed="true"] .fa-b{display:block}
+#m-families .fa-card[aria-pressed="true"] small{display:none}
+#m-families .fa-card[aria-pressed="true"].v-helps{background:var(--good-soft);border-color:var(--good)}
+#m-families .fa-card[aria-pressed="true"].v-hurts{background:var(--bad-soft);border-color:var(--bad)}
+#m-families .fa-card[aria-pressed="true"].v-mixed,#m-families .fa-card[aria-pressed="true"].v-myth{background:var(--warn-soft);border-color:var(--warn)}
+#m-families .fa-v{font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+#m-families .v-helps .fa-v{color:var(--good)} #m-families .v-hurts .fa-v{color:var(--bad)} #m-families .v-mixed .fa-v,#m-families .v-myth .fa-v{color:var(--warn)}
+#m-families .card table{min-width:0;font-size:13.5px}
+#m-families .card th,#m-families .card td{padding:5px 6px}
+</style>
+<section class="mod" id="m-families" data-mod="families" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Course &amp; living</p><h2>Families, work &amp; school</h2>
+    <p class="lede">Bipolar disorder is lived in families, classrooms and workplaces. Follow a family through family-focused therapy, from the home climate that research calls expressed emotion to the two-year relapse results, then sort what helps from what hurts.</p></div>
+  <div class="stepper" id="faSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="faSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="Family-focused therapy as a timeline: 21 sessions over 9 months fill in through three parts, psychoeducation, communication training and problem solving. A family of three talks at a table while a schematic gauge of the family climate (criticism, hostility, over-involvement) falls. After the sessions, two-year results grow as bars: 35% relapsed with family-focused therapy against 54% with crisis management, and mean time without relapse was 73.5 against 53.2 weeks."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="faPlay">Play</button><label class="stage-cap tl" for="faT">Months <input type="range" id="faT" min="0" max="1" step="0.001" value="0.42"></label></div>
+      <p class="stage-cap"><b>Schematic</b> family, words and climate gauge: the trial measured relapse, not these bars, and the even split of sessions between the three parts is drawn, not reported. The two-year bars are the published results. [[Miklowitz2003FFT]]</p>
+    </div>
+    <aside class="note" id="faNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What helps, what hurts: 12 cards for families and carers</h3>
+  <p class="prose">Read each situation, decide, then tap to turn it over. The answers come from trials, reviews and NICE guidance, not opinion.</p>
+  <div class="ctrls"><button class="btn" id="faAll" aria-pressed="false">Turn all cards over</button><span class="readout" id="faCount"></span></div>
+  <div class="fa-grid" id="faCards"></div>
+
+  <h3 class="sub">Families, children, school and work</h3>
+  <div class="cards">
+    <div class="card"><span class="tag accent">Carers</span><h4>Carer wellbeing and burden</h4>
+      <p>In the STEP-BD Family Experience Study (caregivers of 500 patients), many carers reported moderate or greater burden:</p>
+      <table><thead><tr><th>Source of burden</th><th>Carers</th></tr></thead><tbody><tr><td>Problem behaviours</td><td>89%</td></tr><tr><td>Disrupted household routine</td><td>61%</td></tr><tr><td>Role dysfunction</td><td>52%</td></tr></tbody></table>
+      <p>High-burden carers reported more physical health problems, depressive symptoms and health-risk behaviours, and less social support. [[Perlick2007]] <span class="ev early">Early evidence</span> Family-focused therapy for carers reduced carers' depressive symptoms and health-risk behaviour. [[Perlick2010]] NICE says to offer all carers an education and support programme "with a positive message about recovery" (1.1.8). [[NICE2014CG185]]</p></div>
+    <div class="card"><span class="tag brand">Children</span><h4>Children of a parent with bipolar disorder</h4>
+      <p>In a meta-analysis of 33 family high-risk studies, offspring of parents with severe mental illness had a 32% probability of a severe mental illness by adulthood, about 2.5 times the risk of control offspring. [[Rasic2014]]</p>
+      <p>In the Dutch Bipolar Offspring Study (22 years, n=100), lifetime bipolar disorder was 11–13%, so most children (about 87–89%) did not develop it; any mood disorder reached 65%, which supports early help. [[Helmink2025]] NICE asks services to identify children who depend on or care for a person with bipolar disorder and to offer support (1.1.9). [[NICE2014CG185]] Twin, family and gene findings: <a href="#genes" data-go="genes">Genes &amp; family risk</a>.</p></div>
+    <div class="card"><span class="tag dx">Adolescents &amp; school</span><h4>Teenagers and school</h4>
+      <p>In 58 teenagers, family-focused therapy for adolescents did not change recovery or recurrence rates, but they recovered from depressive symptoms faster (HR 1.85). [[Miklowitz2008FFTA]] In 127 high-risk young people aged 9–17, 12 sessions of FFT lengthened the time to the next mood episode (HR 0.55), delaying depressive but not manic episodes. <span class="ev early">Early evidence</span> [[Miklowitz2020FFT]]</p>
+      <p>In the COBY study, 81.5% of young people recovered from their index episode, but 62.5% had a recurrence, mostly depression, so ongoing support matters. [[Birmaher2009COBY]] With the person's agreement, NICE supports talking with education staff about how they can be supported (1.1.4). [[NICE2014CG185]] Constant irritability in a child is not by itself bipolar disorder. [[Leibenluft2011,Copeland2013DMDD]]</p></div>
+    <div class="card"><span class="tag rx">Work</span><h4>Workplace adjustments</h4>
+      <p>About 40–60% of people with established bipolar disorder are employed, more often early in the illness. [[Marwaha2013]] NICE recommends supported employment programmes for people who wish to work (1.9.6) and, with the person's agreement, talking with employers about how the person can be supported (1.1.4). [[NICE2014CG185]]</p>
+      <p>Return to work often lags behind symptom recovery; leftover low mood and thinking problems are the strongest links to poorer functioning. [[Gitlin2017]] More in <a href="#living" data-go="living">Living well</a>.</p></div>
+    <div class="card"><span class="tag warn">Planning ahead</span><h4>Advance statements</h4>
+      <p>Across 13 trials, advance statements reduced compulsory admissions by 23% (RR 0.77). [[deJong2016]] Peer-worker-supported psychiatric advance directives cut compulsory admissions at 12 months from 39.9% to 27.0%. [[Tinland2022]] Joint crisis plans were positive in one trial (13% vs 27%) but not in the larger CRIMSON trial (18% vs 20%). [[Henderson2004BMJ,Thornicroft2013CRIMSON]]</p>
+      <p>In a UK survey, 82% of people with bipolar disorder who explained their view endorsed "self-binding" directives, made while well, for times they are unwell; the legal position varies by country. [[Gergel2021]] NICE advises discussing a lasting power of attorney if mania has caused money problems (1.1.5). [[NICE2014CG185]]</p></div>
+  </div>
+  <p class="callout">NICE CG185 says to give carers written and verbal information on the diagnosis, "positive outcomes and recovery", support and getting help in a crisis (1.1.6), and to agree early how information will be shared, stressing information about risk (1.1.7). [[NICE2014CG185]]</p>
+</section>

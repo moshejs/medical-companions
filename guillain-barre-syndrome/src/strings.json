@@ -1,0 +1,10 @@
+{
+ "foot.not_advice": "<b>It is not medical advice.</b> It cannot diagnose. Weakness that is getting worse quickly, or trouble breathing or swallowing, needs emergency care. Nothing here should start, stop or change a treatment, a therapy or a care plan without your own doctor or care team. The Brighton criteria, EGRIS, EGOS, mEGOS and other scales are for learning, never for an individual's diagnosis, prognosis or treatment. Doses, thresholds and guideline statements are quoted as published by the EAN/PNS guideline, other guidelines, trials and drug labels, never as instructions, and outcome figures are population statistics, not predictions for any person. Please check the original sources, which are listed in full in the <a href=\"#sources\" data-go=\"sources\">Sources</a> module.",
+ "quiz.answer_is": "The answer is {l}.",
+ "shell.disclaimer": "The GBS Companion is an educational synthesis of published literature for study and understanding. Weakness that worsens quickly, or trouble breathing or swallowing, needs emergency care. It does not replace a doctor, nurse, physiotherapist, occupational therapist, speech and language therapist or the rest of a care team. Scores such as the Brighton criteria, EGRIS, EGOS and mEGOS are teaching aids, never for an individual's diagnosis, prognosis or treatment. Doses, thresholds and guideline statements are quoted as published, never as instructions. Outcomes are population statistics; they are not predictions for any person.",
+ "shell.home": "GBS Companion home",
+ "shell.note": "An animated, cited guide for students, people who have or have had Guillain-Barré syndrome, and their families and carers. Educational only, not medical advice. Your place is saved on this device.",
+ "shell.skip": "Skip to the module",
+ "shell.tagline": "The climb and the long way back",
+ "sources.stats": "{all} sources in all. {ok} were confirmed against a database before inclusion (some by more than one: {svc}). Marked <span class=\"tag warn\">check</span> (not cited anywhere in the guide): {chk}."
+}

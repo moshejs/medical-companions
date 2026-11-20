@@ -1,0 +1,25 @@
+<!-- ================= 1.4 ATTACK ================= -->
+<section class="mod" id="m-attack" data-mod="attack" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · The disease</p><h2>An attack, hour by hour</h2>
+    <p class="lede">A typical FMF attack lasts 12 to 72 hours and then stops by itself. Choose where it strikes, then scrub through the attack. The tissue scene and the four curves move together.</p></div>
+  <div class="ctrls" id="atSites" role="group" aria-label="Site"></div>
+  <div class="ctrls" id="atVars" role="group" aria-label="Attack type"></div>
+  <div class="stepper" id="atSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="atSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="Attack animation with fever, pain, CRP and SAA curves"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="atPlay">Play</button><label class="stage-cap tl" for="atT"><span id="atUnit">Hours</span> <input type="range" id="atT" min="0" max="1" step="0.002" value="0.02"></label></div>
+      <div class="readout" id="atRead"></div>
+      <p class="stage-cap"><b>Illustrative.</b> No published study gives an hour-by-hour fever or pain curve. Shapes follow published descriptions (onset within hours, resolution in 12–72 h, attack and between-attack SAA/CRP medians). Individual attacks vary.</p>
+    </div>
+    <aside class="note" id="atNote" aria-live="polite"></aside>
+  </div>
+  <h3 class="sub">Attack patterns over the years</h3>
+  <p class="prose" id="atYearsTxt"></p>
+  <div class="stage">
+    <div class="ctrls" id="atFreq" role="group" aria-label="Pattern"></div>
+    <div class="scroll"><svg id="atYears" viewBox="0 0 720 230" style="min-width:560px" role="img" aria-label="Attacks over five years"></svg></div>
+    <div class="ctrls"><button class="btn primary" id="ayPlay">Play</button><label class="stage-cap tl" for="ayT">Years <input type="range" id="ayT" min="0" max="1" step="0.002" value="1"></label><button class="btn" id="ayCol" aria-pressed="false">Start colchicine at year 2</button></div>
+    <p class="stage-cap" id="ayCap"></p>
+  </div>
+</section>

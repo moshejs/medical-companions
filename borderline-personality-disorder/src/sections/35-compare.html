@@ -1,0 +1,96 @@
+<!-- ================= 3.5 THERAPIES COMPARED ================= -->
+<style>
+#m-compare .cert{display:inline-block;width:11px;height:11px;border-radius:3px;vertical-align:-1px;margin-right:5px}
+#m-compare .ctrls .kicker{margin-right:2px}
+#m-compare .sortgrid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:14px;align-items:start}
+@media (max-width:760px){#m-compare .sortgrid{grid-template-columns:minmax(0,1fr)}}
+#m-compare .col{display:flex;flex-direction:column;gap:10px;min-width:0}
+#m-compare .col>h4{margin:0;font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+#m-compare .ing{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:6px;transition:opacity .3s,border-color .3s,transform .35s}
+#m-compare .ing b.h{font-size:15.5px}
+#m-compare .ing p{font-size:14px}
+#m-compare .ing.on{border-color:var(--rx);box-shadow:0 0 0 2px var(--rx-soft)}
+#m-compare .ing.off{opacity:.42}
+#m-compare .ing .chips .tag{text-transform:none;letter-spacing:0;font:600 11.5px var(--body)}
+#m-compare .ing .chips .tag.rx{outline:1.5px solid var(--rx)}
+#m-compare .dist .ing{animation:coIn .45s ease both}
+#m-compare .dist .ing:nth-child(3){animation-delay:.07s} #m-compare .dist .ing:nth-child(4){animation-delay:.14s} #m-compare .dist .ing:nth-child(5){animation-delay:.21s} #m-compare .dist .ing:nth-child(6){animation-delay:.28s}
+@keyframes coIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+#m-compare .tbl table{min-width:640px}
+#m-compare .card>.tag,#m-compare .card>.ev{align-self:flex-start}
+</style>
+<section class="mod" id="m-compare" data-mod="compare" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Psychotherapies</p><h2>Therapies compared</h2>
+    <p class="lede">What the meta-analyses and head-to-head trials say when the BPD therapies are set side by side. Pick an outcome, then press Play to learn how to read a forest plot one layer at a time.</p></div>
+
+  <div class="ctrls" role="group" aria-label="Comparison">
+    <span class="kicker">Compared with</span>
+    <button class="btn" data-cmp="tau" aria-pressed="true">Usual care</button>
+    <button class="btn" data-cmp="h2h" aria-pressed="false">Another therapy (head-to-head)</button>
+  </div>
+  <div class="ctrls" role="group" aria-label="Outcome">
+    <span class="kicker">Outcome</span>
+    <button class="btn" data-oc="sev" aria-pressed="true">BPD severity</button>
+    <button class="btn" data-oc="sh" aria-pressed="false">Self-harm</button>
+    <button class="btn" data-oc="sui" aria-pressed="false">Suicide-related</button>
+    <button class="btn" data-oc="fun" aria-pressed="false">Psychosocial functioning</button>
+    <button class="btn" data-oc="drop" aria-pressed="false">Dropout</button>
+  </div>
+  <div class="stepper" id="coSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="coSvg" viewBox="0 0 720 460" style="min-width:560px" role="img" aria-label="A forest plot that builds up layer by layer: one row per therapy or review, a square for each effect estimate, a horizontal line for its 95% confidence interval, a vertical line of no effect, and colours for the certainty of the evidence. In the head-to-head view each trial is a tug of war between two therapies."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="coPlay">Play</button><label class="stage-cap tl" for="coT">Reading step <input type="range" id="coT" min="0" max="1" step="0.001" value="1"></label></div>
+      <div class="legend" id="coLegend"></div>
+      <p class="stage-cap"><b>Drawn to scale from the published numbers</b>, each row on the scale its source used. Single-trial effects (Cohen d) are plotted on the same side as the pooled SMDs, so left always means "better with the therapy". Where a source gave no confidence interval, the row shows the point only. These are group averages from trials, not predictions for any one person. [[Storebo2020,StoffersWinterling2022BJP,Oud2018,Cristea2017]]</p>
+    </div>
+    <aside class="note" id="coNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What the big reviews found</h3>
+  <div class="prose">
+    <p>The 2020 Cochrane review pooled 75 randomised trials with 4507 participants, mostly women aged 14.8 to 45.7, testing more than 16 kinds of psychotherapy; about a third of the trials were of DBT and 7 of MBT. Against usual care, BPD-tailored psychotherapy reduced BPD severity by an SMD of −0.52, about 3.6 points on the 0–36 ZAN-BPD scale, which is above the 3.0-point minimal clinically relevant difference. Only that outcome reached the clinically meaningful cut-off, and subgroup analysis found no clear difference between types of therapy. [[Storebo2020]]</p>
+    <p>Other reviews agree on direction and disagree on size. Oud 2018 found a medium effect of the specialised therapies (DBT, MBT, TFP, schema therapy) on BPD severity (SMD −0.59). Cristea 2017 found small effects (stand-alone g 0.32, add-on g 0.40) and warned that they are "inflated by risk of bias and publication bias". A 2024 review puts the effect on core severity at 0.50–0.65 and notes that "almost half of the patients do not respond sufficiently". <span class="ev est">Established</span> structured psychotherapy helps; <span class="ev early">Early evidence</span> on who benefits most. [[Oud2018,Cristea2017,Leichsenring2024WP,PereiraRibeiro2026]]</p>
+  </div>
+
+  <h3 class="sub">Which therapy? Sort the ingredients</h3>
+  <div class="prose"><p>Pick a therapy. The cards on the left are ingredients that several structured therapies share; the ones that therapy uses light up. On the right are the parts that make it distinctive. Guidelines do not crown a winner: the APA 2024 guideline chair said "No therapy emerged as a 'gold standard'". [[APA2024Guideline]]</p></div>
+  <div class="ctrls" role="group" aria-label="Therapy">
+    <button class="btn" data-th="dbt" aria-pressed="true">DBT</button>
+    <button class="btn" data-th="mbt" aria-pressed="false">MBT</button>
+    <button class="btn" data-th="st" aria-pressed="false">Schema therapy</button>
+    <button class="btn" data-th="tfp" aria-pressed="false">TFP</button>
+    <button class="btn" data-th="gpm" aria-pressed="false">GPM</button>
+    <button class="btn" data-th="stepps" aria-pressed="false">STEPPS</button>
+  </div>
+  <div class="sortgrid">
+    <div class="col" id="coShared"><h4>Shared ingredients</h4></div>
+    <div class="col dist" id="coDist"></div>
+  </div>
+  <p class="stage-cap">Each module goes deeper: <a href="#dbt" data-go="dbt">DBT</a>, <a href="#mbt" data-go="mbt">MBT</a>, <a href="#schema" data-go="schema">schema therapy &amp; TFP</a>, <a href="#gpm" data-go="gpm">good psychiatric management</a>.</p>
+
+  <h3 class="sub">Head-to-head trials</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial</th><th>Compared</th><th>What it found (as published)</th></tr></thead>
+    <tbody>
+      <tr><th>McMain 2009, 2012</th><td>DBT vs general psychiatric management, 1 year, 180 people</td><td>Both improved. "No significant differences across any outcomes were found between groups", and gains held 2 years after treatment. [[McMain2009,McMain2012]]</td></tr>
+      <tr><th>BOOTS 2026</th><td>DBT vs schema therapy, 2 years, 204 people at 9 Dutch centres</td><td>No significant difference in BPD severity at 3 years (Cohen d 0.15; 95% CI −0.17 to 0.47), with large improvements in both. [[Wibbelink2026BOOTS]]</td></tr>
+      <tr><th>Giesen-Bloo 2006</th><td>Schema-focused therapy vs TFP, 3 years twice weekly, 88 people</td><td>Both helped on all measures; more recovered with schema therapy (relative risk 2.18), and TFP had a higher dropout risk. [[GiesenBloo2006]]</td></tr>
+      <tr><th>Clarkin 2007</th><td>TFP vs DBT vs dynamic supportive therapy, 1 year, 90 people</td><td>All three improved; TFP and DBT both improved suicidality, and only TFP changed irritability and assault. [[Clarkin2007]]</td></tr>
+      <tr><th>Bateman 2009, 2021</th><td>Outpatient MBT vs structured clinical management, 18 months, 134 people</td><td>"Substantial improvements" in both; MBT gave a steeper fall in suicide attempts and hospitalisation, and 8 years on 74% vs 51% still met the recovery criteria. [[Bateman2009,Bateman2021]]</td></tr>
+      <tr><th>Arntz 2022</th><td>Combined individual and group vs mainly group schema therapy vs usual care, 495 people</td><td>Combined schema therapy beat usual care (d 1.14) and mainly-group schema therapy (d 0.84). [[Arntz2022GST]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Dropout, guidelines and the limits of the evidence</h3>
+  <div class="cards">
+    <div class="card"><span class="tag warn">Dropout</span><h4>About 1 in 4 stop early</h4><p>Pooled dropout was 22.3% across all studies and 28.2% in outpatient trials (up to 29.9% after adjusting for publication bias), mostly in the first half of treatment. Reasons included dissatisfaction, being discharged by the service and low motivation. Schema therapy had the lowest dropout overall, MBT in the first two quarters; individual formats lower than group. [[Iliakis2021,Arntz2023Dropout]]</p></div>
+    <div class="card"><span class="tag accent">Guideline</span><h4>APA 2024</h4><p>"APA recommends (1B) that a patient with borderline personality disorder be treated with a structured approach to psychotherapy that has support in the literature and targets the core features of the disorder." It also recommends (1C) a collaborative discussion of the diagnosis that includes psychoeducation. [[APA2024Guideline]]</p></div>
+    <div class="card"><span class="tag accent">Guideline</span><h4>NICE CG78 (2009)</h4><p>For women for whom reducing recurrent self-harm is a priority, NICE says to "consider a comprehensive dialectical behaviour therapy programme". It advises against brief BPD-specific psychological interventions (under 3 months) outside a structured service with "an explicit and integrated theoretical approach". [[NICE2009]]</p></div>
+    <div class="card"><span class="tag accent">Guideline</span><h4>Australia's NHMRC and others</h4><p>National guidelines including the German AWMF, Australian NHMRC and UK NICE guidelines are reported to recommend treating BPD in adolescents from age 12 or 14. The NHMRC's own wording could not be checked for this guide, so it is not quoted. [[Kaess2025]]</p></div>
+    <div class="card"><span class="tag bad">Limits</span><h4>Small trials, low certainty</h4><p>Apart from BPD severity, the Cochrane outcomes are low certainty; BPD-specific psychotherapy did not reduce attrition compared with usual care, and adverse effects were unclear because too few data were reported. The 2012 version concluded that "none of the treatments has a very robust evidence base". [[Storebo2020,Stoffers2012]]</p></div>
+    <div class="card"><span class="tag bad">Limits</span><h4>Usual care is not nothing</h4><p>In the usual-care arms of 16 BPD trials, BPD symptoms improved by a small-to-moderate amount (g 0.371), though self-harm and suicidality did not change (g 0.003). The size of a "versus usual care" effect depends on how good the usual care is. [[Finch2019TAU]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Who does best with which?</h4><p>In individual-participant data from 19 trials, co-occurring depression and sexual trauma predicted less benefit from psychotherapy, while co-occurring anxiety or alcohol use disorder predicted more. These are averages, not a way to choose for one person yet. [[PereiraRibeiro2026]]</p></div>
+    <div class="card"><span class="tag rx">Plain words</span><h4>Treatable, and no single best</h4><p>Talking therapies built for BPD help most people feel and function better, and many people recover over time. DBT, MBT, schema therapy and TFP have all worked in trials, and well-organised general care also helps. [[Storebo2020,Gunderson2018,McMain2009]]</p></div>
+  </div>
+</section>

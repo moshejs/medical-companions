@@ -1,0 +1,12 @@
+{
+ "areas": {
+  "A": "Epidemiology, drinking patterns, burden & history",
+  "B": "Alcohol in the body and brain: metabolism, neurobiology & genetics",
+  "C": "Screening, diagnosis & biomarkers",
+  "D": "Alcohol withdrawal: syndrome, CIWA-Ar, management & Wernicke",
+  "E": "Medicines for AUD: approved and off-label",
+  "F": "Psychosocial treatment, mutual help, course & recovery",
+  "G": "Medical harms: liver, cancer, heart, brain, pregnancy & FASD",
+  "H": "Nursing, harm reduction, special groups & the research frontier"
+ }
+}

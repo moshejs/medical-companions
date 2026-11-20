@@ -1,0 +1,10 @@
+{
+ "foot.not_advice": "<b>It is not medical advice.</b> It cannot diagnose, and nothing here should start, stop or change a medicine, a diet or a care plan without your own care team. FIB-4, the elastography bands and the Child–Pugh and MELD calculators are for learning, never for diagnosis, prognosis or transplant decisions, or for reading your own results. Doses, sodium and protein targets, paracetamol limits and guideline statements are quoted as published, never as instructions, and survival figures are population statistics, not a forecast for any one person. Please check the original sources, which are listed in full in the <a href=\"#sources\" data-go=\"sources\">Sources</a> module.",
+ "quiz.answer_is": "The answer is {l}.",
+ "shell.disclaimer": "The Cirrhosis Companion is an educational synthesis of published literature for study and understanding. It does not replace a doctor, nurse, dietitian, pharmacist or other clinician. FIB-4, the elastography bands and the Child–Pugh and MELD calculators are teaching tools, never for diagnosis, prognosis or transplant decisions, and doses, sodium and protein targets, paracetamol limits and guideline statements are quoted as published, never as instructions. <span class=\"crisisline\">Vomiting blood, black or tarry stools, new confusion or drowsiness, or fever or belly pain with a swollen abdomen need urgent care: call your local emergency number or go to an emergency department.</span>",
+ "shell.home": "Cirrhosis Companion home",
+ "shell.note": "An animated, cited guide for students, people with cirrhosis, and their families and caregivers. Educational only, not medical advice. Your place is saved on this device.",
+ "shell.skip": "Skip to the module",
+ "shell.tagline": "Liver, scars, MELD",
+ "sources.stats": "{all} sources in all. {ok} were confirmed against a database before inclusion (some by more than one: {svc}). Marked <span class=\"tag warn\">check</span> (not cited anywhere in the guide): {chk}."
+}

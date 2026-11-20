@@ -1,0 +1,70 @@
+<!-- ================= 4.2 LIVING WITH PARKINSON'S ================= -->
+<section class="mod" id="m-living" data-mod="living" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Living, caring, preventing</p><h2>Living with Parkinson's</h2>
+    <p class="lede">For the person living with Parkinson's and for the people beside them: what guidelines and trials say about exercise, therapy, falls, work, driving, pregnancy, hospital stays, caregiving and the end of life. In a survey across six countries, stage and medication explained only 17.3% of the variation in quality of life; depression was the strongest single predictor. [[GPDS2002]]</p></div>
+
+  <h3 class="sub">Daily life, domain by domain</h3>
+  <div class="ctrls" role="group" aria-label="Choose a domain" id="lvTabs"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="lvDom" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="The key published figures for the chosen domain, as bars, a diverging chart of score changes, or a short list of guideline statements."></svg></div>
+      <p class="stage-cap" id="lvDomCap">Figures from the trials and surveys named in the panel.</p></div>
+    <aside class="note" id="lvDomNote" aria-live="polite"></aside>
+  </div>
+  <div class="split2">
+    <div class="card"><span class="tag sage" style="align-self:flex-start">Guidelines and reviews</span><h4>What the guidelines say</h4><div id="lvGuide" style="display:flex;flex-direction:column;gap:8px;font-size:14.5px"></div></div>
+    <div class="card"><span class="ev est">Trials and studies</span><h4>What the research found</h4><div id="lvTrial" style="display:flex;flex-direction:column;gap:8px;font-size:14.5px"></div></div>
+  </div>
+
+  <h3 class="sub">Freezing of gait and cueing</h3>
+  <div class="prose"><p>In freezing of gait the feet seem glued to the floor, often after steps grow shorter and faster. External cues, a rhythm to step to or lines to step over, are used to get walking going again; the RESCUE trial tested home training with rhythmic cues. [[Nieuwboer2007]] Choose a cue and play.</p></div>
+  <div class="ctrls" role="group" aria-label="Cue">
+    <span class="kicker">Cue</span>
+    <button class="btn" id="lvCueN" aria-pressed="false">No cue</button>
+    <button class="btn" id="lvCueV" aria-pressed="false">Visual stripes</button>
+    <button class="btn" id="lvCueM" aria-pressed="true">Metronome beat</button>
+  </div>
+  <div class="stepper" id="lvCSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="lvCue" viewBox="0 0 720 240" style="min-width:560px" role="img" aria-label="Schematic walker seen from above leaving footprints. Steps shorten and speed up, then the feet freeze in place. When a cue starts, stripes on the floor or a metronome beat, the stride lengthens again; without a cue the steps stay short. A small chart tracks stride length over time."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="lvCuePlay">Play</button><label class="stage-cap tl" for="lvCueT">Time <input type="range" id="lvCueT" min="0" max="1" step="0.002" value="0.82"></label></div>
+      <p class="stage-cap">Schematic: stride lengths and timing are illustrative, not measurements. The trial evidence is for home-based rhythmic cueing training.</p></div>
+    <aside class="note" id="lvCueNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What drives caregiver strain</h3>
+  <div class="prose"><p>Studies asked what makes caring harder. Pick a study to see which factors it linked to caregiver burden, or, in the third, to moving into a nursing home.</p></div>
+  <div class="ctrls" role="group" aria-label="Study">
+    <span class="kicker">Study</span>
+    <button class="btn" id="lvCgA" aria-pressed="true">UK, 123 carers</button>
+    <button class="btn" id="lvCgB" aria-pressed="false">Spain, 289 pairs</button>
+    <button class="btn" id="lvCgC" aria-pressed="false">Norway: nursing home</button>
+  </div>
+  <div class="lab even">
+    <div class="stage"><div class="scroll"><svg id="lvCg" viewBox="0 0 720 320" style="min-width:560px" role="img" aria-label="A diagram with caregiver burden in the centre and possible drivers around it: the patient's disability, depression, hallucinations, confusion, falls and disease severity, and the carer's own mood. The chosen study's drivers are linked to the centre."></svg></div>
+      <p class="stage-cap">Links show associations reported in each study, not proven causes.</p></div>
+    <aside class="note" id="lvCgNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Palliative care: what the trial found</h3>
+  <div class="prose"><p>Palliative care is care focused on quality of life and symptoms, alongside usual treatment, at any stage. One randomised trial tested an outpatient team approach for people with Parkinson's and related disorders. [[Kluger2020]]</p></div>
+  <div class="ctrls" role="group" aria-label="Time point">
+    <span class="kicker">Time point</span>
+    <button class="btn" id="lvPc6" aria-pressed="true">6 months (primary)</button>
+    <button class="btn" id="lvPc12" aria-pressed="false">12 months</button>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="lvPc" viewBox="0 0 720 270" style="min-width:560px" role="img" aria-label="Results of an outpatient palliative-care trial in 210 patients and 175 caregivers. At 6 months patient quality of life improved, a treatment effect of 1.87 with a confidence interval from 0.47 to 3.27, but caregiver burden, the co-primary outcome, did not differ significantly. At 12 months several secondary outcomes, including caregiver burden, had improved."></svg></div>
+      <p class="stage-cap" id="lvPcCap">Effect drawn with its 95% confidence interval; the trial reported no effect size for caregiver burden here, only that it did not differ (P = .06).</p></div>
+    <aside class="note" id="lvPcNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Planning ahead and the end of life</h3>
+  <div class="cards">
+    <div class="card"><span class="tag sage">Guideline</span><h4>Talking about the future</h4><p>NICE recommends offering discussions about prognosis and advance care planning, including advance decisions to refuse treatment, do-not-resuscitate decisions and lasting power of attorney, and considering referral to palliative care at any stage. [[NICE2017]]</p></div>
+    <div class="card"><span class="tag sage">Consensus</span><h4>Palliative care in neurology</h4><p>A European consensus for progressive neurological disease recommends early integration of palliative care, a multidisciplinary team, symptom management, end-of-life care and carer support, mostly at evidence level C; symptom management is level B. [[Oliver2016]]</p></div>
+    <div class="card"><span class="ev est">Cohort</span><h4>How people die with Parkinson's</h4><p>In an incident cohort, 55% had died by 10 years. Death certificates listed Parkinson's as a substantial contributor in only 20%, and pneumonia was the commonest cause of death. [[Williams-Gray2013]] Swallowing problems are under-reported: 35% when asked, 82% on testing. [[Kalf2012]]</p></div>
+    <div class="card"><span class="ev est">Cohort</span><h4>Twenty years on</h4><p>In the Sydney cohort, 74% had died by 20 years. Among survivors, 83% had dementia, 87% had falls and 48% lived in nursing homes; only one person lived independently. [[Hely2008]] See <a href="#stages" data-go="stages">Stages and symptoms</a> and <a href="#nonmotor" data-go="nonmotor">Beyond movement</a>.</p></div>
+    <div class="card"><span class="ev est">Survey</span><h4>Non-motor symptoms weigh more</h4><p>In 411 patients the Non-Motor Symptoms Scale tracked quality of life more closely than the motor score (correlation 0.70 against 0.58), and was its best predictor. [[Martinez-Martin2011]] In 1,072 patients, 98.6% reported at least one non-motor symptom. [[Barone2009]]</p></div>
+    <div class="card"><span class="tag warn">In hospital</span><h4>Medicines on time</h4><p>Parkinson's medicines should not be stopped abruptly, because of the risk of acute akinesia or neuroleptic malignant syndrome, and should be given at the right times in hospital, which may mean allowing self-medication. [[NICE2017]] See <a href="#nursing" data-go="nursing">Nursing care</a>.</p></div>
+  </div>
+</section>

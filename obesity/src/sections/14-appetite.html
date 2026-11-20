@@ -1,0 +1,78 @@
+<!-- ================= 1.4 APPETITE: THE GUT-BRAIN LOOP ================= -->
+<style>
+#m-appetite .ap-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-appetite .ap-row label{display:inline-flex;gap:6px;align-items:center;font-size:14px;font-weight:600}
+#m-appetite .card .ap-num{font-family:var(--display);font-weight:700;font-size:28px;line-height:1;color:var(--brand)}
+#m-appetite .ap-key{display:flex;flex-wrap:wrap;gap:4px 14px;font:500 12px var(--mono);color:var(--muted)}
+#m-appetite .ap-key span{display:inline-flex;align-items:center;white-space:nowrap}
+#m-appetite .ap-key svg{width:14px;height:14px;display:inline-block;flex:none;margin-right:4px}
+</style>
+<section class="mod" id="m-appetite" data-mod="appetite" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · Understanding obesity</p><h2>Appetite: the gut-brain loop</h2>
+    <p class="lede">Hunger and fullness are not just decisions. The brain combines hormone and nerve signals about the body's fuel stores to match intake to need over time, mostly below conscious awareness. [[Schwartz2000,Hall2022EBM]] Follow one loop from an empty stomach to the signals that report the body's stores.</p></div>
+
+  <div class="stepper" id="apSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="apSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="The stomach and gut, a patch of fat tissue and the brain with an inset of the hypothalamus. Hormone particles flow to the hypothalamus: ghrelin before a meal, CCK, GLP-1 and PYY after it, and leptin from fat. POMC fullness neurons and AgRP hunger neurons glow as the balance shifts; a meter shows each signal's level."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="apPlay">%t:player.play%</button><label class="stage-cap tl" for="apT">Through the loop <input type="range" id="apT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <p class="ap-key" id="apKey" aria-hidden="true"></p>
+      <p class="stage-cap">Schematic, not to scale: particle numbers and meter levels show direction and balance, not measured amounts. The hypothalamus inset: POMC fullness neurons (circles), AgRP/NPY hunger neurons (triangles), and the paraventricular nucleus (PVN) whose neurons carry MC4R. Numbers in the notes come from the studies cited.</p>
+    </div>
+    <aside class="note" id="apNote" aria-live="polite"></aside>
+  </div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>The arcuate nucleus holds POMC/CART neurons, which reduce intake through alpha-MSH acting on MC4R, and NPY/AgRP neurons, which increase it. Leptin excites POMC and inhibits NPY/GABA input. [[Cowley2001]] In mice, switching on about 800 AgRP neurons triggered intense feeding within minutes. [[Aponte2011]]</div>
+    <div class="pt"><b>In plain words</b>Your brain has a "hunger team" and a "fullness team" of nerve cells. Hormones from your fat and gut tell these teams how much energy you have stored and what you just ate. [[Cowley2001,Cummings2007]]</div>
+  </div>
+
+  <h3 class="sub">A day of ghrelin, and what weight loss does to it</h3>
+  <div class="prose"><p>Ghrelin follows the meals. Play the day, then compare the same pattern after weight loss by diet and after gastric bypass, from Cummings and colleagues. [[Cummings2001,Cummings2002]]</p></div>
+  <div class="ap-row" id="apGhModes" role="group" aria-label="Which situation"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="apGh" viewBox="0 0 720 310" style="min-width:560px" role="img" aria-label="A 24-hour curve of ghrelin from 06:00 to 06:00 with breakfast, lunch and dinner marked: ghrelin rises before each meal and falls after it, and is highest at night. Options show the curve 24% higher after diet-induced weight loss, or low and flat after gastric bypass."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="apGhPlay">%t:player.play%</button><label class="stage-cap tl" for="apGhT">Time of day <input type="range" id="apGhT" min="0" max="1" step="0.002" value="1"></label></div>
+      <div class="ap-row"><label><input type="checkbox" id="apGhIns"> Show insulin (the reverse pattern)</label></div>
+      <div class="readout" id="apGhRead"></div>
+      <p class="stage-cap">Schematic curve built from the published pattern: a nearly twofold rise before each meal, a trough within 1 hour after, a night peak near 01:00 and a low near 09:00. [[Cummings2001]] Meal times are illustrative. The diet curve is the typical day scaled by 1.24 (AUC +24% vs the same people before dieting); the bypass curve is drawn 77% below the typical day (AUC vs normal-weight controls), with no meal swings. [[Cummings2002]]</p>
+    </div>
+    <aside class="note" id="apGhNote" aria-live="polite"></aside>
+  </div>
+  <p class="edcare" role="note"><b>If eating or weight is distressing</b>If eating or weight causes distress, or someone restricts, binges or purges, talk to a clinician or an eating-disorder service.</p>
+
+  <h3 class="sub">The signals at a glance</h3>
+  <div class="tbl"><table>
+    <caption class="sr">Appetite hormones: where they come from, what they do, and key numbers</caption>
+    <thead><tr><th scope="col">Signal</th><th scope="col">From</th><th scope="col">Effect</th><th scope="col">Key finding</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Ghrelin</th><td>Stomach</td><td>Hunger: activates NPY/AgRP neurons [[Nakazato2001]]</td><td>Nearly twofold rise before meals; infusion raised intake 28% [[Cummings2001,Wren2001]]</td></tr>
+      <tr><th scope="row">CCK</th><td>Gut</td><td>Ends the meal sooner [[Kissileff1981]]</td><td>CCK-8 infusion cut intake by 122 g in 12 lean men [[Kissileff1981]]</td></tr>
+      <tr><th scope="row">PYY(3-36)</th><td>Gut, after meals, in proportion to calories</td><td>Acts on Y2 receptors on arcuate NPY neurons [[Batterham2002]]</td><td>Intake −33% over 24 hours; −30% in people with obesity and −31% in lean people; fasting PYY lower in obesity (10.2 vs 16.9 pmol/L) [[Batterham2002,Batterham2003]]</td></tr>
+      <tr><th scope="row">GLP-1</th><td>Intestinal L cells, after meals [[Holst2007]]</td><td>Insulin up, glucagon down, slower gastric emptying, satiety [[Holst2007,Nauck1997]]</td><td>Lunch intake −12% in healthy men; inactivated very fast by DPP-4 [[Flint1998,Holst2007]]</td></tr>
+      <tr><th scope="row">GIP</th><td>Gut</td><td>Incretin; promotes energy storage in fat tissue [[Baggio2007]]</td><td>Secreted within minutes of eating; rapidly broken down by DPP-4 [[Baggio2007]]</td></tr>
+      <tr class="fat"><th scope="row">Leptin</th><td>Fat tissue</td><td>Long-term stores signal: excites POMC, inhibits NPY/GABA input [[Cowley2001]]</td><td>31.3 vs 7.5 ng/mL in people with vs without obesity; r = 0.85 with body fat [[Considine1996]]</td></tr>
+      <tr><th scope="row">Alpha-MSH → MC4R</th><td>POMC neurons → PVN</td><td>Fullness output [[Huszar1997]]</td><td>Restoring MC4R in the PVN and amygdala of MC4R-null mice fully corrected overeating [[Balthasar2005]]</td></tr>
+    </tbody></table></div>
+  <p class="callout">How GLP-1 medicines build on these signals is in <a href="#glp" data-go="glp">How GLP-1 medicines work</a>; why these signals push back after weight loss is in <a href="#adaptation" data-go="adaptation">Why lost weight comes back</a>; the genes behind the loop are in <a href="#causes" data-go="causes">Causes: genes &amp; environment</a>.</p>
+
+  <h3 class="sub">Leptin: more is not always heard</h3>
+  <div class="cards">
+    <div class="card"><span class="kicker">Blood vs brain</span><span class="ap-num">4.3×</span><p>Serum leptin was 318% higher in obesity (40.2 vs 9.6 ng/mL) but CSF leptin only about 30% higher (0.337 vs 0.259 ng/mL), so the CSF/serum ratio was 4.3-fold lower. [[Caro1996]] <span class="ev early">Early evidence</span></p></div>
+    <div class="card"><span class="kicker">Cause or consequence?</span><span class="ap-num">?</span><p>"Leptin resistance" covers several phenomena; obesity itself weakens leptin signalling, so it is hard to tell which defects cause weight gain and which follow it. [[Myers2010]] <span class="ev est">Established concept</span> <span class="ev hyp">Mechanisms debated</span></p></div>
+    <div class="card"><span class="kicker">A starvation signal</span><span class="ap-num">↓</span><p>In fasting mice, preventing the fall in leptin largely blunted the changes in the gonadal, adrenal and thyroid axes but had little effect on body weight. [[Ahima1996]] Leptin may matter most when it falls.</p></div>
+    <div class="card"><span class="kicker">Leptin in common obesity</span><span class="ap-num">−0.7 to −7.1 kg</span><p>In a randomised dose-escalation trial, 24-week weight change ranged from −0.7 kg at the lowest dose to −7.1 kg at the highest, and baseline leptin did not predict response. [[Heymsfield1999]]</p></div>
+  </div>
+
+  <h3 class="sub">Beyond the hypothalamus: reward</h3>
+  <div class="cards">
+    <div class="card"><span class="kicker">Dopamine receptors</span><span class="ap-num">2.47 vs 2.99</span><p>Striatal D2 receptor availability was lower in 10 people with obesity than in controls; within the group, the lowest values went with the highest BMI. [[Wang2001Lancet]] <span class="ev early">Early evidence</span> Small and cross-sectional: cause and effect cannot be separated.</p></div>
+    <div class="card"><span class="kicker">Food-cue responses</span><span class="ap-num">fMRI</span><p>A blunted dorsal-striatum response to food related to current and future weight gain, mainly in carriers of the TaqIA A1 allele. [[Stice2008]] <span class="ev early">Early evidence</span></p></div>
+    <div class="card"><span class="kicker">Two systems talking</span><span class="ap-num">↔</span><p>Hormones that act on the hypothalamus also act on dopamine neurons, so reward, conditioning and self-control circuits interact with energy balance. [[Volkow2011]] <span class="ev hyp">Hypothesis</span> for a reward deficit in common obesity.</p></div>
+    <div class="card"><span class="kicker">After weight loss</span><span class="ap-num">n = 6</span><p>After 10% weight loss, food pictures caused more activity in the brainstem and parahippocampal gyrus and less in the hypothalamus; leptin injections reversed many of these changes. [[Rosenbaum2008]] <span class="ev early">Early evidence</span></p></div>
+  </div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>MC4R-deficient mice: hyperphagia, hyperinsulinaemia, hyperglycaemia. [[Huszar1997]] Chemogenetic AgRP activation in mice increased feeding and lowered energy expenditure; silencing reduced eating: AgRP is necessary and sufficient. [[Krashes2011]]</div>
+    <div class="pt"><b>In plain words</b>Natural fullness hormones work in people with obesity, too: PYY cut eating by about the same amount in people with and without obesity. [[Batterham2003]] Many signals, not willpower alone, set how hungry someone feels.</div>
+  </div>
+</section>
