@@ -1575,6 +1575,16 @@
   "validated": "openFDA"
  },
  {
+  "key": "FDA2026NAION",
+  "text": "US Food and Drug Administration. FDA Requires Safety Labeling Changes for Glucagon-Like Peptide-1 Receptor Agonists (GLP-1 RAs) Due to Potential Increased Risk of Rare But Serious Eye Condition. FDA Drug Safety Communication, 2026-11-09. https://www.fda.gov/drugs/drug-safety-communications/fda-requires-safety-labeling-changes-glucagon-peptide-1-receptor-agonists-glp-1-ras-due-potential Data summary and recommendations read on the FDA page 2026-11-20.",
+  "link": "https://www.fda.gov/drugs/drug-safety-communications/fda-requires-safety-labeling-changes-glucagon-peptide-1-receptor-agonists-glp-1-ras-due-potential",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "FDA"
+ },
+ {
   "key": "Felson1992",
   "text": "Felson DT, Zhang Y, Anthony JM, Naimark A, Anderson JJ. Weight loss reduces the risk for symptomatic knee osteoarthritis in women. The Framingham Study. Ann Intern Med. 1992;116(7):535-9. PMID 1543306; doi:10.7326/0003-4819-116-7-535.",
   "link": "https://doi.org/10.7326/0003-4819-116-7-535",
@@ -2628,6 +2638,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Jastreboff2026STEPYOUNG",
+  "text": "Jastreboff AM, Harder-Lauridsen NM, Van Name M, Körner A, Kelly AS, Weghuber D, et al. Semaglutide for the Treatment of Obesity in Children 6 to <12 Years of Age. N Engl J Med. 2026 (online ahead of print, 16 Nov 2026). PMID 43037562; doi:10.1056/NEJMoa2604058. Abstract read; full text not accessed.",
+  "link": "https://doi.org/10.1056/nejmoa2604058",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Jastreboff2026TRIUMPH1",
   "text": "Jastreboff AM, Kaplan LM, Davies MJ, Wilding JPH, Ahmad NN, Murray M, et al. Retatrutide, a Triple Hormone Receptor Agonist, for Treatment of Obesity. N Engl J Med. 2026;395(18):1781-1793. PMID 42814954; doi:10.1056/NEJMoa2604169.",
   "link": "https://doi.org/10.1056/nejmoa2604169",
@@ -2823,6 +2843,16 @@
   "key": "Kelly2024JAMA",
   "text": "Kelly AS, Armstrong SC, Michalsky MP, Fox CK. Obesity in Adolescents: A Review. JAMA. 2024;332(9):738-748. PMID 39102244; doi:10.1001/jama.2024.11809.",
   "link": "https://doi.org/10.1001/jama.2024.11809",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Kelly2026SURMOUNTADOLESCENTS",
+  "text": "Kelly AS, Pamidipati KC, Rachmiel M, Srivastava G, Hsia DS, Fox CK, et al. Tirzepatide in Adolescents With Obesity: The SURMOUNT-ADOLESCENTS Randomized Clinical Trial. JAMA. 2026 (online ahead of print, 15 Nov 2026):e2623420. PMID 43035096; PMCID PMC13771823; doi:10.1001/jama.2026.23420. Abstract read; full text not accessed.",
+  "link": "https://doi.org/10.1001/jama.2026.23420",
   "areas": [
    "H"
   ],

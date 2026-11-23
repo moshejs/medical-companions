@@ -55,7 +55,7 @@ const TH_CARDS=[
 const TH_EV={est:['est','Established'],early:['early','Early evidence'],no:['','Not supported']};
 const TH_RATE={
  cbt:{n:'CBT for anxiety in autistic youth',rows:[['Clinician',.88],['Parent',.40],['Child',.25]],
-  txt:`A meta-analysis of 19 RCTs (833 participants) found that the effect of CBT on anxiety depended on who rated it: clinicians saw the most change, children themselves the least, and benefits were not maintained at follow-up. [[Sharma2021]] Across 48 studies of CBT in autistic people, effects on affective disorders were 0.24 (not significant) on self-report. [[Weston2016]]`,
+  txt:`A meta-analysis of 19 RCTs (833 participants) found that the effect of CBT on anxiety depended on who rated it: clinicians saw the most change, children themselves the least, and benefits were not maintained at follow-up. [[Sharma2021]] Across 48 studies of CBT in autistic people, effects on affective disorders were 0.24 (not significant) on self-report. [[Weston2016]] In a 2026 phase 3 trial of 266 autistic adults with depression, guided self-help adapted for autism (psychoeducation and behavioural activation with a coach) lowered self-rated depression at 16 weeks more than treatment as usual (BDI-II difference −5.05, 95% CI −7.85 to −2.24; d 0.47), and the difference held at 52 weeks. [[Russell2026]]`,
   pt:`The same therapy looked most helpful to clinicians and least helpful to the young people themselves.`,
   hook:`Clinician g 0.88 vs child g 0.25 for the same treatment: ask who measured the outcome. [[Sharma2021]]`},
  ss:{n:'Group social skills interventions',rows:[['Self-report',.92],['Task-based',.58],['Parent',.47],['Observer',.40],['Teacher',0]],

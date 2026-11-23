@@ -1259,6 +1259,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Efron2026",
+  "text": "Efron D, Taylor K, Freeman JL, Cranswick NE, Elliott EJ, Payne JM, et al. Cannabidiol for Severe Behavioral Problems in Youths With Intellectual Disability: A Randomized Clinical Trial. JAMA Pediatr. 2026 (online 2026-11-16, ahead of print). PMID 43037991; doi:10.1001/jamapediatrics.2026.5152. NCT04821856.",
+  "link": "https://doi.org/10.1001/jamapediatrics.2026.5152",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Eicher2026",
   "text": "Eicher T, Ne'eman A, Quackenbush J. Genomic, Transcriptomic, and Regulomic Analyses Do Not Support Profound Autism as a Distinct Biological Category. bioRxiv preprint, posted 2026-06-04 (not peer reviewed). Europe PMC PPR1247080; doi:10.64898/2026.06.01.729392.",
   "link": "https://doi.org/10.64898/2026.06.01.729392",
@@ -5065,6 +5075,16 @@
   "areas": [
    "A",
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Russell2026",
+  "text": "Russell A, Vazquez-Morales M, Cooper K, Dagnan D, Langdon PE, Metcalfe C, et al. Guided self-help for depression adapted for autistic adults: a multi-centre randomised controlled phase 3 trial (ADEPT-2). Psychother Psychosom. 2026 (online 2026-11-13, ahead of print). PMID 43024490; doi:10.1159/pps/aemag025.",
+  "link": "https://doi.org/10.1159/pps/aemag025",
+  "areas": [
+   "E"
   ],
   "unverified": false,
   "validated": "PubMed"

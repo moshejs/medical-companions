@@ -104,13 +104,13 @@ const DR_NEG=[
  ['Lithium (autophagy)','LiCALS (UK)','214 on riluzole; 18 months','18-month survival 50% vs 59%; odds ratio 0.71 (0.40 to 1.24)','Morrison2013'],
  ['Lithium, pooled by genotype','Individual-patient meta-analysis of 3 RCTs','518','Overall HR 1.0 (0.7 to 1.4); a post hoc signal in UNC13A carriers','vanEijk2017'],
  ['Edaravone IV, more advanced disease','MCI186-18','25; Japan ALS severity grade 3','−6.52 vs −6.00 (p = 0.835)','EdaravoneALS18Group2017'],
- ['Edaravone oral (FAB122)','ADORE','313; 48 weeks','ALSFRS-R −11.2 vs −10.8; primary not met','CTgov_ADORE'],
+ ['Edaravone oral (FNP122)','ADORE','313 randomised, 302 analysed; 48 weeks','ALSFRS-R −12.6 vs −13.4; difference 0.78 (−1.44 to 3.00; p = 0.49); primary not met','vanEijk2026'],
  ['Edaravone, daily vs on/off oral','MT-1186-A02','384; 48 weeks','CAFS p = 0.777; stopped for futility','CTgov_MT1186A02'],
  ['AMX0035','PHOENIX','664; 48 weeks','Primary p = 0.667; secondaries not met','Amylyx2024'],
  ['Reldesemtiv (troponin activator)','COURAGE-ALS','486 randomised; stopped for futility','ALSFRS-R −1.1 (favoured placebo); win ratio 0.91','Shefner2025']
 ];
 /* the citation markers for the table, written out so the build can number them */
-const DR_NEGC={Cudkowicz2014:'[[Cudkowicz2014]]',Cudkowicz2013:'[[Cudkowicz2013]]',Morrison2013:'[[Morrison2013]]',vanEijk2017:'[[vanEijk2017]]',EdaravoneALS18Group2017:'[[EdaravoneALS18Group2017]]',CTgov_ADORE:'[[CTgov_ADORE]]',CTgov_MT1186A02:'[[CTgov_MT1186A02]]',Amylyx2024:'[[Amylyx2024]]',Shefner2025:'[[Shefner2025]]'};
+const DR_NEGC={Cudkowicz2014:'[[Cudkowicz2014]]',Cudkowicz2013:'[[Cudkowicz2013]]',Morrison2013:'[[Morrison2013]]',vanEijk2017:'[[vanEijk2017]]',EdaravoneALS18Group2017:'[[EdaravoneALS18Group2017]]',vanEijk2026:'[[vanEijk2026,CTgov_ADORE]]',CTgov_MT1186A02:'[[CTgov_MT1186A02]]',Amylyx2024:'[[Amylyx2024]]',Shefner2025:'[[Shefner2025]]'};
 const DR_ALT={
  rows:[ {n:'US label',m:[0,1,2,3],per:3},{n:'EU SmPC',m:[0,1,2,3,6,9,12],per:12}],
  ticks:[ [0,'start'],[1,'1'],[2,'2'],[3,'3'],[6,'6'],[9,'9'],[12,'12'] ],
