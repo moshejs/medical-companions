@@ -102,7 +102,8 @@ if not card.exists() or card.stat().st_mtime < max(card_src.stat().st_mtime, (RO
 (ROOT / "404.html").write_text(i18n.head_icons((ROOT / "hub" / "404.html").read_text(encoding="utf-8").replace("%SITE%", SITE)
                               .replace("</head>", i18n.ANALYTICS + "</head>", 1)), encoding="utf-8")
 
-# 2b. the site's own pages, about/ and privacy/: hub/_page-head.html wraps hub/<name>.html
+# 2b. the site's own pages, about/, privacy/ and most-read/: hub/_page-head.html wraps hub/<name>.html
+# (most-read/'s body is written by tools/most_read.py, which fetches its figures; the build stays offline)
 ED = CFG.get("editor") or {}
 ORG = {"@type": "Organization", "@id": f"{SITE}/#org", "name": CFG["name"], "url": f"{SITE}/",
        "email": "hello@medcompanions.org",
@@ -117,6 +118,9 @@ SITE_PAGES = {
     "privacy": ("Privacy · Medical Companions",
                 "No accounts or ads. What Medical Companions keeps on your device, what it measures with "
                 "Vercel and Google Analytics, which cookies are set, and which services see your visit.", "WebPage"),
+    "most-read": ("Health topics people read most on Wikipedia · Medical Companions",
+                  f"{len(json.loads((ROOT / 'hub' / 'most-read.json').read_text(encoding='utf-8'))['articles'])} health topics ranked by English Wikipedia views over 12 months, with the method, "
+                  "the source (Wikimedia, CC0) and what the numbers leave out.", "WebPage"),
 }
 head = (ROOT / "hub" / "_page-head.html").read_text(encoding="utf-8")
 for name, (title, desc, kind) in SITE_PAGES.items():
@@ -128,12 +132,11 @@ for name, (title, desc, kind) in SITE_PAGES.items():
                     ensure_ascii=False, separators=(",", ":"))
     h = head
     for k, v in {"%TITLE%": html.escape(title), "%DESC%": html.escape(desc), "%PATH%": name, "%LD%": ld,
-                 "%CUR_about%": ' aria-current="page"' if name == "about" else "",
-                 "%CUR_privacy%": ' aria-current="page"' if name == "privacy" else ""}.items():
+                 **{f"%CUR_{n}%": ' aria-current="page"' if n == name else "" for n in SITE_PAGES}}.items():
         h = h.replace(k, v)
     body = (ROOT / "hub" / f"{name}.html").read_text(encoding="utf-8")
     foot = ('</main>\n<footer><span>Medical Companions · educational only, not medical advice</span>'
-            '<span><a href="%SITE%/about/">About</a> · <a href="%SITE%/privacy/">Privacy</a></span>'
+            '<span><a href="%SITE%/about/">About</a> · <a href="%SITE%/privacy/">Privacy</a> · <a href="%SITE%/most-read/">Most read</a></span>'
             '<span>Built by <a href="https://quentin.software">Quentin.Code</a></span></footer>\n</div>\n</body>\n</html>\n')
     out = i18n.head_icons((h + body + foot).replace("%SITE%", SITE).replace("</head>", i18n.ANALYTICS + "</head>", 1))
     (ROOT / name).mkdir(exist_ok=True)
@@ -175,7 +178,8 @@ def _llms():
            "ClinicalTrials.gov or the drug label), edited by a named person, and not yet clinically reviewed. "
            "Educational only, not medical advice.", "",
            f"- [About: who is responsible and how the guides are made]({SITE}/about/)",
-           f"- [Privacy]({SITE}/privacy/)", "", "## Guides", ""]
+           f"- [Privacy]({SITE}/privacy/)",
+           f"- [Health topics people read most on Wikipedia: method, source and ranking]({SITE}/most-read/)", "", "## Guides", ""]
     for c in CFG["companions"]:
         name = c.get("name", {}).get("en", c["slug"])
         out.append(f"- [{name}]({url(c['slug'])}): sources at {url(c['slug'])}sources/")

@@ -37,6 +37,17 @@ a{color:var(--accent);text-underline-offset:3px}
 .tag{display:inline-block;font-size:14px;font-weight:700;padding:1px 9px;border-radius:999px;border:1px solid var(--line);background:var(--panel);white-space:nowrap}
 dl{margin:0}dt{font-weight:700;margin-top:14px}dd{margin:2px 0 0;color:var(--ink)}
 .updated{color:var(--muted);font-size:15px}
+.scroll{overflow-x:auto;margin:0 0 14px}
+table.rank{width:100%;border-collapse:collapse;font-size:16px;line-height:1.4}
+table.rank caption{text-align:left;color:var(--muted);font-size:15px;padding-bottom:8px}
+table.rank th{text-align:left;font-size:14px;color:var(--muted);border-bottom:2px solid var(--line);padding:6px 8px}
+table.rank td{border-bottom:1px solid var(--line);padding:9px 8px;vertical-align:top}
+table.rank .n{width:3ch;text-align:right;color:var(--muted);font-variant-numeric:tabular-nums}
+table.rank .v{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+table.rank .note,table.rank .guide{display:block;font-size:14px;color:var(--muted)}
+table.rank .guide{font-weight:600}
+table.rank td a{display:inline-block;padding-block:3px;overflow-wrap:anywhere}
+@media (max-width:480px){table.rank th,table.rank td{padding-inline:5px}table.rank th.v{white-space:normal}}
 footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:15px;display:flex;flex-wrap:wrap;gap:6px 20px}
 footer a{color:var(--muted);padding-block:13px} /* a 44px tap target that takes no room in the line */
 </style>
@@ -46,6 +57,6 @@ footer a{color:var(--muted);padding-block:13px} /* a 44px tap target that takes 
 <div class="wrap">
 <header class="top">
   <a href="%SITE%/">Medical Companions</a>
-  <nav aria-label="Site"><a href="%SITE%/">All guides</a><a href="%SITE%/about/"%CUR_about%>About</a><a href="%SITE%/privacy/"%CUR_privacy%>Privacy</a></nav>
+  <nav aria-label="Site"><a href="%SITE%/">All guides</a><a href="%SITE%/about/"%CUR_about%>About</a><a href="%SITE%/privacy/"%CUR_privacy%>Privacy</a><a href="%SITE%/most-read/"%CUR_most-read%>Most read</a></nav>
 </header>
 <main>

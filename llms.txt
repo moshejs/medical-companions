@@ -4,6 +4,7 @@
 
 - [About: who is responsible and how the guides are made](https://www.medcompanions.org/about/)
 - [Privacy](https://www.medcompanions.org/privacy/)
+- [Health topics people read most on Wikipedia: method, source and ranking](https://www.medcompanions.org/most-read/)
 
 ## Guides
 
