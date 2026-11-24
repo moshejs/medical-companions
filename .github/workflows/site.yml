@@ -56,6 +56,7 @@ jobs:
         run: |
           python3 tools/check_site.py
           python3 tools/check_crosslinks.py
+          python3 tools/test_most_read.py
 
       - name: Smoke tests
         run: |
