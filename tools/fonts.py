@@ -14,6 +14,8 @@ asks for a slice it has no text for. Each file is named by a hash of its content
 (fonts/<family>-<subset>-<style><weight>.<hash>.woff2), so vercel.json can cache /fonts/
 for a year: a changed font is a new address. fonts/fonts.json records the stylesheet of
 every query (with the local files) and, for each family, a metric-matched fallback.
+tools/font_licenses.py then copies each family's licence from google/fonts into
+fonts/licenses/ and indexes it in fonts/LICENSES.md, so the licences ship with the fonts.
 
 tools/build.py (and build_site.py for the hub) then call page_fonts(): each Google Fonts
 link becomes an inline <style> of @font-face rules pointing at /fonts/, the preconnects
@@ -30,6 +32,8 @@ Measuring the fallbacks needs fontTools and the fallback fonts installed (macOS 
 them); without them a family gets no fallback and the tool says so.
 """
 import hashlib, json, pathlib, re, sys, urllib.parse, urllib.request
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import font_licenses
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 FONTS = ROOT / "fonts"
@@ -215,6 +219,8 @@ def sync(refresh=False):
         MANIFEST.write_text(json.dumps(m, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
     n = len(keep)
     print(f"fonts: {len(wanted)} stylesheets, {n} woff2 files in fonts/ ({sum((FONTS / k).stat().st_size for k in keep) // 1024} KB)")
+    # each family's licence travels with its files (fonts/licenses/, fonts/LICENSES.md)
+    font_licenses.sync(refresh=refresh)
     return m
 
 

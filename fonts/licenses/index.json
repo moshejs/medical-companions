@@ -1,0 +1,800 @@
+{
+ "source": "https://github.com/google/fonts",
+ "families": {
+  "Alegreya": {
+   "folder": "ofl/alegreya",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2011 The Alegreya Project Authors (https://github.com/huertatipografica/Alegreya)"
+   ],
+   "files": [
+    {
+     "file": "alegreya-OFL.txt",
+     "upstream": "ofl/alegreya/OFL.txt",
+     "sha256": "f6f60d5d4cf4f4b1fc4e41353c897a2f5a16e6396c0cd8fa8bdfd2f4586a9a68"
+    }
+   ]
+  },
+  "Anonymous Pro": {
+   "folder": "ofl/anonymouspro",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright (c) Mark Simonson 2009-2010. All rights reserved."
+   ],
+   "files": [
+    {
+     "file": "anonymous-pro-OFL.txt",
+     "upstream": "ofl/anonymouspro/OFL.txt",
+     "sha256": "8594350034ab1cb85a1946ef8852e69290255816c311450a66fed6eeda9d6292"
+    }
+   ]
+  },
+  "Archivo": {
+   "folder": "ofl/archivo",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2020 The Archivo Project Authors (https://github.com/Omnibus-Type/Archivo)"
+   ],
+   "files": [
+    {
+     "file": "archivo-OFL.txt",
+     "upstream": "ofl/archivo/OFL.txt",
+     "sha256": "108b4e57c9c796d3d38d0428ca7ee39de47ad93187302718d9b2d8864b9b716b"
+    }
+   ]
+  },
+  "Assistant": {
+   "folder": "ofl/assistant",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2020 The Assistant Project Authors (https://github.com/hafontia/Assistant). Copyright 2010 The Source Sans Pro Authors (https://github.com/adobe-fonts/source-sans-pro), with Reserved Font Name \\'Source\\'. Source is a trademark of Adobe Systems Incorporated in the United States and/or other countries."
+   ],
+   "files": [
+    {
+     "file": "assistant-OFL.txt",
+     "upstream": "ofl/assistant/OFL.txt",
+     "sha256": "7eaf6282cfab122b99ffd62a122fc27b6c3c8f2c65b56ff9b3a25badbc64887d"
+    }
+   ]
+  },
+  "Atkinson Hyperlegible": {
+   "folder": "ofl/atkinsonhyperlegible",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2020 Braille Institute of America, Inc."
+   ],
+   "files": [
+    {
+     "file": "atkinson-hyperlegible-OFL.txt",
+     "upstream": "ofl/atkinsonhyperlegible/OFL.txt",
+     "sha256": "f32d22b3908fcad2c86a74000614ec22e6a7f66ea7e867e616026a27aebdc143"
+    }
+   ]
+  },
+  "Azeret Mono": {
+   "folder": "ofl/azeretmono",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2021 The Azeret Project Authors (https://github.com/displaay/azeret)"
+   ],
+   "files": [
+    {
+     "file": "azeret-mono-OFL.txt",
+     "upstream": "ofl/azeretmono/OFL.txt",
+     "sha256": "2a0fd31798d131b38a9fe730a260bc9a1d85452e36cdf79e5fcaf937bf4d9f86"
+    }
+   ]
+  },
+  "Bitter": {
+   "folder": "ofl/bitter",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2011 The Bitter Project Authors (https://github.com/solmatas/BitterPro)"
+   ],
+   "files": [
+    {
+     "file": "bitter-OFL.txt",
+     "upstream": "ofl/bitter/OFL.txt",
+     "sha256": "152a1e283e23b42c4940da4c72f2f5bebaa17969cb77c76d7af05903846006f1"
+    }
+   ]
+  },
+  "Bricolage Grotesque": {
+   "folder": "ofl/bricolagegrotesque",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2022 The Bricolage Grotesque Project Authors (https://github.com/ateliertriay/bricolage)"
+   ],
+   "files": [
+    {
+     "file": "bricolage-grotesque-OFL.txt",
+     "upstream": "ofl/bricolagegrotesque/OFL.txt",
+     "sha256": "4b5a7d8f37f5602621c8a8d7358a6a2e71317e6c231c661e15aef0275d3e07ba"
+    }
+   ]
+  },
+  "Courier Prime": {
+   "folder": "ofl/courierprime",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2015 The Courier Prime Project Authors (https://github.com/quoteunquoteapps/CourierPrime)."
+   ],
+   "files": [
+    {
+     "file": "courier-prime-OFL.txt",
+     "upstream": "ofl/courierprime/OFL.txt",
+     "sha256": "9a755af092b494944c99f471be6fddd19b006a448fefdc4717e4ee0aa09a97b0"
+    }
+   ]
+  },
+  "Crimson Pro": {
+   "folder": "ofl/crimsonpro",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2018 The Crimson Pro Project Authors (https://github.com/Fonthausen/CrimsonPro)"
+   ],
+   "files": [
+    {
+     "file": "crimson-pro-OFL.txt",
+     "upstream": "ofl/crimsonpro/OFL.txt",
+     "sha256": "1820869bd5baa1c2d88fa87c89eea532cf9442d841008acab720654b7f82823d"
+    }
+   ]
+  },
+  "DM Mono": {
+   "folder": "ofl/dmmono",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2020 The DM Mono Project Authors (https://www.github.com/googlefonts/dm-mono)"
+   ],
+   "files": [
+    {
+     "file": "dm-mono-OFL.txt",
+     "upstream": "ofl/dmmono/OFL.txt",
+     "sha256": "2bada5ea45c3c63b7f1ea1f88ce9672c9e4f0c42b2c3b7378949084fe55a3066"
+    }
+   ]
+  },
+  "DM Serif Display": {
+   "folder": "ofl/dmserifdisplay",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2014 - 2017 Adobe Systems Incorporated (http://www.adobe.com/), with Reserved Font Name \\'Source\\'. Copyright 2019 Google LLC."
+   ],
+   "files": [
+    {
+     "file": "dm-serif-display-OFL.txt",
+     "upstream": "ofl/dmserifdisplay/OFL.txt",
+     "sha256": "a3e5cdd67d4571dd0a24fcc968de0efde7ae97ef752daf0906e4767619dd7231"
+    }
+   ]
+  },
+  "Domine": {
+   "folder": "ofl/domine",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2020 The Domine Project Authors (https://github.com/googlefonts/domine)"
+   ],
+   "files": [
+    {
+     "file": "domine-OFL.txt",
+     "upstream": "ofl/domine/OFL.txt",
+     "sha256": "4931b601cf50f9e6ee749ae76778a067fb2e0df4296f08d095ef38afc526a5e4"
+    }
+   ]
+  },
+  "Figtree": {
+   "folder": "ofl/figtree",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2022 The Figtree Project Authors (https://github.com/erikdkennedy/figtree)"
+   ],
+   "files": [
+    {
+     "file": "figtree-OFL.txt",
+     "upstream": "ofl/figtree/OFL.txt",
+     "sha256": "140d37233e7f3ce7313798befa9600893bcceaf41a55fa0fa5ad52f7f657a268"
+    }
+   ]
+  },
+  "Fira Code": {
+   "folder": "ofl/firacode",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2014-2020 The Fira Code Project Authors (https://github.com/tonsky/FiraCode)"
+   ],
+   "files": [
+    {
+     "file": "fira-code-OFL.txt",
+     "upstream": "ofl/firacode/OFL.txt",
+     "sha256": "926041dac670e6922505e35ac1661a4e8d20f1ffeabbbcb5edb5544370702369"
+    }
+   ]
+  },
+  "Frank Ruhl Libre": {
+   "folder": "ofl/frankruhllibre",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2015 The Frank Ruhl Libre Project Authors (https://github.com/fontef/frankruhllibre)"
+   ],
+   "files": [
+    {
+     "file": "frank-ruhl-libre-OFL.txt",
+     "upstream": "ofl/frankruhllibre/OFL.txt",
+     "sha256": "4e9720b2544d946737e7dfe0027a62c23c7247f0144f08bc437cdcc2e6a7d828"
+    }
+   ]
+  },
+  "Fraunces": {
+   "folder": "ofl/fraunces",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2020 The Fraunces Project Authors (github.com/undercasetype/Fraunces)"
+   ],
+   "files": [
+    {
+     "file": "fraunces-OFL.txt",
+     "upstream": "ofl/fraunces/OFL.txt",
+     "sha256": "bdf4c22802eaf804f998195871c6b8938aac2ac14b2d78a8bd66a6f1eced833b"
+    }
+   ]
+  },
+  "Gelasio": {
+   "folder": "ofl/gelasio",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2022 The Gelasio Project Authors (https://github.com/SorkinType/Gelasio)"
+   ],
+   "files": [
+    {
+     "file": "gelasio-OFL.txt",
+     "upstream": "ofl/gelasio/OFL.txt",
+     "sha256": "b393cb01867c919b44381512120dc3e4c954c7b47e2035c405f3a324799a4d29"
+    }
+   ]
+  },
+  "Hanken Grotesk": {
+   "folder": "ofl/hankengrotesk",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2021 The Hanken Grotesk Project Authors (https://github.com/marcologous/hanken-grotesk)"
+   ],
+   "files": [
+    {
+     "file": "hanken-grotesk-OFL.txt",
+     "upstream": "ofl/hankengrotesk/OFL.txt",
+     "sha256": "e02ccb89a86839b22feff7872ff5cc355cc0f58318d29eee20e2cf83a612f16d"
+    }
+   ]
+  },
+  "IBM Plex Mono": {
+   "folder": "ofl/ibmplexmono",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2017 IBM Corp. All rights reserved."
+   ],
+   "files": [
+    {
+     "file": "ibm-plex-mono-OFL.txt",
+     "upstream": "ofl/ibmplexmono/OFL.txt",
+     "sha256": "7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da"
+    }
+   ]
+  },
+  "Inconsolata": {
+   "folder": "ofl/inconsolata",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2006 The Inconsolata Project Authors (https://github.com/cyrealtype/Inconsolata)"
+   ],
+   "files": [
+    {
+     "file": "inconsolata-OFL.txt",
+     "upstream": "ofl/inconsolata/OFL.txt",
+     "sha256": "29bd0cfd0fb2a45f9b057c834a057724bae1f63b525a8ac83d3e7525706d9f80"
+    }
+   ]
+  },
+  "JetBrains Mono": {
+   "folder": "ofl/jetbrainsmono",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2020 The JetBrains Mono Project Authors (https://github.com/JetBrains/JetBrainsMono)"
+   ],
+   "files": [
+    {
+     "file": "jetbrains-mono-OFL.txt",
+     "upstream": "ofl/jetbrainsmono/OFL.txt",
+     "sha256": "b2fe5e8987594e9ffd1d2ca52a2f5d73eb8335243893c5d6254b5ad69269591d"
+    }
+   ]
+  },
+  "Karla": {
+   "folder": "ofl/karla",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2019 The Karla Project Authors (https://github.com/googlefonts/karla)"
+   ],
+   "files": [
+    {
+     "file": "karla-OFL.txt",
+     "upstream": "ofl/karla/OFL.txt",
+     "sha256": "edf2c840acb9570fe02f40721126aa0da4e4011a0030cc6dce30780569f609b6"
+    }
+   ]
+  },
+  "Lexend": {
+   "folder": "ofl/lexend",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2019 The Lexend Project Authors (https://github.com/googlefonts/lexend)"
+   ],
+   "files": [
+    {
+     "file": "lexend-OFL.txt",
+     "upstream": "ofl/lexend/OFL.txt",
+     "sha256": "5da8505887d0fa7fe963445fd58852707fda34adfeb65af25c99d152bab285bd"
+    }
+   ]
+  },
+  "Literata": {
+   "folder": "ofl/literata",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2017 The Literata Project Authors (https://github.com/googlefonts/literata)"
+   ],
+   "files": [
+    {
+     "file": "literata-OFL.txt",
+     "upstream": "ofl/literata/OFL.txt",
+     "sha256": "8742963604cd89dc81437811a850018fc03b2bfad686d7422c8235967c87614e"
+    }
+   ]
+  },
+  "Lora": {
+   "folder": "ofl/lora",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2011 The Lora Project Authors (https://github.com/cyrealtype/Lora-Cyrillic), with Reserved Font Name \\\"Lora\\\"."
+   ],
+   "files": [
+    {
+     "file": "lora-OFL.txt",
+     "upstream": "ofl/lora/OFL.txt",
+     "sha256": "1d9a970809ac804b582a6ce7f0ebc4e7fefcbfd7ff6299cad35ee656a21be716"
+    }
+   ]
+  },
+  "Manrope": {
+   "folder": "ofl/manrope",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2019 The Manrope Project Authors (https://github.com/googlefonts/manrope)"
+   ],
+   "files": [
+    {
+     "file": "manrope-OFL.txt",
+     "upstream": "ofl/manrope/OFL.txt",
+     "sha256": "58172e0c0fac2cda8a37b348164bb55e44b0e69051e557e92b1d3f6910141f7b"
+    }
+   ]
+  },
+  "Martian Mono": {
+   "folder": "ofl/martianmono",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2020 The Martian Mono Project Authors (https://github.com/evilmartians/mono)"
+   ],
+   "files": [
+    {
+     "file": "martian-mono-OFL.txt",
+     "upstream": "ofl/martianmono/OFL.txt",
+     "sha256": "ddafd2c3f37ef1d83ef284ca63e159befd3820850c5e9eded14ca52eee92c256"
+    }
+   ]
+  },
+  "Merriweather": {
+   "folder": "ofl/merriweather",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2024 The Merriweather Project Authors (https://github.com/EbenSorkin/Merriweather4) with Reserved Font Name \\\"Merriweather\\\"."
+   ],
+   "files": [
+    {
+     "file": "merriweather-OFL.txt",
+     "upstream": "ofl/merriweather/OFL.txt",
+     "sha256": "715bd349bfa6116f99e351e1548321dcfa25b91df65502d22ca8d624557697d2"
+    }
+   ]
+  },
+  "Mulish": {
+   "folder": "ofl/mulish",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2016 The Mulish Project Authors (https://github.com/googlefonts/mulish)"
+   ],
+   "files": [
+    {
+     "file": "mulish-OFL.txt",
+     "upstream": "ofl/mulish/OFL.txt",
+     "sha256": "097e9ac414d9251c8580c073a13f8899798c66db746de60662148789ca693f19"
+    }
+   ]
+  },
+  "Newsreader": {
+   "folder": "ofl/newsreader",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2020 The Newsreader Project Authors (http://github.com/productiontype/Newsreader)"
+   ],
+   "files": [
+    {
+     "file": "newsreader-OFL.txt",
+     "upstream": "ofl/newsreader/OFL.txt",
+     "sha256": "fdfad38143ec470553cae82a1e45320bdd1b9ec70415d37bd0171051d8a4ded8"
+    }
+   ]
+  },
+  "Nunito Sans": {
+   "folder": "ofl/nunitosans",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2016 The Nunito Sans Project Authors (https://github.com/Fonthausen/NunitoSans)"
+   ],
+   "files": [
+    {
+     "file": "nunito-sans-OFL.txt",
+     "upstream": "ofl/nunitosans/OFL.txt",
+     "sha256": "efbb0c9e864cef973982d9a17567e6be5c3d1759695574586f3f18c7ecca064b"
+    }
+   ]
+  },
+  "Overpass Mono": {
+   "folder": "ofl/overpassmono",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2021 The Overpass Project Authors (https://github.com/RedHatOfficial/Overpass)"
+   ],
+   "files": [
+    {
+     "file": "overpass-mono-OFL.txt",
+     "upstream": "ofl/overpassmono/OFL.txt",
+     "sha256": "86e5ff25c701ec446d20b1a85b02ee6d36de8503a7288a4c948f5459809af1f0"
+    }
+   ]
+  },
+  "Petrona": {
+   "folder": "ofl/petrona",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2019 The Petrona Project Authors (https://github.com/RingoSeeber/Petrona)"
+   ],
+   "files": [
+    {
+     "file": "petrona-OFL.txt",
+     "upstream": "ofl/petrona/OFL.txt",
+     "sha256": "a889ff77b75be8bcd1456ff147eb9dac647f3eb217fad50fb4877496884f6dcb"
+    }
+   ]
+  },
+  "Playfair Display": {
+   "folder": "ofl/playfairdisplay",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2017 The Playfair Display Project Authors (https://github.com/clauseggers/Playfair-Display), with Reserved Font Name \\\"Playfair Display\\\"."
+   ],
+   "files": [
+    {
+     "file": "playfair-display-OFL.txt",
+     "upstream": "ofl/playfairdisplay/OFL.txt",
+     "sha256": "566be814f8e96e93dfa16101331557eb6b5467e9e03f627c0910fe93ca12300e"
+    }
+   ]
+  },
+  "Plus Jakarta Sans": {
+   "folder": "ofl/plusjakartasans",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2020 The Plus Jakarta Sans Project Authors (https://github.com/tokotype/PlusJakartaSans)"
+   ],
+   "files": [
+    {
+     "file": "plus-jakarta-sans-OFL.txt",
+     "upstream": "ofl/plusjakartasans/OFL.txt",
+     "sha256": "995c7199cab65954f545996326755daee7b63cc6b42b06c13da1f9502ab08a99"
+    }
+   ]
+  },
+  "Public Sans": {
+   "folder": "ofl/publicsans",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2015 The Public Sans Project Authors (https://github.com/uswds/public-sans)"
+   ],
+   "files": [
+    {
+     "file": "public-sans-OFL.txt",
+     "upstream": "ofl/publicsans/OFL.txt",
+     "sha256": "157a9e77f7580246e97c769490e2e977ae94399f9d30f4556015c41fe8c28bac"
+    }
+   ]
+  },
+  "Red Hat Mono": {
+   "folder": "ofl/redhatmono",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2024 The Red Hat Project Authors (https://github.com/RedHatOfficial/RedHatFont)"
+   ],
+   "files": [
+    {
+     "file": "red-hat-mono-OFL.txt",
+     "upstream": "ofl/redhatmono/OFL.txt",
+     "sha256": "435fbfb7e66988b2a06686a4cb966faec733f35d8fe100a1601573c27f3e0bb8"
+    }
+   ]
+  },
+  "Roboto Mono": {
+   "folder": "ofl/robotomono",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2015 The Roboto Mono Project Authors (https://github.com/googlefonts/robotomono)"
+   ],
+   "files": [
+    {
+     "file": "roboto-mono-OFL.txt",
+     "upstream": "ofl/robotomono/OFL.txt",
+     "sha256": "50ab8dd54680d3473f649c9db86fece88434d097c7834475c1c72d2f8c429215"
+    }
+   ]
+  },
+  "Rubik": {
+   "folder": "ofl/rubik",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2015 The Rubik Project Authors (https://github.com/googlefonts/rubik)"
+   ],
+   "files": [
+    {
+     "file": "rubik-OFL.txt",
+     "upstream": "ofl/rubik/OFL.txt",
+     "sha256": "472cbe7c25441df63e9c7864b43eb3c0f4b3df950c66a76224e6cfe1eae843fb"
+    }
+   ]
+  },
+  "Sometype Mono": {
+   "folder": "ofl/sometypemono",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2018 The Sometype Mono Project Authors (https://github.com/googlefonts/sometype-mono)"
+   ],
+   "files": [
+    {
+     "file": "sometype-mono-OFL.txt",
+     "upstream": "ofl/sometypemono/OFL.txt",
+     "sha256": "495a16e8214dd38dec1b569224d3a740c8f646336877794c492638e3172e8e9c"
+    }
+   ]
+  },
+  "Source Code Pro": {
+   "folder": "ofl/sourcecodepro",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "© 2010 - 2020 Adobe Systems Incorporated (http://www.adobe.com/), with Reserved Font Name ‘Source’."
+   ],
+   "files": [
+    {
+     "file": "source-code-pro-OFL.txt",
+     "upstream": "ofl/sourcecodepro/OFL.txt",
+     "sha256": "cb30d3086a8b3ce0b9e3690bf48d6620402b61160bc658076f95180ccd9e9dae"
+    }
+   ]
+  },
+  "Source Sans 3": {
+   "folder": "ofl/sourcesans3",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "© 2023 Adobe (http://www.adobe.com/), with Reserved Font Name ‘Source’"
+   ],
+   "files": [
+    {
+     "file": "source-sans-3-OFL.txt",
+     "upstream": "ofl/sourcesans3/OFL.txt",
+     "sha256": "09746787287a289323b0ec3cff4d1a4a801331b82b7207c1e186f5d26619a392"
+    }
+   ]
+  },
+  "Source Serif 4": {
+   "folder": "ofl/sourceserif4",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "© 2014 - 2021 Adobe Systems Incorporated (http://www.adobe.com/), with Reserved Font Name ‘Source’."
+   ],
+   "files": [
+    {
+     "file": "source-serif-4-OFL.txt",
+     "upstream": "ofl/sourceserif4/OFL.txt",
+     "sha256": "5f94c3fd3a23131a417ab5a0c8452de57e70c3cfb9f604d88241f7065ebf9fd9"
+    }
+   ]
+  },
+  "Space Grotesk": {
+   "folder": "ofl/spacegrotesk",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2020 The Space Grotesk Project Authors (https://github.com/floriankarsten/space-grotesk)"
+   ],
+   "files": [
+    {
+     "file": "space-grotesk-OFL.txt",
+     "upstream": "ofl/spacegrotesk/OFL.txt",
+     "sha256": "564ce565c371c5e5bbf286006565a7c9aa55a9f56e7ca58d56e05d649dd61a72"
+    }
+   ]
+  },
+  "Space Mono": {
+   "folder": "ofl/spacemono",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2016 The Space Mono Project Authors (https://github.com/googlefonts/spacemono)"
+   ],
+   "files": [
+    {
+     "file": "space-mono-OFL.txt",
+     "upstream": "ofl/spacemono/OFL.txt",
+     "sha256": "8e4ee42b2553e1e01504e61cb0d46d148cd8c9e5eacaa3622a7df2d4f2955b9f"
+    }
+   ]
+  },
+  "Spectral": {
+   "folder": "ofl/spectral",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2017 The Spectral Project Authors (https://github.com/productiontype/Spectral)"
+   ],
+   "files": [
+    {
+     "file": "spectral-OFL.txt",
+     "upstream": "ofl/spectral/OFL.txt",
+     "sha256": "501d6ceca8e552630fe3aa9442b9a818565680a1a2f79f3fb8c13d6f309a9e98"
+    }
+   ]
+  },
+  "Spline Sans Mono": {
+   "folder": "ofl/splinesansmono",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2022 The Spline Sans Mono Project Authors (https://github.com/SorkinType/SplineSansMono)"
+   ],
+   "files": [
+    {
+     "file": "spline-sans-mono-OFL.txt",
+     "upstream": "ofl/splinesansmono/OFL.txt",
+     "sha256": "4abb88162e4c0c5f9fc6c2f15d7085f7b7e27fd89f541a13488e1bcb829bde3f"
+    }
+   ]
+  },
+  "Ubuntu Mono": {
+   "folder": "ufl/ubuntumono",
+   "license": "UFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2011 Canonical Ltd. Licensed under the Ubuntu Font Licence 1.0"
+   ],
+   "files": [
+    {
+     "file": "ubuntu-mono-UFL.txt",
+     "upstream": "ufl/ubuntumono/UFL.txt",
+     "sha256": "2f0015108d68627bd788d313f529c21ff4da2c2c42a5e1f3883acc83480f9002"
+    }
+   ]
+  },
+  "Victor Mono": {
+   "folder": "ofl/victormono",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2023 The Victor Mono Project Authors (https://github.com/rubjo/victor-mono-font)"
+   ],
+   "files": [
+    {
+     "file": "victor-mono-OFL.txt",
+     "upstream": "ofl/victormono/OFL.txt",
+     "sha256": "493589852331b4ea83f1d6b0cbdc157b002ffdb995cf2429acf0c9863bc8f3df"
+    }
+   ]
+  },
+  "Work Sans": {
+   "folder": "ofl/worksans",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2019 The Work Sans Project Authors (https://github.com/weiweihuanghuang/Work-Sans)"
+   ],
+   "files": [
+    {
+     "file": "work-sans-OFL.txt",
+     "upstream": "ofl/worksans/OFL.txt",
+     "sha256": "749aca05078664ce682dce1b1b10096ac397cb088c1a6df4e1bb56f0092a9272"
+    }
+   ]
+  },
+  "Young Serif": {
+   "folder": "ofl/youngserif",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2023 The Young Serif Project Authors (https://github.com/noirblancrouge/YoungSerif)"
+   ],
+   "files": [
+    {
+     "file": "young-serif-OFL.txt",
+     "upstream": "ofl/youngserif/OFL.txt",
+     "sha256": "737d8d343b674c6894f373de71a044b6782c130f2aebf180933d63ddf7a3dc19"
+    }
+   ]
+  },
+  "Zilla Slab": {
+   "folder": "ofl/zillaslab",
+   "license": "OFL",
+   "commit": "83c62e30d87daa70216dab6b984d00d20d96d585",
+   "copyright": [
+    "Copyright 2017, The Mozilla Foundation"
+   ],
+   "files": [
+    {
+     "file": "zilla-slab-OFL.txt",
+     "upstream": "ofl/zillaslab/OFL.txt",
+     "sha256": "240b385d3ec8c8d5c1d4af2bbba6ac72bac0309a80c1a8ff112c168643cc6811"
+    }
+   ]
+  }
+ }
+}
