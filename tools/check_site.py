@@ -9,6 +9,8 @@ Fails (exit 1) on:
 - an internal link or asset that points at nothing, or a link to #id that the target page lacks
 - a page without the shared icons and manifest (/favicon.ico, an icon, apple-touch-icon,
   site.webmanifest), or a missing /.well-known/security.txt
+- a font family in fonts/ without its licence file and its row in fonts/LICENSES.md
+  (tools/font_licenses.py)
 - a robots.txt that does not say what tools/robots.py says (blocked crawlers kept out of
   everything, answer engines and search engines let in), or that blocks a sitemap URL,
   share-card.png, app.js or a font for an agent that should index or preview the page
@@ -17,7 +19,7 @@ Usage: check_site.py [-v]
 """
 import html.parser, json, pathlib, re, sys, urllib.parse, xml.etree.ElementTree as ET
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-import robots
+import font_licenses, robots
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = json.loads((ROOT / "site.json").read_text(encoding="utf-8"))["site"].rstrip("/")
@@ -157,6 +159,9 @@ for a in readers:
 for p in ["/adhd/src/sources.json", "/adhd/research/E-medication.md", "/tools/build.py", "/hub/index.html", "/adhd/README.md", "/site.json"]:
     if robots.allowed(rb, "Googlebot", p): err(f"robots: internal {p} is not disallowed")
 if f"Sitemap: {SITE}/sitemap.xml" not in rb: err("robots: no Sitemap line for the sitemap")
+
+# 4. fonts: every family ships with its licence and has its row in fonts/LICENSES.md
+for p in font_licenses.check(): err(f"font licences: {p}")
 
 print(f"check_site: {len(pages)} pages, {sum(len(parse(f).ld) for f in pages)} JSON-LD blocks, {len(locs)} sitemap URLs")
 if errors:
