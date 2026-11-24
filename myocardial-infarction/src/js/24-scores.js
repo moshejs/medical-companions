@@ -1,9 +1,9 @@
 /* =============== 2.4 Risk scores: HEART, TIMI & GRACE =============== */
 const SC_ITEMS=[
- {L:'H',n:'History',id:'scH',c:['slightly suspicious','moderately suspicious','highly suspicious']},
- {L:'E',n:'ECG',id:'scE',c:['normal','nonspecific repolarisation','significant ST depression'],cn:['normal','nonspecific repolar- isation','significant ST depression']},
+ {L:'H',n:'History',id:'scH',c:['low suspicion','some suspicion','strong suspicion']},
+ {L:'E',n:'ECG',id:'scE',c:['normal','non-specific repolarisation change','clear ST depression'],cn:['normal','non-specific repolar- isation','clear ST depression']},
  {L:'A',n:'Age',id:'scA',c:['under 45','45–65','65 or older']},
- {L:'R',n:'Risk factors',id:'scR',c:['none known','1–2 risk factors','≥3, or known atherosclerosis'],cn:['none known','1–2','≥3 or known athero- sclerosis']},
+ {L:'R',n:'Risk factors',id:'scR',c:['none known','1–2 risk factors','≥3, or diagnosed atherosclerosis'],cn:['none known','1–2','≥3 or diagnosed athero- sclerosis']},
  {L:'T',n:'Troponin',id:'scTr',c:['≤ normal limit','1–2 × normal limit','> 2 × normal limit'],cn:['≤ normal limit','1–2 × normal','> 2 × normal']}
 ];
 const SC_COH={
@@ -15,21 +15,21 @@ const SC_BAND=[{n:'low',r:'0–3',c:'var(--good)'},{n:'intermediate',r:'4–6',c
 const scBandOf=v=>v<=3?0:v<=6?1:2;
 const SC_STEPS=[
  {from:0,at:.1,k:'H · 0–2 points',t:'History',
-  txt:`HEART stands for History, ECG, Age, Risk factors and Troponin; each scores 0, 1 or 2, for a total of 0 to 10. History scores 0 if the story is slightly suspicious for an acute coronary syndrome, 1 if moderately and 2 if highly suspicious. [[Six2008HEART]]`,
+  txt:`HEART stands for History, ECG, Age, Risk factors and Troponin; each scores 0, 1 or 2, for a total of 0 to 10. History scores 0, 1 or 2 by how strongly the clinician thinks the story points to an acute coronary syndrome: low, some or strong suspicion. [[Six2008HEART]]`,
   pt:`The first item is the doctor's judgement of how much the story sounds like a heart problem.`,
   hook:`HEART = History, ECG, Age, Risk factors, Troponin; 0–2 each, total 0–10. [[Six2008HEART]]`},
  {from:.16,at:.26,k:'E · 0–2 points',t:'ECG',
-  txt:`ECG scores 0 for normal, 1 for a nonspecific repolarisation disturbance and 2 for significant ST depression. [[Six2008HEART]]`,
+  txt:`ECG scores 0 when normal, 1 for non-specific repolarisation changes and 2 for clear ST depression. [[Six2008HEART]]`,
   pt:`The heart tracing adds points if it shows changes that can mean strain on the heart muscle.`,
-  hook:`Only significant ST depression scores 2 on the HEART ECG item. [[Six2008HEART]]`},
+  hook:`On the HEART ECG item, only clear ST depression scores 2. [[Six2008HEART]]`},
  {from:.32,at:.42,k:'A · 0–2 points',t:'Age',
   txt:`Age scores 0 under 45, 1 from 45 to 65, and 2 at 65 or older. The printed table in the original paper says "≤65", but its Methods text says 65 or older. [[Six2008HEART]]`,
   pt:`Older age adds points because heart disease becomes more common with age.`},
  {from:.48,at:.58,k:'R · 0–2 points',t:'Risk factors',
-  txt:`Risk factors score 0 if none are known, 1 for one or two, and 2 for three or more or a history of atherosclerotic disease. [[Six2008HEART]] Risk factors are explained in <a href="#risk" data-go="risk">Risk factors &amp; prevention</a>.`,
+  txt:`Risk factors give 0 points when none are known, 1 for one or two, and 2 for three or more or for atherosclerotic disease already diagnosed. [[Six2008HEART]] Risk factors are explained in <a href="#risk" data-go="risk">Risk factors &amp; prevention</a>.`,
   pt:`The more known risk factors for heart disease a person has, the more points this item adds.`},
  {from:.64,at:.74,k:'T · 0–2 points',t:'Troponin',
-  txt:`Troponin scores 0 at or below the assay's normal limit, 1 for one to two times the limit and 2 for more than twice the limit. [[Six2008HEART]] How troponin is measured and repeated is in <a href="#troponin" data-go="troponin">Troponin &amp; rapid rule-out</a>.`,
+  txt:`Troponin gives 0 points up to the assay's normal limit, 1 between one and two times that limit, and 2 above twice the limit. [[Six2008HEART]] How troponin is measured and repeated is in <a href="#troponin" data-go="troponin">Troponin &amp; rapid rule-out</a>.`,
   pt:`Troponin is a protein released when heart muscle is damaged. A higher level adds points.`,
   hook:`Troponin item: ≤ normal limit 0, 1–2× 1, >2× 2. [[Six2008HEART]]`},
  {from:.8,at:.95,k:'Total · three bands',t:'Low, intermediate, high',
@@ -37,7 +37,7 @@ const SC_STEPS=[
   pt:`A low score means that, in the studies, few people in that group had a serious heart event in the next six weeks. It does not mean "definitely not a heart attack".`,
   hook:`HEART 0–3: 1.7%, 4–6: 16.6%, 7–10: 50.1% 6-week MACE (Backus 2013). [[Backus2013]]`}
 ];
-const SC_TIMI=['Age 65 or older','3 or more coronary risk factors','Known coronary stenosis of 50% or more','ST deviation on the presenting ECG','2 or more anginal events in the prior 24 h','Aspirin use in the prior 7 days','Raised cardiac markers'];
+const SC_TIMI=['Aged 65 or over','At least 3 risk factors for coronary disease','A coronary narrowing of 50% or more already known','ST shift on the first ECG','At least 2 bouts of angina in the last 24 h','Took aspirin in the last 7 days','Heart damage markers above normal in the blood'];
 const SC_TIMI_R=[['0/1','4.7'],['2','8.3'],['3','13.2'],['4','19.9'],['5','26.2'],['6/7','40.9']];
 const SC_GRACE=[
  {n:'Cardiac arrest at presentation',or:4.3,u:'yes vs no',g:'pt'},

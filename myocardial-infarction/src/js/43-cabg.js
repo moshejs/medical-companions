@@ -33,7 +33,7 @@ inits.cabg=()=>{
   ];
   const STEPS=[
     {k:'Acute MI · one artery',t:'One blocked artery',
-     txt:`During a heart attack the blocked (culprit) artery is usually reopened with primary PCI: a wire, a balloon and a stent, through an artery in the wrist or groin. Across 23 randomised trials, primary PCI beat clot-dissolving drugs: short-term death 7% vs 9%, reinfarction 3% vs 7%, stroke 1% vs 2%. [[Keeley2003]] Bypass surgery is the back-up: ESC 2023 says "Emergency coronary artery bypass grafting (CABG) surgery should be considered for patients" in whom PCI is not feasible or has failed (quoted in part). [[Byrne2023ESC]]`,
+     txt:`During a heart attack the blocked (culprit) artery is usually reopened with primary PCI: a wire, a balloon and a stent, through an artery in the wrist or groin. Across 23 randomised trials, primary PCI beat clot-dissolving drugs: short-term death 7% vs 9%, reinfarction 3% vs 7%, stroke 1% vs 2%. [[Keeley2003]] Bypass surgery is the back-up: ESC 2023 says emergency CABG should be considered when PCI is not feasible or has failed. [[Byrne2023ESC]]`,
      pt:`Doctors open a blocked heart artery with a thin tube, a tiny balloon and a mesh tube (stent), usually through the wrist. [[Keeley2003,Valgimigli2015MATRIX]]`,
      hook:`Primary PCI vs fibrinolysis (23 RCTs): death 7% vs 9%, reinfarction 3% vs 7%, stroke 1% vs 2%. [[Keeley2003]]`},
     {k:'Stable disease · three vessels',t:'Three-vessel disease',
@@ -53,7 +53,7 @@ inits.cabg=()=>{
      pt:`Bypass surgery uses a blood vessel from your chest or leg to route blood around blocked arteries. People who had the chest artery joined to the front artery of the heart lived longer in this study. [[Loop1986]]`,
      hook:`Internal mammary artery to LAD: the survival-defining graft in CABG. [[Loop1986]]`},
     {k:'Emergencies',t:'Shock and timing',
-     txt:`In the SHOCK trial, the early revascularisation group was treated with angioplasty in 55% and CABG in 38%. [[Hochman2001SHOCK1y]] ESC 2023: "Early revascularization with either PCI or CABG is recommended for patients with AMI complicated by CS". [[Byrne2023ESC]] Timing matters for surgery: in 44,365 New York CABG patients, in-hospital mortality was 11.8% when CABG was done within 6 hours of an acute MI, 9.5% at 6 hours to 1 day and 2.8% after 1 day, and was higher after transmural MI within 7 days (observational data). [[Lee2001CABGtiming]] See <a href="#complications" data-go="complications">Complications &amp; cardiogenic shock</a>.`,
+     txt:`In the SHOCK trial, the early revascularisation group was treated with angioplasty in 55% and CABG in 38%. [[Hochman2001SHOCK1y]] ESC 2023 recommends early revascularisation, by PCI or CABG, for acute MI complicated by cardiogenic shock (CS). [[Byrne2023ESC]] Timing matters for surgery: in 44,365 New York CABG patients, in-hospital mortality was 11.8% when CABG was done within 6 hours of an acute MI, 9.5% at 6 hours to 1 day and 2.8% after 1 day, and was higher after transmural MI within 7 days (observational data). [[Lee2001CABGtiming]] See <a href="#complications" data-go="complications">Complications &amp; cardiogenic shock</a>.`,
      pt:`When surgery is not urgent, waiting a little after a heart attack was linked with lower risk in one large study. [[Lee2001CABGtiming]]`,
      hook:`CABG after acute MI (New York): in-hospital death 11.8% <6 h, 9.5% 6 h–1 d, 2.8% >1 day; observational. [[Lee2001CABGtiming]]`}
   ];

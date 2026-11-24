@@ -161,13 +161,13 @@ inits.nursing=()=>{
 
   /* =========== 1b 4AT calculator =========== */
   const FOUR=[
-   {n:'1 · ערנות',o:[ [' תקינה',0],[' חריגה בבירור',4] ]},
-   {n:'2 · AMT4: גיל, תאריך לידה, מקום, השנה הנוכחית',o:[ [' אין טעויות',0],[' טעות 1',1],[' 2 או יותר, או שלא ניתן לבדוק',2] ]},
-   {n:'3 · קשב: חודשי השנה בסדר הפוך',o:[ [' 7 נכונים או יותר',0],[' התחלה, פחות מ־7, או סירוב',1],[' לא ניתן לבדוק',2] ]},
-   {n:'4 · שינוי חריף או מהלך משתנה',o:[ [' לא',0],[' כן',4] ]}];
+   {n:'1 · ערנות',o:[ ['',0],['',4] ]},
+   {n:'2 · AMT4 (התמצאות)',o:[ ['',0],['',1],['',2] ]},
+   {n:'3 · קשב',o:[ ['',0],['',1],['',2] ]},
+   {n:'4 · שינוי חריף או מהלך משתנה',o:[ ['',0],['',4] ]}];
   const fsel=[0,0,0,0];let fShown=0,fStop=null;
   $('#nuFour').insertAdjacentHTML('beforeend',FOUR.map((it,i)=>`<div class="nu-item"><span id="nuF${i}">${it.n}</span><div class="nu-opts" role="group" aria-labelledby="nuF${i}">${it.o.map((o,j)=>`<button class="btn" data-f="${i}" data-j="${j}" aria-pressed="${j===0}"><b>${o[1]}</b>${o[0]}</button>`).join('')}</div></div>`).join('')+
-    `<div class="ctrls"><button class="btn" id="nuFourEx">דוגמה: דמנציה קשה, ללא שינוי חריף</button><button class="btn" id="nuFourReset">איפוס</button></div><p class="stage-cap">נוסח הפריטים מקוצר מה־4AT; הניקוד לפי מדריך המשתמש שלו. ${NU4AT} תרגום לצורכי לימוד, לא נוסח מתוקף.</p>`);
+    `<div class="ctrls"><button class="btn" id="nuFourEx">דוגמה: דמנציה קשה, ללא שינוי חריף</button><button class="btn" id="nuFourReset">איפוס</button></div><p class="stage-cap">תוויות נושא וניקוד בלבד. הנוסח הרשמי של הפריטים וההוראות מופיעים בטופס 4AT באתר <a href="https://www.the4at.com/">the4at.com</a>; הניקוד לפי מדריך המשתמש שלו. ${NU4AT}</p>`);
   const fScore=()=>fsel.reduce((a,j,i)=>a+FOUR[i].o[j][1],0);
   function drawFourG(v){
     const sv=$('#nuFourSvg'),N=vb(sv,'520 150','400 160');
@@ -196,14 +196,14 @@ inits.nursing=()=>{
 
   /* =========== 1c PAINAD =========== */
   const PAIN=[
-   {n:'נשימה, ללא קשר לקולות',o:[' תקינה',' נשימה מאומצת מדי פעם, פרק קצר של נשימת יתר',' נשימה מאומצת ורועשת, פרק ארוך של נשימת יתר, נשימת צ׳יין־סטוקס']},
-   {n:'קולות שליליים',o:[' אין',' גניחה או אנקה מדי פעם, דיבור שלילי חלש',' קריאות מצוקה חוזרות, גניחות רמות, בכי']},
-   {n:'הבעת פנים',o:[' חיוך או חוסר הבעה',' עצב, פחד, קימוט מצח',' עוויית פנים']},
-   {n:'שפת גוף',o:[' רפויה',' מתוחה, הליכה הלוך ושוב במצוקה, חוסר מנוחה',' נוקשה, אגרופים קפוצים, ברכיים משוכות למעלה, הדיפה, הכאה']},
-   {n:'יכולת להרגיע',o:[' אין צורך להרגיע',' אפשר להסיח את הדעת או להרגיע בקול או במגע',' אי אפשר לנחם, להסיח את הדעת או להרגיע']}];
+   {n:'נשימה',o:['','','']},
+   {n:'קולות שליליים',o:['','','']},
+   {n:'הבעת פנים',o:['','','']},
+   {n:'שפת גוף',o:['','','']},
+   {n:'יכולת להרגיע',o:['','','']}];
   const psel=[0,0,0,0,0];let pShown=0,pStop=null,barP=0;
   $('#nuPain').insertAdjacentHTML('beforeend',PAIN.map((it,i)=>`<div class="nu-item"><span id="nuPn${i}">${i+1} · ${it.n}</span><div class="nu-opts" role="group" aria-labelledby="nuPn${i}">${it.o.map((o,j)=>`<button class="btn" data-p="${i}" data-j="${j}" aria-pressed="${j===0}"><b>${j}</b>${o}</button>`).join('')}</div></div>`).join('')+
-    `<div class="ctrls"><button class="btn" id="nuPainReset">איפוס</button></div><p class="stage-cap">תיאורי הפריטים מקוצרים מהכלי שפורסם. [[Warden2003]] תרגום לצורכי לימוד, לא נוסח מתוקף.</p>`);
+    `<div class="ctrls"><button class="btn" id="nuPainReset">איפוס</button></div><p class="stage-cap">תוויות נושא וניקוד בלבד. תיאורי הפריטים הרשמיים מופיעים בסולם PAINAD שפורסם. [[Warden2003]]</p>`);
   const pScore=()=>psel.reduce((a,b)=>a+b,0);
   function drawPainG(v){
     const sv=$('#nuPainSvg'),N=vb(sv,'520 330','400 316');

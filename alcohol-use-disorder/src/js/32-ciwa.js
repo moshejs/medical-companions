@@ -1,8 +1,8 @@
 /* =============== 3.2 CIWA-Ar: scoring withdrawal =============== */
-/* items and ranges: Mirijello 2015 table (modified from Sullivan 1989); anchors quoted only where the research has them */
+/* topic labels and point ranges only (Mirijello 2015, modified from Sullivan 1989); the anchor wording is on the published scale */
 const CI_ITEMS=[
  {n:'Nausea or vomiting',max:7},
- {n:'Tremor',max:7,a0:'none',aM:'severe tremors, even with arms not extended'},
+ {n:'Tremor',max:7},
  {n:'Paroxysmal sweats',max:7},
  {n:'Anxiety',max:7},
  {n:'Agitation',max:7},
@@ -10,7 +10,7 @@ const CI_ITEMS=[
  {n:'Auditory disturbances',max:7},
  {n:'Visual disturbances',max:7},
  {n:'Headache',max:7},
- {n:'Orientation and clouding of sensorium',max:4,a0:'orientated, can do serial additions',aM:'disorientated for place and/or person'}
+ {n:'Orientation',max:4}
 ];
 const CI_H=72; /* scrubber hours */
 const CI_STEPS=[
@@ -39,7 +39,7 @@ inits.ciwa=()=>{
   const wrap=$('#ciItems');let mir=false;
   wrap.innerHTML=CI_ITEMS.map((it,i)=>`<div class="ci-item"><div class="ci-top"><label for="ciI${i}"><b>${i+1}. ${it.n}</b></label><output id="ciO${i}">0/${it.max}</output></div>
     <input type="range" id="ciI${i}" min="0" max="${it.max}" step="1" value="0" aria-valuetext="0 of ${it.max}">
-    <small>${it.a0?`0 = "${it.a0}" · ${it.max} = "${it.aM}"`:`scored 0 (lowest) to ${it.max} (highest); anchors in the published scale`}</small></div>`).join('');
+    <small>scored 0 (lowest) to ${it.max} (highest)</small></div>`).join('');
   const gv=$('#ciGauge'),out=$('#ciOut');
   const ASAMB=[{to:10,col:'var(--good)',n:'mild',r:'&lt;10'},{to:19,col:'var(--warn)',n:'moderate',r:'10–18'},{to:67,col:'var(--bad)',n:'severe',r:'≥19'}];
   const MIRB=[{to:8,col:'var(--good)',n:'mild',r:'&lt;8'},{to:16,col:'var(--warn)',n:'moderate',r:'8–15'},{to:67,col:'var(--bad)',n:'severe',r:'&gt;15'}];

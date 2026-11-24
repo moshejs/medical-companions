@@ -51,7 +51,7 @@ Shared keys checked and cited: Faraone2019 (PMID 29892054), Faraone2021 (3354973
 - ADHD GWAS results correlate strongly with GWAS of ADHD symptom scores in the general population (rg 0.970 with the EAGLE/QIMR symptom meta-analysis). This supports the view that diagnosed ADHD is the extreme end of a continuous, heritable trait. (Established) [[Demontis2019,Faraone2019]]
 - Demontis 2023: 38,691 people with ADHD and 186,843 controls gave 27 genome-wide-significant loci and 76 candidate risk genes. These genes are enriched for expression in early brain development and point to several neuronal subtypes, including midbrain dopaminergic neurons. [[Demontis2023]]
 - From the two largest GWAS, common variants explain 14–22% of the variation in liability. About 7,300 common variants account for 90% of the SNP heritability, so ADHD is highly polygenic. [[Demontis2026,Demontis2023]]
-- An estimated 84–98% of ADHD-influencing variants are shared with other psychiatric disorders (bivariate Gaussian mixture modelling). [[Demontis2023]]
+- Between 84% and 98% of the variants that influence ADHD are estimated to be shared with other psychiatric disorders (bivariate Gaussian mixture modelling). [[Demontis2023]]
 - Common-variant ADHD risk is associated with weaker complex cognition, including verbal reasoning and several executive functions such as attention. [[Demontis2023]]
 - In exome data from 17,896 people, rare protein-truncating variants were more common in ADHD in a set of genes that also carry likely causal common variants. This implicates SORCS3 through both common and rare variants. [[Demontis2023]]
 
@@ -59,7 +59,7 @@ Shared keys checked and cited: Faraone2019 (PMID 29892054), Faraone2021 (3354973
 - In iPSYCH, the ADHD polygenic risk score explained at most 5.5% of variance on average (Nagelkerke R²). Cases scored higher than controls (OR 1.56 per SD, 95% CI 1.53–1.60), and odds of ADHD rose with each PRS decile. [[Demontis2019,Faraone2019]]
 - A meta-analysis of 12 PGS effect sizes (N=40,088) found a pooled correlation with ADHD of r=0.201 (random effects; 95% CI 0.144–0.288) and r=0.190 (fixed effects; 95% CI 0.180–0.199). That is 3.6–4.0% of the variance in ADHD. [[Li2021PGS]]
 - ADHD PGS also predict ADHD symptoms in the general population. People with high ADHD polygenic risk are more likely to have been diagnosed with ADHD, anxiety or depression. [[Faraone2021]]
-- Known genetic risks are individually small or rare and raise risk for many conditions, so they "cannot be used for prediction, genetic testing or diagnostic purposes" beyond what a family history already tells you. (Established) [[Thapar2013]]
+- Known genetic risks are individually small or rare and raise risk for many conditions, so they cannot predict ADHD or serve as a genetic or diagnostic test beyond what a family history already tells you. (Established) [[Thapar2013]]
 - The consensus statement says genetic and brain findings help explain causes but are "not useful for diagnosing the disorder". [[Faraone2021]]
 
 ### genes · Rare variants: CNVs, protein-truncating and de novo variants
@@ -175,7 +175,7 @@ Shared keys checked and cited: Faraone2019 (PMID 29892054), Faraone2021 (3354973
 - Norwegian MoBa (>100,000 children): maternal smoking in pregnancy was no more strongly associated with ADHD than paternal smoking, the grandmother's smoking when pregnant with the mother, or maternal smoking in an earlier pregnancy. Siblings discordant for exposure did not differ in ADHD symptoms. [[Gustavson2017Smoking]]
 - ALSPAC (8,324 children): ADHD symptoms were associated with both maternal (β 0.25, 95% CI 0.18–0.32) and paternal (β 0.21, 95% CI 0.15–0.27) smoking in pregnancy. This pattern points to genetic or household confounding rather than an intrauterine effect. [[Langley2012]]
 - In an IVF design where the mother carrying the baby may be genetically unrelated to it, prenatal smoking lowered birth weight whether or not mother and child were related. It was linked to antisocial behaviour only when they were related. The outcome here was antisocial behaviour, not ADHD. [[Rice2009]]
-- Danish authors' conclusion: stopping smoking in pregnancy is still recommended for its other harms, "but we have no reason to believe that this would reduce the risk of ADHD in the offspring". [[Obel2016]]
+- Danish authors' conclusion: stopping smoking in pregnancy is still recommended for its other harms, but they saw no reason to expect it to lower the child's risk of ADHD. [[Obel2016]]
 
 ### risk · Prenatal alcohol
 - Meta-analysis of low-to-moderate prenatal alcohol (10 studies reviewed, 6 pooled) found no increase in offspring ADHD symptoms:

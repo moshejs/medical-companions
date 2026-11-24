@@ -4,7 +4,7 @@
    (community or clinical) is chosen by a toggle. Every number comes from research pass A. */
 const WH_STEPS=[
  {from:0,at:.15,k:'In the community · 1 of 2',t:'The highest estimate: 5.9%',
-  txt:`NESARC Wave 2 interviewed 34,653 US adults face to face in 2004–2005 and found lifetime BPD in 5.9% (99% CI 5.4–6.4): 59 of these 1,000 figures. The authors concluded that BPD is "much more prevalent in the general population than previously recognized". It was more common in younger adults, in people who were separated, divorced or widowed, and in people with lower income and education. [[Grant2008]]`,
+  txt:`NESARC Wave 2 interviewed 34,653 US adults face to face in 2004–2005 and found lifetime BPD in 5.9% (99% CI 5.4–6.4): 59 of these 1,000 figures. The authors concluded that BPD is far more common in the general population than had been thought. It was more common in younger adults, in people who were separated, divorced or widowed, and in people with lower income and education. [[Grant2008]]`,
   pt:`In that survey about 59 adults in every 1,000 had had BPD at some point. Keep going: most experts think this number is too high.`,
   hook:`NESARC Wave 2 (Grant 2008): 5.9% lifetime, with no sex difference (men 5.6%, women 6.2%). [[Grant2008]]`},
  {from:.2,at:.35,k:'In the community · 2 of 2',t:'Stricter rules: 2.7%',
@@ -30,7 +30,7 @@ const WH_WORDS=[
  {f:'manipulative',c:'said about a request for help',s:'Describe what happened and the need behind it: "asked several staff for help while very distressed"',
   w:`The public may see people with personality disorders as "purposefully misbehaving". [[Sheehan2016]] Nurses given the BPD label for the same challenging behaviour saw it as more under the person's control and felt less sympathy and optimism than with schizophrenia or depression labels. [[Markham2003]]`},
  {f:'attention-seeking',c:'said about self-harm',s:'Self-harm is a sign of severe distress: respond with care and assessment',
-  w:`Clinicians should not read repeated suicide attempts as a sign of little wish to die. [[Black2004Suicide]] NICE states that people with BPD "should not be excluded from any health or social care service because of their diagnosis or because they have self-harmed". [[NICE2009]]`},
+  w:`Clinicians should not read repeated suicide attempts as a sign of little wish to die. [[Black2004Suicide]] NICE states that people with BPD must not be shut out of any health or social care service because of their diagnosis or because they have self-harmed. [[NICE2009]]`},
  {f:'a difficult patient',c:'said in a handover',s:'A person in a lot of distress: what would help right now?',
   w:`Nearly half of 706 surveyed clinicians preferred to avoid patients with BPD, but those who had treated more people with BPD reported more empathy and optimism. [[Black2011Attitudes]] Distancing can feel like rejection to someone sensitive to abandonment and may create "a self-fulfilling prophecy". [[Aviram2006]]`},
  {f:'untreatable',c:'said about the diagnosis',s:'Treatable, and most people improve a great deal',

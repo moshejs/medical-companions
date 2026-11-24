@@ -55,7 +55,7 @@ Access notes:
 - PulMiCC stopped early because of poor recruitment and cannot give a conclusive answer. It challenges the belief that lung metastasectomy adds about 35 percentage points of 5-year survival [[Treasure2019]].
 - In PRODIGE 7 (265 patients with colorectal peritoneal metastases), adding oxaliplatin HIPEC to cytoreductive surgery did not improve OS. Median OS was 41.7 vs 41.2 months (HR 1.00) [[Quenet2021]].
 - In PRODIGE 7, grade ≥3 adverse events at 60 days were more common with HIPEC (26% vs 15%; p=0.035) [[Quenet2021]].
-- ASCO 2023: cytoreductive surgery plus systemic chemotherapy may be recommended for selected patients with peritoneal metastases, but adding HIPEC "is not recommended" [[Morris2023]].
+- ASCO 2023: for selected patients with peritoneal metastases, cytoreductive surgery with systemic chemotherapy may be recommended, but adding HIPEC "is not recommended" [[Morris2023]].
 
 ### metastatic · Survival with modern therapy
 - In a single-centre US cohort of 1420 people with de novo mCRC, median OS was 22.6 months for those diagnosed in 2004–2012, 28.8 months for 2013–2015 and 32.4 months for 2016–2019 [[Zeineddine2023]].
@@ -87,7 +87,7 @@ Access notes:
 - PARADIGM (823 patients, RAS wild-type): in left-sided tumours, panitumumab plus mFOLFOX6 gave median OS of 37.9 vs 34.3 months with bevacizumab plus mFOLFOX6 (HR 0.82; P=0.03). Median PFS was similar (13.1 vs 11.9 months; HR 1.00) [[Watanabe2023]].
 - In PARADIGM left-sided tumours, response rate was 80.2% vs 68.6%. Acneiform rash affected 74.8% of patients on panitumumab vs 3.2% on bevacizumab [[Watanabe2023]].
 - ASCO 2023: for MSS/pMMR, left-sided, RAS wild-type mCRC, chemotherapy plus anti-EGFR therapy is recommended first-line. For right-sided RAS wild-type disease, chemotherapy plus anti-VEGF therapy is recommended [[Morris2023]].
-- Erbitux (cetuximab) US label limitation of use: "not indicated for treatment of Ras-mutant colorectal cancer or when the results of the Ras mutation tests are unknown." The boxed warning covers serious and fatal infusion reactions and cardiopulmonary arrest [[FDA-Erbitux]].
+- Erbitux (cetuximab) US label limitation of use: not for Ras-mutant colorectal cancer, or when Ras test results are not known. The boxed warning covers serious and fatal infusion reactions and cardiopulmonary arrest [[FDA-Erbitux]].
 - Vectibix (panitumumab) US label: indicated first-line with FOLFOX for adults with RAS wild-type mCRC (wild-type in both KRAS and NRAS). Before use, RAS status must be confirmed across KRAS and NRAS exons 2, 3 and 4 [[FDA-Vectibix]].
 - Vectibix boxed warning: dermatologic toxicities occurred in 90% of patients and were severe (grade ≥3) in 15% on monotherapy [[FDA-Vectibix]].
 

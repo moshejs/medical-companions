@@ -19,7 +19,7 @@ Access notes:
 - CFTR modulators are small molecules that act on the CFTR protein itself. There are two main kinds: correctors improve folding so that more CFTR reaches the cell surface, and potentiators increase the function of CFTR that is already at the surface [[Liu2019Potentiator]].
 - Ivacaftor (VX-770) increased CFTR channel open probability (Po) in cells expressing either the F508del processing variant or the G551D gating variant [[VanGoor2009VX770]].
 - In cultured human CF bronchial epithelia (G551D/F508del), VX-770 increased chloride secretion about 10-fold, to about 50% of the level seen in epithelia from people without CF. It also reduced excess sodium and fluid absorption and increased cilia beating [[VanGoor2009VX770]].
-- The ivacaftor label wording: ivacaftor "facilitates increased chloride transport by potentiating the channel open probability (or gating)" of CFTR at the cell surface. The size of the effect depends on how much CFTR is at the surface and how responsive the variant is [[FDA-Kalydeco]].
+- The ivacaftor label explains that ivacaftor raises the open probability (gating) of CFTR channels at the cell surface, so more chloride is transported. The size of the effect depends on how much CFTR is at the surface and how responsive the variant is [[FDA-Kalydeco]].
 - Cryo-EM structures show ivacaftor and the investigational potentiator GLPG1837 binding to the same site in the transmembrane region of CFTR (3.3 Å and 3.2 Å resolution), a "hotspot" for potentiation [[Liu2019Potentiator]].
 - Lumacaftor (VX-809) improved F508del-CFTR processing in the endoplasmic reticulum. In F508del/F508del bronchial epithelial cells it raised chloride secretion to about 14% of non-CF levels (EC50 81 ± 19 nM) [[VanGoor2011VX809]].
 - Lumacaftor and tezacaftor are type I correctors. Cryo-EM shows both drugs inserting into a hydrophobic pocket in the first transmembrane domain (TMD1), linking four unstable helices. Mutating this binding site made ΔF508-CFTR insensitive to both drugs [[Fiedorczuk2022Cell]].
@@ -143,7 +143,7 @@ Access notes:
   - efficacy supplement for ages 6–11: 8 Jun 2021
   - oral granules for ages 2–5: 26 Apr 2023
   - further efficacy supplements: 20 Dec 2024 and 27 Mar 2026
-- Current label: ETI is indicated from age 2 years for people with at least one CFTR variant that is "either responsive based on clinical and/or in vitro data … or results in production of CFTR protein." Table 6 lists more than 500 variants (about 520 by count) and is "non-exhaustive" [[FDA-Trikafta]].
+- Current label: ETI is indicated from age 2 years for people with at least one CFTR variant that responds on clinical and/or in vitro data, or that leads to CFTR protein being made, under the conditions the label sets out. Table 6 lists more than 500 variants (about 520 by count) and is "non-exhaustive" [[FDA-Trikafta]].
 - The label's eligibility rules [[FDA-Trikafta]]:
   - N1303K is listed as responsive based on human bronchial epithelial (HBE) cell data
   - eligible variants "should not be the sole determinant" for treatment

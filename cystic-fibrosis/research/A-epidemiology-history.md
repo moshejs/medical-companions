@@ -19,7 +19,7 @@ Access notes:
 - CF is a monogenic, autosomal recessive disease "considered to affect at least 100 000 people worldwide" [[Shteinberg2021]].
 - Mutations in CFTR, the gene for an epithelial channel that normally carries chloride and bicarbonate, impair mucus hydration and clearance [[Shteinberg2021]].
 - Classical CF is described as chronic lung infection and inflammation, pancreatic exocrine insufficiency and male infertility, often with comorbidities such as CF-related diabetes or CF liver disease [[Shteinberg2021]].
-- A Lancet seminar lists the organs affected by CFTR dysfunction in epithelial cells: lungs (bronchiectasis, small-airway obstruction), pancreas (malabsorption), liver (biliary cirrhosis), sweat glands (heat shock) and vas deferens (infertility) [[Elborn2016]].
+- A Lancet seminar names the organs where faulty CFTR in epithelial cells causes disease: lungs (bronchiectasis, small-airway obstruction), pancreas (malabsorption), liver (biliary cirrhosis), sweat glands (heat shock) and vas deferens (infertility) [[Elborn2016]].
 - Lung disease causes "the vast majority" of morbidity and mortality in CF [[Ratjen2015]].
 - The Lancet Respiratory Medicine Commission's table of classic features lists bronchiectasis with chronic infection, pneumothorax, haemoptysis, respiratory failure, chronic rhinosinusitis with nasal polyps, meconium ileus, distal intestinal obstruction syndrome, rectal prolapse and pancreatic insufficiency, among others [[Bell2020Commission]].
 - Some CFTR variants leave residual protein function. These can cause disease that is harder to diagnose and sometimes affects only one organ [[Shteinberg2021]].
@@ -76,7 +76,7 @@ Access notes:
 ### what · How many people live with CF
 - An estimated 162,428 people (range 144,606–186,620) live with CF across 94 countries. About 105,352 (65%) are diagnosed and an estimated 57,076 are undiagnosed [[Guo2022Access]].
 - In that 2022 analysis, only 19,516 people (12% of the estimated total) were receiving triple combination therapy [[Guo2022Access]].
-- Estimates of undiagnosed CF in low- and middle-income countries are highly uncertain [[Guo2022Access]].
+- How many people in low- and middle-income countries have undiagnosed CF is very uncertain [[Guo2022Access]].
 - The European CF Society Patient Registry collects yearly data on more than 55,000 people with CF [[Orenti2026]].
 - The ECFS registry held 48,204 people in its 2017 report, with a median age of 18.5 years [[Scotet2020]].
 - The UK has about 10,000 people with CF. The UK registry included 10,428 people in 2011–2015 [[Keogh2018]].

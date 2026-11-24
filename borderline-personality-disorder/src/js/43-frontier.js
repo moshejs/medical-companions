@@ -24,7 +24,7 @@ const RE_STEPS=[
   pt:`The result held up when another team tested it, and when the comparison was skilled therapy rather than ordinary care.`,
   hook:`Linehan 2006: DBT halved suicide attempts vs expert community therapists (HR 2.66). [[Linehan2006]]`},
  {from:reT(2008.5),at:reT(2009.6),k:'2009 · guideline',t:'Into a guideline',
-  txt:`NICE CG78: "For women with borderline personality disorder for whom reducing recurrent self-harm is a priority, consider a comprehensive dialectical behaviour therapy programme." Note how narrow the recommendation is: who (women), what goal (recurrent self-harm), what form (comprehensive). The same year, DBT and general psychiatric management gave equal outcomes. <span class="ev est">Established</span> for this use. [[NICE2009,McMain2009]]`,
+  txt:`NICE CG78 suggests considering a comprehensive dialectical behaviour therapy programme for women with BPD when reducing repeated self-harm is a priority. Note how narrow the recommendation is: who (women), what goal (recurrent self-harm), what form (comprehensive). The same year, DBT and general psychiatric management gave equal outcomes. <span class="ev est">Established</span> for this use. [[NICE2009,McMain2009]]`,
   pt:`A guideline only recommends a treatment for the people and goals the trials actually tested.`,
   hook:`NICE CG78 1.3.4.5: consider comprehensive DBT for women when reducing recurrent self-harm is a priority. [[NICE2009]]`},
  {from:reT(2013.5),at:reT(2018.5),k:'2014–2022 · refinement',t:'Which parts, how long, for whom?',

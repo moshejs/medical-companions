@@ -61,7 +61,7 @@ Access notes:
 - Pain intensity on admission did not predict poor prognosis in a prospective study of 55 people [[Moulin1997]].
 
 ### prognosis · Axonal subtype and the two recovery patterns
-- In all IGOS regions, people with the axonal subtype were younger, had fewer sensory deficits and showed a trend towards poorer recovery than those with the demyelinating subtype [[Doets2018]].
+- In every IGOS region, people with axonal GBS were on average younger and had less sensory loss than those with demyelinating GBS, and their recovery tended to be worse [[Doets2018]].
 - An axonal electrodiagnosis is not always a marker of poor recovery: in 97 Japanese people, slow recovery (unable to walk independently at 6 months) occurred in 14% with AMAN and 6% with AIDP [[Hiraga2005]].
 - Of the 6 people with AMAN and slow recovery in that study, 4 walked independently at 1 year, and the other 2 at 28 and 57 months [[Hiraga2005]].
 - IgG anti-GM1 positive people had more poor recovery (5/19 vs 0/22 unable to walk independently at 6 months; p = 0.01) and also more markedly rapid recovery (9/19 vs 4/22 improving at least two Hughes grades within a month; p = 0.05) [[Kuwabara1998]].
@@ -160,7 +160,7 @@ Access notes:
 - Twelve weeks of bicycle training in 20 severely fatigued people (16 GBS, 4 CIDP) cut self-reported fatigue by 20% (p = 0.001), with better fitness and quality of life [[Garssen2004Training]].
 - In that exercise series, changes in fatigue and mobility were not explained by fitness change, suggesting additional effects of a training programme [[Bussmann2007]].
 - Exercise intensity must be monitored, because overwork can cause fatigue (full text) [[Leonhard2019]].
-- Therapy should not overfatigue the motor unit, which has been associated with paradoxical weakening (expert review) [[Meythaler1997]].
+- An expert review warns against exercise that exhausts the recovering muscles, because overwork has been linked to a paradoxical loss of strength [[Meythaler1997]].
 
 ### rehab · Complications that shape rehabilitation
 - Guideline table of complications: limb contractures and ossifications with prolonged severe weakness; compression neuropathy and pressure ulcers with immobility; corneal ulceration with facial palsy; choking and nutrition problems with bulbar palsy (full text) [[Leonhard2019]].

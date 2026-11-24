@@ -8,20 +8,20 @@ Units: serum urate in mg/dL with µmol/L in brackets (1 mg/dL ≈ 59.48 µmol/L)
 
 ### dx · The 2015 ACR/EULAR gout classification criteria (structure)
 - Published simultaneously in Arthritis & Rheumatology and Annals of the Rheumatic Diseases (October 2015); approved by the ACR Board and the EULAR Executive Committee (Established) [[Neogi2015,Neogi2015ARD]].
-- Step 1, entry criterion: at least 1 episode of swelling, pain or tenderness in a peripheral joint or bursa; the criteria are applied only to people who meet it [[Neogi2015]].
-- Step 2, sufficient criterion: MSU crystals in a symptomatic joint or bursa (synovial fluid) or in a tophus, seen by a trained examiner, classifies as gout with no scoring [[Neogi2015]].
+- Step 1, entry criterion: a peripheral joint or bursa has been swollen, painful or tender at least once; only people who meet this are assessed further [[Neogi2015]].
+- Step 2, sufficient criterion: if a trained examiner finds MSU crystals in fluid from an affected joint or bursa, or in a tophus, the person is classified as having gout without any scoring [[Neogi2015]].
 - There are no exclusion criteria, because gout can coexist with other diseases and because microscopy can miss crystals for technical, sampling or treatment reasons [[Neogi2015]].
 - Step 3 (if no crystals): 8 domains, clinical (1–4), laboratory (5–6), imaging (7–8); within each domain categories are hierarchical and the highest category ever fulfilled is scored [[Neogi2015]].
 - Maximum score 23; a score ≥8 classifies as gout. Two categories subtract points: serum urate <4 mg/dL (<240 µmol/L) −4, and MSU-negative synovial fluid −2 [[Neogi2015]].
 - Serum urate is mandatory: the score cannot be computed without a value [[Neogi2015]].
 - Serum urate rule: measured by the uricase method; ideally scored off urate-lowering therapy and >4 weeks from the start of an episode (intercritical); if practicable, retest under those conditions; the highest value irrespective of timing is scored; if ≥10 mg/dL (≥600 µmol/L), no need to retest [[Neogi2015]].
 - Imaging not done scores 0, the same as a negative result (this matched the weighting the experts gave in discrete-choice exercises) [[Neogi2015]].
-- Double-contour sign definition: hyperechoic irregular enhancement over the surface of hyaline cartilage that is independent of the insonation angle; a false-positive (artefactual) double contour disappears when the probe angle changes [[Neogi2015]].
-- DECT definition: colour-coded urate at articular or periarticular sites, acquired at 80 kV and 140 kV and analysed with a 2-material decomposition algorithm; nail-bed, submillimetre, skin, motion, beam-hardening and vascular artefacts do not count [[Neogi2015]].
-- Gout-related erosion on hand or foot radiograph: cortical break with sclerotic margin and overhanging edge; distal interphalangeal joints and the "gull wing" appearance are excluded because they occur in osteoarthritis [[Neogi2015]].
-- Clinical tophus definition: draining or chalk-like subcutaneous nodule under transparent skin, often with overlying vascularity, in typical places (joints, ears, olecranon bursae, finger pads, tendons such as the Achilles) [[Neogi2015]].
-- First MTP, ankle or midfoot involvement scores only as part of a mono- or oligoarticular episode; as part of a polyarticular presentation it is not specific, as it also occurs in rheumatoid arthritis [[Neogi2015]].
-- Time course and characteristics are scored irrespective of anti-inflammatory treatment; erythema may be patient-reported or physician-observed, the other two characteristics are patient-reported [[Neogi2015]].
+- Double-contour sign (summary): a bright, irregular line lying on the surface of the joint cartilage that stays visible whatever the angle of the ultrasound beam; an artefactual line vanishes when the probe is tilted [[Neogi2015]].
+- DECT (summary): urate shown by colour coding in or around a joint, on scans taken at 80 kV and 140 kV and processed with a two-material decomposition method; artefacts (nail bed, submillimetre spots, skin, motion, beam hardening, vessels) are not counted [[Neogi2015]].
+- Gout-related erosion on a hand or foot X-ray (summary): a gap in the bone's outer shell with a dense rim and an overhanging lip of bone; DIP joints and the "gull wing" pattern are excluded because osteoarthritis produces them [[Neogi2015]].
+- Clinical tophus (summary): a chalky lump under thin skin, sometimes discharging and often with visible small vessels over it, at a typical site such as a joint, the ear, the elbow bursa, a finger pad or a tendon like the Achilles [[Neogi2015]].
+- First MTP, ankle or midfoot involvement scores only when the episode affects one or a few joints; in a many-joint episode it is not specific, since rheumatoid arthritis can do the same [[Neogi2015]].
+- Time course and episode features are scored whatever anti-inflammatory treatment was taken; redness may be reported by the patient or seen by the doctor, while the other two features come from the patient [[Neogi2015]].
 - A web calculator was published with the criteria (goutclassificationcalculator.auckland.ac.nz) [[Neogi2015]].
 
 ### dx · Machine-readable table of the 2015 ACR/EULAR items
@@ -29,27 +29,27 @@ All rows verified against Table 2 (and the definitions in Table 1) of the open f
 
 | id | step | domain | item | option | points |
 |---|---|---|---|---|---|
-| entry | 1 | gate | ≥1 episode of swelling, pain or tenderness in a peripheral joint or bursa | required | gate |
-| sufficient | 2 | gate | MSU crystals in a symptomatic joint/bursa (synovial fluid) or tophus | present → gout | sufficient |
-| joint | 3 | clinical | Joint/bursa involved in symptomatic episode(s) ever | other joints, or only polyarticular | 0 |
+| entry | 1 | gate | Peripheral joint or bursa swollen, painful or tender at least once | required | gate |
+| sufficient | 2 | gate | MSU crystals found in fluid from an affected joint/bursa, or in a tophus | present → gout | sufficient |
+| joint | 3 | clinical | Which joint or bursa has ever been affected | other joints, or only polyarticular | 0 |
 | joint | 3 | clinical | | ankle or midfoot, mono/oligoarticular, without first MTP | 1 |
 | joint | 3 | clinical | | first MTP, mono/oligoarticular | 2 |
-| traits | 3 | clinical | Episode characteristics ever: erythema; can't bear touch or pressure; great difficulty walking or inability to use joint | none | 0 |
+| traits | 3 | clinical | Episode features ever (count them): redness; too tender to touch; walking very hard or joint unusable | none | 0 |
 | traits | 3 | clinical | | one | 1 |
 | traits | 3 | clinical | | two | 2 |
 | traits | 3 | clinical | | three | 3 |
-| course | 3 | clinical | Typical episode = ≥2 of: time to maximal pain <24 h; resolution ≤14 days; complete resolution between episodes | no typical episode | 0 |
+| course | 3 | clinical | Typical episode = ≥2 of: pain peaks in <24 h; settles in ≤14 days; fully back to normal between episodes | no typical episode | 0 |
 | course | 3 | clinical | | one typical episode | 1 |
 | course | 3 | clinical | | recurrent typical episodes | 2 |
-| tophus | 3 | clinical | Clinical evidence of tophus | present | 4 |
+| tophus | 3 | clinical | Tophus seen or felt | present | 4 |
 | urate | 3 | laboratory | Serum urate, uricase method, highest value | <4 mg/dL (<0.24 mmol/L) | −4 |
 | urate | 3 | laboratory | | 4–<6 mg/dL (0.24–<0.36 mmol/L) | 0 |
 | urate | 3 | laboratory | | 6–<8 mg/dL (0.36–<0.48 mmol/L) | 2 |
 | urate | 3 | laboratory | | 8–<10 mg/dL (0.48–<0.60 mmol/L) | 3 |
 | urate | 3 | laboratory | | ≥10 mg/dL (≥0.60 mmol/L) | 4 |
-| fluid | 3 | laboratory | Synovial fluid of a symptomatic (ever) joint/bursa, trained observer | not done | 0 |
+| fluid | 3 | laboratory | Fluid from an affected joint/bursa, read by a trained observer | not done | 0 |
 | fluid | 3 | laboratory | | MSU negative | −2 |
-| urate_img | 3 | imaging | Urate deposition in symptomatic (ever) joint/bursa: US double-contour sign or DECT urate | absent / not done | 0 |
+| urate_img | 3 | imaging | Urate deposits in an affected joint/bursa on US (double-contour sign) or DECT | absent / not done | 0 |
 | urate_img | 3 | imaging | | present (either modality) | 4 |
 | erosion | 3 | imaging | Gout-related erosion on hand/foot radiograph (excl. DIP, gull wing) | absent / not done | 0 |
 | erosion | 3 | imaging | | present | 4 |
@@ -57,8 +57,8 @@ All rows verified against Table 2 (and the definitions in Table 1) of the open f
 
 ```json
 {"criteria":"ACR/EULAR 2015 gout","cite":"Neogi2015","max":23,"min":-6,"threshold":8,
- "entry":"≥1 episode of swelling, pain or tenderness in a peripheral joint or bursa",
- "sufficient":"MSU crystals in symptomatic joint/bursa or tophus",
+ "entry":"peripheral joint or bursa swollen, painful or tender at least once",
+ "sufficient":"MSU crystals found in an affected joint/bursa or tophus",
  "domains":[
   {"id":"joint","options":[["other/polyarticular",0],["ankle or midfoot, mono/oligo, no MTP1",1],["MTP1, mono/oligo",2]]},
   {"id":"traits","options":[["none",0],["one",1],["two",2],["three",3]]},
@@ -92,7 +92,7 @@ All rows verified against Table 2 (and the definitions in Table 1) of the open f
 
 ### dx · Clinical diagnostic rule for primary care (Janssens / Nijmegen rule)
 - Derived in 328 Dutch primary-care patients with monoarthritis; synovial MSU crystals were the reference; family-physician diagnosis of gout had PPV 0.64 and NPV 0.87 [[Janssens2010]].
-- Seven predefined items: male sex, previous patient-reported arthritis attack, onset within 1 day, joint redness, first MTP involvement, hypertension or ≥1 cardiovascular disease, serum uric acid >5.88 mg/dL (>350 µmol/L); AUC 0.85 (95% CI 0.81–0.90), almost equal to the statistically optimal model (0.87) [[Janssens2010]].
+- Seven predefined items: being male, an earlier arthritis attack the patient reports, onset within 1 day, a red joint, first MTP involved, hypertension or at least one cardiovascular disease, serum uric acid >5.88 mg/dL (>350 µmol/L); AUC 0.85 (95% CI 0.81–0.90), almost equal to the statistically optimal model (0.87) [[Janssens2010]].
 - Item weights: male sex 2; previous attack 2; onset within 1 day 0.5; joint redness 1; first MTP 2.5; hypertension or ≥1 CVD 1.5; serum uric acid >5.88 mg/dL 3.5 (maximum 13); bands: ≤4 low, >4 to <8 intermediate, ≥8 high probability [[Lee2015,Janssens2010]].
 - Gout prevalence by band in the derivation study, as reported by a later validation: 82.5% (≥8), 31.2% (>4–<8), 2.2% (≤4) [[Lee2015]].
 - Secondary-care validation (390 patients with monoarthritis, MSU found in 219, 56%): PPV of a score ≥8 was 0.87, NPV of a score ≤4 was 0.95, AUC 0.86 (0.82–0.89) [[Kienhorst2015]].
@@ -100,13 +100,13 @@ All rows verified against Table 2 (and the definitions in Table 1) of the open f
 - An evidence review for the ACP found that recent multidimensional algorithms reach sensitivity up to 88% and specificity up to 96% (moderate strength of evidence), with scant evidence from primary and urgent care [[Newberry2017]].
 
 ### dx · EULAR diagnosis recommendations (2006 and 2018 update)
-- 2018 EULAR update: 8 key recommendations; a search for crystals in synovial fluid or tophus aspirates is recommended in every person with suspected gout, because MSU crystals give a definite diagnosis (Established) [[Richette2020]].
-- Suggestive clinical features for a clinical diagnosis: monoarticular foot or ankle involvement (especially the first MTP), previous similar episodes, rapid onset of severe pain and swelling, erythema, male sex, associated cardiovascular disease and hyperuricaemia [[Richette2020]].
-- When crystals cannot be sought, atypical presentations should be imaged, in particular with ultrasound looking for the double-contour sign and tophi [[Richette2020]].
-- Gout should not be diagnosed on hyperuricaemia alone [[Richette2020]].
-- Every person with gout should be assessed for associated comorbidities, cardiovascular risk factors and risk factors for chronic hyperuricaemia (strong recommendation) [[Richette2020]].
+- 2018 EULAR update: 8 key recommendations. Anyone suspected of gout should have joint fluid or tophus material examined for crystals, since finding MSU crystals makes the diagnosis certain (Established) [[Richette2020]].
+- Features that point to gout when making a clinical diagnosis: a single foot or ankle joint (the first MTP above all), similar attacks before, severe pain and swelling that come on fast, redness, being male, cardiovascular disease and hyperuricaemia [[Richette2020]].
+- If crystals cannot be looked for, unusual presentations should be imaged, ultrasound in particular, to look for the double-contour sign and tophi [[Richette2020]].
+- A high urate on its own is not enough to diagnose gout [[Richette2020]].
+- Everyone with gout should be checked for other illnesses, cardiovascular risk factors and the causes of their long-term hyperuricaemia (strong recommendation) [[Richette2020]].
 - 2006 EULAR likelihood ratios: crystal identification in symptomatic gout LR 567 (95% CI 35.5–9053); classic podagra LR 30.64; tophi LR 39.95; hyperuricaemia (local normal range) LR 9.74; radiographic asymmetrical swelling LR 4.13 and subcortical cysts without erosion LR 6.39 (late or severe gout only) [[Zhang2006Dx]].
-- ACP 2017 (primary-care guideline): clinicians should use synovial fluid analysis when clinical judgement indicates that diagnostic testing is necessary in possible acute gout (weak recommendation, low-quality evidence) [[Qaseem2017Dx]].
+- ACP 2017 (primary-care guideline): in possible acute gout, joint fluid should be analysed when the clinician judges that a test is needed (weak recommendation, low-quality evidence) [[Qaseem2017Dx]].
 
 ### dx · Synovial fluid polarised microscopy
 - MSU crystals are needle-like and strongly negatively birefringent (fast axis along the crystal's long axis); under a compensated polarised microscope they appear yellow when aligned parallel to the slow axis of the full-wave (red) retardation plate and blue when perpendicular, on a red/magenta background (Established) [[Zhang2016SciRep,Ragab2017]].

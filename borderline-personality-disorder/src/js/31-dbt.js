@@ -81,7 +81,7 @@ const DB_CO={
   ['Suicide-related outcomes',-.34,-.57,-.11,'low','13 trials'],
   ['Psychosocial functioning',-.45,-.68,-.22,'low','22 trials']],
   note:{k:'Cochrane 2020 · 75 RCTs · 4,507 people',t:'Only severity clears the bar',
-   txt:`Across BPD psychotherapies against usual care, BPD severity fell by SMD −0.52 (moderate certainty), about −3.6 points on the 0–36 ZAN-BPD, above the 3.0-point minimal clinically relevant difference. "Only the outcome of BPD severity reached the MIREDIF-defined cut-off for a clinically meaningful improvement", and subgroups found no clear difference between therapy types. [[Storebo2020]] The 2012 review had concluded that "none of the treatments has a very robust evidence base". [[Stoffers2012]]`,
+   txt:`Across BPD psychotherapies against usual care, BPD severity fell by SMD −0.52 (moderate certainty), about −3.6 points on the 0–36 ZAN-BPD, above the 3.0-point minimal clinically relevant difference. BPD severity was the only outcome whose improvement passed the review's MIREDIF cut-off for being clinically meaningful, and subgroups found no clear difference between therapy types. [[Storebo2020]] The 2012 review had concluded that "none of the treatments has a very robust evidence base". [[Stoffers2012]]`,
    pt:`On average, specialised therapy helps more than usual care, most clearly for overall BPD symptoms.`,
    hook:`Cochrane 2020: BPD severity SMD −0.52 (moderate certainty), the only outcome above the clinically meaningful threshold. [[Storebo2020]]`}},
  dbt:{n:'DBT vs usual care',rows:[

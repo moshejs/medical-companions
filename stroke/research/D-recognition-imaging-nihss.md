@@ -220,27 +220,29 @@ Access notes:
 ### nihss · Scoring table for the calculator
 Numbering follows the 1a to 11 form [[Budincevic2022]]; the same content is numbered 1 to 15 in another summary [[ContinuumNIHSS2014]]. Maximum per item is taken from those tables. The total of 42 is the sum of the maxima and agrees with the published maximum [[Budincevic2022]].
 
-| Item | Tests | 0 | 1 | 2 | 3 | 4 | UN | Max |
-|---|---|---|---|---|---|---|---|---|
-| 1a Level of consciousness | Alertness | Alert; responsive | Not alert; somnolent | Not alert; soporose | Comatose | | | 3 |
-| 1b LOC questions | Month, age | Both correct | One correct | Neither correct | | | | 2 |
-| 1c LOC commands | Close eyes, hand grip | Both tasks | One task | Neither task | | | | 2 |
-| 2 Best gaze | Eye movement | Normal | Partial gaze palsy | Total gaze palsy | | | | 2 |
-| 3 Visual | Fields | No visual loss | Partial hemianopia | Complete hemianopia | Bilateral hemianopia (blind including cortical blindness) | | | 3 |
-| 4 Facial palsy | Face | Normal | Minor paralysis | Partial paralysis | Complete paralysis | | | 3 |
-| 5a Motor arm, left (10 s) | Drift | No drift | Drift | Some effort against gravity | No effort against gravity, limb falls | No movement | Amputation or joint fusion | 4 |
-| 5b Motor arm, right (10 s) | Drift | No drift | Drift | Some effort against gravity | No effort against gravity, limb falls | No movement | Amputation or joint fusion | 4 |
-| 6a Motor leg, left (5 s) | Drift | No drift | Drift | Some effort against gravity | No effort against gravity, limb falls | No movement | Amputation or joint fusion | 4 |
-| 6b Motor leg, right (5 s) | Drift | No drift | Drift | Some effort against gravity | No effort against gravity, limb falls | No movement | Amputation or joint fusion | 4 |
-| 7 Limb ataxia | Finger-nose-finger, heel-knee-shin | Absent | Present in one limb | Present in two limbs | | | Amputation or joint fusion | 2 |
-| 8 Sensory | Pinprick | Normal | Mild-to-moderate loss | Severe-to-total loss | | | | 2 |
-| 9 Best language | Aphasia | No aphasia | Mild-to-moderate aphasia | Severe aphasia | Mute, global aphasia | | | 3 |
-| 10 Dysarthria | Articulation | Normal | Mild-to-moderate | Severe | | | Intubated or other physical barrier | 2 |
-| 11 Extinction and inattention | Formerly neglect | No abnormality | Mild | Severe | | | | 2 |
+Response wording for each score is not reproduced here; it is on the official NIH Stroke Scale from NINDS (https://www.ninds.nih.gov/health-information/stroke/assess-and-treat/nih-stroke-scale). Scores run from 0 (normal for that item) upward, higher meaning a greater deficit.
+
+| Item | Tests | Score range | UN allowed | Max |
+|---|---|---|---|---|
+| 1a Level of consciousness | Alertness | 0-3 | | 3 |
+| 1b LOC questions | Month, age | 0-2 | | 2 |
+| 1c LOC commands | Close eyes, hand grip | 0-2 | | 2 |
+| 2 Best gaze | Eye movement | 0-2 | | 2 |
+| 3 Visual | Fields | 0-3 | | 3 |
+| 4 Facial palsy | Face | 0-3 | | 3 |
+| 5a Motor arm, left (10 s) | Drift | 0-4 | Amputation or joint fusion | 4 |
+| 5b Motor arm, right (10 s) | Drift | 0-4 | Amputation or joint fusion | 4 |
+| 6a Motor leg, left (5 s) | Drift | 0-4 | Amputation or joint fusion | 4 |
+| 6b Motor leg, right (5 s) | Drift | 0-4 | Amputation or joint fusion | 4 |
+| 7 Limb ataxia | Finger-nose-finger, heel-knee-shin | 0-2 | Amputation or joint fusion | 2 |
+| 8 Sensory | Pinprick | 0-2 | | 2 |
+| 9 Best language | Aphasia | 0-3 | | 3 |
+| 10 Dysarthria | Articulation | 0-2 | Intubated or other physical barrier | 2 |
+| 11 Extinction and inattention | Formerly neglect | 0-2 | | 2 |
 
 Calculator notes:
 - UN items do not add to the total in the calculator; show them as "untestable". The summary table uses the code 9 for the same situations [[ContinuumNIHSS2014]].
-- Wording differs between summaries. Facial palsy 2 is "partial (lower only)" and 3 "complete (upper and lower)" in one [[ContinuumNIHSS2014]]. Dysarthria 2 is "near to unintelligible or worse" there and "severe" in the other [[Budincevic2022,ContinuumNIHSS2014]]. Item 11 reads "partial" and "complete" neglect in one and "mild" and "severe" in the other.
+- The two summaries word the responses for facial palsy, dysarthria and item 11 differently [[Budincevic2022,ContinuumNIHSS2014]]; check against the official form.
 - Test method details come from the summaries: LOC questions use month and age, ataxia uses finger-nose-finger and heel-knee-shin, and sensation uses pinprick [[ContinuumNIHSS2014]].
 
 Teaching notes for item feedback:
@@ -286,16 +288,16 @@ Teaching notes for item feedback:
 
 ### nihss · Modified Rankin Scale
 - mRS in the 1988 interobserver study has six grades, 0 to 5 [[vanSwieten1988]]. Modern usage is a 7-level scale that adds 6 for death [[Saver2021,Thomalla2018]]. It descends from Rankin's 1957 work [[Rankin1957]].
-- Definitions, as listed in a 2026 clinical study [[Luo2026]]:
+- Grades, summarised in our words from the definitions listed in a 2026 clinical study [[Luo2026]] (the official grade wording is in the published scale):
 
-| mRS | Definition (verbatim from source) | Standard label |
+| mRS | Short name | Standard label |
 |---|---|---|
-| 0 | No symptoms at all | |
-| 1 | No significant disability despite symptoms; able to carry out all usual duties and activities | Symptomatic but nondisabled; excellent [[Saver2021]] |
-| 2 | Slight disability; unable to carry out all previous activities but able to look after own affairs without assistance | |
-| 3 | Moderate disability; requires some help, but able to walk without assistance | |
-| 4 | Moderately severe disability; unable to walk without assistance and unable to attend to own bodily needs without help | |
-| 5 | Severe disability; bedridden, incontinent, and requiring constant nursing care and attention | Requires constant care; very poor [[Saver2021]] |
+| 0 | No symptoms | |
+| 1 | Symptoms, no significant disability; all usual activities possible | Symptomatic but nondisabled; excellent [[Saver2021]] |
+| 2 | Slight disability; not all earlier activities, but manages own affairs without help | |
+| 3 | Moderate disability; needs some help but walks without help | |
+| 4 | Moderately severe disability; cannot walk or manage bodily needs without help | |
+| 5 | Severe disability; bedbound and needing constant nursing care | Requires constant care; very poor [[Saver2021]] |
 | 6 | Death | |
 
 - The Stroke Therapy Academic Industry Roundtable recommends uniform names, because trials had used "a bewildering variety" of labels [[Saver2021]].

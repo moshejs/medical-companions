@@ -90,7 +90,7 @@ const ME_CMP=[
   bars:[['Response, drug',32.9],['Response, placebo',34.2]],unit:'%',
   front:`STAART trial, 149 children aged 5–17 with high levels of repetitive behaviour, 12 weeks: response 32.9% vs 34.2% on placebo (RR 0.96). No benefit. [[King2009F]]`,
   back:[`Side effects were more likely on citalopram: increased energy, impulsiveness, hyperactivity, stereotypy, diarrhoea and insomnia. [[King2009F]]`,
-   `Cochrane (9 trials): "There is no evidence of effect of SSRIs in children and emerging evidence of harm." [[Williams2013SSRI]]`,
+   `Cochrane (9 trials): no evidence that SSRIs help autistic children, and emerging evidence that they cause harm. [[Williams2013SSRI]]`,
    `Repetitive behaviour is a core feature of autism; anxiety or depression in an autistic person is a separate question. [[Pilling2012]]`]}
 ];
 const ME_SMD=[['Aripiprazole',1.179],['Risperidone',1.074],['Antipsychotics (class)',1.028],['ADHD medicines',.471]];

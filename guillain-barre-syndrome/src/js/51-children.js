@@ -30,7 +30,7 @@ const CHD_STEPS=[
  {from:0,at:.04,k:'Step 1 · first signs',t:'Pain, or not wanting to walk',sub:'young children rarely say "my legs are weak"',
   fh:'FIRST MISDIAGNOSED · Rotterdam [[Roodbol2011]]',
   facts:[{l:'Preschool children (15 of 23)',v:68,s:'68%'},{l:'Children 6 to 18 (6 of 32)',v:21,s:'21%'},{l:'Neuropathic pain, German study',v:79,s:'79%'}],
-  txt:'In a prospective German-speaking study of 95 children (median age 6.2 years), the first symptom was usually a gait disturbance or neuropathic pain, and 79% had neuropathic pain at some point [[Korinthenberg2007]]. Children under 6 can present with poorly localised pain, refusal to bear weight, irritability, meningism or an unsteady gait [[Leonhard2019]]. In Rotterdam, 68% of preschool children were first misdiagnosed, against 21% of older children [[Roodbol2011]].',
+  txt:'In a prospective German-speaking study of 95 children (median age 6.2 years), the first symptom was usually a gait disturbance or neuropathic pain, and 79% had neuropathic pain at some point [[Korinthenberg2007]]. Children under 6 may first show pain that is hard to pin down, unwillingness to stand or walk, irritability, a stiff neck (meningism) or wobbly walking [[Leonhard2019]]. In Rotterdam, 68% of preschool children were first misdiagnosed, against 21% of older children [[Roodbol2011]].',
   pt:'In young children the first sign is often pain in the back or legs, or not wanting to walk, so GBS can be missed at first [[Roodbol2011,Nguyen1999]].',
   hook:'Children under 6 often present with pain, refusal to walk or irritability rather than weakness [[Leonhard2019,Roodbol2011]].'},
  {from:.12,at:.22,k:'Step 2 · the climb',t:'Weakness climbs for about a week',sub:'median 7 days of worsening in the German study',

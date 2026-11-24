@@ -216,7 +216,7 @@ Access notes:
 - Even with complete paralysis, consciousness, vision and hearing are usually intact, so bedside talk matters and procedures should be explained [[Leonhard2019]].
 - Ask directly about pain, hallucinations, anxiety and depression, especially with limited communication [[Leonhard2019]].
 - A small 2026 qualitative study named communication barriers among four lived-experience themes [[Susanti2026]].
-- Accurate information on the relatively good chance of recovery and low recurrence risk (2–5%) can reduce fear [[Leonhard2019]].
+- Fear can be eased by accurate information: recovery chances are fairly good and the risk of recurrence is low (2–5%) [[Leonhard2019]].
 - Two-year impairment: 7% still could not walk 10 m independently; over 50% had detectable motor and sensory deficit [[Forsberg2004]].
 
 ### Exam hooks

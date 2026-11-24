@@ -55,7 +55,7 @@ Access notes:
 - Cough frequency during treatment was twofold higher in people whose baseline cavity volume was large (>7 mL; rate ratio 1.98, p = 0.01) and in those whose cavities lay within 10 mm of an airway (RR 2.44, p = 0.001) [[Proano2018]].
 - Cough stopped about three times faster in people with smaller cavities (adjusted HR 2.89, p = 0.06) and cavities farther from the airway (adjusted HR 3.61, p = 0.02); bacillary burden and culture conversion followed the same pattern [[Proano2018]].
 - The mechanism is anatomical rather than behavioural: a large cavity connected to an airway supplies both the organisms and the aerosol-generating cough [[Proano2018]].
-- Smear microscopy does identify the most infectious people, but it is a crude sort: the relative transmission rate of smear-negative compared with smear-positive patients was 0.22 (95% CI 0.16-0.32) in San Francisco [[Behr1999Lancet]].
+- Smear microscopy does identify the most infectious people, but it is a crude sort: in San Francisco, smear-negative patients transmitted at 0.22 times the rate of smear-positive ones (95% CI 0.16-0.32) [[Behr1999Lancet]].
 - In that study 28 of 71 molecular clusters (39%, 95% CI 28-52) had a smear-negative putative source case, and a minimum of 32 of 183 secondary cases (17%, 95% CI 12-24) were attributed to smear-negative, culture-positive source cases [[Behr1999Lancet]].
 - Those estimates survived sensitivity analyses for misclassified and unidentified source cases and stratification by HIV status [[Behr1999Lancet]].
 - Prevalence surveys keep finding a substantial share of bacteriologically confirmed but asymptomatic TB, which points to transmission from people who have not presented for care [[Zenner2027]].
@@ -78,9 +78,9 @@ Access notes:
 - An earlier systematic review found median annual incidence rate ratios of 26.4 (IQR 13.0-61.8) for infection and 23.0 (IQR 11.7-36.1) for TB disease in prisons versus the local general population [[Baussano2010]].
 - The fraction of all TB in the general population attributable to transmission inside prisons was estimated at 8.5% (IQR 1.9-17.9) in high-income and 6.3% (IQR 2.7-17.2) in middle- and low-income countries [[Baussano2010]].
 - Transmission on a long flight has been documented once in detail: after an 8.75-hour flight, 6 of 15 contacts with positive skin tests had no other risk factor and all 6 had sat in the index patient's section [[Kenyon1996]].
-- On that flight, passengers seated within two rows of the index patient were more likely to be skin-test positive than those elsewhere in the section (4 of 13, 30.8%, versus 2 of 55, 3.6%; rate ratio 8.5, 95% CI 1.7-41.3; p = 0.01) [[Kenyon1996]].
+- On that flight, people sitting no more than two rows from the index patient tested skin-test positive more often than the rest of the section (4 of 13, 30.8%, versus 2 of 55, 3.6%; rate ratio 8.5, 95% CI 1.7-41.3; p = 0.01) [[Kenyon1996]].
 - The authors' own conclusion was that the event required the combination of a highly infectious passenger, a long flight and close proximity — not that air travel is generally hazardous [[Kenyon1996]].
-- Household and close contacts remain the highest-yield group anywhere. In 95 studies from low- and middle-income settings, the prevalence of TB disease among all contacts was 3.1% (95% CI 2.2-4.4), microbiologically proven TB 1.2% (0.9-1.8) and TB infection 51.5% (47.1-55.8) [[Fox2013]].
+- Household and close contacts remain the highest-yield group anywhere. Across 95 studies in low- and middle-income countries, TB disease was found in 3.1% of all contacts (95% CI 2.2-4.4), microbiologically proven TB in 1.2% (0.9-1.8) and TB infection in 51.5% (47.1-55.8) [[Fox2013]].
 - Among household contacts specifically, TB prevalence was 3.1% (95% CI 2.1-4.5); among contacts of people with MDR- or XDR-TB it was 3.4% (0.8-12.6) [[Fox2013]].
 - In 108 studies from high-income settings, TB prevalence among contacts was 1.4% (95% CI 1.1-1.8) and infection prevalence 28.1% (24.2-32.4) [[Fox2013]].
 - Incidence among contacts is greatest in the first year after exposure, and children under 5 and people living with HIV are the subgroups most at risk [[Fox2013]].
@@ -200,7 +200,7 @@ Access notes:
 ### risk · Host genetics
 - Twin studies gave the first evidence of host genetic control: re-analysis of the Prophit survey found higher TB concordance in monozygotic than dizygotic twin pairs [[Comstock1978]].
 - Mendelian susceptibility to mycobacterial disease (MSMD) is caused by inborn errors of the interferon-gamma circuit, and the clinical syndrome is childhood-onset disease with weakly virulent mycobacteria including BCG and environmental mycobacteria [[Bustamante2014]].
-- IL-12Rβ1 deficiency is the commonest form of MSMD. In an international survey of 141 patients from 102 kindreds in 30 countries, the mean age at first infection was 2.4 years [[deBeaucoudrey2010]].
+- IL-12Rβ1 deficiency is the commonest form of MSMD. A survey of 141 patients (102 families, 30 countries) found a mean age of 2.4 years at first infection [[deBeaucoudrey2010]].
 - Of 78 patients whose first infection was mycobacterial, 65 were caused by BCG, 9 by environmental mycobacteria and 4 by *M. tuberculosis*; 22 of the remaining 24 probands first presented with non-typhoidal extraintestinal salmonellosis [[deBeaucoudrey2010]].
 - Penetrance is high but incomplete: 20 of 29 genetically affected siblings had clinical signs (69%) while 8 remained asymptomatic (27%); 99 of 141 patients (70%) survived, with mean age 12.7 ± 9.8 years at last follow-up [[deBeaucoudrey2010]].
 - Inherited IL-12Rβ1 and TYK2 deficiencies are each rarer than 1 in 600 000 people, so classical MSMD explains very little TB at population level [[BoissonDupuis2018]].

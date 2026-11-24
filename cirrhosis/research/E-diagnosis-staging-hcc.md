@@ -142,7 +142,7 @@ Access notes:
 - AASLD 2023 says HCC risk stays raised for up to 10 years after SVR in HCV cirrhosis, so surveillance should continue indefinitely in that group [[Singal2023AASLDHCC]].
 
 ### hcc · Surveillance: how, how often, how well
-- AASLD 2023: "HCC surveillance should be performed using ultrasound and AFP at semiannual (approximately every 6 months) intervals" (Level 2, Strong Recommendation) [[Singal2023AASLDHCC]].
+- AASLD 2023 recommends HCC surveillance with an ultrasound plus an AFP blood test about every 6 months (Level 2, Strong Recommendation) [[Singal2023AASLDHCC]].
 - AASLD 2023 does not recommend routine CT- or MRI-based surveillance or tumour biomarkers other than AFP in at-risk people with cirrhosis or chronic HBV (Level 5, Weak) [[Singal2023AASLDHCC]].
 - Semiannual surveillance was linked with earlier stage and longer survival than annual surveillance after lead-time adjustment (40.3 vs 30 months). Quarterly surveillance did not improve on semiannual in an RCT [[Singal2023AASLDHCC]].
 - In a meta-analysis of 32 studies (13,367 patients), ultrasound detected any-stage HCC with 84% sensitivity (95% CI 76–92) but early-stage HCC with only 47% (33–61) [[Tzartzeva2018]].

@@ -239,7 +239,7 @@ inits.living=()=>{
 
   /* ---- language toggle ---- */
   const lb=$('#lvLangBtn'),lo=$('#lvLangOut');let res=false;
-  const LANG=[`<b>ניסוח יומיומי:</b> ״אנה חיה עם דמנציה. הבן שלה מדבר על ההשפעה של התמיכה בה, ועל שינויים בהתנהגות שיכולים להיות ביטוי לצורך שלא נענה.״ [[DementiaAustralia2021]]`,
+  const LANG=[`<b>ניסוח יומיומי:</b> ״אנה חיה עם דמנציה. הבן שלה מתאר מה כרוך בתמיכה בה, ורואה בשינויים בהתנהגות שלה סימן לצורך שלא נענה.״ דוגמה שלנו, במונחים שההנחיות מעדיפות. [[DementiaAustralia2021]]`,
               `<b>ניסוח מחקרי:</b> ״נטל הטיפול נמדד בשאלון Zarit Burden Interview.״ ניסויים כמו ATTILA מדווחים על נטל הטיפול של המטפלים כמדד תוצאה. [[DementiaAustralia2021,Lamb2018,Gathercole2021]]`];
   function lang(){lb.setAttribute('aria-pressed',res);lb.textContent=res?'הצגת הניסוח היומיומי':'הצגת הניסוח המחקרי';lo.innerHTML=LANG[res?1:0]}
   lb.addEventListener('click',()=>{res=!res;lang()});lang();

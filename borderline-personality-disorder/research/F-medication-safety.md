@@ -17,44 +17,44 @@ Access notes:
 
 ### meds · Regulatory status: no medicine is approved for BPD
 - No US prescription drug label lists borderline personality disorder in its indications: an openFDA search of the indications section for "borderline personality" returned no matches on 2026-10-25 [[FDA-LabelSearch2026]].
-- A 2021 systematic review states that "no medications have been approved by regulatory agencies for the treatment of BPD", yet "up to 96%" of people with BPD receive at least one psychotropic medicine [[Gartlehner2021]].
-- The 2024 brexpiprazole trial report opens: "No drugs are currently approved for the treatment of borderline personality disorder (BPD)" [[Rothman2024Brexpiprazole]].
+- A 2021 systematic review notes that no regulator has approved any medicine for treating BPD, yet "up to 96%" of people with BPD receive at least one psychotropic medicine [[Gartlehner2021]].
+- The 2024 brexpiprazole trial report opens by noting that no drug is currently approved for treating BPD [[Rothman2024Brexpiprazole]].
 - The 2022 Cochrane review describes all medication use for BPD as "off-label", despite high prescription rates and frequent use of several drugs at once for long periods [[StoffersWinterling2022]].
 - Medicines that are used (for example quetiapine, olanzapine, lamotrigine, valproate, clozapine) carry US indications for other conditions such as schizophrenia, bipolar disorder or epilepsy, not BPD [[FDA-Seroquel,FDA-Depakote,FDA-Lamictal,FDA-Clozaril]].
 - Clozapine's US label includes "reducing the risk of recurrent suicidal behavior" only in schizophrenia or schizoaffective disorder, not in BPD [[FDA-Clozaril]].
 
 ### meds · Guideline positions on medicines
-- NICE CG78 (2009): "Drug treatment should not be used specifically for borderline personality disorder or for the individual symptoms or behaviour associated with the disorder (for example, repeated self-harm, marked emotional instability, risk-taking behaviour and transient psychotic symptoms)" (recommendation 1.3.5.1) [[NICE2009]].
-- NICE CG78: "Antipsychotic drugs should not be used for the medium- and long-term treatment of borderline personality disorder" (1.3.5.2) [[NICE2009]].
+- NICE CG78 (2009): drugs should not be used specifically to treat BPD, or to treat its individual symptoms or behaviours, such as repeated self-harm, marked emotional instability, risk-taking or brief psychotic symptoms (recommendation 1.3.5.1) [[NICE2009]].
+- NICE CG78: antipsychotics should not be used to treat BPD in the medium or long term (1.3.5.2) [[NICE2009]].
 - NICE CG78: drug treatment "may be considered in the overall treatment of comorbid conditions" (1.3.5.3) [[NICE2009]].
-- NICE CG78: "Short-term use of sedative medication may be considered cautiously as part of the overall treatment plan for people with borderline personality disorder in a crisis", with duration agreed and "no longer than 1 week" (1.3.5.4) [[NICE2009]].
+- NICE CG78: a sedative may be considered cautiously for a short time, as part of the overall plan, when a person with BPD is in crisis, with the duration agreed and "no longer than 1 week" (1.3.5.4) [[NICE2009]].
 - NICE CG78 asks services to review people with BPD and no comorbid illness who are taking medicines, "with the aim of reducing and stopping unnecessary drug treatment" (1.3.5.6) [[NICE2009]].
 - NICE CG78 asks that a person considering any drug be given written information on its evidence for BPD and for any comorbid condition, and on potential harm (1.3.5.5) [[NICE2009]].
-- APA 2024 Statement 6: "APA recommends (1C) that a patient with borderline personality disorder have a review of co-occurring disorders, prior psychotherapies, other non-pharmacological treatments, past medication trials, and current medications before initiating any new medication" [[APA2024Guideline]].
-- APA 2024 Statement 7: "APA suggests (2C) that any psychotropic medication treatment of borderline personality disorder be time-limited, aimed at addressing a specific measurable target symptom, and adjunctive to psychotherapy" [[APA2024Guideline]].
-- APA 2024 Statement 8: "APA recommends (1C) that a patient with borderline personality disorder have a review and reconciliation of their medications at least every 6 months to assess the effectiveness of treatment and identify medications that warrant tapering or discontinuation" [[APA2024Guideline]].
+- APA 2024 Statement 6 (1C): before any new medicine is started, review the person's co-occurring disorders, earlier psychotherapies, other non-drug treatments, past medicine trials and current medicines [[APA2024Guideline]].
+- APA 2024 Statement 7 (2C): any psychiatric medicine for BPD should be given for a limited time, aimed at one specific symptom that can be measured, and used alongside psychotherapy [[APA2024Guideline]].
+- APA 2024 Statement 8 (1C): review and reconcile the person's medicines at least every 6 months, to check whether they work and to spot any that should be tapered or stopped [[APA2024Guideline]].
 - APA 2024 Statement 5 (context for medicines): "APA recommends (1B)" a structured approach to psychotherapy that has support in the literature and targets the core features of the disorder; a "1" is a recommendation and a "2" a suggestion, and C means low-strength evidence [[APA2024Guideline]].
-- APA 2024 implementation text: medicines "would not be expected to affect core features of BPD", and "Frequent dose escalation or medication changes in response to crises or transient mood states are also problematic and rarely effective" [[APA2024Guideline]].
-- APA 2024 implementation text: benzodiazepines are "not generally recommended because of potential for greater impulsivity or disinhibition as well as potential for misuse or development of dependence" [[APA2024Guideline]].
+- APA 2024 implementation text: medicines "would not be expected to affect core features of BPD", and raising doses or switching medicines often in response to crises or passing moods causes problems and rarely works [[APA2024Guideline]].
+- APA 2024 implementation text: benzodiazepines are generally not recommended, because they can increase impulsivity or disinhibition and carry a risk of misuse and dependence [[APA2024Guideline]].
 - APA 2024 implementation text: a low dose of a second-generation antipsychotic "may be used" for psychosis, high impulsivity or agitation, and clozapine "may be considered" for extremely ill hospitalized patients, based on case reports, naturalistic data and a small trial [[APA2024Guideline]].
-- The Lancet seminar: "Psychotherapy is the main treatment for BPD; drug treatment is only indicated for comorbid conditions that require medication, or during a crisis if psychosocial interventions are insufficient" [[Bohus2021]].
+- The Lancet seminar: psychotherapy is the main treatment for BPD, and medicines are only indicated for co-occurring conditions that need them, or in a crisis when psychosocial help is not enough [[Bohus2021]].
 - The Nature Reviews primer warns that failure to diagnose BPD correctly "leads to misleading pharmacological interventions that rarely succeed" [[Gunderson2018]].
-- NICE's self-harm guideline NG225 (2022): "Do not offer drug treatment as a specific intervention to reduce self-harm" (1.11.10) [[NICE2022NG225]].
+- NICE's self-harm guideline NG225 (2022): do not offer medicines specifically to reduce self-harm (1.11.10) [[NICE2022NG225]].
 
 ### meds · What the systematic reviews found
 - Cochrane 2022 included 46 randomised trials (2769 participants; 45 trials and 2752 participants in the meta-analyses), 18 more trials than the 2010 version, testing 29 different medicines [[StoffersWinterling2022]].
-- Cochrane 2022: compared with placebo, "no difference in effects were observed on any of the primary outcomes at the end of treatment for any medication" (BPD severity, self-harm, suicide-related outcomes, psychosocial functioning) [[StoffersWinterling2022]].
+- Cochrane 2022: compared with placebo, no medicine made a difference to any primary outcome at the end of treatment (BPD severity, self-harm, suicide-related outcomes, psychosocial functioning) [[StoffersWinterling2022]].
 - Cochrane 2022, BPD symptom severity versus placebo (very low certainty): antipsychotics SMD -0.18 (95% CI -0.45 to 0.08; 8 trials, 951 people); antidepressants SMD -0.27 (-0.65 to 1.18; 2 trials, 87); mood stabilisers SMD -0.07 (-0.43 to 0.57; 4 trials, 265) [[StoffersWinterling2022]].
 - Cochrane 2022, self-harm versus placebo (very low certainty): antipsychotics RR 0.66 (0.15 to 2.84; 2 trials, 76 people); mood stabilisers RR 1.08 (0.79 to 1.48; 1 trial, 276 people) [[StoffersWinterling2022]].
 - Cochrane 2022, suicide-related outcomes versus placebo (very low certainty): antipsychotics SMD 0.05 (-0.18 to 0.29; 7 trials, 854 people) [[StoffersWinterling2022]].
 - Cochrane 2022, psychosocial functioning (very low certainty): antipsychotics SMD -0.16 (-0.33 to 0.00; 7 trials, 904 people) [[StoffersWinterling2022]].
 - Cochrane 2022, the one signal: low-certainty evidence that antipsychotics may slightly reduce interpersonal problems (SMD -0.21, -0.34 to -0.08; 8 trials, 907 people) and mood stabilisers may reduce them (SMD -0.58, -1.14 to -0.02; 4 trials, 300 people) [[StoffersWinterling2022]].
 - Cochrane 2022: 17 of 46 trials were fully or partly industry-funded; reporting of adverse events was poor and mostly non-standardised [[StoffersWinterling2022]].
-- Cochrane 2022 conclusion: the review "supports the continued understanding that no pharmacological therapy seems effective in specifically treating BPD pathology" [[StoffersWinterling2022]].
-- A 2025 secondary analysis of the Cochrane data (22 trials) found only low or very low certainty evidence on co-occurring symptoms and concluded the findings "do not support the use of pharmacological interventions in people with BPD to target co-occurring psychopathology" [[PereiraRibeiro2025]].
-- Gartlehner 2021 (21 RCTs, 1768 participants; studies existed for only 9 of 87 medicines used in practice): second-generation antipsychotics, anticonvulsants and antidepressants "were not able to consistently reduce the severity of BPD" [[Gartlehner2021]].
+- Cochrane 2022 conclusion: the review backs the existing view that no medicine appears to treat the core pathology of BPD itself [[StoffersWinterling2022]].
+- A 2025 secondary analysis of the Cochrane data (22 trials) found only low or very low certainty evidence on co-occurring symptoms and concluded that the findings do not support using medicines in people with BPD to target co-occurring psychopathology [[PereiraRibeiro2025]].
+- Gartlehner 2021 (21 RCTs, 1768 participants; studies existed for only 9 of 87 medicines used in practice): second-generation antipsychotics, anticonvulsants and antidepressants did not reliably reduce BPD severity [[Gartlehner2021]].
 - Gartlehner 2021: low-certainty evidence that anticonvulsants may improve anger, aggression and affective lability, "mostly limited to single studies"; second-generation antipsychotics improved general psychiatric symptoms more than BPD-specific ones [[Gartlehner2021]].
-- The earlier Cochrane review (2010; 27 trials) found most benefit for topiramate, lamotrigine, valproate semisodium, aripiprazole and olanzapine, but "the robustness of findings is low, since they are based mostly on single, small studies", and no effect on overall BPD severity [[Lieb2010Cochrane]].
+- The earlier Cochrane review (2010; 27 trials) found most benefit for topiramate, lamotrigine, valproate semisodium, aripiprazole and olanzapine, but the findings were not robust, because they rested mostly on single small studies, and there was no effect on overall BPD severity [[Lieb2010Cochrane]].
 - Ingenhoven 2010 (21 placebo-controlled trials to 2007) reported large pooled effects for mood stabilisers on impulsive-behavioural dyscontrol (SMD 1.51) and anger (SMD 1.33); these early small trials were later not confirmed by the larger LABILE trial (Early evidence, superseded) [[Ingenhoven2010,Crawford2018LABILE]].
 - Contrast with psychotherapy: in Cochrane 2020 (75 RCTs, 4507 participants), BPD-tailored psychotherapy reduced BPD severity versus treatment as usual (SMD -0.52, -0.70 to -0.33; 22 trials; moderate-quality evidence) (Established) [[Storebo2020]].
 
@@ -109,15 +109,15 @@ Access notes:
 - Weight gain, olanzapine variable-dose trial: +2.86 kg vs -0.35 kg on placebo (P<0.001), with more raised prolactin [[Schulz2008Olanzapine]].
 - Quetiapine adverse events were sedation, appetite change and dry mouth, more frequent at 300 mg than 150 mg [[Black2014Quetiapine]].
 - APA 2024 lists harms to discuss before prescribing: metabolic syndrome, weight gain, movement side effects or tardive dyskinesia with antipsychotics; neural tube defects with divalproex early in pregnancy; polycystic ovary disease with divalproex; Stevens-Johnson syndrome with lamotrigine; cognitive effects with topiramate [[APA2024Guideline]].
-- APA 2024: medication decisions "should also consider potential risks of toxicity in overdose or potential for misuse, particularly in individuals with a co-occurring SUD" [[APA2024Guideline]].
+- APA 2024: medication decisions should also weigh the risk of harm in overdose and the potential for misuse, especially in people who also have a substance use disorder [[APA2024Guideline]].
 - NICE NG225: when prescribing for someone who has self-harmed or may self-harm, consider the toxicity of medicines in overdose (examples given: opiate-containing painkillers and tricyclic antidepressants), alcohol and drug use, and access to other medicines [[NICE2022NG225]].
 - NICE NG225: use shared decision making to discuss limiting the quantity supplied (for example weekly prescriptions) and ask people to return unwanted medicines [[NICE2022NG225]].
 - Valproate boxed warning (US label): valproate "can cause major congenital malformations, particularly neural tube defects", and "decreased IQ scores and neurodevelopmental disorders following in utero exposure" [[FDA-Depakote]].
-- Valproate label: it "should not be administered to a woman of childbearing potential unless other medications have failed to provide adequate symptom control or are otherwise unacceptable", with effective contraception if used [[FDA-Depakote]].
+- Valproate label: it should not be given to a woman who could become pregnant unless other medicines have not controlled symptoms well enough or are otherwise unacceptable, with effective contraception if it is used [[FDA-Depakote]].
 - EURAP registry (9840 pregnancies on monotherapy, 1999-2022): major congenital malformations in 9.9% with valproate vs 3.1% with lamotrigine and 2.5% with levetiracetam; valproate risk rose with dose [[Battino2024EURAP]].
 - NEAD study: mean IQ at age 6 was 97 after fetal valproate exposure vs 105 (carbamazepine), 108 (lamotrigine) and 108 (phenytoin) [[Meador2013NEAD]].
 - Lamotrigine boxed warning: serious rash including Stevens-Johnson syndrome in about 0.08% to 0.3% of adults; risk rises when combined with valproate [[FDA-Lamictal]].
-- Lithium boxed warning: "Lithium toxicity is closely related to serum lithium levels, and can occur at doses close to therapeutic levels"; APA 2024 notes its narrow therapeutic index and toxicity in overdose for people with BPD and bipolar disorder [[FDA-Lithobid,APA2024Guideline]].
+- Lithium boxed warning (paraphrased): toxicity tracks the serum lithium level closely and can happen at doses near the therapeutic range; APA 2024 notes its narrow therapeutic index and toxicity in overdose for people with BPD and bipolar disorder [[FDA-Lithobid,APA2024Guideline]].
 - Antidepressant boxed warning: antidepressants increased suicidal thoughts and behaviour in children, adolescents and young adults in short-term studies; monitor all ages when starting [[FDA-Prozac]].
 - Clozapine's boxed warning covers severe neutropenia, orthostatic hypotension, bradycardia and syncope, seizure, and myocarditis; "because of the risks of severe neutropenia and of seizure", the label limits its schizophrenia use to people who did not respond to standard antipsychotics [[FDA-Clozaril]].
 
@@ -145,17 +145,17 @@ Access notes:
 - Self-punishment has "strong support" as a function; anti-dissociation, interpersonal influence, anti-suicide and sensation-seeking functions have modest evidence [[Klonsky2007]].
 - In 101 women with BPD, most reported several motives at once, relief from negative emotion was "almost always involved", and positive reinforcement played an extra role in about half [[Kleindienst2008]].
 - NSSI is an early, easily seen marker of risk for developing BPD, and affective instability helps maintain NSSI and raises the risk of suicidal behaviour [[Reichl2021]].
-- NSSI and suicide attempts are different behaviours, but both need a caring, non-judgemental response; NICE says people should "not be excluded from any health or social care service because of their diagnosis or because they have self-harmed" [[NICE2009]].
+- NSSI and suicide attempts are different behaviours, but both need a caring, non-judgemental response; NICE says people must not be shut out of any health or social care service because of their diagnosis or because they have self-harmed [[NICE2009]].
 
 ### crisis · Chronic versus acute risk
 - Paris (2002) distinguishes chronic suicidality, which in outpatient therapy "can be best understood as a way of communicating distress", from acute risk [[Paris2002Chronic]].
-- Paris (2002): "Hospitalization is of unproven value in preventing suicide by these patients and can sometimes have negative effects" (Hypothesis-level, review opinion) [[Paris2002Chronic]].
-- Paris (2019): "no research data support the effectiveness of suicide prevention in this disorder, and hospitalization has not been shown to be useful"; specifically designed psychotherapies have the best evidence [[Paris2019Suicidality]].
+- Paris (2002): it is unproven that hospital admission prevents suicide in these patients, and admission can sometimes do harm (Hypothesis-level, review opinion) [[Paris2002Chronic]].
+- Paris (2019): no research shows that suicide prevention works in this disorder, and admission to hospital has not been shown to help; specifically designed psychotherapies have the best evidence [[Paris2019Suicidality]].
 - APA 2024 implementation text: because of the heightened risk of suicide attempts and death, people with BPD should be monitored for suicide risk, assessments documented, and "individualized safety plans" developed [[APA2024Guideline]].
 - Specialist psychotherapies do reduce self-harm: in Cochrane 2020, DBT vs usual care reduced self-harm (SMD -0.28, -0.48 to -0.07; 7 trials) and MBT reduced self-harm (RR 0.62, 0.49-0.80; 3 trials) [[Storebo2020]].
 
 ### crisis · Why risk scales should not be used to predict suicide
-- NICE NG225 1.6.1: "Do not use risk assessment tools and scales to predict future suicide or repetition of self-harm" [[NICE2022NG225]].
+- NICE NG225 1.6.1 advises against using risk assessment tools and scales to predict future suicide or repeat self-harm [[NICE2022NG225]].
 - NICE NG225 1.6.2-1.6.4: do not use tools, scales or "global risk stratification into low, medium or high risk" to decide who gets treatment or who is discharged [[NICE2022NG225]].
 - NICE NG225 1.6.5-1.6.6: focus assessment on the person's needs and safety, and undertake a risk formulation in every psychosocial assessment [[NICE2022NG225]].
 - Meta-analysis of risk scales: pooled positive predictive value was 5.5% for suicide, 26.3% for self-harm and 35.9% for either; "No 'high-risk' classification was clinically useful" [[Carter2017PPV]].
@@ -163,7 +163,7 @@ Access notes:
 - NICE NG225: the psychosocial assessment should not be delayed until medical treatment is completed, nor because of alcohol levels (1.5.2, 1.5.4) [[NICE2022NG225]].
 
 ### crisis · Safety planning and emergency department care
-- The Safety Planning Intervention is "a brief clinical intervention that combined evidence-based strategies to reduce suicidal behavior through a prioritized list of coping skills and strategies"; in the VA ED study it was paired with at least 2 follow-up phone calls to monitor risk, revise the plan and support engagement in treatment [[Stanley2018ED]].
+- The Safety Planning Intervention is a short clinical intervention that brings together evidence-based ways of reducing suicidal behaviour in a ranked list of coping skills and strategies; in the VA ED study it was paired with at least 2 follow-up phone calls to monitor risk, revise the plan and support engagement in treatment [[Stanley2018ED]].
 - US Veterans ED study (1640 patients; 5 intervention vs 4 control EDs): safety planning plus at least two follow-up calls was followed by suicidal behaviour in 3.03% vs 5.29% over 6 months (OR 0.56, 95% CI 0.33-0.95) [[Stanley2018ED]].
 - In the same study, the intervention group had more than double the odds of attending at least one outpatient mental health visit (OR 2.06, 1.57-2.71) [[Stanley2018ED]].
 - Meta-analysis of safety planning-type interventions (6 studies, 3536 participants): relative risk of suicidal behaviour 0.570 (95% CI 0.408-0.795; number needed to treat 16), with no effect on suicidal ideation (Established for behaviour) [[Nuij2021]].
@@ -183,7 +183,7 @@ Access notes:
 
 ### crisis · Medicines during a crisis
 - NICE CG78: short-term drug treatment "may be helpful" during a crisis; use a single drug, avoid polypharmacy, and choose one with a low side-effect profile, low addictive properties, low misuse potential and "relative safety in overdose" (1.3.7.2-1.3.7.3) [[NICE2009]].
-- NICE CG78 gives a sedative antihistamine as an example (not licensed for this use; informed consent needed), and advises prescribing "fewer tablets more frequently if there is a significant risk of overdose" [[NICE2009]].
+- NICE CG78 gives a sedative antihistamine as an example (not licensed for this use; informed consent needed), and advises smaller supplies given more often when the risk of overdose is significant [[NICE2009]].
 - NICE CG78: plan to stop crisis medicines "usually within 1 week"; if they cannot be stopped, review regularly for effectiveness, side effects, misuse and dependency [[NICE2009]].
 - APA 2024: medication review "is especially useful following stabilization of an acute crisis", which is often what prompts starting a medicine [[APA2024Guideline]].
 

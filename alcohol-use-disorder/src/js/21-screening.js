@@ -29,20 +29,20 @@ const SC_STEPS=[
   txt:`A second illustrative person totals 23, Zone IV: possible dependence, so the published response is referral for diagnostic evaluation and specialist treatment. A high score or any dependence symptom means an assessment is needed, not that AUD is present. Referral is the weakest link of SBIRT: across 9 trials, brief interventions did not increase the use of specialty alcohol services (RR 1.08, 95% CI 0.92–1.28). [[Babor2016AUDITZones,HigginsBiddle2018USAUDIT,Babor2007SBIRT,Glass2015Referral]]`,
   pt:`A high score means "let's look more closely together". Getting from a referral to actual care is where many people are lost.`,
   hook:`SBIRT = Screening, Brief Intervention, Referral to Treatment. Brief intervention does not reliably raise specialty-care uptake.`}];
-/* AUDIT items: stems shortened, answer options and points as published (Saunders 1993) */
-const SC_FREQ=['Never','Less than monthly','Monthly','Weekly','Daily or almost daily'];
-const SC_YN=[['No',0],['Yes, but not in the last year',2],['Yes, during the last year',4]];
+/* AUDIT items: topic labels and points only; the official question wording and answer options are in the WHO AUDIT manual (Babor et al. 2001) */
+const SC_PTS=[0,1,2,3,4];
+const SC_YN=[0,2,4];
 const SC_ITEMS=[
- {d:'Consumption',q:'How often do you have a drink containing alcohol?',o:['Never','Monthly or less','2–4 times a month','2–3 times a week','4 or more times a week']},
- {q:'How many drinks containing alcohol on a typical day when drinking?',o:['1 or 2','3 or 4','5 or 6','7 to 9','10 or more']},
- {q:'How often six or more drinks on one occasion?',o:SC_FREQ},
- {d:'Dependence symptoms',q:'In the last year, how often unable to stop drinking once started?',o:SC_FREQ},
- {q:'In the last year, how often failed to do what was normally expected because of drinking?',o:SC_FREQ},
- {q:'In the last year, how often needed a first drink in the morning to get going after heavy drinking?',o:SC_FREQ},
- {d:'Harms',q:'In the last year, how often a feeling of guilt or remorse after drinking?',o:SC_FREQ},
- {q:'In the last year, how often unable to remember the night before because of drinking?',o:SC_FREQ},
- {q:'Have you or someone else been injured because of your drinking?',yn:true},
- {q:'Has a relative, friend, doctor or other health worker been concerned about your drinking or suggested cutting down?',yn:true}];
+ {d:'Consumption',q:'How often drinking'},
+ {q:'Drinks on a typical day'},
+ {q:'Heavy-drinking occasions'},
+ {d:'Dependence symptoms',q:'Impaired control'},
+ {q:'Neglected duties'},
+ {q:'Morning drinking'},
+ {d:'Harms',q:'Guilt after drinking'},
+ {q:'Memory blackouts'},
+ {q:'Alcohol-related injury',yn:true},
+ {q:'Others concerned',yn:true}];
 /* screening tools: sensitivity / specificity as published, each against its own reference standard */
 const SC_TOOLS=[
  {id:'acm',n:'AUDIT-C ≥4 (men)',se:.86,sp:.89,tgt:'alcohol misuse, primary care',c:'[[Bradley2007AUDITC]]'},
@@ -79,7 +79,7 @@ inits.screening=()=>{
     else if(p===1){s+=title('PRE-SCREEN');
       const hx=N?x+14:x+14,hy=y+40,cw=N?w-28:w/2-28;
       s+=`<text x="${hx}" y="${hy}" class="t-lbl">Single question (NIAAA)</text>`;
-      const q=N?['“How many times in the past year have you had','5 (men) / 4 (women) or more drinks in a day?”']:['“How many times in the past year have you had','5 (men) / 4 (women) or more drinks in a day?”'];
+      const q=['Counts days in the past year with 5 or more','drinks (men) or 4 or more (women)'];
       q.forEach((l,i)=>s+=`<text x="${hx}" y="${hy+17+i*13}" class="t-xs">${l}</text>`);
       s+=`<text x="${hx}" y="${hy+52}" class="t-xs" style="fill:var(--dx);font-weight:600">1 or more = positive · sens 81.8% · spec 79.3%</text>`;
       const ax=N?x+14:x+w/2+10,ay=N?y+110:y+40,aw=N?w-28:w/2-34,v=7*ramp(t,.22,.32),X=k=>ax+aw*k/12;
@@ -163,8 +163,8 @@ inits.screening=()=>{
 
   /* ---------- AUDIT teaching calculator ---------- */
   const qb=$('#scQ'),cs=$('#scCalcSvg'),cn=$('#scCalcNote');let sex=store.get('sc:sex','m');
-  qb.innerHTML=SC_ITEMS.map((it,i)=>{const opts=it.yn?SC_YN:it.o.map((o,j)=>[o,j]);
-    return `${it.d?`<p class="scdom">${it.d} · items ${i+1}–${i===0?3:i===3?6:10}</p>`:''}<label for="scI${i}"><span>${i+1}. ${it.q}</span><select id="scI${i}" data-sci="${i}">${opts.map(([o,v])=>`<option value="${v}">${o} (${v})</option>`).join('')}</select></label>`}).join('');
+  qb.innerHTML=SC_ITEMS.map((it,i)=>{const opts=it.yn?SC_YN:SC_PTS;
+    return `${it.d?`<p class="scdom">${it.d} · items ${i+1}–${i===0?3:i===3?6:10}</p>`:''}<label for="scI${i}"><span>${i+1}. ${it.q}</span><select id="scI${i}" data-sci="${i}">${opts.map(v=>`<option value="${v}">${v} point${v===1?'':'s'}</option>`).join('')}</select></label>`}).join('');
   function calc(){const v=SC_ITEMS.map((_,i)=>+$('#scI'+i).value),tot=v.reduce((a,b)=>a+b,0),ac=v[0]+v[1]+v[2],z=scZone(tot),Z=SC_ZONES[z],cut=sex==='m'?4:3,pos=ac>=cut,dep=v[3]+v[4]+v[5]>0;
     const N=vb(cs,'720 150','400 150');const x0=N?16:30,x1=N?384:690,X=s=>lerp(x0,x1,s/40);let s='';
     s+=`<text x="${x0}" y="16" class="t-sm" style="fill:var(--dx);font-weight:600">AUDIT TOTAL ${tot} / 40</text>`;

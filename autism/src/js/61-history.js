@@ -42,7 +42,7 @@ const HI_STEPS_S=[
   pt:`The word "autism" is older than the diagnosis: at first it described a symptom of schizophrenia.`,
   hook:`Bleuler coined "autism" in 1911; Sukhareva described autistic children in 1926, before Kanner (1943) and Asperger (1944). [[Gundel1993,Manouilenko2015]]`},
  {from:hiT(1937.5),at:hiT(1944.3),k:'1938–1944',t:'Kanner and Asperger',
-  txt:`Kanner examined the first child of his series in 1938 and in 1943 described 11 children who "have come into the world with an innate inability to form the usual, biologically provided contact with people". Calling children "autistic" was not new; an inborn condition distinct from childhood schizophrenia was. In Vienna, Hans Asperger described "autistic psychopaths" in 1938 and published his full study in 1944. [[Olmsted2016,Harris2018Kanner,Vicedo2021,Czech2018]]`,
+  txt:`Kanner examined the first child of his series in 1938 and in 1943 described 11 children who, he wrote, were born with an "innate inability" to make the ordinary, biologically given contact with other people. Calling children "autistic" was not new; an inborn condition distinct from childhood schizophrenia was. In Vienna, Hans Asperger described "autistic psychopaths" in 1938 and published his full study in 1944. [[Olmsted2016,Harris2018Kanner,Vicedo2021,Czech2018]]`,
   pt:`Two doctors on two continents described autistic children within a year of each other.`,
   hook:`Kanner 1943: 11 children; follow-up published 1971. Asperger 1944, recognised internationally only in the 1980s. [[Kanner1971,Czech2018]]`},
  {from:hiT(1956),at:hiT(1964.6),k:'1958–1967',t:'Blame, then biology',

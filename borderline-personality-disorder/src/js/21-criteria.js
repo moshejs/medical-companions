@@ -1,14 +1,14 @@
 /* =============== 2.1 DSM-5-TR criteria =============== */
 const CR_C=[
- {s:['Abandonment','fears'],n:'Abandonment fears',w:`Frantic efforts to avoid real or imagined abandonment. Suicidal or self-harming behaviour is not counted here: it belongs to criterion 5.`,m:'V'},
- {s:['Unstable','relationships'],n:'Unstable, intense relationships',w:`A pattern of unstable and intense relationships that alternate between extremes of idealization and devaluation.`,m:'L'},
- {s:['Identity','disturbance'],n:'Identity disturbance',w:`A markedly and persistently unstable self-image or sense of self.`,m:'U'},
- {s:['Impulsivity','(2+ areas)'],n:'Impulsivity',w:`Impulsivity in at least two areas that are potentially self-damaging, for example spending, sex, substance use, reckless driving or binge eating. Suicidal or self-harming behaviour is not counted here.`,m:'I'},
- {s:['Suicidal or','self-harm'],n:'Suicidal or self-harming behaviour',w:`Recurrent suicidal behaviour, gestures or threats, or self-mutilating behaviour. This is the only criterion under which such behaviour is scored.`,m:'S'},
- {s:['Affective','instability'],n:'Affective instability',w:`Affective instability due to marked reactivity of mood, for example intense episodic dysphoria, irritability or anxiety “usually lasting a few hours and only rarely more than a few days”.`,m:'M'},
- {s:['Chronic','emptiness'],n:'Chronic emptiness',w:`Chronic feelings of emptiness.`,m:'E'},
- {s:['Intense','anger'],n:'Intense anger',w:`Inappropriate, intense anger or difficulty controlling anger, for example frequent displays of temper, constant anger or recurrent physical fights.`,m:'I'},
- {s:['Paranoia or','dissociation'],n:'Stress-related paranoia or dissociation',w:`Transient, stress-related paranoid ideation or severe dissociative symptoms.`,m:'P'}
+ {s:['Abandonment','fears'],n:'Abandonment fears',w:`Desperate efforts not to be left, whether the abandonment is real or only feared. Suicidal or self-harming behaviour is not counted here: it belongs to criterion 5.`,m:'V'},
+ {s:['Unstable','relationships'],n:'Unstable, intense relationships',w:`Close relationships that are intense and unstable, swinging between seeing the other person as ideal and seeing them as worthless.`,m:'L'},
+ {s:['Identity','disturbance'],n:'Identity disturbance',w:`A self-image or sense of who one is that stays clearly unstable over time.`,m:'U'},
+ {s:['Impulsivity','(2+ areas)'],n:'Impulsivity',w:`Impulsive behaviour in at least two areas that could do the person harm, for example spending, sex, substance use, reckless driving or binge eating. Suicidal or self-harming behaviour is not counted here.`,m:'I'},
+ {s:['Suicidal or','self-harm'],n:'Suicidal or self-harming behaviour',w:`Repeated suicidal acts, gestures or threats, or self-injury. This is the only criterion under which such behaviour is scored.`,m:'S'},
+ {s:['Affective','instability'],n:'Affective instability',w:`Mood that reacts sharply to events, for example bursts of intense unease or low mood, irritability or anxiety that typically last a few hours and seldom more than a few days.`,m:'M'},
+ {s:['Chronic','emptiness'],n:'Chronic emptiness',w:`Long-lasting feelings of emptiness.`,m:'E'},
+ {s:['Intense','anger'],n:'Intense anger',w:`Anger that is intense and out of proportion, or hard to control, for example frequent loss of temper, constant anger or repeated physical fights.`,m:'I'},
+ {s:['Paranoia or','dissociation'],n:'Stress-related paranoia or dissociation',w:`Brief paranoid thoughts, or severe dissociation, that come on under stress.`,m:'P'}
 ];
 /* CLPS adult mean symptom ratings, 0-2 (Peters 2023, Table 1) */
 const CR_MEAN=[.75,1.02,.88,1.11,.64,1.23,1.05,1.14,.84];
@@ -25,7 +25,7 @@ const CR_EF=[
 ];
 const CR_STEPS=[
  {from:0,at:.1,k:'DSM-5-TR Section II',t:'Nine criteria on one ring',
-  txt:`DSM-5-TR describes BPD as a pervasive pattern of instability of interpersonal relationships, self-image and affects, with marked impulsivity, that begins by early adulthood and is present in a variety of contexts. It is shown by 5 (or more) of 9 criteria. The defining criteria have not changed in any major way since DSM-III in 1980. [[APA2022,Kaess2025,Leichsenring2024WP]]`,
+  txt:`In DSM-5-TR, BPD is a long-standing pattern of unstable relationships, self-image and emotions, with marked impulsivity, that starts by early adulthood and shows up across many areas of life. At least 5 of 9 criteria must be met. The defining criteria have not changed in any major way since DSM-III in 1980. [[APA2022,Kaess2025,Leichsenring2024WP]]`,
   pt:`There is a list of nine typical difficulties. A diagnosis needs at least five of them, lasting a long time and showing up in many parts of life.`,
   hook:`5 or more of 9, beginning by early adulthood, across a variety of contexts.`},
  {from:.18,at:.32,k:'Person A',t:'Five tiles: the threshold',
@@ -142,9 +142,9 @@ inits.criteria=()=>{
     r+=`<text x="50" y="50" text-anchor="middle" style="font:800 11px var(--display);fill:${met?'var(--good)':'var(--ink)'}">${n}/9</text><text x="50" y="55.6" text-anchor="middle" style="font:600 2.9px var(--mono);fill:var(--muted);letter-spacing:.15px">${met?'THRESHOLD MET':(5-n)+' MORE NEEDED'}</text>`;
     for(let k=0;k<4;k++)r+=`<circle cx="${44.6+k*3.6}" cy="60" r="1.2" style="fill:${gates[k].checked?'var(--dx)':'var(--panel-2)'};stroke:var(--dx);stroke-width:.3"><title>General criterion ${k+1}</title></circle>`;
     rsvg.innerHTML=r;
-    if(last>=0){const c=CR_C[last];det.innerHTML=`<div class="kicker">Criterion ${last+1} · full wording · mnemonic letter ${c.m}</div><h4>${c.n}</h4><p>${c.w} [[APA2022,Kaess2025]]</p><p class="stage-cap">${sel.has(last)?'Counted':'Not counted'} · CLPS mean rating ${CR_MEAN[last].toFixed(2)} of 2</p>`;
+    if(last>=0){const c=CR_C[last];det.innerHTML=`<div class="kicker">Criterion ${last+1} · in plain words · mnemonic letter ${c.m}</div><h4>${c.n}</h4><p>${c.w} [[APA2022,Kaess2025]]</p><p class="stage-cap">${sel.has(last)?'Counted':'Not counted'} · CLPS mean rating ${CR_MEAN[last].toFixed(2)} of 2</p>`;
       if(flip){det.classList.remove('flip');void det.offsetWidth;det.classList.add('flip')}}
-    else det.innerHTML=`<div class="kicker">The flip side</div><h4>Tap a tile</h4><p>Each tile shows a short label. Tap it to count it, and its full wording appears here.</p>`;
+    else det.innerHTML=`<div class="kicker">The flip side</div><h4>Tap a tile</h4><p>Each tile shows a short label. Tap it to count it, and a plain-words summary appears here.</p>`;
     const v=$('#crVerdict');
     if(!met){v.className='verdict no';v.innerHTML=`${n} of 9: below the DSM-5-TR threshold of 5.${n?` Features below the threshold still matter: people with even one criterion had more co-occurring disorders, hospital admissions and time off work than people with none. [[Zimmerman2012JCP]]`:''}`}
     else if(g<4){v.className='verdict maybe';v.innerHTML=`${n} of 9 counted, but ${4-g} of the 4 general criteria ${4-g===1?'is':'are'} not ticked. A count alone is not a diagnosis: a clinician asks whether the pattern is enduring, pervasive and not better explained by something else.`}

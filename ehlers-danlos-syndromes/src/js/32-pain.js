@@ -96,7 +96,7 @@ inits.pain=()=>{
   const MECH={
     tissue:{t:'Tissue injury (nociceptive)',ev:'<span class="ev est">Established</span>',col:'var(--muscle)',
       nodes:['Lax joint slips','Capsule, tendon, muscle strain','Nociceptors fire','Guarding, less use','Weaker, less control'],
-      txt:`Pain is multifactorial. The 2017 pain consensus lists subluxations and dislocations, previous surgery, muscle weakness, proprioceptive disorders and spinal instability, as well as gut, jaw, menstrual and pelvic pain. In 273 Dutch people with EDS, pain severity correlated with hypermobility, dislocations, previous surgery and poor sleep. The weight of each cause is unknown. [[Chopra2017,Voermans2010]]`,
+      txt:`Pain is multifactorial. The 2017 pain consensus names many sources: joints slipping partly or fully out of place, past operations, weak muscles, poor sense of joint position and an unstable spine, along with pain from the gut, jaw, periods and pelvis. In 273 Dutch people with EDS, pain severity correlated with hypermobility, dislocations, previous surgery and poor sleep. The weight of each cause is unknown. [[Chopra2017,Voermans2010]]`,
       pt:`Joints that slip strain the tissues around them, and that hurts. Then people often protect the joint by using it less, which makes the muscles weaker and the joint less stable.`},
     central:{t:'Central sensitisation (nociplastic)',ev:'<span class="ev early">Early evidence</span> for the signs · <span class="ev hyp">Hypothesis</span> for the trigger',col:'var(--dx)',
       nodes:['Ongoing joint input','Spinal cord amplifies (wind-up)','Thresholds fall everywhere','Pain from less input'],

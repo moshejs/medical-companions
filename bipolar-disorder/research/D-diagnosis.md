@@ -15,48 +15,48 @@ Access notes:
 ## Findings
 
 ### criteria · The manic episode (DSM-5-TR)
-- Criterion A has two parts that must both be present. The first is a distinct period of abnormally and persistently elevated, expansive or irritable mood. The second is abnormally and persistently increased activity or energy. Together they must last at least 1 week and be present most of the day, nearly every day, or any duration if hospitalisation is necessary [[APA2022,Yatham2018]].
-- Criterion B requires at least 3 of 7 symptoms, or 4 if the mood is only irritable. The symptoms must be present to a significant degree and represent a noticeable change from usual behaviour:
-  - inflated self-esteem or grandiosity
-  - decreased need for sleep
-  - more talkative than usual, or pressure to keep talking
-  - flight of ideas, or the experience that thoughts are racing
-  - distractibility
-  - increased goal-directed activity or psychomotor agitation
-  - excessive involvement in activities with a high potential for painful consequences [[APA2022,Yatham2018]]
+- Criterion A has two parts that must both be present (summarised in our own words, not quoted). The first is a clear stretch of time when mood is unusually and steadily high, expansive or irritable. The second is activity or energy that is unusually and steadily raised. Together they must last at least 1 week, for most of each day on almost every day, or for any length of time if the person needs hospital care [[APA2022,Yatham2018]].
+- Criterion B requires at least 3 of 7 symptoms, or 4 if the mood is only irritable. The symptoms must be clearly present and must be a real change from how the person usually behaves. In plain words, the seven are:
+  - an overblown sense of self-worth or importance (grandiosity)
+  - needing much less sleep than usual
+  - talking much more than usual, or feeling driven to keep talking
+  - thoughts that race or leap from idea to idea
+  - being very easily distracted
+  - far more activity aimed at goals, or restless agitation
+  - throwing oneself into risky activities likely to end in harm [[APA2022,Yatham2018]]
 - The DSM text illustrates decreased need for sleep as feeling rested after only 3 hours of sleep. This is different from insomnia, where the person wants to sleep but cannot (unverified) [[APA2022]].
 - Criterion C requires at least one of the following, which separates mania from hypomania:
-  - marked impairment in social or occupational functioning
-  - hospitalisation to prevent harm to self or others
+  - serious disruption of work or social life
+  - hospital care needed to keep the person or others safe
   - psychotic features [[APA2022,Yatham2018]]
-- Criterion D requires that the episode is not attributable to the physiological effects of a substance (a drug of abuse, a medication, another treatment) or to another medical condition [[APA2022,Yatham2018]].
-- A full manic episode that emerges during antidepressant treatment (medication or ECT) and persists at a fully syndromal level beyond the physiological effect of that treatment is sufficient evidence for a manic episode, and therefore for bipolar I disorder. CANMAT notes that DSM-IV did not allow this [[APA2022,Yatham2018]].
+- Criterion D requires that a substance (a street drug, a medicine or another treatment) or another medical condition is not the cause [[APA2022,Yatham2018]].
+- If a full manic episode starts during antidepressant treatment (medication or ECT) and stays at full strength after the treatment's direct effect should have worn off, that is enough to count as a manic episode, and therefore as bipolar I disorder. CANMAT notes that DSM-IV did not allow this [[APA2022,Yatham2018]].
 - DSM-5 (2013) changed Criterion A for mania and hypomania by adding "abnormally and persistently increased activity or energy". In DSM-IV a mood change alone was enough [[Yatham2018,Grunze2021]].
 - Grunze and colleagues report from their own research that the prevalence of manic or hypomanic episodes drops by at least one third when the DSM-5 energy/activity requirement is applied. Whether this helps or harms practice is unresolved (Early evidence) [[Grunze2021]].
 - At least one lifetime manic episode is required, and is enough, for a DSM-5-TR diagnosis of bipolar I disorder [[APA2022,McIntyre2020Lancet]].
 
 ### criteria · The hypomanic episode (DSM-5-TR)
-- Hypomania has the same two-part Criterion A as mania (elevated, expansive or irritable mood plus increased activity or energy). It needs to last at least 4 consecutive days and be present most of the day, nearly every day [[APA2022,Yatham2018]].
-- It requires the same 3 of 7 Criterion B symptoms (4 if the mood is only irritable), persisting and present to a significant degree [[APA2022,Yatham2018]].
-- The episode brings an unequivocal change in functioning that is uncharacteristic of the person when not symptomatic, and the change is observable by others [[APA2022,Yatham2018]].
-- The episode is not severe enough to cause marked impairment or to need hospitalisation. If there are psychotic features, the episode is by definition manic [[APA2022,Yatham2018]].
-- A full hypomanic episode that emerges during antidepressant treatment and persists at a fully syndromal level beyond the physiological effect of the treatment counts as hypomania. DSM cautions that one or two symptoms, particularly irritability, edginess or agitation after starting an antidepressant, are not enough for this diagnosis and do not necessarily indicate a bipolar diathesis (unverified) [[APA2022]].
+- Hypomania has the same two-part Criterion A as mania (high, expansive or irritable mood plus raised activity or energy). It needs to last at least 4 days in a row, for most of each day on almost every day [[APA2022,Yatham2018]].
+- It requires the same 3 of 7 Criterion B symptoms (4 if the mood is only irritable), lasting and clearly present [[APA2022,Yatham2018]].
+- The episode clearly changes how the person functions, in a way that is unlike them when well, and other people can see the change [[APA2022,Yatham2018]].
+- The episode does not seriously disrupt work or social life and does not need hospital care. If there are psychotic features, the episode is by definition manic [[APA2022,Yatham2018]].
+- If a full hypomanic episode starts during antidepressant treatment and stays at full strength after the treatment's direct effect should have worn off, it counts as hypomania. DSM adds a caution: one or two symptoms after starting an antidepressant, especially irritability, edginess or agitation, are not enough for this diagnosis and do not necessarily point to a bipolar tendency (unverified) [[APA2022]].
 - DSM-5 also allows the mixed features specifier on hypomanic episodes [[Yatham2018]].
 
 ### criteria · The major depressive episode (DSM-5-TR)
-- A major depressive episode requires 5 or more of 9 symptoms during the same 2-week period, representing a change from previous functioning. At least one of the symptoms must be depressed mood or loss of interest or pleasure [[APA2022,Yatham2018]].
-- The 9 symptoms are:
-  - depressed mood
-  - markedly diminished interest or pleasure
-  - significant weight or appetite change
-  - insomnia or hypersomnia
-  - psychomotor agitation or retardation
-  - fatigue or loss of energy
-  - feelings of worthlessness or excessive guilt
-  - diminished ability to think, concentrate or decide
-  - recurrent thoughts of death or suicide [[APA2022,Yatham2018]]
+- A major depressive episode requires 5 or more of 9 symptoms within the same 2-week period, marking a change from how the person was before. At least one of the symptoms must be depressed mood or loss of interest or pleasure [[APA2022,Yatham2018]].
+- In plain words, the 9 symptoms are:
+  - low mood
+  - a clear loss of interest or pleasure
+  - a clear change in weight or appetite
+  - sleeping too little or too much
+  - restlessness, or being slowed down
+  - tiredness or low energy
+  - feeling worthless or far too guilty
+  - trouble thinking, concentrating or deciding
+  - thoughts of death or suicide that keep returning [[APA2022,Yatham2018]]
 - The weight criterion is illustrated as a change of more than 5% of body weight in a month (unverified) [[APA2022]].
-- The episode must cause clinically significant distress or impairment and must not be attributable to a substance or another medical condition [[APA2022]].
+- The episode must cause real distress or clear harm to functioning, and a substance or another medical condition must not be the cause [[APA2022]].
 - CANMAT states that the DSM-5 criteria for bipolar depression are unchanged from DSM-IV. No separate criteria set exists for "bipolar depression"; it is a major depressive episode occurring in someone with bipolar disorder [[Yatham2018,Mitchell2008]].
 - Mitchell and colleagues found "no pathognomonic characteristics" that tell bipolar I depression from unipolar depression, and proposed a probabilistic approach instead of categorical criteria [[Mitchell2008]].
 
@@ -71,10 +71,10 @@ Access notes:
   - people with bipolar II spend as much time symptomatic as those with bipolar I, mostly in the depressive phase [[Yatham2018]]
 - CANMAT states that rates of attempted suicide are similar in bipolar I and bipolar II. This is a population statistic, and it is a reason for regular, kind safety check-ins and early help-seeking, not for fear [[Yatham2018]].
 - The bipolar II diagnosis is generally stable over time. There may be a higher risk of conversion to bipolar I early in the illness [[Yatham2018]].
-- Cyclothymic disorder requires at least 2 years (at least 1 year in children and adolescents) of numerous periods with hypomanic symptoms that do not meet criteria for a hypomanic episode, and numerous periods with depressive symptoms that do not meet criteria for a major depressive episode [[APA2022,Yatham2018]].
+- Cyclothymic disorder requires at least 2 years (at least 1 year in children and adolescents) with many spells of hypomanic symptoms that fall short of a hypomanic episode, and many spells of depressive symptoms that fall short of a major depressive episode [[APA2022,Yatham2018]].
 - In cyclothymic disorder the symptoms are present at least half the time, and the person is not without symptoms for more than 2 months at a time (unverified) [[APA2022]].
 - Criteria for a major depressive, manic or hypomanic episode have never been met in cyclothymic disorder. CANMAT places it at the mild end of the bipolar spectrum, with bipolar I at the other end and bipolar II between them [[APA2022,Yatham2018]].
-- Van Meter and colleagues describe cyclothymic disorder as rarely diagnosed clinically despite evidence that it "may be the most prevalent form of bipolar disorder". They call it highly impairing and a possible diathesis for major mood disorders (Early evidence) [[VanMeter2012]].
+- Van Meter and colleagues point out that cyclothymic disorder is seldom diagnosed in clinics, although evidence suggests it "may be the most prevalent form of bipolar disorder". They describe it as highly impairing and as a possible underlying vulnerability to major mood disorders (Early evidence) [[VanMeter2012]].
 - In the WHO World Mental Health surveys of 61,392 adults in 11 countries, lifetime prevalences were:
   - bipolar I: 0.6%
   - bipolar II: 0.4%
@@ -100,7 +100,7 @@ Access notes:
   - pure hypomania: 3.3%
   - whole "soft bipolar spectrum": 23.7%
   - The authors argued that hypomania should be defined by 3 of 7 symptoms plus a change in functioning, regardless of episode length (Hypothesis) [[Angst2003]].
-- In the US National Comorbidity Survey Replication, nearly 40% of people with a history of major depressive disorder had a history of subthreshold hypomania. That subgroup had earlier onset, more depressive episodes and more comorbidity (Early evidence) [[Angst2010NCSR]].
+- In the US National Comorbidity Survey Replication, nearly 40% of people who had ever had major depressive disorder had also had subthreshold hypomania. That subgroup had earlier onset, more depressive episodes and more comorbidity (Early evidence) [[Angst2010NCSR]].
 - Ghaemi and colleagues proposed a heuristic "bipolar spectrum disorder" that gives weight to family history and to antidepressant-induced manic symptoms. It is not part of DSM or ICD (Hypothesis) [[Ghaemi2002]].
 
 ### types · ICD-11 (WHO) and how it differs from DSM-5-TR
@@ -218,8 +218,8 @@ Access notes:
 - CANMAT: validated self-report tools such as the MDQ may "flag patients for whom a more detailed assessment is needed". However, the guideline adds [[Yatham2018]]:
   - they have poor sensitivity and specificity, especially in community or highly comorbid populations
   - they also flag people with borderline traits
-  - they should be used "only as an adjunct for screening clinical populations and not for diagnostic or treatment planning purposes"
-- NICE: "Do not use questionnaires in primary care to identify bipolar disorder in adults" (recommendation 1.2.3). The same applies to children and young people (1.11.1) [[NICE2014CG185]].
+  - they should be used only as an extra aid when screening people already in clinical care, and never to make a diagnosis or plan treatment
+- NICE advises against using questionnaires in primary care to identify bipolar disorder in adults (recommendation 1.2.3). The same applies to children and young people (1.11.1) [[NICE2014CG185]].
 - NICE recommendation 1.2.1: when adults present in primary care with depression, ask about previous periods of overactivity or disinhibited behaviour. If that behaviour lasted 4 days or more, consider referral for a specialist mental health assessment [[NICE2014CG185]].
 - NICE 1.2.2: refer urgently if mania or severe depression is suspected, or if the person is a danger to themselves or others [[NICE2014CG185]].
 - Zimmerman showed that several studies used the MDQ as a "diagnostic proxy" (case-finding) instead of a screen. He argues this has distorted conclusions about the prevalence, morbidity and under-recognition of bipolar disorder [[Zimmerman2012MDQ]].
@@ -343,7 +343,7 @@ Access notes:
   - earlier onset of depression: g = −0.33
 - In 74 young adults hospitalised for unipolar depression and followed for 15 years, 27% developed hypomania and another 19% developed mania. Psychotic features at the index depression predicted the switch [[Goldberg2001]].
 - In 550 people with major depression followed for a mean of 17.5 years, 19.6% developed hypomania or mania. Their diagnoses were revised to bipolar II in 12.2% and bipolar I in 7.5% [[Fiedorowicz2011]].
-- In that cohort, baseline subthreshold decreased need for sleep, unusually high energy and increased goal-directed activity predicted progression. Most people who progressed had no hypomanic symptoms at baseline [[Fiedorowicz2011]].
+- In that cohort, three mild symptoms at baseline (needing less sleep, unusually high energy and more goal-directed activity) predicted who would progress. Most people who progressed had no hypomanic symptoms at baseline [[Fiedorowicz2011]].
 - Across 51 reports of people with MDD treated with antidepressants, mood switching to mania, hypomania or mixed states occurred in 8.18% over 2.39 years (3.42% per year). Further findings [[Baldessarini2013]]:
   - switching was 2.6 times more likely with antidepressant treatment than without
   - it was 4.5 times more frequent in juveniles than in adults

@@ -9,7 +9,7 @@ const srcFmt=h=>h<1?Math.round(h*60)+' min':h<48?(h<10?f1(h):Math.round(h))+' h'
 const SRC_PCT=[[0,4],[.5,8],[1,12],[2,10.5],[3,8.2],[4,6],[5,4.2],[6,3],[7,2.2],[8,1.7]];
 const SRC_STEPS=[
  {from:0,at:.05,k:'Hour 0 · recognition',t:'Suspect sepsis, look for the source',
-  txt:`Sepsis is suspected in a person with fever, flank pain and falling blood pressure. SSC 2021: "rapidly identifying or excluding a specific anatomical diagnosis of infection that requires emergent source control" (Best Practice Statement). [[Evans2021SSC]] Here imaging shows a stone blocking an infected kidney. In BALANCE, the urinary tract was the commonest source of bloodstream infection (42.2%). [[Daneman2025BALANCE]]`,
+  txt:`Sepsis is suspected in a person with fever, flank pain and falling blood pressure. SSC 2021 asks teams to confirm or rule out quickly an infection in a specific place that needs urgent source control (Best Practice Statement). [[Evans2021SSC]] Here imaging shows a stone blocking an infected kidney. In BALANCE, the urinary tract was the commonest source of bloodstream infection (42.2%). [[Daneman2025BALANCE]]`,
   pt:`The team looks for where the infection started, because some sources (a blocked kidney, a pocket of pus, an infected line) need more than antibiotics.`,
   hook:`Source control = find it, then drain, debride or remove it "as soon as medically and logistically practical" (SSC 2021). [[Evans2021SSC]]`},
  {from:.1,at:.17,k:'First hour',t:'Cultures first, then antibiotics within the hour',

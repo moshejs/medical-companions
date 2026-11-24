@@ -15,7 +15,7 @@ Access notes:
 ## Findings
 
 ### living · School: what guidelines say
-- The AAP 2019 guideline says educational interventions and individualised instructional supports are "a necessary part of any treatment plan". It names school environment, class placement, instructional placement and behavioural supports, and says these "often include an Individualized Education Program (IEP) or a rehabilitation plan (504 plan)" (grade A, strong recommendation) [[Wolraich2019]].
+- The AAP 2019 guideline says educational interventions and individualised instructional supports are a necessary part of any treatment plan. It names school environment, class placement, instructional placement and behavioural supports, and says these often take the form of an Individualized Education Program (IEP) or a 504 rehabilitation plan (grade A, strong recommendation) [[Wolraich2019]].
 - For school-age children (6 to 12 years), AAP 2019 recommends FDA-approved medication together with parent training in behaviour management and/or behavioural classroom intervention, preferably both (grade A) [[Wolraich2019]].
 - NICE NG87 1.4.12 asks clinicians, with consent, to contact the school, college or university at diagnosis, when symptoms change, and at each transition between schools or into college or university. The contact covers how ADHD may affect school life, the treatment plan, special educational needs, and advice on "reasonable adjustments and environmental modifications" [[NICE2018H]].
 - NICE gives examples of environmental modifications: changes to seating, lighting and noise; fewer distractions (for example headphones); shorter periods of focus with movement breaks, including "I need a break" cards; written instructions to back up spoken requests; and teaching assistants at school [[NICE2018H]].
@@ -24,7 +24,7 @@ Access notes:
 - In 85% of IEPs, the statement of present performance described non-academic or behaviour problems, but fewer than half had measurable goals targeting those needs [[Spiel2014]].
 
 ### living · School: accommodations and extended time
-- A systematic review of 68 documents found that accommodations are "by far the most common response to ADHD in educational settings", and extended time on tests is especially common. Most accommodations showed no ADHD-specific benefit, and many common ones have few or no experimental studies [[Lovett2021]].
+- A systematic review of 68 documents found that accommodations are by far the most common way schools respond to ADHD, and extended time on tests is especially common. Most accommodations showed no ADHD-specific benefit, and many common ones have few or no experimental studies [[Lovett2021]].
 - The exception was read-aloud accommodations, with two randomised experiments showing specific benefit for younger students with ADHD [[Lovett2021]].
 - The review advises that accommodations be provided alongside evidence-based interventions, or after interventions have failed, and not straight after diagnosis [[Lovett2021]].
 - Among college students, those reporting more ADHD symptoms and executive-function problems benefited less from extended time. Students' own sense of needing more time did not predict benefit [[Lovett2015]].
@@ -46,7 +46,7 @@ Access notes:
 - A US systematic review estimated the national annual excess cost of ADHD at US$143 to $266 billion (2010 dollars). Most of this was in adults ($105 to $194 billion), mainly productivity and income losses ($87 to $138 billion). Family members carried $33 to $43 billion [[Doshi2012]].
 - A US study of about 15,000 adolescents found that, in adulthood, people with ADHD had 12% lower employment and 34% lower earnings than their siblings without ADHD (as summarised in the World Federation consensus) [[Faraone2021]].
 - An international consensus on occupational issues found weak arrangements in the UK and elsewhere for work difficulties linked to adult ADHD. It found occupational health was used as a "last resort" and not as a way to make positive workplace changes [[Adamou2013]].
-- NICE 1.4.3 says the discussion after diagnosis should cover employment issues, "for example, impact on career choices and rights to reasonable adjustments in the workplace" [[NICE2018H]].
+- NICE 1.4.3 says the discussion after diagnosis should cover work, such as how ADHD may affect career choices and the right to reasonable adjustments at work [[NICE2018H]].
 
 ### safety · Driving
 - In a meta-analysis of 16 studies (32 results), drivers with ADHD had a relative crash risk of 1.36 (95% CI 1.18–1.57) without control for exposure. The figure was 1.23 (95% CI 1.04–1.46) after controlling for distance driven, similar to drivers with cardiovascular disease [[Vaa2014]].
@@ -84,7 +84,7 @@ Access notes:
 - NICE 1.4.11 tells clinicians to explain that a recommendation for parent training "does not imply bad parenting". Its aim is to meet "the above-average parenting needs" of children with ADHD [[NICE2018H]].
 - NICE 1.4.8 asks clinicians to think about the needs of a parent with ADHD whose child also has ADHD, including extra help with organisation, treatment adherence and school routines [[NICE2018H]].
 - A meta-analysis of 32 studies found that parental ADHD symptoms explained 2.9% of the variance in harsh parenting, 3.2% in lax parenting and 0.5% in positive parenting. These effects are small and similar to those of other parental mental health conditions [[Park2017Parenting]].
-- Parents of youths diagnosed with ADHD in childhood (n = 282) were more likely to divorce, and to divorce sooner, than parents of youths without ADHD (n = 206) [[Wymbs2008]].
+- Parents whose children had been diagnosed with ADHD (n = 282) divorced more often, and earlier, than parents of youths without ADHD (n = 206) [[Wymbs2008]].
 - In a UK survey of 476 children with ADHD and 337 siblings, the child with ADHD had about 6% lower health-related quality of life (CHU-9D). Siblings had no consistent loss of health-related quality of life but reported lower happiness with life and family, and sibling bullying was more common [[Peasgood2016]].
 - NICE 1.4.6–1.4.7 asks clinicians to discuss how ADHD affects other family members and to encourage carers to seek an assessment of their own needs and to join support groups [[NICE2018H]].
 - US family members of people with ADHD had average annual healthcare costs of US$2,728, compared with $1,440 for family members of matched controls (as summarised in the World Federation consensus) [[Faraone2021]].
@@ -120,7 +120,7 @@ Access notes:
 - Pooling US and Nordic data, first-trimester methylphenidate had an adjusted RR of 1.28 (95% CI 1.00–1.64) for cardiac malformations. Amphetamines showed no increase (RR 0.96) [[Huybrechts2018]].
 - After first-trimester atomoxetine (990 exposed pregnancies in the US and Nordic countries), the adjusted prevalence ratio for any major malformation was 0.99 (0.74–1.34) and for cardiac malformations 1.34 (0.86–2.09) [[Broms2023]].
 - In US Medicaid data, stimulant use in early pregnancy was linked to preeclampsia (aRR 1.29, 1.11–1.49) but not to placental abruption (1.13) or small-for-gestational-age (0.91). Continuing after 20 weeks was linked to preterm birth (aRR 1.30, 1.10–1.55). The authors say the absolute increases are small [[Cohen2017Placenta]].
-- The authors of the same study conclude that "women with significant ADHD should not be counseled to suspend their ADHD treatment based on these findings" [[Cohen2017Placenta]].
+- The authors of the same study conclude that these findings are not a reason to advise women with significant ADHD to stop their treatment [[Cohen2017Placenta]].
 - In Sweden (964,734 infants), exposure to ADHD medication during pregnancy was linked to more neonatal intensive care admissions (aOR 1.5, 1.3–1.7, compared with no use). It was not linked to malformations or perinatal death. The authors note it is uncertain how much the medication itself explains this [[Norby2017]].
 - In US cohorts, prenatal amphetamine exposure was not linked to childhood autism, ADHD or other neurodevelopmental disorders after adjustment. A link between methylphenidate and child ADHD (HR 1.43) disappeared with stricter control for maternal ADHD [[Suarez2024]].
 - In 1,068,073 Danish births, children whose mothers continued ADHD medication in pregnancy (n = 898) had no higher risk of developmental disorders than children whose mothers stopped before pregnancy (aHR 0.97, 0.81–1.17) [[BangMadsen2023]].
@@ -132,16 +132,16 @@ Access notes:
 - The Strattera label says there are no data on atomoxetine in human milk. The Intuniv label says to monitor breastfed infants for sedation, lethargy and poor feeding [[FDA-Strattera,FDA-Intuniv]].
 
 ### living · Stigma, language and girls and women
-- The World Federation consensus was written because "misconceptions about ADHD stigmatize affected people, reduce credibility of providers, and prevent/delay treatment". It lists 208 evidence-based statements, approved by 80 authors from 27 countries and endorsed by 366 readers [[Faraone2021]].
+- The World Federation consensus was written because mistaken beliefs about ADHD stigmatise people who have it, undermine trust in clinicians, and stop or delay treatment. It lists 208 evidence-based statements, approved by 80 authors from 27 countries and endorsed by 366 readers [[Faraone2021]].
 - A review of ADHD stigma found the main contributors were doubt about whether the diagnosis is valid, perceived dangerousness, scepticism about medication, and disclosing a diagnosis or medication use. It describes stigma as an underestimated risk factor for poor adherence and lower wellbeing [[Mueller2012]].
 - NICE 1.4.3 asks clinicians to discuss with people after diagnosis both the positive effects (understanding symptoms, building on strengths, better access to services) and the negative effects, "such as stigma and labelling" [[NICE2018H]].
 - NICE 1.9.3 tells clinicians to check that adherence problems are not caused by misconceptions, "for example, tell people that medication does not change personality" [[NICE2018H]].
-- NICE 1.7.20 lists "reducing stigma (because there is no need to take medication at school or in the workplace)" as one reason to think about once-daily modified-release stimulants [[NICE2018H]].
+- NICE 1.7.20 lists less stigma, since no dose is needed at school or work, as one reason to think about once-daily modified-release stimulants [[NICE2018H]].
 - A UK expert consensus says the male-to-female gap in diagnosis partly reflects under-recognition and referral bias in girls. It advises attending to "more subtle and/or internalised" presentations and to compensatory strategies that can mask symptoms [[Young2020Females]].
 - Parent ratings (29 studies) and teacher ratings (24 studies) show a male-to-female symptom ratio of roughly two to one in young people [[Faraone2021]].
 
 ### living · Transition from child to adult services
-- NICE 1.1.4 says young people with ADHD should be reassessed at school-leaving age. If they need continuing treatment, transition to adult services "should usually be completed by the time the young person is 18 years" [[NICE2018H]].
+- NICE 1.1.4 says young people with ADHD should be reassessed at school-leaving age. If they need continuing treatment, transition to adult services should normally be finished by age 18 [[NICE2018H]].
 - NICE 1.1.5 advises considering a formal meeting between child and adult services and using the care programme approach from age 16. NICE 1.1.6 asks adult services to carry out a full assessment after transfer [[NICE2018H]].
 - AAP 2019 says transition planning is best started at about age 14, at the start of high school, with a focus on the 2 years before high school ends [[Wolraich2019]].
 - In a UK national surveillance study, the need for transition among young people on ADHD medication was 202 to 511 per 100,000 people aged 17 to 19 per year. Successful transition was 38 to 96 per 100,000 [[Eke2020]].
@@ -165,11 +165,11 @@ Access notes:
   - a murmur
   - blood pressure in the adult hypertensive range
 - NICE 1.7.6 calls for referral to a paediatric hypertension specialist before starting medication if a child's blood pressure is consistently above the 95th centile for age and height [[NICE2018H]].
-- Stimulant labels (Concerta, Vyvanse, Adderall XR, Focalin XR, Jornay PM) require pretreatment screening for cardiac disease: "a careful history, family history of sudden death or ventricular arrhythmia, and physical exam". They also require a check of family history and examination for tics or Tourette's syndrome [[FDA-Concerta,FDA-Vyvanse,FDA-AdderallXR,FDA-FocalinXR,FDA-JornayPM]].
+- Stimulant labels (Concerta, Vyvanse, Adderall XR, Focalin XR, Jornay PM) require screening for heart disease before treatment: a careful personal history, a family history of sudden death or ventricular arrhythmia, and a physical examination. They also require a check of family history and examination for tics or Tourette's syndrome [[FDA-Concerta,FDA-Vyvanse,FDA-AdderallXR,FDA-FocalinXR,FDA-JornayPM]].
 - Before starting Strattera, the label requires screening for a personal or family history of bipolar disorder, mania or hypomania. Before starting Qelbree, the label requires measuring heart rate and blood pressure and screening for a personal or family history of suicide, bipolar disorder and depression [[FDA-Strattera,FDA-Qelbree]].
 - AAP 2019 advises taking a history of cardiac symptoms and a family history of sudden death, Wolff-Parkinson-White syndrome, hypertrophic cardiomyopathy and long QT syndrome before stimulants. If any are present, further evaluation should follow [[Wolraich2019]].
 - In April 2008, the AHA released a statement on cardiovascular monitoring of children receiving ADHD medicines. It was widely read as recommending a routine ECG before stimulants. On 16 May 2008 the AHA and AAP clarified that an ECG was "reasonable" but not mandatory [[Vetter2008,Leslie2008]].
-- The AAP's own 2008 policy statement said "a recommendation to obtain routine ECGs for children receiving ADHD medications is not warranted" [[Perrin2008,Leslie2008]].
+- The AAP's own 2008 policy statement said routine ECGs are not justified for children taking ADHD medicines [[Perrin2008,Leslie2008]].
 - Population rates of sudden cardiac death in children are 0.5 to 3.0 per 100,000 patient-years [[Leslie2008]].
 - In one centre, screening ECGs in 1,470 children with ADHD were abnormal in 8.1%. Cardiac disease was confirmed in 5 children (0.3%), a positive predictive value of 4.2%. The average cost was US$58 per child screened and $17,162 per true positive found [[Mahle2009]].
 - A cost-effectiveness model estimated that adding an ECG to history and examination would prevent 13 sudden cardiac deaths per 400,000 children seeking stimulant treatment, at US$1.2 to $1.6 million per life saved. The authors judged this "borderline" cost-effective [[Denchev2010]].
@@ -222,7 +222,7 @@ Access notes:
 - NICE 1.9.2 notes that ADHD symptoms themselves can make it hard to remember to order and collect medicine. NICE 1.9.5 encourages parents and carers to oversee medication for children and young people [[NICE2018H]].
 
 ### nursing · Missed doses (as labelled)
-- Strattera: "If a STRATTERA dose is missed, take the dose as soon as possible, but do not take more than the prescribed total daily amount of STRATTERA in any 24-hour period." No taper is needed when stopping [[FDA-Strattera]].
+- Strattera: a missed dose is taken as soon as possible, but never more than the prescribed total daily amount within 24 hours. No taper is needed when stopping [[FDA-Strattera]].
 - Intuniv: when restarting the previous maintenance dose after two or more consecutive missed doses, "consider titration based on patient tolerability" [[FDA-Intuniv]].
 - From 2000 to 2021, US poison centres recorded 124,383 out-of-hospital ADHD medication errors in people under 20, an increase of 299.0%. The most common error was a dose "inadvertently taken or given medication twice" (53.9%). The next most common were taking someone else's medication (13.4%) and taking the wrong medication (12.9%) [[DeCoster2023]].
 - Of those errors, 4.2% had a serious medical outcome, and children under 6 were more likely to have one (OR 2.1) [[DeCoster2023]].
@@ -272,7 +272,7 @@ Access notes:
 - NICE 1.7.26: during titration, record symptoms, impairment and adverse effects at baseline and at each dose change, using standard scales completed by parents and teachers. Progress should be reviewed regularly with a specialist, for example by weekly phone contact [[NICE2018H]].
 - NICE 1.8.1–1.8.3: monitor and document effectiveness and adverse effects. Encourage people to record their own adverse effects, for example with a checklist. Consider standard symptom and adverse-effect rating scales throughout treatment [[NICE2018H]].
 - NICE 1.8.4: review and follow-up should match the severity of the condition, whether or not the person is taking medication [[NICE2018H]].
-- NICE adds that "a diagnosis of ADHD should not be made solely on the basis of rating scale or observational data". Rating scales are aids, not tests [[NICE2018H]].
+- NICE adds that rating scales or observation alone are not enough to make the diagnosis. Rating scales are aids, not tests [[NICE2018H]].
 - Vanderbilt parent scale (teaching example; community sample of 587 parents): internal consistency alpha .91 to .94, test–retest above .80, sensitivity .80, specificity .75, positive predictive value .19 and negative predictive value .98 [[Bard2013Parent]].
 - SNAP-IV (teaching example; 1,613 parents, 1,205 teachers): a parent item-average above 1.2 raised the probability of concern (LR above 10), and above 1.8 raised the probability of an ADHD diagnosis (LR above 3) [[Bussing2008]].
 - ASRS adult screener (teaching example): the 6-question version had sensitivity of 68.7% and specificity of 99.5% against blind clinical diagnosis in 154 respondents. It is a screening tool, not a diagnosis [[Kessler2005]].

@@ -15,14 +15,14 @@ Access notes:
 
 ### triggers · How often an infection comes first, and how long before
 
-- About two-thirds of people who develop GBS report symptoms of an infection in the six weeks before onset; these infections are thought to trigger the immune response that causes GBS [[Leonhard2019]].
-- GBS "is preceded by upper respiratory or gastrointestinal infection in about two-thirds of cases" [[Vellozzi2014CID]].
+- About two-thirds of people who develop GBS report symptoms of an infection in the six weeks before onset; the infection is believed to set off the immune attack behind GBS [[Leonhard2019]].
+- In about two-thirds of cases, an upper respiratory or gut infection comes before GBS [[Vellozzi2014CID]].
 - In the IGOS-1000 cohort, symptoms of an antecedent infection were reported by 556 of 768 patients (72%); the proportion did not differ significantly between those who tested positive and those who tested negative on serology, so reported symptoms and laboratory evidence often disagree [[Leonhard2022IGOS]].
 - In the IGOS comparison cohort used by the UK vaccine-surveillance study, 502 of 652 patients (77%) reported an antecedent infection [[Tamborska2022]].
 - The typical latency from infection to first neurological symptom is 1–2 weeks: GBS "occurs 1–2 wk after various infections, in particular, *Campylobacter jejuni* enteritis" [[Yuki2004]].
 - In the Zika-associated outbreak in French Polynesia, 37 of 42 patients (88%) had a transient illness a median of 6 days (IQR 4–10) before neurological onset — the shortest well-documented interval for any GBS trigger [[CaoLormeau2016]].
-- Six pathogens have been temporally associated with GBS in case-control studies: *C. jejuni*, cytomegalovirus (CMV), hepatitis E virus (HEV), *Mycoplasma pneumoniae*, Epstein–Barr virus (EBV) and Zika virus. Other pathogens are linked only through case series or ecological studies and their causal role is uncertain [[Leonhard2019]].
-- The absence of an antecedent illness does not exclude GBS [[Leonhard2019]]. The EAN/PNS guideline puts it the other way round as a good practice point: GBS is *more likely* if there is a history of recent diarrhoea or respiratory infection [[vanDoorn2023]].
+- Case-control studies have linked six pathogens to GBS in time: *C. jejuni*, cytomegalovirus (CMV), hepatitis E virus (HEV), *Mycoplasma pneumoniae*, Epstein–Barr virus (EBV) and Zika virus. Other pathogens are linked only through case series or ecological studies and their causal role is uncertain [[Leonhard2019]].
+- The absence of an antecedent illness does not exclude GBS [[Leonhard2019]]. The EAN/PNS guideline puts it the other way round as a good practice point: a recent bout of diarrhoea or respiratory infection makes GBS *more likely* [[vanDoorn2023]].
 - Most patients in the large treatment-trial cohort had **no** identified infection on serology, which is why a negative work-up cannot be used against the diagnosis [[Hadden2001]].
 
 ### triggers · Campylobacter jejuni: share of cases
@@ -35,7 +35,7 @@ Access notes:
 - In 86 consecutive Japanese patients, identified infections were *C. jejuni* 23%, CMV 10%, *M. pneumoniae* 6% and EBV 3% [[Ogawara2000]].
 - In a prospective Chinese cohort of 150 patients, 53% had serology positive for a recent infection: *C. jejuni* 27%, influenza A 17%, influenza B 16%, hepatitis A virus 5%, dengue 3%, CMV 3%, EBV 3%, *M. pneumoniae* 2%; HEV, *Haemophilus influenzae* and Zika serology were all negative [[Hao2019]].
 - *C. jejuni*-positive patients in IGOS-1000 were more severely affected: lower MRC sum score at nadir (p = 0.004) and longer time to regain independent walking (p = 0.005) [[Leonhard2022IGOS]].
-- *C. jejuni* infection is associated with antibodies to GM1 and GD1b and with a severe pure motor form of GBS; CMV infection is associated with anti-GM2 antibodies and with severe motor-sensory deficits [[Jacobs1998]].
+- *C. jejuni* infection goes with anti-GM1 and anti-GD1b antibodies and with a severe GBS that affects only motor nerves; CMV infection is associated with anti-GM2 antibodies and with severe motor-sensory deficits [[Jacobs1998]].
 - Bangladesh, where *C. jejuni*-driven axonal disease dominates, had the highest proportion of pure motor GBS (74/107, 69%) and of the axonal electrophysiological subtype (34/94, 36%) in IGOS, against 6% axonal in Europe/Americas [[Doets2018]].
 
 ### triggers · Absolute risk per infection — why only about 1 in 3,000 gets GBS
@@ -95,7 +95,7 @@ Access notes:
 - Antibody specificity tracks electrophysiological subtype. In 86 consecutive Japanese patients, IgG antibodies were found against GM1 (40%), GD1a (30%), GalNAc-GD1a (17%) and GD1b (21%), and there was a strong association between AMAN and IgG against any of these four. Almost all patients with at least one of them had an AMAN pattern or rapidly reversible conduction slowing/block [[Ogawara2000]].
 - The mimicry story is not complete: more than half of the patients with AMAN or with anti-ganglioside antibodies in that series were *C. jejuni*-negative, so other organisms frequently trigger the same anti-ganglioside response [[Ogawara2000]].
 - Anti-GQ1b antibodies are the serological hallmark of the Miller Fisher variant and are regarded as its principal pathogenic mediator; GQ1b is enriched in the oculomotor nerves, which is the proposed reason that variant presents with ophthalmoplegia [[Halstead2008]].
-- Anti-ganglioside testing has limited clinical use: the EAN/PNS guideline states that testing is of limited value in most patients with typical motor-sensory GBS, but anti-GQ1b should be considered when Miller Fisher syndrome is suspected [[vanDoorn2023]].
+- Anti-ganglioside testing has limited clinical use: the EAN/PNS guideline sees little value in testing most people with typical motor-sensory GBS, but suggests considering anti-GQ1b testing if Miller Fisher syndrome is suspected [[vanDoorn2023]].
 - For acute inflammatory demyelinating polyradiculoneuropathy (AIDP) — the commonest subtype in Europe and the Americas — no target antigen has been identified, and no mimicry mechanism is established (Hypothesis) [[Shahrizaila2021,Willison2016]].
 
 ### mimicry · Complement, the node of Ranvier and axonal injury
@@ -122,7 +122,7 @@ Access notes:
 ### vaccines · The 1976 swine influenza campaign
 
 - The 1976–77 National Influenza Immunization Program was suspended on 16 December 1976 after reports of GBS, and nationwide surveillance then identified 1,098 patients with GBS onset between 1 October 1976 and 31 January 1977 [[Schonberger1979]].
-- Of these, 532 had recently received A/New Jersey influenza vaccine before onset and 543 had not; the vaccinated population had a significantly elevated attack rate in every adult age group [[Schonberger1979]].
+- Of these, 532 had recently received A/New Jersey influenza vaccine before onset and 543 had not; in every adult age band the attack rate was significantly higher among the vaccinated [[Schonberger1979]].
 - The estimated attributable risk was **just under one case per 100,000 vaccinations** (≈10 per million) in adults — the largest vaccine-associated GBS risk ever documented [[Schonberger1979]].
 - The excess was concentrated in the 5 weeks after vaccination, although it lasted approximately 9–10 weeks [[Schonberger1979]].
 
@@ -134,7 +134,7 @@ Access notes:
 - A UK self-controlled case series (General Practice Research Database, 1990–2005) found **no** increased risk after seasonal influenza vaccine: relative incidence within 90 days 0.76 (95% CI 0.41–1.40), and 0.89 (95% CI 0.42–1.89) when restricted to validated cases — while the relative incidence after influenza-like illness was 7.35 (95% CI 4.36–12.38) [[Stowe2009]].
 - The 2009 H1N1 monovalent inactivated vaccines: a meta-analysis of six US surveillance systems covering about 23 million vaccinated people found an incidence rate ratio of 2.35 (95% CI 1.42–4.01, p = 0.0003), equal to about **1.6 excess GBS cases per million people vaccinated** [[Salmon2013]].
 - At the population level over the whole 2009–10 pandemic season (catchment 45 million, 392 GBS cases), the H1N1-vaccinated population had a *lower* cumulative GBS risk than the unvaccinated: 6.6 versus 9.2 cases per million persons (p = 0.012), incidence density ratio 0.83 (95% CI 0.63–1.08) — consistent with vaccination preventing more infection-triggered GBS than it causes [[Vellozzi2014AJPH]].
-- The UK case-control database also found evidence of a *protective* effect of influenza vaccination on GBS risk, which the authors attributed either to protection against influenza disease or to confounding (people with recent infection being less likely to be vaccinated) [[Tam2007]].
+- The UK case-control database also found that influenza vaccination seemed to *lower* GBS risk, which the authors put down either to protection against influenza disease or to confounding (people with recent infection being less likely to be vaccinated) [[Tam2007]].
 - The narrative summary from CDC's vaccine-safety group: studies over 35 years have shown an increased risk of GBS after influenza infection whose magnitude is **several times greater** than that after influenza vaccination [[Vellozzi2014CID]].
 - Coincidence matters in interpreting any mass campaign: if 10 million people were vaccinated in the UK, 21.5 GBS cases would be expected within 6 weeks purely as background, with no causal link at all [[Black2009]].
 - In Canadian paediatric tertiary centres (1996–2012), 24 of 246 GBS cases (10%) had onset within 30 days of an immunisation, an annual post-immunisation GBS rate of 2.0 per 100,000 hospitalisations — an infrequent cause of paediatric admission [[Top2015]].
@@ -153,7 +153,7 @@ Access notes:
 ### vaccines · RSV vaccines in older adults (2024–2026)
 
 - On 7 January 2025 FDA required a Guillain-Barré syndrome warning in the prescribing information for the RSV vaccines Abrysvo and Arexvy, based on its own postmarketing self-controlled case series in Medicare claims (May 2023 – July 2024, risk window 1–42 days, control window 43–90 days, adults aged ≥65) [[FDA-RSVGBS2025]].
-- FDA's estimates were **9 excess GBS cases per million doses of Abrysvo** and **7 excess GBS cases per million doses of Arexvy**, and the new Warnings and Precautions text states the data "suggest an increased risk of Guillain-Barré syndrome (GBS) during the 42 days following vaccination". FDA also states that the available evidence is insufficient to establish a causal relationship [[FDA-RSVGBS2025]].
+- FDA's estimates were **9 excess GBS cases per million doses of Abrysvo** and **7 excess GBS cases per million doses of Arexvy**, and the new Warnings and Precautions section says the data point to a higher risk of GBS in the 42 days after vaccination. FDA also states that the available evidence is insufficient to establish a causal relationship [[FDA-RSVGBS2025]].
 - England's programme for 2.5 million people aged 75–79, vaccinated with bivalent pre-F (Abrysvo) from September 2024, confirmed a signal: self-controlled case series relative incidence **3.34 (95% CI 2.12–5.28)** and attributable risk **23 cases per million doses (95% CI 17–26)** in the 0–42-day window, using the immunoglobulin registry and GBS-coded hospital discharges. The authors conclude this is a small risk "far exceeded by the vaccine benefits" [[Stowe2025RSV]].
 - FDA's wider surveillance of 11 *other* prespecified outcomes in 3.82 million Medicare RSV vaccinees (2.60 million RSVPreF3+AS01; 1.21 million RSVPreF) found no statistically significant elevation for any of them; GBS was reported separately [[Lloyd2026RSV]].
 - The comparator on the other side of the ledger: medically attended RSV disease in US Medicare beneficiaries aged ≥65 carried an adjusted GBS incidence rate ratio of 2.11 (95% CI 1.01–4.37) in days 1–42, and 3.98 (95% CI 1.45–10.91) in those aged ≥75 [[Liang2026RSV]].
@@ -161,10 +161,10 @@ Access notes:
 ### vaccines · Revaccination after GBS
 
 - ACIP recommends not giving influenza vaccine to people who have had GBS within 6 weeks of a prior influenza vaccination, unless they are at high risk of severe complications from influenza illness [[Baxter2012]].
-- The evidence behind revaccination safety: in Kaiser Permanente Northern California, 550 neurologist-confirmed GBS cases arose over 33 million person-years. After their GBS diagnosis, 989 vaccines were given to 279 of these individuals, including 405 trivalent inactivated influenza vaccines to 107 people. Only 6 of 550 (1.1%) had a recurrent GBS diagnosis, and **none** of those 6 had any vaccine exposure in the 2 months before the second onset [[Baxter2012]].
+- The evidence behind revaccination safety: in Kaiser Permanente Northern California, 550 neurologist-confirmed GBS cases arose over 33 million person-years. After GBS, 279 of these people received 989 vaccine doses between them, 405 of them trivalent inactivated influenza vaccine given to 107 people. Only 6 of 550 (1.1%) had a recurrent GBS diagnosis, and **none** of those 6 had any vaccine exposure in the 2 months before the second onset [[Baxter2012]].
 - Of 18 people whose index GBS began within 6 weeks of influenza vaccine, 2 were revaccinated with influenza vaccine without recurrence [[Baxter2012]].
 - A Dutch patient-society survey reached the same conclusion: none of 106 people with previous GBS who received influenza vaccination (1–37 times each, 775 vaccinations in total) reported a recurrence. By contrast, 5 of 24 people with CIDP who were vaccinated reported an increase in symptoms [[Kuitwaard2009]].
-- Guideline position: many vaccines carry a GBS warning, but prior GBS is **not a strict contraindication**. Expert discussion is advised for people diagnosed with GBS less than 1 year before a planned vaccination, or who previously developed GBS shortly after the same vaccine; in those people the benefit of vaccination must be weighed against a small and possibly only theoretical risk of recurrence [[Leonhard2019]].
+- Guideline position: many vaccines carry a GBS warning, but prior GBS is **not a strict contraindication**. Talking it through with an expert is advised when GBS was diagnosed under a year before a planned vaccine, or when an earlier GBS came soon after the same vaccine; for these people, the vaccine's benefit is set against a small, perhaps only theoretical, chance of recurrence [[Leonhard2019]].
 - The Brighton Collaboration case definitions for GBS and Fisher syndrome exist precisely to standardise immunisation-safety data collection, and were used to grade certainty in the COVID-19 and RSV vaccine studies above [[Sejvar2011Brighton,Nasreen2025,Tamborska2022]].
 
 ### Exam hooks

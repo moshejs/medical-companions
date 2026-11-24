@@ -27,7 +27,7 @@ Pass date: 2026-10-20. Modules served: colin, flarerx, coldose.
 
 ### flarerx · Natural course and why early treatment is advised
 - The ACR/EULAR classification criteria define a "typical symptomatic episode" by at least 2 of: time to maximal pain < 24 h, resolution of symptoms in ≤ 14 days, and complete resolution between episodes, irrespective of treatment [[Neogi2015]].
-- In 11 volunteers with untreated podagra, 2 withdrew on day 4 because of severe persistent pain; all 9 who stayed had some improvement in pain by day 5 and in swelling by day 7, yet only 3 reported their pain had resolved within the 7-day study [[Bellamy1987]].
+- In 11 volunteers with untreated podagra, 2 withdrew on day 4 because of severe persistent pain; pain had eased somewhat by day 5 and swelling by day 7 in all 9 who stayed, yet only 3 reported their pain had resolved within the 7-day study [[Bellamy1987]].
 - In the first placebo-controlled colchicine trial, two-thirds of colchicine-treated patients improved at 48 h vs one-third on placebo, with separation from placebo after 18–30 h [[Ahern1987]].
 - ACR 2012 advised starting treatment preferably within 24 h of flare onset (Evidence C, consensus that early treatment gives better patient-reported outcomes) and grouped flares as early (< 12 h), well established (12–36 h) and late (> 36 h) [[Khanna2012P2]].
 - EULAR 2016 recommends colchicine within 12 h of flare onset and advises educating fully informed patients to self-medicate at the first warning symptoms [[Richette2017]]; the Hong Kong 2023 consensus restates "as early as possible, preferably within 12 h" (level 1B) [[Yip2023]]. ACR 2020 notes efficacy "particularly when administered early" and records the Patient Panel's preference for a "medication-in-pocket" strategy [[FitzGerald2020]].
@@ -81,7 +81,7 @@ Pass date: 2026-10-20. Modules served: colin, flarerx, coldose.
 
 ### flarerx · Guideline summary and keeping urate-lowering therapy going
 - ACR 2020: colchicine, NSAIDs or glucocorticoids (oral, intra-articular or intramuscular) are strongly recommended as first-line over IL-1 inhibitors or ACTH (high certainty), with the choice driven by patient factors; the network meta-analysis showed similar efficacy, so no first-line agent is ranked above another [[FitzGerald2020]].
-- NICE 2022: offer an NSAID, colchicine or a short course of oral corticosteroid first-line; consider an intra-articular or intramuscular corticosteroid if NSAIDs and colchicine are contraindicated, not tolerated or ineffective [[NICE-NG219]].
+- NICE 2022: first-line choices are an NSAID, colchicine or a short course of oral corticosteroid; a corticosteroid injection into the joint or muscle is an option when NSAIDs and colchicine cannot be used, are not tolerated or have not worked [[NICE-NG219]].
 - ACR 2012 judged combination therapy appropriate for severe or polyarticular flares (Evidence C) and defined inadequate response as < 20% pain improvement within 24 h or < 50% at ≥ 24 h [[Khanna2012P2]]. The Hong Kong consensus does not recommend combining an NSAID with a systemic glucocorticoid because of additive toxicity [[Yip2023]].
 - ACR 2012: continue established urate-lowering therapy without interruption during a flare (Evidence C) [[Khanna2012P2]]. ACR 2020 conditionally recommends that ULT may be started during a flare when it is indicated (moderate certainty) [[FitzGerald2020]], whereas NICE advises starting ULT 2–4 weeks after a flare settles, or during a flare if flares are frequent [[NICE-NG219]].
 

@@ -36,7 +36,7 @@ const TE_CASES=[
  {txt:`<b>Case 1.</b> ALT and AST are both clearly raised; alkaline phosphatase is only slightly above its range. Bilirubin, albumin, INR and platelets are not mentioned as abnormal.`,d:[2,2,1,0,0,0,0],a:'h',
   why:`ALT and AST raised out of proportion to ALP is ACG's definition of a hepatocellular pattern. The ACG work-up for it covers hepatitis A, B and C, fatty liver disease, alcohol-related liver disease, haemochromatosis, autoimmune hepatitis, Wilson disease, alpha-1 antitrypsin deficiency and a medicine history. [[Kwo2017ACG]]`},
  {txt:`<b>Case 2.</b> Alkaline phosphatase is raised well out of proportion to ALT and AST, and the conjugated (direct) bilirubin is up.`,d:[1,1,2,1,0,0,0],a:'c',
-  why:`ALP raised out of proportion to AST and ALT defines a cholestatic pattern, and a raised conjugated bilirubin implies hepatocellular disease or biliary obstruction in most settings. A hepatic ALP elevation prompts testing for PBC and PSC. <button class="btn ghost" data-go="othercauses">Bile-duct diseases →</button> [[Kwo2017ACG]]`},
+  why:`ALP raised out of proportion to AST and ALT defines a cholestatic pattern, and in most settings a high conjugated bilirubin points to either liver-cell disease or a blocked bile flow. A hepatic ALP elevation prompts testing for PBC and PSC. <button class="btn ghost" data-go="othercauses">Bile-duct diseases →</button> [[Kwo2017ACG]]`},
  {txt:`<b>Case 3.</b> Albumin is low, INR and bilirubin are high and platelets are low, while ALT and AST are only mildly abnormal.`,d:[1,1,0,1,-1,1,-1],a:'a',
   why:`Bilirubin, albumin and INR are three of the five Child–Pugh items, and bilirubin and INR are in MELD: they describe how well the liver is working, not how much it is injured today. Reduced synthesis is the best-understood cause of a chronically low albumin, and low platelets point to the spleen holding them. <button class="btn ghost" data-go="scores">Child–Pugh &amp; MELD →</button> [[Peng2016ChildMELD,Kim2008MELDNa,Levitt2016,Afdhal2008Platelets]]`},
  {txt:`<b>Case 4.</b> AST is more than twice ALT; both are raised. Alkaline phosphatase is near its range.`,d:[1,2,0,0,0,0,0],a:'h',
@@ -44,7 +44,7 @@ const TE_CASES=[
  {txt:`<b>Case 5.</b> A person with hepatitis C has an AST/ALT ratio of 1 or more and a low platelet count.`,d:[1,1,0,0,0,0,-1],a:'a',
   why:`In 252 people with hepatitis C-related chronic liver disease, an AST/ALT ratio ≥1 was more frequent in cirrhosis, and AST/ALT combined with the platelet count gave a 97.0% positive and 97.9% negative predictive value for cirrhosis in that cohort. Low platelets are also an HCC risk marker. [[Giannini2003ASTALT,Ioannou2007HCC]]`},
  {txt:`<b>Case 6.</b> A woman's ALT is 45 IU/L. Her laboratory's printed range says "normal" up to 50; everything else is unremarkable.`,d:[1,0,0,0,0,0,0],a:'h',
-  why:`ACG gives a "true healthy normal" ALT of 19–25 IU/L for females (29–33 for males) and says levels above this should be assessed; an elevated ALT has been associated with increased liver-related mortality. A mild, isolated ALT rise is still a hepatocellular pattern. [[Kwo2017ACG]]`}
+  why:`ACG gives a "true healthy normal" ALT of 19–25 IU/L for females (29–33 for males) and says levels above this should be assessed; a raised ALT has been linked with a higher risk of dying from liver disease. A mild, isolated ALT rise is still a hepatocellular pattern. [[Kwo2017ACG]]`}
 ];
 const TE_ANS={h:'Hepatocellular',c:'Cholestatic',a:'Signs of advanced disease'};
 function teArrow(x,y,dir,s=1,col='var(--dx)'){

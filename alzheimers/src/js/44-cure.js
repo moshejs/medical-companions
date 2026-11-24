@@ -6,7 +6,7 @@ const CU_NODES=[
  {a:'Amyloid',b:'aggregation',one:'Amyloid aggregation',
   txt:`Amyloid beta clumps into oligomers, fibrils and plaques. Antibodies that remove plaque are so far the only disease-targeted drugs shown to slow decline in symptomatic Alzheimer's. [[vanDyck2023,Sims2023]]`},
  {a:'Tau',b:'spread',one:'Tau spread',
-  txt:`Tau tangles spread from region to region, and the severity of cognitive impairment correlates best with the burden of neocortical tangles. Tau is the fourth-largest target group in the 2025 pipeline, with 15 drugs. [[Nelson2012,Cummings2025Pipeline]]`},
+  txt:`Tau tangles spread from region to region, and cognitive impairment tracks most closely with how many tangles have reached the neocortex. Tau is the fourth-largest target group in the 2025 pipeline, with 15 drugs. [[Nelson2012,Cummings2025Pipeline]]`},
  {a:'Microglia and',b:'inflammation',one:'Microglia and inflammation',
   txt:`Microglia, the brain's immune cells, gather around plaques. Inflammation and immunity are the third-largest target group in the 2025 pipeline, with 24 drugs (17%). [[Cummings2025Pipeline]]`},
  {a:'Synapse',b:'loss',one:'Synapse loss',

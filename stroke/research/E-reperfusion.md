@@ -30,7 +30,7 @@ Access notes:
 - Adjusted odds of mortality in that pool were 0.78, 1.13, 1.22 and 1.49 across the same bands. Large parenchymal haemorrhage was 5.2% versus 1.0%, with no clear relation to onset-to-treatment time (p=0.4140) [[Lees2010]].
 - Disagreement on where benefit ends: Lees2010 saw no benefit after around 270 minutes; Emberson2014 placed zero effect at 6.3 hours and loss of statistical confidence at 5.1 hours. Both support treatment up to 4.5 hours [[Lees2010,Emberson2014]].
 - Real-world registry (Get With The Guidelines-Stroke, 58,353 patients, 1395 US hospitals, 2003 to 2012): median onset to treatment 144 minutes. Per 15 minutes faster: in-hospital mortality OR 0.96 (0.95 to 0.98), symptomatic intracranial haemorrhage OR 0.96 (0.95 to 0.98), independent walking at discharge OR 1.04 (1.03 to 1.05), discharge home OR 1.03 (1.02 to 1.04) [[Saver2013]].
-- Modelling: each minute of onset-to-treatment time saved granted on average 1.8 days of extra healthy life (95% prediction interval 0.9 to 2.7); 0.6 day in an 80-year-old with NIHSS 20 and 3.5 days in a 50-year-old with NIHSS 20. A 15-minute reduction equalled about 1 month of disability-free life [[Meretoja2014]].
+- Modelling: on average, every minute cut from the time between onset and treatment bought 1.8 more days of healthy life (95% prediction interval 0.9 to 2.7); 0.6 day in an 80-year-old with NIHSS 20 and 3.5 days in a 50-year-old with NIHSS 20. A 15-minute reduction equalled about 1 month of disability-free life [[Meretoja2014]].
 - Mobile stroke units (BEST-MSU, observational alternating-week design, 1047 t-PA-eligible patients): median onset to t-PA 72 versus 108 minutes; 97.1% versus 79.5% received t-PA; mRS 0 to 1 at 90 days 55.0% versus 44.4% [[Grotta2021]].
 
 ### lysis · Bleeding risk
@@ -43,7 +43,7 @@ Access notes:
 - Definitions drive the headline number. Across the same patients symptomatic bleeding reads 6.8% or 3.7% by definition, and NINDS reported 6.4% under its own definition [[Whiteley2016,NINDS1995]].
 
 ### lysis · Dose, label and approval
-- Activase label: 0.9 mg/kg, not exceeding 90 mg total, with 10% as an initial intravenous bolus over 1 minute and the rest infused over 60 minutes; "as soon as possible but within 3 hours after onset of symptoms" [[FDA-Activase]].
+- Activase label: 0.9 mg/kg, not exceeding 90 mg total, with 10% as an initial intravenous bolus over 1 minute and the rest infused over 60 minutes; given as early as possible and within 3 hours of symptom onset [[FDA-Activase]].
 - TNKase label: stroke dose is a single intravenous bolus over 5 seconds, weight-tiered, maximum 25 mg; "as soon as possible and within 3 hours". Tiers: under 60 kg 15 mg; 60 to under 70 kg 17.5 mg; 70 to under 80 kg 20 mg; 80 to under 90 kg 22.5 mg; 90 kg or more 25 mg. The heart attack (STEMI) maximum is 50 mg, so the two dose tables differ [[FDA-TNKase]].
 - FDA approval of TNKase for acute ischaemic stroke in adults was reported on 4 March 2025, resting on AcT, and made it Genentech's second approved stroke medicine [[Genentech2025,FDA-TNKase]].
 - The label analysed the 0 to 3 hour AcT subset (n=1147, median onset to needle 108 minutes) because the comparator is approved for 0 to 3 hours: mRS 0 to 1, 36.6% versus 35.9% (risk difference 0.7%, 95% CI -4.9 to 6.3). Death 15.0% versus 15.0%, symptomatic intracerebral haemorrhage 3.4% versus 3.1%, orolingual angioedema 1.0% versus 1.4% [[FDA-TNKase]].

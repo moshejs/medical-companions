@@ -151,7 +151,7 @@ inits.words=()=>{
     /* note */
     let k=`${clock(h)} · ${S.n}`,ti,tx,pt,hk;
     if(S.home){ti=mask?'The cost comes due':'Recovery';
-      tx=mask?`In a survey of 277 ${woW('a')}, camouflaging was described as both protective (access to social spaces, safety) and harmful (exhaustion, isolation, loss of identity, delayed diagnosis); the time spent camouflaging seemed most damaging. ${woW('A')} describe autistic burnout as chronic exhaustion, loss of skills and reduced tolerance to stimuli. <span class="ev early">Early evidence</span> [[Bradley2021,Raymaker2020]]`
+      tx=mask?`In a survey of 277 ${woW('a')}, camouflaging was described as both protective (access to social spaces, safety) and harmful (exhaustion, isolation, loss of identity, delayed diagnosis); the time spent camouflaging seemed most damaging. ${woW('A')} describe autistic burnout as long-term exhaustion, with skills lost and a lower tolerance for sensory input. <span class="ev early">Early evidence</span> [[Bradley2021,Raymaker2020]]`
         :`Unmasking and acceptance were linked with recovery from autistic burnout. Places where people can relax and be themselves help. <span class="ev early">Early evidence</span> [[Raymaker2020,Bradley2021]]`;
       pt=mask?'After a day of hiding, many people need long, quiet time alone before they feel like themselves again.':'When people can be themselves during the day, there is more left at the end of it.';
       hk=`Autistic burnout (Raymaker 2020): chronic exhaustion, loss of skills, reduced tolerance to stimuli. [[Raymaker2020]]`}

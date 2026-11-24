@@ -14,12 +14,12 @@ Access notes:
 ## Findings
 
 ### therapy · Why psychological care is added to medicines
-- NICE CG185 says that to prevent relapse, people should be offered "a structured psychological intervention (individual, group or family), which has been designed for bipolar disorder and has a published evidence-based manual", in addition to medicines (recommendation 1.7.3) [[NICE2014CG185]].
+- NICE CG185 says that to prevent relapse, people should be offered a structured psychological therapy (one-to-one, group or family) that was developed for bipolar disorder and follows a published, evidence-based manual, in addition to medicines (recommendation 1.7.3) [[NICE2014CG185]].
 - NICE CG185 says relapse-prevention programmes should give information about bipolar disorder, include self-monitoring of mood, thoughts and behaviour, address relapse risk and functioning, and "develop plans for relapse management and staying well" (recommendation 1.7.4) [[NICE2014CG185]].
 - NICE CG185 says people with bipolar depression should be offered a psychological intervention developed for bipolar disorder, or a choice of CBT, interpersonal therapy or behavioural couples therapy (recommendation 1.2.5) [[NICE2014CG185]].
 - The CANMAT/ISBD 2018 guidelines give first-, second- and third-line recommendations for pharmacological and psychological treatments, and also cover comorbid substance use and metabolic disorders and safety monitoring [[Yatham2018]].
 - The British Association for Psychopharmacology guideline (third edition, 2016) presents medicines "integrated with a coherent approach to psychoeducation and behaviour change" [[Goodwin2016BAP]].
-- A Lancet seminar states that treating medical and psychiatric comorbidity, adding psychosocial treatments and involving caregivers "have been shown to improve health outcomes" for people with bipolar disorders [[McIntyre2020Lancet]].
+- A Lancet seminar notes that treating co-occurring medical and psychiatric conditions, adding psychosocial treatment and involving carers all improve health outcomes for people with bipolar disorders [[McIntyre2020Lancet]].
 
 ### therapy · Group psychoeducation (Barcelona programme)
 - Design: 120 outpatients with bipolar I or II, in remission for at least 6 months and on standard medication, were randomised to 21 sessions of group psychoeducation or 21 non-structured group meetings, then followed for 2 years [[Colom2003]].
@@ -68,7 +68,7 @@ Access notes:
 - Oud 2016 (55 RCTs, 6010 participants): individual psychological interventions reduced relapse at the end of treatment (RR 0.66, 95% CI 0.48–0.92) and at follow-up (RR 0.74, 95% CI 0.63–0.87) (moderate-quality evidence) [[Oud2016]].
 - Oud 2016: collaborative care reduced hospital admissions (RR 0.68, 95% CI 0.49–0.94). Low-quality evidence linked group interventions to fewer depressive relapses and family psychoeducation to lower depression and mania symptoms [[Oud2016]].
 - Miklowitz 2021 network meta-analysis (39 RCTs, 3863 participants): manualised psychotherapy plus medication had lower recurrence than control treatments (OR 0.56, 95% CI 0.43–0.74; 20 two-group trials) [[Miklowitz2021NMA]].
-- Miklowitz 2021: psychoeducation with guided practice of illness-management skills in a family or group format reduced recurrences compared with the same strategies delivered individually (OR 0.12, 95% CI 0.02–0.94) [[Miklowitz2021NMA]].
+- Miklowitz 2021: psychoeducation with guided practice in managing the illness cut recurrences more in a family or group format than the same approach given one-to-one (OR 0.12, 95% CI 0.02–0.94) [[Miklowitz2021NMA]].
 - Miklowitz 2021: CBT stabilised depressive symptoms compared with treatment as usual (SMD −0.32, 95% CI −0.64 to −0.01). Family or conjoint therapy (SMD −0.46) and interpersonal therapy (SMD −0.46) pointed the same way, but their confidence intervals crossed zero [[Miklowitz2021NMA]].
 - Miklowitz 2021: people were more likely to stay in treatment with family or conjoint therapy (OR 0.46, 95% CI 0.26–0.82) and brief psychoeducation (OR 0.44, 95% CI 0.23–0.85) than with standard psychoeducation [[Miklowitz2021NMA]].
 - Chatterton 2017 network meta-analysis: only carer-focused interventions significantly reduced manic or depressive relapse. Psychoeducation, alone or with CBT, reduced non-adherence to medication, and no intervention significantly reduced depression scale scores [[Chatterton2017]].
@@ -95,7 +95,7 @@ Access notes:
 
 ### crisis · How common suicide is, as population figures
 - The ISBD Task Force's pooled suicide rate in bipolar disorder is 164 per 100,000 person-years (95% CI 5–324), with a male:female ratio of 1.7:1 (population statistic) [[Schaffer2015Epi]].
-- Epidemiological studies report that 23–26% of people with bipolar disorder attempt suicide, with higher rates in clinical samples [[Schaffer2015Epi]].
+- In epidemiological studies, 23–26% of people with bipolar disorder have attempted suicide; clinical samples show higher rates [[Schaffer2015Epi]].
 - Systematic reviews estimate the suicide rate in bipolar disorder at about 20–30 times that of the general population [[Plans2019,Miller2020Suicide]].
 - Meta-analysis of premature mortality: the suicide standardised mortality ratio (SMR) is 14.44 (95% CI 12.43–16.78), and the all-cause SMR is 2.05 (95% CI 1.89–2.23) [[Hayes2015Mortality]].
 - Danish national cohort (up to 36 years after first contact): absolute suicide risk was 7.77% (95% CI 6.01–10.05%) for men and 4.78% (95% CI 3.48–6.56%) for women with bipolar disorder, vs 0.72% and 0.26% in men and women without a psychiatric diagnosis (population statistics) [[Nordentoft2011]].
@@ -134,7 +134,7 @@ Access notes:
 - By follow-up length, rates were 654 (3 months–1 year), 494 (1–5 years), 366 (5–10 years) and 277 (>10 years) per 100,000 person-years. Risk falls over time but stays raised for years [[Chung2017JAMAPsych]].
 - Active contact and follow-up after an emergency department visit for suicidal behaviour reduced repeat attempts within 6 months (pooled RR 0.48, 95% CI 0.31–0.76; 2 trials, n=984) [[Inagaki2019]].
 - The WHO brief intervention and contact was associated with lower odds of suicide in 3 RCTs (OR 0.20, 95% CI 0.09–0.42; n=2028) [[Riblet2017]].
-- A systematic review of 97 RCTs and epidemiological studies concludes: "Active follow-up of patients after discharge or a suicide-related crisis should be routine" [[Mann2021Suicide]].
+- A systematic review of 97 RCTs and epidemiological studies concludes that actively following people up after discharge or a suicide-related crisis should become routine [[Mann2021Suicide]].
 
 ### crisis · Safety planning
 - The Safety Planning Intervention (SPI) is a brief clinical intervention: a written, prioritised list of coping strategies and sources of support the person can use in a crisis [[Stanley2012SPI,Stanley2018ED]].
@@ -174,7 +174,7 @@ Access notes:
   - a protocol for the person's own coping strategies
   - agreements on how services respond
   - who to contact in a crisis (recommendation 1.4.1) [[NICE2014CG185]]
-- NICE CG185 says care plans for return to primary care should include a crisis plan "indicating early warning symptoms and triggers of both mania and depression relapse and preferred response during relapse" (recommendation 1.9.4) [[NICE2014CG185]].
+- NICE CG185 says care plans for return to primary care should include a crisis plan that sets out the early warning signs and triggers for relapse into mania and into depression, and how the person would like others to respond (recommendation 1.9.4) [[NICE2014CG185]].
 - Joint crisis plans (Henderson 2004, n=160 with psychosis or non-psychotic bipolar disorder): compulsory admission or treatment fell to 13% (10/80) vs 27% (21/80) (RR 0.48, 95% CI 0.24–0.95) [[Henderson2004BMJ]].
 - The larger CRIMSON trial (n=569) found no significant effect of joint crisis plans on compulsory admission (18% vs 20%; OR 0.90, 95% CI 0.58–1.39), possibly because of incomplete implementation [[Thornicroft2013CRIMSON]].
 - Peer-worker-facilitated psychiatric advance directives (n=394; 36% with bipolar I) reduced compulsory admissions at 12 months: 27.0% vs 39.9% (risk difference −0.13, 95% CI −0.22 to −0.04) [[Tinland2022]].
@@ -214,7 +214,7 @@ Access notes:
   - with the person's agreement, talking with education staff, creditors and employers about how the person can be supported (recommendation 1.1.4) [[NICE2014CG185]]
 - Driving: a review (German-language) states that people with acute mania are not fit to drive, but driving ability can usually be confirmed after remission under psychiatric supervision. About 17% of people with bipolar disorder in remission had impaired driving performance [[Laux2014]].
 - The lithium label cautions that lithium "may impair mental and/or physical abilities" and advises care with activities that need alertness, such as driving [[FDA-Lithobid]].
-- Stigma: 25 studies show a moderate to high degree of internalised (self-)stigma in bipolar disorder. Public stigma findings are inconsistent: bipolar disorder is viewed more positively than schizophrenia and less positively than depression [[Ellison2013Stigma]].
+- Stigma: 25 studies show a moderate to high degree of internalised (self-)stigma in bipolar disorder. Findings on public stigma are mixed: people view bipolar disorder more favourably than schizophrenia but less favourably than depression [[Ellison2013Stigma]].
 - GAMIAN-Europe (1182 people with bipolar disorder or depression):
   - 21.7% reported moderate or high self-stigma
   - 71.6% reported moderate or high perceived discrimination
@@ -267,7 +267,7 @@ Access notes:
 - A 2020 systematic review found no consensus on how to improve constant observation. Teamwork interventions may improve patient experience and safely reduce how often and how intensively it is used [[Reen2020]].
 
 ### nursing · Lithium teaching (teaching points as published; details in pass E)
-- Lithium label boxed warning: "Lithium toxicity is closely related to serum lithium levels, and can occur at doses close to therapeutic levels" [[FDA-Lithobid]].
+- Lithium label boxed warning (paraphrased): toxicity tracks the serum lithium level closely and can happen at doses near the therapeutic range [[FDA-Lithobid]].
 - Label: toxic concentrations (≥1.5 mEq/L) are close to the therapeutic range (0.8–1.2 mEq/L), and some people show toxic signs within the therapeutic range [[FDA-Lithobid]].
 - Label: mild neurological signs of toxicity include fine tremor, lightheadedness, lack of coordination and weakness. Moderate signs include drowsiness, ataxia, blurred vision, tinnitus and slurred speech. Severe signs include confusion, seizure and coma. Gastrointestinal signs include nausea, vomiting and diarrhoea [[FDA-Lithobid]].
 - Label: the risk of toxicity rises with febrile illness, interacting drugs, impaired kidney function, volume depletion or dehydration, and changes in sodium or potassium [[FDA-Lithobid]].

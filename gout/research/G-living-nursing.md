@@ -63,7 +63,7 @@ Unit note: 1 mg/dL of urate = 59.48 µmol/L. Where a source reports only µmol/L
 - HAQ-DI scores in gout correlated with days of sick leave (r² = 0.44). [[Taylor2008]]
 - Footwear RCT (94 people): adding an athletic shoe to podiatry plus education did not reduce foot pain at 6 months (−6.7, 95% CI −16.4 to 2.9). Overall pain (−13.2) and foot disability (−4.7) improved at 2 months only, and fit, ease and weight scores improved throughout. [[Frecklington2019ART]]
 - Interviews with 11 people with gout found four footwear themes: comfort first, knowing what to buy, knowing what to wear, and different environments (formal settings, workplace). Tophi and flares limited shoe choice. [[Frecklington2019JFAR]]
-- Interviews with 25 people about physical activity found stigma, fear of judgement and uncertainty about whether exercise could trigger flares or damage joints, "particularly in the absence of gout-specific advice". [[Stewart2026]]
+- Interviews with 25 people about physical activity found stigma, fear of being judged, and doubt over whether exercise might set off flares or harm the joints, "particularly in the absence of gout-specific advice". [[Stewart2026]]
 
 ### living · Surgery and hospital stays
 - In a population cohort of 429 people with gout, the flare rate rose about tenfold during hospitalisation (RR 10.2, 95% CI 6.8–14.5), and an in-hospital flare lengthened the stay by 1.8 days. [[Zleik2018]]
@@ -132,7 +132,7 @@ Unit note: 1 mg/dL of urate = 59.48 µmol/L. Where a source reports only µmol/L
 - Abhishek 2017: of 75 pilot patients who replied at 5 years, after GP takeover, 90.7% were still on ULT, 85.3% took it ≥6 days a week, and mean SU was 292.8 µmol/L [4.9 mg/dL, converted]. [[Abhishek2017]]
 - Fuller 2020 (Doherty 2018 follow-up, 82% response, ≥1 year after the trial): former nurse-led patients reported more satisfaction, better knowledge, more ULT use (aRR 1.19) and fewer flares (median 0 vs 1). 41–63% preferred a nurse and 5–20% a GP. [[Fuller2020]]
 - Pharmacist-led care: a 1463-patient site-randomised trial using mostly automated telephone contact improved adherence (50% vs 37%) and SU <6 mg/dL (30% vs 15%) at 1 year. The adherence gain faded in year 2. [[Mikuls2019]] A 77-patient pharmacist telephone RCT reached SU ≤6 mg/dL in 35% vs 13% at 26 weeks, with SU change −1.5 vs +0.1 mg/dL. [[Goldfien2016]]
-- ACR 2020 conditionally recommends an augmented, non-physician protocol (education, shared decisions, treat-to-target) for everyone on ULT. It adds that "the key is for the treating provider (who could be the treating physician)" to educate and treat to target where such staff are not available. [[FitzGerald2020]]
+- ACR 2020 conditionally recommends an augmented, non-physician protocol (education, shared decisions, treat-to-target) for everyone on ULT. Where such staff are not available, it says what matters is that the treating clinician, who may be the doctor, does the education and treat-to-target work. [[FitzGerald2020]]
 
 ### nursing · Documentation
 - Doherty 2018 documented flare diaries; SU at every titration contact; ULT doses and changes; side-effects and reasons for stopping; tophus number, sites and largest diameter; SF-36 and Gout Impact Scale; and every contact (visit or call). This is a ready template for a nurse-led record. [[Doherty2018]]

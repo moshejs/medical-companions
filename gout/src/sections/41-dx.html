@@ -69,11 +69,11 @@
   <div class="lab even">
     <div class="stage dx-form" id="dxForm">
       <fieldset><legend>Step 1 · Entry criterion</legend>
-        <label class="dx-ck"><input type="checkbox" id="dxEntry"><span>At least 1 episode of swelling, pain or tenderness in a peripheral joint or bursa</span></label>
+        <label class="dx-ck"><input type="checkbox" id="dxEntry"><span>A peripheral joint or bursa has been swollen, painful or tender at least once</span></label>
         <p class="dx-def">The criteria are applied only to people who meet it. [[Neogi2015]]</p>
       </fieldset>
       <fieldset><legend>Step 2 · Sufficient criterion</legend>
-        <label class="dx-ck"><input type="checkbox" id="dxSuff"><span>MSU crystals seen by a trained examiner in a symptomatic joint or bursa (synovial fluid) or in a tophus</span></label>
+        <label class="dx-ck"><input type="checkbox" id="dxSuff"><span>A trained examiner has found MSU crystals in fluid from an affected joint or bursa, or in a tophus</span></label>
         <p class="dx-def">If yes, the person is classified as having gout and nothing is scored. [[Neogi2015]]</p>
       </fieldset>
       <fieldset><legend>Step 3 · Clinical: joint pattern (ever)</legend>
@@ -84,19 +84,19 @@
       </fieldset>
       <fieldset><legend>Clinical: features of an episode (ever)</legend>
         <label class="dx-ck"><input type="checkbox" data-tr="red"><span>Redness over the joint (reported or seen)</span><span class="pts">+1</span></label>
-        <label class="dx-ck"><input type="checkbox" data-tr="touch"><span>Can't bear touch or pressure on the joint</span><span class="pts">+1</span></label>
-        <label class="dx-ck"><input type="checkbox" data-tr="walk"><span>Great difficulty walking, or unable to use the joint</span><span class="pts">+1</span></label>
+        <label class="dx-ck"><input type="checkbox" data-tr="touch"><span>The joint was too tender to touch or press</span><span class="pts">+1</span></label>
+        <label class="dx-ck"><input type="checkbox" data-tr="walk"><span>Walking was very hard, or the joint could not be used</span><span class="pts">+1</span></label>
         <p class="dx-def">One point each, up to 3, scored whatever anti-inflammatory treatment was taken. [[Neogi2015]]</p>
       </fieldset>
       <fieldset><legend>Clinical: time course (ever)</legend>
-        <p class="dx-def">A <b>typical episode</b> has at least 2 of: maximal pain in under 24 hours; resolution within 14 days; complete resolution between episodes. [[Neogi2015]]</p>
+        <p class="dx-def">An episode counts as <b>typical</b> when at least 2 of these hold: the pain peaks in under 24 hours; it settles in 14 days or fewer; the joint is fully back to normal between episodes. [[Neogi2015]]</p>
         <label class="dx-ck"><input type="radio" name="dxCourse" value="0" checked><span>No typical episode</span><span class="pts">0</span></label>
         <label class="dx-ck"><input type="radio" name="dxCourse" value="1"><span>One typical episode</span><span class="pts">+1</span></label>
         <label class="dx-ck"><input type="radio" name="dxCourse" value="2"><span>Recurrent typical episodes</span><span class="pts">+2</span></label>
       </fieldset>
       <fieldset><legend>Clinical: tophus</legend>
-        <label class="dx-ck"><input type="checkbox" id="dxToph"><span>Clinical tophus: a draining or chalk-like nodule under transparent skin, often with vessels over it, in a typical place (joints, ears, elbow bursae, finger pads, tendons)</span><span class="pts">+4</span></label>
-        <p class="dx-def">Definition from the criteria. [[Neogi2015]]</p>
+        <label class="dx-ck"><input type="checkbox" id="dxToph"><span>A tophus can be seen or felt: a chalky lump, sometimes discharging, under thin skin, in a typical spot such as a joint, ear, elbow bursa, finger pad or tendon</span><span class="pts">+4</span></label>
+        <p class="dx-def">Summarised from the definition in the criteria. [[Neogi2015]]</p>
       </fieldset>
       <fieldset><legend>Laboratory: serum urate (required)</legend>
         <label class="dx-ck"><input type="radio" name="dxUr" value="none" checked><span>Not measured</span><span class="pts">needed</span></label>
@@ -116,7 +116,7 @@
       </fieldset>
       <fieldset><legend>Imaging (a symptomatic joint, ever)</legend>
         <label class="dx-ck"><input type="checkbox" id="dxImg"><span>Urate deposition: ultrasound double-contour sign, or urate on dual-energy CT</span><span class="pts">+4</span></label>
-        <label class="dx-ck"><input type="checkbox" id="dxEro"><span>Gout-type erosion on a hand or foot X-ray (not the DIP joints, not "gull wing")</span><span class="pts">+4</span></label>
+        <label class="dx-ck"><input type="checkbox" id="dxEro"><span>Gout-type erosion on a hand or foot X-ray (DIP joints and the "gull wing" pattern do not count)</span><span class="pts">+4</span></label>
         <p class="dx-def">Imaging not done scores 0, the same as a negative result. [[Neogi2015]]</p>
       </fieldset>
       <div class="dx-live" id="dxLive" aria-hidden="true"></div>
@@ -155,7 +155,7 @@
       <p>Pooled joint-level sensitivity was 0.83, but only <b>0.55</b> in disease of 6 weeks or less. [[Gamala2019]] Some artefact appeared in 90% of 50 scans. [[Mallinson2014]] <span class="ev est">Established</span> A negative DECT does not exclude early gout. [[Gamala2019,Bongartz2015]]</p></div>
     <div class="card dx-img"><svg id="dxXrSvg" viewBox="0 0 260 140" role="img" aria-label="Schematic X-ray of a gouty erosion with an overhanging edge"></svg>
       <h4>X-ray: the overhanging edge</h4>
-      <p>The criteria erosion is a cortical break with a sclerotic margin and an overhanging edge. DIP joints and the "gull wing" pattern are excluded because they occur in osteoarthritis. [[Neogi2015]] X-rays add little early; in late or severe gout, asymmetrical swelling (LR 4.13) and subcortical cysts without erosion (LR 6.39) help. [[Zhang2006Dx]]</p>
+      <p>For the criteria, an erosion is a gap in the bone's outer shell with a dense, hardened rim and a lip of bone overhanging it. Erosions at the DIP joints and the "gull wing" pattern do not count, since osteoarthritis produces them. [[Neogi2015]] X-rays add little early; in late or severe gout, asymmetrical swelling (LR 4.13) and subcortical cysts without erosion (LR 6.39) help. [[Zhang2006Dx]]</p>
       <p>Erosions are driven by tophus: all 56 CT erosions larger than 7.5 mm contained tophus. [[Dalbeth2009]]</p></div>
   </div>
   <p class="callout"><span class="ev early">Early evidence</span> One meta-analysis found DECT more accurate overall (0.89/0.91), but ultrasound more sensitive in disease of 2 years or less (0.93 vs 0.75). [[Shang2022]]</p>
@@ -170,7 +170,7 @@
   </div>
 
   <div class="split2">
-    <div class="hook"><b>Exam hook</b>Entry: at least 1 episode of peripheral joint or bursa swelling, pain or tenderness. Sufficient: <b>MSU crystals</b>. Otherwise <b>≥8 of 23</b> points. Two items subtract: urate under 4 mg/dL (<b>−4</b>) and MSU-negative fluid (<b>−2</b>). Full criteria 0.92/0.89 (AUC 0.95); clinical-only 0.85/0.78 (AUC 0.89). [[Neogi2015]]</div>
+    <div class="hook"><b>Exam hook</b>Entry: a peripheral joint or bursa swollen, painful or tender at least once. Sufficient: <b>MSU crystals</b>. Otherwise <b>≥8 of 23</b> points. Two items subtract: urate under 4 mg/dL (<b>−4</b>) and MSU-negative fluid (<b>−2</b>). Full criteria 0.92/0.89 (AUC 0.95); clinical-only 0.85/0.78 (AUC 0.89). [[Neogi2015]]</div>
     <div class="pt"><b>In plain words</b>Seeing the crystals settles it. A doctor takes a little fluid from the swollen joint and looks at it under a special microscope; gout crystals look like thin needles. If that cannot be done, doctors add up points for where the pain is, how fast it came, the blood urate level and scan results. Your urate can look normal during a flare, so it is worth checking again about a month later.</div>
   </div>
   <div class="cards">

@@ -1,16 +1,16 @@
 /* =============== 2.2 Diagnosis: DSM-5-TR criteria & severity =============== */
-/* the 11 criteria, paraphrased (APA 2022), grouped in four clusters */
+/* the 11 criteria, restated in our own words (APA 2022), grouped in four clusters */
 const CR_G=[{n:'Impaired control',c:'var(--dx)'},{n:'Social impairment',c:'var(--accent)'},{n:'Risky use',c:'var(--warn)'},{n:'Pharmacological',c:'var(--gaba)'}];
 const CR_C=[
- {g:0,s:'Larger or longer',d:'than intended',l:'Drinking more, or for longer, than intended'},
- {g:0,s:'Cutting down fails',d:'persistent wish or efforts',l:'A persistent wish, or failed efforts, to cut down or control drinking'},
- {g:0,s:'Much time spent',d:'getting, using, recovering',l:'Much time spent getting alcohol, drinking or recovering'},
- {g:0,s:'Craving',d:'added in DSM-5',l:'Craving: a strong desire or urge to drink'},
- {g:1,s:'Role obligations',d:'major roles not met',l:'Failure to meet major role obligations at work, school or home'},
- {g:1,s:'Social problems',d:'continued despite them',l:'Continued drinking despite social or interpersonal problems'},
- {g:1,s:'Activities given up',d:'important ones dropped',l:'Important social, work or leisure activities given up'},
- {g:2,s:'Hazardous situations',d:'physically hazardous use',l:'Drinking in physically hazardous situations'},
- {g:2,s:'Health problems',d:'physical or psychological',l:'Continued drinking despite physical or psychological problems'},
+ {g:0,s:'More than planned',d:'amount or duration',l:'Often ends up drinking more, or for longer, than planned'},
+ {g:0,s:'Cutting down fails',d:'keeps wanting or trying',l:'Keeps wanting or trying to cut back, without success'},
+ {g:0,s:'Much time spent',d:'getting, using, recovering',l:'A lot of time goes on getting drink, drinking, or getting over it'},
+ {g:0,s:'Craving',d:'added in DSM-5',l:'Craving: strong urges to drink'},
+ {g:1,s:'Main duties slip',d:'work, school, home',l:'Drinking keeps getting in the way of main duties at work, school or home'},
+ {g:1,s:'Trouble with others',d:'drinking continues anyway',l:'Keeps drinking although it causes or worsens trouble with other people'},
+ {g:1,s:'Activities given up',d:'things that mattered',l:'Has dropped or cut back on things that mattered: social life, work, hobbies'},
+ {g:2,s:'Physical danger',d:'drinking where it is unsafe',l:'Drinks again and again where it puts the body in danger, such as before driving'},
+ {g:2,s:'Health problems',d:'body or mind',l:'Keeps drinking while knowing it causes or worsens a body or mental health problem'},
  {g:3,s:'Tolerance',d:'pharmacological',l:'Tolerance'},
  {g:3,s:'Withdrawal',d:'pharmacological; see 3.1',l:'Withdrawal'}];
 const CR_SEV=[{n:'No diagnosis',c:'var(--muted)',r:'0–1'},{n:'Mild',c:'var(--warn)',r:'2–3',p:7.3,a:30.1,tr:2.7},{n:'Moderate',c:'var(--accent)',r:'4–5',p:3.2,a:25.9,tr:4.9},{n:'Severe',c:'var(--bad)',r:'6–11',p:3.4,a:23.9,tr:21.3}];
@@ -19,19 +19,19 @@ const CR_ON=[.13,.17,.21,.25,.34,.38,.42,.5,.54,.62,.66];
 const CR_MO=[1.5,3,4.5,5.5,6.5,7.5,8.5,9.2,10,10.8,11.5];
 const CR_STEPS=[
  {from:0,at:.06,k:'Step 1 · The frame',t:'11 criteria, one 12-month window',
-  txt:`DSM-5-TR defines alcohol use disorder as a problematic pattern of alcohol use causing clinically significant impairment or distress, shown by at least 2 of 11 criteria within a 12-month period. The work group chose 2 because it gave the best agreement with the combined prevalence of DSM-IV abuse and dependence. The criteria describe a dimensional condition with no natural cut-point, so the count itself is the severity. [[APA2022,Hasin2013]]`,
+  txt:`In DSM-5-TR, alcohol use disorder means a pattern of drinking that causes real harm or distress, shown by at least 2 of 11 criteria within 12 months. The work group chose 2 because it gave the best agreement with the combined prevalence of DSM-IV abuse and dependence. The criteria describe a dimensional condition with no natural cut-point, so the count itself is the severity. [[APA2022,Hasin2013]]`,
   pt:`Alcohol use disorder is a medical condition. A clinician diagnoses it by asking about 11 kinds of problems over the past year.`,
   hook:`AUD = ≥2 of 11 criteria within 12 months.`},
  {from:.12,at:.3,k:'Step 2 · Impaired control',t:'Impaired control (1–4)',
-  txt:`The first cluster is about control: drinking more or longer than intended, a persistent wish or failed efforts to cut down, much time spent getting, drinking or recovering, and craving. Watch the meter: at 2 criteria it reads mild, at 4 moderate. Craving was added in DSM-5; its psychometric benefit was equivocal, but the view that it may become a biological treatment target prevailed. [[APA2022,Hasin2013]]`,
+  txt:`The first cluster is about control: drinking more or for longer than planned, trying and failing to cut back, losing a lot of time to drink, and craving. Watch the meter: at 2 criteria it reads mild, at 4 moderate. Craving was added in DSM-5; its psychometric benefit was equivocal, but the view that it may become a biological treatment target prevailed. [[APA2022,Hasin2013]]`,
   pt:`Two or three criteria is mild, four or five is moderate, six or more is severe.`,
   hook:`Severity by count: mild 2–3, moderate 4–5, severe 6+. Craving was added in DSM-5.`},
  {from:.32,at:.46,k:'Step 3 · Social impairment',t:'Social impairment (5–7)',
-  txt:`Failing to meet major role obligations, continuing to drink despite social or interpersonal problems, and giving up important activities. Legal problems, a DSM-IV abuse criterion, are not here: they were dropped for very low prevalence, low discrimination and poor fit with the other criteria. Seven criteria is severe AUD, which 3.4% of US adults had in the past year. [[APA2022,Hasin2013,Grant2015NESARC]]`,
+  txt:`Duties at work, school or home slipping, drinking on despite trouble with other people, and dropping things that mattered. Legal problems, a DSM-IV abuse criterion, are not here: they were dropped for very low prevalence, low discrimination and poor fit with the other criteria. Seven criteria is severe AUD, which 3.4% of US adults had in the past year. [[APA2022,Hasin2013,Grant2015NESARC]]`,
   pt:`The count says how many kinds of problems are present, not how "bad" a person is.`,
   hook:`DSM-5 removed "recurrent legal problems" and added craving: still 11 criteria.`},
  {from:.48,at:.58,k:'Step 4 · Risky use',t:'Risky use (8–9)',
-  txt:`Drinking in physically hazardous situations, and continuing to drink despite physical or psychological problems. Treatment seeking rises with severity: 2.7% of people with mild, 4.9% with moderate and 21.3% with severe 12-month AUD sought treatment. [[APA2022,Grant2015NESARC]]`,
+  txt:`Drinking again and again where it is physically dangerous, and drinking on despite a body or mental health problem it causes or worsens. Treatment seeking rises with severity: 2.7% of people with mild, 4.9% with moderate and 21.3% with severe 12-month AUD sought treatment. [[APA2022,Grant2015NESARC]]`,
   pt:`Most people with alcohol use disorder never get treatment, even though treatment helps.`,
   hook:`Treatment seeking: 2.7% mild, 4.9% moderate, 21.3% severe (NESARC-III).`},
  {from:.6,at:.7,k:'Step 5 · Pharmacological',t:'Tolerance and withdrawal (10–11)',

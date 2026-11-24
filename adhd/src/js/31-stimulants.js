@@ -25,7 +25,7 @@ const ST_STEPS={
    pt:`The medicine plugs the recycling pumps, like a cork in a drain.`,
    hook:`Methylphenidate ED50: DAT 0.25 mg/kg, NET 0.14 mg/kg. NET blockade may contribute to its effect. [[Volkow1998,Hannestad2010]]`},
   {from:.45,at:.6,k:'Cleft dopamine rises',t:'Each pulse lingers',
-   txt:`With the pumps blocked, each released puff stays in the cleft longer and reaches more receptors. Oral methylphenidate (about 0.8 mg/kg) increased extracellular dopamine in the striatum of 11 healthy adults, shown by a 20 ± 12% drop in D2 receptor availability. The label states that it "blocks the reuptake of norepinephrine and dopamine into the presynaptic neuron and increases the release of these monoamines into the extraneuronal space". [[Volkow2001,FDA-RitalinC,FDA-Concerta]]`,
+   txt:`With the pumps blocked, each released puff stays in the cleft longer and reaches more receptors. Oral methylphenidate (about 0.8 mg/kg) increased extracellular dopamine in the striatum of 11 healthy adults, shown by a 20 ± 12% drop in D2 receptor availability. The label explains that it stops the nerve ending from taking norepinephrine and dopamine back up, and increases how much of both is released into the space outside the neuron. [[Volkow2001,FDA-RitalinC,FDA-Concerta]]`,
    pt:`Because less dopamine is vacuumed up, more of it stays in the gap to pass on the message.`,
    hook:`Methylphenidate = reuptake blocker (DAT and NET). [[FDA-RitalinC,Volkow1998,Hannestad2010]]`},
   {from:.7,at:.86,k:'Steady state',t:'Louder signals, same timing',

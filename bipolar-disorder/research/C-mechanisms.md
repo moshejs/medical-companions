@@ -14,7 +14,7 @@ Access notes:
 ## Findings
 
 ### brain · Big picture: what causes bipolar disorder at the biological level
-- The cause of bipolar disorder is not known. Processes implicated include disturbances in neuronal-glial plasticity, monoaminergic signalling, inflammatory homoeostasis, cellular metabolic pathways and mitochondrial function [[McIntyre2020Lancet]].
+- The cause of bipolar disorder is not known. Implicated processes include changes in how neurons and glia adapt (plasticity), monoamine signalling, the balance of inflammation, cell metabolism and mitochondria [[McIntyre2020Lancet]].
 - Bipolar disorder has a heritability of approximately 70% [[McIntyre2020Lancet]].
 - The largest genome-wide study (41,917 cases, 371,549 controls of European ancestry) found 64 risk loci; risk alleles were enriched in synaptic signalling genes and in genes expressed in neurons of the prefrontal cortex and hippocampus (Established) [[Mullins2021]].
 - Risk-gene signal was enriched in genes that encode targets of antipsychotics, calcium channel blockers, antiepileptics and anaesthetics, pointing to drug targets already in use (Established) [[Mullins2021]].
@@ -32,7 +32,7 @@ Access notes:
 - In 3,140 people with bipolar disorder interviewed about triggers, sleep loss triggering high mood was associated with bipolar I subtype (OR 2.81, 95% CI 2.26–3.50) and female gender (OR 1.43, 95% CI 1.17–1.75); sleep loss triggering low mood was not significant after adjustment [[Lewis2017Sleep]].
 - In daily self-ratings from 59 outpatients (mean 169 days each), changes in sleep plus bedrest were inversely correlated with the next mood change, most often with a one-day lag; 24 of 59 (41%) showed a significant correlation for the night before or the night of a mood change [[Bauer2006Sleep]].
 - In the same study, the patients with a significant sleep-mood correlation reported about two-thirds of all large sleep changes of more than 3 hours and three-quarters of all large mood changes; sleep changes of more than 3 hours from a person's usual pattern may signal that a large mood change is imminent [[Bauer2006Sleep]].
-- In 11 people with rapid-cycling bipolar disorder followed with daily logs for 18 months, decreased sleep duration was the best predictor of mania or hypomania the next day; 4 of the 11 showed no sleep-mood relationship at all [[Leibenluft1996]].
+- In 11 people with rapid-cycling bipolar disorder followed with daily logs for 18 months, a shorter night's sleep predicted next-day mania or hypomania better than any other variable; 4 of the 11 showed no sleep-mood relationship at all [[Leibenluft1996]].
 - A systematic review of 17 studies (1,191 people) found that at least 80% of people with a mood disorder can identify one or more early warning symptoms; sleep disturbance was the most robust early symptom of mania (median prevalence 77%) [[Jackson2003]].
 - Manic prodromes lasted on average more than 20 days (range 1–120 days), while depressive prodromes were under 19 days on average but far more variable (2–365 days) [[Jackson2003]].
 - Reviews conclude that impaired sleep can both induce and predict manic episodes, and that residual insomnia between episodes may be a vulnerability to relapse (Established for prediction; causal role Early evidence) [[Plante2008]].
@@ -63,7 +63,7 @@ Access notes:
 - The largest bipolar GWAS did not report core clock genes among its headline findings; its strongest enrichment was in synaptic signalling, so the genetic evidence for clock genes as risk genes remains limited (Early evidence) [[Mullins2021,McCarthy2012]].
 
 ### brain · Light and season
-- A systematic review of 51 papers found seasonal peaks for mood episodes worldwide: mania peaks in spring/summer (and to a lesser extent autumn), depression in early winter (and to a lesser extent summer), and mixed episodes in early spring or mid/late summer (Established) [[Geoffroy2014]].
+- A systematic review of 51 papers found seasonal peaks for mood episodes worldwide: mania peaked in spring/summer (with a smaller autumn peak), depression in early winter (with a smaller summer peak), and mixed episodes in early spring or mid/late summer (Established) [[Geoffroy2014]].
 - In that review, a seasonal pattern was frequent for manic episodes (15%) and depressive episodes (25%); seasonal depressive patterns were linked to bipolar II, eating disorders, more relapses and rapid cycling [[Geoffroy2014]].
 - In 5,536 people with bipolar I disorder from 50 sites in 32 countries, a larger maximum monthly increase in springtime solar insolation at the place of onset was associated with a younger age of onset, especially with a family history of mood disorders (Early evidence) [[Bauer2017Solar]].
 - In a 6-week double-blind trial in bipolar depression (n=23 per arm, all on antimanic medication), 7,000-lux bright white light at midday gave a remission rate of 68.2% versus 22.2% with 50-lux dim red placebo light (adjusted OR 12.6), with no mood polarity switches [[Sit2018]].
@@ -84,7 +84,7 @@ Access notes:
 - An earlier meta-analysis of 98 structural imaging studies found lateral ventricle enlargement (effect size 0.39, 95% CI 0.24–0.55) and more deep white matter hyperintensities (OR 2.49, 95% CI 1.64–3.79); grey matter volume was larger in studies with more lithium-treated patients [[Kempton2008]].
 - These brain differences are small on average (most Cohen's d between −0.1 and −0.3), overlap heavily with healthy people and cannot be used to diagnose an individual [[Hibar2018,Hibar2016,Kempton2008]].
 - A 2026 ENIGMA mega-analysis (2,664 patients, 4,065 controls) found that medication-free patients (n=410) had only mild ventricular enlargement (d = 0.07), whereas antiepileptic and antipsychotic use was associated with smaller hippocampal and thalamic volumes (d = −0.07 to −0.14), showing how medication confounds imaging findings [[King2026ENIGMA]].
-- In the same analysis, concurrent lithium weakened the negative association between antiepileptic use and hippocampal volume (β = 0.19, q = 0.038) [[King2026ENIGMA]].
+- In the same analysis, taking lithium at the same time reduced the link between antiepileptic use and a smaller hippocampus (β = 0.19, q = 0.038) [[King2026ENIGMA]].
 
 ### brain · Brain structure: white matter and change over time
 - In the largest diffusion imaging dataset (1,482 with bipolar disorder, 1,551 controls from 26 cohorts), fractional anisotropy was lower in 29 of 43 regions, with the largest effects in the corpus callosum and cingulum (R² about 0.04) (Established) [[Favre2019]].
@@ -101,7 +101,7 @@ Access notes:
 
 ### brain · Neurochemistry: dopamine and glutamate
 - The dopamine hypothesis holds that too much dopamine signalling underlies mania and too little underlies depression; it has been a key theory for over four decades (Established as a model; mechanism Early evidence) [[Ashok2017]].
-- Converging pharmacological and imaging evidence supports hyperdopaminergia in mania, specifically elevated striatal D2/3 receptor availability and a hyperactive reward-processing network [[Ashok2017]].
+- Drug and imaging studies together point to excess dopamine activity in mania, namely more striatal D2/3 receptor availability and an overactive reward network [[Ashok2017]].
 - In bipolar depression, imaging shows increased dopamine transporter (DAT) levels, which would lower dopamine signalling; other dopamine findings in depression are inconsistent [[Ashok2017]].
 - Berk and colleagues proposed a cycle in which high dopamine transmission in mania causes a secondary down-regulation of dopamine receptor sensitivity, leading to a low-dopamine depressive phase (Hypothesis) [[Berk2007]].
 - In Parkinson's disease, high-dose dopamine precursors can produce a mania-like picture that switches into a depression-like state on withdrawal, used as a model for this cycle [[Berk2007]].
@@ -136,7 +136,7 @@ Access notes:
 ### brain · Kindling, neuroprogression and allostatic load
 - Post (1992) proposed that both stressors and episodes leave lasting traces in gene expression (sensitisation), so later episodes need less stress to start and may eventually occur spontaneously, with possible progression to rapid cycling and treatment resistance (Hypothesis) [[Post1992]].
 - Post's model emphasised early intervention to prevent this progression [[Post1992]].
-- In a Danish register of 20,350 first-admission patients (1971–1993), the rate of recurrence increased with the number of previous episodes in both unipolar and bipolar disorder (Established for association) [[Kessing1998Recurrence]].
+- In a Danish register of 20,350 first-admission patients (1971–1993), each extra previous episode went with a higher rate of recurrence, in unipolar and bipolar disorder alike (Established for association) [[Kessing1998Recurrence]].
 - A later Danish register study (1994–1999; 1,106 with mania or bipolar disorder) again found relapse leading to hospitalisation rose with each previous episode, and relapse rates had not declined despite newer treatments [[Kessing2004Course]].
 - A 2017 systematic review concluded that more episodes are associated with higher recurrence risk, longer and more severe episodes, a lower threshold for new episodes and a higher risk of dementia, while noting the course is heterogeneous (Early evidence for causal progression) [[Kessing2017Progression]].
 - A review of life stress in bipolar disorder found that the methodologically strongest studies are inconsistent with the kindling hypothesis as applied to bipolar disorder (Hypothesis remains contested) [[Bender2011]].
@@ -145,7 +145,7 @@ Access notes:
 - Association between more episodes and worse course does not prove that episodes cause progression; people with a more severe illness from the start would also have more episodes (open question) [[Kessing2017Progression,Bender2011]].
 
 ### lithium · What the label says about mechanism
-- The US Lithobid label states that lithium alters sodium transport in nerve and muscle cells and shifts catecholamine metabolism inside neurons, "but the specific biochemical mechanism of lithium action in mania is unknown" [[FDA-Lithobid]].
+- The US Lithobid label states that lithium alters sodium transport in nerve and muscle cells and shifts catecholamine metabolism inside neurons, but adds that exactly how lithium works biochemically in mania is not known [[FDA-Lithobid]].
 - The label states that lithium given during a manic episode "may produce a normalization of symptomatology within 1 to 3 weeks" [[FDA-Lithobid]].
 - As published in the label, desirable serum lithium concentrations for long-term control are 0.6 to 1.2 mEq/L, and doses for acute mania normally produce 1.0 to 1.5 mEq/L (quoted for context, not as instructions; lithium is monovalent, so 1 mEq/L equals 1 mmol/L) [[FDA-Lithobid]].
 - The boxed warning states that lithium toxicity is closely related to serum levels and can occur at doses close to therapeutic levels; suspected toxicity is an emergency [[FDA-Lithobid]].

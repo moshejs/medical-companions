@@ -136,7 +136,7 @@ const NU_MYTHS=[
 const NU_DOCI=[
  {k:'base',l:'Baseline respiratory measure on admission',v:'07:05 Baseline FVC 2.9 L seated. Breath count 26 (best of 2: 24, 26), seated.',c:true,s:'[[MyawareNurses,Elsheikh2016]]'},
  {k:'ser',l:'Serial FVC and breath counts, with position',v:'11:00 FVC 2.8 L, count 27 seated. 19:00 count 24 seated, rechecked 21:00: 25.',c:true,s:'[[MyawareNurses,Elsheikh2016]]'},
- {k:'ce',l:'MG Core Exam item scores',v:'MG-CE: ptosis 1 (lid above pupil after 60 s upgaze), diplopia 0, breath count 1, arm abduction 1.',c:true,s:'[[Guidon2021]]'},
+ {k:'ce',l:'MG Core Exam item scores',v:'MG-CE: ptosis 1 (read after 60 s of upgaze), diplopia 0, breath count 1, arm abduction 1.',c:true,s:'[[Guidon2021]]'},
  {k:'dose',l:'Each dose: time due and time given',v:'Pyridostigmine due 11:45, given 11:50 via NG (oral solution).',c:true,s:'[[KHP2025,RightDecisionsPyrido2025]]'},
  {k:'resp',l:'Response of ptosis or diplopia about 20 min after a dose',v:'12:10 Ptosis improved: lid now clear of the iris. No double vision on sustained gaze.',c:true,s:'[[MyawareNurses]]'},
  {k:'fat',l:'Dose times against fatigue and strength',v:'Patient reports chewing tires at the end of lunch; dose-to-meal gap 45 min.',c:false,s:'[[OpenStaxPharmNurses]]'},

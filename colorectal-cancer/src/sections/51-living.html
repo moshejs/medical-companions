@@ -40,22 +40,22 @@
   <div class="prose"><p>Low anterior resection syndrome (LARS) is the cluster of urgency, frequency, clustering and leakage that many people notice after part of the rectum is removed. The LARS score was built from questionnaires returned by 961 Danish patients and has five items, scored 0–42. It was validated in 801 patients in four countries. A meta-analysis put <b>major LARS at 41%</b> (95% CI 34–48%) of patients at least a year after surgery or stoma closure, with radiotherapy and a low join as the most consistent risk factors. [[Emmertsen2012,Juul2014,Croese2018]]</p></div>
   <div class="lab">
     <div class="stage">
-      <p class="kicker">Answer for the past 4 weeks (points as published)</p>
+      <p class="kicker">Points for each item (past 4 weeks)</p>
       <div class="calc">
-        <label for="lvL1">Do you ever have occasions when you cannot control your flatus (wind)?
-          <select id="lvL1"><option value="0">No, never (0)</option><option value="4">Yes, less than once per week (4)</option><option value="7">Yes, at least once per week (7)</option></select></label>
-        <label for="lvL2">Do you ever have any accidental leakage of liquid stool?
-          <select id="lvL2"><option value="0">No, never (0)</option><option value="3">Yes, less than once per week (3)</option><option value="3">Yes, at least once per week (3)</option></select></label>
-        <label for="lvL3">How often do you open your bowels?
-          <select id="lvL3"><option value="4">More than 7 times per day (4)</option><option value="2">4–7 times per day (2)</option><option value="0" selected>1–3 times per day (0)</option><option value="5">Less than once per day (5)</option></select></label>
-        <label for="lvL4">Do you ever have to open your bowels again within one hour of the last bowel opening?
-          <select id="lvL4"><option value="0">No, never (0)</option><option value="9">Yes, less than once per week (9)</option><option value="11">Yes, at least once per week (11)</option></select></label>
-        <label for="lvL5">Do you ever have such a strong urge to open your bowels that you have to rush to the toilet?
-          <select id="lvL5"><option value="0">No, never (0)</option><option value="11">Yes, less than once per week (11)</option><option value="16">Yes, at least once per week (16)</option></select></label>
+        <label for="lvL1">Wind (flatus) control
+          <select id="lvL1"><option value="0">0</option><option value="4">4</option><option value="7">7</option></select></label>
+        <label for="lvL2">Liquid stool leakage
+          <select id="lvL2"><option value="0">0</option><option value="3">3</option></select></label>
+        <label for="lvL3">Bowel frequency
+          <select id="lvL3"><option value="0" selected>0</option><option value="2">2</option><option value="4">4</option><option value="5">5</option></select></label>
+        <label for="lvL4">Clustering
+          <select id="lvL4"><option value="0">0</option><option value="9">9</option><option value="11">11</option></select></label>
+        <label for="lvL5">Urgency
+          <select id="lvL5"><option value="0">0</option><option value="11">11</option><option value="16">16</option></select></label>
       </div>
       <div class="scroll"><svg id="lvLars" viewBox="0 0 720 150" style="min-width:560px" role="img" aria-label="A 0 to 42 ruler split into no LARS (0 to 20), minor LARS (21 to 29) and major LARS (30 to 42), with a marker at the current total and the five item scores stacked as coloured segments."></svg></div>
       <div class="ctrls"><button class="btn ghost" id="lvLReset">Reset</button></div>
-      <p class="stage-cap">Item wording paraphrased; points from the MANUEL reproduction of the score. A teaching tool, not a diagnosis. [[Christensen2021,Emmertsen2012]]</p>
+      <p class="stage-cap">Topic labels and point values only. The official questions and answer options are on the LARS score form published by its developers, Emmertsen and Laurberg (2012); points as listed in the MANUEL guideline. A teaching tool, not a diagnosis. [[Emmertsen2012,Christensen2021]]</p>
     </div>
     <aside class="note" id="lvLNote" aria-live="polite"></aside>
   </div>

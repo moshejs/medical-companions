@@ -16,7 +16,7 @@ inits.episodes=()=>{
      pt:`Bipolar disorder is not a constant state. Between episodes, many people feel like themselves.`,
      hook:`Diagnosis is about <b>episodes</b>: a change from the person's usual self that lasts a set number of days. [[APA2022,Yatham2018]]`},
     {from:U(4),at:U(5.3),k:'Week 4–5 · ≥4 days',t:'Hypomania',
-     txt:`Mood lifts or turns irritable, and energy and activity rise with it. Sleep shortens without tiredness, talk speeds up, ideas come quickly. DSM-5-TR requires this to last at least 4 consecutive days, most of the day, nearly every day, with at least 3 of the 7 symptoms (4 if mood is only irritable). The change is clear to others but does not cause marked impairment, need hospital care or bring psychosis. Watch the meter below the chart reach day 4. [[APA2022,Yatham2018]]`,
+     txt:`Mood lifts or turns irritable, and energy and activity rise with it. Sleep shortens without tiredness, talk speeds up, ideas come quickly. DSM-5-TR requires this to last at least 4 days in a row, for most of each day on almost every day, with at least 3 of the 7 symptoms (4 if mood is only irritable). The change is clear to others but does not cause marked impairment, need hospital care or bring psychosis. Watch the meter below the chart reach day 4. [[APA2022,Yatham2018]]`,
      pt:`Hypomania is a milder high that lasts at least 4 days. Other people notice the change, but it does not wreck work or home life. It can even feel good, which is one reason it is missed.`,
      hook:`Hypomania: ≥4 consecutive days, observable change, NO marked impairment, NO hospitalisation, NO psychosis. Psychosis makes it mania by definition. [[APA2022,Yatham2018]]`},
     {from:U(9.8),at:U(12.6),k:'Weeks 10–15 · ≥1 week',t:'Mania',
@@ -160,16 +160,16 @@ inits.episodes=()=>{
   /* ---------- symptom sorter ---------- */
   const CARDS=[
     {s:'Feels rested after only a few hours of sleep',a:'m',why:`Decreased need for sleep is a Criterion B symptom of mania and hypomania. In a major depressive episode the sleep symptom is insomnia or sleeping too much. [[APA2022,Yatham2018]]`},
-    {s:'Talks much more than usual, hard to interrupt',a:'m',why:`More talkative than usual, or pressure to keep talking, is one of the 7 manic/hypomanic symptoms. [[APA2022,Yatham2018]]`},
-    {s:'Thoughts racing, jumping from topic to topic',a:'m',why:`Flight of ideas, or the experience that thoughts are racing, is a manic/hypomanic symptom. In depression thinking slows and decisions get hard. [[APA2022,Yatham2018]]`},
-    {s:'Feels unusually important, special or gifted',a:'m',why:`Inflated self-esteem or grandiosity is a manic/hypomanic symptom; grandiose delusions are the commonest psychotic symptom in bipolar disorder. [[APA2022,Dunayevich2000]]`},
-    {s:'Spending sprees or risky ventures out of character',a:'m',why:`Excessive involvement in activities with a high potential for painful consequences is a manic/hypomanic symptom. [[APA2022,Yatham2018]]`},
-    {s:'Lost interest or pleasure in almost everything',a:'d',why:`Markedly diminished interest or pleasure is one of the two core symptoms of a major depressive episode (the other is depressed mood). [[APA2022,Yatham2018]]`},
-    {s:'Feels worthless or weighed down by guilt',a:'d',why:`Feelings of worthlessness or excessive guilt are a major depressive symptom. Guilt was also commoner in mixed than in pure mania. [[APA2022,Cassidy1998]]`},
-    {s:'Exhausted, no energy even for small tasks',a:'d',why:`Fatigue or loss of energy is a major depressive symptom. In mania and hypomania, energy and activity are increased: that is part of Criterion A. [[APA2022,Yatham2018]]`},
-    {s:'Appetite or weight changes noticeably',a:'d',why:`Significant weight or appetite change is one of the 9 major depressive symptoms. [[APA2022,Yatham2018]]`},
+    {s:'Talks much more than usual, hard to interrupt',a:'m',why:`Talking much more than usual, or feeling driven to keep talking, is one of the 7 manic/hypomanic symptoms. [[APA2022,Yatham2018]]`},
+    {s:'Thoughts racing, jumping from topic to topic',a:'m',why:`Thoughts that race or leap from idea to idea are a manic/hypomanic symptom. In depression thinking slows and decisions get hard. [[APA2022,Yatham2018]]`},
+    {s:'Feels unusually important, special or gifted',a:'m',why:`An overblown sense of self-worth or importance (grandiosity) is a manic/hypomanic symptom; grandiose delusions are the commonest psychotic symptom in bipolar disorder. [[APA2022,Dunayevich2000]]`},
+    {s:'Spending sprees or risky ventures out of character',a:'m',why:`Throwing oneself into risky activities that are likely to end in harm is a manic/hypomanic symptom. [[APA2022,Yatham2018]]`},
+    {s:'Lost interest or pleasure in almost everything',a:'d',why:`A clear loss of interest or pleasure is one of the two core symptoms of a major depressive episode (the other is depressed mood). [[APA2022,Yatham2018]]`},
+    {s:'Feels worthless or weighed down by guilt',a:'d',why:`Feeling worthless or far too guilty is a major depressive symptom. Guilt was also commoner in mixed than in pure mania. [[APA2022,Cassidy1998]]`},
+    {s:'Exhausted, no energy even for small tasks',a:'d',why:`Tiredness or low energy is a major depressive symptom. In mania and hypomania, energy and activity are increased: that is part of Criterion A. [[APA2022,Yatham2018]]`},
+    {s:'Appetite or weight changes noticeably',a:'d',why:`A clear change in weight or appetite is one of the 9 major depressive symptoms. [[APA2022,Yatham2018]]`},
     {s:'Irritable, snapping at people',a:'b',why:`Irritable mood can carry a manic or hypomanic episode (then 4 rather than 3 B symptoms are needed), and irritability was prominent in mania and more common in mixed mania. It turns up in depression too. [[APA2022,Cassidy1998]]`},
-    {s:'Easily distracted, cannot focus on one thing',a:'b',why:`Distractibility is a manic/hypomanic symptom, and a diminished ability to think, concentrate or decide is a depressive one. Same experience, both poles. [[APA2022,Yatham2018]]`},
+    {s:'Easily distracted, cannot focus on one thing',a:'b',why:`Distractibility is a manic/hypomanic symptom, and trouble thinking, concentrating or deciding is a depressive one. Same experience, both poles. [[APA2022,Yatham2018]]`},
     {s:'Restless, pacing, cannot sit still',a:'b',why:`Psychomotor agitation is listed for mania (with increased goal-directed activity) and for major depression (agitation or slowing). Agitation alongside low mood is a classic picture of a mixed state. [[APA2022,Yatham2018,Cassidy1998]]`}
   ];
   const ZN={m:'Mania / hypomania',d:'Depression',b:'Both'};

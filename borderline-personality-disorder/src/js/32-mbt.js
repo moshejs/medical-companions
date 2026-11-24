@@ -17,7 +17,7 @@ inits.mbt=()=>{
   };
   const STEPS=[
     {from:0,at:.05,k:'Before the trigger',t:'Minds in mind',
-     txt:`Jo arrives late and quiet. Maya and Jo are both mentalizing: each makes a tentative guess about what is going on inside the other, and is ready to be wrong. Mentalizing is "the capacity to understand others and oneself in terms of internal mental states", and it varies along four dimensions: automatic–controlled, internal–external focus, self–other and cognitive–affective. [[Luyten2020]]`,
+     txt:`Jo arrives late and quiet. Maya and Jo are both mentalizing: each makes a tentative guess about what is going on inside the other, and is ready to be wrong. Mentalizing is the ability to make sense of oneself and others in terms of what is going on inside, such as thoughts, feelings and wishes, and it varies along four dimensions: automatic–controlled, internal–external focus, self–other and cognitive–affective. [[Luyten2020]]`,
      lo:`The same start: two people guessing, gently, at each other's minds.`,
      pt:`Mentalizing is noticing that you and other people have thoughts and feelings behind what you do, and guessing at them with an open mind.`,
      hook:`Mentalizing has four dimensions: automatic–controlled, internal–external, self–other, cognitive–affective (Luyten 2020).`},
@@ -42,7 +42,7 @@ inits.mbt=()=>{
      pt:`Sometimes people say all the right things about feelings, but it feels empty and nothing changes. That is pretend mode.`,
      hook:`Pretend mode = mentalizing talk detached from real feeling. The three pre-mentalizing modes: psychic equivalence, teleological, pretend. [[Chung2026]]`},
     {from:.8,at:.94,k:'The therapist steps in',t:'Pause, rewind, repair',
-     txt:`The therapist slows the exchange down and goes back to the moment it went wrong, asking what each person felt and assumed then. As arousal falls below the threshold, controlled mentalizing comes back and the bond repairs. MBT is "a time-limited treatment which structures interventions that promote the further development of mentalizing". [[Bateman2010WP]] In the MBT-A trial, the benefit on self-harm and depression was explained by better mentalizing and less attachment avoidance. [[Rossouw2012MBTA]]`,
+     txt:`The therapist slows the exchange down and goes back to the moment it went wrong, asking what each person felt and assumed then. As arousal falls below the threshold, controlled mentalizing comes back and the bond repairs. MBT is a treatment of fixed length whose interventions are organised to help mentalizing keep developing. [[Bateman2010WP]] In the MBT-A trial, the benefit on self-harm and depression was explained by better mentalizing and less attachment avoidance. [[Rossouw2012MBTA]]`,
      lo:`With low stress there is nothing to repair: the therapist can use calm moments to practise curiosity about minds.`,
      pt:`In MBT, the therapist helps you hit "pause", go back to the moment things went wrong, and look at what was going on in your mind and the other person's.`,
      hook:`MBT aims to develop mentalizing itself. [[Bateman2010WP]] Mechanism in MBT-A: improved mentalizing and less attachment avoidance. [[Rossouw2012MBTA]]`}

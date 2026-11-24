@@ -17,7 +17,7 @@ inits.families=()=>{
     pt:`Families practise saying hard things calmly, and listening, so a worry can be raised without a fight.`,
     hook:`FFT = psychoeducation + communication training + problem solving, over 21 sessions in 9 months. [[Miklowitz2003FFT]]`},
    {from:.56,at:.66,k:'Months 7–9',t:'Problem solving',
-    txt:`The last part works through practical problems the family faces. In a network meta-analysis of 39 trials, psychoeducation with guided practice of illness-management skills in a family or group format reduced recurrences compared with the same strategies delivered individually (OR 0.12). Another network meta-analysis found that only carer-focused interventions significantly reduced manic or depressive relapse. [[Miklowitz2021NMA,Chatterton2017]]`,
+    txt:`The last part works through practical problems the family faces. In a network meta-analysis of 39 trials, psychoeducation with guided practice in managing the illness cut recurrences more in a family or group format than the same approach given one-to-one (OR 0.12). Another network meta-analysis found that only carer-focused interventions significantly reduced manic or depressive relapse. [[Miklowitz2021NMA,Chatterton2017]]`,
     pt:`Instead of arguing about a problem, the family lists options together and tries one.`,
     hook:`Carer-focused interventions were the only ones to significantly cut relapse in Chatterton 2017. [[Chatterton2017]]`},
    {from:T1,at:.97,k:'Two years later',t:'Fewer relapses',

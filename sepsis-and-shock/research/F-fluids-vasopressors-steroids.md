@@ -22,17 +22,17 @@ Call-now box (for every page built from this file): Sepsis is a medical emergenc
 ## Findings
 
 ### fluids · Definitions that frame resuscitation
-- Sepsis-3 says patients with septic shock can be clinically identified by "a vasopressor requirement to maintain a mean arterial pressure of 65 mm Hg or greater and serum lactate level greater than 2 mmol/L (>18 mg/dL) in the absence of hypovolemia". This combination is associated with hospital mortality rates greater than 40% (a population statistic) [[Singer2016Sepsis3,ShankarHari2016Shock]].
+- Under Sepsis-3, septic shock is recognised clinically when a vasopressor is needed to keep the mean arterial pressure at 65 mm Hg or more and serum lactate is above 2 mmol/L (>18 mg/dL), with hypovolaemia excluded. This combination is associated with hospital mortality rates greater than 40% (a population statistic) [[Singer2016Sepsis3,ShankarHari2016Shock]].
 - The Sepsis-3 shock definition requires fluids first ("in the absence of hypovolemia"). That is why fluid resuscitation and vasopressors are taught together [[Singer2016Sepsis3]].
 
 ### fluids · How much fluid first: guideline statements as published
-- SSC 2021, recommendation 5: "For patients with sepsis induced hypoperfusion or septic shock we suggest that at least 30 mL/kg of intravenous (IV) crystalloid fluid should be given within the first 3 h of resuscitation". Weak recommendation, low-quality evidence [[Evans2021SSC]].
+- SSC 2021, recommendation 5: for sepsis-induced hypoperfusion or septic shock, at least 30 mL/kg of intravenous (IV) crystalloid is suggested within the first 3 h of resuscitation. Weak recommendation, low-quality evidence [[Evans2021SSC]].
 - SSC 2021 explains that the fixed 30 mL/kg figure (ideal body weight in the 2016 version) "was based on observational evidence". No prospective trials compare different initial volumes [[Evans2021SSC]].
-- SSC 2026 keeps the statement for adults with sepsis-induced hypoperfusion or septic shock: "we suggest administering at least 30 mL/kg of IV crystalloid in the first 3 hr" (conditional, low certainty) [[Prescott2026SSC]].
+- SSC 2026 keeps the statement for adults with sepsis-induced hypoperfusion or septic shock: still a suggestion of at least 30 mL/kg of IV crystalloid in the first 3 hours (conditional, low certainty) [[Prescott2026SSC]].
 - SSC 2026 strongly recommends crystalloids as first-line resuscitation fluid (strong, moderate certainty). SSC 2021 said the same: strong recommendation, moderate quality [[Prescott2026SSC,Evans2021SSC]].
 - SSC 2021 opens resuscitation with a best-practice statement: sepsis and septic shock are medical emergencies, and treatment and resuscitation should "begin immediately" [[Evans2021SSC]].
-- SSC 2021, recommendation 45: "There is insufficient evidence to make a recommendation on the use of restrictive versus liberal fluid strategies in the first 24 h of resuscitation". The remark adds that fluid "should be given only if patients present with signs of hypoperfusion" [[Evans2021SSC]].
-- SSC 2026, for adults who have had 30 mL/kg and still have hypoperfusion: "we suggest using either a liberal or a restrictive fluid resuscitation strategy" (conditional, low certainty) [[Prescott2026SSC]].
+- SSC 2021, recommendation 45: too little evidence to recommend a restrictive or a liberal fluid strategy in the first 24 h of resuscitation. The remark adds that fluid should be given only when there are signs of poor perfusion [[Evans2021SSC]].
+- SSC 2026, for adults who have had 30 mL/kg and still have hypoperfusion: either a liberal or a restrictive fluid strategy is suggested as acceptable (conditional, low certainty) [[Prescott2026SSC]].
 - SSC 2021 notes the fluid volumes in the major resuscitation trials. Rivers's protocol group received over 13 L. The usual-care groups of ProCESS, ARISE and ProMISe received about 7–8 L over the first 72 h [[Evans2021SSC]].
 
 ### fluids · Restrictive versus liberal: the trials
@@ -94,8 +94,8 @@ Call-now box (for every page built from this file): Sepsis is a medical emergenc
   - 90-day mortality was 41.1% versus 43.6% (RR 0.94; 95% CI 0.85 to 1.05).
   - The albumin group had higher MAP and lower net fluid balance [[Caironi2014ALBIOS]].
 - A German open-label trial (JAMA Netw Open 2026, 440 patients with septic shock, stopped early for slow enrolment) targeted serum albumin ≥3.0 g/dL with 20% albumin. 90-day mortality was 43.3% versus 45.9% (RR 0.94; 95% CI 0.76 to 1.17). The authors call the result inconclusive [[Sakr2026JAMANetwOpen]].
-- SSC 2021, recommendation 34, suggested "using albumin in patients who received large volumes of crystalloids over using crystalloids alone" (weak, moderate quality) [[Evans2021SSC]].
-- SSC 2026 reverses that direction: "we suggest using crystalloids alone over crystalloids with supplemental albumin for fluid resuscitation" (conditional, moderate certainty) [[Prescott2026SSC]].
+- SSC 2021, recommendation 34, suggested adding albumin, rather than crystalloids alone, for patients who had already received large volumes of crystalloid (weak, moderate quality) [[Evans2021SSC]].
+- SSC 2026 reverses that direction and suggests resuscitating with crystalloids alone rather than crystalloids plus albumin (conditional, moderate certainty) [[Prescott2026SSC]].
 - 6S (2012) randomised 798 patients with severe sepsis to 6% HES 130/0.42 or Ringer's acetate.
   - 90-day mortality was 51% versus 43% (RR 1.17; 95% CI 1.01 to 1.36).
   - RRT was 22% versus 16% (RR 1.35) [[Perner2012SixS]].
@@ -109,10 +109,10 @@ Call-now box (for every page built from this file): Sepsis is a medical emergenc
 - SSC 2021 and SSC 2026 both "recommend against using starches for resuscitation" (strong, high certainty) and "suggest against using gelatin" (weak/conditional, moderate certainty) [[Evans2021SSC,Prescott2026SSC]].
 
 ### fluids · Is the patient fluid-responsive? Dynamic measures and perfusion targets
-- SSC 2021, recommendation 6, suggests "using dynamic measures to guide fluid resuscitation, over physical examination or static parameters alone" (weak, very low quality). Dynamic parameters "include response to a passive leg raise or a fluid bolus, using stroke volume (SV), stroke volume variation (SVV), pulse pressure variation (PPV), or echocardiography" [[Evans2021SSC]].
+- SSC 2021, recommendation 6, suggests guiding fluids with dynamic measures rather than with the physical examination or static measures alone (weak, very low quality). Examples of dynamic measures are the response to a passive leg raise or a fluid bolus, tracked by stroke volume (SV), stroke volume variation (SVV), pulse pressure variation (PPV) or echocardiography [[Evans2021SSC]].
 - SSC 2026 keeps the suggestion to use dynamic measures over physical examination or static measures alone (conditional, low certainty) [[Prescott2026SSC]].
 - About half of unstable patients respond to fluid. 56% of patients responded to a fluid challenge in a 24-study review of CVP [[Marik2008CVP]], and the mean prevalence was 50% (95% CI 42% to 56%) across 50 studies [[Bentzer2016JAMA]].
-- CVP correlates poorly with blood volume (pooled r 0.16) and does not predict fluid responsiveness: area under the ROC curve 0.56 (95% CI 0.51 to 0.61). The authors conclude CVP "should not be used to make clinical decisions regarding fluid management" [[Marik2008CVP]].
+- CVP correlates poorly with blood volume (pooled r 0.16) and does not predict fluid responsiveness: area under the ROC curve 0.56 (95% CI 0.51 to 0.61). The authors conclude that CVP should not guide decisions about fluid [[Marik2008CVP]].
 - Passive leg raising (PLR) with cardiac output measurement (21 studies, 995 fluid challenges):
   - Pooled sensitivity 0.85 and specificity 0.91; area under the curve 0.95.
   - Best threshold: a PLR-induced rise in cardiac output of ≥10 ± 2%.
@@ -124,7 +124,7 @@ Call-now box (for every page built from this file): Sepsis is a medical emergenc
   - Sensitivity 0.89, specificity 0.88.
   - Valid only during controlled ventilation without spontaneous breathing [[Marik2009PPV]].
 - FRESH (2020, 124 analysed) used PLR-guided resuscitation in septic shock. Fluid balance at 72 h was lower (0.65 vs 2.02 L; −1.37 L). Fewer patients needed RRT (5.1% vs 17.5%) or mechanical ventilation (17.7% vs 34.1%) [[Douglas2020FRESH]].
-- SSC 2021, recommendation 8, suggests "using capillary refill time to guide resuscitation as an adjunct to other measures of perfusion" (weak, low quality). Recommendation 7 suggests guiding resuscitation to decrease serum lactate when lactate is elevated [[Evans2021SSC]].
+- SSC 2021, recommendation 8, suggests using capillary refill time alongside other measures of perfusion to guide resuscitation (weak, low quality). Recommendation 7 suggests guiding resuscitation to decrease serum lactate when lactate is elevated [[Evans2021SSC]].
 - ANDROMEDA-SHOCK (2019, 424 patients) compared resuscitation targeting capillary refill time (CRT) with targeting lactate. 28-day mortality was 34.9% versus 43.4% (HR 0.75; 95% CI 0.55 to 1.02; P=0.06, not significant). 72-h SOFA was lower with CRT (5.6 vs 6.6) [[Hernandez2019ANDROMEDA]].
 - ANDROMEDA-SHOCK-2 (JAMA 2025, 1467 patients, 86 centres) tested a personalised CRT-targeted protocol (pulse pressure, diastolic pressure, fluid responsiveness, echocardiography). It beat usual care on a hierarchical composite: win ratio 1.16 (95% CI 1.02 to 1.33), driven mainly by shorter vital support [[Hernandez2025ANDROMEDA2]].
 - The ESICM shock consensus (2014) made 44 statements, including individualising blood pressure targets and assessing and predicting fluid responsiveness [[Cecconi2014ESICM]].
@@ -145,19 +145,19 @@ Call-now box (for every page built from this file): Sepsis is a medical emergenc
   - Dopamine was linked to excess deaths in the 280 patients with cardiogenic shock [[DeBacker2010SOAPII]].
 - In a meta-analysis of 32 trials (3544 patients), norepinephrine versus dopamine gave all-cause mortality RR 0.89 (95% CI 0.81 to 0.98), with fewer arrhythmias. No other vasopressor comparison showed a mortality difference [[Avni2015PLoSOne]].
 - "Renal-dose" dopamine (2 µg/kg/min) did not protect the kidneys in 328 critically ill patients. Peak creatinine was 245 versus 249 µmol/L, and RRT 35 versus 40 patients [[Bellomo2000ANZICS]].
-- Levophed label: "LEVOPHED is indicated to raise blood pressure in adult patients with severe, acute hypotension." Its mechanism is α-adrenergic vasoconstriction with β-adrenergic inotropy [[FDA-Levophed]].
-- Levophed label dosing as published: "After an initial dosage of 8 to 12 mcg per minute via intravenous infusion, assess patient response and adjust dosage to maintain desired hemodynamic effect… Typical maintenance intravenous dosage is 2 to 4 mcg per minute." The label also says to address hypovolaemia before starting [[FDA-Levophed]].
-- Levophed label warnings: tissue ischaemia, local necrosis with extravasation, hypotension after abrupt discontinuation, arrhythmias, and sulfite allergy. For extravasation the label describes infiltration with "5 to 10 mg of phentolamine mesylate in 10 to 15 mL of 0.9% Sodium Chloride" [[FDA-Levophed]].
+- Levophed label: approved for raising blood pressure in adults with severe, acute hypotension. Its mechanism is α-adrenergic vasoconstriction with β-adrenergic inotropy [[FDA-Levophed]].
+- Levophed label dosing, summarised: an IV infusion starting at 8 to 12 mcg per minute, then adjusted to the response; usual maintenance is 2 to 4 mcg per minute. The label also says to address hypovolaemia before starting [[FDA-Levophed]].
+- Levophed label warnings: tissue ischaemia, local necrosis with extravasation, hypotension after abrupt discontinuation, arrhythmias, and sulfite allergy. For extravasation the label describes infiltrating the area with 5 to 10 mg of phentolamine mesylate in 10 to 15 mL of 0.9% sodium chloride [[FDA-Levophed]].
 
 ### pressors · Peripheral vasopressor start
-- SSC 2021, recommendation 44 (kept in 2026): "we suggest starting vasopressors peripherally to restore MAP rather than delaying initiation until a central venous access is secured" (weak, very low quality). The 2021 remark: give them "only for a short period of time and in a vein in or proximal to the antecubital fossa" [[Evans2021SSC,Prescott2026SSC]].
+- SSC 2021, recommendation 44 (kept in 2026): starting vasopressors through a peripheral line to restore MAP is suggested, rather than waiting for a central venous line (weak, very low quality). The 2021 remark limits this to a short time and a vein at or above the antecubital fossa [[Evans2021SSC,Prescott2026SSC]].
 - In one medical ICU (734 patients, 783 peripheral infusions, mean 49 h), extravasation occurred in 2% (19 patients) with no tissue injury after treatment. 13% eventually needed central access [[CardenasGarcia2015JHM]].
 - A 2020 systematic review (7 studies, 1382 patients) found extravasation in 3.4% (95% CI 2.5% to 4.7%) of peripheral infusions, with no reported tissue necrosis or limb ischaemia [[Tian2020EMA]].
 - In 635 patients given peripheral norepinephrine under a protocol, 51.6% of first exposures never needed a central line. Extravasation occurred in 35 patients (75.8 events/1000 infusion-days), and no patient needed surgery [[Yerke2024Chest]].
 - Of 204 published local tissue injury events from peripheral vasopressors, 85.3% occurred at sites distal to the antecubital or popliteal fossa [[Loubani2015JCC]].
 
 ### pressors · Vasopressin
-- SSC 2021, recommendation 38: "For adults with septic shock on norepinephrine with inadequate MAP levels, we suggest adding vasopressin instead of escalating the dose of norepinephrine" (weak, moderate quality). Remark: "vasopressin is usually started when the dose of norepinephrine is in the range of 0.25–0.5 μg/kg/min" [[Evans2021SSC]].
+- SSC 2021, recommendation 38: when MAP stays too low on norepinephrine, adding vasopressin is suggested rather than pushing the norepinephrine dose higher (weak, moderate quality). Remark: vasopressin is usually begun once norepinephrine reaches 0.25–0.5 μg/kg/min [[Evans2021SSC]].
 - SSC 2026 suggests adding vasopressin for adults with septic shock on escalating norepinephrine doses (conditional, moderate certainty) [[Prescott2026SSC]].
 - VASST (2008) randomised 778 patients on at least 5 µg/min norepinephrine to low-dose vasopressin (0.01–0.03 U/min) or norepinephrine. 28-day mortality was 35.4% versus 39.3% (P=0.26), and 90-day mortality 43.9% versus 49.6% (P=0.11) [[Russell2008VASST]].
 - In VASST's prespecified less-severe stratum, 28-day mortality was 26.5% with vasopressin versus 35.7% with norepinephrine (P=0.05). The heterogeneity test was not significant (P=0.10) [[Russell2008VASST]].
@@ -166,8 +166,8 @@ Call-now box (for every page built from this file): Sepsis is a medical emergenc
 - An individual-patient meta-analysis (4 trials, 1453 patients) found no effect of vasopressin on 28-day mortality (RR 0.98; 95% CI 0.86 to 1.12). It caused more digital ischaemia (+1.7%) and fewer arrhythmias (−2.8%). An RRT reduction (RR 0.86) was not robust [[Nagendran2019IPD]].
 - VASSPR (JAMA 2026) was a cluster-crossover trial of 3959 patients in 13 hospitals. A lower vasopressin start threshold (0.1 µg/kg/min norepinephrine-equivalent) versus a higher one (0.4) gave 28-day mortality of 31.8% versus 33.0% (adjusted marginal OR 0.98; 95% CI 0.87 to 1.06) [[Peltan2026VASSPR]].
 - In an observational cohort of 1610 patients with septic shock, odds of in-hospital death rose 20.7% for every 10 µg/min of norepinephrine-equivalent dose at vasopressin start, up to 60 µg/min (aOR 1.21) (association only) [[Sacha2022CCM]].
-- Vasostrict label indication: "to increase blood pressure in adults with vasodilatory shock who remain hypotensive despite fluids and catecholamines" [[FDA-Vasostrict]].
-- Vasostrict label dosing as published for septic shock: "start with a dose of 0.01 units/minute. If the target blood pressure response is not achieved, titrate up by 0.005 units/minute at 10- to 15-minute intervals. The maximum dose… for septic shock 0.07 units/minute." It is tapered once target pressure has held for 8 hours without catecholamines [[FDA-Vasostrict]].
+- Vasostrict label indication: raising blood pressure in adults with vasodilatory shock whose pressure stays low despite fluids and catecholamines [[FDA-Vasostrict]].
+- Vasostrict label dosing for septic shock, summarised: start at 0.01 units/minute and, if the target pressure is not reached, increase in steps of 0.005 units/minute every 10 to 15 minutes, up to a maximum of 0.07 units/minute. It is tapered once target pressure has held for 8 hours without catecholamines [[FDA-Vasostrict]].
 - Vasostrict label mechanism: V1-receptor vasoconstriction on vascular smooth muscle, with V2-mediated antidiuresis. Literature-reported adverse reactions include mesenteric ischaemia, distal limb ischaemia, atrial fibrillation and bradycardia [[FDA-Vasostrict]].
 - SSC 2021 and 2026 "suggest against using terlipressin" (weak/conditional, low certainty) [[Evans2021SSC,Prescott2026SSC]].
 
@@ -176,21 +176,21 @@ Call-now box (for every page built from this file): Sepsis is a medical emergenc
 - CATS (2007, 330 patients with septic shock) compared epinephrine alone with norepinephrine plus dobutamine. 28-day mortality was 40% versus 34% (RR 0.86; 95% CI 0.65 to 1.14), and serious adverse events were similar [[Annane2007CATS]].
 - CAT (2008, 280 ICU patients) found no difference in time to MAP goal with epinephrine versus norepinephrine. Epinephrine caused transient metabolic effects, and 12.9% of patients were withdrawn because of them [[Myburgh2008CAT]].
 - ATHOS-3 (2017) gave angiotensin II or placebo to 321 patients with vasodilatory shock on more than 0.2 µg/kg/min norepinephrine. The MAP response at 3 h was 69.9% versus 23.4% (OR 7.95). 28-day mortality was 46% versus 54% (HR 0.78; 95% CI 0.57 to 1.07; P=0.12) [[Khanna2017ATHOS3]].
-- Giapreza label: "GIAPREZA increases blood pressure in adults with septic or other distributive shock." Dosing as published: start "at 20 nanograms (ng)/kg/min", titrate "as frequently as every 5 minutes by increments of up to 15 ng/kg/min". The maximum is 80 ng/kg/min in the first 3 hours and 40 ng/kg/min for maintenance [[FDA-Giapreza]].
+- Giapreza label: approved for raising blood pressure in adults with septic or other distributive shock. Dosing, summarised: start at 20 ng/kg/min and adjust as often as every 5 minutes, in steps of up to 15 ng/kg/min. The maximum is 80 ng/kg/min in the first 3 hours and 40 ng/kg/min for maintenance [[FDA-Giapreza]].
 - Giapreza label warning: thromboembolic events were 12.9% with Giapreza versus 5.1% with placebo in ATHOS-3, mostly deep vein thrombosis (4.3% vs 0%). The label says to use concurrent VTE prophylaxis [[FDA-Giapreza]].
 - At study entry in ATHOS-3 (per the label), 97% of patients were on norepinephrine, 67% on vasopressin, and 47% on three or more vasopressors [[FDA-Giapreza]].
 - TRICYCLE (phase II, 2026, 79 patients) started angiotensin II, vasopressin and norepinephrine early together. Plasma renin fell faster and tachyarrhythmias were less common (15.6% vs 68.6%). 28-day mortality was similar (36.8% vs 46.3%; not powered) (Early evidence) [[Kalamar2026TRICYCLE]].
 - Methylene blue started within 24 h (single-centre RCT, 91 patients) shortened time to vasopressor discontinuation (69 vs 94 h). Mortality was similar (Early evidence) [[IbarraEstrada2023MB]].
 
 ### pressors · Inotropes for septic cardiomyopathy
-- SSC 2021, recommendation 41: for septic shock with cardiac dysfunction and persistent hypoperfusion "despite adequate volume status and arterial blood pressure, we suggest either adding dobutamine to norepinephrine or using epinephrine alone" (weak, low quality) [[Evans2021SSC]].
+- SSC 2021, recommendation 41: for septic shock with a weak heart and poor perfusion that persists even though fluid status and blood pressure are adequate, it suggests either adding dobutamine to norepinephrine or switching to epinephrine alone (weak, low quality) [[Evans2021SSC]].
 - SSC 2026 suggests using inotropes over none for septic shock with cardiac dysfunction and persistent hypoperfusion (conditional, very low certainty), added to vasopressors rather than replacing them. It also suggests dobutamine with norepinephrine, or epinephrine alone [[Prescott2026SSC]].
 - SSC 2021 and 2026 suggest against levosimendan [[Evans2021SSC,Prescott2026SSC]].
 - LeoPARDS (2016, 516 adults with sepsis) found no reduction in mean daily SOFA with levosimendan versus placebo (6.68 vs 6.06). Weaning from ventilation was less likely (HR 0.77), and supraventricular tachyarrhythmia was more common (3.1% vs 0.4%) [[Gordon2016LeoPARDS]].
 
 ### pressors · MAP targets
-- SSC 2021, recommendation 9 (kept in 2026): "For adults with septic shock on vasopressors, we recommend an initial target mean arterial pressure (MAP) of 65 mm Hg over higher MAP targets" (strong, moderate quality) [[Evans2021SSC,Prescott2026SSC]].
-- SSC 2026 adds a statement for adults aged 65 or older with septic shock: "we suggest an initial MAP range of 60-65 mm Hg over higher ranges" (conditional, low certainty) [[Prescott2026SSC]].
+- SSC 2021, recommendation 9 (kept in 2026): adults with septic shock on vasopressors should start with a mean arterial pressure (MAP) target of 65 mm Hg rather than a higher one (strong, moderate quality) [[Evans2021SSC,Prescott2026SSC]].
+- SSC 2026 adds a statement for adults aged 65 or older with septic shock: it suggests starting with a MAP range of 60-65 mm Hg rather than higher ranges (conditional, low certainty) [[Prescott2026SSC]].
 - SSC 2021 explains that organ perfusion falls below a MAP threshold "usually understood to be approximately 60 mm Hg" [[Evans2021SSC]].
 - SEPSISPAM (2014) randomised 776 patients with septic shock to a MAP target of 80–85 or 65–70 mm Hg.
   - 28-day mortality was 36.6% versus 34.0% (HR 1.07; 95% CI 0.84 to 1.38).
@@ -204,8 +204,8 @@ Call-now box (for every page built from this file): Sepsis is a medical emergenc
 - An individual-patient meta-analysis of SEPSISPAM, OVATION-pilot and 65 (3352 patients) gave a 90-day mortality RR of 0.93 for lower versus higher MAP targets (95% CrI 0.76 to 1.07), with posterior probability of benefit 87% (low certainty). No subgroup benefited from higher targets [[Angriman2025NEJMEvid]].
 
 ### pressors · Corticosteroids
-- SSC 2021, recommendation 58: "For adults with septic shock and an ongoing requirement for vasopressor therapy we suggest using IV corticosteroids" (weak, moderate quality) [[Evans2021SSC]].
-- SSC 2021 remark, quoted as published: "The typical corticosteroid used in adults with septic shock is IV hydrocortisone at a dose of 200 mg/day given as 50 mg intravenously every 6 h or as a continuous infusion. It is suggested that this is commenced at a dose of norepinephrine or epinephrine ≥ 0.25 mcg/kg/min at least 4 h after initiation" [[Evans2021SSC]].
+- SSC 2021, recommendation 58: IV corticosteroids are suggested for adults with septic shock who still need vasopressors (weak, moderate quality) [[Evans2021SSC]].
+- SSC 2021 remark, summarised: the steroid usually used is IV hydrocortisone, 200 mg/day, given as 50 mg every 6 h or as a continuous infusion, and it is suggested to start it once norepinephrine or epinephrine has reached 0.25 mcg/kg/min or more, at least 4 h after the vasopressor began [[Evans2021SSC]].
 - SSC 2026 still suggests IV corticosteroids for adults with septic shock (conditional, low certainty) [[Prescott2026SSC]].
 - The SCCM/ESICM 2024 corticosteroid focused update made a conditional recommendation to give corticosteroids in septic shock. It recommended against high-dose, short-duration corticosteroids for septic shock [[Chaudhuri2024SCCM]].
 - Annane 2002 (300 patients) gave hydrocortisone 50 mg IV every 6 h plus fludrocortisone 50 µg daily for 7 days. Among corticotropin non-responders, 28-day mortality was 53% versus 63% with placebo (HR 0.67; 95% CI 0.47 to 0.95) [[Annane2002JAMA]].

@@ -42,7 +42,7 @@ const GL_LBL={blood:'bloodstream',inj:'medicine injected under the skin',nat:'na
   ins:'insulin released',without:'without',withg:'with GLP-1',empt:'slower emptying',lunch:'free-choice lunch, sema 2.4 mg, wk 20',day:'whole-day intake, sema 1.0 mg, wk 12',
   pomc:'fullness neurons on',hlT:'% of one dose left (computed from label half-lives)',days:'days after one dose',alb:'albumin',chain:'fatty side chain',
   albTxt:'carried on albumin: >99% bound',rel:'slowly released',two:'one molecule, two receptors',glpr:'GLP-1 receptor',gipr:'GIP receptor'};
-/* label dose steps, quoted as published (weeks; oral 30-day steps = 30/7 weeks). o:true = optional, shown at the earliest week allowed */
+/* label dose steps, as numbers from the labels; text is our own summary (weeks; oral 30-day steps = 30/7 weeks). o:true = optional, shown at the earliest week allowed */
 const GL_D30=30/7;
 const GL_DOSE=[
  {id:'wegi',n:'Wegovy injection',drug:'semaglutide',form:'pen',unit:'mg once weekly',xmax:28,

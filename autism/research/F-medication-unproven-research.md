@@ -22,7 +22,7 @@ Access notes:
 ### meds · No medicine treats the core features of autism
 - No medicine is approved for the core features of autism (social communication differences and restricted, repetitive behaviours). The 2026 drug-development review states: "There are no approved drugs for autism core features" [[Pandina2026]].
 - The AAP clinical report covers medication for co-occurring conditions, not core features. It lists sleep, feeding, gastrointestinal symptoms, obesity, seizures, ADHD, anxiety and wandering as conditions that affect function and quality of life [[Hyman2020]].
-- NICE CG170 (under 19s): "Do not use the following interventions for the management of core features of autism in children and young people: antipsychotics, antidepressants, anticonvulsants, exclusion diets (such as gluten- or casein-free diets)" [[NICE-CG170,Kendall2013]].
+- NICE CG170 (under 19s): antipsychotics, antidepressants, anticonvulsants and exclusion diets (such as gluten- or casein-free diets) should not be used to manage the core features of autism in children and young people [[NICE-CG170,Kendall2013]].
 - NICE CG142 (adults) says do not use these for the core features of autism in adults:
   - anticonvulsants
   - chelation
@@ -35,7 +35,7 @@ Access notes:
   - hyperbaric oxygen
   - antipsychotics
   - antidepressants ("for the routine management") [[NICE-CG142,Pilling2012]]
-- The 2018 Lancet seminar says considerable work is still needed to understand how and when behavioural and medical treatments can be effective, and for which children [[Lord2018]].
+- The 2018 Lancet seminar says much remains to be learned about how and when behavioural and medical treatments work, and which children they help [[Lord2018]].
 - Prescribing is common even so. In 33,565 commercially insured US children with autism (claims data, 2001–2009):
   - 64% filled at least one psychotropic prescription
   - 35% had polypharmacy across at least 2 classes
@@ -60,13 +60,13 @@ Access notes:
 - Parent training added to medication helps. In a 24-week trial of 124 children aged 4–13 [[Aman2009]]:
   - Risperidone plus parent training beat risperidone alone on the Home Situations Questionnaire (p=.006; d=0.34) and on ABC-Irritability (d=0.48).
   - The final risperidone dose was lower with parent training: 1.98 vs 2.26 mg/day.
-- Risperdal US label, indication: "treatment of irritability associated with autistic disorder, including symptoms of aggression towards others, deliberate self-injuriousness, temper tantrums, and quickly changing moods". The indication text says efficacy came from 3 short-term trials in ages 5–17. The clinical-studies section describes the two 8-week pivotal trials in ages 5–16 [[FDA-Risperdal]].
+- Risperdal US label, indication: irritability linked to autistic disorder, covering aggression towards others, deliberate self-injury, temper tantrums and rapid mood changes. The indication text says efficacy came from 3 short-term trials in ages 5–17. The clinical-studies section describes the two 8-week pivotal trials in ages 5–16 [[FDA-Risperdal]].
 - Risperdal label dosing for autism irritability:
   - start 0.25 mg/day if under 20 kg, 0.5 mg/day if 20 kg or more
   - after at least 4 days, raise to 0.5 or 1.0 mg/day
   - later increases at intervals of 2 weeks or more
-  - "The effective dose range is 0.5 mg to 3 mg per day"
-  - "No dosing data are available for children who weigh less than 15 kg" [[FDA-Risperdal]]
+  - effective range 0.5 mg to 3 mg per day
+  - no dosing data for children under 15 kg [[FDA-Risperdal]]
 - Drugs@FDA lists two Risperdal (NDA020272) efficacy supplements approved on 6 October 2006 (S-036, S-041) [[FDA-DrugsFDA-Risperdal]].
 - Risperdal label, adverse reactions in pediatric autism trials (≥5% and more than placebo; risperidone n=107, placebo n=115):
   - sedation 63% vs 15%
@@ -100,7 +100,7 @@ Access notes:
   - Mean BMI z-score rose by 0.31 after more than 9 months.
   - At more than 9 months, low HDL cholesterol was the most frequent fasting metabolic abnormality (30%).
 - Abilify label dosing for autism irritability (ages 6–17): start 2 mg/day, then 5 mg/day, with later increases to 10 or 15 mg/day if needed. Adjustments of up to 5 mg/day happen at intervals of at least one week. Recommended range 5–15 mg/day [[FDA-Abilify]].
-- The Abilify label states that "the efficacy of ABILIFY for the maintenance treatment of irritability associated with autistic disorder was not established" [[FDA-Abilify]].
+- The Abilify label states that it has not been shown to work as maintenance treatment for irritability linked to autistic disorder [[FDA-Abilify]].
 - Abilify label weight data: in two short-term pediatric autism trials (median exposure 56 days), mean weight change was +1.6 kg (n=209) vs +0.4 kg on placebo (n=98) [[FDA-Abilify]].
 - Drugs@FDA lists an Abilify (NDA021436) efficacy supplement (S-027) approved on 19 November 2009 [[FDA-DrugsFDA-Abilify]].
 
@@ -168,7 +168,7 @@ Access notes:
   - Change in CYBOCS-PDD: −2.0 vs −1.9.
   - Adverse events were more likely on citalopram, including increased energy, impulsiveness, hyperactivity, stereotypy, diarrhoea and insomnia.
 - Cochrane review (9 RCTs, 320 participants) [[Williams2013SSRI]]:
-  - "There is no evidence of effect of SSRIs in children and emerging evidence of harm."
+  - no evidence that SSRIs help children, and emerging evidence that they cause harm.
   - In adults, the evidence is limited to small studies with unclear risk of bias.
 - NICE CG142 says antidepressants should not be used "for the routine management of core features of autism in adults". Anxiety and depression in autistic people are treated as co-occurring conditions (covered in pass G) [[NICE-CG142]].
 
@@ -217,7 +217,7 @@ Access notes:
 ### frontier · Leucovorin (folinic acid) and cerebral folate deficiency
 - A 12-week RCT of high-dose folinic acid (2 mg/kg/day, max 50 mg) in 48 children with autism and language impairment found better verbal communication (effect 5.7 standardised points; d=0.70). The effect was larger in children positive for folate receptor-α autoantibodies (d=0.91) [[Frye2018]]. (Early evidence)
 - A 2021 meta-analysis by the same group estimated a 38% pooled prevalence of cerebral folate deficiency in autism and 71% for folate receptor-α autoantibodies. It drew on 21 leucovorin studies, of which 4 were placebo-controlled [[Rossignol2021]]. (Early evidence)
-- The current US leucovorin label (indication added 3/2026) is for "cerebral folate transport deficiency in adult and pediatric patients who have a confirmed variant in the folate receptor 1 gene (FOLR1-CFTD)", not for autism [[FDA-Wellcovorin]].
+- The current US leucovorin label (indication added 3/2026) is for cerebral folate transport deficiency in adults and children with a confirmed variant in the folate receptor 1 gene (FOLR1-CFTD), not for autism [[FDA-Wellcovorin]].
 - The label states that "no clinical trials have been conducted" in FOLR1-CFTD. The evidence came from 46 patients in 26 published case reports and reviews [[FDA-Wellcovorin]].
 - On 22 September 2025, US federal leaders publicly promoted leucovorin for speech-related difficulties in autism [[Rothman2026]].
 - Leucovorin prescribing to US children with autism (Epic Cosmos; 838,801 patients) [[Rothman2026]]:

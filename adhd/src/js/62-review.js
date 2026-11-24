@@ -1,6 +1,6 @@
 /* =============== 6.2 flashcards & mnemonics =============== */
 const RV_PARTN={1:"Part 1 · The condition",2:"Part 2 · Recognising & diagnosing",3:"Part 3 · Medication",4:"Part 4 · Behavioural & psychological care",5:"Part 5 · Living with ADHD",6:"Part 6 · History"};
-/* [part, question, answer]: every answer cited; doses and criteria quoted as published, never as instructions */
+/* [part, question, answer]: every answer cited; doses and criteria stated as published (in our own words, with short attributed quotes only), never as instructions */
 const RV_FC=[
  [1,`About how many children and adolescents worldwide have ADHD?`,`About 5 in 100: the pooled prevalence across 102 studies (171,756 people aged 18 or under) was 5.29% [[Polanczyk2007]].`],
  [1,`Why do prevalence estimates for ADHD differ so much between studies?`,`Mainly method: the diagnostic criteria, who reports the symptoms and whether impairment is required. Geography and year of study did not explain the variation [[Polanczyk2014]].`],
@@ -45,7 +45,7 @@ const RV_FC=[
  [3,`How does CYP2D6 status change atomoxetine?`,`Half-life is 5.2 h in normal metabolisers and 21.6 h in poor metabolisers, with 3.3-fold accumulation [[FDA-Strattera]].`],
  [3,`How fast do stimulants and atomoxetine start working?`,`Stimulants act from the first dose; lisdexamfetamine separated from placebo from week 1 [[Adler2008LDX]]. Atomoxetine may start within 1–2 weeks and keeps improving for months [[Clemow2015]].`],
  [3,`Why must guanfacine ER and clonidine ER be tapered?`,`Abrupt stopping can cause rebound hypertension; the Intuniv label states tapering by no more than 1 mg every 3 to 7 days [[FDA-Intuniv,FDA-ClonidineER]].`],
- [3,`What did the Cortese 2018 network meta-analysis conclude?`,`The evidence "supports methylphenidate in children and adolescents, and amphetamines in adults, as preferred first-choice medications" for short-term treatment [[Cortese2018]].`],
+ [3,`What did the Cortese 2018 network meta-analysis conclude?`,`For short-term treatment, the evidence favours methylphenidate as the first choice in children and adolescents, and amphetamines in adults [[Cortese2018]].`],
  [3,`What does NICE NG87 offer first for adults and for children aged 5 and over?`,`Adults: lisdexamfetamine or methylphenidate. Children 5 and over: methylphenidate [[NICE2018E]].`],
  [3,`Do stimulants cause tics?`,`In 22 RCTs, new or worsening tics occurred as often on stimulants (5.7%) as on placebo (6.5%), RR 0.99 [[Cohen2015Tics]].`],
  [3,`Which stimulant class carries the higher psychosis risk in young people?`,`Amphetamine: 0.21% vs 0.10% on methylphenidate (HR 1.65) in 13–25-year-olds [[Moran2019NEJM]].`],
@@ -102,8 +102,8 @@ const RV_MN=[
  ["6 · 3 · 6, then 120 or 95","memory aid",`NICE as published: height every 6 months, weight every 3 months at age 10 and under, pulse and blood pressure every 6 months and after dose changes; review if resting heart rate stays above 120 or systolic pressure above the 95th percentile [[NICE2018H]].`],
  ["68 · 56 · 34 · 25","memory aid",`MTA "success" rates at 14 months: combined 68%, medication management 56%, behavioural treatment 34%, community care 25% [[Swanson2001MTA]].`]
 ];
-const RV_A1=['careless mistakes','sustaining attention','seems not to listen','does not finish tasks','organising tasks','avoids mental effort','loses things','easily distracted','forgetful'];
-const RV_A2=['fidgets, taps, squirms','leaves seat','runs, climbs / restless','not quiet at play','"on the go"','talks excessively','blurts out answers','trouble waiting turn','interrupts, intrudes'];
+const RV_A1=['detail slips','staying focused','not listening','unfinished tasks','organising','avoids effort','mislays things','distractible','forgets routines'];
+const RV_A2=['fidgeting','leaves seat','runs about / restless','noisy at play','always busy','talks a lot','answers too soon','waiting is hard','cuts in on others'];
 const RV_ON1=[1,1,1,1,1,0,1,1,0],RV_ON2=[1,1,0,0,1,1,1,0,1];
 const RV_STEPS=[
  {from:0,at:.17,k:'18 · symptoms',t:'Nine plus nine',txt:`DSM-5-TR lists 9 inattentive symptoms (Criterion A1) and 9 hyperactive-impulsive symptoms (A2). Each must occur "often", for at least 6 months, beyond what is expected for developmental level [[APA2022DSM]]. This illustrative 9-year-old has 7 inattentive and 6 hyperactive-impulsive symptoms.`,pt:'There are two lists of nine signs: one about attention, one about restlessness and acting without thinking.',hook:'18 symptoms: 9 inattentive (A1) and 9 hyperactive-impulsive (A2) [[APA2022DSM]].'},

@@ -20,7 +20,7 @@ Access notes:
 - NESARC Wave 2 (face-to-face interviews with 34,653 US adults, 2004–2005) reported lifetime BPD prevalence of 5.9% (99% CI 5.4–6.4) [[Grant2008]].
 - NESARC Wave 2 found no sex difference in BPD: 5.6% of men (99% CI 5.0–6.2) and 6.2% of women (99% CI 5.6–6.9) [[Grant2008]].
 - In NESARC Wave 2, BPD was more common in Native American men, younger adults, separated/divorced/widowed adults and people with lower income and education. It was less common among Hispanic men and women and Asian women [[Grant2008]].
-- Grant 2008 concluded that BPD is "much more prevalent in the general population than previously recognized." That 5.9% figure was later criticised as inflated [[Grant2008,Trull2010,Tomko2014]].
+- Grant 2008 concluded that BPD is far more common in the general population than had been thought. That 5.9% figure was later criticised as inflated [[Grant2008,Trull2010,Tomko2014]].
 - Reanalysis of NESARC that required each personality-disorder criterion to cause distress or impairment cut the prevalence of any personality disorder from 21.5% to 9.1% [[Trull2010]].
 - With the stricter NESARC algorithm (n = 34,481), lifetime BPD prevalence was 2.7% (95% CI 2.5–3.0) [[Tomko2014]].
 - Tomko 2014 argued that Grant's "more liberal diagnostic rules" probably counted people with subthreshold BPD (full text) [[Tomko2014]].
@@ -69,7 +69,7 @@ Access notes:
 ### what · Older adults
 - In a German community sample (n = 2,488, all ages), syndromal and subsyndromal BPD fell sharply between adolescence and young adulthood, then stayed stable. Depressivity rose with age while impulsivity fell [[Arens2013]].
 - Among more than 3,000 psychiatric outpatients, 46 older adults (45–68) and 97 younger adults (18–25) met BPD criteria [[Morgan2013Older]].
-- The older adults were more likely to endorse chronic emptiness and less likely to endorse impulsivity, self-harm and affective instability [[Morgan2013Older]].
+- Compared with younger adults, the older adults more often reported chronic emptiness and less often reported impulsivity, self-harm and affective instability [[Morgan2013Older]].
 - The older adults also had fewer substance use disorders, more lifetime hospitalisations and greater social impairment [[Morgan2013Older]].
 - Few studies cover BPD in people aged 65 and over, and no diagnostic or rating instrument has been developed for this group. A review describes BPD in old age as an often missed diagnosis [[Beatson2016]].
 

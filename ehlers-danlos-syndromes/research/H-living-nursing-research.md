@@ -26,7 +26,7 @@ Access notes:
 - In a US online survey of 2125 adults with hEDS/HSD, satisfaction with healthcare and health-related quality of life were both lower than norm groups. Lower satisfaction was associated with lower quality of life and lower symptom self-efficacy (p < .001) [[Estrella2024]].
 - In that survey, the most common change participants wanted was more hEDS/HSD knowledge among healthcare professionals [[Estrella2024]].
 - A review of illness uncertainty in hEDS identified diagnostic ambiguity, misdiagnosis, perceived dismissal and attribution of symptoms to mental health as likely drivers of distress. It calls a validated illness-uncertainty measure for hEDS a research priority [[Feldman2023]].
-- A qualitative study of 17 adults with JHS/hEDS-HT identified five themes: healthcare limitations and low professional awareness, a restricted life, social stigma, fear of the unknown, and ways of coping. The coping approaches included acceptance, social networks, learning about the condition and adapting activities [[Bennett2021]].
+- A qualitative study of 17 adults with JHS/hEDS-HT identified five themes. They covered gaps in care and in professionals' knowledge, narrowed daily lives, stigma from others, worry about what lies ahead, and how people cope. Ways of coping included accepting the condition, leaning on social networks, learning about EDS and changing how activities are done [[Bennett2021]].
 - A scoping review found no study aimed at ageing in hEDS/HSD. It notes that older adults with multimorbidity may have undiagnosed hEDS/HSD [[Anderson2023]].
 
 ### living · Symptom burden, school and children
@@ -36,10 +36,10 @@ Access notes:
 - Among 100 parents of children aged 8–18 attending a connective-tissue clinic (48% EDS-hypermobile type/JHS), pain (73%) and fatigue (68%) were the symptoms most often said to affect daily activities [[Wesley2021]].
 - Parents in that study were less often satisfied with school participation (33%) than with self-care (61%). The school difficulties reported most often were keeping up with handwriting (71%) and gross motor activities (70%) [[Wesley2021]].
 - In 89 children with joint hypermobility syndrome, pain, fatigue and stress-incontinence symptoms together explained 75% of the variance in child-reported quality of life. Parents rated their child's quality of life lower than the children did (mean difference 4.44 points) [[Pacey2015]].
-- The International Consortium's paediatric framework uses a Beighton score of at least 6/9 to define generalized joint hypermobility in children. hEDS is reserved for biologically mature adolescents who meet the 2017 criteria [[Tofts2023]].
+- The International Consortium's paediatric framework uses a Beighton score of at least 6/9 to define generalized joint hypermobility in children. Under that framework, an hEDS diagnosis is only made once an adolescent is biologically mature and meets the 2017 criteria [[Tofts2023]].
 - An Australian general-practice review states that diagnosis, ideally by adolescence, gives children and parents validation. It also directs management toward the educational and socioeconomic impact [[Nicholson2022]].
-- GeneReviews lists occupational therapy for assistive devices, such as wide-grip writing utensils and home and work ergonomics, in hEDS [[Hakim2024GeneReviews]].
-- For cEDS, GeneReviews advises that young children with skin fragility can wear pads or bandages over the forehead, knees and shins. It suggests older children can wear soccer pads or ski stockings with shin padding during activities [[Malfait2024GeneReviews]].
+- In hEDS, GeneReviews includes occupational therapy among the treatments, for aids such as thicker-gripped pens and for setting up home and work spaces [[Hakim2024GeneReviews]].
+- For cEDS, GeneReviews suggests protecting the forehead, knees and shins of young children with fragile skin using pads or bandages. For older children it suggests shin protection during activity, such as football shin guards or padded ski socks [[Malfait2024GeneReviews]].
 - Physical therapy guidance for JHS/hEDS uses the WHO ICF framework (function, activity, participation, environment). It states that the evidence for interventions is "limited in size and quality" [[Engelbert2017]].
 
 ### living · Work, benefits and disability
@@ -51,10 +51,10 @@ Access notes:
 
 ### living · Sport, activity and travel by type
 - In a meta-analysis of 18 studies, people with generalized joint hypermobility had a higher risk of knee injury during contact sport (combined OR 4.69, 95% CI 1.33–16.52). There was no increased risk of ankle injury [[Pacey2010]].
-- hEDS: GeneReviews says high-impact activity may increase the risk of acute subluxation or dislocation and of pain. It says chiropractic adjustment and yoga are "not contraindicated" if done in ways that avoid causing subluxations [[Hakim2024GeneReviews]].
-- cEDS: GeneReviews lists "sports with heavy joint strain" to avoid, and says non-weight-bearing exercise promotes muscle strength and coordination [[Malfait2024GeneReviews]].
-- vEDS: GeneReviews lists trauma to avoid, including collision sports, heavy lifting and weight training with extreme lifting [[Byers2025GeneReviews]].
-- vEDS: the UK national service advises that "regular, low-intensity exercise should be maintained for health and psychological wellbeing" [[Bowen2023]].
+- hEDS: according to GeneReviews, high-impact exercise may make sudden subluxation or dislocation, and pain, more likely. Chiropractic and yoga are not ruled out, provided they are done in a way that does not push joints out of place [[Hakim2024GeneReviews]].
+- cEDS: GeneReviews advises against sports that load the joints heavily, and notes that exercise without weight-bearing builds strength and coordination [[Malfait2024GeneReviews]].
+- vEDS: GeneReviews advises avoiding injury, naming collision sports, lifting heavy loads, and weight training that involves maximal lifts [[Byers2025GeneReviews]].
+- vEDS: the UK national service advises keeping up regular, gentle exercise for physical and mental health [[Bowen2023]].
 - vEDS: the international consensus recommends lifestyle changes to reduce the risk of injury and rupture. It also recommends an individual emergency plan (a "vascular EDS passport") with the diagnosis and management plan for use when travelling [[Byers2017]].
 - vEDS: a co-designed 12-week remote, exercise-based lifestyle programme (n = 40 planned; Sheffield Hallam University) is registered as not yet recruiting, with a start date of 2027-03-01 (Early evidence) [[NCT07697573]].
 
@@ -74,20 +74,20 @@ Access notes:
 - Participants in a qualitative study named building social networks and learning about the condition as effective coping strategies [[Bennett2021]].
 
 ### living · Genetic counselling and family testing
-- vEDS, cEDS and hEDS are autosomal dominant. Each child of an affected parent has a 50% chance of inheriting the condition [[Byers2025GeneReviews,Malfait2024GeneReviews,Hakim2024GeneReviews]].
-- About 50% of people diagnosed with vEDS have an affected parent. In about 50% the COL3A1 variant arose de novo, in the person or in an apparently unaffected mosaic parent [[Byers2025GeneReviews]].
-- Approximately 50% of people with cEDS have an affected parent and about 50% have a de novo variant [[Malfait2024GeneReviews]].
-- Most people with hEDS have an affected parent. Recognising this often needs a detailed history and examination of the parents, because the parent's signs may be subtle [[Hakim2024GeneReviews]].
-- For vEDS, evaluating first-degree relatives is appropriate. Evaluation starts clinically and, even without clinical signs, proceeds to testing for the known familial COL3A1 variant [[Byers2025GeneReviews]].
+- vEDS, cEDS and hEDS follow autosomal dominant inheritance. A child of an affected parent has a 1 in 2 (50%) chance of inheriting it [[Byers2025GeneReviews,Malfait2024GeneReviews,Hakim2024GeneReviews]].
+- In vEDS, roughly half (about 50%) of diagnosed people inherited it from a parent. In the other half (about 50%) the COL3A1 change is new, either in the person or in a parent who looks unaffected but carries it in some cells (mosaic) [[Byers2025GeneReviews]].
+- The split in cEDS is similar: about 50% inherited from a parent and about 50% new (de novo) [[Malfait2024GeneReviews]].
+- In hEDS, a parent is usually affected too. Because the parent's signs can be mild, it often takes careful questioning and examination of both parents to see it [[Hakim2024GeneReviews]].
+- For vEDS, GeneReviews supports assessing parents, siblings and children. Assessment begins with a clinical review and goes on to a test for the family's COL3A1 variant even when the relative has no signs [[Byers2025GeneReviews]].
 - In the UK national vEDS service, 54% of probands had inherited the condition from a parent. 78 of 180 patients had a relative already diagnosed [[Bowen2023]].
 - In a London cohort of 63 people diagnosed with vEDS before age 18, 55% were diagnosed through family genetic testing. The authors recommend offering childhood testing when there is a family history [[Wilkinson2025]].
 - In that cohort, 13 children had 18 events, with first events at a median age of 11 years. In 11 of 13, genetic testing was prompted by that first event [[Wilkinson2025]].
-- About 60% of people diagnosed with vEDS before age 18 are identified through a positive family history. About half of children tested without a family history present with a major complication at an average age of 11 years [[Byers2025GeneReviews]].
+- Of people diagnosed with vEDS before 18, about 60% are found because a relative already has it. Among children tested with no known family history, about half come to attention through a major complication, at an average age of 11 years [[Byers2025GeneReviews]].
 - In vEDS the variant type matters for counselling. Glycine substitutions and splice-site or in-frame variants were more severe than haploinsufficient or terminal variants, with median ages at first major complication ranging from 23 to 47 years across groups [[Frank2015]].
 - Median survival in vEDS was 51 years (n = 1231) and was lower in men and varied by variant type. The authors say confirming the variant and its nature helps families estimate risk. These are population figures, not individual predictions [[Pepin2014]].
-- Once the familial variant is known, prenatal and preimplantation genetic testing are possible for vEDS and cEDS [[Byers2025GeneReviews,Malfait2024GeneReviews]].
-- For hEDS, prenatal and preimplantation genetic testing are not possible because no causal gene has been identified [[Hakim2024GeneReviews]].
-- The UK Human Fertilisation and Embryology Authority has approved vEDS for pre-implantation genetic diagnosis (PGD). A published case describes PGD with surrogacy in a woman with vEDS [[Angwin2023H]].
+- In vEDS and cEDS, testing in pregnancy or of embryos becomes an option once the family's variant has been found [[Byers2025GeneReviews,Malfait2024GeneReviews]].
+- In hEDS neither is available, since no gene has been found to test for [[Hakim2024GeneReviews]].
+- In the UK, vEDS is on the list of conditions the Human Fertilisation and Embryology Authority allows for pre-implantation genetic diagnosis (PGD). One published case reports PGD combined with surrogacy for a woman with vEDS [[Angwin2023H]].
 - A vEDS review lists cascade testing as one part of lifelong management, with pregnancy and psychosocial care [[Corrao2026]].
 
 ### pregnancy · Vascular EDS
@@ -99,13 +99,13 @@ Access notes:
 - That review advised scheduling caesarean birth at 37 weeks to avoid expulsive efforts [[Haem2024]].
 - A Dutch multicentre cohort (121 pregnancies in 43 women with a P/LP COL3A1 variant) found no pregnancy-related deaths, arterial dissections or uterine ruptures in the perinatal period [[vandenBersselaar2026]].
 - In that cohort, miscarriage was 19% (23/121) and 19.1% of live births were preterm (18/94). Miscarriage clustered in women with glycine substitutions (19/23). The authors propose shared decision-making rather than discouraging all pregnancies [[vandenBersselaar2026]].
-- GeneReviews states that affected women have "a 5% mortality risk with each pregnancy". It advises follow-up in a high-risk obstetric programme, with delivery decisions stratified by the genetic variant [[Byers2025GeneReviews]].
+- GeneReviews puts the risk of death at 5% for each pregnancy in women with vEDS. It advises care in a high-risk obstetric service, and says the type of variant can guide how and when the baby is delivered [[Byers2025GeneReviews]].
 - In the UK national service, 5 of 104 pregnancies had life-threatening or fatal events, all before diagnosis. Women diagnosed before delivery all had early planned caesarean birth under general anaesthesia in a tertiary hospital [[Bowen2023]].
 - In 41 children with vEDS, preterm birth (<37 weeks) was more common than in the US population (48.8% vs 12.2%), and this was unrelated to whether the mother was affected. The authors suggest the fetal diagnosis itself confers the risk (Early evidence) [[Stephens2022]].
 - In mice, blocking oxytocin signalling after birth improved postpartum survival to about 90% in a vEDS model. This is a mouse finding only (Early evidence) [[Bowen2020JCI]].
 
 ### pregnancy · Hypermobile EDS, HSD and EDS overall
-- GeneReviews advises that hEDS pregnancy planning should address preconception (musculoskeletal health, medicines), antenatal (joint instability, pelvic strength, hernias, pain), intrapartum (birth choices, mobility, anaesthesia) and postpartum issues (wound healing, pelvic health, newborn care) [[Hakim2024GeneReviews]].
+- For hEDS, GeneReviews advises planning for each stage of pregnancy. Before conception: joints, muscles and medicines. During pregnancy: unstable joints, pelvic strength, hernias and pain. In labour: birth options, moving about and anaesthesia. After birth: wound healing, the pelvic floor and caring for the baby [[Hakim2024GeneReviews]].
 - A Consortium-facilitated scoping review and expert co-creation (14 primary studies, 21 case studies) produced guidance across four phases: preconception, antenatal, intrapartum and postpartum. It states there is "limited high quality evidence" [[Pezaro2024]].
 - That guidance prefers physiological vaginal birth where there are no obstetric contraindications, and reserves caesarean for obstetric indications [[Pezaro2024]].
 - It reports rapid or precipitous birth (≤3 hours) at a frequency of 28–36% [[Pezaro2024]].
@@ -118,29 +118,29 @@ Access notes:
 - Note the conflict: large Swedish register data show no excess adverse outcomes for JHS/EDS [[Sundelin2017]], while US inpatient data and a self-report survey show raised risks [[Spiegel2022,Pearce2023]]. None separate EDS types well, except the vEDS-specific studies.
 
 ### nursing · vEDS emergency recognition and cautions (as published)
-- vEDS is characterised by arterial, intestinal and/or uterine fragility, thin translucent skin, easy bruising and a characteristic face. Arterial dissection or rupture, bowel perforation or organ rupture are the presenting signs in most adults [[Byers2025GeneReviews]].
-- GeneReviews says affected people "are instructed to seek immediate medical attention for sudden, unexplained pain". It also says they should carry documentation of their diagnosis, such as a MedicAlert® bracelet or necklace, an emergency contact letter, or a vEDS "passport" [[Byers2025GeneReviews]].
-- GeneReviews advises that "arteriography should be discouraged and used only to identify life-threatening sources of bleeding prior to surgical intervention because of the risk of vascular injury" [[Byers2025GeneReviews]].
-- GeneReviews also advises avoiding routine colonoscopy unless there are concerning symptoms or a strong family history of colon cancer, and avoiding elective surgery unless the benefit is expected to be substantial [[Byers2025GeneReviews]].
+- In vEDS the arteries, bowel and womb are fragile. The skin is thin and see-through, bruising is easy and the face has a typical look. Most adults first come to attention with a torn or burst artery, a hole in the bowel or a ruptured organ [[Byers2025GeneReviews]].
+- GeneReviews tells people with vEDS to get urgent medical help for any sudden pain that has no clear cause. It also advises carrying proof of the diagnosis, for example a MedicAlert® bracelet or necklace, an emergency letter, or a vEDS "passport" [[Byers2025GeneReviews]].
+- Because the catheter can injure the vessel, GeneReviews advises against arteriography, keeping it only for finding a life-threatening bleed before an operation [[Byers2025GeneReviews]].
+- GeneReviews also advises against routine colonoscopy without worrying symptoms or a strong family history of bowel cancer, and against planned surgery unless the expected gain is large [[Byers2025GeneReviews]].
 - A 2026 review describes vEDS emergency care as "harm-avoidant". It advises avoiding catheter angiography, elective endoscopy and unnecessary surgery, and preferring endovascular and tissue-sparing techniques [[Corrao2026]].
 - The international consensus recommends a care team and centralising care at experienced centres where feasible. It recommends keeping blood pressure in the normal range, treating hypertension aggressively, and annual vascular surveillance with Doppler ultrasound, CTA (low-radiation) or MRA [[Byers2017]].
-- In the UK national service, all patients receive emergency information cards to show any clinician. The service notes that "fragile connective tissues make invasive procedures potentially dangerous, particularly in an emergency setting" [[Bowen2023]].
+- In the UK national service, all patients receive emergency information cards to show any clinician. The service points out that fragile tissues make invasive procedures risky, above all in an emergency [[Bowen2023]].
 - In that service, 74 of 180 patients were diagnosed only after a vascular event, an organ rupture, or both. The authors state that spontaneous bowel perforation should prompt genetic testing for vEDS in all cases [[Bowen2023]].
 - Pepin 2000 advises considering the diagnosis in young people presenting with uterine rupture in pregnancy, or with arterial or visceral rupture [[Pepin2000]].
 - In the 2000 cohort, 25% of index patients had a first complication by age 20 and more than 80% by age 40. Bowel rupture, often of the sigmoid colon, made up about a quarter of complications but rarely caused death [[Pepin2000]].
 - Across 1780 people with heritable thoracic aortic disease, arterial events beyond the aorta occurred in 20.8% of those with COL3A1 variants, against 1.5% with FBN1 (Marfan). COL3A1 events were the most frequent and earliest [[CalderonMartinez2025]].
 
 ### nursing · Skin, wounds, bruising and documentation
-- cEDS wound care in GeneReviews: dermal wounds are closed without tension, preferably in two layers. Deep stitches are applied generously, cutaneous stitches are left in place twice as long as usual, and adjacent skin is carefully taped to prevent scar stretching [[Malfait2024GeneReviews]].
-- GeneReviews notes that in cEDS the skin splits after relatively minor trauma, especially over the knees, elbows, shins, forehead and chin. Easy bruising is a hallmark, and vitamin C "may reduce bruising" [[Malfait2024GeneReviews]].
+- cEDS wound care in GeneReviews: close skin wounds with no pull on the edges, ideally in two layers, and use plenty of deep stitches. Leave skin stitches in for double the usual time, and tape the surrounding skin so the scar does not widen [[Malfait2024GeneReviews]].
+- GeneReviews notes that in cEDS fairly small knocks can split the skin, most often on the knees, elbows, shins, forehead and chin. Bruising easily is typical, and vitamin C may lessen it [[Malfait2024GeneReviews]].
 - Perinatal hEDS/HSD guidance recommends gentle handling of fragile tissues. It also recommends longer-lasting absorbable sutures, tension-free interrupted closure, and additional adhesives where the skin is particularly fragile [[Pezaro2024]].
 - The same guidance recommends documenting early bruising in infants, and its causes, "to avoid false accusations of maltreatment" [[Pezaro2024]].
 - EDS is on the differential for bruising in suspected child abuse, especially in types with marked skin and capillary involvement. Careful examination of the child and extended family is routine. EDS as an explanation for infant fractures remains speculative (Hypothesis) [[Castori2015]].
 - An AJN continuing-education article notes that EDS has historically been misunderstood and underdiagnosed, and that nurses are increasingly likely to care for people with EDS. It covers symptom management and recognising complications [[Anderson2015]].
 
 ### nursing · Handling, positioning and joints
-- In hEDS, subluxations and dislocations are common and may occur spontaneously or with minimal trauma. Repeated injury can lead to degenerative joint and chronic soft-tissue disorders [[Hakim2024GeneReviews]].
-- GeneReviews warns that physical treatments must avoid causing subluxations or dislocations [[Hakim2024GeneReviews]].
+- Partial and full dislocations are frequent in hEDS and can happen on their own or after a very small injury. Over time, repeated injury can wear joints and leave long-term soft-tissue problems [[Hakim2024GeneReviews]].
+- GeneReviews cautions that any hands-on or physical treatment must be done without pushing joints out of place [[Hakim2024GeneReviews]].
 - Perinatal guidance advises careful positioning of the head and neck, shoulders, back, hips, knees and ankles, using wedges, balls, pillows and bed adaptations. It advises anticipating joint pain or dysfunction [[Pezaro2024]].
 - For infant feeding, the same guidance advises checking the latch with a mirror rather than straining the head and neck, and offering positional support to parent and infant [[Pezaro2024]].
 
@@ -163,7 +163,7 @@ Access notes:
 - In 39 women with EDS-HT, orthostatic intolerance was more common than in controls (74% vs 34%), most often as postural tachycardia [[DeWandele2014]].
 
 ### frontier · hEDS genetics and the HEDGE study
-- No genetic, epigenetic or metabolomic cause for hEDS has been identified, and diagnosis rests on the 2017 clinical criteria [[Hakim2024GeneReviews,Malfait2017]].
+- No cause for hEDS has yet been found in genes, gene regulation or metabolism, so the diagnosis depends on the 2017 clinical criteria [[Hakim2024GeneReviews,Malfait2017]].
 - A critical appraisal found only 11 of 304 publications met its quality criteria, and the hEDS genetic literature was "scant, dispersed and conflicting". It names the upcoming Hypermobile Ehlers-Danlos Genetic Evaluation (HEDGE) study (Established gap) [[Scicluna2022]].
 - Whole-exome sequencing of 200 people with hEDS found rare variants in 14 of 15 kallikrein (KLK) genes, including a recurrent KLK15 missense variant (p.Gly226Asp) segregating in several families (Early evidence) [[Gensemer2025]].
 - A Klk15 knock-in mouse recapitulated hEDS-like features in tendons and heart valves. The variant altered how KLK15 and lysyl oxidase are distributed in the extracellular matrix, consistent with a dominant-negative effect. Replication in independent cohorts is pending (Early evidence) [[Gensemer2025]].
@@ -213,12 +213,12 @@ Access notes:
 - The Italian Registry of EDS (RED, NCT04133272; Rizzoli) collects clinical, genetic, imaging and quality-of-life data linked to biosamples. It aims for 3000 participants and is recruiting through 2033 [[NCT04133272]].
 - The Ehlers-Danlos Society Global Registry was the sampling frame for the 505-person diagnostic-odyssey survey [[Halverson2023]].
 - An oxytocin trial for chronic pain in hEDS (NCT05405257) was terminated after enrolling 2 participants because of recruitment problems. This illustrates how hard EDS trials are to run [[NCT05405257]].
-- Management of every EDS type remains supportive. "No specific medical or genetic therapies are available for any type of EDS" [[Malfait2020]].
+- Management of every EDS type remains supportive: there is still no treatment aimed at the cause of any type, whether a drug or a gene therapy [[Malfait2020]].
 
 ### Exam hooks
 - vEDS, cEDS and hEDS are autosomal dominant, so each child has a 50% chance of inheriting the condition [[Byers2025GeneReviews,Malfait2024GeneReviews,Hakim2024GeneReviews]].
 - Around half of vEDS cases are de novo, so a negative family history does not exclude vEDS [[Byers2025GeneReviews]].
-- In vEDS, arteriography is discouraged except to locate life-threatening bleeding before surgery [[Byers2025GeneReviews]].
+- In vEDS, avoid arteriography unless it is needed to find a life-threatening bleed before surgery [[Byers2025GeneReviews]].
 - vEDS emergency card: carry a MedicAlert®, emergency letter or vEDS "passport", and seek urgent care for sudden unexplained pain [[Byers2025GeneReviews,Byers2017]].
 - Spontaneous bowel perforation in a young person should prompt vEDS genetic testing [[Bowen2023]].
 - Median survival in vEDS was 48 years in the 2000 cohort and 51 years in the 2014 cohort, both population figures [[Pepin2000,Pepin2014]].

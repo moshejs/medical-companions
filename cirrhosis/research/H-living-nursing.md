@@ -9,7 +9,7 @@ Urgent-care box (use on every complications page): "Vomiting blood, black or tar
 ## Findings
 
 ### living · What living with cirrhosis means (framing)
-- Cirrhosis has many causes, including obesity and non-alcoholic fatty liver disease, high alcohol consumption, hepatitis B or C, autoimmune and cholestatic diseases, and iron or copper overload; it moves from an asymptomatic compensated phase to a symptomatic decompensated phase whose complications often bring hospital stays, impaired quality of life and high mortality [[Gines2021Lancet]].
+- Many conditions lead to cirrhosis: obesity and fatty liver disease, heavy drinking, hepatitis B or C, autoimmune and bile-duct diseases, and too much iron or copper. It is silent at first (compensated) and causes symptoms later (decompensated), when complications commonly bring hospital stays, a worse quality of life and a high death rate [[Gines2021Lancet]].
 - In the US, the main causes overlap: alcohol use disorder in about 45% of cases, non-alcoholic fatty liver disease in 26% and hepatitis C in 41% (a person can have more than one) [[Tapper2023JAMA]].
 - About 40% of people with cirrhosis are diagnosed only when they present with a complication such as hepatic encephalopathy (HE) or ascites [[Tapper2023JAMA]].
 - Patients with cirrhosis need "constant and rigorous monitoring both in and outside the hospital"; LiverHope says nurses with liver expertise should be part of the inpatient and outpatient team and bridge clinicians, families and primary care [[Fabrellas2020LiverHope]].
@@ -29,7 +29,7 @@ Urgent-care box (use on every complications page): "Vomiting blood, black or tar
 - Patients removed from or declined for liver transplant (n=102) had a median of 52 days from denial to death; on the Edmonton Symptom Assessment System 65% had pain, 58% nausea, 48% dyspnoea, 49% anorexia and 36% anxiety [[Poonja2014]].
 
 ### living · Muscle cramps, sleep, pruritus, fatigue and pain (symptom control as published)
-- AASLD guidance: "Checking serum electrolyte levels and repleting potassium, magnesium, and zinc is a first step in the management of muscle cramps" in decompensated cirrhosis [[Rogal2022AASLD]].
+- AASLD guidance: the first step for muscle cramps is to check blood electrolytes and top up potassium, magnesium and zinc in decompensated cirrhosis [[Rogal2022AASLD]].
 - AASLD guidance: taurine (2–3 g daily), vitamin E (200 mg three times a day) and baclofen (5–10 mg three times a day) "have preliminary supportive data and can be considered" for significant cramps (quoted, not a prescription) (Early evidence) [[Rogal2022AASLD]].
 - In the PICCLES RCT (82 enrolled, 74 completed), sips of pickle brine at cramp onset reduced cramp severity by 2.25 ± 3.61 points on a 0–10 scale versus 0.36 ± 2.87 for tap water at 28 days (P=0.03), without adverse events (Early evidence) [[Tapper2022PICCLES]].
 - In the RELAX RCT (98 people with frequent cramps, 48% with cirrhosis), stretching and meditation both reduced cramp severity (median 1.44 and 1.97 points) with no difference between arms; 79.2% would recommend stretching vs 55.3% meditation (Early evidence) [[Tapper2024RELAX]].
@@ -37,7 +37,7 @@ Urgent-care box (use on every complications page): "Vomiting blood, black or tar
 - AASLD guidance: short-term melatonin 3 mg or hydroxyzine 25 mg nightly can improve sleep in Child-Pugh A and B cirrhosis; chronic benzodiazepines should generally be avoided in decompensated cirrhosis, with end-of-life comfort as a possible exception [[Rogal2022AASLD]].
 - AASLD guidance on pruritus: start with moisturising creams, avoid hot baths and harsh soaps, use loose clothing and cool humidified air; cholestyramine (4 g/d titrated to 16 g/d) is first-line, with low-dose naltrexone and sertraline among the alternatives that need careful titration in decompensated cirrhosis [[Rogal2022AASLD]].
 - AASLD guidance on fatigue: evaluate contributors such as HE, hypothyroidism, adrenal insufficiency, depression and medicines; give behavioural education and recommend physical activity; there are insufficient data for stimulants [[Rogal2022AASLD]].
-- AASLD guidance on pain: "Acetaminophen, 500 mg every 6 h, up to a maximum dose of 2 g/d, is the preferred first-line pharmacotherapy" in cirrhosis, and "Systemic NSAIDs should be avoided" (quoted as published) [[Rogal2022AASLD]].
+- AASLD guidance on pain: acetaminophen is the first-choice medicine in cirrhosis, at 500 mg every 6 h and no more than 2 g a day, and NSAIDs taken by mouth or injection should be avoided (summarised as published) [[Rogal2022AASLD]].
 - AASLD guidance: avoid opioids for chronic pain when possible; codeine, morphine and tramadol should generally be avoided; if needed, low-dose oxycodone or hydromorphone can be used, with laxatives such as lactulose started proactively to prevent constipation and HE [[Rogal2022AASLD]].
 - AASLD guidance on nausea: ondansetron (maximum 8 mg/d) is first-line, with caution for constipation and QTc monitoring; medical marijuana is not first-line for any symptom in decompensated cirrhosis [[Rogal2022AASLD]].
 - AASLD guidance on breathlessness: start with non-drug measures such as a bedside fan or supplemental oxygen, given the general aim of minimising sedating medicines [[Rogal2022AASLD]].
@@ -66,7 +66,7 @@ Urgent-care box (use on every complications page): "Vomiting blood, black or tar
 - Caregivers of people with previous HE carried higher burden (Perceived Caregiver Burden 75 vs 65; Zarit 16 vs 11) than caregivers of people without HE; depression score, MELD and cognitive tests predicted burden [[Bajaj2011Burden]].
 - In PAL-LIVER, 559 of 935 patients co-enrolled with a caregiver and 32% of caregivers had high burden (ZBI-12 ≥12); high burden was associated with an 11-point lower FACT-Hep and 3-point higher PHQ-9 in the patient [[Orman2026Caregiver]].
 - Among 127 caregivers of people with decompensated cirrhosis, 52% had clinically significant anxiety and 35% depression symptoms, 27% high caregiving burden, and over 85% had never discussed end-of-life preferences with the hepatologist; more frequent prognostic communication was linked to lower burden [[Li2026Caregivers]].
-- AASLD guidance: "Caring for caregivers is a central component of providing palliative and hospice care"; HE education about medicine administration, dose titration and the waxing-and-waning course can relieve patient and caregiver burden [[Rogal2022AASLD]].
+- AASLD guidance: support for caregivers is a core part of palliative and hospice care; HE education about medicine administration, dose titration and the waxing-and-waning course can relieve patient and caregiver burden [[Rogal2022AASLD]].
 
 ### living · Self-management, education and care models
 - In 150 outpatients, only 53% of 15 self-management questions were answered correctly at baseline (most missed: sodium content of sea salt, safety of paracetamol and statins); after a short booklet, median scores rose from 53% to 67% at 3 months (Early evidence) [[Volk2013Knowledge]].
@@ -87,7 +87,7 @@ Urgent-care box (use on every complications page): "Vomiting blood, black or tar
 
 ### living · Nutrition and activity (self-management angle; detail in pass G)
 - AASLD: recommended protein intake is 1.2–1.5 g/kg ideal body weight per day, protein should not be restricted in HE, and fasting gaps should be no more than 3–4 hours while awake, with an early breakfast and/or late-evening snack (quoted as published) [[Lai2021AASLD]].
-- EASL: "The late-evening snack is the most important, as it covers the long interval between dinner and breakfast" (patient section); include a late-evening supplement and breakfast in malnourished decompensated patients [[EASL2019Nutrition]].
+- EASL (patient section): the late evening snack matters most, because it bridges the long gap between dinner and breakfast; include a late-evening supplement and breakfast in malnourished decompensated patients [[EASL2019Nutrition]].
 - In an RCT of 103 patients, a nighttime supplement (710 kcal/day) raised total body protein by 0.38 kg at 3 months, 0.48 kg at 6 months and 0.53 kg at 12 months, about 2 kg of lean tissue; the daytime supplement did not [[Plank2008]].
 - A review of late-evening snack studies found less fat oxidation and better nitrogen balance, with inconsistent gains in muscle mass and no reported survival benefit (Early evidence) [[Tsien2012LES]].
 - AASLD: it is reasonable to follow CDC guidance of 150–300 minutes of moderate-to-vigorous exercise per week plus muscle strengthening at least 2 days per week, combining aerobic and resistance training tailored to frailty [[Lai2021AASLD]].
@@ -100,7 +100,7 @@ Urgent-care box (use on every complications page): "Vomiting blood, black or tar
 - LiverHope: early signs of infection to teach are fever, abdominal pain, early signs of HE, painful urination and respiratory symptoms; patients should contact their nurse or, if not possible, go to the emergency room [[Fabrellas2020LiverHope]].
 - LiverHope: teach that reduced urine volume can signal acute kidney injury and that new HE may be the first sign of kidney injury [[Fabrellas2020LiverHope]].
 - In a meta-analysis of 178 studies (11,987 patients), infection raised the odds of death about fourfold (OR 3.75, 95% CI 2.12–4.23); 30.3% of infected patients died within 1 month and 63% by 12 months (population figures) [[Arvaniti2010]].
-- Among people with ascites, the annual incidence of spontaneous bacterial peritonitis is 11% and of hepatorenal syndrome 8% [[Tapper2023JAMA]].
+- In people with ascites, spontaneous bacterial peritonitis develops in 11% a year and hepatorenal syndrome in 8% a year [[Tapper2023JAMA]].
 - Because the time course of complications is fast, the companion's urgent-care box applies to every complications page: vomiting blood, black or tarry stools, new confusion or drowsiness, or fever or belly pain with a swollen abdomen (framing from [[Fabrellas2020LiverHope,Arvaniti2010]]).
 
 ### living · Hospital readmissions and care bundles
@@ -116,13 +116,13 @@ Urgent-care box (use on every complications page): "Vomiting blood, black or tar
 
 ### living · Palliative care, advance care planning and hospice
 - AASLD defines palliative care as multidisciplinary specialised care for the physical, spiritual and psychosocial needs of people with serious illness and their caregivers, and states it can be considered at any stage of cirrhosis alongside disease-directed treatment [[Rogal2022AASLD]].
-- AASLD: "Only 11% of patients with cirrhosis receive specialty palliative care or hospice care referrals", and consultation often comes very late [[Rogal2022AASLD]].
+- AASLD: only 11% of people with cirrhosis are referred to specialist palliative or hospice care, and consultation often comes very late [[Rogal2022AASLD]].
 - Among 102 people removed from or declined for transplant, only 11% were referred for palliative care and 28% had a documented do-not-resuscitate status, while 48% were later admitted to intensive care [[Poonja2014]].
 - In the US Nationwide Inpatient Sample (39,349 hospitalised people with end-stage liver disease), palliative consultation occurred in 4.5%, rising from 0.97% in 2006 to 7.1% in 2012; Hispanic patients and insured patients were less likely to be referred [[Rush2017]].
 - In terminal hospitalisations (2009–2013), palliative consultation rose from 18.0% to 36.6% and was associated with lower procedure burden and $10,062 lower cost; African American, Hispanic and Asian patients and transplant candidates were less likely to receive it [[Patel2017CGH]].
 - At one transplant centre, palliative care was consulted for only 17% (18/107) of listed patients who died or were removed; half of these consultations came within 72 hours of death [[Kathpalia2016]].
 - In an AASLD member survey (396 respondents), 81% thought advance care planning happens too late; top barriers were cultural perceptions of palliative care (95%), unrealistic patient expectations (93%) and clinician time (91%) [[Ufere2019Barriers]].
-- AASLD guidance: "ACP is an iterative process that should start with a diagnosis of cirrhosis and preferably occur before hepatic decompensation and loss of decision-making capacity" [[Rogal2022AASLD]].
+- AASLD guidance: advance care planning (ACP) is revisited over time, starting when cirrhosis is diagnosed and ideally before decompensation or any loss of the ability to make decisions [[Rogal2022AASLD]].
 - AASLD guidance: hepatology clinicians should provide primary palliative care, including symptom management, basic advance care planning such as naming surrogate decision makers, counselling and referral; serious illness conversations should use the patient's preferred language and a professional interpreter [[Rogal2022AASLD]].
 - In qualitative interviews at 3 California transplant centres (42 patients, 46 clinicians), optimistic transplant-team attitudes hindered talk about dying and non-aggressive options were rarely discussed [[Patel2021ACP]].
 - In the Veterans Health Administration, 29.8% of 167,727 veterans with cirrhosis had a documented goals-of-care discussion by July 2023; completion rose from 0.4% to 21.2% after quality-improvement work, but the median time from first discussion to death was 37 days [[Patel2026GCD]].
@@ -137,7 +137,7 @@ Urgent-care box (use on every complications page): "Vomiting blood, black or tar
 - LiverHope decompensated-cirrhosis nursing measures: regular visits or phone calls; vital signs, weight and abdominal girth; nutrition counselling; adherence; and assessment of quality of life, frailty, sleep, depression and anxiety [[Fabrellas2020LiverHope]].
 - LiverHope HE nursing care: mental status evaluation, aspiration prevention, looking for triggers (especially infection and GI bleeding), nutrition support, skin-breakdown prevention, accurate intake and output, and bowel cleansing [[Fabrellas2020LiverHope]].
 - LiverHope HE table: use lactulose or lactitol to produce 3–4 bowel movements/day, consider cleansing enemas if there are none, protect the airway in grade 3 HE, and admit grade 4 (deep coma) to intensive care (quoted as published) [[Fabrellas2020LiverHope]].
-- The US lactulose label states the dose "may be adjusted every day or two to produce 2 or 3 soft stools daily" (quoted as published); LiverHope's 3–4/day reflects European practice, so the companion should show both and defer to the prescriber [[FDA-Enulose,Fabrellas2020LiverHope]].
+- The US lactulose label lets the dose be changed every day or two to reach 2 or 3 soft stools a day; LiverHope's 3–4/day reflects European practice, so the companion should show both and defer to the prescriber [[FDA-Enulose,Fabrellas2020LiverHope]].
 - LiverHope outpatient HE care: evaluate covert HE at every visit, request a nutrition consultation for everyone with previous HE, and assess quality of life and frailty at least yearly [[Fabrellas2020LiverHope]].
 - Asterixis (flapping tremor) is a brief, irregular loss of muscle tone while holding a posture, first described as the "liver flap" in hepatic encephalopathy [[Lui2026Asterixis]].
 - In 167 drivers with cirrhosis, those with minimal HE on an inhibitory control test had more crashes in the preceding year (17% vs 3% by transport-department records; relative risk 5.77) [[Bajaj2009Driving]].
@@ -189,7 +189,7 @@ Urgent-care box (use on every complications page): "Vomiting blood, black or tar
 - AASLD sleep guidance: benzodiazepines should generally not be used for sleep because of sedation, respiratory depression, cognitive impairment and falls [[Rogal2022AASLD]].
 
 ### nursing · Alcohol withdrawal monitoring and brief interventions
-- The CIWA-Ar is a shortened 10-item scale for quantifying alcohol withdrawal severity in routine care [[Sullivan1989CIWA]].
+- The CIWA-Ar is a 10-item clinician-rated scale for measuring how severe alcohol withdrawal is in routine care [[Sullivan1989CIWA]].
 - ACG 2024: alcohol withdrawal in people with alcohol-related liver disease "should be assessed and managed as per the CIWA-Ar protocol", and clinicians should distinguish it from HE, recognising the two can coexist [[Jophlin2024ACG]].
 - ACG 2024: mild or moderate withdrawal usually begins 6–24 hours after the last drink; withdrawal scores have not been validated in severe liver disease and a symptom-triggered approach is preferred; short- and intermediate-acting benzodiazepines (lorazepam, oxazepam) are safer in poor liver function [[Jophlin2024ACG]].
 - ACG 2024: in severe withdrawal with liver disease, benzodiazepines are the treatment of choice used cautiously, with careful monitoring because they can precipitate or worsen HE (strong recommendation, moderate evidence) [[Jophlin2024ACG]].

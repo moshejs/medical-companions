@@ -76,7 +76,7 @@ Scope: what myasthenic crisis is (definition, how often it happens, triggers, de
 - Consensus wording: cholinesterase inhibitors increase airway secretions, which may make breathing harder [Sanders2016].
 
 ### Management as published: PLEX vs IVIG
-- Consensus: trials suggest PLEX and IVIG work equally well in impending or manifest crisis, but "expert consensus suggests that PLEX is more effective and works more quickly." The choice depends on the patient: PLEX is avoided in sepsis, and IVIG in hypercoagulable states, renal failure or immunoglobulin hypersensitivity [Sanders2016].
+- Consensus: trials suggest PLEX and IVIG work equally well in impending or manifest crisis, but the expert view is that PLEX works better and faster. The choice depends on the patient: PLEX is avoided in sepsis, and IVIG in hypercoagulable states, renal failure or immunoglobulin hypersensitivity [Sanders2016].
 - Onset: PLEX acts in about 2 days and IVIG in about 4-5 days. Regimens cited: IVIG 400 mg/kg/day for 5 days, PLEX 5 exchanges over 10 days [Wendell2011].
 - RCT in MG exacerbation (n=87): 3 PLEX vs IVIG 0.4 g/kg/day for 3 or 5 days. Myasthenic muscle score change at day 15 was similar (+18 vs +15.5). Side effects: 8 patients with PLEX vs 1 with IVIG [Gajdos1997].
 - RCT in moderate-to-severe worsening MG (n=84): IVIG 1 g/kg/day × 2 days was as effective as PLEX × 5 exchanges at day 14. 69% improved with IVIG and 65% with PLEX [Barth2011].

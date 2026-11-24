@@ -84,23 +84,24 @@ const CO_TXT={
   mItem:(n,v)=>`item ${n}: ${v}`,
   sum:(tot,dfs,st)=>`<span>ALSFRS-R <b>${tot} / 48</b></span><span>ΔFS <b>${dfs}</b></span><span>King's (estimate) <b>${st}</b></span>`,
   monthsBad:'Enter the months since symptom onset (1 or more) to calculate ΔFS.',
-  scoreAria:(v,a)=>`${v}: ${a}`
+  scoreAria:(v,t)=>`${t}: ${v} of 4`,
+  anTxt:v=>`<b>${v}</b> of 4${v===4?' (normal)':''}`
 };
-/* ALSFRS-R items: topic and paraphrased levels 4..0 (own wording; the scale text itself is copyrighted) */
+/* ALSFRS-R items: topic labels and points only (the level wording belongs to the official scale and is not reproduced) */
 const CO_ITEMS=[
- {n:'1',d:'bulbar',t:'Speech',a:['speaks as before','speech sounds changed but is understood','has to repeat to be understood','speech plus other ways of communicating','speech no longer usable to communicate']},
- {n:'2',d:'bulbar',t:'Saliva',a:['no change','slightly more saliva, perhaps some at night','clearly more saliva, a little drooling','much more saliva, some drooling','drooling that needs constant wiping']},
- {n:'3',d:'bulbar',t:'Swallowing',a:['eats as before','eats, with occasional choking','food or drink texture has to be changed','a tube adds to what is eaten','nothing by mouth; all feeding by tube or drip']},
- {n:'4',d:'fine',t:'Handwriting',a:['writes as before','slower or untidier, still readable','some words cannot be read','holds a pen but cannot form words','cannot hold a pen']},
- {n:'5a',d:'fine',t:'Cutting food and using cutlery',a:['as before','slower or clumsier, manages alone','manages most foods with some help','someone else cuts the food; still feeds self slowly','needs to be fed']},
- {n:'5b',d:'fine',t:'Handling the feeding tube and fastenings',a:['as before','clumsy but does every step alone','needs some help with caps and fasteners','carer does most; person helps a little','cannot do any part']},
- {n:'6',d:'fine',t:'Dressing and washing',a:['as before','manages alone, with more effort','needs help now and then, or uses workarounds','needs a carer for self-care','fully reliant on others']},
- {n:'7',d:'gross',t:'Turning in bed and adjusting bedclothes',a:['as before','slower or clumsier, manages alone','manages alone, with great difficulty','starts but cannot finish without help','cannot do it without full help']},
- {n:'8',d:'gross',t:'Walking',a:['walks as before','early difficulty walking','walks with help from a person or an aid','moves but cannot walk usefully','no purposeful leg movement']},
- {n:'9',d:'gross',t:'Climbing stairs',a:['as before','slower','somewhat unsteady or tires','needs help','cannot climb stairs']},
- {n:'10',d:'resp',t:'Breathlessness',a:['none','when walking','with everyday tasks such as eating, washing or dressing','at rest, sitting or lying','severe; mechanical support being considered']},
- {n:'11',d:'resp',t:'Breathlessness lying flat',a:['none','some broken sleep from breathlessness','needs extra pillows to sleep','can sleep only sitting up','cannot sleep for breathlessness']},
- {n:'12',d:'resp',t:'Breathing support',a:['none','NIV used some of the time','NIV through the night','NIV day and night','invasive ventilation (intubation or tracheostomy)']}
+ {n:'1',d:'bulbar',t:'Speech'},
+ {n:'2',d:'bulbar',t:'Saliva'},
+ {n:'3',d:'bulbar',t:'Swallowing'},
+ {n:'4',d:'fine',t:'Handwriting'},
+ {n:'5a',d:'fine',t:'Cutting food and using cutlery'},
+ {n:'5b',d:'fine',t:'Handling the feeding tube and fastenings'},
+ {n:'6',d:'fine',t:'Dressing and washing'},
+ {n:'7',d:'gross',t:'Turning in bed and adjusting bedclothes'},
+ {n:'8',d:'gross',t:'Walking'},
+ {n:'9',d:'gross',t:'Climbing stairs'},
+ {n:'10',d:'resp',t:'Breathlessness'},
+ {n:'11',d:'resp',t:'Breathlessness lying flat'},
+ {n:'12',d:'resp',t:'Breathing support'}
 ];
 const CO_EX={
  limb:{m:14,g:false,v:{'1':4,'2':4,'3':4,'4':2,'5':2,'6':3,'7':3,'8':2,'9':1,'10':4,'11':4,'12':4}},
@@ -273,14 +274,14 @@ inits.course=()=>{
       h+=`<fieldset data-dom="${d}"><legend><span class="co-sw" style="background:${CO_DCOL[d]}"></span><b data-dtot="${d}"></b></legend>`;
       CO_ITEMS.filter(it=>it.d===d&&!(it.n==='5a'&&gas)&&!(it.n==='5b'&&!gas)).forEach(it=>{const key=it.n==='5a'||it.n==='5b'?'5':it.n;
         h+=`<div class="co-it" role="group" aria-labelledby="coIt${it.n}"><div class="co-ih"><span class="n">${it.n}</span><span id="coIt${it.n}">${it.t}</span></div><div class="co-sc">`;
-        [4,3,2,1,0].forEach(v=>{h+=`<button class="btn" data-it="${key}" data-v="${v}" aria-pressed="${sc[key]===v}" aria-label="${CO_TXT.scoreAria(v,it.a[4-v])}">${v}</button>`});
+        [4,3,2,1,0].forEach(v=>{h+=`<button class="btn" data-it="${key}" data-v="${v}" aria-pressed="${sc[key]===v}" aria-label="${CO_TXT.scoreAria(v,it.t)}">${v}</button>`});
         h+=`</div><p class="co-an" data-an="${key}"></p></div>`});
       h+='</fieldset>'});
     box.innerHTML=h;
   }
   function calc(){
     $$('[data-it]',box).forEach(b=>b.setAttribute('aria-pressed',sc[b.dataset.it]===+b.dataset.v));
-    $$('[data-an]',box).forEach(p=>{const it=itemOf(p.dataset.an),v=sc[p.dataset.an];p.innerHTML=`<b>${v}</b> · ${it.a[4-v]}`});
+    $$('[data-an]',box).forEach(p=>{const it=itemOf(p.dataset.an),v=sc[p.dataset.an];p.innerHTML=CO_TXT.anTxt(v)});
     const dsum={bulbar:0,fine:0,gross:0,resp:0};
     Object.keys(sc).forEach(k=>{dsum[itemOf(k).d]+=sc[k]});
     $$('[data-dtot]',box).forEach(b=>{const d=b.dataset.dtot;b.textContent=CO_TXT.domTot(CO_TXT.dom[d],dsum[d])});

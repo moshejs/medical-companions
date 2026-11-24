@@ -16,9 +16,9 @@ inits.history=()=>{
     {y:1892,chip:'Tschernogubow',lbl:'1892',who:'Tschernogubow (Chernogubov)',role:'Russian dermatologist',head:'The first full description',g:'scar',
      txt:`The Russian dermatologist Tschernogubow (also spelled Chernogubov) published the first comprehensive description. One source dates his report to 1891. [[Forghani2019,Rauterberg2025]]`},
     {y:1901,chip:'Ehlers',lbl:'1901',who:'Edvard Ehlers',role:'Danish dermatologist',head:'A distinct condition',g:'bruise',
-     txt:`The Danish dermatologist Edvard Ehlers recognised the condition as a distinct entity. EDS is one of the oldest known causes of bruising and bleeding. [[Parapia2008,Forghani2019]]`},
+     txt:`The Danish dermatologist Edvard Ehlers described it as a condition in its own right. Easy bruising and bleeding in EDS have been noticed for a very long time. [[Parapia2008,Forghani2019]]`},
     {y:1908,chip:'Danlos',lbl:'1908',who:'Henri-Alexandre Danlos',role:'French dermatologist',head:'Stretchy, fragile skin',g:'pull',
-     txt:`The French dermatologist Henri-Alexandre Danlos suggested that skin extensibility and fragility were the cardinal features. [[Parapia2008]]`},
+     txt:`The French dermatologist Henri-Alexandre Danlos proposed that stretchy, fragile skin was the key sign. [[Parapia2008]]`},
     {y:1936,chip:'Parkes-Weber',lbl:'1936',who:'Frederick Parkes-Weber',role:'English dermatologist',head:'A name: "Ehlers-Danlos syndrome"',g:'name',
      txt:`The English dermatologist Frederick Parkes-Weber suggested the name "Ehlers-Danlos syndrome". [[Forghani2019]]`},
     {y:1964,chip:'Carter &amp; Wilkinson',lbl:'1964',who:'Carter and Wilkinson',role:'a score of joint laxity',head:'Counting lax joints',g:'limb',
@@ -213,7 +213,7 @@ inits.history=()=>{
   /* ---------- who was who ---------- */
   const WHO=[
     ['Edvard Ehlers','1901 · Denmark','Danish dermatologist','In 1901 Ehlers recognised the condition as a distinct entity, the first half of its name. [[Parapia2008,Forghani2019]]'],
-    ['Henri-Alexandre Danlos','1908 · France','French dermatologist','In 1908 Danlos suggested that skin extensibility and fragility were the cardinal features. The name "Ehlers-Danlos syndrome" followed in 1936, proposed by Frederick Parkes-Weber. [[Parapia2008,Forghani2019]]'],
+    ['Henri-Alexandre Danlos','1908 · France','French dermatologist','In 1908 Danlos proposed that stretchy, fragile skin was the key sign. The name "Ehlers-Danlos syndrome" followed in 1936, proposed by Frederick Parkes-Weber. [[Parapia2008,Forghani2019]]'],
     ['Beighton','1969 to 1998','first author of the score and of two classifications','Beighton\'s 1973 study of 1,083 Tswana Africans gave the nine-point Beighton score. Beighton was also first author of the Berlin (1988) and Villefranche (1998) nosologies. [[Beighton1973,Clinch2011,Beighton1988,Beighton1998]]'],
     ['Byers','1997 to 2020','vascular EDS and collagen genes','Byers and colleagues traced arthrochalasia to exon 6 of COL1A1 and COL1A2 (1997) and described 220 index patients with vascular EDS (2000). Byers was first author of the 2017 vEDS consensus, which recommends confirming a COL3A1 variant before giving the diagnosis. [[Byers1997,Pepin2000,Byers2017]]'],
     ['Malfait','2017 and 2020','the International Classification','Malfait was first author of the 2017 International Classification, which recognises 13 types, and of the 2020 primer that counts 14 types caused by variants in 20 genes. [[Malfait2017,Malfait2020]]'],

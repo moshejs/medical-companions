@@ -1,7 +1,7 @@
 /* =============== 5.2 Alcohol and the whole body: cancer, heart, brain =============== */
 const BD_STEPS=[
  {from:0,at:0,k:'0 g a day',t:'No alcohol',
-  txt:`Across all health outcomes together, the Global Burden of Disease 2016 study found that the level of drinking that minimised harm was zero (95% UI 0.0–0.8) standard drinks a week, with a standard drink defined as 10 g of alcohol. Alcohol was the leading risk factor for death and disability at ages 15–49. [[GBD2016Alcohol]]`,
+  txt:`Across all health outcomes together, the Global Burden of Disease 2016 study found that the amount of drinking with the least harm was zero (95% UI 0.0–0.8) standard drinks a week, with a standard drink defined as 10 g of alcohol. Alcohol was the leading risk factor for death and disability at ages 15–49. [[GBD2016Alcohol]]`,
   pt:`Research does not support drinking alcohol to improve your health.`,
   hook:`GBD 2016: harm minimised at zero drinks a week. [[GBD2016Alcohol]]`},
  {from:.02,at:.08,k:'Light · up to 12.5 g a day',t:'Light drinking',

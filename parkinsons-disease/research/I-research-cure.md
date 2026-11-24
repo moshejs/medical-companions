@@ -3,7 +3,7 @@ Scope: this section reports research routes that aim to slow, stop or reverse Pa
 
 ## Facts
 ### Evidence-label key used in this section
-- Labels used here: "Established" = shown in at least one adequately powered, randomised, controlled trial (positive or negative). "Early evidence" = some randomised or controlled signal, or consistent open-label and biomarker data, that has not been confirmed in a phase 3. "Hypothesis" = mechanistic, preclinical or observational rationale, or only safety and target-engagement data in humans. Under this scheme, no route has Established disease-modifying benefit as of 2026-10-20. The 2015-2024 pipeline review concludes that "there are still no treatments to modify the course of the disease" [Buff2026].
+- Labels used here: "Established" = shown in at least one adequately powered, randomised, controlled trial (positive or negative). "Early evidence" = some randomised or controlled signal, or consistent open-label and biomarker data, that has not been confirmed in a phase 3. "Hypothesis" = mechanistic, preclinical or observational rationale, or only safety and target-engagement data in humans. Under this scheme, no route has Established disease-modifying benefit as of 2026-10-20. The 2015-2024 pipeline review concludes that no treatment yet modifies the course of the disease [Buff2026].
 
 ### 1. Anti-alpha-synuclein immunotherapy (target: extracellular aggregated alpha-synuclein and its cell-to-cell spread)
 - PASADENA (prasinezumab, NCT03100149, phase 2): 316 people with early PD were randomised 1:1:1 to placebo (n=105), 1500 mg (n=105) or 4500 mg (n=106) IV every 4 weeks for 52 weeks [Pagano2022].

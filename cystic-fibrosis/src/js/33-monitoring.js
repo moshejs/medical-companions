@@ -138,7 +138,7 @@ inits.monitoring=()=>{
     if(a>=2&&a<6)I.push('Ages 2–5: lung disease often progresses silently, so sensitive objective tests matter (CF Foundation preschool guideline). [[Lahiri2016]]');
     if(a<7)I.push('Spirometry may not yet be reliable: in Wisconsin, not with acceptable quality until after age 7. LCI can be done across a wider age range. [[Farrell2003PP,Robinson2013]]');
     if(a>=8)I.push('Bone mineral density testing from age 8–10. [[Turck2016Nutrition]]');
-    if(a>=10)I.push('CFRD: "Annual screening for CFRD should begin by age 10 years in all CF patients who do not have CFRD", with a 2-hour 75 g OGTT; A1C is not recommended as a screening test. [[Moran2010CFRD]]');
+    if(a>=10)I.push('CFRD: everyone with CF who does not already have CFRD should be screened every year from age 10, with a 2-hour 75 g OGTT; A1C is not recommended as a screening test. [[Moran2010CFRD]]');
     I.push('Every year: screening for liver disease. [[Debray2011]] Regular monitoring of fat-soluble vitamins, and annual faecal elastase in pancreatic-sufficient patients. [[Turck2016Nutrition]]');
     al.innerHTML=I.map(x=>`<li>${x}</li>`).join('')}
   ai.addEventListener('input',age);age();

@@ -20,12 +20,12 @@ Call-now box for every page in these modules: "Sepsis is a medical emergency. If
 - Sepsis-3 defines organ dysfunction as a rise in SOFA score of 2 points or more, which was associated with in-hospital mortality above 10% [[Singer2016Sepsis3]].
 - The septic shock task force's systematic review found 44 studies (166,479 patients) that used different cut-offs for blood pressure, fluids, vasopressors, lactate and base deficit. Pooled crude septic shock mortality was 46.5% (95% CI 42.7–50.3%) [[ShankarHari2016Shock]].
 - SSC 2021: "For adults suspected of having sepsis, we suggest measuring blood lactate" (weak recommendation, low-quality evidence) [[Evans2021SSC]].
-- SSC 2021 rationale: lactate "alone is neither sensitive nor specific enough to rule-in or rule-out the diagnosis on its own". It is used as an adjunct that shifts the pre-test probability of sepsis [[Evans2021SSC]].
+- SSC 2021 rationale: lactate on its own cannot reliably confirm or exclude sepsis. It is used as an adjunct that shifts the pre-test probability of sepsis [[Evans2021SSC]].
 - In an urban US ED cohort of 1,278 admitted patients with infection, in-hospital mortality rose with venous lactate. It was 4.9% (43/877) at 0–2.5 mmol/L, 9.0% (24/267) at 2.5–4.0 mmol/L and 28.4% (38/134) at 4.0 mmol/L or more [[Shapiro2005Lactate]].
 - In the same cohort, a lactate of 4.0 mmol/L or more was 36% sensitive (95% CI 27–45%) and 92% specific (90–93%) for any in-hospital death. For death within 3 days it was 55% sensitive and 91% specific [[Shapiro2005Lactate]].
 - In 830 ED adults with severe sepsis (median lactate 2.9 mmol/L; 28-day mortality 22.9%), intermediate and high lactate were each linked to mortality independent of shock. In the non-shock group the ORs were 2.05 (intermediate) and 4.87 (high); in the shock group they were 3.27 and 4.87 [[Mikkelsen2009Lactate]].
 - In the SSC database (28,150 patients, 218 sites, 2005–2010), mortality was 44.5% with lactate above 4 mmol/L plus hypotension, against 29% in patients meeting neither criterion. On multivariable analysis only lactate above 4 mmol/L (with or without hypotension) was significantly associated with mortality [[Casserly2015Lactate]].
-- A high lactate can have causes other than infection. SSC 2021 says lactate "should be interpreted considering the clinical context and other causes of elevated lactate" [[Evans2021SSC]].
+- A high lactate can have causes other than infection. SSC 2021 says lactate has to be read in the clinical context, bearing in mind the other things that can raise it [[Evans2021SSC]].
 
 ### tests · Lactate-guided and perfusion-guided resuscitation
 - SSC 2021 suggests guiding resuscitation to decrease serum lactate when it is raised, rather than not using lactate (weak recommendation, low-quality evidence) [[Evans2021SSC]].
@@ -40,8 +40,8 @@ Call-now box for every page in these modules: "Sepsis is a medical emergency. If
 - ANDROMEDA-SHOCK-2's hierarchical primary outcome favoured the personalised protocol (win ratio 1.16, 95% CI 1.02–1.33; P = .04), mainly through shorter vital support. Wins for death were 19.1% vs 17.8%, and wins for duration of vital support were 26.4% vs 21.1% (Early evidence) [[Hernandez2025ANDROMEDA2]].
 
 ### tests · Blood cultures and source cultures
-- SSC 2021 restates the 2016 best-practice statement: routine microbiologic cultures, including blood, should be taken before antimicrobials "if it results in no substantial delay in the start of antimicrobials (i.e. < 45 min)" [[Evans2021SSC]].
-- SMFM 2023 (pregnancy) recommends cultures, including blood, before antimicrobials "as long as there are no substantial delays in timely administration of antibiotics" (Best Practice) [[SMFM2023Sepsis]].
+- SSC 2021 restates the 2016 best-practice statement: routine microbiologic cultures, including blood, should be taken before antimicrobials as long as this does not hold up the first dose by much (under 45 min) [[Evans2021SSC]].
+- SMFM 2023 (pregnancy) recommends cultures, including blood, before antimicrobials, provided this does not meaningfully delay the antibiotics (Best Practice) [[SMFM2023Sepsis]].
 - In 325 ED adults with severe sepsis (SBP <90 mm Hg or lactate ≥4 mmol/L), blood cultures drawn before antimicrobials were positive in 31.4% (102/325). Cultures drawn a median 70 minutes after antimicrobials were positive in 19.4% (63/325) [[Cheng2019Cultures]].
 - Cultures drawn after antimicrobials were only 52.9% sensitive (95% CI 42.8–62.9%). Adding other cultures found a pathogen in 67.6% of those with positive pre-antimicrobial blood cultures [[Cheng2019Cultures]].
 - In adult inpatients with 3 or more cultures in 24 h (629 single-organism episodes), the first culture detected 73.1% of bloodstream infections. Two cultures detected 89.7%, three detected 98.2% and four detected 99.8% [[Lee2007Cultures]].
@@ -52,12 +52,12 @@ Call-now box for every page in these modules: "Sepsis is a medical emergency. If
 - ASM's 2024 evidence-based guideline found that chlorhexidine skin preparation, diversion devices, sterile technique, phlebotomy teams and education each lowered contamination. Together these practices cut contamination by about 40–60% [[Sautter2024Contamination]].
 - False-positive cultures can lead to unnecessary antibiotics, higher costs and delay in finding the true cause of illness [[Sautter2024Contamination,Doern2019Contamination]].
 - The IDSA/ASM 2024 microbiology utilisation guide lists the best specimens, collection volumes and transport conditions by body system (blood, respiratory, urine, CSF, intra-abdominal, skin and soft tissue) for source cultures [[Miller2024IDSAMicro]].
-- SSC 2021 recommends "rapidly identifying or excluding a specific anatomical diagnosis of infection that requires emergent source control" (Best Practice Statement). Its examples include intra-abdominal abscess, GI perforation, ischaemic bowel, cholangitis, obstructed pyelonephritis and necrotising soft tissue infection, which in practice usually means imaging [[Evans2021SSC]].
+- SSC 2021 recommends quickly confirming or ruling out an infection in a specific place in the body that needs urgent source control (Best Practice Statement). Its examples include intra-abdominal abscess, GI perforation, ischaemic bowel, cholangitis, obstructed pyelonephritis and necrotising soft tissue infection, which in practice usually means imaging [[Evans2021SSC]].
 
 ### tests · Procalcitonin, CRP and white count
-- Procalcitonin (PCT, a blood protein that rises mainly in bacterial infection) is "undetectable in healthy states, but rises rapidly in response to pro-inflammatory stimuli, especially bacterial infections" (SSC 2021 rationale) [[Evans2021SSC]].
-- SSC 2021: "we suggest against using procalcitonin plus clinical evaluation to decide when to start antimicrobials, as compared to clinical evaluation alone" (weak recommendation, very low quality of evidence) [[Evans2021SSC]].
-- SSC 2021: where adequate source control is in place and the right duration is unclear, "we suggest using procalcitonin AND clinical evaluation to decide when to discontinue antimicrobials over clinical evaluation alone" (weak, low quality) [[Evans2021SSC]].
+- Procalcitonin (PCT, a blood protein that rises mainly in bacterial infection) is almost absent in health but rises quickly with inflammation, above all in bacterial infection (SSC 2021 rationale) [[Evans2021SSC]].
+- SSC 2021 suggests not adding procalcitonin to clinical assessment when deciding whether to start antimicrobials; clinical assessment alone is preferred (weak recommendation, very low quality of evidence) [[Evans2021SSC]].
+- SSC 2021: where adequate source control is in place and the right duration is unclear, it suggests using procalcitonin together with clinical assessment, rather than clinical assessment alone, to decide when to stop antimicrobials (weak, low quality) [[Evans2021SSC]].
 - A diagnostic meta-analysis (30 studies, 3,244 critically ill patients) found PCT separated sepsis from non-infectious SIRS with sensitivity 0.77 (95% CI 0.72–0.81), specificity 0.79 (0.74–0.84) and AUROC 0.85, with high heterogeneity (I² = 96%) [[Wacker2013PCT]].
 - Compared with CRP for telling bacterial infection from non-infective inflammation in hospitalised patients, PCT had higher sensitivity (88% vs 75%) and higher specificity (81% vs 67%) [[Simon2004PCTCRP]].
 - PRORATA (2010; 621 ICU patients analysed) used PCT to start and stop antibiotics. Day-28 mortality was 21.2% with PCT and 20.4% with control, which met noninferiority. PCT patients had 14.3 vs 11.6 antibiotic-free days by day 28 (difference 2.7 days, 95% CI 1.4–4.1) [[Bouadma2010PRORATA]].
@@ -80,20 +80,20 @@ Call-now box for every page in these modules: "Sepsis is a medical emergency. If
 
 ### firsthour · The Hour-1 bundle and SSC 2021 timing statements
 - The SSC 2018 bundle update introduced the "Hour-1 bundle", whose elements are meant to be started within the first hour [[Levy2018Bundle,Wang2021Hour1]].
-- The five Hour-1 elements, as quoted verbatim: "measure lactate level and remeasure lactate level if initial lactate is >2 mmol/L, obtain blood cultures before administering antibiotics, administer broad-spectrum antibiotics, begin rapid administration of 30 mL/kg crystalloid for hypotension or lactate ≥4 mmol/L, apply vasopressor if hypotension is present during or after fluid resuscitation to maintain a mean arterial pressure ≥65 mmHg" [[Wang2021Hour1,Levy2018Bundle]].
-- SSC 2021: "Sepsis and septic shock are medical emergencies, and we recommend that treatment and resuscitation begin immediately" (Best Practice Statement) [[Evans2021SSC]].
-- SSC 2021: "For adults with possible septic shock or a high likelihood for sepsis, we recommend administering antimicrobials immediately, ideally within 1 h of recognition" (strong recommendation; low-quality evidence for septic shock, very low for sepsis without shock) [[Evans2021SSC]].
-- SSC 2021: "For adults with possible sepsis without shock, we suggest a time-limited course of rapid investigation and if concern for infection persists, the administration of antimicrobials within 3 h from the time when sepsis was first recognised" (weak, very low quality) [[Evans2021SSC]].
+- The five Hour-1 elements, in our words: check lactate and check again if the first value is above 2 mmol/L; take blood cultures before antibiotics; give broad-spectrum antibiotics; start 30 mL/kg of crystalloid quickly for hypotension or a lactate of 4 mmol/L or more; and add a vasopressor if hypotension persists during or after fluids, to keep the mean arterial pressure at 65 mmHg or more [[Wang2021Hour1,Levy2018Bundle]].
+- SSC 2021: sepsis and septic shock are medical emergencies, so treatment and resuscitation should start at once (Best Practice Statement) [[Evans2021SSC]].
+- SSC 2021: adults with possible septic shock, or in whom sepsis is likely, should get antimicrobials at once, ideally within 1 h of recognition (strong recommendation; low-quality evidence for septic shock, very low for sepsis without shock) [[Evans2021SSC]].
+- SSC 2021: for adults with possible sepsis but no shock, a short, time-limited burst of rapid investigation is suggested, then antimicrobials within 3 h of first recognising sepsis if infection is still suspected (weak, very low quality) [[Evans2021SSC]].
 - SSC 2021: for adults with a low likelihood of infection and no shock, "we suggest deferring antimicrobials while continuing to closely monitor the patient" (weak, very low quality) [[Evans2021SSC]].
-- SSC 2021: for sepsis-induced hypoperfusion or septic shock, "we suggest that at least 30 mL/kg of intravenous (IV) crystalloid fluid should be given within the first 3 h of resuscitation" (weak, low quality). The guideline notes this fixed volume rests on observational evidence [[Evans2021SSC]].
+- SSC 2021: for sepsis-induced hypoperfusion or septic shock, it suggests at least 30 mL/kg of intravenous (IV) crystalloid within the first 3 h of resuscitation (weak, low quality). The guideline notes this fixed volume rests on observational evidence [[Evans2021SSC]].
 - SSC 2021 recommends an initial MAP target of 65 mm Hg over higher targets for adults with septic shock on vasopressors (strong, moderate quality) [[Evans2021SSC]].
 - SSC 2021 suggests starting vasopressors peripherally rather than waiting for central venous access, for a short time only and in a vein at or above the antecubital fossa (weak, very low quality) [[Evans2021SSC]].
 - SSC 2021 suggests ICU admission within 6 h for adults with sepsis or septic shock who need ICU care (weak, low quality) [[Evans2021SSC]].
-- SSC 2021 recommends against qSOFA "compared to SIRS, NEWS, or MEWS as a single screening tool for sepsis or septic shock" (strong, moderate quality) [[Evans2021SSC]].
+- SSC 2021 recommends against relying on qSOFA alone as a screening tool for sepsis or septic shock, in preference to SIRS, NEWS or MEWS (strong, moderate quality) [[Evans2021SSC]].
 
 ### firsthour · Antibiotic timing: the evidence
 - Kumar 2006 was a retrospective cohort of 2,731 adults with septic shock at 14 ICUs in Canada and the US (1989–2004). Among the 2,154 treated after hypotension began, each hour of delay in effective antimicrobials had an adjusted OR for death of 1.119 (95% CI 1.103–1.136) [[Kumar2006Delay]].
-- Kumar 2006: effective antimicrobials within the first hour of documented hypotension were associated with 79.9% survival. "Each hour of delay in antimicrobial administration over the ensuing 6 hrs was associated with an average decrease in survival of 7.6%" (as published) [[Kumar2006Delay]].
+- Kumar 2006: effective antimicrobials within the first hour of documented hypotension were associated with 79.9% survival. Over the next 6 hours, each hour of delay in antimicrobials went with an average fall in survival of 7.6% [[Kumar2006Delay]].
 - In Kumar 2006, only 50% of patients with septic shock received effective antimicrobials within 6 hours of documented hypotension. Median time to effective therapy was 6 hours [[Kumar2006Delay]].
 - Kumar 2009 (5,715 patients with septic shock): survival was 52.0% after appropriate and 10.3% after inappropriate initial antimicrobials (OR 9.45). Inappropriate initial therapy occurred in about 20% of patients [[Kumar2009Inappropriate]].
 - In the New York State mandate cohort (49,331 patients, 149 hospitals; Seymour 2017), each hour to completion of the 3-hour bundle had an OR for risk-adjusted in-hospital mortality of 1.04 (95% CI 1.02–1.05). Each hour to antibiotics had an OR of 1.04 (1.03–1.06) [[Seymour2017Timing]].
@@ -124,12 +124,12 @@ Call-now box for every page in these modules: "Sepsis is a medical emergency. If
 - Rivers 2001 (263 ED patients with severe sepsis or septic shock at one centre) compared 6 hours of early goal-directed therapy (EGDT) with standard therapy. In-hospital mortality was 30.5% with EGDT and 46.5% with standard therapy (P = 0.009) [[Rivers2001EGDT]].
 - ProCESS 2014 (1,341 patients, 31 US EDs) found 60-day in-hospital mortality of 21.0% with protocol EGDT, 18.2% with protocol standard therapy and 18.9% with usual care (RR protocol vs usual 1.04, 95% CI 0.82–1.31) [[ProCESS2014]].
 - ARISE 2014 (1,600 patients, 51 centres, mainly Australia/New Zealand) found 90-day mortality of 18.6% with EGDT and 18.8% with usual care (difference −0.3 percentage points, 95% CI −4.1 to 3.6) [[ARISE2014]].
-- ProMISe 2015 (1,260 patients, 56 English hospitals) found 90-day mortality of 29.5% with EGDT and 29.2% with usual care (RR 1.01, 95% CI 0.85–1.20). EGDT raised costs, and the probability that it was cost-effective was below 20% [[Mouncey2015ProMISe]].
+- ProMISe 2015 (1,260 patients, 56 English hospitals) found 90-day mortality of 29.5% with EGDT and 29.2% with usual care (RR 1.01, 95% CI 0.85–1.20). EGDT raised costs, and it had less than a 20% chance of being cost-effective [[Mouncey2015ProMISe]].
 - PRISM 2017 pooled individual data from 3,723 patients at 138 hospitals in ProCESS, ARISE and ProMISe. 90-day mortality was 24.9% with EGDT and 25.4% with usual care (adjusted OR 0.97, 95% CI 0.82–1.14). EGDT increased ICU use and costs [[PRISM2017]].
 - PRISM found no benefit of EGDT even in subgroups with worse shock (higher lactate, or hypotension plus hyperlactataemia) [[PRISM2017]].
 
 ### maternal · Definitions and burden
-- The WHO 2017 consensus definition: "Maternal sepsis is a life-threatening condition defined as organ dysfunction resulting from infection during pregnancy, child-birth, post-abortion, or post-partum period" [[Bonet2017Maternal]].
+- The WHO 2017 consensus defines maternal sepsis as life-threatening organ dysfunction caused by an infection during pregnancy, childbirth, after an abortion or after the birth [[Bonet2017Maternal]].
 - WHO's systematic analysis of 60,799 maternal deaths (2003–09) attributed 10.7% (95% UI 5.9–18.6%) of maternal deaths worldwide to sepsis, behind haemorrhage (27.1%) and hypertensive disorders (14.0%) [[Say2014Causes]].
 - The GLOSS 1-week inception cohort (2017; 713 facilities in 52 countries; 2,850 women) found 70.4 (95% CI 67.7–73.1) hospitalised women per 1,000 live births had a maternal infection [[GLOSS2020]].
 - In GLOSS, 10.9 (9.8–12.0) women per 1,000 live births had infection-related severe maternal outcomes (death or near-miss). Ratios were highest in low- and middle-income countries [[GLOSS2020]].
@@ -149,7 +149,7 @@ Call-now box for every page in these modules: "Sepsis is a medical emergency. If
 - In US surveillance (2007–09), postpartum women had invasive group A streptococcus (GAS) at 0.56 per 1,000 woman-years, against 0.019 in non-pregnant women. The authors describe this as a roughly 20-fold higher incidence of GAS and GBS [[Deutscher2011Strep]].
 - In UKOSS, GAS infection was associated with progression to septic shock (aOR 4.84, 95% CI 2.17–10.78), as was multiple pregnancy (aOR 5.75) [[Acosta2014UK]].
 - For 50% of women with GAS infection in UKOSS, less than 2 hours passed between the first sign of a systemic inflammatory response and a diagnosis of severe sepsis. For 75%, it was less than 9 hours [[Acosta2014UK]].
-- Acosta 2014 concludes that signs of severe sepsis in peripartum women, "particularly with confirmed or suspected group A streptococcal infection, should be regarded as an obstetric emergency" [[Acosta2014UK]].
+- Acosta 2014 concludes that signs of severe sepsis around the time of birth should be treated as an obstetric emergency, especially when group A streptococcal infection is confirmed or suspected [[Acosta2014UK]].
 - GAS puerperal sepsis remains an important cause of maternal and infant death worldwide, including in countries with modern antibiotics and intensive care [[Hamilton2013GAS]].
 
 ### maternal · Why pregnancy can hide sepsis
@@ -158,7 +158,7 @@ Call-now box for every page in these modules: "Sepsis is a medical emergency. If
 - Minute ventilation rises by 40–50%, mainly through larger breaths, giving a mild compensated respiratory alkalosis (arterial pH about 7.44) and serum bicarbonate of 18–22 mmol/L [[SomaPillay2016]].
 - Plasma volume rises by about 50% by 34 weeks, so haemoglobin falls. In 5–10% of women, platelets fall to 100–150 × 10⁹/L by term with no disease present [[SomaPillay2016]].
 - These normal changes overlap with early sepsis signs (fast heart rate, lower blood pressure, faster breathing), which is why obstetric-specific thresholds and scores were developed [[Albright2014SOS,SomaPillay2016]].
-- SMFM 2023 recommends that clinicians consider sepsis in pregnant or postpartum patients with otherwise unexplained end-organ damage and a suspected or confirmed infection "regardless of the presence of fever" (GRADE 1C) [[SMFM2023Sepsis]].
+- SMFM 2023 recommends that clinicians think of sepsis whenever a pregnant or postpartum patient has organ damage with no other explanation and a suspected or confirmed infection, "regardless of the presence of fever" (GRADE 1C) [[SMFM2023Sepsis]].
 
 ### maternal · Obstetric early warning tools
 - MEOWS (modified early obstetric warning system) was recommended for all obstetric inpatients by the UK 2003–05 enquiry. In 676 consecutive admissions it was 89% sensitive, 79% specific, with PPV 39% and NPV 98% for morbidity [[Singh2012MEOWS]].
@@ -167,7 +167,7 @@ Call-now box for every page in these modules: "Sepsis is a medical emergency. If
 - In prospective validation (425 pregnant or postpartum women with suspected infection), S.O.S. AUC was 0.85 (95% CI 0.76–0.95). A score of 6 or more had sensitivity 64%, specificity 88% and NPV 98.6% [[Albright2017SOS]].
 - In that validation, women with a score of 6 or more had antibiotics started at 3.2 h on average (3.7 h in lower scorers), and only 5.6% received them within 1 hour [[Albright2017SOS]].
 - Among 364 women with chorioamnionitis, six published obstetric early warning scores had sensitivities of 40–100% and specificities of 4–97% for severe sepsis. All PPVs were below 15% [[Edwards2015MOEWS]].
-- A GLOSS secondary analysis tested 21 early warning systems in 2,560 women from 46 countries. Obstetric- and sepsis-specific scores did better than general ones, but "no score demonstrated enough diagnostic accuracy to be used alone to identify sepsis" [[Chimwaza2025EWS]].
+- A GLOSS secondary analysis tested 21 early warning systems in 2,560 women from 46 countries. Obstetric- and sepsis-specific scores did better than general ones, but none was accurate enough to identify sepsis on its own [[Chimwaza2025EWS]].
 - In that analysis, the NICE risk stratification tool, modified shock index, maternity SIRS and Early Maternal Infection Prompts had high sensitivity (88.1–97.5%). qSOFA in pregnancy and obstetrically modified SOFA had high specificity (90.4–100%) [[Chimwaza2025EWS]].
 - The SOMANZ 2023 position statement abandoned qSOFA for diagnosing sepsis in pregnancy because of poor performance in practice. It calls for a single national maternity early warning chart in Australia, as New Zealand already has [[Bowyer2025SOMANZ]].
 - SMFM 2023 recommends that institutions develop their own maternal sepsis detection protocols, "avoiding the use of a single screening tool alone" (GRADE 1B) [[SMFM2023Sepsis]].
@@ -175,11 +175,11 @@ Call-now box for every page in these modules: "Sepsis is a medical emergency. If
 ### maternal · Maternal sepsis bundles and guideline statements (as published)
 - SMFM 2023: sepsis and septic shock in pregnancy are medical emergencies, and treatment and resuscitation should begin immediately (Best Practice) [[SMFM2023Sepsis]].
 - SMFM 2023 recommends obtaining a serum lactate in pregnant or postpartum patients with suspected sepsis (GRADE 1B) [[SMFM2023Sepsis]].
-- SMFM 2023: in pregnant or postpartum patients with septic shock or a high likelihood of sepsis, it recommends empiric broad-spectrum antimicrobials, "ideally within 1 hour of recognition" (GRADE 1C) [[SMFM2023Sepsis]].
-- SMFM 2023 recommends early IV administration (within the first 3 hours) of 1 to 2 L of balanced crystalloid in sepsis with hypotension or suspected hypoperfusion (GRADE 1C). This is a smaller fixed volume than the SSC adult 30 mL/kg suggestion [[SMFM2023Sepsis,Evans2021SSC]].
+- SMFM 2023: for pregnant or postpartum patients with septic shock or likely sepsis, it recommends empiric broad-spectrum antimicrobials, ideally within 1 hour of recognition (GRADE 1C) [[SMFM2023Sepsis]].
+- SMFM 2023 recommends giving 1 to 2 L of balanced crystalloid IV early (within the first 3 hours) when sepsis comes with hypotension or suspected poor perfusion (GRADE 1C). This is a smaller fixed volume than the SSC adult 30 mL/kg suggestion [[SMFM2023Sepsis,Evans2021SSC]].
 - SMFM 2023 recommends norepinephrine as the first-line vasopressor in pregnancy and postpartum septic shock (GRADE 1C), and pharmacologic VTE prophylaxis in septic shock (GRADE 1B) [[SMFM2023Sepsis]].
-- SMFM 2023: if a uterine source is suspected or confirmed, it recommends "prompt delivery or evacuation of uterine contents to achieve source control, regardless of gestational age" (GRADE 1C) [[SMFM2023Sepsis]].
-- SMFM 2023 recommends ongoing comprehensive support for pregnant and postpartum sepsis survivors and their families (Best Practice) [[SMFM2023Sepsis]].
+- SMFM 2023: if a uterine source is suspected or confirmed, it recommends prompt delivery or emptying of the uterus to control the source, at any gestational age (GRADE 1C) [[SMFM2023Sepsis]].
+- SMFM 2023 recommends continuing, all-round support for people who survive sepsis in pregnancy or after birth, and for their families (Best Practice) [[SMFM2023Sepsis]].
 - SOMANZ 2017 was the first Australian/New Zealand guideline for sepsis in pregnancy and the postpartum period. It covers bacterial, viral and non-infective causes and obstetric considerations for anaesthesia and intensive care [[Bowyer2017SOMANZ]].
 - Fetal considerations: in the S.O.S. derivation cohort, a score of 6 or more was independently associated with fetal tachycardia as well as positive blood cultures and ICU or telemetry admission [[Albright2014SOS]].
 
