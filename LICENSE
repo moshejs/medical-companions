@@ -1,0 +1,26 @@
+Copyright (c) 2026 Moshe Malka. All rights reserved.
+
+This repository and the Medical Companions site built from it
+(https://www.medcompanions.org) are made public so they can be read. Publishing
+them does not grant a licence.
+
+No permission is granted to copy, modify, distribute, republish or otherwise
+reuse the code or the written content in this repository, in whole or in part,
+without prior written permission from the copyright holder.
+
+Viewing and forking this repository on GitHub is allowed only to the extent that
+GitHub's Terms of Service allow it.
+
+Third-party material is not covered by this notice and stays under its own terms.
+This includes:
+
+  - the web fonts under fonts/, which are fetched from Google Fonts by
+    tools/fonts.py and remain under their own licences (SIL Open Font License
+    1.1, or the Ubuntu Font Licence 1.0 for Ubuntu Mono);
+  - any work quoted, cited, summarised or linked in the companions, their
+    sources.json files and research notes, which belongs to its authors and
+    publishers;
+  - any other third-party software, data or images, which remain under the
+    terms set by their owners.
+
+To ask for permission: hello@medcompanions.org
