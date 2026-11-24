@@ -71,7 +71,7 @@ const HI_EV=[
  {y:2013,d:'2013',l:1,c:'canakinumab for flares, EU',h:'Canakinumab: EU approval for flares',t:'2013 · An IL-1β antibody',
   txt:'Canakinumab, an anti-IL-1β antibody, gained an EU indication for frequent gout flares in February 2013, for adults in whom NSAIDs and colchicine are unsuitable. US approval followed on 25 August 2023. [[EMA-IlarisGout2013,FDA-IlarisGout2023]]'},
  {y:2015,d:'2015',l:4,c:'ACR/EULAR classification criteria',h:'ACR/EULAR 2015 criteria',t:'2015 · Classification criteria',
-  txt:'The 2015 ACR/EULAR criteria have an entry criterion of at least one episode of peripheral joint or bursa swelling, pain or tenderness; urate crystals in a symptomatic joint or tophus are sufficient on their own; otherwise 8 or more points classifies as gout. [[Neogi2015]] <a href="#dx" data-go="dx">Try the calculator</a>'},
+  txt:'The 2015 ACR/EULAR criteria apply to people in whom a peripheral joint or bursa has been swollen, painful or tender at least once; urate crystals in a symptomatic joint or tophus are sufficient on their own; otherwise 8 or more points classifies as gout. [[Neogi2015]] <a href="#dx" data-go="dx">Try the calculator</a>'},
  {y:2016.6,d:'2016',l:4,c:'EULAR: urate < 6 mg/dL',h:'EULAR 2016 recommendations',t:'2016 · EULAR recommendations',
   txt:'The updated EULAR recommendations keep serum urate below 6 mg/dL (360 µmol/L), or below 5 mg/dL (300 µmol/L) in severe gout, with allopurinol first line. [[Richette2017]]'},
  {y:2020,d:'2020',l:4,c:'ACR guideline: treat to target',h:'ACR 2020 guideline',t:'2020 · ACR guideline',

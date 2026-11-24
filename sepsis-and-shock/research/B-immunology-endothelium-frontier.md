@@ -116,7 +116,7 @@ Access notes:
 - Sepsis-3 identifies septic shock by vasopressors needed to keep mean arterial pressure ≥ 65 mm Hg plus lactate > 2 mmol/L (> 18 mg/dL) without hypovolaemia. That combination carried hospital mortality > 40% [[Singer2016Sepsis3]].
 - James et al. (1999) proposed that high lactate in injury or sepsis often comes from aerobic glycolysis in skeletal muscle. In this account, adrenaline drives the Na⁺/K⁺ pump, rather than hypoperfusion causing anaerobic glycolysis (Hypothesis, since supported) [[James1999Lactate]].
 - Levy et al. placed microdialysis probes in thigh muscle in 14 people with septic shock (mean blood lactate 4.0 mmol/L). Muscle lactate exceeded arterial lactate by a mean 1.98 mmol/L. Ouabain, a Na⁺/K⁺-ATPase blocker, stopped the excess muscle lactate and pyruvate production (p = 0.0001) [[Levy2005Lactate]].
-- In that study, the lactate-to-pyruvate ratio stayed unchanged. The authors argue that hyperlactataemia in resuscitated septic patients should not be taken as proof of oxygen debt [[Levy2005Lactate]].
+- In that study, the lactate-to-pyruvate ratio stayed unchanged. The authors argue that a high lactate after resuscitation in sepsis does not by itself prove an oxygen debt [[Levy2005Lactate]].
 - A 2014 review concluded that sepsis-associated hyperlactataemia is better explained by stress-driven (adrenergic) aerobic glycolysis than by tissue hypoxia alone. It may even be an adaptive survival response, yet it remains a strong independent predictor of death (Established as a marker; mechanism debated) [[GarciaAlvarez2014]].
 
 ### endothelium · Coagulation: tissue factor, consumed anticoagulants, DIC

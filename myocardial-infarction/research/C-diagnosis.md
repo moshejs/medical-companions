@@ -16,7 +16,7 @@ Access notes:
 ## Findings
 
 ### symptoms · What a heart attack feels like
-- UDMI4 lists ischaemic symptoms as "various combinations of chest, upper extremity, mandibular, or epigastric discomfort during exertion or at rest", and notes that these symptoms are not specific for myocardial ischaemia [[Thygesen2018UDMI4C]].
+- UDMI4 describes ischaemic symptoms as discomfort in the chest, arms, jaw or upper belly (epigastric), in any combination, on exertion or at rest, and notes that these symptoms are not specific for myocardial ischaemia [[Thygesen2018UDMI4C]].
 - The 2023 ESC guideline lists dyspnoea, epigastric pain, and pain in the left or right arm or neck/jaw as chest pain-equivalent symptoms [[Byrne2023ESC]].
 - The 2023 ESC guideline names prolonged chest pain (>15 min) and/or pain that recurs within 1 h as red-flag symptoms [[Byrne2023ESC]].
 - The 2023 ESC guideline states that "the use of the descriptor 'atypical' should be avoided." It also advises against stereotyped messaging based on sex, ethnicity or social background [[Byrne2023ESC]].
@@ -46,7 +46,7 @@ Access notes:
 - The most useful history features for ACS in that review were pain radiating to both arms (LR 2.6), prior abnormal stress test (LR 3.1) and peripheral arterial disease (LR 2.7) [[Fanaroff2015]].
 
 ### ecg · Getting the ECG and reading it
-- The 2023 ESC guideline says the 12-lead ECG should be "obtained immediately upon FMC [first medical contact] and interpreted ... within 10 min", and repeated as needed, especially if symptoms wane [[Byrne2023ESC]].
+- The 2023 ESC guideline says the 12-lead ECG should be taken straight away at first medical contact (FMC) and read within 10 min, and repeated as needed, especially if symptoms wane [[Byrne2023ESC]].
 - UDMI4 likewise says the ECG should be acquired and interpreted promptly, with a target of within 10 min of first medical contact [[Thygesen2018UDMI4C]].
 - The 2023 ESC guideline says ambulance staff should record an ECG as soon as possible, then either interpret it or transmit it for expert review [[Byrne2023ESC]].
 - The ESC "working diagnosis" of ACS is classified as STEMI or NSTE-ACS on the basis of available clinical information, including the ECG [[Byrne2023ESC]].
@@ -69,7 +69,7 @@ Access notes:
 - De Winter and colleagues described a sign of proximal LAD occlusion without classic ST elevation. UDMI4 notes that upsloping precordial ST depression >1 mm at the J point is linked to LAD occlusion [[deWinter2008,Thygesen2018UDMI4C]].
 
 ### ecg · Left bundle branch block, paced rhythm and Sgarbossa
-- The 2023 ESC guideline says bundle branch block or paced rhythm "precludes an accurate assessment of the presence or absence of ST-segment elevation." When clinical suspicion is high, these patients should be managed in the same way as clear STEMI [[Byrne2023ESC]].
+- The 2023 ESC guideline says bundle branch block or a paced rhythm makes it impossible to judge reliably whether ST-segment elevation is present. When clinical suspicion is high, these patients should be managed in the same way as clear STEMI [[Byrne2023ESC]].
 - UDMI4 says ST elevation ≥1 mm concordant with the QRS in any lead may indicate acute ischaemia in LBBB. Similar findings can help in right ventricular paced rhythms [[Thygesen2018UDMI4C]].
 - In GUSTO-1, 131 of 26,003 North American patients with MI (0.5%) had LBBB [[Sgarbossa1996]].
 - Sgarbossa's three independent criteria for MI in LBBB were (1) concordant ST elevation ≥1 mm, (2) ST depression ≥1 mm in V1, V2 or V3, and (3) discordant ST elevation ≥5 mm. They were combined into a 0–10 point score [[Sgarbossa1996]].
@@ -86,9 +86,9 @@ Access notes:
 - The OMI/NOMI model proposes replacing the STEMI/NSTEMI split with occlusion vs non-occlusion MI. No guideline has adopted it as of 2026-11, although the 2023 ESC guideline lists posterior and LBBB patterns for immediate management (Hypothesis) [[Meyers2021OMI,Byrne2023ESC]].
 
 ### troponin · Definitions: injury versus infarction
-- UDMI4: "Detection of an elevated cTn value above the 99th percentile URL is defined as myocardial injury." The injury is acute if values rise and/or fall [[Thygesen2018UDMI4C]].
-- UDMI4 type 1 MI: "Detection of a rise and/or fall of cTn values with at least one value above the 99th percentile URL" plus at least one of the following: ischaemic symptoms, new ischaemic ECG changes, new pathological Q waves, imaging evidence of new loss of viable myocardium or new regional wall motion abnormality, or coronary thrombus at angiography or autopsy [[Thygesen2018UDMI4C]].
-- UDMI4 type 2 MI requires "evidence of an imbalance between myocardial oxygen supply and demand unrelated to acute coronary athero-thrombosis," plus the troponin rise/fall and at least one ischaemic criterion [[Thygesen2018UDMI4C]].
+- UDMI4 calls a cardiac troponin (cTn) value above the 99th percentile upper reference limit (URL) myocardial injury. The injury is acute if values rise and/or fall [[Thygesen2018UDMI4C]].
+- UDMI4 type 1 MI: troponin that rises and/or falls, with at least one value above the 99th percentile URL, plus at least one sign of acute ischaemia: symptoms, new ischaemic ECG changes, new pathological Q waves, imaging showing newly lost viable heart muscle or a new regional wall-motion problem, or a coronary clot seen at angiography or autopsy [[Thygesen2018UDMI4C]].
+- UDMI4 type 2 MI requires evidence that myocardial oxygen supply and demand were out of balance for a reason other than acute coronary atherothrombosis, plus the troponin rise/fall and at least one ischaemic criterion [[Thygesen2018UDMI4C]].
 - UDMI4 type 3 MI covers cardiac death with symptoms suggesting ischaemia and presumed new ischaemic ECG changes or ventricular fibrillation, in someone who dies before biomarkers can be obtained [[Thygesen2018UDMI4C]].
 - UDMI4 type 4a (PCI-related) MI requires cTn >5 times the 99th percentile URL. Type 5 (CABG-related) MI requires cTn >10 times the URL within 48 h, from a normal baseline, plus the other criteria [[Thygesen2018UDMI4C]].
 - UDMI4 says the 99th percentile URL is the decision level for myocardial injury and must be set for each assay. It recommends sex-specific 99th percentile URLs for hs-cTn assays because values are lower in women. Age-specific cut-offs are not recommended [[Thygesen2018UDMI4C]].

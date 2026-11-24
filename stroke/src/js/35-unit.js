@@ -72,13 +72,13 @@ const UNT_WK=[{l:'Pain',v:23.9},{l:'Temperature 38 °C or more',v:23.7},{l:'Prog
 /* ---- FeSS ---- */
 const UNT_FESS={
  fever:{t:'Fever',k:'F is for fever',
-  txt:`As listed for a later QASC translation trial: temperature monitored and recorded at least four times per day for the first 72 h, and "If temperature => 37.5°C treat with paracetamol or other anti-pyretic" [[Fasugba2023]]. A meta-analysis of 14,431 people with stroke and other brain injury tied fever to worse outcome: relative risk 1.5 for mortality, 2.2 for modified Rankin [[Greer2008]].`,
+  txt:`As listed for a later QASC translation trial: temperature monitored and recorded at least four times per day for the first 72 h, and paracetamol or another antipyretic at 37.5°C or above [[Fasugba2023]]. A meta-analysis of 14,431 people with stroke and other brain injury tied fever to worse outcome: relative risk 1.5 for mortality, 2.2 for modified Rankin [[Greer2008]].`,
   gap:`Practice gap: 50% of people with fever of 37.5°C or more had paracetamol within an hour in a 2021 Australian audit [[Fasugba2023]].`},
  sugar:{t:'Sugar',k:'S is for sugar',
-  txt:`As listed: formal venous glucose on admission; readings at least four times per day for the first 48 h, continuing for 72 h if unstable; "If blood glucose level >10 mmol/L (180mg/dl) treat with insulin" [[Fasugba2023]]. Admission glucose above 6.1 to 7.0 mmol/L carried a relative risk of in-hospital or 30-day death of 3.28 in people without diabetes [[Capes2001]].`,
+  txt:`As listed: formal venous glucose on admission; readings at least four times per day for the first 48 h, continuing for 72 h if unstable; insulin if glucose is above 10 mmol/L (180 mg/dl) [[Fasugba2023]]. Admission glucose above 6.1 to 7.0 mmol/L carried a relative risk of in-hospital or 30-day death of 3.28 in people without diabetes [[Capes2001]].`,
   gap:`Practice gap: 29% had insulin within 1 h of a first raised finger-prick glucose of 10 mmol/L or more in the same audit [[Fasugba2023]].`},
  swallow:{t:'Swallow',k:'S is for swallow',
-  txt:`As listed: "Swallow screen or swallow assessment within 4 h of admission and prior to being given oral food, drink, or medications", with referral to a speech pathologist for those who fail [[Fasugba2023]]. ESO/ESSD 2021 finds moderate-quality evidence to recommend screening in all people with stroke to prevent pneumonia and early mortality [[Dziewas2021]].`,
+  txt:`The bundle asks for a swallow screen or assessment within 4 h of admission and before any food, drink or medicines by mouth, with referral to a speech pathologist for those who fail [[Fasugba2023]]. ESO/ESSD 2021 finds moderate-quality evidence to recommend screening in all people with stroke to prevent pneumonia and early mortality [[Dziewas2021]].`,
   gap:`Practice gap: 60% had a swallow screen or assessment before oral intake in the same audit [[Fasugba2023]].`}};
 const UNT_TEMP=monoFn([ [0,36.8],[8,37],[14,37.3],[19,37.9],[24,38.1],[29,37.4],[36,37.1],[48,37],[60,36.9],[72,36.9] ]);
 const UNT_GLU=monoFn([ [0,8],[6,9],[11,10.9],[15,11.8],[20,9.6],[28,8.3],[40,8.1],[48,7.8],[60,7.6],[72,7.5] ]);

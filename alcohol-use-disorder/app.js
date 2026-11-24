@@ -1164,20 +1164,20 @@ const SC_STEPS=[
   txt:`A second illustrative person totals 23, Zone IV: possible dependence, so the published response is referral for diagnostic evaluation and specialist treatment. A high score or any dependence symptom means an assessment is needed, not that AUD is present. Referral is the weakest link of SBIRT: across 9 trials, brief interventions did not increase the use of specialty alcohol services (RR 1.08, 95% CI 0.92–1.28). <sup class="c" data-ref="Babor2016AUDITZones,HigginsBiddle2018USAUDIT,Babor2007SBIRT,Glass2015Referral" title="Source 27,28,141,179"><a href="/alcohol-use-disorder/sources/#src-Babor2016AUDITZones">27,28,141,179</a></sup>`,
   pt:`A high score means "let's look more closely together". Getting from a referral to actual care is where many people are lost.`,
   hook:`SBIRT = Screening, Brief Intervention, Referral to Treatment. Brief intervention does not reliably raise specialty-care uptake.`}];
-/* AUDIT items: stems shortened, answer options and points as published (Saunders 1993) */
-const SC_FREQ=['Never','Less than monthly','Monthly','Weekly','Daily or almost daily'];
-const SC_YN=[['No',0],['Yes, but not in the last year',2],['Yes, during the last year',4]];
+/* AUDIT items: topic labels and points only; the official question wording and answer options are in the WHO AUDIT manual (Babor et al. 2001) */
+const SC_PTS=[0,1,2,3,4];
+const SC_YN=[0,2,4];
 const SC_ITEMS=[
- {d:'Consumption',q:'How often do you have a drink containing alcohol?',o:['Never','Monthly or less','2–4 times a month','2–3 times a week','4 or more times a week']},
- {q:'How many drinks containing alcohol on a typical day when drinking?',o:['1 or 2','3 or 4','5 or 6','7 to 9','10 or more']},
- {q:'How often six or more drinks on one occasion?',o:SC_FREQ},
- {d:'Dependence symptoms',q:'In the last year, how often unable to stop drinking once started?',o:SC_FREQ},
- {q:'In the last year, how often failed to do what was normally expected because of drinking?',o:SC_FREQ},
- {q:'In the last year, how often needed a first drink in the morning to get going after heavy drinking?',o:SC_FREQ},
- {d:'Harms',q:'In the last year, how often a feeling of guilt or remorse after drinking?',o:SC_FREQ},
- {q:'In the last year, how often unable to remember the night before because of drinking?',o:SC_FREQ},
- {q:'Have you or someone else been injured because of your drinking?',yn:true},
- {q:'Has a relative, friend, doctor or other health worker been concerned about your drinking or suggested cutting down?',yn:true}];
+ {d:'Consumption',q:'How often drinking'},
+ {q:'Drinks on a typical day'},
+ {q:'Heavy-drinking occasions'},
+ {d:'Dependence symptoms',q:'Impaired control'},
+ {q:'Neglected duties'},
+ {q:'Morning drinking'},
+ {d:'Harms',q:'Guilt after drinking'},
+ {q:'Memory blackouts'},
+ {q:'Alcohol-related injury',yn:true},
+ {q:'Others concerned',yn:true}];
 /* screening tools: sensitivity / specificity as published, each against its own reference standard */
 const SC_TOOLS=[
  {id:'acm',n:'AUDIT-C ≥4 (men)',se:.86,sp:.89,tgt:'alcohol misuse, primary care',c:'<sup class="c" data-ref="Bradley2007AUDITC" title="Source 47"><a href="/alcohol-use-disorder/sources/#src-Bradley2007AUDITC">47</a></sup>'},
@@ -1214,7 +1214,7 @@ inits.screening=()=>{
     else if(p===1){s+=title('PRE-SCREEN');
       const hx=N?x+14:x+14,hy=y+40,cw=N?w-28:w/2-28;
       s+=`<text x="${hx}" y="${hy}" class="t-lbl">Single question (NIAAA)</text>`;
-      const q=N?['“How many times in the past year have you had','5 (men) / 4 (women) or more drinks in a day?”']:['“How many times in the past year have you had','5 (men) / 4 (women) or more drinks in a day?”'];
+      const q=['Counts days in the past year with 5 or more','drinks (men) or 4 or more (women)'];
       q.forEach((l,i)=>s+=`<text x="${hx}" y="${hy+17+i*13}" class="t-xs">${l}</text>`);
       s+=`<text x="${hx}" y="${hy+52}" class="t-xs" style="fill:var(--dx);font-weight:600">1 or more = positive · sens 81.8% · spec 79.3%</text>`;
       const ax=N?x+14:x+w/2+10,ay=N?y+110:y+40,aw=N?w-28:w/2-34,v=7*ramp(t,.22,.32),X=k=>ax+aw*k/12;
@@ -1298,8 +1298,8 @@ inits.screening=()=>{
 
   /* ---------- AUDIT teaching calculator ---------- */
   const qb=$('#scQ'),cs=$('#scCalcSvg'),cn=$('#scCalcNote');let sex=store.get('sc:sex','m');
-  qb.innerHTML=SC_ITEMS.map((it,i)=>{const opts=it.yn?SC_YN:it.o.map((o,j)=>[o,j]);
-    return `${it.d?`<p class="scdom">${it.d} · items ${i+1}–${i===0?3:i===3?6:10}</p>`:''}<label for="scI${i}"><span>${i+1}. ${it.q}</span><select id="scI${i}" data-sci="${i}">${opts.map(([o,v])=>`<option value="${v}">${o} (${v})</option>`).join('')}</select></label>`}).join('');
+  qb.innerHTML=SC_ITEMS.map((it,i)=>{const opts=it.yn?SC_YN:SC_PTS;
+    return `${it.d?`<p class="scdom">${it.d} · items ${i+1}–${i===0?3:i===3?6:10}</p>`:''}<label for="scI${i}"><span>${i+1}. ${it.q}</span><select id="scI${i}" data-sci="${i}">${opts.map(v=>`<option value="${v}">${v} point${v===1?'':'s'}</option>`).join('')}</select></label>`}).join('');
   function calc(){const v=SC_ITEMS.map((_,i)=>+$('#scI'+i).value),tot=v.reduce((a,b)=>a+b,0),ac=v[0]+v[1]+v[2],z=scZone(tot),Z=SC_ZONES[z],cut=sex==='m'?4:3,pos=ac>=cut,dep=v[3]+v[4]+v[5]>0;
     const N=vb(cs,'720 150','400 150');const x0=N?16:30,x1=N?384:690,X=s=>lerp(x0,x1,s/40);let s='';
     s+=`<text x="${x0}" y="16" class="t-sm" style="fill:var(--dx);font-weight:600">AUDIT TOTAL ${tot} / 40</text>`;
@@ -1361,18 +1361,18 @@ inits.screening=()=>{
   {const prevR=redraws.screening;redraws.screening=()=>{prevR&&prevR();calc();shown=null;drawIcon(false)}}
 };
 /* =============== 2.2 Diagnosis: DSM-5-TR criteria & severity =============== */
-/* the 11 criteria, paraphrased (APA 2022), grouped in four clusters */
+/* the 11 criteria, restated in our own words (APA 2022), grouped in four clusters */
 const CR_G=[{n:'Impaired control',c:'var(--dx)'},{n:'Social impairment',c:'var(--accent)'},{n:'Risky use',c:'var(--warn)'},{n:'Pharmacological',c:'var(--gaba)'}];
 const CR_C=[
- {g:0,s:'Larger or longer',d:'than intended',l:'Drinking more, or for longer, than intended'},
- {g:0,s:'Cutting down fails',d:'persistent wish or efforts',l:'A persistent wish, or failed efforts, to cut down or control drinking'},
- {g:0,s:'Much time spent',d:'getting, using, recovering',l:'Much time spent getting alcohol, drinking or recovering'},
- {g:0,s:'Craving',d:'added in DSM-5',l:'Craving: a strong desire or urge to drink'},
- {g:1,s:'Role obligations',d:'major roles not met',l:'Failure to meet major role obligations at work, school or home'},
- {g:1,s:'Social problems',d:'continued despite them',l:'Continued drinking despite social or interpersonal problems'},
- {g:1,s:'Activities given up',d:'important ones dropped',l:'Important social, work or leisure activities given up'},
- {g:2,s:'Hazardous situations',d:'physically hazardous use',l:'Drinking in physically hazardous situations'},
- {g:2,s:'Health problems',d:'physical or psychological',l:'Continued drinking despite physical or psychological problems'},
+ {g:0,s:'More than planned',d:'amount or duration',l:'Often ends up drinking more, or for longer, than planned'},
+ {g:0,s:'Cutting down fails',d:'keeps wanting or trying',l:'Keeps wanting or trying to cut back, without success'},
+ {g:0,s:'Much time spent',d:'getting, using, recovering',l:'A lot of time goes on getting drink, drinking, or getting over it'},
+ {g:0,s:'Craving',d:'added in DSM-5',l:'Craving: strong urges to drink'},
+ {g:1,s:'Main duties slip',d:'work, school, home',l:'Drinking keeps getting in the way of main duties at work, school or home'},
+ {g:1,s:'Trouble with others',d:'drinking continues anyway',l:'Keeps drinking although it causes or worsens trouble with other people'},
+ {g:1,s:'Activities given up',d:'things that mattered',l:'Has dropped or cut back on things that mattered: social life, work, hobbies'},
+ {g:2,s:'Physical danger',d:'drinking where it is unsafe',l:'Drinks again and again where it puts the body in danger, such as before driving'},
+ {g:2,s:'Health problems',d:'body or mind',l:'Keeps drinking while knowing it causes or worsens a body or mental health problem'},
  {g:3,s:'Tolerance',d:'pharmacological',l:'Tolerance'},
  {g:3,s:'Withdrawal',d:'pharmacological; see 3.1',l:'Withdrawal'}];
 const CR_SEV=[{n:'No diagnosis',c:'var(--muted)',r:'0–1'},{n:'Mild',c:'var(--warn)',r:'2–3',p:7.3,a:30.1,tr:2.7},{n:'Moderate',c:'var(--accent)',r:'4–5',p:3.2,a:25.9,tr:4.9},{n:'Severe',c:'var(--bad)',r:'6–11',p:3.4,a:23.9,tr:21.3}];
@@ -1381,19 +1381,19 @@ const CR_ON=[.13,.17,.21,.25,.34,.38,.42,.5,.54,.62,.66];
 const CR_MO=[1.5,3,4.5,5.5,6.5,7.5,8.5,9.2,10,10.8,11.5];
 const CR_STEPS=[
  {from:0,at:.06,k:'Step 1 · The frame',t:'11 criteria, one 12-month window',
-  txt:`DSM-5-TR defines alcohol use disorder as a problematic pattern of alcohol use causing clinically significant impairment or distress, shown by at least 2 of 11 criteria within a 12-month period. The work group chose 2 because it gave the best agreement with the combined prevalence of DSM-IV abuse and dependence. The criteria describe a dimensional condition with no natural cut-point, so the count itself is the severity. <sup class="c" data-ref="APA2022,Hasin2013" title="Source 16,169"><a href="/alcohol-use-disorder/sources/#src-APA2022">16,169</a></sup>`,
+  txt:`In DSM-5-TR, alcohol use disorder means a pattern of drinking that causes real harm or distress, shown by at least 2 of 11 criteria within 12 months. The work group chose 2 because it gave the best agreement with the combined prevalence of DSM-IV abuse and dependence. The criteria describe a dimensional condition with no natural cut-point, so the count itself is the severity. <sup class="c" data-ref="APA2022,Hasin2013" title="Source 16,169"><a href="/alcohol-use-disorder/sources/#src-APA2022">16,169</a></sup>`,
   pt:`Alcohol use disorder is a medical condition. A clinician diagnoses it by asking about 11 kinds of problems over the past year.`,
   hook:`AUD = ≥2 of 11 criteria within 12 months.`},
  {from:.12,at:.3,k:'Step 2 · Impaired control',t:'Impaired control (1–4)',
-  txt:`The first cluster is about control: drinking more or longer than intended, a persistent wish or failed efforts to cut down, much time spent getting, drinking or recovering, and craving. Watch the meter: at 2 criteria it reads mild, at 4 moderate. Craving was added in DSM-5; its psychometric benefit was equivocal, but the view that it may become a biological treatment target prevailed. <sup class="c" data-ref="APA2022,Hasin2013" title="Source 16,169"><a href="/alcohol-use-disorder/sources/#src-APA2022">16,169</a></sup>`,
+  txt:`The first cluster is about control: drinking more or for longer than planned, trying and failing to cut back, losing a lot of time to drink, and craving. Watch the meter: at 2 criteria it reads mild, at 4 moderate. Craving was added in DSM-5; its psychometric benefit was equivocal, but the view that it may become a biological treatment target prevailed. <sup class="c" data-ref="APA2022,Hasin2013" title="Source 16,169"><a href="/alcohol-use-disorder/sources/#src-APA2022">16,169</a></sup>`,
   pt:`Two or three criteria is mild, four or five is moderate, six or more is severe.`,
   hook:`Severity by count: mild 2–3, moderate 4–5, severe 6+. Craving was added in DSM-5.`},
  {from:.32,at:.46,k:'Step 3 · Social impairment',t:'Social impairment (5–7)',
-  txt:`Failing to meet major role obligations, continuing to drink despite social or interpersonal problems, and giving up important activities. Legal problems, a DSM-IV abuse criterion, are not here: they were dropped for very low prevalence, low discrimination and poor fit with the other criteria. Seven criteria is severe AUD, which 3.4% of US adults had in the past year. <sup class="c" data-ref="APA2022,Hasin2013,Grant2015NESARC" title="Source 16,146,169"><a href="/alcohol-use-disorder/sources/#src-APA2022">16,146,169</a></sup>`,
+  txt:`Duties at work, school or home slipping, drinking on despite trouble with other people, and dropping things that mattered. Legal problems, a DSM-IV abuse criterion, are not here: they were dropped for very low prevalence, low discrimination and poor fit with the other criteria. Seven criteria is severe AUD, which 3.4% of US adults had in the past year. <sup class="c" data-ref="APA2022,Hasin2013,Grant2015NESARC" title="Source 16,146,169"><a href="/alcohol-use-disorder/sources/#src-APA2022">16,146,169</a></sup>`,
   pt:`The count says how many kinds of problems are present, not how "bad" a person is.`,
   hook:`DSM-5 removed "recurrent legal problems" and added craving: still 11 criteria.`},
  {from:.48,at:.58,k:'Step 4 · Risky use',t:'Risky use (8–9)',
-  txt:`Drinking in physically hazardous situations, and continuing to drink despite physical or psychological problems. Treatment seeking rises with severity: 2.7% of people with mild, 4.9% with moderate and 21.3% with severe 12-month AUD sought treatment. <sup class="c" data-ref="APA2022,Grant2015NESARC" title="Source 16,146"><a href="/alcohol-use-disorder/sources/#src-APA2022">16,146</a></sup>`,
+  txt:`Drinking again and again where it is physically dangerous, and drinking on despite a body or mental health problem it causes or worsens. Treatment seeking rises with severity: 2.7% of people with mild, 4.9% with moderate and 21.3% with severe 12-month AUD sought treatment. <sup class="c" data-ref="APA2022,Grant2015NESARC" title="Source 16,146"><a href="/alcohol-use-disorder/sources/#src-APA2022">16,146</a></sup>`,
   pt:`Most people with alcohol use disorder never get treatment, even though treatment helps.`,
   hook:`Treatment seeking: 2.7% mild, 4.9% moderate, 21.3% severe (NESARC-III).`},
  {from:.6,at:.7,k:'Step 5 · Pharmacological',t:'Tolerance and withdrawal (10–11)',
@@ -1721,10 +1721,10 @@ const WD_K_STEPS=[
   txt:`Some experimental evidence suggests that treating early withdrawal may delay later kindled seizures; in humans this remains a hypothesis. <sup class="c" data-ref="Becker1998" title="Source 34"><a href="/alcohol-use-disorder/sources/#src-Becker1998">34</a></sup> <span class="ev hyp">Hypothesis</span> In a trial of 136 outpatients, among people with two or more past medicated withdrawals, those treated with carbamazepine drank less than 1 drink a day afterwards, against about 5 a day on lorazepam (P=.033); lorazepam showed rebound symptoms. <sup class="c" data-ref="Malcolm2002" title="Source 306"><a href="/alcohol-use-disorder/sources/#src-Malcolm2002">306</a></sup> <span class="ev early">Early evidence</span>`,
   pt:`Every withdrawal is worth taking seriously. Get medical help to stop safely, each time. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20"><a href="/alcohol-use-disorder/sources/#src-ASAM2020Withdrawal">20</a></sup>`}
 ];
-/* PAWSS items as named in the AAST 2022 summary (concomitant substances split in two, as in the published scale) */
-const WD_PAWS_GATE='Any alcohol in the last 30 days, or a positive blood alcohol level on admission';
-const WD_PAWS_HX=['Previous episodes of alcohol withdrawal','Previous alcohol withdrawal seizures','Previous delirium tremens','Previous alcohol rehabilitation treatment','Previous blackouts','Concomitant use of other CNS depressants','Concomitant use of illicit substances','Recent intoxication'];
-const WD_PAWS_CL=['Elevated blood alcohol level on admission','Evidence of increased autonomic activity'];
+/* PAWSS: short topic labels only (one point each); the official item wording is in Maldonado 2014 */
+const WD_PAWS_GATE='Threshold: recent drinking (30 days) or alcohol in the blood';
+const WD_PAWS_HX=['Past withdrawal','Past withdrawal seizures','Past delirium tremens','Past alcohol treatment','Past blackouts','Other sedatives','Illicit drugs','Recent intoxication'];
+const WD_PAWS_CL=['High blood alcohol','Autonomic overactivity'];
 
 inits.withdrawal=()=>{
   /* ---------- main timeline ---------- */
@@ -1864,7 +1864,7 @@ inits.withdrawal=()=>{
     const a=Math.PI*(1-.4),r0=94,r1=130;s+=`<line x1="${f1(160+r0*Math.cos(a))}" y1="${f1(150-r0*Math.sin(a))}" x2="${f1(160+r1*Math.cos(a))}" y2="${f1(150-r1*Math.sin(a))}" style="stroke:var(--ink);stroke-width:2"/><text x="${f1(160+(r1+8)*Math.cos(a)-4)}" y="${f1(150-(r1+8)*Math.sin(a))}" class="t-xs t-end" style="fill:var(--ink)">4</text>`;
     pv.innerHTML=s;
     let v;
-    if(!gate)v=`<div class="verdict maybe">The scale opens with the threshold question: alcohol in the last 30 days, or a positive blood alcohol level on admission. Tick it to score the items. PAWSS can be used before any withdrawal signs appear. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20"><a href="/alcohol-use-disorder/sources/#src-ASAM2020Withdrawal">20</a></sup></div>`;
+    if(!gate)v=`<div class="verdict maybe">The scale opens with a threshold question about recent drinking (within 30 days) or alcohol found in the blood on admission. Tick it to score the items. PAWSS can be used before any withdrawal signs appear. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20"><a href="/alcohol-use-disorder/sources/#src-ASAM2020Withdrawal">20</a></sup></div>`;
     else if(score>=4)v=`<div class="verdict no">Teaching result: ${score} of 10. A score of 4 or more is the published threshold for <b>higher risk of complicated withdrawal</b> (seizures, delirium tremens). <sup class="c" data-ref="Maldonado2014,Maldonado2015" title="Source 307,308"><a href="/alcohol-use-disorder/sources/#src-Maldonado2014">307,308</a></sup></div>`;
     else v=`<div class="verdict maybe">Teaching result: ${score} of 10, below the published threshold of 4. In the validation study the negative predictive value at this cut-off was 99.5%, but in a community detox unit the cut-off of 4 did not perform well, and a low score never means withdrawal is safe without help. <sup class="c" data-ref="Maldonado2015,Crepeault2025" title="Source 70,308"><a href="/alcohol-use-disorder/sources/#src-Maldonado2015">70,308</a></sup></div>`;
     v+=`<p style="font-size:14.5px">Why it matters: ASAM 2020 says withdrawal can usually be managed safely outside hospital when risk factors are limited or mitigated, aiming for the least intensive level of care that is safe and effective. A higher predicted risk is a reason for closer medical supervision. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20"><a href="/alcohol-use-disorder/sources/#src-ASAM2020Withdrawal">20</a></sup> Any score here is a teaching example, not a reading of anyone's own risk.</p>`;
@@ -1874,10 +1874,10 @@ inits.withdrawal=()=>{
   paws();
 };
 /* =============== 3.2 CIWA-Ar: scoring withdrawal =============== */
-/* items and ranges: Mirijello 2015 table (modified from Sullivan 1989); anchors quoted only where the research has them */
+/* topic labels and point ranges only (Mirijello 2015, modified from Sullivan 1989); the anchor wording is on the published scale */
 const CI_ITEMS=[
  {n:'Nausea or vomiting',max:7},
- {n:'Tremor',max:7,a0:'none',aM:'severe tremors, even with arms not extended'},
+ {n:'Tremor',max:7},
  {n:'Paroxysmal sweats',max:7},
  {n:'Anxiety',max:7},
  {n:'Agitation',max:7},
@@ -1885,7 +1885,7 @@ const CI_ITEMS=[
  {n:'Auditory disturbances',max:7},
  {n:'Visual disturbances',max:7},
  {n:'Headache',max:7},
- {n:'Orientation and clouding of sensorium',max:4,a0:'orientated, can do serial additions',aM:'disorientated for place and/or person'}
+ {n:'Orientation',max:4}
 ];
 const CI_H=72; /* scrubber hours */
 const CI_STEPS=[
@@ -1914,7 +1914,7 @@ inits.ciwa=()=>{
   const wrap=$('#ciItems');let mir=false;
   wrap.innerHTML=CI_ITEMS.map((it,i)=>`<div class="ci-item"><div class="ci-top"><label for="ciI${i}"><b>${i+1}. ${it.n}</b></label><output id="ciO${i}">0/${it.max}</output></div>
     <input type="range" id="ciI${i}" min="0" max="${it.max}" step="1" value="0" aria-valuetext="0 of ${it.max}">
-    <small>${it.a0?`0 = "${it.a0}" · ${it.max} = "${it.aM}"`:`scored 0 (lowest) to ${it.max} (highest); anchors in the published scale`}</small></div>`).join('');
+    <small>scored 0 (lowest) to ${it.max} (highest)</small></div>`).join('');
   const gv=$('#ciGauge'),out=$('#ciOut');
   const ASAMB=[{to:10,col:'var(--good)',n:'mild',r:'&lt;10'},{to:19,col:'var(--warn)',n:'moderate',r:'10–18'},{to:67,col:'var(--bad)',n:'severe',r:'≥19'}];
   const MIRB=[{to:8,col:'var(--good)',n:'mild',r:'&lt;8'},{to:16,col:'var(--warn)',n:'moderate',r:'8–15'},{to:67,col:'var(--bad)',n:'severe',r:'&gt;15'}];
@@ -2243,7 +2243,7 @@ function weNote(i,thi){const o=Object.assign({},WE_STEPS[i]);o.k+=thi?' · thiam
     o.pt='Low thiamine harms small, deep parts of the brain that help lay down new memories and keep balance and eye movements steady.';
     o.hook='Mammillary bodies + anterior thalamus = the Korsakoff lesions. A normal MRI does not rule out Wernicke encephalopathy. <sup class="c" data-ref="Arts2017,Antunez1998" title="Source 14,19"><a href="/alcohol-use-disorder/sources/#src-Arts2017">14,19</a></sup>'}
   if(i===2){o.t=thi?'Glucose with thiamine':'Glucose without thiamine';
-    o.txt=`The older rule, kept by EFNS 2010, is thiamine before any carbohydrate-containing fluid or food. ASAM 2020 says thiamine and glucose may be given "in any order or concurrently". <sup class="c" data-ref="Galvin2010EFNS,ASAM2020Withdrawal" title="Source 20,134"><a href="/alcohol-use-disorder/sources/#src-Galvin2010EFNS">20,134</a></sup> The evidence behind the old rule is case reports: prolonged glucose without thiamine may be a risk factor, so low blood sugar should be treated at once, with thiamine promptly after or alongside. <sup class="c" data-ref="Schabelman2012" title="Source 416"><a href="/alcohol-use-disorder/sources/#src-Schabelman2012">416</a></sup> <span class="ev early">Early evidence</span> In 120 emergency visits where dextrose came first, no Wernicke encephalopathy was found within 90 days. <sup class="c" data-ref="Jasti2025" title="Source 199"><a href="/alcohol-use-disorder/sources/#src-Jasti2025">199</a></sup> The US injection label says people with marginal thiamine status receiving dextrose "should receive 100 mg thiamine hydrochloride in each of the first few liters of IV fluid" (quoted, not an instruction). <sup class="c" data-ref="FDA-ThiamineInj" title="Source 120"><a href="/alcohol-use-disorder/sources/#src-FDA-ThiamineInj">120</a></sup>`;
+    o.txt=`The older rule, kept by EFNS 2010, is thiamine before any carbohydrate-containing fluid or food. ASAM 2020 says thiamine and glucose may be given "in any order or concurrently". <sup class="c" data-ref="Galvin2010EFNS,ASAM2020Withdrawal" title="Source 20,134"><a href="/alcohol-use-disorder/sources/#src-Galvin2010EFNS">20,134</a></sup> The evidence behind the old rule is case reports: prolonged glucose without thiamine may be a risk factor, so low blood sugar should be treated at once, with thiamine promptly after or alongside. <sup class="c" data-ref="Schabelman2012" title="Source 416"><a href="/alcohol-use-disorder/sources/#src-Schabelman2012">416</a></sup> <span class="ev early">Early evidence</span> In 120 emergency visits where dextrose came first, no Wernicke encephalopathy was found within 90 days. <sup class="c" data-ref="Jasti2025" title="Source 199"><a href="/alcohol-use-disorder/sources/#src-Jasti2025">199</a></sup> The US injection label says that people with marginal thiamine status who are given dextrose should get 100 mg of thiamine hydrochloride in each of the first few litres of IV fluid (reported, not an instruction). <sup class="c" data-ref="FDA-ThiamineInj" title="Source 120"><a href="/alcohol-use-disorder/sources/#src-FDA-ThiamineInj">120</a></sup>`;
     o.pt='Low blood sugar is treated straight away. Thiamine is given promptly too: today the guidance is not to delay either one.';
     o.hook='EFNS: thiamine before carbohydrate. ASAM 2020: either order, or together. Never delay glucose for hypoglycaemia. <sup class="c" data-ref="Galvin2010EFNS,ASAM2020Withdrawal,Schabelman2012" title="Source 20,134,416"><a href="/alcohol-use-disorder/sources/#src-Galvin2010EFNS">20,134,416</a></sup>'}
   if(i===3){o.t='The triad is rarely complete';
@@ -2366,7 +2366,7 @@ const ME_STEPS=[
   pt:`Part of why alcohol feels rewarding is that it makes the brain release its own opioid-like chemicals, which switch on the reward system.`,
   hook:`Alcohol → endogenous opioids → mu-opioid receptors → dopamine in the nucleus accumbens: the reward loop naltrexone targets.`},
  {from:.15,at:.27,k:'Naltrexone · 2 of 2',t:'Naltrexone sits on the receptors',
-  txt:`Naltrexone is a pure opioid receptor antagonist. The label says its mechanism in AUD "is not understood", though preclinical data point to the endogenous opioid system. It "is not aversive therapy": drinking on it causes no disulfiram-like reaction. The oral label states "A dose of 50 mg once daily is recommended for most patients"; the injection is 380 mg every 4 weeks, given by a healthcare provider. <sup class="c" data-ref="FDA-Naltrexone,FDA-Vivitrol" title="Source 117,123"><a href="/alcohol-use-disorder/sources/#src-FDA-Naltrexone">117,123</a></sup>`,
+  txt:`Naltrexone is a pure opioid receptor antagonist. The label says its mechanism in AUD "is not understood", though preclinical data point to the endogenous opioid system. It "is not aversive therapy": drinking on it causes no disulfiram-like reaction. The oral label recommends 50 mg once a day for most patients; the injection is 380 mg every 4 weeks, given by a healthcare provider. <sup class="c" data-ref="FDA-Naltrexone,FDA-Vivitrol" title="Source 117,123"><a href="/alcohol-use-disorder/sources/#src-FDA-Naltrexone">117,123</a></sup>`,
   pt:`Naltrexone fills the parking spots the brain’s opioids would use, so a drink gives less of a reward signal. It does not make a person sick if they drink.`,
   hook:`Naltrexone blocks opioids: check for opioid use first. The labels advise 7–10 opioid-free days before starting, to avoid precipitated withdrawal. <sup class="c" data-ref="FDA-Naltrexone,FDA-Vivitrol" title="Source 117,123"><a href="/alcohol-use-disorder/sources/#src-FDA-Naltrexone">117,123</a></sup>`},
  {from:.34,at:.40,k:'Acamprosate · 1 of 2',t:'After heavy drinking stops: an over-excited brain',
@@ -2374,11 +2374,11 @@ const ME_STEPS=[
   pt:`After months of heavy drinking the brain’s accelerator is turned up. When alcohol stops it can race, which is why stopping after heavy daily drinking needs medical help.`,
   hook:`Withdrawal hyperexcitability: NMDA up-regulation after chronic alcohol. Acamprosate is not a withdrawal treatment.`},
  {from:.49,at:.60,k:'Acamprosate · 2 of 2',t:'Acamprosate: rebalancing, as a hypothesis',
-  txt:`The label calls the mechanism "not completely understood": animal studies suggest acamprosate acts on glutamate and GABA systems, which leads to the hypothesis that it restores the balance. <span class="ev hyp">Hypothesis</span> Its indication is "maintenance of abstinence from alcohol in patients with alcohol dependence who are abstinent at treatment initiation", at two 333 mg tablets three times daily as published. <sup class="c" data-ref="FDA-Campral,KranzlerSoyka2018" title="Source 113,261"><a href="/alcohol-use-disorder/sources/#src-FDA-Campral">113,261</a></sup>`,
+  txt:`The label calls the mechanism "not completely understood": animal studies suggest acamprosate acts on glutamate and GABA systems, which leads to the hypothesis that it restores the balance. <span class="ev hyp">Hypothesis</span> It is labelled to help people with alcohol dependence stay off alcohol once they have already stopped when treatment begins, at two 333 mg tablets three times daily as published. <sup class="c" data-ref="FDA-Campral,KranzlerSoyka2018" title="Source 113,261"><a href="/alcohol-use-disorder/sources/#src-FDA-Campral">113,261</a></sup>`,
   pt:`Acamprosate helps people who have already stopped drinking stay stopped. It is cleared by the kidneys, not the liver, and it is taken three times a day.`,
   hook:`Acamprosate is excreted unchanged by the kidneys: label dose cut at CrCl 30–50 mL/min, contraindicated at ≤30. <sup class="c" data-ref="FDA-Campral" title="Source 113"><a href="/alcohol-use-disorder/sources/#src-FDA-Campral">113</a></sup>`},
  {from:.66,at:.73,k:'Disulfiram · 1 of 2',t:'Disulfiram blocks the second enzyme',
-  txt:`Alcohol is broken down to acetaldehyde, then to acetate by aldehyde dehydrogenase (ALDH). Disulfiram blocks that second step: after drinking on it, blood acetaldehyde can be 5–10 times higher than with the same alcohol alone. Its boxed warning: it "should never be administered to a patient when he is in a state of alcohol intoxication, or without his full knowledge". <sup class="c" data-ref="FDA-Antabuse,KranzlerSoyka2018" title="Source 112,261"><a href="/alcohol-use-disorder/sources/#src-FDA-Antabuse">112,261</a></sup>`,
+  txt:`Alcohol is broken down to acetaldehyde, then to acetate by aldehyde dehydrogenase (ALDH). Disulfiram blocks that second step: after drinking on it, blood acetaldehyde can be 5–10 times higher than with the same alcohol alone. Its boxed warning says it must never be given to someone who is intoxicated, or without that person knowing. <sup class="c" data-ref="FDA-Antabuse,KranzlerSoyka2018" title="Source 112,261"><a href="/alcohol-use-disorder/sources/#src-FDA-Antabuse">112,261</a></sup>`,
   pt:`Disulfiram does not lower craving. It works as a deterrent: drinking while taking it makes a person very ill, so taking it must always be the person’s own informed choice.`,
   hook:`Disulfiram inhibits ALDH → acetaldehyde builds 5–10-fold. Boxed warning: never during intoxication or without full knowledge. <sup class="c" data-ref="FDA-Antabuse" title="Source 112"><a href="/alcohol-use-disorder/sources/#src-FDA-Antabuse">112</a></sup>`},
  {from:.81,at:.96,k:'Disulfiram · 2 of 2',t:'Acetaldehyde builds: the reaction',
@@ -3226,7 +3226,7 @@ inits.liver=()=>{
 /* =============== 5.2 Alcohol and the whole body: cancer, heart, brain =============== */
 const BD_STEPS=[
  {from:0,at:0,k:'0 g a day',t:'No alcohol',
-  txt:`Across all health outcomes together, the Global Burden of Disease 2016 study found that the level of drinking that minimised harm was zero (95% UI 0.0–0.8) standard drinks a week, with a standard drink defined as 10 g of alcohol. Alcohol was the leading risk factor for death and disability at ages 15–49. <sup class="c" data-ref="GBD2016Alcohol" title="Source 137"><a href="/alcohol-use-disorder/sources/#src-GBD2016Alcohol">137</a></sup>`,
+  txt:`Across all health outcomes together, the Global Burden of Disease 2016 study found that the amount of drinking with the least harm was zero (95% UI 0.0–0.8) standard drinks a week, with a standard drink defined as 10 g of alcohol. Alcohol was the leading risk factor for death and disability at ages 15–49. <sup class="c" data-ref="GBD2016Alcohol" title="Source 137"><a href="/alcohol-use-disorder/sources/#src-GBD2016Alcohol">137</a></sup>`,
   pt:`Research does not support drinking alcohol to improve your health.`,
   hook:`GBD 2016: harm minimised at zero drinks a week. <sup class="c" data-ref="GBD2016Alcohol" title="Source 137"><a href="/alcohol-use-disorder/sources/#src-GBD2016Alcohol">137</a></sup>`},
  {from:.02,at:.08,k:'Light · up to 12.5 g a day',t:'Light drinking',
@@ -3481,7 +3481,7 @@ const PG_STEPS=[
   txt:`The AAP clinical report states that no amount of alcohol should be considered safe, there is no safe trimester, all forms (beer, wine, liquor) pose similar risk, and binge drinking poses dose-related risk. <sup class="c" data-ref="Williams2015AAP" title="Source 498"><a href="/alcohol-use-disorder/sources/#src-Williams2015AAP">498</a></sup> In the US in 2018–2020, 13.5% of pregnant adults reported current drinking and 5.2% binge drinking; frequent mental distress and having no usual provider were linked with more drinking. <sup class="c" data-ref="Gosdin2022MMWR" title="Source 144"><a href="/alcohol-use-disorder/sources/#src-Gosdin2022MMWR">144</a></sup>`,
   pt:`Stopping at any point in pregnancy helps. Support for mental health and good access to care make stopping easier.`},
  {from:.6,at:.72,k:'Weeks 28–40',t:'A lifelong effect, fully preventable',
-  txt:`Prenatal alcohol exposure is the leading preventable cause of birth defects and of intellectual and neurodevelopmental disabilities. The neurocognitive and behavioural effects are lifelong, and they are completely preventable when no alcohol is used in pregnancy. <sup class="c" data-ref="Williams2015AAP" title="Source 498"><a href="/alcohol-use-disorder/sources/#src-Williams2015AAP">498</a></sup> The brain is highlighted throughout the timeline because the AAP finds no safe trimester. <sup class="c" data-ref="Williams2015AAP" title="Source 498"><a href="/alcohol-use-disorder/sources/#src-Williams2015AAP">498</a></sup>`,
+  txt:`Alcohol exposure before birth is the top preventable cause of birth defects and of intellectual and neurodevelopmental disability. The neurocognitive and behavioural effects are lifelong, and they are completely preventable when no alcohol is used in pregnancy. <sup class="c" data-ref="Williams2015AAP" title="Source 498"><a href="/alcohol-use-disorder/sources/#src-Williams2015AAP">498</a></sup> The brain is highlighted throughout the timeline because the AAP finds no safe trimester. <sup class="c" data-ref="Williams2015AAP" title="Source 498"><a href="/alcohol-use-disorder/sources/#src-Williams2015AAP">498</a></sup>`,
   pt:`Alcohol can affect how a baby’s brain develops, and these effects can last for life.`,
   hook:`Prenatal alcohol = leading preventable cause of birth defects and neurodevelopmental disabilities (AAP). <sup class="c" data-ref="Williams2015AAP" title="Source 498"><a href="/alcohol-use-disorder/sources/#src-Williams2015AAP">498</a></sup>`},
  {from:.82,at:.9,k:'After birth',t:'FAS facial features',
@@ -3622,7 +3622,7 @@ const NU_STEPS=[
   pt:`Nurses check the shakes, sweating, anxiety and other signs often, every 1 to 4 hours at first, and give medicine when the score calls for it.`,
   hook:`Saitz 1994: symptom-triggered vs fixed schedule, 9 h vs 68 h and 100 mg vs 425 mg, with no rise in seizures or DTs. <sup class="c" data-ref="Saitz1994" title="Source 409"><a href="/alcohol-use-disorder/sources/#src-Saitz1994">409</a></sup>`},
  {from:18/NU_H,at:24/NU_H,k:'Hours 8–48 · seizure window',t:'Seizure and fall precautions',
-  txt:`ASAM 2020: withdrawal seizures may begin as early as 8 h after the last drink, can continue for up to 48 h and peak at about 24 h; hallucinations develop within 12–24 h and usually resolve within 24–48 h unless delirium appears. A second seizure "generally happens within 6 hours of the first". After a seizure ASAM says to "re-assess every 1-2 hours for 6–24 hours". Supportive care includes safety protocols, "e.g., assess risk for fall/syncope". <sup class="c" data-ref="ASAM2020Withdrawal,Saitz1998AHRW" title="Source 20,410"><a href="/alcohol-use-disorder/sources/#src-ASAM2020Withdrawal">20,410</a></sup> People with mild, low-risk withdrawal "may be observed for up to 36 hours, after which more severe withdrawal is unlikely to develop". <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20"><a href="/alcohol-use-disorder/sources/#src-ASAM2020Withdrawal">20</a></sup>`,
+  txt:`ASAM 2020: withdrawal seizures may begin as early as 8 h after the last drink, can continue for up to 48 h and peak at about 24 h; hallucinations develop within 12–24 h and usually resolve within 24–48 h unless delirium appears. A second seizure "generally happens within 6 hours of the first". After a seizure ASAM says to "re-assess every 1-2 hours for 6–24 hours". Supportive care includes safety protocols, "e.g., assess risk for fall/syncope". <sup class="c" data-ref="ASAM2020Withdrawal,Saitz1998AHRW" title="Source 20,410"><a href="/alcohol-use-disorder/sources/#src-ASAM2020Withdrawal">20,410</a></sup> People with mild, low-risk withdrawal can be watched for up to 36 hours; beyond that, worse withdrawal is unlikely to start. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20"><a href="/alcohol-use-disorder/sources/#src-ASAM2020Withdrawal">20</a></sup>`,
   pt:`The first two days carry the highest seizure risk. This is why stopping heavy daily drinking should happen with medical help.`,
   hook:`Seizures: from 8 h, peak about 24 h, up to 48 h (ASAM 2020). A second one usually comes within 6 h of the first. <sup class="c" data-ref="ASAM2020Withdrawal,Saitz1998AHRW" title="Source 20,410"><a href="/alcohol-use-disorder/sources/#src-ASAM2020Withdrawal">20,410</a></sup>`},
  {from:32/NU_H,at:44/NU_H,k:'Hours 36–72 · delirium watch',t:'Screening for delirium (CAM)',
@@ -3630,7 +3630,7 @@ const NU_STEPS=[
   pt:`New confusion that comes and goes is a warning sign. A calm, quiet, evenly lit room and simple reminders of the day and place help.`,
   hook:`CAM = 1 + 2 + (3 or 4). DT onset: 48–72 h (Mirijello 2015) vs 72–96 h (ASAM 2020). <sup class="c" data-ref="Inouye1990,Mirijello2015,ASAM2020Withdrawal" title="Source 20,193,332"><a href="/alcohol-use-disorder/sources/#src-Inouye1990">20,193,332</a></sup>`},
  {from:50/NU_H,at:66/NU_H,k:'Hours 48–72 · before discharge',t:'Starting treatment and linking onward',
-  txt:`ASAM 2020: "When feasible, alcohol use disorder (AUD) treatment should be initiated concurrently with alcohol withdrawal management as cognitive status permits", with medicine offered or a link to services and recovery support. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20"><a href="/alcohol-use-disorder/sources/#src-ASAM2020Withdrawal">20</a></sup> After a discharge-planning protocol in San Francisco, AUD medicine at discharge rose from 0% to 64% and 30-day readmission fell from 23.4% to 8.2% (before-and-after design). <sup class="c" data-ref="Wei2015" title="Source 494"><a href="/alcohol-use-disorder/sources/#src-Wei2015">494</a></sup> Yet in 12 hospitals only 19.8% of withdrawal admissions started medicine. <sup class="c" data-ref="Bernstein2026" title="Source 37"><a href="/alcohol-use-disorder/sources/#src-Bernstein2026">37</a></sup> For injectable naltrexone the label states people "should be opioid-free before starting VIVITROL" (7–10 days) and warns of a "potentially fatal overdose" risk from lost opioid tolerance. <sup class="c" data-ref="FDA-Vivitrol" title="Source 123"><a href="/alcohol-use-disorder/sources/#src-FDA-Vivitrol">123</a></sup> See <a href="#medicines" data-go="medicines">Approved medicines</a>.`,
+  txt:`ASAM 2020: where possible, AUD treatment should start alongside withdrawal management, as soon as the person can think clearly enough, with medicine offered or a link to services and recovery support. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20"><a href="/alcohol-use-disorder/sources/#src-ASAM2020Withdrawal">20</a></sup> After a discharge-planning protocol in San Francisco, AUD medicine at discharge rose from 0% to 64% and 30-day readmission fell from 23.4% to 8.2% (before-and-after design). <sup class="c" data-ref="Wei2015" title="Source 494"><a href="/alcohol-use-disorder/sources/#src-Wei2015">494</a></sup> Yet in 12 hospitals only 19.8% of withdrawal admissions started medicine. <sup class="c" data-ref="Bernstein2026" title="Source 37"><a href="/alcohol-use-disorder/sources/#src-Bernstein2026">37</a></sup> For injectable naltrexone the label states people "should be opioid-free before starting VIVITROL" (7–10 days) and warns of a "potentially fatal overdose" risk from lost opioid tolerance. <sup class="c" data-ref="FDA-Vivitrol" title="Source 123"><a href="/alcohol-use-disorder/sources/#src-FDA-Vivitrol">123</a></sup> See <a href="#medicines" data-go="medicines">Approved medicines</a>.`,
   pt:`Hospital is a good place to start treatment. Leaving with a medicine and a follow-up plan was linked to fewer trips back to hospital.`,
   hook:`Wei 2015: AUD medicine 0% → 64%; 30-day readmission 23.4% → 8.2%. Naltrexone needs 7–10 opioid-free days first. <sup class="c" data-ref="Wei2015,FDA-Vivitrol" title="Source 123,494"><a href="/alcohol-use-disorder/sources/#src-Wei2015">123,494</a></sup>`}
 ];
@@ -4146,7 +4146,7 @@ const RV_FC=[
  [2,`How is the AUDIT scored?`,`10 items scored 0–4, maximum 40. A score of 8 or more flags hazardous or harmful use <sup class="c" data-ref="Saunders1993AUDIT" title="Source 414"><a href="/alcohol-use-disorder/sources/#src-Saunders1993AUDIT">414</a></sup>.`],
  [2,`What are the WHO AUDIT zones?`,`Zone I 0–7, II 8–15, III 16–19, IV 20–40, as published <sup class="c" data-ref="Babor2016AUDITZones" title="Source 28"><a href="/alcohol-use-disorder/sources/#src-Babor2016AUDITZones">28</a></sup>. A high score signals the need for assessment, not a diagnosis <sup class="c" data-ref="HigginsBiddle2018USAUDIT" title="Source 179"><a href="/alcohol-use-disorder/sources/#src-HigginsBiddle2018USAUDIT">179</a></sup>.`],
  [2,`When is the AUDIT-C positive?`,`At 4 or more in men (sensitivity 0.86, specificity 0.89) and 3 or more in women (0.73, 0.91) <sup class="c" data-ref="Bradley2007AUDITC" title="Source 47"><a href="/alcohol-use-disorder/sources/#src-Bradley2007AUDITC">47</a></sup>.`],
- [2,`What is the NIAAA single screening question?`,`"How many times in the past year have you had 5 (men) / 4 (women) or more drinks in a day?" One or more is positive: 81.8% sensitive, 79.3% specific <sup class="c" data-ref="Smith2009JGIM" title="Source 438"><a href="/alcohol-use-disorder/sources/#src-Smith2009JGIM">438</a></sup>.`],
+ [2,`What is the NIAAA single screening question?`,`It asks for the number of days in the past year with 5 or more drinks (men) or 4 or more (women). One or more is positive: 81.8% sensitive, 79.3% specific <sup class="c" data-ref="Smith2009JGIM" title="Source 438"><a href="/alcohol-use-disorder/sources/#src-Smith2009JGIM">438</a></sup>.`],
  [2,`What does USPSTF 2018 recommend?`,`Screen adults 18 and older, including pregnant people, and give brief counselling for risky drinking (grade B). For ages 12–17: I statement <sup class="c" data-ref="USPSTF2018Alcohol" title="Source 471"><a href="/alcohol-use-disorder/sources/#src-USPSTF2018Alcohol">471</a></sup>.`],
  [2,`How much does a brief intervention help?`,`About 20 g a week less drinking at one year (Cochrane) <sup class="c" data-ref="Kaner2018Cochrane" title="Source 220"><a href="/alcohol-use-disorder/sources/#src-Kaner2018Cochrane">220</a></sup>, or about −1.6 drinks a week (USPSTF review) <sup class="c" data-ref="OConnor2018JAMA" title="Source 349"><a href="/alcohol-use-disorder/sources/#src-OConnor2018JAMA">349</a></sup>. It does not reliably increase specialty treatment uptake <sup class="c" data-ref="Glass2015Referral" title="Source 141"><a href="/alcohol-use-disorder/sources/#src-Glass2015Referral">141</a></sup>.`],
  [2,`What do the CAGE letters stand for?`,`Cut down, Annoyed, Guilty, Eye-opener <sup class="c" data-ref="Ewing1984CAGE" title="Source 107"><a href="/alcohol-use-disorder/sources/#src-Ewing1984CAGE">107</a></sup>. It asks about problems, not amounts, and has limited value for screening <sup class="c" data-ref="Aertgeerts2004CAGE,Dhalla2007CAGE" title="Source 3,86"><a href="/alcohol-use-disorder/sources/#src-Aertgeerts2004CAGE">3,86</a></sup>.`],
@@ -4331,7 +4331,7 @@ const QZ_Q=[
  [2,`The AUDIT has 10 items and a maximum score of:`,[`40`,`12`,`67`,`10`],0,`Each item scores 0–4; a score of 8 or more flags hazardous or harmful use <sup class="c" data-ref="Saunders1993AUDIT" title="Source 414"><a href="/alcohol-use-disorder/sources/#src-Saunders1993AUDIT">414</a></sup>.`],
  [2,`An AUDIT score of 16–19 falls in WHO zone:`,[`II`,`IV`,`III`,`I`],2,`Zones as published: I 0–7, II 8–15, III 16–19, IV 20–40 <sup class="c" data-ref="Babor2016AUDITZones" title="Source 28"><a href="/alcohol-use-disorder/sources/#src-Babor2016AUDITZones">28</a></sup>.`],
  [2,`The AUDIT-C thresholds that best balanced sensitivity and specificity in primary care were:`,[`≥10 in men, ≥8 in women`,`≥2 in men, ≥1 in women`,`≥8 for everyone`,`≥4 in men, ≥3 in women`],3,`Sensitivity and specificity 0.86 and 0.89 in men, 0.73 and 0.91 in women <sup class="c" data-ref="Bradley2007AUDITC" title="Source 47"><a href="/alcohol-use-disorder/sources/#src-Bradley2007AUDITC">47</a></sup>.`],
- [2,`The NIAAA single screening question is positive when the answer is:`,[`5 or more heavy days in a month`,`1 or more heavy days in the past year`,`Drinking alone at least once`,`Any drink in the past week`],1,`"How many times in the past year have you had 5 (men) / 4 (women) or more drinks in a day?" 81.8% sensitive, 79.3% specific <sup class="c" data-ref="Smith2009JGIM" title="Source 438"><a href="/alcohol-use-disorder/sources/#src-Smith2009JGIM">438</a></sup>.`],
+ [2,`The NIAAA single screening question is positive when the answer is:`,[`5 or more heavy days in a month`,`1 or more heavy days in the past year`,`Drinking alone at least once`,`Any drink in the past week`],1,`It counts days in the past year with 5 (men) / 4 (women) or more drinks; one or more is positive. 81.8% sensitive, 79.3% specific <sup class="c" data-ref="Smith2009JGIM" title="Source 438"><a href="/alcohol-use-disorder/sources/#src-Smith2009JGIM">438</a></sup>.`],
  [2,`USPSTF 2018 recommends alcohol screening plus brief counselling (grade B) for:`,[`Adolescents 12–17 only`,`Only adults over 65`,`Adults 18 and older, including pregnant people`,`Only people who ask for help`],2,`For adolescents aged 12–17 it issued an I statement: insufficient evidence <sup class="c" data-ref="USPSTF2018Alcohol" title="Source 471"><a href="/alcohol-use-disorder/sources/#src-USPSTF2018Alcohol">471</a></sup>.`],
  [2,`In the 2018 Cochrane review, brief intervention reduced drinking at one year by about:`,[`20 g a week`,`Half of all drinking`,`200 g a week`,`2 g a week`],0,`Moderate-quality evidence, from a mean baseline of 244 g a week <sup class="c" data-ref="Kaner2018Cochrane" title="Source 220"><a href="/alcohol-use-disorder/sources/#src-Kaner2018Cochrane">220</a></sup>.`],
  [2,`The "E" in CAGE stands for:`,[`Excess`,`Eye-opener`,`Ethanol`,`Emergency`],1,`Cut down, Annoyed, Guilty, Eye-opener <sup class="c" data-ref="Ewing1984CAGE" title="Source 107"><a href="/alcohol-use-disorder/sources/#src-Ewing1984CAGE">107</a></sup>. At the usual cut-off it has limited value for screening <sup class="c" data-ref="Aertgeerts2004CAGE" title="Source 3"><a href="/alcohol-use-disorder/sources/#src-Aertgeerts2004CAGE">3</a></sup>.`],
@@ -4363,7 +4363,7 @@ const QZ_Q=[
  [3,`The Caine criteria diagnose Wernicke encephalopathy with:`,[`All 3 triad signs`,`1 of 2 signs`,`2 of 4 signs`,`An MRI alone`],2,`Dietary deficiency, oculomotor abnormality, cerebellar dysfunction, and altered mental state or mild memory impairment <sup class="c" data-ref="Caine1997,Galvin2010EFNS" title="Source 54,134"><a href="/alcohol-use-disorder/sources/#src-Caine1997">54,134</a></sup>.`],
  [3,`On thiamine and glucose, ASAM 2020 says:`,[`They may be given in any order or together`,`Glucose must always come first`,`Glucose must be withheld for 24 h`,`Thiamine must never be given IV`],0,`EFNS 2010 still advises thiamine before carbohydrate: a real difference between guidelines <sup class="c" data-ref="ASAM2020Withdrawal,Galvin2010EFNS" title="Source 20,134"><a href="/alcohol-use-disorder/sources/#src-ASAM2020Withdrawal">20,134</a></sup>.`],
  [3,`Korsakoff syndrome is mainly:`,[`A seizure disorder`,`Severe anterograde memory loss with confabulation`,`A type of liver failure`,`A late form of delirium tremens`],1,`A residual syndrome after Wernicke encephalopathy, linked to the mammillary bodies and anterior thalamus <sup class="c" data-ref="Kopelman2009,Arts2017" title="Source 19,257"><a href="/alcohol-use-disorder/sources/#src-Kopelman2009">19,257</a></sup>.`],
- [3,`What does ASAM 2020 say about using alcohol to treat withdrawal?`,[`It is used for DT`,`It is first line`,`It is used in the ICU`,`It should not be used`],3,`"Oral or intravenous alcohol should not be used for the prevention or treatment of alcohol withdrawal" <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20"><a href="/alcohol-use-disorder/sources/#src-ASAM2020Withdrawal">20</a></sup>.`],
+ [3,`What does ASAM 2020 say about using alcohol to treat withdrawal?`,[`It is used for DT`,`It is first line`,`It is used in the ICU`,`It should not be used`],3,`ASAM 2020 says alcohol, by mouth or by vein, should not be used to prevent or treat alcohol withdrawal <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20"><a href="/alcohol-use-disorder/sources/#src-ASAM2020Withdrawal">20</a></sup>.`],
  [4,`Before starting naltrexone, the label advises an opioid-free interval of at least:`,[`No interval is needed`,`7–10 days`,`6 months`,`1 day`],1,`Naltrexone is an opioid antagonist and can precipitate opioid withdrawal <sup class="c" data-ref="FDA-Naltrexone,FDA-Vivitrol" title="Source 117,123"><a href="/alcohol-use-disorder/sources/#src-FDA-Naltrexone">117,123</a></sup>.`],
  [4,`Acamprosate is contraindicated at a creatinine clearance of:`,[`Any value`,`60 mL/min or less`,`30 mL/min or less`,`90 mL/min or less`],2,`It is excreted unchanged by the kidneys; the starting dose is cut at 30–50 mL/min <sup class="c" data-ref="FDA-Campral" title="Source 113"><a href="/alcohol-use-disorder/sources/#src-FDA-Campral">113</a></sup>.`],
  [4,`Disulfiram works by inhibiting:`,[`Alcohol dehydrogenase`,`Mu-opioid receptors`,`NMDA receptors`,`Aldehyde dehydrogenase`],3,`After drinking, blood acetaldehyde can rise 5–10-fold <sup class="c" data-ref="FDA-Antabuse,KranzlerSoyka2018" title="Source 112,261"><a href="/alcohol-use-disorder/sources/#src-FDA-Antabuse">112,261</a></sup>.`],
@@ -4447,7 +4447,7 @@ const GL_T=[
  ["ALDH2*2",`A dominant-negative variant that causes flushing. Heterozygotes who drink have about 3 times the oesophageal cancer risk (OR 3.19) <sup class="c" data-ref="Lewis2005,Li2009ALDH2" title="Source 285,287"><a href="/alcohol-use-disorder/sources/#src-Lewis2005">285,287</a></sup>.`,"genes"],
  ["Alcohol dependence syndrome",`Edwards and Gross's 1976 description of dependence as a syndrome not defined by its consequences <sup class="c" data-ref="Edwards1976,Martin2014" title="Source 97,315"><a href="/alcohol-use-disorder/sources/#src-Edwards1976">97,315</a></sup>.`,"history"],
  ["Alcohol poisoning",`A medical emergency: call emergency services. Signs progress from slurred speech and vomiting to stupor, coma and death <sup class="c" data-ref="Kanny2015" title="Source 221"><a href="/alcohol-use-disorder/sources/#src-Kanny2015">221</a></sup>.`,"drinks"],
- ["Alcohol use disorder (AUD)",`A problematic pattern of alcohol use causing clinically significant impairment or distress, shown by 2 or more of 11 criteria in 12 months <sup class="c" data-ref="APA2022,Hasin2013" title="Source 16,169"><a href="/alcohol-use-disorder/sources/#src-APA2022">16,169</a></sup>. A treatable medical condition <sup class="c" data-ref="Carvalho2019Lancet" title="Source 56"><a href="/alcohol-use-disorder/sources/#src-Carvalho2019Lancet">56</a></sup>.`,"what"],
+ ["Alcohol use disorder (AUD)",`A pattern of drinking that causes real harm or distress, shown by 2 or more of 11 criteria in 12 months <sup class="c" data-ref="APA2022,Hasin2013" title="Source 16,169"><a href="/alcohol-use-disorder/sources/#src-APA2022">16,169</a></sup>. A treatable medical condition <sup class="c" data-ref="Carvalho2019Lancet" title="Source 56"><a href="/alcohol-use-disorder/sources/#src-Carvalho2019Lancet">56</a></sup>.`,"what"],
  ["Alcohol withdrawal",`Symptoms when a physically dependent person stops or cuts down, from a sudden reversal of alcohol's depressant effects; the most severe results are seizures and delirium <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20"><a href="/alcohol-use-disorder/sources/#src-ASAM2020Withdrawal">20</a></sup>.`,"withdrawal"],
  ["Alcohol-associated hepatitis (AH)",`Rapid onset or worsening of jaundice in heavy drinking; 1-month mortality can reach 20–50% in severe cases (population statistics) <sup class="c" data-ref="Singal2018ACG" title="Source 434"><a href="/alcohol-use-disorder/sources/#src-Singal2018ACG">434</a></sup>.`,"liver"],
  ["Alcohol-associated liver disease (ALD)",`The spectrum of steatosis, alcohol-associated hepatitis and cirrhosis; the AASLD term replacing "alcoholic liver disease" <sup class="c" data-ref="Crabb2020AASLD,Singal2018ACG" title="Source 69,434"><a href="/alcohol-use-disorder/sources/#src-Crabb2020AASLD">69,434</a></sup>.`,"liver"],
@@ -4551,7 +4551,7 @@ const GL_T=[
  ["Prefrontal cortex",`Front of the brain; with the insula, the hub of the preoccupation/anticipation stage <sup class="c" data-ref="KoobVolkow2016" title="Source 256"><a href="/alcohol-use-disorder/sources/#src-KoobVolkow2016">256</a></sup>.`,"brain"],
  ["Project MATCH",`A large trial in which CBT, MET and twelve-step facilitation gave similar outcomes <sup class="c" data-ref="ProjectMATCH1997" title="Source 373"><a href="/alcohol-use-disorder/sources/#src-ProjectMATCH1997">373</a></sup>.`,"therapy"],
  ["Psilocybin-assisted therapy",`Psilocybin sessions with psychotherapy; heavy drinking days 9.7% vs 23.6% in one RCT <span class="ev early">Early evidence</span> <sup class="c" data-ref="Bogenschutz2022" title="Source 42"><a href="/alcohol-use-disorder/sources/#src-Bogenschutz2022">42</a></sup>.`,"frontier"],
- ["RASS",`The Richmond Agitation-Sedation Scale, from +4 combative to −5 unarousable <sup class="c" data-ref="Sessler2002RASS" title="Source 429"><a href="/alcohol-use-disorder/sources/#src-Sessler2002RASS">429</a></sup>.`,"ciwa"],
+ ["RASS",`The Richmond Agitation-Sedation Scale, from +4 (most agitated) to −5 (cannot be roused) <sup class="c" data-ref="Sessler2002RASS" title="Source 429"><a href="/alcohol-use-disorder/sources/#src-Sessler2002RASS">429</a></sup>.`,"ciwa"],
  ["Recompensation",`Recovery from decompensated cirrhosis; 31.1% of people who stopped drinking achieved it in one cohort <sup class="c" data-ref="Hofer2026JHep" title="Source 184"><a href="/alcohol-use-disorder/sources/#src-Hofer2026JHep">184</a></sup>.`,"liver"],
  ["Recovery (NIAAA 2022)",`Remission from DSM-5 AUD plus cessation of heavy drinking; abstinence is not required <sup class="c" data-ref="Hagman2022" title="Source 157"><a href="/alcohol-use-disorder/sources/#src-Hagman2022">157</a></sup>.`,"recovery"],
  ["Recovery capital",`The personal, social and community resources that support recovery <sup class="c" data-ref="Laudet2008" title="Source 277"><a href="/alcohol-use-disorder/sources/#src-Laudet2008">277</a></sup>.`,"recovery"],

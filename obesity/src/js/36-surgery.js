@@ -255,9 +255,9 @@ inits.surgery=()=>{
   const eb=$('#suBmi'),em=$('#suMet'),ea=$('#suAsian'),eo=$('#suElig');
   function elig(){
     const b=+eb.value,met=em.checked,as=ea.checked;let a,ac,n,nc;
-    if(b>=35){a='ASMBS/IFSO 2022: surgery "is recommended for individuals with a body mass index (BMI) >35 kg/m², regardless of presence, absence, or severity of co-morbidities".';ac='yes'}
+    if(b>=35){a='ASMBS/IFSO 2022: surgery is recommended at a BMI above 35 kg/m², whether or not co-morbidities are present and however severe they are.';ac='yes'}
     else if(as&&b>=27.5){a='ASMBS/IFSO 2022: in Asian populations, "individuals with BMI >27.5 kg/m² should be offered" surgery.';ac='yes'}
-    else if(b>=30&&met){a='ASMBS/IFSO 2022: surgery "should be considered for individuals with metabolic disease and BMI of 30-34.9 kg/m²".';ac='maybe'}
+    else if(b>=30&&met){a='ASMBS/IFSO 2022: surgery should be considered for people with metabolic disease and a BMI of 30–34.9 kg/m².';ac='maybe'}
     else if(b>=30){a='ASMBS/IFSO 2022 names BMI 30 to 34.9 only together with metabolic disease (or above 27.5 in Asian populations).';ac='out'}
     else if(as&&b>=25){a='ASMBS/IFSO 2022: in Asian populations a BMI above 25 suggests clinical obesity; the surgery threshold as published is above 27.5.';ac='out'}
     else{a='Below the BMI thresholds in the ASMBS/IFSO 2022 statement.';ac='out'}
@@ -265,6 +265,6 @@ inits.surgery=()=>{
     else if(b>=35&&met){n='1991 NIH: within the old threshold of BMI above 35 with comorbidities.';nc='yes'}
     else if(b>=35){n='1991 NIH: outside the old threshold, which required comorbidities between BMI 35 and 40.';nc='out'}
     else{n='1991 NIH: outside the old thresholds (BMI above 40, or above 35 with comorbidities).';nc='out'}
-    eo.innerHTML=`<div class="verdict ${ac}"><span class="kicker">2022 statement, as published</span><br>${a} [[Eisenberg2022ASMBS]]</div><div class="verdict ${nc}"><span class="kicker">1991 thresholds, for comparison</span><br>${n} [[Eisenberg2022ASMBS,Arterburn2020JAMA]]</div>`}
+    eo.innerHTML=`<div class="verdict ${ac}"><span class="kicker">2022 statement</span><br>${a} [[Eisenberg2022ASMBS]]</div><div class="verdict ${nc}"><span class="kicker">1991 thresholds, for comparison</span><br>${n} [[Eisenberg2022ASMBS,Arterburn2020JAMA]]</div>`}
   [eb,em,ea].forEach(el=>el.addEventListener('change',elig));elig();
 };

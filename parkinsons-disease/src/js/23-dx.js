@@ -1,36 +1,36 @@
 /* =============== 2.3 dx: diagnosis and the MDS criteria =============== */
-/* MDS 2015 clinical diagnostic criteria. Item wording as published (Postuma 2015, reproduced in Marsili 2018);
-   bradykinesia, rest tremor and rigidity definitions as reproduced in the PPMI form. */
+/* MDS 2015 clinical diagnostic criteria (Postuma 2015; summarised in Marsili 2018), restated in our own words.
+   The official wording is in the published paper; definitions follow the PPMI form in substance. */
 const DXC_PK=[
- {id:'b',h:'Bradykinesia (required)',q:'slowness of movement AND decrement in amplitude or speed or progressive hesitations / halts as movements are continued.'},
- {id:'t',h:'Rest tremor',q:'4-6 Hz tremor in the fully resting limb which is suppressed during movement initiation. Kinetic and postural tremor do not qualify for parkinsonism criteria.'},
- {id:'r',h:'Rigidity',q:'Judged on slow passive movement of major joints with the patient in a relaxed position. Rigidity refers to ‘lead-pipe’ resistance that is velocity-independent resistance to passive movement not solely reflecting failure to relax. Isolated cogwheeling without lead-pipe rigidity does not fulfill minimum requirements for rigidity.'}];
+ {id:'b',h:'Bradykinesia (required)',q:'Movements are slow, and they also shrink, slow down further or stall with hesitations as they are repeated.'},
+ {id:'t',h:'Rest tremor',q:'A tremor of about 4 to 6 Hz in a limb that is fully at rest, which stops when a movement begins. Tremor during holding or action does not count here.'},
+ {id:'r',h:'Rigidity',q:'Tested by slowly moving the large joints while the person is relaxed. It is a steady, lead-pipe stiffness that does not depend on how fast the joint is moved, and is not just a failure to relax. Cogwheeling on its own, without lead-pipe stiffness, is not enough.'}];
 const DXC_EX=[
- {h:'Cerebellar signs',q:'Unequivocal cerebellar abnormalities, such as cerebellar gait, limb ataxia, or cerebellar oculomotor abnormalities (e.g., sustained gaze evoked nystagmus, macro square wave jerks, hypermetric saccades)'},
- {h:'Downgaze palsy',q:'Downward vertical supranuclear gaze palsy or selective slowing of downward vertical saccades'},
- {h:'bvFTD or progressive aphasia',q:'Diagnosis of probable behavioral variant frontotemporal dementia or primary progressive aphasia, defined according to consensus criteria within the first 5 years of disease'},
- {h:'Legs only',q:'Parkinsonian features restricted to the lower limbs for more than 3 years'},
- {h:'Dopamine-blocking drug',q:'Treatment with a dopamine receptor blocker or a dopamine-depleting agent in a dose/time-course consistent with drug-induced parkinsonism'},
- {h:'No levodopa response',q:'Absence of observable response to high-dose levodopa despite at least moderate severity of disease'},
- {h:'Cortical signs',q:'Unequivocal cortical sensory loss (graphesthesia, stereognosis with intact primary sensory modalities), clear limb ideomotor apraxia, or progressive aphasia'},
- {h:'Normal dopamine scan',q:'Normal functional neuroimaging of the presynaptic dopaminergic system',d:'Counts only if a scan was done; imaging is not required.'},
- {h:'Another cause',q:'Documentation of an alternative condition known to produce parkinsonism and plausibly connected to the patient’s symptoms, or, the expert evaluating physician, based on the full diagnostic assessment feels that an alternative syndrome is more likely than PD'}];
+ {h:'Cerebellar signs',q:'Clear cerebellar signs, for example an ataxic gait, limb ataxia or cerebellar eye-movement findings such as sustained gaze-evoked nystagmus.'},
+ {h:'Downgaze palsy',q:'A supranuclear palsy of downward gaze, or selectively slowed downward saccades.'},
+ {h:'bvFTD or progressive aphasia',q:'Probable behavioural-variant frontotemporal dementia or primary progressive aphasia by consensus criteria, within the first 5 years.'},
+ {h:'Legs only',q:'Parkinsonism confined to the legs for more than 3 years.'},
+ {h:'Dopamine-blocking drug',q:'A dopamine receptor blocker or dopamine-depleting drug, at a dose and over a time that could explain drug-induced parkinsonism.'},
+ {h:'No levodopa response',q:'No visible response to high-dose levodopa, although the disease is at least moderately severe.'},
+ {h:'Cortical signs',q:'Clear cortical sensory loss (such as graphaesthesia or stereognosis, with basic sensation intact), clear limb ideomotor apraxia, or progressive aphasia.'},
+ {h:'Normal dopamine scan',q:'A normal presynaptic dopamine scan.',d:'Counts only if a scan was done; imaging is not required.'},
+ {h:'Another cause',q:'Another condition known to cause parkinsonism is documented and plausibly explains the symptoms, or the examining expert judges another syndrome more likely after full assessment.'}];
 const DXC_RF=[
- {h:'Wheelchair within 5 years',q:'Rapid progression of gait impairment requiring regular use of wheelchair within 5 years of onset',w:'weak'},
- {h:'No progression',q:'A complete absence of progression of motor symptoms or signs over 5 or more years unless stability is related to treatment'},
- {h:'Early bulbar dysfunction',q:'Early bulbar dysfunction: severe dysphonia or dysarthria (speech unintelligible most of the time) or severe dysphagia (requiring soft food, NG tube, or gastrostomy) within first 5 years',w:'strong'},
- {h:'Inspiratory breathing problems',q:'Inspiratory respiratory dysfunction: either diurnal or nocturnal inspiratory stridor or frequent inspiratory sighs',w:'strong'},
- {h:'Severe early autonomic failure',q:'Severe autonomic failure in the first 5 years of disease. This can include: (a) orthostatic hypotension—orthostatic decrease of blood pressure within 3 min of standing by at least 30 mmHg systolic or 15 mmHg diastolic, in the absence of dehydration, medication, or other diseases that could plausibly explain autonomic dysfunction, or (b) severe urinary retention or urinary incontinence in the first 5 years of disease (excluding long-standing or small amount stress incontinence in women), that is not simply functional incontinence. In men, urinary retention must not be attributable to prostate disease, and must be associated with erectile dysfunction',w:'strong',wn:'urinary part'},
- {h:'Early recurrent falls',q:'Recurrent (>1/year) falls because of impaired balance within 3 years of onset',w:'weak'},
- {h:'Anterocollis or contractures',q:'Disproportionate anterocollis (dystonic) or contractures of hand or feet within the first 10 years'},
- {h:'No non-motor features',q:'Absence of any of the common non-motor features of disease despite 5 years disease duration. These include sleep dysfunction (sleep-maintenance insomnia, excessive daytime somnolence, symptoms of REM sleep behavior disorder), autonomic dysfunction (constipation, daytime urinary urgency, symptomatic orthostasis), hyposmia, or psychiatric dysfunction (depression, anxiety, or hallucinations)'},
- {h:'Pyramidal signs',q:'Otherwise-unexplained pyramidal tract signs, defined as pyramidal weakness or clear pathologic hyperreflexia (excluding mild reflex asymmetry and isolated extensor plantar response)'},
- {h:'Symmetric onset',q:'Bilateral symmetric parkinsonism. The patient or caregiver reports bilateral symptom onset with no side predominance, and no side predominance is observed on objective examination',w:'weak'}];
+ {h:'Wheelchair within 5 years',q:'Walking declines so fast that a wheelchair is used regularly within 5 years of onset.',w:'weak'},
+ {h:'No progression',q:'Motor symptoms and signs do not progress at all over 5 years or more, unless treatment explains the stability.'},
+ {h:'Early bulbar dysfunction',q:'Within the first 5 years: speech so affected it is mostly unintelligible, or swallowing so affected that soft food, a nasogastric tube or a gastrostomy is needed.',w:'strong'},
+ {h:'Inspiratory breathing problems',q:'Inspiratory stridor by day or night, or frequent inspiratory sighs.',w:'strong'},
+ {h:'Severe early autonomic failure',q:'Within the first 5 years, either (a) a fall in blood pressure within 3 min of standing of at least 30 mmHg systolic or 15 mmHg diastolic, with no dehydration, drug or other disease to explain it, or (b) severe urinary retention or incontinence that is not long-standing small-volume stress incontinence in women and not just functional. In men, retention must not be due to the prostate and must come with erectile dysfunction.',w:'strong',wn:'urinary part'},
+ {h:'Early recurrent falls',q:'Falls from poor balance more than once a year within 3 years of onset.',w:'weak'},
+ {h:'Anterocollis or contractures',q:'Out-of-proportion dystonic forward neck flexion, or contractures of the hands or feet, within the first 10 years.'},
+ {h:'No non-motor features',q:'After 5 years of disease, none of the usual non-motor features: no sleep problems (such as broken sleep, daytime sleepiness or REM sleep behaviour disorder symptoms), no autonomic problems (such as constipation, daytime urinary urgency or dizziness on standing), no loss of smell, and no depression, anxiety or hallucinations.'},
+ {h:'Pyramidal signs',q:'Pyramidal signs with no other explanation: pyramidal weakness or clearly abnormal brisk reflexes (a mild reflex difference or an extensor plantar alone does not count).'},
+ {h:'Symmetric onset',q:'Parkinsonism that started on both sides at once, by history, and shows no side predominance on examination.',w:'weak'}];
 const DXC_SU=[
- {h:'Clear, dramatic levodopa response',q:'Clear and dramatic beneficial response to dopaminergic therapy. During initial treatment, patient returned to normal or near-normal level of function. In the absence of clear documentation of initial response a dramatic response can be classified as: (a) marked improvement with dose increases or marked worsening with dose decreases. Mild changes do not qualify. Document this either objectively (>30% in UPDRS III with change in treatment), or subjectively (clearly documented history of marked changes from a reliable patient or caregiver) (b) unequivocal and marked on/off fluctuations, which must have at some point included predictable end-of-dose wearing off'},
- {h:'Levodopa-induced dyskinesia',q:'Presence of levodopa-induced dyskinesia'},
- {h:'Rest tremor on examination',q:'Rest tremor of a limb, documented on clinical examination (in past, or on current examination)'},
- {h:'Smell loss or abnormal MIBG',q:'The presence of either olfactory loss or cardiac sympathetic denervation on MIBG scintigraphy'}];
+ {h:'Clear, dramatic levodopa response',q:'At the start of treatment function returned to normal or nearly so. If that was not recorded, a dramatic response can be shown by (a) marked improvement when the dose rises or marked worsening when it falls (more than 30% on UPDRS part III, or a reliable, clearly recorded history), or (b) clear on/off fluctuations that at some point included predictable end-of-dose wearing off. Mild changes do not count.'},
+ {h:'Levodopa-induced dyskinesia',q:'Dyskinesia caused by levodopa.'},
+ {h:'Rest tremor on examination',q:'A limb rest tremor seen by a clinician on examination, now or in the past.'},
+ {h:'Smell loss or abnormal MIBG',q:'Loss of smell, or cardiac sympathetic denervation on MIBG scintigraphy.'}];
 const DXC_CASES=[
  {n:'Typical Parkinson\'s',p:'btr',ex:[],rf:[],su:[0,2,3],why:`Asymmetric rest tremor, slowness and stiffness, a dramatic levodopa response and smell loss: no exclusions, no red flags and three supportive criteria.`},
  {n:'Early, one red flag',p:'bt',ex:[],rf:[9],su:[2],why:`Symmetric onset is a red flag, but one supportive criterion, rest tremor on examination, counterbalances it. At autopsy, bilateral symmetric parkinsonism was one of the less discriminating red flags, seen in 3.8–17.6% of PD. [[Fox2025]]`},
@@ -40,7 +40,7 @@ const DXC_CASES=[
  {n:'Clear all',p:'',ex:[],rf:[],su:[],why:''}];
 const DXC_STEPS=[
  {from:0,at:.04,k:'Step 1 · the gate',t:'Is it parkinsonism?',
-  txt:`Parkinsonism is "bradykinesia, in combination with at least one between rest tremor (4-6 Hz) and rigidity", examined as in the MDS-UPDRS. Without it, the criteria stop here. [[Postuma2015,Marsili2018]]`,
+  txt:`Parkinsonism means bradykinesia together with rest tremor (4-6 Hz), rigidity or both, examined as in the MDS-UPDRS. Without it, the criteria stop here. [[Postuma2015,Marsili2018]]`,
   pt:`First the doctor checks that movements really are slow and shrink as they repeat, and that there is a resting tremor, stiffness, or both.`,
   hook:`Bradykinesia is required. Postural instability is not part of MDS parkinsonism, though it is one of the options in step 1 of the UK Brain Bank criteria. [[Marsili2018]]`},
  {from:.22,at:.26,k:'Step 2 · exclusions',t:'Any absolute exclusion?',
@@ -48,7 +48,7 @@ const DXC_STEPS=[
   pt:`Some findings point so strongly elsewhere that Parkinson's disease is off the table, such as a downward-gaze palsy or a drug known to cause parkinsonism.`,
   hook:`Dementia is not an exclusion in MDS 2015. A normal DaT scan is. [[Fox2025,Marsili2018]]`},
  {from:.44,at:.48,k:'Step 3 · red flags',t:'Count the red flags',
-  txt:`Ten red flags are features of lower or uncertain specificity. "No more than two red flags are allowed" for clinically probable PD. At autopsy, inspiratory stridor, severe urinary retention or incontinence and early bulbar dysfunction separated PD from atypical parkinsonism best, each seen in under 2.5% of PD. [[Postuma2015,Fox2025]]`,
+  txt:`Ten red flags are features of lower or uncertain specificity. Clinically probable PD allows at most two of them. At autopsy, inspiratory stridor, severe urinary retention or incontinence and early bulbar dysfunction separated PD from atypical parkinsonism best, each seen in under 2.5% of PD. [[Postuma2015,Fox2025]]`,
   pt:`A warning sign does not rule Parkinson's out on its own, but three of them do, and each one needs a weight on the other side of the scale.`,
   hook:`Best red flags at autopsy: stridor, severe urinary dysfunction, early bulbar dysfunction. Weaker: rapid gait decline, early falls, symmetric onset (3.8–17.6% of PD). [[Fox2025]]`},
  {from:.66,at:.7,k:'Step 4 · counterbalance',t:'Weigh the supportive criteria',
@@ -85,13 +85,13 @@ const DXB_FW=[
  {n:'SynNeurGe 2024',h:'Biological classification',ev:'<span class="ev early">Research only</span>',d:`Classifies on three components: S (pathological α-synuclein in tissue or CSF), N (neurodegeneration on imaging) and G (pathogenic gene variants), linked to a clinical component C. [[Hoglinger2024]]`,
   v:[`S is present. The abstract used here does not say what label applies without a clinical component.`,`S present with abnormal imaging. The abstract used here does not say what label applies without a clinical component.`,`Classifiable: unlike NSD, SynNeurGe can describe synuclein-negative, gene-defined disease. [[Cardoso2024]]`,`Kept separate: SynNeurGe separates PD from MSA. [[Cardoso2024]]`,`G is present. The abstract used here does not say how a carrier without signs is labelled.`]},
  {n:'MDS statement 2024',h:'A call for caution',ev:'<span class="ev est">Position</span>',d:`With no consensus on a biological definition, biologically based staging is "not yet logically possible", and Hoehn and Yahr should not be "prematurely" abandoned. [[Cardoso2024]]`,
-  v:[`SAA amplifies abnormal synuclein in the laboratory; it "does not necessarily reflect any seeding or aggregation of α-syn in the brain" and cannot predict "if, when, and which clinical syndrome" will follow. In PPMI, 4% of healthy controls were positive. [[Cardoso2024,Siderowf2023]]`,`The test is binary, not quantitative, and staging people without symptoms needs an agreed definition first. [[Cardoso2024]]`,`In LRRK2-PD, synuclein pathology is found in under 50% of cases after death and SAA is often negative. Critics add that SAA-negative and SAA-positive PD progressed alike in PPMI. [[Cardoso2024,Espay2026]]`,`Clinical diagnosis stays the reference. Synuclein tests alone do not separate the synucleinopathies: skin biopsy was positive in 98.2% of MSA as well as 92.7% of PD. [[Cardoso2024,Gibbons2024]]`,`A gene variant without signs cannot be staged until a biological definition is agreed. [[Cardoso2024]]`]}];
+  v:[`SAA amplifies abnormal synuclein in the laboratory; a positive test does not prove that synuclein is seeding or clumping in the brain, and it cannot predict "if, when, and which clinical syndrome" will follow. In PPMI, 4% of healthy controls were positive. [[Cardoso2024,Siderowf2023]]`,`The test is binary, not quantitative, and staging people without symptoms needs an agreed definition first. [[Cardoso2024]]`,`In LRRK2-PD, synuclein pathology is found in under 50% of cases after death and SAA is often negative. Critics add that SAA-negative and SAA-positive PD progressed alike in PPMI. [[Cardoso2024,Espay2026]]`,`Clinical diagnosis stays the reference. Synuclein tests alone do not separate the synucleinopathies: skin biopsy was positive in 98.2% of MSA as well as 92.7% of PD. [[Cardoso2024,Gibbons2024]]`,`A gene variant without signs cannot be staged until a biological definition is agreed. [[Cardoso2024]]`]}];
 
 inits.dx=()=>{
   /* ---------- 1. criteria calculator ---------- */
   const S={p:{b:false,t:false,r:false},ex:new Set(),rf:new Set(),su:new Set()};let caseI=-1;
   const ck=(grp,i,it,extra='')=>`<label class="dxc-ck"><input type="checkbox" data-g="${grp}" data-i="${i}"><span><b>${it.h}</b><span class="q">${it.q}</span>${it.d?` <i class="q">${it.d}</i>`:''}${extra}</span></label>`;
-  let h=`<fieldset><legend>Step 1 · Parkinsonism</legend><p class="dxc-def">Bradykinesia plus rest tremor, rigidity or both. Definitions as published. [[PPMI-FEATPD,Postuma2015]]</p>`+DXC_PK.map((it,i)=>ck('p',it.id,it)).join('')+`</fieldset>`;
+  let h=`<fieldset><legend>Step 1 · Parkinsonism</legend><p class="dxc-def">Bradykinesia plus rest tremor, rigidity or both. Definitions restated in our own words; the official wording is in the published criteria. [[PPMI-FEATPD,Postuma2015]]</p>`+DXC_PK.map((it,i)=>ck('p',it.id,it)).join('')+`</fieldset>`;
   h+=`<fieldset><legend>Step 2 · Absolute exclusions (9)</legend><p class="dxc-def">Any one rules out PD by these criteria. [[Postuma2015,Marsili2018]]</p>`+DXC_EX.map((it,i)=>ck('ex',i,it)).join('')+`</fieldset>`;
   h+=`<fieldset><legend>Step 3 · Red flags (10)</legend><p class="dxc-def">At autopsy, three were seen in under 2.5% of PD and separated it best (marked strong); three others appeared in 3.8–17.6% of PD (marked weaker). [[Fox2025]]</p>`+DXC_RF.map((it,i)=>ck('rf',i,it,it.w?`<br><span class="tag ${it.w==='strong'?'good':'warn'}">${it.w==='strong'?'strong at autopsy':'weaker at autopsy'}${it.wn?' · '+it.wn:''}</span>`:'')).join('')+`</fieldset>`;
   h+=`<fieldset><legend>Step 4 · Supportive criteria (4)</legend>`+DXC_SU.map((it,i)=>ck('su',i,it)).join('')+`</fieldset>`;
@@ -111,7 +111,7 @@ inits.dx=()=>{
       if(S.ex.has(5))x+=` An absent levodopa response was noted in 75% of pathologically proven PSP. [[Fox2025]]`;
       if(S.ex.has(3))x+=` Lower-body parkinsonism with a shuffling gait is typical of vascular parkinsonism. [[Zijlmans2004]]`;
       return x+` See <a href="#ddx" data-go="ddx">The differential</a>.`}
-    if(J.k==='nm')return J.rf>2?`${J.rf} red flags: "No more than two red flags are allowed" for clinically probable PD. [[Postuma2015,Marsili2018]]`:`${J.rf} red flag${J.rf>1?'s':''} but only ${J.sp} supportive criteri${J.sp===1?'on':'a'}: each red flag needs one to counterbalance it. [[Postuma2015,Marsili2018]]`;
+    if(J.k==='nm')return J.rf>2?`${J.rf} red flags: clinically probable PD allows at most two. [[Postuma2015,Marsili2018]]`:`${J.rf} red flag${J.rf>1?'s':''} but only ${J.sp} supportive criteri${J.sp===1?'on':'a'}: each red flag needs one to counterbalance it. [[Postuma2015,Marsili2018]]`;
     if(J.k==='prob')return `${J.rf?`${J.rf} red flag${J.rf>1?'s':''}, counterbalanced by ${J.sp} supportive. `:''}In 626 patients, 94.5% of PD met clinically probable and 88.5% of non-PD were correctly excluded (accuracy 92.6%). Against autopsy its accuracy was 92.5%, or 89.5% within 5 years of onset. [[Postuma2018,Virameteekul2023]]`;
     return `No red flags and ${J.sp} supportive criteria. Met by 59.3% of PD but only 1.6% of non-PD in validation; the design target was at least 90% truly PD. [[Postuma2018,Postuma2015]]`}
   let ang=0,stopS=null;

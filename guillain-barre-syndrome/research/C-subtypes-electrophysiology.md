@@ -20,7 +20,7 @@ Corrections to the brief:
 
 ### subtypes · The three pathological patterns
 - Autopsy of 12 people from Hebei Province, China, clinically diagnosed with GBS (11 died early in the disease): 3 had AIDP, with lymphocytic infiltration and macrophage-mediated demyelination; 6 had predominantly axonal involvement; and 3 had only very mild changes in roots and sciatic nerves despite being paralysed at death [[Griffin1995]].
-- Within those 6 axonal cases, 3 had extensive Wallerian-like degeneration of sensory as well as motor fibres (AMSAN), and 3 had degeneration almost exclusively in motor fibres (AMAN) [[Griffin1995]].
+- Within those 6 axonal cases, 3 showed widespread Wallerian-like breakdown of both motor and sensory fibres (AMSAN), and in 3 the breakdown was almost confined to motor fibres (AMAN) [[Griffin1995]].
 - In both AMAN and AMSAN, a prominent finding was macrophages inside the periaxonal space, surrounding or displacing the axon, with the myelin sheath intact around them [[Griffin1995]].
 - The 3 paralysed cases with very mild changes suggest severe paralysis can occur early without prominent structural change along the nerve, pointing to physiological block or nerve-terminal changes [[Griffin1995]].
 - The earliest AMAN change on electron microscopy (7 cases) was lengthening of the node of Ranvier with distorted paranodal myelin. Macrophages then entered at the node, moved under the myelin terminal loops and advanced into the internodal periaxonal space, while internodal myelin stayed normal [[Griffin1996Nodal]].
@@ -42,7 +42,7 @@ Corrections to the brief:
 - IGOS first 1,000 inclusions, electrophysiological subtype: demyelinating 55% (312/573) in Europe/Americas, 45% (29/65) in Asia without Bangladesh, and 40% (38/94) in Bangladesh. Demyelinating was the most common subtype in all three regions [[Doets2018]].
 - IGOS axonal subtype: 36% (34/94) in Bangladesh, 6% (33/573) in Europe/Americas and 6% (4/65) in other Asian countries (P < 0.001) [[Doets2018]].
 - IGOS clinical variant: sensorimotor was most common in Europe/Americas (69%, 387/562) and Asia (43%, 27/63), and pure motor in Bangladesh (69%, 74/107) [[Doets2018]].
-- In all IGOS regions, people with the axonal subtype were younger, had fewer sensory deficits and showed a trend towards poorer recovery than people with the demyelinating subtype [[Doets2018]].
+- In all IGOS regions, people with axonal GBS were on average younger and had less sensory loss than those with demyelinating GBS, and their recovery tended to be worse [[Doets2018]].
 - Plasma Exchange/Sandoglobulin trial (369 people tested within 15 days of onset, Hadden criteria): 69% demyelinating, 3% axonal, 3% inexcitable, 2% normal and 23% equivocal [[Hadden1998]].
 - Northern China, 129 people (1991–92): AMAN 65%, AIDP 24%, unclassifiable 11% [[Ho1995]].
 - Dhaka, Bangladesh, 100 people (2006–07): 67% axonal and 92% pure motor; 57% had positive *C. jejuni* serology, against 8% of family controls [[Islam2010]].
@@ -70,7 +70,7 @@ Corrections to the brief:
 - IGOS serology (768 people with samples): recent *C. jejuni* 30%, *Mycoplasma pneumoniae* 10%, cytomegalovirus 4%, hepatitis E 3%, Epstein-Barr virus 1%. Proportions were similar across continents, but the axonal subtype and pure motor variant were more frequent in Asian than in American or European *C. jejuni*-positive people [[Leonhard2022IGOS]].
 - With weekly studies, 22 people with strict evidence of *C. jejuni* were first classed as AMAN (16), AIDP (5) or unclassified (1). All 5 with an AIDP pattern normalised distal latency within 2 weeks and eventually showed AMAN, whereas 13 people with cytomegalovirus- or Epstein-Barr-related AIDP showed distal latencies rising progressively over 8 weeks [[Kuwabara2004Cj]].
 - A later serial study reached the same conclusion: in 23 people with recent *C. jejuni*, all eventually showed the AMAN pattern or reversible conduction failure [[Kokubun2013CNP]].
-- EAN/PNS: anti-ganglioside testing is of limited clinical value in most people with typical motor-sensory GBS; anti-GQ1b testing should be considered when MFS is suspected; nodal-paranodal antibodies should be tested when autoimmune nodopathy is suspected (good practice points) [[vanDoorn2023]].
+- EAN/PNS good practice points: anti-ganglioside tests add little for most people with typical motor-sensory GBS; consider anti-GQ1b if MFS is suspected; test for nodal-paranodal antibodies if an autoimmune nodopathy is suspected [[vanDoorn2023]].
 
 ### subtypes · Reversible conduction failure and the node of Ranvier
 - Sequential studies of 345 nerves in 34 people: IgG anti-GM1-positive people showed rapid resolution of conduction slowing and block, and rapid distal CMAP rises without prolonged duration or polyphasia, so no remyelinating slow components appeared. The authors attribute this to impaired physiological conduction at the nodes [[Kuwabara1998GM1]].
@@ -118,7 +118,7 @@ Corrections to the brief:
 - Course (Mori series as summarised by Cochrane; 28 untreated): ataxia gone at a median of 32 days (range 8–271) and ophthalmoplegia at 88 days (29–165) [[Overell2007]].
 - Later Mori cohort of 92 people, median days to disappearance of ophthalmoplegia/ataxia: IVIg 82/39, plasma exchange 92/21, supportive care 76/31, with no statistically significant difference. Symptom-free at 6 months: 25/28 (89%), 22/23 (96%) and 39/41 (95%) [[Overell2007]].
 - In that cohort 89 of 92 (96%) had complete remission of ophthalmoplegia and ataxia at one year, with no deaths recorded [[Overell2007]].
-- The Cochrane review found no randomised or non-randomised prospective controlled trials of immunotherapy in Fisher syndrome or related disorders [[Overell2007]].
+- The Cochrane review searched for prospective controlled studies of immune treatment in Fisher syndrome and related conditions, randomised or not, and found none [[Overell2007]].
 - Most people with pure MFS recover completely without treatment within 6 months, so treatment is generally not recommended, but close monitoring is advised [[Leonhard2019]].
 
 ### mfs · Overlap and progression
@@ -144,7 +144,7 @@ Corrections to the brief:
 - Bilateral facial palsy with paraesthesias, pure sensory and Bickerstaff do not meet commonly used diagnostic criteria but are often included in the spectrum, and this inclusion is debated [[Leonhard2019]].
 - Pharyngeal-cervical-brachial, 100 people: pure 13, preserved reflexes 8, GBS overlap 48, Fisher overlap 26, Bickerstaff overlap 5 [[Nagashima2007]].
 - In those 100: anti-GT1a IgG 51%, anti-GQ1b IgG 39%, axonal-pattern antibodies 27%, and 31% of antecedent infections were *C. jejuni* [[Nagashima2007]].
-- Among 220 consecutive people with GBS, anti-GT1a and anti-GQ1b IgG were positive in 10% and 9%. All 5 with anti-GT1a not cross-reacting with GQ1b had bulbar palsy, neck weakness, no sensory disturbance and positive *C. jejuni* serology [[Koga2002]].
+- Among 220 consecutive people with GBS, 10% had IgG anti-GT1a and 9% IgG anti-GQ1b. All 5 with anti-GT1a not cross-reacting with GQ1b had bulbar palsy, neck weakness, no sensory disturbance and positive *C. jejuni* serology [[Koga2002]].
 - Among 140 people with anti-GT1a IgG: Fisher syndrome 46%, GBS 16%, Bickerstaff 10%, pharyngeal-cervical-brachial 4%, plus overlaps [[Nagashima2004]].
 - Polyneuritis cranialis (15 historical case reports): mean 6 cranial nerves (range 3–10), ocular signs 93%, bulbar 87%, facial 73%; anti-ganglioside antibodies in half of those tested [[Wakerley2015Polyneuritis]].
 - Facial diplegia and paraesthesias, 22 people from about 8,600 referred: 86% had infectious symptoms, all had CSF dissociation, and 64% showed limb demyelination [[Susuki2009]].

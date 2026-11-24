@@ -1,7 +1,7 @@
 /* =============== 1.1 what =============== */
 const WH_STEPS=[
  {from:0,at:.1,k:'Step 1 · The syndrome',t:'Bradykinesia plus tremor or rigidity',
-  txt:'The MDS clinical criteria start by asking whether parkinsonism is present, "defined as bradykinesia, in combination with at least one between rest tremor (4-6 Hz) and rigidity". Only then do they ask which disease causes it. [[Postuma2015,Marsili2018]] Bradykinesia means slowness of movement and also a decrement in amplitude or speed, or hesitations, as a movement is repeated. [[PPMI-FEATPD]] The older UK Brain Bank criteria also accepted postural instability as the second sign; the MDS definition does not. [[Marsili2018]]',
+  txt:'The MDS clinical criteria start by asking whether parkinsonism is present, meaning bradykinesia plus rest tremor (4-6 Hz), rigidity or both. Only then do they ask which disease causes it. [[Postuma2015,Marsili2018]] Bradykinesia means slowness of movement and also a decrement in amplitude or speed, or hesitations, as a movement is repeated. [[PPMI-FEATPD]] The older UK Brain Bank criteria also accepted postural instability as the second sign; the MDS definition does not. [[Marsili2018]]',
   pt:'Parkinsonism is a name for a set of movement signs: slowness that gets worse as a movement is repeated, plus a shake at rest or stiffness. It describes what is happening, not why.',
   hook:'Parkinsonism = bradykinesia + (rest tremor and/or rigidity). Postural instability is no longer a core feature in the MDS 2015 criteria.'},
  {from:.2,at:.31,k:'Step 2 · Many causes',t:'Several conditions cause parkinsonism',
@@ -29,17 +29,17 @@ const WH_CAUSES=[ /* wide-frame coordinates; the narrow frame maps them */
 const WH_WAF=[ ['Parkinson\'s disease',42,'var(--rose)'],['drug-induced',20,'var(--warn)'],['unspecified',17,'var(--panel-2)'],['in dementia',14,'var(--violet)'],['other causes',7,'var(--muted)'] ];
 const WH_SIGNS=[
  {k:'Core sign · always required',t:'Bradykinesia',
-  txt:'The MDS wording: "slowness of movement AND decrement in amplitude or speed or progressive hesitations / halts as movements are continued." Slowness alone is not enough; the movement must also shrink, slow or stall as it is repeated, as in repeated finger tapping. [[PPMI-FEATPD]] It is the one sign every case of parkinsonism must have. [[Postuma2015]]',
+  txt:'The MDS definition, in our words: movements are slow, and as they continue they also lose size or speed, or hesitate and halt. Slowness alone is not enough; the movement must also shrink, slow or stall as it is repeated, as in repeated finger tapping. [[PPMI-FEATPD]] It is the one sign every case of parkinsonism must have. [[Postuma2015]]',
   pt:'Movements become slow, and when a movement is repeated, like tapping fingers, each one gets smaller or slower, or stops for a moment.',
   hook:'Look for the decrement: taps that get smaller with repetition. Slowness without decrement does not meet the definition.',
   aria:'Finger tapping that gets slower and smaller with each tap, drawn beside a trace of tap size that shrinks over time compared with a steady typical trace.'},
  {k:'Core sign · one of two',t:'Rest tremor',
-  txt:'The MDS wording: a "4-6 Hz tremor in the fully resting limb which is suppressed during movement initiation. Kinetic and postural tremor do not qualify for parkinsonism criteria." [[PPMI-FEATPD]] The tremor consensus describes the parkinsonian pill-rolling rest tremor as 4 to 7 Hz. [[Bhatia2018]] Essential tremor, by contrast, is an action tremor of both arms, a 4 to 12 Hz kinetic tremor. [[Bhatia2018,Louis2026]]',
+  txt:'The MDS definition, in our words: a 4-6 Hz tremor in a limb that is fully at rest, which stops as a movement begins. Tremor while holding a posture or moving does not count towards parkinsonism. [[PPMI-FEATPD]] The tremor consensus describes the parkinsonian pill-rolling rest tremor as 4 to 7 Hz. [[Bhatia2018]] Essential tremor, by contrast, is an action tremor of both arms, a 4 to 12 Hz kinetic tremor. [[Bhatia2018,Louis2026]]',
   pt:'The hand shakes when it is resting, for example in the lap, and the shaking pauses when the person starts to use it.',
   hook:'Rest tremor that stops on movement suggests parkinsonism; tremor that appears on holding or using the arms suggests essential tremor.',
   aria:'A hand resting on the lap trembles about five times a second and then stops trembling when the arm starts to move, beside a trace of the tremor that flattens at movement onset.'},
  {k:'Core sign · one of two',t:'Rigidity',
-  txt:'The MDS wording: rigidity is "judged on slow passive movement of major joints with the patient in a relaxed position", a "lead-pipe" resistance that is velocity-independent, "not solely reflecting failure to relax". "Isolated cogwheeling without lead-pipe rigidity does not fulfill minimum requirements for rigidity." [[PPMI-FEATPD]]',
+  txt:'The MDS definition, in our words: rigidity is tested by slowly moving the large joints while the person is relaxed. It is a lead-pipe stiffness that stays the same whatever the speed, and is more than a failure to relax. A cogwheel catch without lead-pipe stiffness is not enough. [[PPMI-FEATPD]]',
   pt:'When someone else slowly bends and straightens the relaxed arm, it feels stiff the whole way through, like bending a lead pipe.',
   hook:'Lead-pipe resistance counts; a cogwheel catch on its own does not.',
   aria:'An examiner slowly bends and straightens a relaxed elbow, beside a graph of resistance across the movement: low and flat when typical, high and even for lead-pipe rigidity, and a ratcheting cogwheel line that does not count on its own.'},

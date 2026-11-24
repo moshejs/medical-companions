@@ -20,9 +20,9 @@ Access notes:
 ## Findings
 
 ### recognise · When to think "could this be sepsis?" (NICE 2025)
-- NICE NG253 (16 and over) and NG254 (under 16s) both open: "Think 'could this be sepsis?' if a person presents with symptoms or signs that indicate possible infection." [2016 wording] [[NICE-NG253,NICE-NG254]]
-- NICE: "people with sepsis may have non-specific, non-localised presentations, for example feeling very unwell, and may not have a high temperature." [[NICE-NG253,NICE-NG254]]
-- NICE: "Pay particular attention to concerns expressed by the person and their family or carers, for example changes from usual behaviour." [[NICE-NG253,NICE-NG254]]
+- NICE NG253 (16 and over) and NG254 (under 16s) both open by asking clinicians to consider sepsis in anyone whose symptoms or signs suggest a possible infection ("could this be sepsis?") [2016 wording] [[NICE-NG253,NICE-NG254]]
+- NICE: sepsis can present vaguely, without pointing to one site (for example, just feeling very unwell), and there may be no fever. [[NICE-NG253,NICE-NG254]]
+- NICE: give weight to worries raised by the person and their family or carers, such as a change from their usual behaviour. [[NICE-NG253,NICE-NG254]]
 - NICE asks for extra care when history-taking is difficult, for example English as a second language or communication challenges (neurodiversity, cognitive impairment, learning disabilities, severe mental health conditions or brain injury in NG253). [[NICE-NG253]]
 - In any suspected infection, NICE asks clinicians to identify the possible source, factors that raise sepsis risk, and "new-onset abnormalities of behaviour, circulation or respiration". [[NICE-NG253,NICE-NG254]]
 - NG253 1.2.1 [2025] lists factors that may increase the risk of sepsis, or of sepsis not being identified promptly:
@@ -61,13 +61,13 @@ Access notes:
 - NICE notes that mottled or ashen skin, a non-blanching rash and cyanosis can also be signs of meningococcal disease. [[NICE-NG253]]
 
 ### recognise · NEWS2 in acute hospitals, mental health units and ambulances (NICE 2024)
-- NICE 1.1.8 [2024]: "Use the national early warning score (NEWS2) to assess people with suspected sepsis who are aged 16 or over, are not and have not recently been pregnant, and are in an acute hospital setting, acute mental health setting or ambulance." [[NICE-NG253,Gildea2024NICE]]
+- NICE 1.1.8 [2024]: NEWS2 is to be used to assess suspected sepsis in people aged 16 or over who are not pregnant or recently pregnant and who are in an acute hospital, an acute mental health setting or an ambulance. [[NICE-NG253,Gildea2024NICE]]
 - NICE 1.6.2 [2024] NEWS2 bands for risk of severe illness or death from sepsis:
   - 7 or more: high
   - 5 or 6: medium
   - 1 to 4: low
   - 0: very low [[NICE-NG253]]
-- NICE 1.6.2: if a single parameter contributes 3 points, "request a high-priority review by a clinician with core competencies in the care of acutely ill patients (FY2 or above)". [[NICE-NG253]]
+- NICE 1.6.2: if a single parameter contributes 3 points, ask for an urgent review by a clinician competent in caring for acutely ill patients (FY2 or above). [[NICE-NG253]]
 - NICE 1.6.3 says to consider risk higher than the NEWS2 score suggests if there is mottled or ashen appearance, a non-blanching petechial or purpuric rash, or cyanosis of skin, lips or tongue. The same applies (1.6.4) when the person is deteriorating or not improving since a previous score or intervention. [[NICE-NG253]]
 - NICE 1.6.5 recalculation intervals, following the AoMRC 2022 statement:
   - high risk: every 30 minutes
@@ -76,7 +76,7 @@ Access notes:
   - very low risk: routine observations [[NICE-NG253]]
 - NICE committee rationale:
   - Evidence showed higher ICU admission and mortality in suspected sepsis at NEWS2 5 or more.
-  - NEWS2 "should be used as a tool to support clinical decision making, not to replace clinical judgement".
+  - NEWS2 is meant to support clinical decisions, not to replace clinical judgement.
   - A score of 0 does not mean no risk.
   - NEWS2 "can be less accurate" in spinal injury and in heart or lung disease. [[NICE-NG253]]
 - NICE lists, as a research priority, the association between NEWS2 bands (0, 1–4, 5–6, 7 or above) and risk of severe illness or death in suspected sepsis. It states that evidence on NEWS2 in this setting "was not found". [[NICE-NG253]]
@@ -98,7 +98,7 @@ Access notes:
 
 - SpO2 scale 2 points: ≤83% = 3; 84–85% = 2; 86–87% = 1; 88–92%, or ≥93% on air = 0; 93–94% on oxygen = 1; 95–96% on oxygen = 2; ≥97% on oxygen = 3. [[Verma2023NEWS2,RCP2017NEWS2]]
 - RCP interpretation: aggregate 0–4 low clinical risk, 5–6 medium, 7–20 high (maximum 20). A score of 3 in any single parameter is treated as "low-medium" risk. [[Verma2023NEWS2,NICE-NG253]]
-- Scale 2 "should only be used in patients confirmed to have a hypercapnic respiratory failure on blood gas analysis" (RCP additional guidance, as quoted). [[Verma2023NEWS2]]
+- Scale 2 is only for patients whose hypercapnic respiratory failure has been confirmed on a blood gas (RCP additional guidance, as reported). [[Verma2023NEWS2]]
 - RCP definition of new confusion: new disorientation or agitation where mental state was previously normal, which "may be subtle". It scores 3 on NEWS2 (equivalent to GCS verbal 3–4). [[RCP2017NEWS2]]
 - In 198,755 observation sets (35,585 acute medical admissions), the original NEWS predicted death within 24 h with AUROC 0.894, and any of cardiac arrest, unplanned ICU admission or death with 0.873. This was better than all 33 other early warning scores tested (death: 0.813–0.858). [[Smith2013NEWS]]
 - In the West of England (2015–2019), using NEWS across community, primary and secondary care was associated with falling mortality in suspected sepsis that was not seen in the rest of England. By March 2019 the region had the lowest suspected-sepsis mortality in England (quality-improvement design, not randomised). [[Pullyblank2020]]
@@ -140,13 +140,13 @@ Access notes:
   - AUROC: NEWS 0.91, SIRS 0.88, qSOFA 0.81.
   - Sensitivity: NEWS ≥4 84.2%, SIRS ≥2 86.1%, qSOFA ≥2 28.5%. [[Usman2019]]
 - Verma 2023 (373 ED sepsis patients in India, 35.12% mortality): NEWS2 AUC 0.781 against 0.729 for qSOFA. [[Verma2023NEWS2]]
-- SSC 2021 Recommendation 2: "We recommend against using qSOFA compared to SIRS, NEWS, or MEWS as a single screening tool for sepsis or septic shock" (strong recommendation, moderate-quality evidence). [[Evans2021SSC]]
-- SSC 2021 adds: "Neither SIRS nor qSOFA are ideal screening tools for sepsis". A positive qSOFA "should alert the clinician to the possibility of sepsis in all resource settings". [[Evans2021SSC]]
+- SSC 2021 Recommendation 2: do not use qSOFA on its own as a screening tool for sepsis or septic shock in preference to SIRS, NEWS or MEWS (strong recommendation, moderate-quality evidence). [[Evans2021SSC]]
+- SSC 2021 adds that neither SIRS nor qSOFA is an ideal screening tool for sepsis, and that a positive qSOFA should still prompt clinicians to think of sepsis in any resource setting. [[Evans2021SSC]]
 - SSC 2021 Recommendation 1: hospitals and health systems should use a performance improvement programme including "sepsis screening for acutely ill, high-risk patients" (strong recommendation; moderate-quality evidence for screening). [[Evans2021SSC]]
 - SSC 2021 evidence behind Recommendation 1:
   - A meta-analysis of 50 observational studies linked such programmes with lower mortality (OR 0.66, 95% CI 0.61–0.72).
   - A pooled analysis of three RCTs of active screening showed no mortality benefit (RR 0.90, 95% CI 0.51–1.58). [[Evans2021SSC]]
-- SSC 2021 Recommendation 3: "For adults suspected of having sepsis, we suggest measuring blood lactate" (weak recommendation, low-quality evidence). Lactate "alone is neither sensitive nor specific enough to rule-in or rule-out the diagnosis". Detail belongs to pass E. [[Evans2021SSC]]
+- SSC 2021 Recommendation 3: measuring blood lactate is suggested in adults with suspected sepsis (weak recommendation, low-quality evidence). Lactate on its own cannot reliably confirm or exclude the diagnosis. Detail belongs to pass E. [[Evans2021SSC]]
 
 ### recognise · Shock index and electronic alerts
 - Shock index (SI) = heart rate ÷ systolic blood pressure. Berger 2013 studied 2,524 ED patients with suspected infection (Established as a definition):
@@ -175,19 +175,19 @@ Access notes:
   - Each additional SIRS criterion raised mortality odds (OR 1.13, 95% CI 1.11–1.15), with no step at 2 criteria. [[Kaukonen2015]]
 
 ### definitions · Sepsis-2 (2001 conference, published 2003)
-- The 2001 SCCM/ESICM/ACCP/ATS/SIS International Sepsis Definitions Conference (29 participants) found that "apart from expanding the list of signs and symptoms of sepsis… no evidence exists to support a change to the definitions". [[Levy2003Sepsis2]]
+- The 2001 SCCM/ESICM/ACCP/ATS/SIS International Sepsis Definitions Conference (29 participants) concluded that, beyond a longer list of possible signs and symptoms, no evidence justified changing the definitions. [[Levy2003Sepsis2]]
 - Sepsis-2 introduced PIRO (predisposition, infection, response, organ dysfunction) as "a hypothesis-generating model for future research". (Hypothesis) [[Levy2003Sepsis2]]
 
 ### definitions · Sepsis-3 (2016)
 - Sepsis-3 was written by a 19-member SCCM/ESICM task force and endorsed by 31 societies. [[Singer2016Sepsis3]]
-- Definition: "Sepsis should be defined as life-threatening organ dysfunction caused by a dysregulated host response to infection." [[Singer2016Sepsis3]]
+- Definition: sepsis is "life-threatening organ dysfunction caused by a dysregulated host response to infection". [[Singer2016Sepsis3]]
 - Organ dysfunction is operationalised as an increase in SOFA score of 2 points or more, "associated with an in-hospital mortality greater than 10%". [[Singer2016Sepsis3]]
 - Sepsis-3 found the term "severe sepsis" redundant and criticised the earlier definitions for:
   - "an excessive focus on inflammation"
   - the "misleading model" of a continuum through severe sepsis to shock
   - "inadequate specificity and sensitivity" of SIRS [[Singer2016Sepsis3]]
-- Septic shock definition: "a subset of sepsis in which particularly profound circulatory, cellular, and metabolic abnormalities are associated with a greater risk of mortality than with sepsis alone." [[Singer2016Sepsis3]]
-- Septic shock clinical criteria: "a vasopressor requirement to maintain a mean arterial pressure of 65 mm Hg or greater and serum lactate level greater than 2 mmol/L (>18 mg/dL) in the absence of hypovolemia". This is associated with hospital mortality above 40%. [[Singer2016Sepsis3,ShankarHari2016Shock]]
+- Septic shock definition: the part of sepsis in which circulatory, cellular and metabolic disturbances are severe enough to carry a higher risk of death than sepsis alone. [[Singer2016Sepsis3]]
+- Septic shock clinical criteria: a vasopressor is needed to keep the mean arterial pressure at 65 mm Hg or more, and serum lactate is above 2 mmol/L (>18 mg/dL), once hypovolaemia has been corrected. This is associated with hospital mortality above 40%. [[Singer2016Sepsis3,ShankarHari2016Shock]]
 - Shankar-Hari 2016 systematic review (44 studies, 166,479 patients): crude septic-shock mortality was 46.5% (95% CI 42.7–50.3%), with I² = 99.5%. [[ShankarHari2016Shock]]
 - In the SSC database (n = 28,150), the group needing vasopressors for MAP ≥65 mmHg with lactate >2 mmol/L after fluids had mortality of 42.3% (95% CI 41.2–43.3%). This was higher than the 5 other combinations of hypotension, vasopressors and lactate, and was validated in the UPMC (1.3 million) and KPNC (1.8 million) datasets. [[ShankarHari2016Shock]]
 - Sepsis-3 applies to adults. The paediatric task force noted that Sepsis-3 "excluded children". [[Schlapbach2024Phoenix]]
@@ -243,7 +243,7 @@ Access notes:
 
 ### children · Phoenix Sepsis Criteria (2024)
 - The SCCM Pediatric Sepsis Definition Task Force (35 experts, 6 continents) based the criteria on an international survey, a systematic review and meta-analysis, a modified Delphi process, and a new score derived from more than 3 million EHR encounters. [[Schlapbach2024Phoenix]]
-- Sepsis in children (<18 years) = suspected infection + Phoenix Sepsis Score ≥2. This "indicates potentially life-threatening dysfunction of the respiratory, cardiovascular, coagulation, and/or neurological systems." [[Schlapbach2024Phoenix]]
+- Sepsis in children (<18 years) = suspected infection + Phoenix Sepsis Score ≥2. A score that high signals that breathing, the circulation, clotting and/or the nervous system may be failing in a way that threatens life. [[Schlapbach2024Phoenix]]
 - Septic shock = sepsis with ≥1 cardiovascular point: severe hypotension for age, blood lactate >5 mmol/L, or need for vasoactive medication. [[Schlapbach2024Phoenix]]
 - In-hospital mortality (population statistics): [[Schlapbach2024Phoenix]]
   - Phoenix sepsis: 7.1% in higher-resource and 28.5% in lower-resource settings, more than 8 times that of children with suspected infection who did not meet the criteria.
@@ -284,9 +284,9 @@ Access notes:
 
 ### children · Paediatric Surviving Sepsis Campaign 2020
 - The panel had 49 experts from 12 organisations and issued 77 statements: 6 strong recommendations, 52 weak and 9 best-practice statements. [[Weiss2020SSCchildren]]
-- Recommendation 1: "In children who present as acutely unwell, we suggest implementing systematic screening for timely recognition of septic shock and other sepsis-associated organ dysfunction" (weak recommendation, very low quality of evidence). [[Weiss2020SSCchildren]]
-- On lactate, the panel "were unable to issue a recommendation about using blood lactate values to stratify children". "In our practice", lactate is often measured if it can be rapidly obtained. [[Weiss2020SSCchildren]]
-- Working definitions (pre-Phoenix): septic shock = "severe infection leading to cardiovascular dysfunction (including hypotension, need for treatment with a vasoactive medication, or impaired perfusion)". Scope: from 37 weeks' gestation at birth to 18 years. [[Weiss2020SSCchildren]]
+- Recommendation 1: systematic screening of acutely unwell children is suggested, so that septic shock and other sepsis-related organ dysfunction are recognised in time (weak recommendation, very low quality of evidence). [[Weiss2020SSCchildren]]
+- On lactate, the panel could not make a recommendation on using blood lactate to stratify children. In the panel's own practice, lactate is often measured if it can be rapidly obtained. [[Weiss2020SSCchildren]]
+- Working definitions (pre-Phoenix): septic shock = a severe infection that causes cardiovascular dysfunction, such as hypotension, a need for vasoactive medication or poor perfusion. Scope: from 37 weeks' gestation at birth to 18 years. [[Weiss2020SSCchildren]]
 - Antimicrobial timing statements (quoted as published; detail in passes E/G):
   - septic shock: "within 1 h of recognition" (strong recommendation)
   - sepsis-associated organ dysfunction without shock: "within 3 h of recognition" (weak recommendation) [[Weiss2020SSCchildren]]
@@ -319,7 +319,7 @@ Access notes:
   - Heart rate (high / moderate to high): age 5: ≥130 / 120–129; age 6–7: ≥120 / 110–119; age 8–11: ≥115 / 105–114.
   - High risk also: SpO2 <90% in air; heart rate <60/min. [[NICE-NG254]]
 - **Young people aged 12–15:** same thresholds as the adult community table (respiratory rate ≥25 high, 21–24 moderate to high; systolic ≤90 high, 91–100 moderate to high; heart rate >130 high, 91–130 moderate to high). [[NICE-NG254]]
-- NG254 1.1.8: "Consider using an early warning score to assess people under 16 with suspected sepsis, in any setting." [[NICE-NG254]]
+- NG254 1.1.8: an early warning score may be considered for assessing suspected sepsis in under 16s, in any setting. [[NICE-NG254]]
 - NG254 neonatal risk factors for early-onset infection: [[NICE-NG254]]
   - major: suspected or confirmed infection in another baby in a multiple pregnancy
   - other: invasive GBS in a previous baby, or maternal GBS colonisation, bacteriuria or infection; preterm birth after spontaneous labour before 37 weeks; confirmed rupture of membranes for more than 18 hours before a preterm birth
@@ -328,7 +328,7 @@ Access notes:
 - EPOCH cluster RCT (21 hospitals in 7 countries; 144,539 discharges):
   - All-cause mortality: 1.93 per 1,000 discharges with Bedside PEWS against 1.56 with usual care (adjusted OR 1.01, 95% CI 0.61–1.69; P = .96).
   - Significant clinical deterioration events fell: 0.50 vs 0.84 per 1,000 patient-days (adjusted rate ratio 0.77, 95% CI 0.61–0.97). [[Parshuram2018EPOCH]]
-- PEWS have "a limited evidence base", and "it is uncertain whether a unified system does deliver benefits in terms of outcomes". (Early evidence) [[Chapman2019PEWS]]
+- PEWS have "a limited evidence base", and it is not known whether a single national system improves outcomes. (Early evidence) [[Chapman2019PEWS]]
 
 ### children · Burden in children
 - Fleischmann-Struzek 2018 meta-analysis (15 studies with complete data; high- and middle-income countries):
@@ -339,7 +339,7 @@ Access notes:
   - Neonatal sepsis incidence of 2,824 per 100,000 live births (95% CI 1,892–4,194), with 17.6% dying.
   - 3,930 per 100,000 in 2009–2018 (four LMIC studies).
   - Higher incidence and mortality in early-onset than late-onset sepsis. [[Fleischmann2021Neonatal]]
-- "Half of the 50 million people affected by sepsis globally every year are neonates and children younger than 19 years." [[Watson2024Burden]]
+- Of the roughly 50 million people who get sepsis worldwide each year, about half are newborns and children under 19. [[Watson2024Burden]]
 - GBD 2017 estimated 48.9 million (95% UI 38.9–62.9) incident sepsis cases and 11.0 million sepsis-related deaths, 19.7% of all global deaths. Detail belongs to pass A. [[Rudd2020GBD]]
 
 ### children · Neonatal sepsis: early vs late onset, GBS
@@ -362,7 +362,7 @@ Access notes:
   - Without intrapartum prophylaxis, 1–2% of those newborns develop early-onset GBS disease.
   - Universal GBS screening is now recommended at 36 0/7–37 6/7 weeks.
 - AAP 2019: intrapartum antibiotic prophylaxis is "the only currently available effective strategy" against early-onset GBS disease, and there is no effective prevention of late-onset disease. [[Puopolo2019GBS]]
-- AAP 2018: laboratory tests "alone are neither sensitive nor specific enough to guide EOS management decisions" in infants born at ≥35 weeks. [[Puopolo2018AAP]]
+- AAP 2018: laboratory tests on their own are not accurate enough to steer early-onset sepsis decisions in infants born at ≥35 weeks. [[Puopolo2018AAP]]
 
 ### children · Kaiser early-onset sepsis calculator
 - Puopolo 2011 used a nested case–control design (350 cases from 608,014 births at ≥34 weeks).
@@ -383,7 +383,7 @@ Access notes:
   - Safety evidence was "limited". [[Achten2019EOS]]
 
 ### Exam hooks
-- Sepsis-3 definition: life-threatening organ dysfunction caused by a dysregulated host response to infection. [[Singer2016Sepsis3]]
+- Sepsis-3 definition: organ damage that threatens life, caused by a badly regulated host response to infection. [[Singer2016Sepsis3]]
 - Organ dysfunction = acute SOFA rise ≥2 points, which carries in-hospital mortality >10%. [[Singer2016Sepsis3]]
 - Septic shock (Sepsis-3) = vasopressors to keep MAP ≥65 mmHg plus lactate >2 mmol/L despite adequate fluids, with hospital mortality >40%. [[Singer2016Sepsis3,ShankarHari2016Shock]]
 - "Severe sepsis" was dropped in 2016 as redundant. [[Singer2016Sepsis3]]

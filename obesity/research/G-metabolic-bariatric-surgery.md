@@ -48,15 +48,15 @@ Access notes:
 ### surgery · Who is offered surgery: indications
 - 1991 NIH consensus: people seeking treatment for severe obesity should first be considered for a non-surgical programme; gastric restrictive or bypass procedures could be considered for well-informed patients with acceptable operative risk, selected by a multidisciplinary team, with lifelong medical surveillance after surgery [[NIH1991Consensus]].
 - The 1991 thresholds that became the universal standard were BMI >40 kg/m², or BMI >35 kg/m² with comorbidities [[Eisenberg2022ASMBS,Arterburn2020JAMA]].
-- ASMBS/IFSO 2022 (as published): metabolic and bariatric surgery "is recommended for individuals with a body mass index (BMI) >35 kg/m², regardless of presence, absence, or severity of co-morbidities" [[Eisenberg2022ASMBS]].
-- ASMBS/IFSO 2022 (as published): surgery "should be considered for individuals with metabolic disease and BMI of 30-34.9 kg/m²" [[Eisenberg2022ASMBS]].
+- ASMBS/IFSO 2022: metabolic and bariatric surgery is recommended at a BMI above 35 kg/m², whether or not co-morbidities are present and however severe they are [[Eisenberg2022ASMBS]].
+- ASMBS/IFSO 2022: surgery should be considered for people with metabolic disease and a BMI of 30–34.9 kg/m² [[Eisenberg2022ASMBS]].
 - ASMBS/IFSO 2022 (as published): in Asian populations a BMI >25 kg/m² suggests clinical obesity, and individuals with BMI >27.5 kg/m² should be offered surgery [[Eisenberg2022ASMBS]].
 - ASMBS/IFSO 2022: "Appropriately selected children and adolescents should be considered" for surgery [[Eisenberg2022ASMBS]].
 - ASMBS/IFSO 2022: there is "no evidence to support an age limit"; surgery has been done in people over 70, with slightly higher complication rates in septuagenarians, and frailty assessment is recommended [[Eisenberg2022ASMBS]].
 - ASMBS/IFSO 2022: there are "no data to support" insurance-mandated preoperative weight loss, which the statement calls "discriminatory, arbitrary, and scientifically unfounded" [[Eisenberg2022ASMBS]].
 - Diabetes Surgery Summit 2016 (endorsed by 45 societies): surgery should be recommended for type 2 diabetes with BMI ≥40, and with BMI 35.0-39.9 when glucose is inadequately controlled; it should be considered at BMI 30.0-34.9 if glucose is inadequately controlled despite optimal treatment; thresholds are lowered by 2.5 kg/m² for Asian patients [[Rubino2016DSS]].
 - ASMBS pediatric guideline 2018: adolescents with class II obesity (≥120% of the 95th percentile) plus a listed comorbidity, or class III obesity (≥140% of the 95th percentile), "should be considered" for surgery [[Pratt2018ASMBS]].
-- ASMBS pediatric guideline 2018: adolescents with cognitive disabilities, treated mental illness or eating disorders, immature bone growth or low Tanner stage "should not be denied treatment" [[Pratt2018ASMBS]].
+- ASMBS pediatric guideline 2018: cognitive disability, a treated mental illness or eating disorder, incomplete bone growth or an early Tanner stage are not reasons to refuse an adolescent treatment [[Pratt2018ASMBS]].
 - ASMBS/IFSO 2022: surgery does not harm pubertal development or linear growth, so a specific Tanner stage or bone age should not be required [[Eisenberg2022ASMBS]].
 - Shared decision-making: a JAMA review advises that all patients with severe obesity, especially those with type 2 diabetes, be offered a conversation about surgery versus continuing usual care, driven by informed patient preference [[Arterburn2020JAMA]].
 - The 2019 AACE/TOS/ASMBS/OMA/ASA perioperative guideline has 85 numbered recommendations and states that a team approach to perioperative care "is mandatory", with attention to nutritional and metabolic issues [[Mechanick2020SOARD]].

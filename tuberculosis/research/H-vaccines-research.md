@@ -33,12 +33,12 @@ Access notes:
 
 ### bcg · Efficacy against pulmonary TB: age, prior sensitisation and latitude
 - Colditz 1994 (14 prospective trials, 12 case-control studies): in trials the RR of TB was 0.49 (95% CI 0.34–0.70), a 51% protective effect; in case-control studies the OR was 0.50 (0.39–0.64) [[Colditz1994]].
-- Geographic latitude of the study site and study validity score explained 66% of the heterogeneity among trials [[Colditz1994]].
+- Together, how far the trial site lay from the equator and how well the trial was conducted accounted for 66% of the variation between trials [[Colditz1994]].
 - Colditz 1995: in four randomised trials of newborn/infant vaccination, protection against TB cases was 74% (95% CI 62–83%); in nine case-control studies, 52% (38–64%) [[Colditz1995]].
 - Laboratory-confirmed TB in three infant case-control studies showed 83% protection (58–93%) [[Colditz1995]].
 - Mangtani 2014 (18 trials of pulmonary TB): protection was greatest in children stringently tuberculin-tested (RR 0.26; 0.18–0.37) and infants (RR 0.41; 0.29–0.58) [[Mangtani2014]].
 - Protection was weaker in children not stringently tested (RR 0.59; 0.35–1.01) and absent in older individuals, whether stringently tested (RR 0.88; 0.59–1.31) or not (RR 0.81; 0.55–1.22) [[Mangtani2014]].
-- Protection was higher in trials further from the equator, where environmental mycobacteria are less common, and in trials with less risk of detection bias (Established) [[Mangtani2014]].
+- Trials at higher latitudes, where environmental mycobacteria are rarer, and trials less exposed to detection bias showed stronger protection (Established) [[Mangtani2014]].
 - Adult pulmonary TB protection ranged from strong in the UK MRC trial (rate ratio 0.22; 0.16–0.31) to no clinically important benefit in the large Chingleput trial in India (rate ratio 1.05; 0.88–1.25) [[Abubakar2013]].
 - Failure to exclude people already sensitised to mycobacteria and study sites closer to the equator explained most of the variation in BCG efficacy [[Abubakar2013]].
 - One leading hypothesis is that prior exposure to environmental mycobacteria either masks or blocks BCG's effect (Hypothesis) [[Fine1995,Mangtani2014]].

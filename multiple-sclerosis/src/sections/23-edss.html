@@ -15,35 +15,35 @@
   <div class="stepper" id="edSteps"></div>
   <div class="lab">
     <div class="stage">
-      <div class="scroll"><svg id="edSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="An EDSS staircase from 0 to 10 in half-steps is climbed one step at a time; beside it a figure walks a 500-metre track that shortens from step 4.0, then walks with one aid and two aids, then uses a wheelchair, then is in bed, beside a list of the eight functional systems and a schematic bar for examination signs, which increase from 1.0 to 3.5 while the person remains fully ambulatory."></svg></div>
+      <div class="scroll"><svg id="edSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="An EDSS staircase from 0 to 10 in half-steps is climbed one step at a time; beside it a figure walks a 500-metre track that shortens from step 4.0, then walks with one aid and two aids, then uses a wheelchair, then is in bed, beside a list of the eight functional systems and a schematic bar for examination signs, which increase from 1.0 to 3.5 while there is no walking limit."></svg></div>
       <div class="ctrls"><button class="btn primary" id="edPlay">Play</button><label class="stage-cap tl" for="edT">EDSS step <input type="range" id="edT" min="0" max="1" step="0.001" value="0.175"></label></div>
       <div class="readout" id="edRead"></div>
-      <p class="stage-cap">Walking and care anchors from 4.0 upward as published. For 1.0–3.5 only the published general description is shown (increasing signs in the functional systems, fully ambulatory); the exact grade rules for each half-step are not reproduced here. Figures are schematic. [[Kurtzke1983,Das2019,Confavreux2000]]</p>
+      <p class="stage-cap">Each step is shown by a short topic label and the published walking distances only. The official step definitions and functional-system grading rules are in Kurtzke's paper and the <a href="https://www.neurostatus.net/" rel="noopener">Neurostatus-EDSS scoring materials</a>; they are not reproduced here. Figures are schematic. [[Kurtzke1983,Das2019,Confavreux2000]]</p>
     </div>
     <aside class="note" id="edNote" aria-live="polite"></aside>
   </div>
 
   <h3 class="sub">Try it: a teaching calculator</h3>
-  <p class="callout"><b>A teaching tool, not a clinical score.</b> A real EDSS comes from a full neurological examination by a trained examiner, who grades each functional system and applies Kurtzke's detailed rules. This simplified version does not reproduce those rules: it uses only the published walking and care anchors, and places any examination findings with full walking in the 1.0–3.5 range. Even trained raters disagree: reported inter-rater kappa is 0.32–0.76 for the total score and 0.23–0.58 for individual functional systems. [[MeyerMoock2014]]</p>
+  <p class="callout"><b>A teaching tool, not a clinical score.</b> A real EDSS comes from a full neurological examination by a trained examiner, who grades each functional system and applies Kurtzke's detailed rules. This simplified version does not reproduce those rules: it uses only topic labels with the published walking distances, and places any examination findings with full walking in the 1.0–3.5 range. Even trained raters disagree: reported inter-rater kappa is 0.32–0.76 for the total score and 0.23–0.58 for individual functional systems. [[MeyerMoock2014]]</p>
   <div class="lab">
     <div class="stage">
       <p class="kicker">Functional systems with signs on examination (tick any; simplified, no grades)</p>
       <div class="edfs" id="edFs"></div>
       <label class="edwalk" for="edWalk">How far can the person walk?
         <select id="edWalk">
-          <option value="0">Fully ambulatory (no walking limit)</option>
-          <option value="4">About 500 m without aid or rest</option>
-          <option value="4.5">About 300 m</option>
-          <option value="5">About 200 m</option>
-          <option value="5.5">About 100 m</option>
-          <option value="6">About 100 m with one aid (one-sided help)</option>
-          <option value="6.5">About 20 m with two aids (help on both sides)</option>
-          <option value="7">5 m or less with aid; uses a wheelchair, wheels self, transfers alone</option>
-          <option value="7.5">A few steps only; may need help to transfer</option>
-          <option value="8">Mostly in bed or chair; keeps effective use of the arms</option>
-          <option value="8.5">In bed much of the day</option>
-          <option value="9">In bed; can communicate and eat</option>
-          <option value="9.5">Totally dependent; cannot communicate effectively or eat/swallow</option>
+          <option value="0">No walking limit</option>
+          <option value="4">About 500 m, no aid, no rest</option>
+          <option value="4.5">About 300 m, no aid</option>
+          <option value="5">About 200 m, no aid</option>
+          <option value="5.5">About 100 m, no aid</option>
+          <option value="6">About 100 m, one aid</option>
+          <option value="6.5">About 20 m, two aids</option>
+          <option value="7">5 m or less: wheelchair, independent (7.0)</option>
+          <option value="7.5">Wheelchair, help to transfer (7.5)</option>
+          <option value="8">Bed or chair, arm use (8.0)</option>
+          <option value="8.5">Bed for much of the day (8.5)</option>
+          <option value="9">Bed-bound (9.0)</option>
+          <option value="9.5">Full dependence (9.5)</option>
         </select></label>
       <div class="scroll"><svg id="edCalcSvg" viewBox="0 0 720 96" style="min-width:560px" role="img" aria-label="A 0 to 10 EDSS ruler with a marker at the step, or a bracket over the 1.0 to 3.5 range, that the teaching calculator gives."></svg></div>
       <div class="ctrls"><button class="btn" id="edCalcShow">Show this step on the staircase</button><button class="btn ghost" id="edCalcReset">Reset</button></div>

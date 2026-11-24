@@ -24,7 +24,7 @@ const AS_STEPS=[
   pt:'Staging asks how weight is affecting health and daily life, not how big someone is. Two people with the same BMI can be at very different stages.',
   hook:'EOSS predicted mortality where BMI class did not: stage 2 HR 1.57, stage 3 HR 2.69 vs 0–1. [[Padwal2011EOSS]]'},
  {from:5/6,at:5/6+.11,k:'5As · Advise, Agree, Assist',t:'A shared plan',
-  txt:'Advise covers health risks, the benefits of modest weight loss, the need for a long-term strategy and the treatment options. Agree covers realistic expectations and the plan. Assist covers barriers, resources, referrals and regular follow-up. [[Vallis2013]] USPSTF (grade B): clinicians should offer or refer adults with a BMI of 30 or more to intensive, multicomponent behavioural interventions. [[Curry2018USPSTF]] AACE frames obesity as an "adiposity-based chronic disease" and says care should target its complications as well as adiposity. [[Garvey2016AACE]]',
+  txt:'Advise means talking through health risks, what even modest weight loss can do, why a long-term plan is needed, and the treatment choices. Agree means settling on realistic expectations and a plan. Assist means working through barriers, finding resources and referrals, and following up regularly. [[Vallis2013]] USPSTF (grade B): clinicians should offer or refer adults with a BMI of 30 or more to intensive, multicomponent behavioural interventions. [[Curry2018USPSTF]] AACE frames obesity as an "adiposity-based chronic disease" and says care should target its complications as well as adiposity. [[Garvey2016AACE]]',
   pt:'The plan is made together and is about health, not a number. It includes follow-up, because obesity is long-term and the plan may change.',
   hook:'USPSTF B: offer or refer adults with BMI ≥30 to intensive multicomponent behavioural interventions. [[Curry2018USPSTF]]'}
 ];
@@ -37,7 +37,7 @@ const AS_LV=['none','mild','moderate','severe','end-stage'];
 const AS_DOM=[{id:'asMed',n:'Medical: risk factors and comorbidities'},{id:'asPsy',n:'Mental health'},{id:'asFun',n:'Daily function'}];
 /* Lancet Commission adult criteria for clinical obesity (Table 2), as listed */
 const AS_LC=['Raised intracranial pressure','Sleep apnoeas or hypopnoeas','Hypoventilation or breathlessness','Heart failure with reduced ejection fraction','Heart failure with preserved ejection fraction','Chronic or recurrent atrial fibrillation','Pulmonary hypertension','Recurrent deep-vein thrombosis or pulmonary embolism','Raised blood pressure','Hyperglycaemia with high triglycerides and low HDL','Fatty liver disease with liver fibrosis','Microalbuminuria with reduced eGFR','Recurrent or chronic urinary incontinence','Anovulation, oligomenorrhoea and PCOS','Male hypogonadism','Chronic severe knee or hip pain with stiffness','Lower-limb lymphoedema','Significant limitation of daily activities'];
-const AS_SB=[['S','Snoring loudly'],['T','Tired or sleepy in the daytime'],['O','Observed to stop breathing in sleep'],['P','High blood pressure'],['B','BMI over 35'],['A','Age above the tool\'s cut-off'],['N','Neck circumference above the tool\'s cut-off'],['G','Male gender']];
+const AS_SB=[['S','Snoring: 1 point'],['T','Daytime tiredness: 1 point'],['O','Observed apnoea: 1 point'],['P','Blood pressure: 1 point'],['B','BMI over 35: 1 point'],['A','Age: 1 point'],['N','Neck size: 1 point'],['G','Male sex: 1 point']];
 
 inits.assessment=()=>{
   const svg=$('#asSvg'),rg=$('#asT'),note=$('#asNote');

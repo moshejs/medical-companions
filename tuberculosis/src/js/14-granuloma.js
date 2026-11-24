@@ -49,7 +49,7 @@ const GR_PARTS=[
   hook:`Multinucleated giant cells with peripheral nuclei in a horseshoe are the named Langhans type seen in tuberculous granulomas. [[Pagan2018]]`},
  {id:'lymph',n:'Lymphocyte cuff',s:'T cells around the rim',
   t:'The ring of T cells',
-  txt:`T cells gather at the margin of the granuloma, and the local response is far smaller than the blood suggests: on average only about 8% of granuloma T cells produce cytokine after stimulation with <i>M. tuberculosis</i> antigens. Sterile granulomas had modestly higher frequencies of T cells making IL-17, TNF and type-1 cytokines; bacterial burden correlated inversely with TNF and those responses; and blood responses did not reflect granuloma responses. [[Gideon2015]]`,
+  txt:`T cells gather at the margin of the granuloma, and the local response is far smaller than the blood suggests: on average only about 8% of granuloma T cells produce cytokine after stimulation with <i>M. tuberculosis</i> antigens. Granulomas with no live bacteria held slightly more T cells producing IL-17, TNF and type-1 cytokines; the more bacteria a granuloma held, the weaker its TNF and related responses; and blood T cells gave no reliable picture of what happened in the granuloma. [[Gideon2015]]`,
   pt:`A ring of immune cells surrounds the lump. A blood test cannot tell you what that ring is doing.`,
   hook:`About 8% of granuloma T cells are cytokine-positive; blood responses do not mirror granuloma responses. [[Gideon2015]]`},
  {id:'fib',n:'Fibrous capsule',s:'the scar that walls it off',

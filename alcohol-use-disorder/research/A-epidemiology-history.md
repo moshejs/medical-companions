@@ -65,7 +65,7 @@ Access notes:
 - At ages 50 and older, cancers made up 27.1% of alcohol-attributable female deaths and 18.9% of male deaths [[GBD2016Alcohol]].
 - GBD 2016: 32.5% (95% UI 30.0–35.2) of people worldwide were current drinkers, about 2.4 billion people. That was 25% of women and 39% of men [[GBD2016Alcohol]].
 - GBD 2016: current drinkers averaged 0.73 standard drinks a day (female) and 1.7 (male), with a standard drink defined as 10 g of pure alcohol [[GBD2016Alcohol]].
-- GBD 2016: the level of drinking that minimised harm across health outcomes was zero (95% UI 0.0–0.8) standard drinks per week [[GBD2016Alcohol]].
+- GBD 2016: taking all health outcomes together, the amount of drinking with the least harm was zero (95% UI 0.0–0.8) standard drinks a week [[GBD2016Alcohol]].
 - GBD 2020: 1.34 billion people (95% UI 1.06–1.62) consumed harmful amounts of alcohol in 2020, meaning above the non-drinker equivalence level. That was 1.03 billion males and 312 million females [[GBD2020Alcohol]].
 - GBD 2020 estimated 1.78 million (95% UI 1.39–2.27) alcohol-attributable deaths in 2020 [[GBD2020Alcohol]].
 - GBD 2020: among people aged 15–39, the theoretical minimum-risk level ranged from 0 to 0.603 standard drinks a day by region. Among people 40 and older the risk curve was J-shaped, with a minimum-risk level of 0.114 to 1.87 drinks a day [[GBD2020Alcohol]].

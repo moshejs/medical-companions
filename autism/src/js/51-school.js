@@ -239,7 +239,7 @@ inits.school=()=>{
   const NV={
     us:{q:'Does the child need specially designed teaching (special education), not only changes that give access to ordinary lessons?',
       yes:{n:'An IEP under IDEA',sh:'IEP (IDEA)',s:'Individualized Education Program',
-        txt:`The Individuals with Disabilities Education Act (IDEA) provides special education services to eligible students with disabilities, including autistic students, up to age 21. The mean exit age of autistic students was about 18, so many leave before their eligibility ends. [[McLean2026]] In a US population cohort, school IEP services varied widely between sites. [[Hughes2024IEP]]`},
+        txt:`Under the Individuals with Disabilities Education Act (IDEA), eligible disabled students, autistic students among them, can receive special education until age 21. The mean exit age of autistic students was about 18, so many leave before their eligibility ends. [[McLean2026]] In a US population cohort, school IEP services varied widely between sites. [[Hughes2024IEP]]`},
       no:{n:'A Section 504 plan',sh:'Section 504 plan',s:'Accommodations under the Rehabilitation Act',
         txt:`Section 504 of the Rehabilitation Act gives accommodations to students who may not qualify for an IEP; over 1.38 million students have 504 plans. Most of 23 families of autistic children interviewed reported negative experiences, often schools unwilling to provide accommodations, so put requests in writing and keep records. [[Lindsay2026]]`}},
     en:{q:'Are the child\'s needs more than the school can meet from the support it already arranges?',

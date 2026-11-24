@@ -5,7 +5,7 @@
 const SG_AGES=[3,6,13,18,30,60];
 const SG_STEPS=[
  {from:0,at:.1,k:'Age 3–5 · preschool',t:'Preschool: always on the go',
-  txt:`The same 18 symptoms apply at every age under 18. In a preschooler they can look like running or climbing when it is not appropriate, being unable to play quietly, acting "as if driven by a motor" and finding it very hard to wait a turn. [[APA2022DSM,Wolraich2019]] The AAP states that DSM-5 criteria can be applied from age 4 to the sixth birthday, and that evidence is insufficient to recommend diagnosis or treatment under 4. Requiring symptoms in more than one setting is hard to check in a child who is not in preschool or child care. [[Wolraich2019]]`,
+  txt:`The same 18 symptoms apply at every age under 18. In a preschooler they can look like running or climbing when it is not appropriate, being unable to play quietly, seeming constantly on the move and finding it very hard to wait a turn. [[APA2022DSM,Wolraich2019]] The AAP states that DSM-5 criteria can be applied from age 4 to the sixth birthday, and that evidence is insufficient to recommend diagnosis or treatment under 4. Requiring symptoms in more than one setting is hard to check in a child who is not in preschool or child care. [[Wolraich2019]]`,
   pt:`Lots of small children are busy and loud. What matters is behaviour that is much more than for other children of the same age, in more than one place, and that causes real problems. [[APA2022DSM,Wolraich2019]]`,
   hook:`AAP: evaluate for ADHD from age 4 to the 18th birthday; insufficient evidence under 4. [[Wolraich2019]]`},
  {from:.2,at:.3,k:'Age 6–12 · school',t:'School age: the classroom shows it',

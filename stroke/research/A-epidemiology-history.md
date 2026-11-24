@@ -5,21 +5,21 @@ Pass date: 2026-11-08. Modules served: what, history.
 ## Findings
 
 ### what · Definitions: the clinical WHO definition
-- WHO 1971 wording: "A sudden onset of disturbance of focal brain function due to the blockage or rupture of blood vessels" (the source prints "bran", a typographical error) [[Engelhardt2017]].
-- WHO 1980 wording: "Rapidly developing clinical signs of focal (or global) disturbance of cerebral function, lasting more than 24 hours or leading to death, with no apparent cause other than that of vascular origin" [[Engelhardt2017]].
+- WHO 1971 definition, our summary: a sudden disturbance of focal brain function caused by blood vessels that block or burst (the source has a typographical error, "bran") [[Engelhardt2017]].
+- WHO 1980 definition, our summary: quickly developing clinical signs of focal (or global) brain disturbance, lasting "more than 24 hours or leading to death", with no apparent cause other than a vascular one [[Engelhardt2017]].
 - The WHO work grew from community stroke registers. A pilot with 15 centres in 10 countries of Africa, Asia and Europe recorded 6395 new strokes from May 1971 to September 1974 [[Hatano1976]].
 - The fuller collaborative report covered 17 centres in developing and developed countries from 1971 to 1974. Age-adjusted incidence showed moderate geographical variation, and hypertension control seemed insufficient in most countries [[Aho1980]].
 
 ### what · Definitions: the AHA/ASA 2013 tissue-based definition
-- The 2013 AHA/ASA statement said the classic definition is mainly clinical and does not account for advances in science and technology. It combined clinical and tissue criteria [[Sacco2013]].
-- CNS infarction is brain, spinal cord or retinal cell death attributable to ischaemia, based on neuropathological, neuroimaging and/or clinical evidence of permanent injury [[Sacco2013]].
+- The 2013 AHA/ASA statement judged the classic definition too purely clinical to reflect newer science and imaging. It combined clinical and tissue criteria [[Sacco2013]].
+- CNS infarction means death of brain, spinal cord or retinal cells from ischaemia, shown by pathology, imaging or clinical evidence of lasting injury [[Sacco2013]].
 - Ischaemic stroke is CNS infarction accompanied by overt symptoms. Silent infarction by definition causes no known symptoms [[Sacco2013]].
 - Stroke also broadly includes intracerebral haemorrhage and subarachnoid haemorrhage [[Sacco2013]].
-- Ischaemic stroke wording: "An episode of neurological dysfunction caused by focal cerebral, spinal, or retinal infarction" [[Engelhardt2017]].
-- Intracerebral haemorrhage wording: "Rapidly developing clinical signs of neurological dysfunction attributable to a focal collection of blood within the brain parenchyma or ventricular system that is not caused by trauma" [[Engelhardt2017]].
-- Subarachnoid haemorrhage wording: "Rapidly developing signs of neurological dysfunction and/or headache because of bleeding into the subarachnoid space, which is not caused by trauma" [[Engelhardt2017]].
-- Stroke not otherwise specified keeps the time rule: "An episode of acute neurological dysfunction presumed to be caused by ischemia or hemorrhage, persisting ≥ 24 hours or until death, but without sufficient evidence to be classified as one of the above" [[Engelhardt2017]].
-- TIA has a matching tissue-based definition: "a transient episode of neurological dysfunction caused by focal brain, spinal cord, or retinal ischemia, without acute infarction" [[Easton2009]].
+- Ischaemic stroke, our summary: neurological dysfunction caused by an infarct in the brain, spinal cord or retina [[Engelhardt2017]].
+- Intracerebral haemorrhage, our summary: quickly developing neurological signs due to a non-traumatic focal collection of blood in the brain tissue or ventricles [[Engelhardt2017]].
+- Subarachnoid haemorrhage, our summary: quickly developing neurological signs, headache or both, due to non-traumatic bleeding into the subarachnoid space [[Engelhardt2017]].
+- Stroke not otherwise specified keeps the time rule: acute neurological dysfunction thought to be due to ischaemia or bleeding, lasting 24 hours or more or until death, without enough evidence to assign one of the types above [[Engelhardt2017]].
+- TIA has a matching tissue-based definition: a passing episode of neurological dysfunction from focal ischaemia of the brain, spinal cord or retina, "without acute infarction" [[Easton2009]].
 
 ### what · Ischaemic and haemorrhagic shares
 - Global, GBD 2021, share of incident strokes: ischaemic 65.3% (95% UI 62.4-67.7), intracerebral haemorrhage (ICH) 28.8% (28.3-28.8), subarachnoid haemorrhage (SAH) 5.8% (5.7-6.0) [[Feigin2024]].
@@ -195,8 +195,8 @@ Pass date: 2026-11-08. Modules served: what, history.
 
 ### history · Antiquity to the Renaissance: apoplexy
 - "Apoplexia" means struck down with violence. The picture was known to Greek physicians at least 2500 years ago [[Engelhardt2017]].
-- The first recorded appearance of the term is in the Hippocratic Corpus. Aphorisms II-42: "It is impossible to remove a strong attack of apoplexy, and not easy to remove a weak attack" [[Engelhardt2017]].
-- Galen: "Apoplexy is a privation of sense and motion in all the nerves" [[Engelhardt2017]].
+- The first recorded appearance of the term is in the Hippocratic Corpus. Aphorisms II-42 says a strong attack cannot be cured and a weak one only with difficulty [[Engelhardt2017]].
+- Galen described apoplexy as "a privation of sense and motion in all the nerves" [[Engelhardt2017]].
 - Understanding rested on Galen and humoral pathology for centuries, and Islamic scholars expanded the knowledge and addressed contradictions [[Yilmaz2025]]. Medieval authors added no novel concepts, by another account [[Engelhardt2017]].
 - Apoplexy was an umbrella term covering non-vascular and even non-cerebral events such as myocardial infarction and pulmonary embolism [[Engelhardt2017]].
 

@@ -40,10 +40,10 @@ const WD_K_STEPS=[
   txt:`Some experimental evidence suggests that treating early withdrawal may delay later kindled seizures; in humans this remains a hypothesis. [[Becker1998]] <span class="ev hyp">Hypothesis</span> In a trial of 136 outpatients, among people with two or more past medicated withdrawals, those treated with carbamazepine drank less than 1 drink a day afterwards, against about 5 a day on lorazepam (P=.033); lorazepam showed rebound symptoms. [[Malcolm2002]] <span class="ev early">Early evidence</span>`,
   pt:`Every withdrawal is worth taking seriously. Get medical help to stop safely, each time. [[ASAM2020Withdrawal]]`}
 ];
-/* PAWSS items as named in the AAST 2022 summary (concomitant substances split in two, as in the published scale) */
-const WD_PAWS_GATE='Any alcohol in the last 30 days, or a positive blood alcohol level on admission';
-const WD_PAWS_HX=['Previous episodes of alcohol withdrawal','Previous alcohol withdrawal seizures','Previous delirium tremens','Previous alcohol rehabilitation treatment','Previous blackouts','Concomitant use of other CNS depressants','Concomitant use of illicit substances','Recent intoxication'];
-const WD_PAWS_CL=['Elevated blood alcohol level on admission','Evidence of increased autonomic activity'];
+/* PAWSS: short topic labels only (one point each); the official item wording is in Maldonado 2014 */
+const WD_PAWS_GATE='Threshold: recent drinking (30 days) or alcohol in the blood';
+const WD_PAWS_HX=['Past withdrawal','Past withdrawal seizures','Past delirium tremens','Past alcohol treatment','Past blackouts','Other sedatives','Illicit drugs','Recent intoxication'];
+const WD_PAWS_CL=['High blood alcohol','Autonomic overactivity'];
 
 inits.withdrawal=()=>{
   /* ---------- main timeline ---------- */
@@ -183,7 +183,7 @@ inits.withdrawal=()=>{
     const a=Math.PI*(1-.4),r0=94,r1=130;s+=`<line x1="${f1(160+r0*Math.cos(a))}" y1="${f1(150-r0*Math.sin(a))}" x2="${f1(160+r1*Math.cos(a))}" y2="${f1(150-r1*Math.sin(a))}" style="stroke:var(--ink);stroke-width:2"/><text x="${f1(160+(r1+8)*Math.cos(a)-4)}" y="${f1(150-(r1+8)*Math.sin(a))}" class="t-xs t-end" style="fill:var(--ink)">4</text>`;
     pv.innerHTML=s;
     let v;
-    if(!gate)v=`<div class="verdict maybe">The scale opens with the threshold question: alcohol in the last 30 days, or a positive blood alcohol level on admission. Tick it to score the items. PAWSS can be used before any withdrawal signs appear. [[ASAM2020Withdrawal]]</div>`;
+    if(!gate)v=`<div class="verdict maybe">The scale opens with a threshold question about recent drinking (within 30 days) or alcohol found in the blood on admission. Tick it to score the items. PAWSS can be used before any withdrawal signs appear. [[ASAM2020Withdrawal]]</div>`;
     else if(score>=4)v=`<div class="verdict no">Teaching result: ${score} of 10. A score of 4 or more is the published threshold for <b>higher risk of complicated withdrawal</b> (seizures, delirium tremens). [[Maldonado2014,Maldonado2015]]</div>`;
     else v=`<div class="verdict maybe">Teaching result: ${score} of 10, below the published threshold of 4. In the validation study the negative predictive value at this cut-off was 99.5%, but in a community detox unit the cut-off of 4 did not perform well, and a low score never means withdrawal is safe without help. [[Maldonado2015,Crepeault2025]]</div>`;
     v+=`<p style="font-size:14.5px">Why it matters: ASAM 2020 says withdrawal can usually be managed safely outside hospital when risk factors are limited or mitigated, aiming for the least intensive level of care that is safe and effective. A higher predicted risk is a reason for closer medical supervision. [[ASAM2020Withdrawal]] Any score here is a teaching example, not a reading of anyone's own risk.</p>`;

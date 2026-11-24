@@ -80,7 +80,7 @@ Access notes:
 - Baveno VII: transfuse red cells conservatively, with "a target haemoglobin level between 7–8 g/dl", adjusted for heart disease, age, haemodynamics and ongoing bleeding [[deFranchis2022BavenoVII]].
 - Restrictive (Hb <7 g/dl) vs liberal (<9 g/dl) transfusion in 921 people with severe upper GI bleeding: 6-week survival 95% vs 91% (HR for death 0.55, 95% CI 0.33–0.92). Further bleeding was 10% vs 16% [[Villanueva2013NEJM]].
 - Benefit was significant in cirrhosis Child–Pugh A/B (HR 0.30, 95% CI 0.11–0.85) but not Child–Pugh C (HR 1.04). Portal pressure rose with liberal transfusion [[Villanueva2013NEJM]].
-- Vasoactive drugs (terlipressin, somatostatin, octreotide) "should be started as soon as possible and continued for 2–5 days" [[deFranchis2022BavenoVII]].
+- Baveno VII advises starting a vasoactive drug (terlipressin, somatostatin, octreotide) as early as possible and continuing it for 2–5 days [[deFranchis2022BavenoVII]].
 - Meta-analysis of 30 RCTs (3111 patients): vasoactive drugs lowered 7-day mortality (RR 0.74, 95% CI 0.57–0.95) and improved haemostasis (RR 1.21) [[Wells2012APT]].
 - EASL 2018 doses as published: terlipressin 2 mg every 4 h for the first 48 h, then 1 mg every 4 h; somatostatin 250 µg bolus then 250 µg/h (up to 500 µg/h); octreotide 50 µg bolus then 50 µg/h [[EASL2018Decomp]].
 - Baveno VII warns of hyponatraemia on terlipressin, especially with preserved liver function, and advises monitoring sodium [[deFranchis2022BavenoVII]].
@@ -126,10 +126,10 @@ Access notes:
 - After developing dilutional hyponatraemia, refractory ascites or type 2 HRS, 1-year survival was 25.6%, 31.6% and 38.5%. Mean survival after type 1 HRS was 7 ± 2 days [[Planas2006CGH]].
 
 ### ascites · Salt, diuretics and their limits
-- EASL 2018: "a moderate restriction of sodium intake (80–120 mmol/day, corresponding to 4.6–6.9 g of salt)" for moderate, uncomplicated ascites [[EASL2018Decomp]].
+- EASL 2018: a moderate cut in sodium, 80–120 mmol a day (4.6–6.9 g of salt), for moderate, uncomplicated ascites [[EASL2018Decomp]].
 - AASLD 2021 is widely reported to recommend sodium restriction of 2 g (88–90 mmol) per day [[Biggins2021AASLD]] (unverified: primary text paywalled; not confirmed against original).
-- EASL 2018, first grade 2 ascites: an anti-mineralocorticoid alone, "starting at 100 mg/day with stepwise increases every 72 h (in 100 mg steps) to a maximum of 400 mg/day" [[EASL2018Decomp]].
-- EASL 2018: add furosemide if weight loss is <2 kg/week or hyperkalaemia develops, "from 40 mg/day to a maximum of 160 mg/day (in 40 mg steps)". Long-standing or recurrent ascites is treated with the combination [[EASL2018Decomp]].
+- EASL 2018, first grade 2 ascites: an anti-mineralocorticoid on its own, begun at 100 mg a day and raised in 100 mg steps no more often than every 72 h, up to 400 mg a day [[EASL2018Decomp]].
+- EASL 2018: add furosemide if weight loss is <2 kg/week or hyperkalaemia develops, from 40 mg a day up to 160 mg a day in 40 mg steps. Long-standing or recurrent ascites is treated with the combination [[EASL2018Decomp]].
 - The 100:40 mg spironolactone:furosemide starting ratio is attributed to AASLD guidance [[Biggins2021AASLD]] (unverified: primary text paywalled).
 - Aldactone US label (oedema in cirrhosis): "initiate therapy in a hospital setting and titrate slowly". Recommended initial daily dosage 100 mg (range 25–200 mg), given at least 5 days before increasing [[FDA-Aldactone]].
 - In moderate ascites, spironolactone alone vs spironolactone plus furosemide (100 patients) gave similar response (94% vs 98%). The combination needed dose reduction more often (68% vs 34%) [[Santos2003JHepatol]].
@@ -148,7 +148,7 @@ Access notes:
 - EASL: diuretics should be stopped in refractory ascites if urinary sodium stays ≤30 mmol/day on diuretics [[EASL2018Decomp]].
 
 ### ascites · TIPS for recurrent or refractory ascites
-- Baveno VII: TIPS "should be considered in patients with recurrent ascites (requirement of ≥3 large-volume paracenteses within 1 year)", whether or not varices are present [[deFranchis2022BavenoVII]].
+- Baveno VII: consider TIPS for recurrent ascites, meaning 3 or more large-volume paracenteses needed within 1 year, whether or not varices are present [[deFranchis2022BavenoVII]].
 - Individual-patient meta-analysis (305 patients, uncovered stents): tense ascites recurred in 42% with TIPS vs 89% with paracentesis. Transplant-free survival was better with TIPS (p=0.035), but encephalopathy episodes were more frequent [[Salerno2007Gastro]].
 - Covered-stent TIPS vs repeated LVP plus albumin (62 people with recurrent ascites): 1-year transplant-free survival 93% vs 52% [[Bureau2017Gastro]].
 - In that trial, paracenteses totalled 32 vs 320, and hospital days 17 vs 35. One-year freedom from encephalopathy was 65% in each group [[Bureau2017Gastro]].
@@ -196,7 +196,7 @@ Access notes:
 - CONFIRM post hoc analysis: respiratory failure on terlipressin occurred in 9.4% with ACLF grades 1–2 vs 30% with ACLF grade 3. Hypoxaemia predicted risk [[Wong2022APT]].
 - REVERSE (196 patients): confirmed HRS reversal 19.6% vs 13.1% (not significant). Creatinine fell 1.1 vs 0.6 mg/dl [[Boyer2016REVERSE]].
 - 2008 terlipressin RCT (112 patients): HRS reversal 34% vs 13% [[Sanyal2008Gastro]].
-- Terlivaz US label: indicated "to improve kidney function in adults with hepatorenal syndrome with rapid reduction in kidney function". Patients with creatinine >5 mg/dL are unlikely to benefit [[FDA-Terlivaz]].
+- Terlivaz US label: approved to improve kidney function in adults with hepatorenal syndrome whose kidney function is falling fast. Patients with creatinine >5 mg/dL are unlikely to benefit [[FDA-Terlivaz]].
 - Terlivaz boxed warning: "serious or fatal respiratory failure". Risk is higher with volume overload or ACLF grade 3. Do not start if SpO₂ <90%, and monitor continuously [[FDA-Terlivaz]].
 - Terlivaz label dosing as published: 0.85 mg IV every 6 h on days 1–3, then adjusted on day 4 by creatinine change (up to 1.7 mg every 6 h, or stop), for up to 14 days [[FDA-Terlivaz]].
 - EASL 2018 terlipressin wording for HRS-AKI: IV boluses starting at 1 mg every 4–6 h, or continuous infusion starting at 2 mg/day to reduce adverse effects [[EASL2018Decomp]].
@@ -206,7 +206,7 @@ Access notes:
 - In 997 people with cirrhosis, serum sodium was ≤135 mmol/L in 49.4%, ≤130 in 21.6%, ≤125 in 5.7% and ≤120 in 1.2% [[Angeli2006Hepatology]].
 - Low sodium went with refractory ascites, encephalopathy, SBP and HRS [[Angeli2006Hepatology]].
 - In transplant-waitlist data, death risk rose 5% per 1 mmol/L fall in sodium between 125 and 140 (HR 1.05), on top of MELD. This led to MELD-Na [[Kim2008MELDNa]].
-- EASL: "fluid restriction to 1,000 ml/day is recommended in the management of hypervolemic hyponatremia". Hypertonic saline is limited to severely symptomatic cases [[EASL2018Decomp]].
+- EASL recommends limiting fluids to 1,000 ml a day to manage hypervolaemic hyponatraemia. Hypertonic saline is limited to severely symptomatic cases [[EASL2018Decomp]].
 - Samsca (tolvaptan) US label: avoid use in people with underlying liver disease, including cirrhosis. Limit treatment to 30 days and start it in hospital [[FDA-Samsca]].
 - In the Samsca hyponatraemia trials, GI bleeding occurred in 10% of tolvaptan-treated people with cirrhosis vs 2% on placebo [[FDA-Samsca]].
 

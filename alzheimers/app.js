@@ -1672,22 +1672,22 @@ const ST_STEPS=[
   pt:`The person may feel that something is slipping, like a name on the tip of the tongue, while tests still come out normal.`,
   hook:`2024 clinical stage 2 ("transitional decline") can be assigned on neurobehavioural symptoms alone.`},
  {from:2/7,at:2/7+.07,k:'FAST 3 · MCI',t:'Others start to notice',
-  txt:`Decline becomes noticeable in demanding work or social settings. This is roughly where mild cognitive impairment sits: test scores drop into the impaired range while daily life stays largely independent. About 22% of Americans aged 65 and older have MCI, and only about half of them show Alzheimer's changes on PET. Conventional ranges: CDR 0.5, CDR Sum of Boxes 0.5 to 4.0, MMSE 26 to 29. <sup class="c" data-ref="Reisberg1988,Jack2024,AA2025Facts,OBryant2008,Perneczky2006" title="Source 2,258,392,406,433"><a href="/alzheimers/sources/#src-Reisberg1988">2,258,392,406,433</a></sup>`,
-  pt:`Colleagues or friends start to notice slips at work or in busy company. Life at home still works.`,
+  txt:`The FAST topic here is demanding work and social life, where other people begin to see a change. This is roughly where mild cognitive impairment sits: test scores drop into the impaired range while daily life stays largely independent. About 22% of Americans aged 65 and older have MCI, and only about half of them show Alzheimer's changes on PET. Conventional ranges: CDR 0.5, CDR Sum of Boxes 0.5 to 4.0, MMSE 26 to 29. <sup class="c" data-ref="Reisberg1988,Jack2024,AA2025Facts,OBryant2008,Perneczky2006" title="Source 2,258,392,406,433"><a href="/alzheimers/sources/#src-Reisberg1988">2,258,392,406,433</a></sup>`,
+  pt:`People outside the home may start to see a change. Life at home still works.`,
   hook:`MCI is not dementia: the person is still independent in everyday life. The MMSE separates normal from "questionable" poorly (kappa 0.28 to 0.44). <sup class="c" data-ref="Perneczky2006" title="Source 406"><a href="/alzheimers/sources/#src-Perneczky2006">406</a></sup>`},
  {from:3/7,at:3/7+.07,k:'FAST 4 · Mild dementia',t:'Complex tasks get hard',
-  txt:`Complex tasks such as finances and planning meals become hard. Dementia is defined by exactly this: cognitive problems that interfere with everyday tasks such as driving, cooking or cleaning. Basic self-care is still independent. Typical early symptoms are trouble remembering recent conversations, names or events, often with apathy and depression. Conventional ranges: CDR 1, CDR Sum of Boxes 4.5 to 9.0, MMSE 21 to 25. Driving is shown here as an example of a complex task; it is not a FAST item. <sup class="c" data-ref="Reisberg1988,AA2025Facts,Jack2024,OBryant2008,Perneczky2006" title="Source 2,258,392,406,433"><a href="/alzheimers/sources/#src-Reisberg1988">2,258,392,406,433</a></sup>`,
-  pt:`Paying bills, planning a meal or driving become hard. Washing and dressing are still done alone.`,
+  txt:`The FAST topic is complex tasks, such as money matters. Dementia is defined by exactly this: cognitive problems that interfere with everyday tasks such as driving, cooking or cleaning. Basic self-care is still independent. Typical early symptoms are trouble remembering recent conversations, names or events, often with apathy and depression. Conventional ranges: CDR 1, CDR Sum of Boxes 4.5 to 9.0, MMSE 21 to 25. Driving is shown here as an example of a complex task; it is not a FAST item. <sup class="c" data-ref="Reisberg1988,AA2025Facts,Jack2024,OBryant2008,Perneczky2006" title="Source 2,258,392,406,433"><a href="/alzheimers/sources/#src-Reisberg1988">2,258,392,406,433</a></sup>`,
+  pt:`Harder tasks such as money matters or driving become difficult. Washing and dressing are still done alone.`,
   hook:`Instrumental activities (money, meals, driving) go before basic ones (dressing, bathing, toileting).`},
  {from:4/7,at:4/7+.07,k:'FAST 5 · Moderate',t:'Help choosing clothes',
-  txt:`The person needs help choosing the right clothing for the day or the weather. Communication problems, confusion, poor judgment and changes in behaviour are common at this point. Conventional ranges: CDR 2, CDR Sum of Boxes 9.5 to 15.5, MMSE 11 to 20. <sup class="c" data-ref="Reisberg1988,AA2025Facts,OBryant2008,Perneczky2006" title="Source 2,392,406,433"><a href="/alzheimers/sources/#src-Reisberg1988">2,392,406,433</a></sup>`,
-  pt:`The person can still put clothes on, but needs someone to help pick the right ones. Confusion and behaviour changes become more common.`},
+  txt:`The FAST topic is choosing clothes, which now needs help. Communication problems, confusion, poor judgment and changes in behaviour are common at this point. Conventional ranges: CDR 2, CDR Sum of Boxes 9.5 to 15.5, MMSE 11 to 20. <sup class="c" data-ref="Reisberg1988,AA2025Facts,OBryant2008,Perneczky2006" title="Source 2,392,406,433"><a href="/alzheimers/sources/#src-Reisberg1988">2,392,406,433</a></sup>`,
+  pt:`Getting dressed still works, but choosing what to wear needs help. Confusion and behaviour changes become more common.`},
  {from:5/7,at:5/7+.07,k:'FAST 6 · Moderately severe',t:'Help with daily care',
-  txt:`Basic self-care goes in a set order: 6a dressing, 6b bathing, 6c the mechanics of toileting, 6d urinary incontinence, 6e faecal incontinence. In the 2024 scheme this is dementia with moderate functional impairment, needing help with basic activities. <sup class="c" data-ref="Reisberg1988,Jack2024" title="Source 258,433"><a href="/alzheimers/sources/#src-Reisberg1988">258,433</a></sup>`,
+  txt:`Basic self-care goes in a set order: 6a dressing, 6b bathing, 6c toileting, 6d bladder control, 6e bowel control. In the 2024 scheme this is dementia with moderate functional impairment, needing help with basic activities. <sup class="c" data-ref="Reisberg1988,Jack2024" title="Source 258,433"><a href="/alzheimers/sources/#src-Reisberg1988">258,433</a></sup>`,
   pt:`Help is needed with dressing, then bathing, then using the toilet. Continence is lost late in this stage.`,
   hook:`FAST 6 order: dress, bathe, toilet, urine, faeces (6a to 6e).`},
  {from:6/7,at:.955,k:'FAST 7 · Severe',t:'Full dependence',
-  txt:`Speech narrows to a few words a day (7a), then one intelligible word (7b). Walking (7c), sitting up (7d), smiling (7e) and holding up the head (7f) are then lost. Difficulty walking, speaking and swallowing is common late, and swallowing problems can lead to aspiration pneumonia, the most commonly identified immediate cause of death. Swallowing is not itself a FAST item. Conventional ranges: CDR 3, CDR Sum of Boxes 16 to 18, MMSE 0 to 10. <sup class="c" data-ref="Reisberg1988,AA2025Facts,OBryant2008,Perneczky2006" title="Source 2,392,406,433"><a href="/alzheimers/sources/#src-Reisberg1988">2,392,406,433</a></sup>`,
+  txt:`Speech goes first (7a, 7b), then walking (7c), sitting up (7d), smiling (7e) and head control (7f). Difficulty walking, speaking and swallowing is common late, and swallowing problems can lead to aspiration pneumonia, the most commonly identified immediate cause of death. Swallowing is not itself a FAST item. Conventional ranges: CDR 3, CDR Sum of Boxes 16 to 18, MMSE 0 to 10. <sup class="c" data-ref="Reisberg1988,AA2025Facts,OBryant2008,Perneczky2006" title="Source 2,392,406,433"><a href="/alzheimers/sources/#src-Reisberg1988">2,392,406,433</a></sup>`,
   pt:`The person depends on others for all care. Speech, walking and swallowing become very limited.`,
   hook:`FAST 7 order: speech (7a, 7b), walking (7c), sitting up (7d), smiling (7e), head control (7f). Walking goes before sitting up.`}
 ];
@@ -3805,7 +3805,7 @@ inits.living=()=>{
 
   /* ---- language toggle ---- */
   const lb=$('#lvLangBtn'),lo=$('#lvLangOut');let res=false;
-  const LANG=[`<b>Everyday wording:</b> "Ana is living with dementia. Her son talks about the impact of supporting her, and about changed behaviours that can be an expression of unmet need." <sup class="c" data-ref="DementiaAustralia2021" title="Source 114"><a href="/alzheimers/sources/#src-DementiaAustralia2021">114</a></sup>`,
+  const LANG=[`<b>Everyday wording:</b> "Ana lives with dementia. Her son describes what supporting her involves, and sees her changed behaviours as a sign of a need that is not being met." Our example, using the guidelines' preferred terms. <sup class="c" data-ref="DementiaAustralia2021" title="Source 114"><a href="/alzheimers/sources/#src-DementiaAustralia2021">114</a></sup>`,
               `<b>Research wording:</b> "Caregiver burden was measured with the Zarit Burden Interview." Trials such as ATTILA report carer burden as an outcome. <sup class="c" data-ref="DementiaAustralia2021,Lamb2018,Gathercole2021" title="Source 114,192,300"><a href="/alzheimers/sources/#src-DementiaAustralia2021">114,192,300</a></sup>`];
   function lang(){lb.setAttribute('aria-pressed',res);lb.textContent=res?'Show the everyday wording':'Show the research wording';lo.innerHTML=LANG[res?1:0]}
   lb.addEventListener('click',()=>{res=!res;lang()});lang();
@@ -3975,13 +3975,13 @@ inits.nursing=()=>{
 
   /* =========== 1b 4AT calculator =========== */
   const FOUR=[
-   {n:'1 · Alertness',o:[ ['Normal',0],['Clearly abnormal',4] ]},
-   {n:'2 · AMT4: age, date of birth, place, current year',o:[ ['No mistakes',0],['1 mistake',1],['2 or more, or untestable',2] ]},
-   {n:'3 · Attention: months of the year backwards',o:[ ['7 or more correct',0],['Starts, fewer than 7, or refuses',1],['Untestable',2] ]},
-   {n:'4 · Acute change or fluctuating course',o:[ ['No',0],['Yes',4] ]}];
+   {n:'1 · Alertness',o:[ ['',0],['',4] ]},
+   {n:'2 · AMT4 (orientation)',o:[ ['',0],['',1],['',2] ]},
+   {n:'3 · Attention',o:[ ['',0],['',1],['',2] ]},
+   {n:'4 · Acute change or fluctuating course',o:[ ['',0],['',4] ]}];
   const fsel=[0,0,0,0];let fShown=0,fStop=null;
   $('#nuFour').insertAdjacentHTML('beforeend',FOUR.map((it,i)=>`<div class="nu-item"><span id="nuF${i}">${it.n}</span><div class="nu-opts" role="group" aria-labelledby="nuF${i}">${it.o.map((o,j)=>`<button class="btn" data-f="${i}" data-j="${j}" aria-pressed="${j===0}"><b>${o[1]}</b>${o[0]}</button>`).join('')}</div></div>`).join('')+
-    `<div class="ctrls"><button class="btn" id="nuFourEx">Example: severe dementia, no acute change</button><button class="btn" id="nuFourReset">Reset</button></div><p class="stage-cap">Item wording shortened from the 4AT; scoring as in its user guide. ${NU4AT}</p>`);
+    `<div class="ctrls"><button class="btn" id="nuFourEx">Example: severe dementia, no acute change</button><button class="btn" id="nuFourReset">Reset</button></div><p class="stage-cap">Topic labels and points only. The official item wording and instructions are on the 4AT form at <a href="https://www.the4at.com/">the4at.com</a>; scoring as in its user guide. ${NU4AT}</p>`);
   const fScore=()=>fsel.reduce((a,j,i)=>a+FOUR[i].o[j][1],0);
   function drawFourG(v){
     const sv=$('#nuFourSvg'),N=vb(sv,'520 150','400 160');
@@ -4010,14 +4010,14 @@ inits.nursing=()=>{
 
   /* =========== 1c PAINAD =========== */
   const PAIN=[
-   {n:'Breathing, independent of vocalisation',o:['Normal','Occasional laboured breathing, short hyperventilation','Noisy laboured breathing, long hyperventilation, Cheyne-Stokes']},
-   {n:'Negative vocalisation',o:['None','Occasional moan or groan, low-level negative speech','Repeated troubled calling out, loud moaning, crying']},
-   {n:'Facial expression',o:['Smiling or inexpressive','Sad, frightened, frown','Facial grimacing']},
-   {n:'Body language',o:['Relaxed','Tense, distressed pacing, fidgeting','Rigid, fists clenched, knees pulled up, pushing away, striking out']},
-   {n:'Consolability',o:['No need to console','Distracted or reassured by voice or touch','Unable to console, distract or reassure']}];
+   {n:'Breathing',o:['','','']},
+   {n:'Negative vocalisation',o:['','','']},
+   {n:'Facial expression',o:['','','']},
+   {n:'Body language',o:['','','']},
+   {n:'Consolability',o:['','','']}];
   const psel=[0,0,0,0,0];let pShown=0,pStop=null,barP=0;
   $('#nuPain').insertAdjacentHTML('beforeend',PAIN.map((it,i)=>`<div class="nu-item"><span id="nuPn${i}">${i+1} · ${it.n}</span><div class="nu-opts" role="group" aria-labelledby="nuPn${i}">${it.o.map((o,j)=>`<button class="btn" data-p="${i}" data-j="${j}" aria-pressed="${j===0}"><b>${j}</b>${o}</button>`).join('')}</div></div>`).join('')+
-    `<div class="ctrls"><button class="btn" id="nuPainReset">Reset</button></div><p class="stage-cap">Item descriptors shortened from the published tool. <sup class="c" data-ref="Warden2003" title="Source 513"><a href="/alzheimers/sources/#src-Warden2003">513</a></sup></p>`);
+    `<div class="ctrls"><button class="btn" id="nuPainReset">Reset</button></div><p class="stage-cap">Topic labels and points only. The official item descriptors are in the published PAINAD scale. <sup class="c" data-ref="Warden2003" title="Source 513"><a href="/alzheimers/sources/#src-Warden2003">513</a></sup></p>`);
   const pScore=()=>psel.reduce((a,b)=>a+b,0);
   function drawPainG(v){
     const sv=$('#nuPainSvg'),N=vb(sv,'520 330','400 316');
@@ -4472,7 +4472,7 @@ const CU_NODES=[
  {a:'Amyloid',b:'aggregation',one:'Amyloid aggregation',
   txt:`Amyloid beta clumps into oligomers, fibrils and plaques. Antibodies that remove plaque are so far the only disease-targeted drugs shown to slow decline in symptomatic Alzheimer's. <sup class="c" data-ref="vanDyck2023,Sims2023" title="Source 468,500"><a href="/alzheimers/sources/#src-vanDyck2023">468,500</a></sup>`},
  {a:'Tau',b:'spread',one:'Tau spread',
-  txt:`Tau tangles spread from region to region, and the severity of cognitive impairment correlates best with the burden of neocortical tangles. Tau is the fourth-largest target group in the 2025 pipeline, with 15 drugs. <sup class="c" data-ref="Nelson2012,Cummings2025Pipeline" title="Source 106,380"><a href="/alzheimers/sources/#src-Nelson2012">106,380</a></sup>`},
+  txt:`Tau tangles spread from region to region, and cognitive impairment tracks most closely with how many tangles have reached the neocortex. Tau is the fourth-largest target group in the 2025 pipeline, with 15 drugs. <sup class="c" data-ref="Nelson2012,Cummings2025Pipeline" title="Source 106,380"><a href="/alzheimers/sources/#src-Nelson2012">106,380</a></sup>`},
  {a:'Microglia and',b:'inflammation',one:'Microglia and inflammation',
   txt:`Microglia, the brain's immune cells, gather around plaques. Inflammation and immunity are the third-largest target group in the 2025 pipeline, with 24 drugs (17%). <sup class="c" data-ref="Cummings2025Pipeline" title="Source 106"><a href="/alzheimers/sources/#src-Cummings2025Pipeline">106</a></sup>`},
  {a:'Synapse',b:'loss',one:'Synapse loss',
@@ -4994,8 +4994,8 @@ const FC=[
 [2,'What are the biological stages A to D in the 2024 criteria?','A: amyloid PET positive with no tau PET uptake. B: tau uptake in the medial temporal lobe. C: moderate neocortical tau. D: high neocortical tau.'],
 [2,'What are the clinical stages 0 to 6 in the 2024 criteria?','0: carrier of a deterministic gene, biomarkers normal. 1: no symptoms, biomarkers abnormal. 2: transitional decline. 3: cognitive impairment with early functional impact. 4: mild dementia. 5: moderate dementia. 6: severe dementia.'],
 [2,'What do A, T and (N) stand for in the 2018 research framework?','A: amyloid (CSF Aβ42 or the Aβ42/40 ratio, or amyloid PET). T: tau (CSF phosphorylated tau or tau PET). (N): neurodegeneration (MRI, FDG-PET or CSF total tau), in parentheses because it is not specific to Alzheimer\'s.'],
-[2,'What are the FAST stage 6 substages?','6a needs help dressing, 6b bathing, 6c toileting mechanics, 6d urinary incontinence, 6e faecal incontinence.'],
-[2,'What are the FAST stage 7 substages?','7a speech limited to a few words a day, 7b one intelligible word, 7c loss of walking, 7d loss of sitting up, 7e loss of smiling, 7f loss of the ability to hold up the head.'],
+[2,'What are the FAST stage 6 substages?','6a dressing, 6b bathing, 6c toileting, 6d bladder control, 6e bowel control.'],
+[2,'What are the FAST stage 7 substages?','7a and 7b speech, 7c walking, 7d sitting up, 7e smiling, 7f head control.'],
 [2,'Which six domains does the Clinical Dementia Rating score?','Memory; Orientation; Judgment and Problem Solving; Community Affairs; Home and Hobbies; Personal Care. Each box is rated from a semi-structured interview with the person and an informant.'],
 [2,'How do CDR Sum of Boxes scores map onto severity?','CDR-SB runs from 0 to 18. 0.5-4.0 matches CDR 0.5 (questionable or very mild), 4.5-9.0 mild, 9.5-15.5 moderate and 16.0-18.0 severe.'],
 [2,'How are MMSE scores conventionally mapped onto severity?','On a 30-point test: 30 none, 26-29 questionable, 21-25 mild, 11-20 moderate, 0-10 severe. Agreement with CDR stages was poor for separating normal from questionable.'],
@@ -5034,8 +5034,8 @@ const FC=[
 [4,'Which caregiver programme delayed nursing-home placement?','The NYU Caregiver Intervention (counselling, support groups and on-call telephone help for spouses) reduced the rate of placement by 28.3%, with model-predicted median placement 557 days later.'],
 [4,'What does the American Geriatrics Society say about feeding tubes in advanced dementia?','They are not recommended (2014 position statement). Careful hand feeding is considered as good as tube feeding for death, aspiration pneumonia, function and comfort.'],
 [4,'What did the CASCADE study show about advanced dementia in nursing homes?','Over 18 months 54.8% died. Eating problems affected 85.8%, febrile episodes 52.6% and pneumonia 41.1%. When proxies understood the prognosis, burdensome interventions were much less likely.'],
-[4,'What are the four items of the 4AT?','Alertness (0 or 4), AMT4 (0-2), Attention by months backwards (0-2) and Acute change or fluctuating course (0 or 4). A total of 4 or more suggests delirium; 1-3 suggests cognitive impairment.'],
-[4,'What are the five PAINAD items?','Breathing independent of vocalisation, negative vocalisation, facial expression, body language and consolability, each scored 0-2 for a total of 0-10.'],
+[4,'What are the four items of the 4AT?','Alertness (0 or 4), AMT4 (0-2), Attention (0-2) and Acute change or fluctuating course (0 or 4). A total of 4 or more suggests delirium; 1-3 suggests cognitive impairment.'],
+[4,'What are the five PAINAD items?','Breathing, negative vocalisation, facial expression, body language and consolability, each scored 0-2 for a total of 0-10.'],
 [4,'What does the Exelon patch label say about applying the rivastigmine patch?','One patch at a time, replaced every 24 hours after removing the old one, preferably on the upper or lower back (otherwise upper arm or chest). Do not reuse a site within 14 days or cut the patch. Most serious errors involved the old patch left on or several worn at once.'],
 [4,'What process does NICE SC1 describe for covert medication in care homes?','Medicines should not be hidden from a resident who has capacity. Otherwise: a capacity assessment, a best-interests meeting (staff, prescriber, pharmacist, family or advocate), documented reasons, an administration plan and regular review.'],
 [4,'What is an ABC chart?','A record of the Antecedent (what happened before), the Behaviour and the Consequence (what happened after). ABC recording is the basis of functional analysis of behaviour.'],
@@ -5061,8 +5061,8 @@ const MN=[
 ['Dominant genes: 21, 14, 1','<b>Count down: APP 21, PSEN1 14, PSEN2 1.</b> APP sits on chromosome 21, the same chromosome tripled in Down syndrome. PSEN1 mutations give the youngest onsets (typically 30 to 50), APP families usually begin in their 50s, and PSEN2 has a wide range with some later onsets.'],
 ['APOE: 2 protects, 3 is the reference, 4 raises risk','<b>ε2</b> lowers risk, <b>ε3</b> is the comparison genotype, <b>ε4</b> raises it: about 3- to 4-fold for one copy and 9- to 15-fold for two. Risk is not destiny: many ε4 homozygotes never develop dementia, and most APOE alleles in people with Alzheimer\'s are not ε4. ε4 also raises ARIA risk on antibodies.'],
 ['ARIA-E versus ARIA-H','<b>E for Edema, H for Haemosiderin.</b> ARIA-E: vasogenic oedema or sulcal effusion, seen on FLAIR, usually resolves. ARIA-H: microhaemorrhages or superficial siderosis, seen on T2* or SWI, persists. Both are commoner in APOE ε4 homozygotes, and ARIA-E mostly appears in the first months of treatment.'],
-['PAINAD\'s five items','<b>Breathing, Noise, Face, Body, Comfort.</b> Breathing independent of vocalisation, Negative vocalisation, Facial expression, Body language, Consolability: five items scored 0-2, total 0-10. A memory aid, not a clinical tool. The widely reproduced severity bands have not been validated for this scale.'],
-['The 4AT: four As','<b>Alertness, AMT4, Attention, Acute change.</b> Scores: Alertness 0 or 4, AMT4 0-2, Attention (months backwards) 0-2, Acute change or fluctuation 0 or 4. A total of 4 or more suggests delirium. Caution: in severe dementia, items 2 and 3 alone can reach 4 without delirium.'],
+['PAINAD\'s five items','<b>Breathing, Noise, Face, Body, Comfort.</b> Breathing, Negative vocalisation, Facial expression, Body language, Consolability: five items scored 0-2, total 0-10. A memory aid, not a clinical tool. The widely reproduced severity bands have not been validated for this scale.'],
+['The 4AT: four As','<b>Alertness, AMT4, Attention, Acute change.</b> Scores: Alertness 0 or 4, AMT4 0-2, Attention 0-2, Acute change or fluctuation 0 or 4. A total of 4 or more suggests delirium. Caution: in severe dementia, items 2 and 3 alone can reach 4 without delirium.'],
 ['CAM: 1 + 2 + (3 or 4)','Delirium on the Confusion Assessment Method needs <b>1</b> acute onset with fluctuating course <b>and 2</b> inattention, plus <b>either 3</b> disorganised thinking <b>or 4</b> altered level of consciousness.'],
 ['DICE for behaviour','<b>D</b>escribe the behaviour, <b>I</b>nvestigate causes (unmet needs, medical problems, caregiver and environmental factors), <b>C</b>reate a plan, <b>E</b>valuate whether it worked. The evidence for DICE itself is still limited.'],
 ['Lancet 2024 risk factors: 1, 10, 3','<b>Early life 1:</b> less education. <b>Midlife 10:</b> hearing loss, high LDL cholesterol, depression, head injury, inactivity, diabetes, smoking, hypertension, obesity, excessive alcohol. <b>Late life 3:</b> social isolation, air pollution, untreated vision loss. Together about 45%, a modelled upper bound that assumes the factors are causal.'],
@@ -5113,8 +5113,8 @@ const QZ=[
 [2,'A 70-year-old with normal cognition has a positive amyloid PET and no other abnormal biomarker. Which label does the IWG 2024 recommend?',['At risk for Alzheimer\'s disease','Alzheimer\'s disease, clinical stage 4','Probable Alzheimer\'s dementia','Non-Alzheimer\'s pathologic change'],0,'The IWG recommends that amyloid-positive-only, cognitively normal people be called at risk, not described as having the disease.'],
 [2,'What defines biological stage B in the Alzheimer\'s Association 2024 criteria?',['Amyloid positive with no tau PET uptake','High neocortical tau','Moderate neocortical tau','Tau PET uptake in the medial temporal lobe'],3,'Stage A is amyloid without tau PET uptake, B medial temporal tau, C moderate neocortical tau and D high neocortical tau.'],
 [2,'A person\'s CDR Sum of Boxes is 6.0. Which global stage does this usually match?',['Questionable or very mild (CDR 0.5)','Moderate (CDR 2)','Mild (CDR 1)','Severe (CDR 3)'],2,'CDR-SB 4.5-9.0 corresponds to CDR 1; 0.5-4.0 to CDR 0.5, 9.5-15.5 to CDR 2 and 16.0-18.0 to CDR 3.'],
-[2,'On FAST, what does substage 7c mean?',['Loss of the ability to smile','Urinary incontinence','Loss of the ability to walk','Needing help with bathing'],2,'7c is loss of walking. Loss of smiling is 7e, urinary incontinence 6d and help with bathing 6b.'],
-[2,'A man can still dress himself once clothes are laid out, but needs help choosing what is appropriate to wear. Which FAST stage is most consistent?',['Stage 3','Stage 5','Stage 4','Stage 6a'],1,'Needing help choosing appropriate clothing is FAST stage 5. Stage 6a is needing help with dressing itself.'],
+[2,'On FAST, which ability does substage 7c concern?',['Smiling','Bladder control','Walking','Bathing'],2,'7c concerns walking. Smiling is 7e, bladder control 6d and bathing 6b.'],
+[2,'On FAST, which stage is about choosing clothes, before dressing itself needs help?',['Stage 3','Stage 5','Stage 4','Stage 6a'],1,'Choosing clothes is the FAST stage 5 topic. Dressing itself is 6a.'],
 [2,'An MMSE score of 18 falls in which conventional severity range?',['Questionable','Mild','Severe','Moderate'],3,'Conventional ranges are 26-29 questionable, 21-25 mild, 11-20 moderate and 0-10 severe.'],
 [2,'In the original MoCA validation, what share of people with MCI did a cut-off of 26 detect?',['90%','18%','50%','100%'],0,'The MoCA detected 90% of MCI and the MMSE 18%. Both detected most mild Alzheimer\'s (100% and 78%).'],
 [2,'For whom did the FDA clear the Lumipulse plasma p-tau217/Aβ42 test on 16 May 2025?',['Healthy adults aged 50 and older, as a screening test','Any adult in primary care, as a stand-alone diagnosis','People with Down syndrome from age 25','Adults 55 and older with signs of cognitive decline in specialised care'],3,'The FDA states the test is not intended as a screening or stand-alone diagnostic test.'],
@@ -5150,7 +5150,7 @@ const QZ=[
 [4,'The Welsh shingles vaccine study used eligibility by exact date of birth. What kind of design is this?',['A double-blind randomised trial','A case-control study','A Mendelian randomisation study','A natural experiment using regression discontinuity'],3,'Uptake jumped across the birth-date cutoff, allowing a quasi-experimental comparison. No randomised trial has yet tested the vaccine for dementia.'],
 [4,'On the 4AT, what does a total score of 4 or more suggest?',['Normal cognition','Possible delirium','Cognitive impairment without delirium','Severe pain'],1,'4 or more suggests delirium, 1-3 suggests cognitive impairment, and 0 does not definitively exclude either.'],
 [4,'Why does the 4AT user guide warn about people with severe dementia?',['The test cannot be scored at all','They always score 0','The test takes over an hour','They may score 4 without delirium, which lowers specificity'],3,'People with severe dementia may score 2 on both AMT4 and attention. Telling delirium apart then rests on informant history and observation over time.'],
-[4,'Which of these is NOT one of the five PAINAD items?',['Heart rate','Consolability','Breathing independent of vocalisation','Facial expression'],0,'PAINAD scores breathing, negative vocalisation, facial expression, body language and consolability, each 0-2.'],
+[4,'Which of these is NOT one of the five PAINAD items?',['Heart rate','Consolability','Breathing','Facial expression'],0,'PAINAD scores breathing, negative vocalisation, facial expression, body language and consolability, each 0-2.'],
 [4,'According to the Exelon patch label, what is the preferred application site?',['Abdomen','Upper or lower back','Thigh','The same spot each day'],1,'The back is preferred because the person is less likely to remove it there. The abdomen and thigh give 20-30% lower exposure, and a site should not be reused within 14 days.'],
 [4,'What caused most of the serious rivastigmine patch medication errors described in the label?',['The old patch was not removed, or several patches were worn at once','The patch was applied to the back','The patch was changed every 24 hours','The patch was stored in the fridge'],0,'Errors led to hospitalisation and, rarely, death. In one published case, staff applied six 9.5 mg patches on two consecutive days.'],
 [4,'Under NICE SC1, when should medicines not be given covertly in a care home?',['When a family member is visiting','When the medicine is a liquid','When the resident is over 85','When the resident has capacity to decide'],3,'SC1 says covert medicines should not be given to a resident with capacity. Otherwise it calls for a capacity assessment, a best-interests meeting, documentation and review.'],
@@ -5202,7 +5202,7 @@ inits.quiz=()=>{
 
 /* =============== 5.4 glossary =============== */
 const GL=[
-['4AT','A short delirium test with four items: Alertness, AMT4 (four orientation questions), Attention (months backwards) and Acute change or fluctuating course. Scored 0-12; 4 or more suggests delirium.','nursing'],
+['4AT','A short delirium test with four items: Alertness, AMT4 (four orientation questions), Attention and Acute change or fluctuating course. Scored 0-12; 4 or more suggests delirium.','nursing'],
 ['ABC chart','A behaviour record of the Antecedent (what came before), the Behaviour itself and the Consequence (what followed). It is the basis of functional analysis.','nursing'],
 ['ABC score','The 2012 NIA-AA neuropathology score that combines A (Thal amyloid phase), B (Braak tangle stage) and C (CERAD neuritic plaque density) into Not, Low, Intermediate or High Alzheimer\'s change.','brain'],
 ['Aβ42/40 ratio','The ratio of Aβ42 to Aβ40 in spinal fluid or blood. An expert group recommended it over Aβ42 alone for CSF classification.','dx'],

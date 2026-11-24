@@ -55,7 +55,7 @@ const CU_STEPS={
    pt:`Some parts of BPD are behaviours that can stop; other parts are long-standing ways of feeling that change more slowly.`,
    hook:`Hybrid model (CLPS): stable traits + intermittent symptomatic behaviours. [[Skodol2005CLPS]]`},
   {from:.9,at:1,k:'By criterion',t:'All criteria declined together',
-   txt:`Unlike MSAD, CLPS found that all BPD criteria declined at similar rates over 10 years. [[Gunderson2011]] Over the first 2 years, though, affective instability and anger were the most prevalent and least changeable criteria, while self-injury and frantic efforts to avoid abandonment changed most. [[McGlashan2005CLPS]] How fast specific symptoms change depends on the sample and the method.`,
+   txt:`Unlike MSAD, CLPS found that all BPD criteria declined at similar rates over 10 years. [[Gunderson2011]] Over the first 2 years, though, affective instability and anger were the most prevalent and least changeable criteria, while self-injury and desperate efforts to avoid abandonment changed most. [[McGlashan2005CLPS]] How fast specific symptoms change depends on the sample and the method.`,
    pt:`The two big studies agree that people get better; they differ on whether some symptoms fade faster than others.`,
    hook:`CLPS 10 years: criteria fell at similar rates; at 2 years affective instability and anger were the most stable. [[Gunderson2011,McGlashan2005CLPS]]`}]
 };

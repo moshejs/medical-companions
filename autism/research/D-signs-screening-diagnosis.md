@@ -7,7 +7,7 @@ This pass covers how autism is noticed and confirmed. It includes developmental 
 Access notes:
 - Numbers come from PubMed or Europe PMC abstracts. A few come from open full texts: Zubler 2022 milestone tables (PMC author manuscript via the NCBI BioC service), Fuentes 2021 ESCAP guidance (Europe PMC full text) and Sturner 2022 (Europe PMC full text).
 - NICE CG128 and CG142 recommendations were read directly on nice.org.uk on 2026-11-02. They are not indexed by the listed APIs, so their source lines say "unverified", as in passes B, E, F and G.
-- The DSM-5-TR text itself is paywalled. Its record was confirmed through Crossref. Criteria are paraphrased here, never copied, and cross-checked against the open summary of DSM-5 criteria in Fuentes 2021. First 2022 ("DSM-5-TR: what's new") has no abstract and its full text was not open, so it is not cited.
+- The DSM-5-TR text itself is paywalled. Its record was confirmed through Crossref. Criteria are summarised here in our own words, never copied or closely paraphrased, and cross-checked against the open summary of DSM-5 criteria in Fuentes 2021. First 2022 ("DSM-5-TR: what's new") has no abstract and its full text was not open, so it is not cited.
 - The WHO ICD-11 browser and API could not be read without a login. ICD-11 codes therefore come from two open peer-reviewed sources (Fuentes 2021; Chahboun 2022), and the WHO-ICD11 key is not used.
 - The AAP 2020 clinical report (Hyman2020) full text returned 403. Only statements in its abstract are cited to it.
 - Screening tools (M-CHAT-R/F, Q-CHAT, SCQ, AQ, AQ-10) are described by structure and scoring only. No item is copied. They are teaching examples, not self-diagnosis tools.
@@ -141,18 +141,18 @@ Access notes:
 ### criteria · DSM-5-TR autism spectrum disorder (2022)
 - DSM-5 (2013) merged autistic disorder, Asperger's disorder, childhood disintegrative disorder and PDD-NOS into one diagnosis, autism spectrum disorder, with two core domains [[Fuentes2021ESCAP]].
 - DSM-5 places autism among the neurodevelopmental disorders and makes clear it is not a psychotic disorder [[Fuentes2021ESCAP]].
-- Criterion A requires persistent differences in social communication and social interaction across contexts, with all three of the following, currently or by history:
-  - A1: social-emotional reciprocity (back-and-forth conversation, sharing interests or emotions, starting or responding to interaction)
-  - A2: nonverbal communication (eye contact, gestures, facial expression, body language, and understanding them)
-  - A3: developing, maintaining and understanding relationships [[APA2022,Fuentes2021ESCAP]].
-- Criterion B requires at least two of four restricted or repetitive patterns:
-  - B1: stereotyped or repetitive movements, use of objects or speech
-  - B2: insistence on sameness, inflexible routines or ritualized behaviour
-  - B3: highly restricted, fixated interests that are unusual in intensity or focus
-  - B4: hyper- or hyporeactivity to sensory input, or unusual interest in sensory aspects of the environment [[APA2022,Fuentes2021ESCAP]].
-- Criterion C: symptoms are present in the early developmental period. They may not become fully apparent until social demands exceed capacities, or may be masked later by learned strategies [[APA2022,Fuentes2021ESCAP]].
-- Criterion D: symptoms cause clinically significant impairment in social, occupational or other important areas of current functioning [[APA2022,Fuentes2021ESCAP]].
-- Criterion E: the differences are not better explained by intellectual developmental disorder or global developmental delay. When both are present, social communication should be below what is expected for general developmental level [[APA2022]].
+- Criterion A (summarised): lasting differences in social communication and interaction, seen across settings, with all three areas affected now or in the past:
+  - A1: the give-and-take of social contact (conversation, sharing interests or feelings, starting or responding to interaction)
+  - A2: using and reading nonverbal signals (eye contact, gestures, facial expression, body language)
+  - A3: making, keeping and making sense of relationships [[APA2022,Fuentes2021ESCAP]].
+- Criterion B (summarised): at least two of four areas of restricted or repetitive patterns:
+  - B1: repeated body movements, use of objects or speech
+  - B2: a strong need for sameness, fixed routines or ritual-like habits
+  - B3: very narrow interests held with unusual strength or focus
+  - B4: over- or under-reaction to sensory input, or an unusual pull towards sensory experiences [[APA2022,Fuentes2021ESCAP]].
+- Criterion C (summarised): the signs began in early development, though they may not be obvious until social demands outgrow the person's capacities, or may be hidden later by learned strategies [[APA2022,Fuentes2021ESCAP]].
+- Criterion D (summarised): the differences cause clinically significant problems in current social, work or other important areas of life [[APA2022,Fuentes2021ESCAP]].
+- Criterion E (summarised): intellectual developmental disorder or global developmental delay does not account for the differences better. When both are present, social communication is lower than the person's general developmental level would predict [[APA2022]].
 - The 2022 wording change: the DSM-5-TR text of criterion A was clarified to say "all of the following". The 2013 phrase "as manifested by the following" had been read by some as needing fewer than all three A symptoms. The intended rule (all three A, at least two B) did not change [[APA2022,Fuentes2021ESCAP]].
 - Specifiers record whether the person has accompanying intellectual impairment, accompanying language impairment, an association with a known genetic or other medical condition or environmental factor, an association with another neurodevelopmental, mental or behavioural problem, or catatonia [[APA2022,Fuentes2021ESCAP]].
 - Severity is rated separately for social communication and for restricted, repetitive behaviours: Level 1 "requiring support", Level 2 "requiring substantial support", Level 3 "requiring very substantial support" [[APA2022]].
@@ -163,9 +163,9 @@ Access notes:
 ### criteria · ICD-11 6A02 autism spectrum disorder
 - ICD-11 was released by WHO in June 2018 and came into effect on 1 January 2022 [[Fuentes2021ESCAP]].
 - As in DSM-5, ICD-11 groups autism into two core domains:
-  - persistent deficits in starting and sustaining reciprocal social interaction and social communication
-  - restricted, repetitive and inflexible patterns of behaviour, interests or activities.
-  The differences must cause impairment and are usually seen across settings, although severity can vary with context [[Fuentes2021ESCAP]].
+  - long-lasting difficulty starting and keeping up two-way social contact and communication
+  - a range of narrow, repeated and rigid patterns in behaviour, interests or activities.
+  The differences are serious enough to cause impairment and usually show across most settings, though how much can change with context [[Fuentes2021ESCAP]].
 - Instead of DSM severity levels, ICD-11 subdivides autism by two axes: intellectual development and functional language:
   - 6A02.0: no disorder of intellectual development; mild or no impairment of functional language
   - 6A02.1: with disorder of intellectual development; mild or no impairment of functional language

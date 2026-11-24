@@ -62,7 +62,7 @@ Access notes:
 
 ### families · Medicines in pregnancy (relevant because these drugs are used off-label in BPD)
 - The US Depakote label's boxed warning states that valproate can cause major congenital malformations, particularly neural tube defects, and decreased IQ scores and neurodevelopmental disorders after exposure in the womb. [[FDA-Depakote]]
-- The label states that valproate "should not be administered to a woman of childbearing potential unless other medications have failed to provide adequate symptom control or are otherwise unacceptable", with effective contraception in such cases. It also states that the malformation risk is dose-dependent with no threshold dose that is free of risk. [[FDA-Depakote]]
+- The label says valproate should not be given to a woman who could become pregnant unless other medicines have not controlled symptoms well enough or are otherwise unacceptable, with effective contraception in such cases. It also states that the malformation risk is dose-dependent with no threshold dose that is free of risk. [[FDA-Depakote]]
 - In the EURAP registry (7,355 monotherapy pregnancies), the rate of major congenital malformations was 10.3% with valproate, 5.5% with carbamazepine, 3.9% with topiramate, 3.0% with oxcarbazepine, 2.9% with lamotrigine and 2.8% with levetiracetam. [[Tomson2018]]
 - In the Nordic SCAN-AED cohort (4,494,926 children), at age 8, 2.7% of children exposed to valproate and 4.3% exposed to topiramate had autism, compared with 1.5% of unexposed children of mothers with epilepsy. Adjusted HRs for autism were 2.4 (1.7–3.3) for valproate and 2.8 (1.4–5.7) for topiramate. [[Bjork2022]]
 - In the same cohort, intellectual disability had aHR 2.5 (1.7–3.7) after valproate and 3.5 (1.4–8.6) after topiramate. Lamotrigine monotherapy showed no consistently increased risk. [[Bjork2022]]
@@ -77,7 +77,7 @@ Access notes:
 - In the McLean study, people with BPD were 3 times more likely than personality-disordered comparison subjects to receive US Social Security Disability Income (SSDI). Of those on SSDI at baseline, 40% came off it, but 43% of them went back on. [[Zanarini2009]]
 - By the 10-year follow-up, 55% of people with BPD receiving SSDI had worked or studied at least half of the previous 2 years. About 70% had a supportive friendship, and over 50% had a good relationship with a romantic partner. [[Zanarini2009]]
 - Over 24 years of follow-up, on average 47.2% of people with BPD were on SSDI at each wave. Predictors were age 26 or older, lower IQ, severity of non-sexual childhood abuse and PTSD. [[Kramer2023SSDI]]
-- In a US national survey, BPD was associated with substantial mental and physical disability, especially among women. [[Grant2008]]
+- In a US national survey, BPD went with considerable mental and physical disability, more so in women. [[Grant2008]]
 - An integrative review of 11 studies linked BPD with lower education, higher dropout from tertiary education and low employment. Barriers included symptoms, self-stigma and non-disclosure. Enablers included boldness and honesty, and employment itself appeared to improve symptoms. [[Larcombe2022]]
 - A scoping review found only 7 papers on employment interventions for BPD, all small or non-randomised. Every programme combined a psychotherapy component with work goals. [[Kernot2023]]
 - In a Dutch registry of Individual Placement and Support (IPS), people with personality disorders found competitive work as often as people with other mental disorders (37.6% vs 38.0%; adjusted OR 0.97, 0.74–1.27). [[Juurlink2022]]
@@ -124,7 +124,7 @@ Access notes:
 - A critical review found peer support for BPD feasible and in line with personal recovery goals: self-acceptance, hope, meaningful roles and self-determination. Formal programme evaluations are lacking, and burnout and boundary challenges are real. (Early evidence) [[Turner2024]]
 - A scoping review of 11 studies (2019–2025) reported better emotion regulation, less isolation and more hope with peer support. It also noted emotional exhaustion and role ambiguity among peer workers. Few studies measured symptom change. (Early evidence) [[Dufour2025]]
 - NICE CG78: work in an atmosphere of hope and optimism, "explaining that recovery is possible and attainable". Bear in mind that many people have experienced rejection, abuse, trauma and stigma. [[NICE2009]]
-- NICE CG78: people with BPD "should not be excluded from any health or social care service because of their diagnosis or because they have self-harmed". [[NICE2009]]
+- NICE CG78: people with BPD must not be shut out of any health or social care service because of their diagnosis or because they have self-harmed. [[NICE2009]]
 
 ### nursing · Nurse attitudes and what changes them
 - A systematic integrative review of 40 studies found that mental health nurses' attitudes toward people with BPD were poorer than those of other professionals and poorer than toward other diagnoses. Nurses asked for a coherent therapeutic framework, and care seemed better where one existed. [[Dickens2016]]
@@ -174,14 +174,14 @@ Access notes:
 
 ### nursing · Observation, de-escalation and the ward environment
 - NICE NG225: mental health and acute ward staff should decide the need for close observation case by case, taking the person's views into account. Observation should be by skilled, trained staff, with informed consent or within a legal framework, and reviewed regularly. [[NICE2022SelfHarm]]
-- De-escalation is defined as "a collective term for a range of interwoven staff-delivered components comprising communication, self-regulation, assessment, actions, and safety maintenance". Its aim is to reduce aggression while minimising coercion. [[Hallett2017]]
+- De-escalation is defined as an umbrella term for several linked things staff do: communicating, staying calm themselves, assessing, acting and keeping everyone safe. Its aim is to reduce aggression while minimising coercion. [[Hallett2017]]
 - In that concept analysis (79 studies), mental health settings and nursing dominated, but none of the five proposed de-escalation theories had empirical support. [[Hallett2017]]
 - In the Safewards cluster RCT (31 wards, 15 hospitals), simple interventions to improve staff–patient relationships reduced conflict events by 15% (95% CI 5.7–23.7%) and containment events by 23.2% (9.9–35.5%). [[Bowers2015]]
 
 ### nursing · Medicines on the ward and in the community
 - NICE CG78: do not use drug treatment specifically for BPD or for its individual symptoms or behaviours. [[NICE2009,Kendall2009]]
 - NICE CG78: in a crisis, short-term sedative medication may be considered cautiously, for no longer than 1 week. Choose a drug with a low side-effect profile, low addictive potential, low misuse potential and relative safety in overdose. [[NICE2009]]
-- NICE CG78: "prescribe fewer tablets more frequently if there is a significant risk of overdose". Make sure prescribers agree on the drug and name one primary prescriber. [[NICE2009]]
+- NICE CG78: give smaller supplies more often when the risk of overdose is significant. Make sure prescribers agree on the drug and name one primary prescriber. [[NICE2009]]
 - NICE CG78: review medicines in people without a diagnosed comorbid illness with the aim of reducing and stopping unnecessary drugs. Polypharmacy was a risk factor for obesity in the McLean cohort. [[NICE2009,Frankenburg2006Obesity]]
 
 ### nursing · Structured groups nurses can deliver

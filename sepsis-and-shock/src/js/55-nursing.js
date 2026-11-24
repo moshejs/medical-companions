@@ -1,5 +1,5 @@
 /* ===== 5.5 Nursing care ===== */
-/* The NEWS2 points below are the RCP chart as reproduced in Verma2023NEWS2 (cited in the section);
+/* The NEWS2 point values below follow NEWS2 (RCP 2017) as reported in Verma2023NEWS2 (cited in the section);
    the observations are invented for one illustrative patient. */
 function nrPts(k,v,o2){switch(k){
   case 'rr':return v<=8?3:v<=11?1:v<=20?0:v<=24?2:3;
@@ -29,9 +29,9 @@ const NR_STEPS=[
   pt:`Nurses regularly check breathing, oxygen, blood pressure, pulse, alertness and temperature, and add them into one score.`,
   hook:`NEWS2 parameters: respiration rate, SpO2, air or oxygen, systolic BP, pulse, consciousness, temperature. [[Verma2023NEWS2]]`},
  {from:.1,at:.13,loop:1,k:'12:00 · score 5',t:'Score: the total starts to climb',
-  txt:`Breathing 21, SpO2 95%, pulse 102 and a temperature of 38.4 °C add up to 5. On the RCP chart as reproduced by Verma, 0–4 is low, 5–6 medium and 7–20 high clinical risk; a 3 in any single parameter is treated as low-medium risk. [[Verma2023NEWS2]] In an Indian ED cohort NEWS2 predicted mortality better than qSOFA (AUC 0.781 vs 0.729), and SSC 2021 recommends against qSOFA as a single screening tool. [[Verma2023NEWS2,Evans2021SSC]]`,
+  txt:`Breathing 21, SpO2 95%, pulse 102 and a temperature of 38.4 °C add up to 5. In NEWS2, as reported by Verma, 0–4 is low, 5–6 medium and 7–20 high clinical risk; a 3 in any single parameter is treated as low-medium risk. [[Verma2023NEWS2]] In an Indian ED cohort NEWS2 predicted mortality better than qSOFA (AUC 0.781 vs 0.729), and SSC 2021 recommends against qSOFA as a single screening tool. [[Verma2023NEWS2,Evans2021SSC]]`,
   pt:`A rising score is a signal to look harder and ask: could this be sepsis?`,
-  hook:`NEWS2 bands (RCP, as reproduced): 0–4 low, 5–6 medium, ≥7 high; any single 3 = low-medium. [[Verma2023NEWS2]]`},
+  hook:`NEWS2 bands (RCP): 0–4 low, 5–6 medium, ≥7 high; any single 3 = low-medium. [[Verma2023NEWS2]]`},
  {from:.22,at:.26,loop:2,k:'14:00 · score 13',t:'Escalate: high score, new confusion',
   txt:`New confusion scores 3 on its own. With breathing 26, SpO2 93%, systolic 96 and pulse 118, the total is 13, in the high band. [[Verma2023NEWS2]] The nurse calls the rapid response team. In a meta-analysis, adult rapid response teams cut cardiac arrests outside the ICU (RR 0.66) without a clear fall in hospital mortality; MERIT tripled emergency calls without changing its composite outcome. [[Chan2010RRT,Hillman2005MERIT]]`,
   pt:`New confusion, fast breathing or low blood pressure in someone with an infection is a reason to get help straight away.`,
@@ -45,7 +45,7 @@ const NR_STEPS=[
   pt:`The antibiotic goes in through a drip as soon as possible, here within half an hour of the alarm.`,
   hook:`SSC 2021: septic shock or high likelihood of sepsis, antimicrobials ideally within 1 h. [[Evans2021SSC]]`},
  {from:.58,at:.63,loop:3,k:'15:00 · vasopressor',t:'Act: a vasopressor through a peripheral line',
-  txt:`Pressure stays low after fluids, so noradrenaline (norepinephrine) is started. SSC 2021 suggests starting peripherally rather than waiting for a central line, "only for a short period of time and in a vein in or proximal to the antecubital fossa". [[Evans2021SSC]] 85.3% of published peripheral tissue injuries involved a site below the antecubital or popliteal fossa. [[Loubani2015JCC]] The Levophed label: blood pressure every two minutes until the desired effect, then every five minutes; avoid leg veins in older people. [[FDA-Levophed]] Extravasation occurred in 2% of 783 peripheral infusions in one ICU. [[CardenasGarcia2015JHM]]`,
+  txt:`Pressure stays low after fluids, so noradrenaline (norepinephrine) is started. SSC 2021 suggests starting peripherally rather than waiting for a central line, for a short time only and in a vein at or above the antecubital fossa. [[Evans2021SSC]] 85.3% of published peripheral tissue injuries involved a site below the antecubital or popliteal fossa. [[Loubani2015JCC]] The Levophed label: blood pressure every two minutes until the desired effect, then every five minutes; avoid leg veins in older people. [[FDA-Levophed]] Extravasation occurred in 2% of 783 peripheral infusions in one ICU. [[CardenasGarcia2015JHM]]`,
   pt:`The medicine that raises blood pressure runs into a vein near the elbow, and the nurse checks the site and the blood pressure very often.`,
   hook:`Peripheral vasopressor: short term, vein in or above the antecubital fossa (SSC 2021). [[Evans2021SSC,Loubani2015JCC]]`},
  {from:.7,at:.76,loop:3,k:'16:00 · fluid balance',t:'Act: hourly urine and fluid balance',
@@ -58,14 +58,14 @@ const NR_STEPS=[
   hook:`Wean noradrenaline gradually: abrupt stopping may cause marked hypotension (label). [[FDA-Levophed]]`}
 ];
 const NR_Q=[
- {q:'An adult with pneumonia has respiration rate 26, SpO2 93% on air, systolic BP 96, pulse 118, new confusion and temperature 38.9 °C. On the NEWS2 chart as reproduced from the RCP, which band is this?',o:['High clinical risk (7 or more)','Medium clinical risk (5–6)','Low clinical risk (0–4)','It cannot be scored without a lactate'],a:0,
-  e:`3 + 2 + 0 + 2 + 2 + 3 + 1 = 13. The RCP chart puts 7–20 in the high band. [[Verma2023NEWS2]] NEWS2 is a teaching example here, not a triage tool.`},
+ {q:'An adult with pneumonia has respiration rate 26, SpO2 93% on air, systolic BP 96, pulse 118, new confusion and temperature 38.9 °C. Using the NEWS2 point values, which band is this?',o:['High clinical risk (7 or more)','Medium clinical risk (5–6)','Low clinical risk (0–4)','It cannot be scored without a lactate'],a:0,
+  e:`3 + 2 + 0 + 2 + 2 + 3 + 1 = 13. NEWS2 puts 7–20 in the high band. [[Verma2023NEWS2]] NEWS2 is a teaching example here, not a triage tool.`},
  {q:'Septic shock is suspected. The antibiotic is ready, but blood cultures have still not been obtained after 50 minutes of difficult access. Which statement matches SSC 2021?',o:['Cultures come first only if they cause no substantial delay (under 45 minutes), so the antibiotic should not keep waiting','Antibiotics must always wait until cultures are drawn','Cultures are unnecessary in septic shock','Wait for a central line before giving anything'],a:0,
-  e:`SSC 2021: cultures before antimicrobials "if it results in no substantial delay in the start of antimicrobials (i.e. < 45 min)", and antimicrobials ideally within 1 h for possible septic shock. [[Evans2021SSC]]`},
+  e:`SSC 2021: cultures before antimicrobials as long as this does not hold up the first dose by much (under 45 minutes), and antimicrobials ideally within 1 h for possible septic shock. [[Evans2021SSC]]`},
  {q:'Noradrenaline (norepinephrine) is to start through a peripheral cannula. Which site fits the SSC 2021 remark and the injury data?',o:['A vein in or above the antecubital fossa','A small vein on the back of the hand','A vein on the foot','Any vein, as site makes no difference'],a:0,
-  e:`SSC 2021: "in a vein in or proximal to the antecubital fossa", for a short period. [[Evans2021SSC]] 85.3% of peripheral tissue injuries involved a site below the antecubital or popliteal fossa. [[Loubani2015JCC]] The label also advises avoiding leg veins in older people. [[FDA-Levophed]]`},
+  e:`SSC 2021: a vein at or above the antecubital fossa, for a short time only. [[Evans2021SSC]] 85.3% of peripheral tissue injuries involved a site below the antecubital or popliteal fossa. [[Loubani2015JCC]] The label also advises avoiding leg veins in older people. [[FDA-Levophed]]`},
  {q:'The skin around a peripheral noradrenaline site is pale, cool and swollen. Which statement matches the Levophed label?',o:['The area should be infiltrated as soon as possible with 10–15 mL of saline containing 5–10 mg of an adrenergic blocking agent (phentolamine)','Apply heat and continue the infusion at the same site','Stop the infusion abruptly everywhere and wait','Massage the area to spread the drug'],a:0,
-  e:`The label: extravasated areas "should be infiltrated as soon as possible with 10 mL to 15 mL of saline solution containing from 5 mg to 10 mg of an adrenergic blocking agent". It also warns that abrupt stopping may cause marked hypotension. [[FDA-Levophed]] Quoted as published; the prescriber and local protocol decide.`},
+  e:`The label says to infiltrate the extravasated area promptly with 10 mL to 15 mL of saline containing 5 mg to 10 mg of an adrenergic blocking agent. It also warns that abrupt stopping may cause marked hypotension. [[FDA-Levophed]] Summarised from the label; the prescriber and local protocol decide.`},
  {q:'A 70 kg patient has passed 150 mL of urine in the last 6 hours. What does this meet?',o:['The KDIGO urine-output definition of AKI (about 0.36 mL/kg/h, below 0.5 for 6 hours)','Normal output, no action','KDIGO stage 3 (anuria)','Nothing, because only creatinine defines AKI'],a:0,
   e:`150 ÷ 70 ÷ 6 ≈ 0.36 mL/kg/h. KDIGO: urine below 0.5 mL/kg/hour for 6 hours meets the AKI definition (stage 1 at 6–12 hours). [[Kellum2013KDIGO]] Report sustained low output.`},
  {q:'A ventilated patient lies calm with eyes open and follows you with their gaze. Can delirium be ruled out by looking?',o:['No: in the CAM-ICU study delirium was present in 39.5% of observations where the patient looked alert','Yes: calm patients do not have delirium','Yes, if they are not agitated','Delirium cannot be assessed in ventilated patients'],a:0,

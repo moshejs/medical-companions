@@ -82,7 +82,7 @@ Access notes:
 - The LARS score (low anterior resection syndrome; 961 respondents) scores five items: flatus incontinence, liquid-stool incontinence, frequency, clustering and urgency. Totals of 0–20 mean no LARS, 21–29 minor and 30–42 major. Scores differed significantly with radiotherapy and with tumour height under 5 cm [[Emmertsen2012]].
 
 ### surgery · Malignant polyps and local excision
-- Haggitt (129 carcinomas arising in adenomas, mean follow-up 81 months): none of 65 patients with carcinoma confined to the mucosa had an adverse outcome, compared with 8 of 64 with invasive carcinoma. Level 4 invasion (submucosa of the bowel wall below the stalk) and rectal location were the only significant adverse factors [[Haggitt1985]].
+- Haggitt (129 carcinomas arising in adenomas, mean follow-up 81 months): no adverse outcome occurred in any of the 65 patients whose carcinoma stayed within the mucosa, against 8 of 64 with invasive carcinoma. Level 4 invasion (submucosa of the bowel wall below the stalk) and rectal location were the only significant adverse factors [[Haggitt1985]].
 - Haggitt levels: 0 = mucosa; 1 = head; 2 = neck; 3 = stalk; 4 = submucosa of the underlying wall. Seven of 28 level-4 lesions had an adverse outcome [[Haggitt1985]].
 - The 2022 NCCN rectal update covers malignant polyps and resectable non-metastatic rectal cancer. It redrew the stage II–III algorithms around total neoadjuvant therapy, expanded short-course radiation options and added watch-and-wait for complete responders [[Benson2022]].
 
@@ -161,7 +161,7 @@ Access notes:
   - Day 1: oxaliplatin 85 mg/m² over 120 minutes, with leucovorin 200 mg/m² over 120 minutes, then fluorouracil 400 mg/m² bolus and 600 mg/m² over 22 hours.
   - Day 2: leucovorin and fluorouracil repeated.
   - Adjuvant treatment: up to 12 cycles [[FDA-Oxaliplatin]].
-- Oxaliplatin label indication: "adjuvant treatment of stage III colon cancer in patients who have undergone complete resection of the primary tumor", with infusional fluorouracil and leucovorin [[FDA-Oxaliplatin]].
+- Oxaliplatin label indication: adjuvant treatment of stage III colon cancer once the primary tumour has been completely removed, given with infusional fluorouracil and leucovorin [[FDA-Oxaliplatin]].
 - Oxaliplatin boxed warning: serious and fatal hypersensitivity reactions, including anaphylaxis, "within minutes of administration and during any cycle" [[FDA-Oxaliplatin]].
 - Oxaliplatin warnings: acute and delayed peripheral sensory neuropathy ("avoid topical application of ice"), myelosuppression, PRES, pulmonary toxicity, hepatotoxicity, QT prolongation and rhabdomyolysis [[FDA-Oxaliplatin]].
 - Capecitabine, adjuvant colon:
@@ -238,7 +238,7 @@ Access notes:
 - Cercek 2025 rectal cohort (n=50): 2-year recurrence-free survival was 96% (95% CI 90–100) at median follow-up of 30.2 months (full text). Across all 117 patients it was 92% [[Cercek2025]].
 - Across both Cercek 2025 cohorts, 84 of 103 who completed treatment had a cCR and 82 avoided surgery. Ninety-five percent had only grade 1–2 adverse events or none [[Cercek2025]].
 - AZUR-1 (Cercek 2026; global single-arm registrational trial, NCT05723562; dostarlimab 500 mg every 3 weeks for 9 cycles, untreated stage II/III dMMR/MSI-H locally advanced rectal cancer; 154 enrolled, median follow-up 26.3 months): of 144 with ≥12 months' follow-up, 68% had a clinical complete response sustained for 12 months (investigator-assessed). pCR in 12/15 (80%) who had surgery after dostarlimab alone; cCR12 + pCR 76%. No recurrences reported in patients with cCR or pCR. Grade ≥3 immune-mediated adverse events in 4 (3%) (Early evidence: interim analysis) [[Cercek2026]].
-- Regulatory status (updated U-2026-10-29): the JEMPERLI US label (version 15, effective 2026-10-19) adds indication 1.2, dostarlimab as a single agent for adults with stage II/III MSI-H or dMMR locally advanced rectal cancer, 500 mg every 3 weeks for 9 cycles. "This indication is approved under accelerated approval based on sustained clinical complete response for 12 months." "The long-term risk of relapse is unknown" [[FDA-Jemperli]].
+- Regulatory status (updated U-2026-10-29): the JEMPERLI US label (version 15, effective 2026-10-19) adds indication 1.2, dostarlimab as a single agent for adults with stage II/III MSI-H or dMMR locally advanced rectal cancer, 500 mg every 3 weeks for 9 cycles. The indication has accelerated approval, based on a clinical complete response lasting 12 months. "The long-term risk of relapse is unknown" [[FDA-Jemperli]].
 
 ### Exam hooks
 - TME = sharp dissection removing the rectum with its intact mesorectal envelope. Heald's 1986 series reported 5-year corrected survival of 87%, with no staple-line recurrences after curative surgery [[Heald1986]].

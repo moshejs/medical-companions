@@ -14,12 +14,12 @@ Access notes:
 ## Findings
 
 ### beighton · The nine Beighton manoeuvres
-- The Beighton score (BS) is a 9-point score made of 5 manoeuvres, 4 of them done on both sides, scoring 1 point per side. The fifth, trunk flexion, scores 1 point [[Thwaites2022,Carroll2023]].
-- Item 1 (2 points): passive dorsiflexion of the fifth finger (little finger metacarpophalangeal joint) to 90° or more. Malek describes it as "beyond 90°", and the figure redrawn from Malfait 2017 gives "≥ 90°" [[Thwaites2022,Malek2021D,Malfait2017]].
-- Item 2 (2 points): passive apposition of the thumb to the volar (flexor) surface of the same-side forearm [[Thwaites2022,Carroll2023]].
-- Item 3 (2 points): hyperextension of the elbow by 10° or more [[Thwaites2022,Carroll2023]].
-- Item 4 (2 points): hyperextension of the knee by 10° or more [[Thwaites2022,Carroll2023]].
-- Item 5 (1 point): forward flexion of the trunk so that both palms rest flat on the floor, with knees locked straight and feet together [[Thwaites2022,Carroll2023]].
+- The Beighton score (BS) runs from 0 to 9. It uses 5 tests: 4 are checked on the left and right (1 point each side) and one, bending forward, is checked once for 1 point [[Thwaites2022,Carroll2023]].
+- Little finger (up to 2 points): the examiner bends the finger back at its knuckle (metacarpophalangeal joint); 90° or more scores. Malek gives the threshold as more than 90°, and the figure redrawn from Malfait 2017 as 90° or more [[Thwaites2022,Malek2021D,Malfait2017]].
+- Thumb (up to 2 points): the examiner can bring the thumb down to touch the inner (palm-side) forearm of the same arm [[Thwaites2022,Carroll2023]].
+- Elbow (up to 2 points): the elbow straightens past a straight line by 10° or more [[Thwaites2022,Carroll2023]].
+- Knee (up to 2 points): the knee straightens past a straight line by 10° or more [[Thwaites2022,Carroll2023]].
+- Bending forward (1 point): with feet together and knees fully straight, the person can put both palms flat on the floor [[Thwaites2022,Carroll2023]].
 - Beighton and colleagues adapted the BS in 1973 from the 1964 Carter and Wilkinson score, in a study of joint mobility in an African population. They replaced hyperextension of all the finger joints with the little finger beyond 90°, and ankle dorsiflexion with trunk flexion [[Malek2021D,Beighton1973]].
 - The BS was built as an epidemiological screening tool, not a diagnostic test. The original paper gives no evidence-based reason for its choice of joints or for its usual adult cut-off of 4 or more out of 9 (Established) [[Malek2021D]].
 - Two-thirds of the scored joints are in the upper limbs. Major joints such as the shoulders, hips and ankles are not scored, only one plane of motion is tested, and the score shows whether hypermobility is present but not how severe it is [[Malek2021D]].
@@ -57,12 +57,7 @@ Access notes:
 - In 2,149 people with hEDS, a registry cluster analysis concluded that Beighton scores are unreliable for phenotyping people with multiple conditions [[Petrucci2024]].
 
 ### beighton · The five-part questionnaire (5PQ) for historical hypermobility
-- The 5PQ asks five yes/no questions [[Carroll2023,Hakim2003]]:
-  1. Do you consider yourself double-jointed?
-  2. Can you now (or could you ever) place your hands flat on the floor without bending your knees?
-  3. Can you now (or could you ever) bend your thumb to touch your forearm?
-  4. As a child, did you amuse your friends by contorting your body into strange shapes, or could you do the splits?
-  5. As a child or teenager, did your shoulder or kneecap dislocate on more than one occasion?
+- The 5PQ is a self-report screen of five yes/no questions. Its topics are: seeing yourself as double-jointed; palms flat on the floor with straight knees (now or in the past); thumb to forearm (now or in the past); body contortions or the splits in childhood; and repeated shoulder or kneecap dislocation in childhood or the teens. The exact question wording is in the original paper [[Carroll2023,Hakim2003]].
 - In its development study, "yes" to any 2 questions gave the best combined sensitivity and specificity: 84% and 89% in the first cohort (212 cases, 57 controls), and 84% and 80% in a replication cohort (170 cases, 50 controls) [[Hakim2003]].
 - Secondary sources quote different 5PQ figures: Carroll gives 84% sensitivity and 85% specificity, and Thwaites gives sensitivity 80–85% and specificity 80–90%. The original reports 84/89 and 84/80 [[Carroll2023,Thwaites2022,Hakim2003]].
 - In a Swedish non-clinical sample (297 adults), the translated 5PQ had sensitivity 91%, specificity 75% and AUC 0.87 against an age-adjusted BS [[Glans2020]].
@@ -79,43 +74,31 @@ Access notes:
 - Before 2017, symptomatic hypermobility was diagnosed as joint hypermobility syndrome under the Brighton 1998 criteria (major and minor criteria, including arthralgia, dislocations, soft tissue rheumatism, marfanoid habitus and abnormal skin) or as EDS hypermobility type under Villefranche. The 2017 nosology merged these into hEDS [[Grahame2000,Remvig2007,Tinkle2017]].
 
 ### criteria · The 2017 hEDS criteria, as published
-- A diagnosis of hEDS needs Criterion 1, Criterion 2 and Criterion 3 all to be met [[Fairweather2025,Malfait2017]].
-- Criterion 1 is generalised joint hypermobility on the BS, using cut-offs set by age and sex [[Tofts2023,Fairweather2025,Thwaites2022]]:
-  - 6 or more out of 9 for prepubertal children and adolescents
-  - 5 or more for pubertal men and women up to age 50
-  - 4 or more for people over 50
-- Criterion 1 may also be met when the BS is one point below the cut-off and the 5PQ score is 2 or more [[Thwaites2022]].
-- Criterion 2 is two or more of Features A, B and C [[Thwaites2022,Fairweather2025]].
-- Feature A means systemic signs of a more generalised connective tissue disorder. At least 5 of these 12 items must be present [[Fairweather2025,Thwaites2022]]:
-  1. Unusually soft or velvety skin
-  2. Mild skin hyperextensibility
-  3. Unexplained striae (stretch marks)
-  4. Bilateral piezogenic papules of the heel
-  5. Recurrent or multiple abdominal hernias
-  6. Atrophic scarring at 2 or more sites
-  7. Pelvic floor, rectal or uterine prolapse (in specific groups)
-  8. Dental crowding with a high or narrow palate
-  9. Arachnodactyly (long, slender fingers)
-  10. Arm span-to-height ratio of 1.05 or more
-  11. Mitral valve prolapse
-  12. Aortic root dilatation with Z-score above +2
-- Mild skin hyperextensibility (Feature A item 2) is defined as skin stretch over 1.5 cm at the distal forearm or back of the hand, over 3 cm at the neck, elbow or knee, or over 1 cm on the palm [[Thwaites2022]].
-- Striae (Feature A item 3) count only at the back, groins, thighs, breasts or abdomen, and only in adolescents, men or prepubertal women without a history of significant weight gain or loss [[Fairweather2025]].
-- Atrophic scarring (Feature A item 6) must involve at least two sites, without the truly papyraceous (paper-thin) or haemosiderotic (brown, iron-stained) scars seen in classical EDS [[Fairweather2025]].
-- Prolapse (Feature A item 7) counts only in children, men or women who have never given birth (nulliparous), without morbid obesity or another predisposing condition [[Fairweather2025,Thwaites2022]].
-- Arachnodactyly (Feature A item 9) means a positive wrist sign or a positive thumb sign on both sides. Mitral valve prolapse (item 11) must be "mild or greater based on strict echocardiographic criteria" [[Fairweather2025]].
-- Feature B is a positive family history: at least one first-degree relative who independently meets the current hEDS criteria [[Fairweather2025,Thwaites2022]].
-- Feature C means musculoskeletal complications, at least one of the following [[Fairweather2025,Thwaites2022]]:
-  - Musculoskeletal pain in two or more limbs, recurring daily for at least 3 months
-  - Chronic widespread pain for 3 months or more
-  - Recurrent joint dislocations or frank joint instability without trauma
-- "Recurrent dislocations or instability" (Feature C) means 3 or more atraumatic dislocations in the same joint, 2 or more atraumatic dislocations in two different joints at different times, or medical confirmation of instability at 2 or more sites unrelated to trauma [[Fairweather2025]].
-- Criterion 3 has three parts, all required [[Fairweather2025,Thwaites2022]]:
-  - No unusual skin fragility. Skin fragility should prompt consideration of other EDS types.
-  - Other heritable and acquired connective tissue disorders, including autoimmune rheumatological conditions, are excluded.
-  - Alternative diagnoses that cause joint hypermobility through hypotonia or connective tissue laxity are excluded.
-- People with an acquired rheumatic connective tissue disorder (for example lupus or rheumatoid arthritis) can be diagnosed with hEDS only if they meet both Features A and B. Feature C (pain or instability) cannot be counted [[Fairweather2025,Thwaites2022]].
-- The criteria list the alternative diagnoses to exclude: neuromuscular disorders (for example myopathic EDS and Bethlem myopathy), other heritable connective tissue disorders (other EDS types, Loeys-Dietz syndrome, Marfan syndrome) and skeletal dysplasias (for example osteogenesis imperfecta). Exclusion can rest on history, examination and molecular genetic testing "as indicated" [[Fairweather2025]].
+- hEDS is diagnosed only when all three criteria (1, 2 and 3) are satisfied [[Fairweather2025,Malfait2017]].
+- Criterion 1 asks for generalised joint hypermobility, judged by the BS against a cut-off that depends on age and sex [[Tofts2023,Fairweather2025,Thwaites2022]]:
+  - children before puberty and adolescents: at least 6 of 9
+  - from puberty to age 50, both sexes: at least 5
+  - over 50: at least 4
+- A BS just 1 point short of the cut-off can still satisfy Criterion 1 if the person answers yes to 2 or more 5PQ questions [[Thwaites2022]].
+- Criterion 2 needs at least two of three features, labelled A, B and C [[Thwaites2022,Fairweather2025]].
+- Feature A looks for body-wide signs that point to a broader connective tissue problem. It is met when 5 or more of 12 signs are found [[Fairweather2025,Thwaites2022]]. In short, the 12 signs cover: soft, velvety skin; skin that stretches a little more than usual; stretch marks without a clear reason; small fat bulges (piezogenic papules) on both heels; repeated or several abdominal hernias; thin, depressed scars in at least 2 places; prolapse of the pelvic floor, rectum or womb (only in certain groups); crowded teeth with a high or narrow palate; long, thin fingers (arachnodactyly); an arm span at least 1.05 times height; mitral valve prolapse; and a widened aortic root with a Z-score over +2.
+- The skin-stretch sign has set thresholds: more than 1.5 cm on the lower forearm or back of the hand, more than 3 cm over the neck, elbow or knee, and more than 1 cm on the palm [[Thwaites2022]].
+- Stretch marks count only on the back, groins, thighs, breasts or abdomen, and only in teenagers, men or women before puberty who have not had a large change in weight [[Fairweather2025]].
+- The scar sign needs 2 or more sites, and the scars must not be the very thin (papyraceous) or iron-stained brown (haemosiderotic) kind typical of classical EDS [[Fairweather2025]].
+- Prolapse counts only in children, men, or women who have never given birth, and only if there is no severe obesity or other condition that would explain it [[Fairweather2025,Thwaites2022]].
+- Long fingers are shown by a positive wrist sign or a positive thumb sign on both hands. Mitral valve prolapse counts only when at least mild on strict echocardiographic definitions [[Fairweather2025]].
+- Feature B is family history: a parent, sibling or child who meets the current hEDS criteria in their own right [[Fairweather2025,Thwaites2022]].
+- Feature C is joint and muscle problems; one is enough [[Fairweather2025,Thwaites2022]]:
+  - pain in at least two limbs, coming back every day, for 3 months or more
+  - long-lasting widespread pain for at least 3 months
+  - joints that dislocate repeatedly, or are clearly unstable, without injury
+- For Feature C, repeated dislocation or instability has a set meaning: at least 3 dislocations of one joint without injury; at least 2 such dislocations in two different joints on separate occasions; or instability confirmed by a doctor at 2 or more sites, not caused by injury [[Fairweather2025]].
+- Criterion 3 is about ruling other things out, and all three parts must hold [[Fairweather2025,Thwaites2022]]:
+  - the skin is not unusually fragile (if it is, other EDS types should be considered)
+  - other inherited or acquired connective tissue disorders, including autoimmune rheumatic disease, have been excluded
+  - other causes of hypermobility through low muscle tone or lax connective tissue have been excluded
+- Someone who also has an acquired rheumatic connective tissue disease (for example lupus or rheumatoid arthritis) can only be diagnosed with hEDS through Features A and B together; Feature C (pain or instability) does not count for them [[Fairweather2025,Thwaites2022]].
+- The conditions to rule out include neuromuscular disorders (for example myopathic EDS and Bethlem myopathy), other inherited connective tissue disorders (other EDS types, Loeys-Dietz syndrome, Marfan syndrome) and skeletal dysplasias (for example osteogenesis imperfecta). History, examination and, where needed, genetic testing are used to exclude them [[Fairweather2025]].
 - In the 2017 criteria, bilateral heel piezogenic papules were added to Feature A [[Aubry-Rozier2021]].
 
 ### criteria · How many people meet each criterion
@@ -183,7 +166,7 @@ Access notes:
 
 ### hsd · Children and adolescents
 - The International Consortium's Paediatric Working Group proposes that children should not be assessed with the 2017 criteria, or diagnosed with hEDS, until they are biologically mature [[Tofts2023]].
-- The paediatric framework has 4 components: GJH, skin and tissue abnormalities, musculoskeletal complications and core comorbidities. It produces 8 subgroups: 4 paediatric GJH and 4 paediatric generalised HSD [[Tofts2023]].
+- The paediatric framework looks at four areas: generalised hypermobility, skin and tissue changes, joint and muscle complications, and the main associated conditions. From these it sorts children into 8 groups, 4 under paediatric GJH and 4 under paediatric generalised HSD [[Tofts2023]].
 - In this framework, a BS of 6 or more out of 9 defines GJH in children, which is 2 SD above average on published population data [[Tofts2023]].
 - The paediatric diagnoses are meant to change over time. A child can be reclassified as typical if GJH resolves, as asymptomatic GJH as symptoms improve, or as paediatric generalised HSD if new signs appear [[Tofts2023]].
 - Hernias common in infancy (congenital umbilical hernia, inguinal hernia after neonatal intensive care) should not be counted in the paediatric framework. Recurrent hernias may suggest tissue fragility [[Tofts2023]].
@@ -224,7 +207,7 @@ Access notes:
   - carotid-cavernous sinus fistula
 - Of 173 people diagnosed with vEDS at 11 institutions, 11 (9.8%) had non-pathogenic COL3A1 changes and so did not have vEDS [[Shalhub2020]].
 - In the same study, 76 people were diagnosed on clinical criteria alone. Compared with 86 people with confirmed variants, they were more often female (80.3% vs 52.3%) and more often had joint hypermobility (68.4% vs 40.7%) and mitral valve prolapse (10.5% vs 1.2%) [[Shalhub2020]].
-- The clinically diagnosed group also had less easy bruising (23.7% vs 64%), less thin translucent skin (17.1% vs 48.8%) and fewer intestinal perforations (3.9% vs 16.3%). The authors judged that "the diagnosis of vEDS in the absence of confirmatory testing cannot be trusted" [[Shalhub2020]].
+- The clinically diagnosed group also had less easy bruising (23.7% vs 64%), less thin translucent skin (17.1% vs 48.8%) and fewer intestinal perforations (3.9% vs 16.3%). The authors concluded that a vEDS diagnosis should not be relied on unless a genetic test confirms it [[Shalhub2020]].
 - Diagnosis was made younger (21.3 vs 30.2 years) when there was a family history. About 50% of people with vEDS have a de novo (new) variant, so family history is often absent [[Shalhub2020]].
 - Spontaneous pneumothorax tends to occur at a younger age, and more often in males, than intestinal or arterial events. It is a window for earlier diagnosis [[Shalhub2020]].
 - Re-assessing 50 molecularly proven patients suggested that the 2017 vEDS criteria may be less sensitive than the Villefranche criteria. Both sets work poorly in young people without symptoms, for whom genetic testing remains crucial [[Ritelli2020ClinGenet]].

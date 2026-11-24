@@ -35,28 +35,28 @@ const NU_CLK=[
   hook:`Get It On Time: report any dose more than 30 minutes late as an adverse event. [[PUK2023]]`}
 ];
 
-/* ---- MDS-UPDRS (items paraphrased from the 2019 official form) ---- */
+/* ---- MDS-UPDRS: structure and short topic names only; item and anchor wording is on the official MDS form ---- */
 const NU_UP=[
  {p:'I',n:'Non-motor experiences of daily living',items:13,rat:13,
   who:`13 questions. Part IA (items 1.1 to 1.6) is rated by the clinician; Part IB (1.7 to 1.13) is completed by the patient. [[MDS2019UPDRS]]`,
-  list:['1.1 Cognitive impairment','1.2 Hallucinations and psychosis','1.3 Depressed mood','1.4 Anxious mood','1.5 Apathy','1.6 Features of dopamine dysregulation syndrome','1.7 Sleep problems','1.8 Daytime sleepiness','1.9 Pain','1.10 Urinary problems','1.11 Constipation','1.12 Light-headedness on standing','1.13 Fatigue']},
+  list:['1.1 Cognitive impairment','1.2 Hallucinations and psychosis','1.3 Depressed mood','1.4 Anxious mood','1.5 Apathy','1.6 Dopamine dysregulation','1.7 Sleep problems','1.8 Daytime sleepiness','1.9 Pain','1.10 Urinary problems','1.11 Constipation','1.12 Light-headedness on standing','1.13 Fatigue']},
  {p:'II',n:'Motor experiences of daily living',items:13,rat:13,
   who:`13 items, all completed by the patient. [[MDS2019UPDRS]]`,
-  list:['2.1 Speech','2.2 Saliva and drooling','2.3 Chewing and swallowing','2.4 Eating tasks','2.5 Dressing','2.6 Hygiene','2.7 Handwriting','2.8 Hobbies','2.9 Turning in bed','2.10 Tremor','2.11 Getting out of bed, a car or a deep chair','2.12 Walking and balance','2.13 Freezing']},
+  list:['2.1 Speech','2.2 Saliva and drooling','2.3 Chewing and swallowing','2.4 Eating tasks','2.5 Dressing','2.6 Hygiene','2.7 Handwriting','2.8 Hobbies','2.9 Turning in bed','2.10 Tremor','2.11 Getting up','2.12 Walking and balance','2.13 Freezing']},
  {p:'III',n:'Motor examination',items:18,rat:33,
-  who:`18 items. Several are rated separately for each side or body region, giving 33 scored ratings: rigidity, for example, is rated for the neck and each limb, and rest tremor amplitude for four limbs plus lip and jaw. Ratings are whole numbers ("no half points, no missing ratings"); "UR" (unable to rate) is used only when testing is impossible, such as after an amputation, and otherwise the rater is told to "rate what you see". Before the examination the form records whether the person takes Parkinson's medication, the ON or OFF state and minutes since the last levodopa dose; afterwards, whether dyskinesia was present and interfered, then the Hoehn and Yahr stage. [[MDS2019UPDRS]]`,
-  list:['3.1 Speech','3.2 Facial expression','3.3 Rigidity','3.4 Finger tapping','3.5 Hand movements','3.6 Pronation-supination','3.7 Toe tapping','3.8 Leg agility','3.9 Arising from chair','3.10 Gait','3.11 Freezing of gait','3.12 Postural stability','3.13 Posture','3.14 Global spontaneity of movement','3.15 Postural tremor','3.16 Kinetic tremor','3.17 Rest tremor amplitude','3.18 Constancy of rest tremor']},
+  who:`18 items. Several are rated separately for each side or body region, giving 33 scored ratings: rigidity, for example, is rated for the neck and each limb, and rest tremor amplitude for four limbs plus lip and jaw. Every rating is a whole number and none may be left blank; "UR" (unable to rate) is kept for when testing is impossible, such as after an amputation, and otherwise the rater scores what is observed. Before the examination the form records whether the person takes Parkinson's medication, the ON or OFF state and minutes since the last levodopa dose; afterwards, whether dyskinesia was present and interfered, then the Hoehn and Yahr stage. [[MDS2019UPDRS]]`,
+  list:['3.1 Speech','3.2 Facial expression','3.3 Rigidity','3.4 Finger tapping','3.5 Hand movements','3.6 Pronation-supination','3.7 Toe tapping','3.8 Leg agility','3.9 Arising from chair','3.10 Gait','3.11 Freezing of gait','3.12 Postural stability','3.13 Posture','3.14 Overall slowness','3.15 Postural tremor','3.16 Kinetic tremor','3.17 Rest tremor amplitude','3.18 Constancy of rest tremor']},
  {p:'IV',n:'Motor complications',items:6,rat:6,
-  who:`6 items. Item 4.5 bands how predictable OFF periods are: 1 = predictable more than 75% of the time, 2 = 51% to 75%, 3 = 26% to 50%, 4 = 25% or less. [[MDS2019UPDRS]]`,
-  list:['4.1 Time with dyskinesia','4.2 Functional impact of dyskinesia','4.3 Time in OFF','4.4 Functional impact of fluctuations','4.5 Complexity of fluctuations','4.6 Painful OFF-state dystonia']}
+  who:`6 items, covering dyskinesia, OFF time and how predictable the fluctuations are. [[MDS2019UPDRS]]`,
+  list:['4.1 Time with dyskinesia','4.2 Impact of dyskinesia','4.3 Time in OFF','4.4 Impact of fluctuations','4.5 Complexity of fluctuations','4.6 Painful OFF dystonia']}
 ];
 const NU_HY=[
- {s:'No signs',f:'Asymptomatic.'},
- {s:'One side only',f:'Unilateral involvement only.'},
- {s:'Both sides, balance intact',f:'Bilateral involvement without impairment of balance.'},
- {s:'Balance impaired, independent',f:'Mild to moderate involvement; some postural instability but physically independent; needs assistance to recover from the pull test.'},
- {s:'Severe disability, stands or walks unaided',f:'Severe disability; still able to walk or stand unassisted.'},
- {s:'Wheelchair or bed unless aided',f:'Wheelchair-bound or bedridden unless aided.'}
+ {s:'No signs',f:'No Parkinson\'s signs.'},
+ {s:'One side only',f:'Signs on one side of the body only.'},
+ {s:'Both sides, balance intact',f:'Signs on both sides, and balance is still normal.'},
+ {s:'Balance impaired, independent',f:'Mild to moderate disease on both sides with some loss of balance: the person needs help to recover on the pull test but is still physically independent.'},
+ {s:'Severe disability, stands or walks unaided',f:'Severely disabled, but can still stand or walk without help.'},
+ {s:'Wheelchair or bed unless aided',f:'Uses a wheelchair or stays in bed unless helped.'}
 ];
 /* invented example readings for the orthostatic check: supine, 1 min, 3 min as [sys, dia, hr] */
 const NU_OHX=[
@@ -137,7 +137,7 @@ const NU_DRUGS=[
   s:[['consider','Offer if standard treatment fails',`Offer clozapine if standard treatment fails, with registration with a patient monitoring service, at lower doses than in other indications. [[NICE2017]]`],['caution','Prefers a benzodiazepine for confusion',NU_PUKCONF],['safe','An exception',NU_PFEX],['ns','Not read',NU_NS]]},
  {k:'meto',g:'Anti-sickness',n:'Metoclopramide',o:'avoid',lab:'Levodopa label',
   sum:'A dopamine blocker. Both patient organisations list it to avoid, and the levodopa label warns about it.',
-  s:[['ns','Not named',NU_NS],['avoid','Can worsen; in some cases fatal',NU_PUKAE],['avoid','On the anti-sickness avoid list',NU_PFAE],['caution','Dopamine blocking may worsen control',`Metoclopramide "may increase the bioavailability of levodopa by increasing gastric emptying" but "may also adversely affect disease control by its dopamine receptor antagonistic properties". [[FDAcdld2026]]`]]},
+  s:[['ns','Not named',NU_NS],['avoid','Can worsen; in some cases fatal',NU_PUKAE],['avoid','On the anti-sickness avoid list',NU_PFAE],['caution','Dopamine blocking may worsen control',`The label notes that metoclopramide can raise levodopa absorption by emptying the stomach faster, but its dopamine-blocking action can also make Parkinson's control worse. [[FDAcdld2026]]`]]},
  {k:'proc',g:'Anti-sickness',n:'Prochlorperazine',o:'avoid',lab:'US drug label',
   sum:'A phenothiazine anti-sickness drug, listed to avoid by both patient organisations.',
   s:[['ns','Not named',NU_NS],['avoid','Can worsen; in some cases fatal',NU_PUKAE],['avoid','On the anti-sickness avoid list',NU_PFAE],['ns','Not read',NU_NS]]},
@@ -190,7 +190,7 @@ const NU_DBS=[
   f:`MRI is allowed only on some DBS systems under specific protocols, which may require putting the programmer into "MRI" mode (Abbott Infinity, Boston Scientific Vercise Gevia and Genus, Medtronic Percept) or a prior eligibility check (Medtronic Activa). [[UCDavis2025]] A rotigotine patch is removed before MRI because its backing contains aluminium. [[PUKEmergency2023]] The Parkinson's Foundation notes that DBS has specific requirements for MRI, EKG and EEG. [[PF2023]]`},
  {k:'dia',b:'Diathermy',v:'Not allowed',c:'var(--bad)',
   s:['Shortwave, microwave or therapeutic','ultrasound diathermy: NOT ALLOWED.','May cause damage even if no heat','is created, and even with DBS off.'],
-  f:`The sheet says diathermy (shortwave, microwave or therapeutic ultrasound) is "NOT ALLOWED" and "may cause damage even if no heat is created". Strong electrical fields can make the DBS system carry energy "capable of causing brain injury even if the system is turned off". [[UCDavis2025]]`},
+  f:`The sheet says diathermy (shortwave, microwave or therapeutic ultrasound) is "NOT ALLOWED" and "may cause damage even if no heat is created". Strong electrical fields can make the DBS system carry enough energy to injure the brain, even when the system is switched off. [[UCDavis2025]]`},
  {k:'cau',b:'Electrocautery',v:'Turn off, or Surgery Mode',c:'var(--warn)',
   s:['Turn DBS off (Medtronic, Boston','Scientific) or use Surgery Mode (Abbott).','Prefer bipolar cautery.','Grounding pad on the legs.'],
   f:`For electrocautery: turn DBS off (Medtronic, Boston Scientific) or use "Surgery Mode" (Abbott), prefer bipolar cautery and place the grounding pad on the legs. [[UCDavis2025]]`},
@@ -377,9 +377,9 @@ inits.nursing=()=>{
       s+=`<rect x="${bx}" y="${y}" width="${f1(mx/132*bw)}" height="16" rx="4" style="fill:${on?'var(--sage)':'var(--sage-soft)'};stroke:var(--sage);stroke-width:${on?0:.8}"/>`});
     s+=T(20,234,N?'Total 0 to 260 (derived)':'Total 0 to 260 (derived; MDS reports part sums)','t-xs','fill:var(--ink)');
     let x=20;NU_UP.forEach((u,i)=>{const ww=u.rat*4/260*tot;s+=`<rect x="${f1(x)}" y="240" width="${f1(ww-1.5)}" height="14" style="fill:${i===upSel?'var(--sage)':'var(--sage-soft)'}"/>`;if(ww>26)s+=T(x+ww/2,251,u.p,'t-xs t-mid',i===upSel?'fill:var(--on-sage)':'');x+=ww});
-    s+=T(20,280,'Every item, every part:','t-xs');
-    const A=['Normal','Slight','Mild','Moderate','Severe'],aw=N?72:96;
-    A.forEach((a,i)=>{const ax=20+i*aw;s+=`<rect x="${ax}" y="288" width="${aw-4}" height="26" rx="5" style="fill:${['var(--panel-2)','var(--sage-soft)','var(--warn-soft)','var(--amber-soft)','var(--bad-soft)'][i]}"/>`+T(ax+(aw-4)/2,305,`${i} ${a}`,'t-xs t-mid','fill:var(--ink)')});
+    s+=T(20,280,'Every item, every part: 0 to 4, higher = worse','t-xs');
+    const aw=N?72:96;
+    [0,1,2,3,4].forEach(i=>{const ax=20+i*aw;s+=`<rect x="${ax}" y="288" width="${aw-4}" height="26" rx="5" style="fill:${['var(--panel-2)','var(--sage-soft)','var(--warn-soft)','var(--amber-soft)','var(--bad-soft)'][i]}"/>`+T(ax+(aw-4)/2,305,`${i}`,'t-xs t-mid','fill:var(--ink)')});
     sv.innerHTML=s;
   }
   function setUp(){

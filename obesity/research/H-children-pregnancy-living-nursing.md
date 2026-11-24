@@ -108,7 +108,7 @@ Shared keys checked: Hampl2023AAP (PMID 36622115), Rubino2020Stigma (32127716), 
 - In a 2021 survey of 2032 youth aged 10-17 and 1936 parents, youth preferred terms such as "healthy weight". They disliked "obese", "fat" and "large", which made them feel sad, ashamed and embarrassed [[Puhl2022Terms]].
 
 ### pregnancy · Risks before and during pregnancy (population statistics)
-- Obesity is the most common medical condition in women of reproductive age [[ACOG2021PB230,Catalano2017]].
+- No medical condition is more common than obesity in women of reproductive age [[ACOG2021PB230,Catalano2017]].
 - Obesity reduces fertility and increases the time taken to conceive [[Poston2016]].
 - A review of 22 systematic reviews found these more likely with maternal obesity:
   - gestational diabetes, pre-eclampsia, gestational hypertension and depression
@@ -149,7 +149,7 @@ Shared keys checked: Hampl2023AAP (PMID 36622115), Rubino2020Stigma (32127716), 
 - These ranges predicted outcomes only modestly (AUC 0.55-0.76) [[Voerman2019LifeCycle]].
 
 ### pregnancy · Preconception care, medicines and folic acid
-- Wegovy label: "discontinue WEGOVY in patients at least 2 months before they plan to become pregnant to account for the long half-life of semaglutide" [[FDA-Wegovy]].
+- Wegovy label: stop Wegovy at least 2 months before a planned pregnancy, because semaglutide has a long half-life [[FDA-Wegovy]].
 - Zepbound label:
   - Advise pregnant patients that weight loss is not recommended during pregnancy, and stop Zepbound when a pregnancy is recognised.
   - Zepbound may reduce the efficacy of oral hormonal contraceptives. Advise switching to a non-oral method, or adding a barrier method for 4 weeks after starting and for 4 weeks after each dose escalation [[FDA-Zepbound]].
@@ -167,7 +167,7 @@ Shared keys checked: Hampl2023AAP (PMID 36622115), Rubino2020Stigma (32127716), 
   - stillbirth or neonatal death was 1.7% vs 0.7%, a non-significant difference (OR 2.39; 95% CI 0.98-5.85) [[Johansson2015NEJM]]
 
 ### stigma · What weight stigma is and how common it is
-- The 2020 joint international consensus defines weight stigma as "social devaluation and denigration of individuals because of their excess body weight". The consensus was signed by representatives of ten scientific organisations through a modified Delphi process [[Rubino2020Stigma]].
+- The 2020 joint international consensus defines weight stigma as the social devaluing and belittling of people because they carry excess body weight. The consensus was signed by representatives of ten scientific organisations through a modified Delphi process [[Rubino2020Stigma]].
 - It lists weight-based stereotypes as being seen as lazy, gluttonous, lacking willpower, incompetent, unmotivated, non-compliant, and personally to blame [[Rubino2020Stigma]].
 - The consensus was unanimous that weight stigma causes physical and psychological harm and that people who experience it are less likely to seek and receive adequate care [[Rubino2020Stigma]].
 - The consensus agreed (above 90%) that the common belief that obesity is a choice, reversible by eating less and exercising more, misleads policy and undermines access to treatment [[Rubino2020Stigma]].
@@ -278,7 +278,7 @@ Shared keys checked: Hampl2023AAP (PMID 36622115), Rubino2020Stigma (32127716), 
 - The guideline advises avoiding intramuscular drug administration because of unpredictable pharmacokinetics [[Nightingale2015]].
 
 ### nursing · VTE prophylaxis and enoxaparin (published regimens, not instructions)
-- Lovenox label: "The safety and efficacy of prophylactic doses of Lovenox in obese patients (BMI >30 kg/m2) has not been fully determined and there is no consensus for dose adjustment" [[FDA-Lovenox]].
+- Lovenox label: safety and efficacy of prophylactic Lovenox doses at BMI >30 kg/m2 are not fully established, and no dose adjustment has been agreed [[FDA-Lovenox]].
 - The AAGBI/SOBA weight-banded enoxaparin prophylaxis schedule:
   - under 50 kg: 20 mg once daily
   - 50-100 kg: 40 mg once daily

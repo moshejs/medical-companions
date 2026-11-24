@@ -13,7 +13,7 @@ Access notes:
 ## Findings
 
 ### emotion · Affective instability in daily life (EMA / e-diaries)
-- DSM-5-TR lists affective instability "due to a marked reactivity of mood" as one of the nine BPD criteria; the episodes of dysphoria, irritability or anxiety usually last a few hours and only rarely more than a few days (Established) [[APA2022]].
+- DSM-5-TR lists affective instability, meaning mood that reacts sharply to events, as one of the nine BPD criteria; the bursts of low mood or unease, irritability or anxiety typically last a few hours and seldom more than a few days (Established) [[APA2022]].
 - In a 24-hour electronic-diary study of 50 women with BPD and 50 healthy women, affective instability for both emotional valence and distress was clearly heightened in the BPD group but not in controls (Established) [[EbnerPriemer2007PsycholMed]].
 - In the same study, 48% of declines from a very positive mood in BPD were large enough to reach a negative mood state, compared with 9% in healthy controls; the typical BPD pattern was sudden large drops from positive mood (Established) [[EbnerPriemer2007PsycholMed]].
 - Earlier paper-and-pencil diary studies often failed to find instability; the authors attribute the inconsistency to how instability was calculated, not to its absence (Established) [[EbnerPriemer2007PsycholMed]].
@@ -67,7 +67,7 @@ Access notes:
 
 ### emotion · The cycle: emotion → urge → action → short-term relief → shame
 - A review of 18 studies found converging evidence that self-injury serves an affect-regulation function: acute negative affect precedes it, relief often follows, and relieving negative affect is the most common stated reason (Established) [[Klonsky2007]].
-- The same review found strong support for a self-punishment function and modest evidence for anti-dissociation, interpersonal-influence, anti-suicide, sensation-seeking and interpersonal-boundaries functions (Established) [[Klonsky2007]].
+- The same review found the evidence strongest for self-punishment as a function, with modest support for anti-dissociation, interpersonal-influence, anti-suicide, sensation-seeking and interpersonal-boundaries functions (Established) [[Klonsky2007]].
 - The experiential avoidance model proposes that self-harm is maintained mainly by negative reinforcement: escape from unwanted emotional experience (Hypothesis, widely used) [[Chapman2006]].
 - In 75 chronically suicidal women with BPD, almost all reported that both suicide attempts and non-suicidal self-injury were intended to relieve negative emotions; non-suicidal acts were also more often meant to express anger, punish oneself, generate normal feelings or distract (Established) [[Brown2002]].
 - In 101 women with BPD who self-injure, most reported several motives at once; negative reinforcement was almost always involved, and positive reinforcement played an additional role for about half (Established) [[Kleindienst2008]].
@@ -170,7 +170,7 @@ Access notes:
 - Bora concludes that interpersonal difficulties in BPD fit a maladaptive meta-social-cognitive style better than a primary deficit in basic social cognition (Early evidence) [[Bora2021]].
 
 ### brain · Dissociation and stress-related paranoia
-- DSM-5-TR criterion 9 is transient, stress-related paranoid ideation or severe dissociative symptoms (Established) [[APA2022]].
+- DSM-5-TR criterion 9 covers brief paranoid thoughts, or severe dissociation, that come on under stress (Established) [[APA2022]].
 - In 290 people with BPD and 72 Axis II controls on the Dissociative Experiences Scale, 32% of the BPD group had low, 42% moderate and 26% high dissociation (similar to PTSD or dissociative disorders), versus 71%, 26% and 3% in controls (Established) [[Zanarini2000Dissociation]].
 - In 21 outpatients with BPD assessed in detail, 24% had no dissociative disorder, 29% a mild one, 24% DDNOS and 24% dissociative identity disorder (Early evidence, small sample) [[Korzekwa2009]].
 - Hourly ambulatory monitoring over 48 hours (51 BPD, 51 clinical controls, 40 healthy controls) showed dissociation rising with stress in all groups, more steeply in BPD, and BPD had higher dissociation even after controlling for stress (Established) [[Stiglmayr2008]].
@@ -201,7 +201,7 @@ Access notes:
 - HPA axis: elevated continuous cortisol output but blunted cortisol response to psychosocial stress [[Drews2019]].
 - Mentalizing in BPD: very large reflective-functioning deficit (d = 1.68) but modest ToM deficit (d = 0.36) [[Bora2021]].
 - Hypermentalizing = excessive, inaccurate attribution of mental states; it is not specific to BPD (r = 0.26 vs 0.24) [[Sharp2011,McLaren2022]].
-- DSM-5-TR criterion 9: transient, stress-related paranoid ideation or severe dissociative symptoms [[APA2022]].
+- DSM-5-TR criterion 9: brief stress-related paranoid thoughts or severe dissociation [[APA2022]].
 - Dissociation is stress-dependent and predicts poorer DBT response [[Stiglmayr2008,Kleindienst2011]].
 - About 20–50% of people with BPD report psychotic symptoms; "pseudo-psychotic" is a misleading label [[Schroeder2013]].
 - Self-injury is most often aimed at relieving negative emotion; relief is short-lived and daily-life data show negative emotion rising again over hours [[Klonsky2007,Houben2017]].

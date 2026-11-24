@@ -4,7 +4,7 @@
    and outcomes over time. Every figure is from research pass A; drawings are schematic. */
 const WH_STEPS=[
  {from:0,at:.06,k:'Step 1 · healthy',t:'Blood reaches the brain',sv:'Blood flows through the artery',br:'The brain, fed by its arteries',
-  txt:`Arteries carry blood to the brain. In 1971 the WHO described stroke as "A sudden onset of disturbance of focal brain function due to the blockage or rupture of blood vessels" [[Engelhardt2017]]. Blockage or rupture: that is the first split to learn. Stroke broadly includes ischaemic stroke, intracerebral haemorrhage and subarachnoid haemorrhage [[Sacco2013]].`,
+  txt:`Arteries carry blood to the brain. In 1971 the WHO described stroke as a sudden disturbance of focal brain function caused by blood vessels that block or burst [[Engelhardt2017]]. Blockage or rupture: that is the first split to learn. Stroke broadly includes ischaemic stroke, intracerebral haemorrhage and subarachnoid haemorrhage [[Sacco2013]].`,
   pt:`A stroke happens when part of the brain loses its blood supply, or when a blood vessel in or around the brain bleeds. Brain cells then get hurt or die [[Sacco2013]].`},
  {from:.14,at:.24,k:'Step 2 · blocked',t:'A clot blocks an artery',sv:'A clot closes the artery',br:'Flow stops beyond the clot',
   txt:`Ischaemic stroke is the commonest type: 65.3% of incident strokes worldwide in 2021 (95% UI 62.4-67.7), or 7,804,000 strokes [[Feigin2024,Feigin2025]]. Its share is higher in high-income countries, at 74.9% [[Feigin2024,Feigin2025]].`,
@@ -14,7 +14,7 @@ const WH_STEPS=[
   pt:`The centre of the injured area dies first. The area around it can still be saved if blood comes back in time [[Heiss2011]].`,
   hook:`AHA/ASA 2013: imaging or pathology evidence of infarction counts, even if symptoms are brief [[Sacco2013]].`},
  {from:.46,at:.55,k:'Step 4 · burst',t:'A vessel bursts inside the brain',sv:'The artery wall tears',br:'Blood collects in brain tissue',
-  txt:`Intracerebral haemorrhage (ICH) is "a focal collection of blood within the brain parenchyma or ventricular system that is not caused by trauma" [[Engelhardt2017]]. It makes up 28.8% of incident strokes worldwide (28.3-28.8), or 3,444,000 strokes [[Feigin2024,Feigin2025]]. Its share is highest in low-income countries, at 36.9% [[Feigin2024]].`,
+  txt:`Intracerebral haemorrhage (ICH) is a non-traumatic focal collection of blood in the brain tissue or the ventricles [[Engelhardt2017]]. It makes up 28.8% of incident strokes worldwide (28.3-28.8), or 3,444,000 strokes [[Feigin2024,Feigin2025]]. Its share is highest in low-income countries, at 36.9% [[Feigin2024]].`,
   pt:`Roughly 1 in 3 strokes are bleeds, and most of those are bleeds inside the brain [[Feigin2024]].`,
   hook:`ICH survival: 46% at 1 year, 29% at 5 years [[Poon2014]].`},
  {from:.63,at:.72,k:'Step 5 · burst',t:'An aneurysm bursts beside the brain',sv:'A bulge on an artery bursts',br:'Blood spreads over the surface',

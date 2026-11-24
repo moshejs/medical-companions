@@ -8,7 +8,7 @@ const PG_STEPS=[
   txt:`The AAP clinical report states that no amount of alcohol should be considered safe, there is no safe trimester, all forms (beer, wine, liquor) pose similar risk, and binge drinking poses dose-related risk. [[Williams2015AAP]] In the US in 2018–2020, 13.5% of pregnant adults reported current drinking and 5.2% binge drinking; frequent mental distress and having no usual provider were linked with more drinking. [[Gosdin2022MMWR]]`,
   pt:`Stopping at any point in pregnancy helps. Support for mental health and good access to care make stopping easier.`},
  {from:.6,at:.72,k:'Weeks 28–40',t:'A lifelong effect, fully preventable',
-  txt:`Prenatal alcohol exposure is the leading preventable cause of birth defects and of intellectual and neurodevelopmental disabilities. The neurocognitive and behavioural effects are lifelong, and they are completely preventable when no alcohol is used in pregnancy. [[Williams2015AAP]] The brain is highlighted throughout the timeline because the AAP finds no safe trimester. [[Williams2015AAP]]`,
+  txt:`Alcohol exposure before birth is the top preventable cause of birth defects and of intellectual and neurodevelopmental disability. The neurocognitive and behavioural effects are lifelong, and they are completely preventable when no alcohol is used in pregnancy. [[Williams2015AAP]] The brain is highlighted throughout the timeline because the AAP finds no safe trimester. [[Williams2015AAP]]`,
   pt:`Alcohol can affect how a baby’s brain develops, and these effects can last for life.`,
   hook:`Prenatal alcohol = leading preventable cause of birth defects and neurodevelopmental disabilities (AAP). [[Williams2015AAP]]`},
  {from:.82,at:.9,k:'After birth',t:'FAS facial features',

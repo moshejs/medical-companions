@@ -145,10 +145,10 @@ Access notes:
 
 ### sweattest · Method and quality
 - The Gibson–Cooke method (1959) uses pilocarpine iontophoresis to stimulate sweat, then measures sweat electrolyte concentration [[Gibson1959]].
-- Adequate sweat is "at least 75 mg of sweat obtained by the Gibson-Cooke method or at least 15 μL obtained by the Macroduct coil collection method" [[Farrell2008Dx]].
+- A sample is adequate when it holds at least 75 mg of sweat by the Gibson-Cooke method, or at least 15 μL with the Macroduct coil [[Farrell2008Dx]].
 - For an asymptomatic newborn with a positive screen, testing is recommended at ≥2 weeks of age, weight >2 kg and >36 weeks gestation at birth, ideally bilaterally. Symptomatic newborns (e.g. meconium ileus) can be tested from 48 hours if enough sweat is collected [[Farrell2008Dx]].
 - A 2023 review summarises CF Foundation practice as sweat testing after a positive screen (or positive prenatal genetic test) by 4 weeks of age and not before 48 hours [[DeCelieGermana2023]].
-- Sweat chloride is "the only analyte on which a diagnosis of CF should be based". Sweat conductivity or osmolality "should not be used for diagnosing CF at the present time" [[Farrell2008Dx]].
+- A CF diagnosis should rest on sweat chloride alone. Sweat conductivity or osmolality should not yet be used to diagnose CF [[Farrell2008Dx]].
 - The method must detect chloride accurately down to 10 mmol/L without added chloride. Samples from two sites must never be pooled [[Farrell2008Dx]].
 - Laboratories should keep the "quantity not sufficient" (QNS) rate below 5% for infants over 3 months [[Farrell2008Dx]].
 - In a US survey, the mean (±SD) QNS rate for infants ≤3 months old after a positive screen was 7.2% (±7.6), ranging from 0% to 40% across centres. The collection method did not affect the rate [[LeGrys2010]].
@@ -242,9 +242,9 @@ Access notes:
 - Chest MRI scores (morphology and perfusion) respond to CFTR modulators and are used as radiation-free outcomes in research (Early evidence) [[Stahl2024,Graeber2021]].
 
 ### monitoring · Annual reviews (other organs)
-- CFRD screening (2010 ADA/CF Foundation guideline), quoted as published [[Moran2010CFRD]]:
+- CFRD screening (2010 ADA/CF Foundation guideline), summarised [[Moran2010CFRD]]:
   - screen with a 2-hour 75 g OGTT
-  - "Annual screening for CFRD should begin by age 10 years in all CF patients who do not have CFRD"
+  - screen every year from age 10 in everyone with CF who does not already have CFRD
   - A1C is not recommended as a screening test
 - The same guideline notes that nutrition and lung function begin to decline 6–24 months before CFRD is diagnosed [[Moran2010CFRD]].
 - ESPEN-ESPGHAN-ECFS nutrition guidelines [[Turck2016Nutrition]]:

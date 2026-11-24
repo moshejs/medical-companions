@@ -43,7 +43,7 @@ Access notes:
 - The order of maturation was the same in both groups (primary sensory areas first, high-order association areas later). The delay was most marked in prefrontal regions that control attention and motor planning [[Shaw2007]].
 - The Lancet seminar summarises this as a 2–3 year average delay in reaching peak thickness across much of the cerebrum, including prefrontal cortex [[Posner2020]].
 - Cortical surface area is also delayed. In the right prefrontal cortex, half of vertices reached peak area at 14.6 years in ADHD vs 12.7 years in typically developing children (234 vs 231 children, 837 scans). Gyrification did not differ [[Shaw2012]].
-- ENIGMA's cortical analysis (2,246 with ADHD, 1,934 controls, 36 centres) found lower surface area in children with ADHD, mainly in frontal, cingulate and temporal regions. The largest effect was total surface area, d = −0.21 [[Hoogman2019]].
+- ENIGMA's cortical analysis (2,246 with ADHD, 1,934 controls, 36 centres) found smaller cortical surface area in children with ADHD, chiefly in the frontal, cingulate and temporal regions. The largest effect was total surface area, d = −0.21 [[Hoogman2019]].
 - Fusiform gyrus and temporal pole thickness were also lower in children with ADHD. Neither surface area nor thickness differed in adolescents or adults [[Hoogman2019]].
 - Surface-area differences showed familial effects in unaffected siblings, and in a population sample of 2,707 children, smaller surface area went with more attention problems. This supports ADHD as a continuous trait [[Hoogman2019]].
 - In a prospective study of 43 adolescents with ADHD (scans at a mean of 12.5 and 16.4 years), cortex thinned faster in those not taking stimulants than in those taking them: 0.16 vs 0.03 mm/year. The authors found no evidence that stimulants slowed cortical growth [[Shaw2009]].
@@ -120,7 +120,7 @@ Access notes:
 - The prefrontal cortex regulates attention by relevance (screening distractions, sustaining and shifting attention) and inhibits inappropriate impulses and emotions. The right prefrontal cortex is especially important for this regulation [[Arnsten2009CNS]].
 - Prefrontal networks of pyramidal cells hold goals "in mind" by exciting each other. Small changes in noradrenaline or dopamine have large effects on these networks [[Arnsten2009CNS]].
 - Too little catecholamine (fatigue, boredom) or too much (stress) impairs prefrontal function, and optimal levels are released when a person is alert and interested. This is the inverted-U relationship (Established in animal studies) [[Arnsten2009CNS]].
-- Even mild, acute uncontrollable stress can cause a rapid and dramatic loss of prefrontal cognitive abilities, and prolonged stress changes prefrontal dendrite architecture (the high end of the inverted-U) [[Arnsten2009NRN]].
+- Even brief, mild stress that a person cannot control can quickly and sharply impair prefrontal thinking, and long-lasting stress changes prefrontal dendrite architecture (the high end of the inverted-U) [[Arnsten2009NRN]].
 - Noradrenaline's beneficial effects act at postsynaptic alpha-2A receptors on prefrontal dendritic spines, strengthening network inputs. Moderate dopamine acts at D1 receptors, weakening irrelevant inputs on other spines [[Arnsten2009CNS]].
 - In monkeys, alpha-2A stimulation inhibits cAMP and closes HCN channels, which are co-located with alpha-2A receptors on prefrontal dendritic spines. This strengthens delay-period firing and working memory. Excess cAMP made network firing collapse [[Wang2007Cell]].
 - Blocking prefrontal alpha-2A receptors with yohimbine in animals produces an ADHD-like profile: locomotor hyperactivity, impulsivity and poor working memory [[Arnsten2009CNS]].
@@ -138,7 +138,7 @@ Access notes:
 - A meta-analysis of 48 studies (1,409 healthy participants) found only small effects of methylphenidate and amphetamine on inhibitory control and short-term episodic memory, small and inconsistent effects on working memory, and publication bias. The authors judged the overall cognitive benefit in healthy people "probably modest" [[Ilieva2015]].
 
 ### stimulants · Methylphenidate: DAT and NET blockade
-- US labels state that methylphenidate's mode of therapeutic action in ADHD is not known. It "blocks the reuptake of norepinephrine and dopamine into the presynaptic neuron and increases the release of these monoamines into the extraneuronal space" [[FDA-RitalinC,FDA-Concerta]].
+- US labels state that methylphenidate's mode of therapeutic action in ADHD is not known. They say it stops the nerve ending from taking norepinephrine and dopamine back up, and increases how much of both is released into the space outside the neuron [[FDA-RitalinC,FDA-Concerta]].
 - Methylphenidate is a racemic mixture. The d-threo enantiomer is more pharmacologically active than the l-threo enantiomer [[FDA-RitalinC]].
 - Oral methylphenidate blocked DAT in a dose-dependent way 120 minutes after dosing (7 healthy adults): 12% at 5 mg, 40% at 10 mg, 54% at 20 mg, 72% at 40 mg, 74% at 60 mg [[Volkow1998]].
 - The estimated dose blocking 50% of DAT (ED50) was 0.25 mg/kg. At the weight-adjusted doses used therapeutically (0.3–0.6 mg/kg), occupancy is likely above 50% [[Volkow1998]].
@@ -179,7 +179,7 @@ Access notes:
 - Heal and colleagues describe lisdexamfetamine's unusual metabolic route as central to its sustained effect and to its lower potential for recreational abuse [[Heal2013]].
 
 ### nonstim · Atomoxetine: selective NET inhibition, prefrontal dopamine
-- The Strattera label states that atomoxetine's precise mechanism in ADHD is unknown but "is thought to be related to selective inhibition of the pre-synaptic norepinephrine transporter" [[FDA-Strattera]].
+- The Strattera label states that atomoxetine's precise mechanism in ADHD is unknown but is thought to come from selectively blocking the norepinephrine transporter on the presynaptic neuron [[FDA-Strattera]].
 - Atomoxetine binds human NET, serotonin and dopamine transporters with Ki values of 5, 77 and 1,451 nM, showing selectivity for NET [[Bymaster2002]].
 - In rats, atomoxetine raised extracellular noradrenaline about 3-fold and dopamine about 3-fold in the prefrontal cortex, without changing dopamine in the striatum or nucleus accumbens [[Bymaster2002]].
 - The authors hypothesised that this prefrontal-selective rise in noradrenaline and dopamine mediates atomoxetine's therapeutic effect in ADHD (Hypothesis) [[Bymaster2002]].

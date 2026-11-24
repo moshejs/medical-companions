@@ -49,7 +49,7 @@ const UL_DRUGS={
  lesin:{n:'Lesinurad + XO inhibitor',c:'URAT1 inhibitor (add-on only)',site:['xo','urat1'],at:'URAT1, on top of xanthine oxidase inhibition',lvl:null,cap:'no mean change quoted · 54.2% vs 27.9% at target (CLEAR 1)',
   mech:'A URAT1 inhibitor approved only together with a xanthine oxidase inhibitor, never alone. [[FDA-Zurampic]]',
   pk:'Half-life not quoted in our sources.',
-  lab:'US: 200 mg/day with a xanthine oxidase inhibitor. Boxed warning: "risk of acute renal failure, more common when used without a xanthine oxidase inhibitor". [[FDA-Zurampic]]',
+  lab:'US: 200 mg/day with a xanthine oxidase inhibitor. The label carries a boxed warning about acute kidney failure, which was more frequent when lesinurad was taken without a xanthine oxidase inhibitor. [[FDA-Zurampic]]',
   hist:'US approval 22 December 2015; later withdrawn by the manufacturer (Drugs@FDA: "Discontinued"). The EU authorisation of 18 February 2016 was withdrawn for commercial reasons, notified 31 July 2020. [[FitzGerald2020,DrugsFDA-ULT,EMA-Zurampic]]',
   eff:'CLEAR 1: with allopurinol, 54.2% reached <6 mg/dL at month 6 against 27.9% on allopurinol alone, with no significant benefit on flares or tophi. [[Saag2017]] CLEAR 2: renal adverse events in 5.9% (200 mg), 15.0% (400 mg) and 4.9% (allopurinol alone). [[Bardin2017]]'},
  peg:{n:'Pegloticase',c:'Uricase (enzyme)',site:['uc'],at:'urate itself, turned into allantoin',lvl:.7,cap:'0.7 mg/dL 24 h after the first dose (placebo 8.2) · US label',

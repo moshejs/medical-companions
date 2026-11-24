@@ -254,17 +254,17 @@ Access notes:
   - 4 of the 15 had vascular or arterial fragility
 
 ### skin · Skin findings by type
-- cEDS skin is soft, velvety or doughy and hyperextensible: it stretches easily and snaps back. It splits after minor trauma over pressure points and shins, leaving atrophic or haemosiderotic scars [[MalfaitGR-cEDS]].
+- In cEDS the skin feels soft or doughy and over-stretches, then springs back when let go. Small knocks can tear it, mainly where it takes pressure or over the shins, and it heals with thin, wide or brown-stained scars (atrophic or haemosiderotic) [[MalfaitGR-cEDS]].
 - Clinical photographs show skin hyperextensibility measured as ≥3.0 cm at the elbow or neck, or ≥1.5 cm on the back of the hand [[vanDijk2024]].
-- vEDS skin is thin and translucent with visible veins and easy bruising. Many people have a characteristic face (thin lips, small chin, narrow nose, prominent eyes) and aged-looking hands [[ByersGR-vEDS]].
+- In vEDS the skin is thin enough to show the veins beneath, and bruises appear easily. Many people share a typical facial look (thin lips, small chin, narrow nose, prominent eyes) and hands that look older than their age [[ByersGR-vEDS]].
 - TNXB-clEDS has hyperextensible skin without atrophic scars, and piezogenic papules are seen on the feet. pEDS shows symmetrical pretibial plaques. dEDS shows extreme skin fragility with redundant, almost lax skin [[vanDijk2024]].
-- In cEDS, deep dermal wounds are closed in two layers without tension, and skin stitches are left in about twice as long as usual [[MalfaitGR-cEDS]].
+- In cEDS, deep skin wounds are stitched in two layers with no pull on the edges, and the skin stitches stay in for roughly double the usual time [[MalfaitGR-cEDS]].
 - In the col5a1+/− mouse model of cEDS, both normal and wounded skin had lower tensile strength [[Wenstrup2006]].
 
 ### genes · Inheritance in a family
 - Autosomal dominant types (cEDS, vEDS, aEDS, pEDS): each child of an affected parent has a 50% chance of inheriting the variant [[MalfaitGR-cEDS,ByersGR-vEDS,KapfererSeebacherGR-pEDS]].
 - Autosomal recessive types (kEDS, clEDS, mcEDS and others): when both parents are carriers, each sibling has a 25% chance of being affected, 50% of being a carrier and 25% of being neither [[RohrbachGR-kEDS,vanDijkGR-clEDS,KoshoGR-mcEDS]].
-- For hEDS, the GeneReviews chapter describes autosomal dominant inheritance with variable expression. Because no gene is known, prenatal and preimplantation genetic testing are not possible [[HakimGR-hEDS]].
+- For hEDS, the GeneReviews chapter describes autosomal dominant inheritance, with signs that vary between relatives. With no gene identified, there is nothing to test for in pregnancy or in embryos [[HakimGR-hEDS]].
 - Once a family's variant is known in cEDS or vEDS, prenatal and preimplantation testing are possible [[MalfaitGR-cEDS,ByersGR-vEDS]].
 
 ### genes · Genetic testing, yield and VUS

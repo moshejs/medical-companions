@@ -32,7 +32,7 @@ Access notes:
 ### call · Public awareness of symptoms and calling emergency services
 - In US national survey data (NHIS), the adjusted share of adults who knew all five common heart attack symptoms was 39.6% in 2008, 50.0% in 2014 and 50.2% in 2017. The five are jaw, neck or back discomfort; weakness or light-headedness; chest discomfort; arm or shoulder discomfort; and shortness of breath [[Fang2019MMWR]].
 - In the same survey, the share who knew to call 9-1-1 for a heart attack rose from 91.8% (2008) to 93.4% (2014) and 94.9% (2017). Persistent disparities in symptom awareness by demographic group were reported [[Fang2019MMWR]].
-- ESC 2023 advice on patient delay: "The recommended action should be to contact the EMS rather than to self-present" [[Byrne2023ESC]].
+- ESC 2023 advice on patient delay: call the emergency medical services (EMS) rather than travel to hospital on your own [[Byrne2023ESC]].
 - ESC 2023 lists red-flag symptoms that should prompt contact with EMS: "prolonged chest pain (>15 min) and/or recurrent pain within 1 h" [[Byrne2023ESC]].
 
 ### call · What EMS adds (ambulance, prehospital ECG, cath-lab activation)
@@ -45,16 +45,16 @@ Access notes:
 - In the UK MINAP audit (288,990 EMS admissions, 2005–2009), prehospital ECG use in STEMI rose from 64% to 79% [[Quinn2014]].
 - In MINAP, a prehospital ECG was linked with more STEMI reperfusion (83.5% vs 74.4%), more call-to-balloon times <90 min (27.9% vs 21.4%), more door-to-needle times <30 min (90.6% vs 83.7%) and lower 30-day mortality (7.4% vs 8.2%; adjusted OR 0.94, 95% CI 0.91–0.96) [[Quinn2014]].
 - In 365 US hospitals, six strategies were linked with faster door-to-balloon time. Mean reductions: emergency physicians activating the cath lab, 8.2 min; a single call to a central page operator, 13.8 min; activating the lab while the patient is en route, 15.4 min; staff expected in the lab within 20 min of the page (vs >30 min), 19.3 min; an attending cardiologist always on site, 14.6 min; and real-time data feedback, 8.6 min [[Bradley2006]].
-- ESC 2023 on the first ECG: it should be "interpreted by a qualified emergency medical technician or physician within 10 min", and "an ECG should be performed within 10 min of FMC" (first medical contact) [[Byrne2023ESC]].
-- ESC 2023 on systems of care: "It is recommended that a regional reperfusion strategy is established", and EMS should "transport patients with a working diagnosis of STEMI to hospitals with a 24/7 service for PCI" [[Byrne2023ESC]].
+- ESC 2023 on the first ECG: record it within 10 min of first medical contact (FMC) and have a trained emergency medical technician or doctor read it within 10 min [[Byrne2023ESC]].
+- ESC 2023 on systems of care: set up a regional reperfusion network, and have EMS take people with a working diagnosis of STEMI to a hospital offering PCI 24/7 [[Byrne2023ESC]].
 - The 2025 US ACS guideline was written jointly with emergency physicians (ACEP) and EMS physicians (NAEMSP) as well as ACC, AHA and SCAI. It replaces the 2013 STEMI and 2014 NSTE-ACS guidelines and the 2015 primary PCI focused update [[Rao2025ACC]].
 
 ### call · Aspirin in the first minutes (quoted, not instructions)
 - In ISIS-2 (17,187 patients randomised up to 24 h after onset, median 5 h), one month of 160 mg/day enteric-coated aspirin reduced 5-week vascular mortality from 11.8% to 9.4% (odds reduction 23%, SD 4) [[ISIS2_1988]].
 - In ISIS-2, streptokinase alone reduced 5-week vascular mortality from 12.0% to 9.2% (odds reduction 25%). The two together reduced it from 13.2% to 8.0% (odds reduction 42%, 95% confidence limits 34–50%) compared with neither [[ISIS2_1988]].
 - In ISIS-2, aspirin also halved non-fatal reinfarction (1.0% vs 2.0%) and non-fatal stroke (0.3% vs 0.6%), without a significant increase in cerebral haemorrhage or transfusion-requiring bleeds [[ISIS2_1988]].
-- ESC 2023 aspirin loading dose for ACS, as published: "LD of 150–300 mg orally or 75–250 mg i.v. if oral ingestion is not possible" [[Byrne2023ESC]].
-- ESC 2023, in its section on antithrombotic therapy with fibrinolysis: "The first dose of aspirin (162–325 mg) should be chewed or given i.v." Quoted as published. It is clinical guidance for treating teams, not an instruction to readers; people with symptoms should call emergency services and follow the dispatcher's advice [[Byrne2023ESC]].
+- ESC 2023 aspirin loading dose (LD) for ACS: 150–300 mg by mouth, or 75–250 mg i.v. if the patient cannot swallow [[Byrne2023ESC]].
+- ESC 2023, in its section on antithrombotic therapy with fibrinolysis, says the first aspirin dose (162–325 mg) is chewed or given i.v. It is clinical guidance for treating teams, not an instruction to readers; people with symptoms should call emergency services and follow the dispatcher's advice [[Byrne2023ESC]].
 
 ### call · When a heart attack causes cardiac arrest: bystander CPR and AEDs
 - In Sweden (30,381 witnessed out-of-hospital cardiac arrests, 1990–2011), bystanders gave CPR before EMS arrived in 51.1% of cases. 30-day survival was 10.5% with early CPR versus 4.0% without (P < 0.001) [[HasselqvistAx2015]].
@@ -68,7 +68,7 @@ Access notes:
 - The 2025 AHA Adult Basic Life Support guideline covers recognising cardiac arrest, activating the emergency response, high-quality CPR and AED use [[Kleinman2025BLS]].
 - The 2025 AHA guidelines emphasise "the importance of high-quality chest compressions, early defibrillation" and are organised around the Utstein Formula for Survival [[DelRios2025AHA]].
 - The 2025 AHA Systems of Care chapter covers community initiatives to promote lay rescuer response, public access defibrillation and an enhanced role for emergency telecommunicators (dispatchers) [[Dezfulian2025Systems]].
-- ESC 2023: resuscitated patients with persistent ST-segment elevation "should, in general, undergo a PPCI strategy (immediate ICA and PCI if indicated)" [[Byrne2023ESC]].
+- ESC 2023: resuscitated patients with persistent ST-segment elevation should generally follow a primary PCI (PPCI) strategy: immediate invasive coronary angiography (ICA), with PCI if needed [[Byrne2023ESC]].
 - ESC 2023: in resuscitated patients without ST elevation, "routine immediate ICA is not superior to a delayed invasive strategy". This is based on COACT and TOMAHAWK [[Byrne2023ESC]].
 - COACT (552 resuscitated patients without STEMI): 90-day survival was 64.5% with immediate angiography versus 67.2% with delayed angiography (OR 0.89, 95% CI 0.62–1.27) [[Lemkes2019COACT]].
 - TOMAHAWK (554 resuscitated patients without ST elevation): 30-day death was 54.0% with immediate angiography versus 46.0% with delayed or selective angiography (HR 1.28, 95% CI 1.00–1.63; P = 0.06) [[Desch2021TOMAHAWK]].
@@ -83,11 +83,11 @@ Access notes:
 - Using NRMI data from 192,509 patients at 645 hospitals, the mortality advantage of primary PCI over fibrinolysis shrank as PCI-related delay (door-to-balloon minus door-to-needle) grew. The break-even delay depended on age, symptom duration and infarct location [[Pinto2006]].
 
 ### reperfusion · Guideline time targets (as published)
-- ESC 2023: primary PCI is preferred "provided it can be performed in a timely manner (i.e. within 120 min of the ECG-based diagnosis" [[Byrne2023ESC]].
-- ESC 2023: "If PPCI is not feasible within 120 min, patients should undergo immediate fibrinolysis" [[Byrne2023ESC]].
-- ESC 2023: "The goal is to start fibrinolytic therapy within 10 min of the STEMI diagnosis." [[Byrne2023ESC]]
+- ESC 2023: primary PCI is preferred if it can be done within 120 min of the ECG-based diagnosis [[Byrne2023ESC]].
+- ESC 2023: when primary PCI (PPCI) cannot be done within 120 min, give fibrinolysis immediately [[Byrne2023ESC]].
+- ESC 2023 aims to start fibrinolytic therapy within 10 min of the STEMI diagnosis. [[Byrne2023ESC]]
 - ESC 2023: reperfusion applies "provided the patient has presented within 12 h of symptom onset" [[Byrne2023ESC]].
-- ESC 2023 on transfers: "a door-in to door-out time of ≤30 min is recommended to expedite reperfusion therapy" [[Byrne2023ESC]].
+- ESC 2023 on transfers: the referring hospital should send the patient on within 30 min of arrival (door-in to door-out ≤30 min) so reperfusion is not delayed [[Byrne2023ESC]].
 - ESC 2023 after fibrinolysis: "routine early angiography (i.e. within 2–24 h) is recommended", and "rescue PCI is indicated if fibrinolysis fails" [[Byrne2023ESC]].
 - Earlier US guidelines (before 2025) recommended a door-to-balloon time of 90 minutes or less, which became a national performance measure [[Menees2013,Bradley2006]].
 - In MINAP, the audit benchmarks were call-to-balloon <90 min for primary PCI and door-to-needle <30 min for fibrinolysis [[Quinn2014]].
@@ -100,9 +100,9 @@ Access notes:
 ### reperfusion · Time windows (12 h, 12–48 h, later)
 - BRAVE-2 (365 patients 12–48 h after onset, without persistent symptoms): an invasive strategy reduced final infarct size (median 8.0% vs 13.0% of the left ventricle; P < .001). The mean difference was −6.8% (95% CI −10.2 to −3.5) [[Schomig2005BRAVE2]].
 - In BRAVE-2, death, recurrent MI or stroke at 30 days was 4.4% vs 6.6% (RR 0.67, 95% CI 0.27–1.62), which was not significant [[Schomig2005BRAVE2]].
-- ESC 2023 cites "A small RCT in 347 STEMI patients presenting 12–48 h after symptom onset" (BRAVE-2's imaging cohort) as the basis for considering PCI in that window [[Byrne2023ESC,Schomig2005BRAVE2]].
+- ESC 2023 cites a small randomised trial of 347 STEMI patients who arrived 12–48 h after symptoms began (BRAVE-2's imaging cohort) as the basis for considering PCI in that window [[Byrne2023ESC,Schomig2005BRAVE2]].
 - OAT (2166 stable patients with an occluded infarct artery 3–28 days after MI): routine PCI did not reduce death, reinfarction or class IV heart failure at 4 years (17.2% vs 15.6%; HR 1.16, 95% CI 0.92–1.45) [[Hochman2006OAT]].
-- ESC 2023 addresses "routine PCI of an occluded IRA in STEMI patients presenting >48 h after onset of symptoms" in asymptomatic patients, a practice the OAT data argue against [[Byrne2023ESC,Hochman2006OAT]].
+- ESC 2023 addresses routinely opening a still-blocked infarct-related artery (IRA) by PCI in STEMI patients who arrive more than 48 h (>48 h) after symptoms began and are now symptom-free, a practice the OAT data argue against [[Byrne2023ESC,Hochman2006OAT]].
 
 ### reperfusion · Door-to-balloon trends: faster care, flat population mortality
 - In CMS data, median US door-to-balloon time fell from 96 min (2005) to 64 min (first 3 quarters of 2010). The share treated <90 min rose from 44.2% to 91.4%, and the share <75 min from 27.3% to 70.4% [[Krumholz2011D2B]].
@@ -137,11 +137,11 @@ Access notes:
 - In SHOCK, 1-year survival was 46.7% vs 33.6% (absolute difference 13.2%; RR for death 0.72) [[Hochman2001SHOCK1y]]. At 6 years, survival was 32.8% vs 19.6% [[Hochman2006SHOCKlong]].
 - CULPRIT-SHOCK (706 patients with MI, shock and multivessel disease): culprit-lesion-only PCI versus immediate multivessel PCI gave 30-day death or renal-replacement therapy of 45.9% vs 55.4% (RR 0.83, 95% CI 0.71–0.96) [[Thiele2017CULPRIT]].
 - At 1 year in CULPRIT-SHOCK, death was 50.0% vs 56.9% (RR 0.88, 95% CI 0.76–1.01). Repeat revascularisation (32.3% vs 9.4%) and heart-failure rehospitalisation (5.2% vs 1.2%) were more frequent with culprit-only PCI [[Thiele2018CULPRIT1y]].
-- ESC 2023: "Early revascularization with either PCI or CABG is recommended for patients with AMI complicated by CS" [[Byrne2023ESC]].
+- ESC 2023 recommends early revascularisation, by PCI or CABG, for acute MI complicated by cardiogenic shock (CS) [[Byrne2023ESC]].
 
 ### reperfusion · NSTE-ACS: timing of the invasive strategy
-- ESC 2023 definitions: an immediate invasive strategy is "emergency (i.e. as soon as possible) angiography and PCI if indicated". An early invasive strategy is "routine invasive angiography (and PCI if needed) within 24 h of presentation" [[Byrne2023ESC]].
-- ESC 2023: "An early (i.e. within 24 h) invasive strategy should be considered when any high-risk features are present." High-risk features include a confirmed NSTEMI by ESC hs-cTn algorithms, dynamic ST/T changes, transient ST elevation and "A GRACE risk score >140" [[Byrne2023ESC]].
+- ESC 2023 definitions: an immediate invasive strategy means angiography as an emergency, as soon as possible, with PCI if needed. An early invasive strategy means routine angiography, with PCI if needed, within 24 h of arrival [[Byrne2023ESC]].
+- ESC 2023: an early invasive strategy (within 24 h) should be considered if any high-risk feature is present. High-risk features include a confirmed NSTEMI by ESC hs-cTn algorithms, dynamic ST/T changes, transient ST elevation and "A GRACE risk score >140" [[Byrne2023ESC]].
 - ESC 2023 very-high-risk features (immediate invasive) include "Haemodynamic instability or CS" and "Recurrent or ongoing chest pain refractory to medical treatment" [[Byrne2023ESC]].
 - FRISC II (2457 patients with unstable coronary disease): an early invasive versus non-invasive strategy reduced death or MI at 6 months (9.4% vs 12.1%; RR 0.78, 95% CI 0.62–0.98) [[FRISCII1999]].
 - TIMACS (3031 patients): early (median 14 h) versus delayed (median 50 h) angiography did not significantly reduce death, MI or stroke at 6 months (9.6% vs 11.3%; HR 0.85, 95% CI 0.68–1.06) [[Mehta2009TIMACS]].
@@ -151,7 +151,7 @@ Access notes:
 - A later meta-analysis of 17 RCTs (10,209 patients) found no mortality difference (RR 0.90, 95% CI 0.78–1.04). Early invasive strategy reduced recurrent ischaemia (RR 0.57) and length of stay (−22 h) [[Kite2022]].
 
 ### cabg · When bypass surgery is chosen
-- ESC 2023: "Emergency coronary artery bypass grafting (CABG) surgery should be considered for patients" in whom PCI is not feasible or has failed (sentence quoted in part) [[Byrne2023ESC]].
+- ESC 2023: emergency bypass surgery (CABG) should be considered when PCI is not feasible or has failed [[Byrne2023ESC]].
 - In SHOCK, the early revascularisation group was treated with angioplasty in 55% and CABG in 38% [[Hochman2001SHOCK1y]].
 - In New York State (44,365 CABG patients, 1993–1996), in-hospital mortality fell the later CABG was done after an acute MI: 11.8% at <6 h, 9.5% at 6 h–1 day and 2.8% at >1 day [[Lee2001CABGtiming]].
 - In that study, mortality was higher after transmural MI if CABG was done within 7 days. The authors suggested that "waiting in some may be warranted" (observational data) [[Lee2001CABGtiming]].

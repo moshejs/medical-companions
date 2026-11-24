@@ -102,7 +102,7 @@ Access notes:
   - 29 deaths, a 6.6% mortality rate (95% CI 4.2-9.1%).
   - Independent risk factors: cirrhosis (OR 4.8), DT at diagnosis (OR 3.5), other chronic illness (OR 2.5) and intubation (OR 2.9) [[Monte2010]].
 - Khan 2008 case-control study (35 deaths from DT, 2000-2006): in the adjusted model, restraint use (OR 5.8) and hyperthermia in the first 24 h (OR 6.1) were associated with death [[Khan2008AEM]].
-- Mainerova 2015: untreated or late-recognized DT can be fatal through malignant arrhythmia, respiratory arrest, sepsis, severe electrolyte disturbance, or prolonged seizures and trauma. DT should be managed in an ICU or a ward with vital-sign monitoring [[Mainerova2015]].
+- Mainerova 2015: DT that is missed or treated late can kill, through dangerous heart rhythms, breathing arrest, sepsis, severe salt imbalance, or long seizures and injury. DT should be managed in an ICU or a ward with vital-sign monitoring [[Mainerova2015]].
 - ASAM 2020: if a patient has been delirious for longer than 72 h, assess for drug-induced delirium and withdrawal from another GABAergic agent (for example gabapentin or carisoprodol) [[ASAM2020Withdrawal]].
 
 ### withdrawal · Who is at risk of complicated withdrawal
@@ -130,18 +130,8 @@ Access notes:
 
 ### withdrawal · PAWSS (Prediction of Alcohol Withdrawal Severity Scale)
 - PAWSS was built from a systematic review that screened 2802 articles and kept 233. It found 10 items associated with complicated withdrawal. In a 68-patient pilot, sensitivity, specificity, PPV and NPV were all 100% at a threshold of 4 [[Maldonado2014]].
-- The ten PAWSS items, as summarized by the AAST 2022 consensus:
-  - previous withdrawal
-  - previous withdrawal seizures
-  - history of DT
-  - history of alcohol rehabilitation
-  - previous blackouts
-  - concomitant use of CNS depressants or illicit substances
-  - recent intoxication
-  - elevated blood alcohol level at admission
-  - evidence of increased autonomic activity
-  - The AAST text lists nine named factors for the ten items, and the published PAWSS splits concomitant substances into two items. The builders should take item wording from the original scale [[Seshadri2022AAST,Crepeault2025]].
-- PAWSS opens with a screening question: "Have you consumed any amount of alcohol within the last 30 days" or "did the patient have a positive BAL upon admission". It can be used before any withdrawal signs appear [[ASAM2020Withdrawal]].
+- The ten PAWSS items by topic (our short labels, following the AAST 2022 summary): past withdrawal; past withdrawal seizures; past DT; past alcohol treatment; past blackouts; other sedatives; illicit drugs; recent intoxication; high blood alcohol on admission; autonomic overactivity. The AAST text names nine factors because it joins the two substance items. The official item wording is in the original scale (Maldonado 2014); the site shows topic labels only [[Seshadri2022AAST,Crepeault2025]].
+- PAWSS opens with a threshold question: any drinking in the past 30 days, or a positive blood alcohol level on admission. It can be used before any withdrawal signs appear [[ASAM2020Withdrawal]].
 - Maldonado 2015 prospective validation (403 medically ill inpatients), using a cut-off of 4:
   - sensitivity 93.1% (95% CI 77.2-99.2%)
   - specificity 99.5% (95% CI 98.1-99.9%)
@@ -164,7 +154,7 @@ Access notes:
 - Malcolm 2002 RCT (136 outpatients): in people with two or more past medicated detoxifications, carbamazepine-treated patients drank less than 1 drink a day after treatment, compared with about 5 a day on lorazepam (P=.033). Lorazepam showed rebound symptoms after treatment [[Malcolm2002]].
 
 ### ciwa · The CIWA-Ar scale
-- CIWA-Ar is a 10-item shortened version of the CIWA-A scale. It was designed to be efficient while keeping clinical usefulness, validity and reliability [[Sullivan1989CIWA]].
+- CIWA-Ar is the revised, 10-item form of the older CIWA-A: quicker to use, and still valid and reliable in the clinic [[Sullivan1989CIWA]].
 - CIWA-Ar items and score ranges (Mirijello 2015 table, modified from Sullivan 1989):
   - nausea or vomiting 0-7
   - tremor 0-7
@@ -177,9 +167,7 @@ Access notes:
   - headache 0-7
   - orientation and clouding of sensorium 0-4
   - Nine items score 0-7 and one scores 0-4, so the maximum total is 67 [[Mirijello2015,Sullivan1989CIWA]].
-- Item anchors in the same table:
-  - Tremor runs from 0 (none) to 7 ("severe tremors, even with arms not extended").
-  - Orientation runs from 0 ("orientated, can do serial additions") to 4 ("disorientated for place and/or person") [[Mirijello2015]].
+- Each item has a worded anchor for each score level; the site does not reproduce them. The official anchors are on the published scale (Sullivan 1989) [[Mirijello2015]].
 - Published severity bands differ by source:
   - ASAM 2020: mild <10, moderate 10-18, severe ≥19, and complicated ≥19 with seizure or delirium signs. ASAM adds that classification "is ultimately up to the judgment of clinicians" [[ASAM2020Withdrawal]].
   - Mirijello 2015: <8 mild, 8-15 moderate, >15 severe. A score >15 also predicts seizures and delirium [[Mirijello2015]].
@@ -191,7 +179,7 @@ Access notes:
   - Only 60 (48%) met both requirements: recent drinking and intact verbal communication.
   - Of the rest: 9 (14%) were drinkers who could not communicate, 35 (55%) could communicate but had not been drinking, and 20 (31%) met neither [[Hecksel2008]].
 - CAM-ICU validation (111 ventilated ICU patients): sensitivity 100% and 93% and specificity 98% and 100% for the two study nurses, kappa 0.96, and a mean of 2 minutes to administer [[Ely2001CAMICU]].
-- RASS is a 10-level scale running from +4 ("combative") to -5 ("unarousable"), with high inter-rater reliability (kappa 0.64-0.82 across ICU types) [[Sessler2002RASS]].
+- RASS is a 10-level scale running from +4 (most agitated) to -5 (cannot be roused), with high inter-rater reliability (kappa 0.64-0.82 across ICU types) [[Sessler2002RASS]].
 - The Short Alcohol Withdrawal Scale (SAWS) is a 10-item self-administered scale for ambulatory care. It records symptoms over the prior few hours, rather than in the moment as CIWA-Ar does [[ASAM2020Withdrawal]].
 - Glasgow Modified Alcohol Withdrawal Scale (5 items, maximum 10), as reported in ASAM Appendix III, for predicting CIWA-A ≥8:
   - GMAWS ≥1: sensitivity 100%, specificity 12%
@@ -248,8 +236,8 @@ Access notes:
 - Saitz 1998: diazepam, chlordiazepoxide and lorazepam are the best studied. Long-acting agents give a smoother course with less rebound. Short-acting agents carry more risk of rebound symptoms, including late seizures [[Saitz1998AHRW]].
 - ASAM 2020 Recommendations IV.29 and V.24: front loading is recommended for severe withdrawal (CIWA-Ar ≥19), and diazepam or chlordiazepoxide are preferred. The sample front-loading regimen, quoted as published, is chlordiazepoxide "50-100 mg PO q1-2h until CIWA-Ar < 10" [[ASAM2020Withdrawal]].
 - ASAM 2020 Appendix V sample fixed-dose regimen: "Taper daily total dose by 25-50% per day over 3-5 days" [[ASAM2020Withdrawal]].
-- Valium (diazepam) label, quoted as published: in acute alcohol withdrawal, Valium "may be useful in the symptomatic relief of acute agitation, tremor, impending or acute delirium tremens and hallucinosis". The usual adult dose is "10 mg, 3 or 4 times during the first 24 hours, reducing to 5 mg, 3 or 4 times daily as needed" [[FDA-Valium]].
-- Chlordiazepoxide capsules label: indicated for "withdrawal symptoms of acute alcoholism". The suggested oral starting dose is "50 to 100 mg, to be followed by repeated doses as needed until agitation is controlled up to 300 mg per day" [[FDA-Chlordiazepoxide]].
+- Valium (diazepam) label, reported as published: in acute alcohol withdrawal it is listed for easing agitation, tremor, impending or acute delirium tremens and hallucinosis. The usual adult dose is 10 mg 3 or 4 times in the first 24 hours, then 5 mg 3 or 4 times a day as needed [[FDA-Valium]].
+- Chlordiazepoxide capsules label: indicated for "withdrawal symptoms of acute alcoholism". The suggested oral starting dose is 50 to 100 mg, repeated as needed until agitation is controlled, up to 300 mg per day [[FDA-Chlordiazepoxide]].
 - Oxazepam label: "15 to 30 mg, 3 or 4 times daily" for acute inebriation, tremulousness or anxiety on withdrawal (label wording uses the older term) [[FDA-Oxazepam]].
 - Lorazepam injection label indications are status epilepticus and preanesthetic use only. Alcohol withdrawal is not a labeled indication, although guidelines use IV lorazepam [[FDA-LorazepamInj,ASAM2020Withdrawal]].
 - Every benzodiazepine label checked (Valium, chlordiazepoxide, oxazepam) carries a boxed warning that use with opioids "may result in profound sedation, respiratory depression, coma, and death" [[FDA-Valium,FDA-Chlordiazepoxide,FDA-Oxazepam]].
@@ -258,7 +246,7 @@ Access notes:
   - not driving for the first few days
   - reducing the dose if drowsy [[ASAM2020Withdrawal]]
 - ASAM 2020 Recommendation VII.25: monitor people on chronic opioids (including opioid agonist treatment) closely when benzodiazepines are given, because of respiratory depression [[ASAM2020Withdrawal]].
-- ASAM 2020 Recommendations IV.42 and V.38: "Oral or intravenous alcohol should not be used for the prevention or treatment of alcohol withdrawal" [[ASAM2020Withdrawal]].
+- ASAM 2020 Recommendations IV.42 and V.38: alcohol, by mouth or by vein, should not be used to prevent or treat alcohol withdrawal [[ASAM2020Withdrawal]].
 - ASAM 2020 Recommendation VII.3 (primary care): if withdrawal does not settle below CIWA-Ar 10 after an adequate dose ("e.g., 80 mg diazepam"), or the patient appears sedated, transfer to an ED or an inpatient setting [[ASAM2020Withdrawal]].
 
 ### detox · Carbamazepine, gabapentin and other agents
@@ -279,7 +267,7 @@ Access notes:
 - ASAM 2020 Recommendations IV.37 and V.32: phenobarbital should be used only by clinicians experienced with it, "given its narrow therapeutic window". Parenteral phenobarbital belongs only in highly supervised settings such as the ICU or CCU [[ASAM2020Withdrawal]].
 - ASAM 2020 Appendix V phenobarbital examples, quoted as published, not as instructions:
   - single dose: "10 mg/kg IV infused over 30 minutes or 60-260 mg PO/IM"
-  - ICU symptom-triggered: "130 mg IV q30m to target a RASS score of 0 to -1" [[ASAM2020Withdrawal]]
+  - ICU symptom-triggered: 130 mg IV every 30 minutes, aiming for a RASS score of 0 to −1 [[ASAM2020Withdrawal]]
 - Rosenson 2013 double-blind RCT (102 ED patients): one dose of IV phenobarbital 10 mg/kg plus a symptom-guided lorazepam protocol, compared with placebo plus the same protocol. ICU admissions were 8% vs 25%, with no difference in adverse events [[Rosenson2013]].
 - Hendey 2011 RCT (44 ED patients with mild to moderate withdrawal): IV phenobarbital (mean 509 mg) and lorazepam (mean 4.2 mg) were similarly effective, with CIWA scores falling from 15.0 to 5.4 and from 16.8 to 4.2 [[Hendey2011]].
 - Lee 2024 ED meta-analysis (8 studies, 1507 patients) found no significant difference for phenobarbital vs benzodiazepines:
@@ -312,7 +300,7 @@ Access notes:
 - Pizon 2018 retrospective study (63 ICU patients with DT): adjunct ketamine infusion was associated with less intubation (OR 0.14) and an ICU stay 2.83 days shorter (Early evidence) [[Pizon2018]].
 - ASAM 2020 Recommendation VI.17: very large benzodiazepine doses may be needed in DT, "much higher than typically seen in other patient populations". Clinicians should watch for over-sedation, respiratory depression and accumulation in older adults and in liver disease [[ASAM2020Withdrawal]].
 - ASAM 2020 Recommendation VI.15: patients receiving repeated high IV doses of lorazepam or diazepam should be watched for hyponatremia and metabolic acidosis [[ASAM2020Withdrawal]].
-- ASAM 2020 Recommendation VI.14: continuous IV infusion "is considerably more expensive and there is no evidence of therapeutic superiority" over intermittent IV doses [[ASAM2020Withdrawal]].
+- ASAM 2020 Recommendation VI.14: continuous IV infusion costs much more and has not been shown to work better than intermittent IV doses [[ASAM2020Withdrawal]].
 - Awissi 2013: early, aggressive, symptom-guided titration was the only feature associated with better treatment outcomes in ICU withdrawal. The benefit of prophylaxis was unproven [[Awissi2013]].
 - Long 2017 ED review: benzodiazepines with symptom-triggered dosing remain first-line, with rapid escalation. Phenobarbital or propofol are for resistant cases, and dexmedetomidine and ketamine need more study [[Long2017AJEM]].
 
@@ -354,12 +342,12 @@ Access notes:
   - oral thiamine can also be offered
   - thiamine and glucose may be given "in any order or concurrently" [[ASAM2020Withdrawal]]
 - ASAM 2020 Recommendation IV.9, ambulatory care: oral thiamine can be offered, "Typical dosing is 100 mg PO per day for 3-5 days" [[ASAM2020Withdrawal]].
-- ASAM 2020 ICU discussion, citing one study: for patients whose signs mimic or mask WE, it suggests "200-500 mg IV thiamine every 8 hours, 64 mg/kg magnesium sulfate, and 400-1,000 mcg IV folate" instead of the "banana bag" multivitamin infusion [[ASAM2020Withdrawal]].
+- ASAM 2020 ICU discussion, citing one study: for patients whose signs mimic or mask WE, it suggests 200–500 mg IV thiamine every 8 hours, 64 mg/kg magnesium sulfate and 400–1,000 mcg IV folate in place of the "banana bag" multivitamin infusion [[ASAM2020Withdrawal]].
 - Kattimani 2013 states that everyone in withdrawal should receive at least 250 mg parenteral thiamine daily for 3-5 days, and 500 mg/day for 3-5 days if WE is suspected. Sources disagree on dose [[Kattimani2013]].
 - Thiamine injection label, as published:
-  - In WKS, it "has been administered IV in an initial dose of 100 mg, followed by IM doses of 50 to 100 mg daily until the patient is consuming a regular, balanced diet."
-  - Patients with marginal thiamine status receiving dextrose "should receive 100 mg thiamine hydrochloride in each of the first few liters of IV fluid" [[FDA-ThiamineInj]].
-- The same label warns that "serious hypersensitivity/anaphylactic reactions can occur, especially after repeated administration. Deaths have resulted from IV or IM administration of thiamine" [[FDA-ThiamineInj]].
+  - In WKS, the label describes a first IV dose of 100 mg, then 50 to 100 mg IM each day until the person is eating a normal, balanced diet.
+  - Patients with marginal thiamine status who are given dextrose should get 100 mg of thiamine hydrochloride in each of the first few litres of IV fluid [[FDA-ThiamineInj]].
+- The same label warns of serious allergic (anaphylactic) reactions, most often after repeated doses, and reports deaths after IV or IM thiamine [[FDA-ThiamineInj]].
 - Day 2013 Cochrane review found only 2 eligible RCTs:
   - One (Ambrose 2001, n=107, five IM doses for 2 days) favored 200 mg/day over 5 mg/day on one memory test (MD -17.90, 95% CI -35.4 to -0.40).
   - Evidence is "insufficient to guide clinicians" on dose, frequency, route or duration [[Day2013Cochrane]].
@@ -387,7 +375,7 @@ Access notes:
 - Kopelman 2009: Korsakoff syndrome is a preventable memory disorder that usually follows an episode of WE.
   - Episodic memory is severely affected, while implicit memory is preserved.
   - People can learn new things in a calm, structured, cued environment.
-  - People with Korsakoff syndrome "are reported to have a normal life expectancy if they remain abstinent" [[Kopelman2009]].
+  - People with Korsakoff syndrome are reported to live a normal lifespan if they stay off alcohol [[Kopelman2009]].
 - Arts 2017: the often-quoted progression rate of about 84% from WE to Korsakoff syndrome in people with heavy alcohol use comes from the Victor monograph and was not meant as a general estimate. A later study found 56%, so the 85% figure is "an unreliably high estimation" [[Arts2017]].
 - Arts 2017 epidemiology: Korsakoff prevalence was 4.8 per 10,000 inhabitants in The Hague (1987) and about 3 per 10,000 in North-Holland (1992). Annual incidence was about 0.5 per 10,000 in Glasgow (1990-1995) [[Arts2017]].
 - Kattimani 2013 states that WE carries a 20% mortality, with 75% going on to a permanent amnestic (Korsakoff) syndrome. These are review figures quoted without a primary source here [[Kattimani2013]].

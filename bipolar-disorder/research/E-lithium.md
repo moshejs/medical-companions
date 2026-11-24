@@ -76,7 +76,7 @@ Safe-messaging note for builders (not a finding): if you are in crisis or thinki
 ### lithium · Stopping lithium and adherence
 - Suppes 1991 pooled 14 studies (257 people with bipolar I disorder) who stopped lithium after an average of 30 months. More than 50% of new episodes came within 10 weeks of stopping [[Suppes1991]].
 - In those studies, the median time to the end of remission was 5.0 months after stopping. 25% had a manic recurrence by 2.7 months, against 14 months for a depressive recurrence [[Suppes1991]].
-- NICE: "If stopping lithium, reduce the dose gradually over at least 4 weeks, and preferably up to 3 months." It advises close monitoring for early signs of mania and depression during the reduction and for 3 months after stopping [[NICE2014CG185E]].
+- NICE: if lithium is stopped, the dose should be lowered gradually over at least 4 weeks, and preferably over up to 3 months. It advises close monitoring for early signs of mania and depression during the reduction and for 3 months after stopping [[NICE2014CG185E]].
 - When starting lithium, NICE advises telling the person that poor adherence or rapid discontinuation may increase the risk of relapse [[NICE2014CG185E]].
 - A 2008 review found that an abrupt fall in serum level of more than 0.2 mmol/L was associated with a higher relapse risk [[Severus2008]].
 
@@ -103,7 +103,7 @@ Safe-messaging note for builders (not a finding): if you are in crisis or thinki
 - Both labels give ≥1.5 mEq/L as the toxic concentration, "close to the therapeutic range (0.8 to 1.2 mEq/L)" [[FDA-Lithium,FDA-Lithobid]].
 - NICE: aim for 0.6–0.8 mmol/L in people prescribed lithium for the first time [[NICE2014CG185E]].
 - NICE suggests considering 0.8–1.0 mmol/L for a trial of at least 6 months in people who relapsed on lithium before, or who have subthreshold symptoms with functional impairment [[NICE2014CG185E]].
-- CANMAT/ISBD 2018: "The target serum level for lithium in acute treatment is 0.8‐1.2 mEq/L (0.4‐0.8 mEq/L in older adults) while in maintenance treatment, serum levels of 0.6‐1 mEq/L may be sufficient" [[Yatham2018]].
+- CANMAT/ISBD 2018 targets a serum lithium level of 0.8–1.2 mEq/L in acute treatment (0.4–0.8 mEq/L in older adults), and suggests 0.6–1 mEq/L may be enough in maintenance [[Yatham2018]].
 - The ISBD/IGSLI Delphi consensus (2019) for adults: standard level 0.60–0.80 mmol/L, lowered to 0.40–0.60 if response is good but tolerance poor, or raised to 0.80–1.00 if response is insufficient and tolerance good [[Nolen2019]].
 - For older adults, the majority (not a consensus) of that panel endorsed 0.40–0.60 mmol/L usually, with a maximum of 0.70–0.80 at ages 65–79 and 0.70 over age 80 [[Nolen2019]].
 - An earlier review placed the minimum efficacious maintenance level at 0.4 mmol/L, with optimal response at 0.6–0.75 mmol/L. Levels above 0.75 may add control of manic symptoms between episodes [[Severus2008]].
@@ -127,7 +127,7 @@ Safe-messaging note for builders (not a finding): if you are in crisis or thinki
 - A UK national audit (3,373 patients, 38 trusts) found that for patients on lithium for a year or more, NICE standards were met for serum levels in 30%, renal function in 55% and thyroid function in 50% [[Collins2010]].
 
 ### levels · Toxicity: signs, patterns and risk factors
-- Boxed warning: "Lithium toxicity is closely related to serum lithium concentrations, and can occur at doses close to therapeutic concentrations." Facilities for prompt serum measurement should be available before treatment starts [[FDA-Lithium,FDA-Lithobid]].
+- Boxed warning (paraphrased): lithium toxicity tracks the serum lithium level closely and can happen at doses near the therapeutic range. Facilities for prompt serum measurement should be available before treatment starts [[FDA-Lithium,FDA-Lithobid]].
 - The generic label grades neurological toxicity:
   - mild: fine tremor, light-headedness, lack of coordination, weakness
   - moderate: giddiness, apathy, drowsiness, hyperreflexia, muscle twitching, ataxia, blurred vision, tinnitus, slurred speech
@@ -147,7 +147,7 @@ Safe-messaging note for builders (not a finding): if you are in crisis or thinki
   - volume depletion or dehydration
   - significant cardiovascular disease
   - electrolyte changes, especially sodium and potassium [[FDA-Lithium]]
-- Lithium poisoning has three patterns: acute, acute-on-chronic and chronic. Chronic poisoning is the most common and is usually unintentional; intake outstrips elimination, often because the kidneys clear less during volume depletion, nephrogenic diabetes insipidus, intercurrent illness or interacting drugs [[BairdGunning2017]].
+- Lithium poisoning has three patterns: acute, acute-on-chronic and chronic. Chronic poisoning is the commonest and is usually accidental: more lithium goes in than comes out, often because the kidneys clear less of it during volume depletion, nephrogenic diabetes insipidus, intercurrent illness or interacting drugs [[BairdGunning2017]].
 - In 97 poisoning cases at an Australian regional centre, 26 of 28 severe neurotoxicity cases arose from chronic therapeutic use. Chronic poisoning carried a much higher risk of severe neurotoxicity than overdose (OR 136, 95% CI 23–1300) [[Oakley2001]].
 - In that series, independent risk factors for chronic poisoning were nephrogenic diabetes insipidus (adjusted OR 26.96), age over 50 (6.20) and thyroid dysfunction (9.30) [[Oakley2001]].
 - Severe neurotoxicity was linked to a longer hospital stay (12 vs 2 days) and higher peak levels (2.3 vs 1.6 mmol/L) [[Oakley2001]].

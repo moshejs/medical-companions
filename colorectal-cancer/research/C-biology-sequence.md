@@ -29,7 +29,7 @@ Access notes:
 - Embryology underlies "sidedness". Proximal (right, midgut) and distal (left, hindgut) colon differ in developmental origin, patterning-gene exposure, mutagen exposure and gut flora [[Missiaglia2014,Iacopetta2002]].
 
 ### colon · The crypt and its stem cells
-- The intestinal epithelium is the most rapidly self-renewing tissue in adult mammals [[Barker2007]]. The single epithelial layer is renewed every 4–5 days [[VanDerFlier2009]].
+- No adult mammalian tissue renews itself faster than the lining of the intestine [[Barker2007]]. The single epithelial layer is renewed every 4–5 days [[VanDerFlier2009]].
 - Lgr5, a Wnt target gene, marks cycling columnar cells at the crypt base in the small intestine and colon. In lineage tracing in adult mice, a single Lgr5+ cell generated all epithelial lineages over 60 days, which identifies it as the stem cell (Established; mouse evidence) [[Barker2007]].
 - In the small intestine, Paneth cells sit between the Lgr5+ stem cells and supply Wnt3, EGF, TGF-α and the Notch ligand Dll4. Removing Paneth cells removes the stem cells [[Sato2011]].
 - The colon has no Paneth cells. Reg4+ deep crypt secretory (DCS) cells sit among the Lgr5+ stem cells and act as "Paneth cell equivalents". Ablating them in mice causes loss of colonic stem cells [[Sasaki2016,Sato2011]].
@@ -261,7 +261,7 @@ Access notes:
 - "Polymorphic microbiomes" are proposed as an enabling characteristic of cancer (Hypothesis) [[Hanahan2022]].
 
 ### home · Burden and "bad luck"
-- Colorectal cancer is the world's fourth most deadly cancer, with almost 900,000 deaths a year [[Dekker2019]]. In the US in 2023, an estimated 153,020 people were diagnosed and 52,550 died [[Siegel2023CRC]].
+- Colorectal cancer ranks fourth among cancers worldwide by deaths, at almost 900,000 a year [[Dekker2019]]. In the US in 2023, an estimated 153,020 people were diagnosed and 52,550 died [[Siegel2023CRC]].
 - Lifetime cancer risk across tissues correlated (r = 0.81) with the total number of normal stem-cell divisions. FAP carries about 30 times the colorectal than duodenal cancer risk, matching about 150 times as many stem-cell divisions in the colon (Hypothesis; contested) [[Tomasetti2015]].
 - A follow-up estimated that replication errors account for about two-thirds of mutations in human cancers. The authors argue that this is compatible with the fraction preventable by environmental change (Hypothesis; contested) [[Tomasetti2017]].
 

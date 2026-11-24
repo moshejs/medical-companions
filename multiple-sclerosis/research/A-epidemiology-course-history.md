@@ -62,7 +62,7 @@ This file covers how common multiple sclerosis (MS) is worldwide, in the US and 
 ### Clinical course definitions (phenotypes)
 - In 1996, an international survey of clinicians produced the first standardised definitions of four courses: relapsing-remitting (RR), secondary progressive (SP), primary progressive (PP) and progressive relapsing (PR) [Lublin1996; Lublin2014].
 - The 2013 revision (published 2014) kept RR, SP and PP as the core phenotypes. It added clinically isolated syndrome (CIS) as the first clinical presentation of possible MS that does not yet meet dissemination in time [Lublin2014].
-- The 2013 revision added two modifiers. "Activity" means clinical relapses and/or MRI activity (gadolinium-enhancing or new/unequivocally enlarging T2 lesions), assessed at least annually. "Progression" means worsening shown on clinical evaluation, assessed at least annually in progressive disease. When assessments are missing, both are "indeterminate" [Lublin2014].
+- The 2013 revision added two modifiers. "Activity" means a relapse, MRI activity (a gadolinium-enhancing lesion, or a T2 lesion that is new or clearly larger), or both, checked at least once a year. "Progression" means worsening found on examination in progressive disease, also checked at least once a year. If the checks are missing, both are "indeterminate" [Lublin2014].
 - Because "activity" became a modifier, the PRMS category was eliminated. A person with PPMS who has an acute attack is now classified as "PP–active" [Lublin2014].
 - The 2013 revision did not count radiologically isolated syndrome (RIS) as an MS phenotype. Its reasons were that clinical evidence of demyelinating disease is lacking and that MRI findings alone may be nonspecific [Lublin2014].
 - In the 2013 revision, SPMS is usually diagnosed in hindsight. No clinical, imaging, immunologic or pathologic criteria mark the point of transition from RRMS, which is usually gradual [Lublin2014].
@@ -124,22 +124,22 @@ This file covers how common multiple sclerosis (MS) is worldwide, in the US and 
 
 ### EDSS and other outcome measures
 - The EDSS (1983) expanded Kurtzke's earlier 0–10 Disability Status Scale by splitting each step into half-steps (1.0, 1.5 … 9.5). It is built on eight Functional Systems: pyramidal, cerebellar, brainstem, sensory, bowel & bladder, visual, cerebral, and other [Kurtzke1983].
-- On the EDSS, 0 is a normal examination. Scores 1.0–3.5 reflect increasing signs or disability in the Functional Systems while the person remains fully ambulatory [Kurtzke1983; Das2019].
-- EDSS walking anchors from 4.0 to 6.5 are:
-  - 4.0: walks ≥500 m without aid or rest.
-  - 4.5: walks ≥300 m.
-  - 5.0: walks ≥200 m.
-  - 5.5: walks ≥100 m.
-  - 6.0: walks ≥100 m with unilateral assistance.
-  - 6.5: walks ≥20 m with bilateral assistance.
+- On the EDSS, 0 is a normal examination. From 1.0 to 3.5 the score rises with the findings in the Functional Systems while there is still no walking limit [Kurtzke1983; Das2019].
+- From 4.0 to 6.5 the steps are set mainly by walking distance (topic and numbers only; the official step definitions are in Kurtzke 1983 and the Neurostatus-EDSS materials, https://www.neurostatus.net/):
+  - 4.0: about 500 m, no aid, no rest.
+  - 4.5: about 300 m, no aid.
+  - 5.0: about 200 m, no aid.
+  - 5.5: about 100 m, no aid.
+  - 6.0: about 100 m, one aid.
+  - 6.5: about 20 m, two aids.
   [Das2019; Confavreux2000]
-- EDSS anchors from 7.0 to 10 are:
-  - 7.0: walks ≤5 m with aid; essentially restricted to a wheelchair, wheels self and transfers alone.
-  - 7.5: a few steps only; may need help to transfer.
-  - 8.0: essentially restricted to bed or chair, keeps effective use of the arms.
-  - 8.5: restricted to bed much of the day.
-  - 9.0: helpless in bed but can communicate and eat.
-  - 9.5: totally dependent; cannot communicate effectively or eat/swallow.
+- From 7.0 to 10 the steps are set by wheelchair use and care needs (topic labels only):
+  - 7.0: walking 5 m or less; wheelchair, independent.
+  - 7.5: wheelchair; help to transfer.
+  - 8.0: mostly bed or chair; arm use kept.
+  - 8.5: bed for much of the day.
+  - 9.0: bed-bound; eating and communication kept.
+  - 9.5: full dependence.
   - 10: death due to MS.
   [Das2019]
 - The lower EDSS range rests on the neurological examination. EDSS 4–6 depends heavily on walking ability, and the upper range (>6) measures handicap [MeyerMoock2014].

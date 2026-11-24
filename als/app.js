@@ -415,7 +415,7 @@ const WH_PH=[
  {id:'bulbar',n:'Bulbar onset',f:{bulbar:1,cervical:.25,thoracic:.15,lumbosacral:.1},u:'yes',l:'yes',sv:'bulbar',
   txt:`Slurred speech or trouble swallowing comes first. Bulbar onset was 25.4% at a London clinic, 33.0% in France, 31% and 35.3% in Irish cohorts and 22.7% in an African hospital cohort <sup class="c" data-ref="Roche2012,Hamidou2017,Rooney2017,Elamin2011,Luna2019" title="Source 156,217,305,451,455"><a href="/als/sources/#src-Roche2012">156,217,305,451,455</a></sup>. Median survival from onset was 27 months, with 8.8% alive at 5 years <sup class="c" data-ref="Wijesekera2009" title="Source 537"><a href="/als/sources/#src-Wijesekera2009">537</a></sup>. A less common form, pseudobulbar palsy, has mostly upper motor neuron bulbar features that spread slowly to the limbs <sup class="c" data-ref="Feldman2022" title="Source 180"><a href="/als/sources/#src-Feldman2022">180</a></sup>.`},
  {id:'pls',n:'Primary lateral sclerosis (PLS)',f:{lumbosacral:.85,cervical:.4,bulbar:.3,thoracic:.1},u:'yes',l:'later',sv:null,
-  txt:`Only upper motor neuron signs at first: spasticity and brisk reflexes <sup class="c" data-ref="Feldman2022" title="Source 180"><a href="/als/sources/#src-Feldman2022">180</a></sup>. Of 29 people with only UMN signs at their first assessment, 13 later developed LMN signs, at about 3.2 to 3.7 years. Clinically pure PLS can be defined by isolated UMN signs 4 years after onset, and survival is longer than in ALS <sup class="c" data-ref="Gordon2006" title="Source 211"><a href="/als/sources/#src-Gordon2006">211</a></sup>. Pseudobulbar affect (uncontrolled laughing or crying) was recorded in 31 of 50 people with PLS at one clinic <sup class="c" data-ref="Floeter2014" title="Source 186"><a href="/als/sources/#src-Floeter2014">186</a></sup>.`},
+  txt:`Only upper motor neuron signs at first: spasticity and brisk reflexes <sup class="c" data-ref="Feldman2022" title="Source 180"><a href="/als/sources/#src-Feldman2022">180</a></sup>. Of 29 people with only UMN signs at their first assessment, 13 later developed LMN signs, at about 3.2 to 3.7 years. If only UMN signs are present 4 years after onset, the disease can be called clinically pure PLS, and people live longer than with ALS <sup class="c" data-ref="Gordon2006" title="Source 211"><a href="/als/sources/#src-Gordon2006">211</a></sup>. Pseudobulbar affect (uncontrolled laughing or crying) was recorded in 31 of 50 people with PLS at one clinic <sup class="c" data-ref="Floeter2014" title="Source 186"><a href="/als/sources/#src-Floeter2014">186</a></sup>.`},
  {id:'pma',n:'Progressive muscular atrophy (PMA)',f:{cervical:.8,lumbosacral:.6,bulbar:.15,thoracic:.15},u:'later',l:'yes',sv:null,
   txt:`Only lower motor neuron signs at first: weakness, wasting and fasciculations. In London, PMA not classed as flail arm or flail leg was 4% and had a prognosis similar to typical limb-onset ALS <sup class="c" data-ref="Wijesekera2009" title="Source 537"><a href="/als/sources/#src-Wijesekera2009">537</a></sup>. In a New York centre, people with PMA were more often male and older and lived longer; 22% developed UMN signs within 61 months, and the authors conclude that PMA should be considered a form of ALS <sup class="c" data-ref="Kim2009" title="Source 264"><a href="/als/sources/#src-Kim2009">264</a></sup>.`},
  {id:'flailArm',n:'Flail arm',f:{cervical:1},u:'few',l:'yes',sv:'flailArm',
@@ -1381,7 +1381,7 @@ const GE_PS={
 /* the age slider runs 30 to 85; steps sit on the published ages */
 const GE_PDS=[
  {from:0,at:0,k:`Age 30 · Inheritance`,t:`A 50:50 chance for each child`,
-  txt:`"Each child of an individual with C9orf72-FTD/ALS has a 50% chance of inheriting" the expansion. Almost everyone with <i>C9orf72</i> disease inherited it from a parent, who may be unaffected because penetrance is age-dependent and reduced, as with the grandfather here. <sup class="c" data-ref="GossyeGeneReviews" title="Source 213"><a href="/als/sources/#src-GossyeGeneReviews">213</a></sup>`,
+  txt:`Every child of a person with <i>C9orf72</i>-FTD/ALS has a 1 in 2 (50%) chance of inheriting the expansion. Nearly everyone with <i>C9orf72</i> disease got it from a parent, and that parent can stay well because penetrance is reduced and rises with age, as with the grandfather here. <sup class="c" data-ref="GossyeGeneReviews" title="Source 213"><a href="/als/sources/#src-GossyeGeneReviews">213</a></sup>`,
   pt:`Each child has a 1 in 2 chance of getting the changed copy. Getting it is not the same as getting ALS.`,
   hook:`A child of a carrier has a <b>50% chance of inheriting</b> the expansion, but a lower chance of ALS or FTD: <b>50% × penetrance</b> at that age. By 80 that is close to 50% with family-based figures and about 29–33% with UK Biobank figures (arithmetic from the cited numbers, not a published risk). <sup class="c" data-ref="GossyeGeneReviews,Majounie2012,Gao2025" title="Source 193,213,313"><a href="/als/sources/#src-GossyeGeneReviews">193,213,313</a></sup>`},
  {from:.07,at:.0909,k:`Age 35 · Early adulthood`,t:`Before 35: no carriers affected`,
@@ -2363,23 +2363,24 @@ const CO_TXT={
   mItem:(n,v)=>`item ${n}: ${v}`,
   sum:(tot,dfs,st)=>`<span>ALSFRS-R <b>${tot} / 48</b></span><span>ΔFS <b>${dfs}</b></span><span>King's (estimate) <b>${st}</b></span>`,
   monthsBad:'Enter the months since symptom onset (1 or more) to calculate ΔFS.',
-  scoreAria:(v,a)=>`${v}: ${a}`
+  scoreAria:(v,t)=>`${t}: ${v} of 4`,
+  anTxt:v=>`<b>${v}</b> of 4${v===4?' (normal)':''}`
 };
-/* ALSFRS-R items: topic and paraphrased levels 4..0 (own wording; the scale text itself is copyrighted) */
+/* ALSFRS-R items: topic labels and points only (the level wording belongs to the official scale and is not reproduced) */
 const CO_ITEMS=[
- {n:'1',d:'bulbar',t:'Speech',a:['speaks as before','speech sounds changed but is understood','has to repeat to be understood','speech plus other ways of communicating','speech no longer usable to communicate']},
- {n:'2',d:'bulbar',t:'Saliva',a:['no change','slightly more saliva, perhaps some at night','clearly more saliva, a little drooling','much more saliva, some drooling','drooling that needs constant wiping']},
- {n:'3',d:'bulbar',t:'Swallowing',a:['eats as before','eats, with occasional choking','food or drink texture has to be changed','a tube adds to what is eaten','nothing by mouth; all feeding by tube or drip']},
- {n:'4',d:'fine',t:'Handwriting',a:['writes as before','slower or untidier, still readable','some words cannot be read','holds a pen but cannot form words','cannot hold a pen']},
- {n:'5a',d:'fine',t:'Cutting food and using cutlery',a:['as before','slower or clumsier, manages alone','manages most foods with some help','someone else cuts the food; still feeds self slowly','needs to be fed']},
- {n:'5b',d:'fine',t:'Handling the feeding tube and fastenings',a:['as before','clumsy but does every step alone','needs some help with caps and fasteners','carer does most; person helps a little','cannot do any part']},
- {n:'6',d:'fine',t:'Dressing and washing',a:['as before','manages alone, with more effort','needs help now and then, or uses workarounds','needs a carer for self-care','fully reliant on others']},
- {n:'7',d:'gross',t:'Turning in bed and adjusting bedclothes',a:['as before','slower or clumsier, manages alone','manages alone, with great difficulty','starts but cannot finish without help','cannot do it without full help']},
- {n:'8',d:'gross',t:'Walking',a:['walks as before','early difficulty walking','walks with help from a person or an aid','moves but cannot walk usefully','no purposeful leg movement']},
- {n:'9',d:'gross',t:'Climbing stairs',a:['as before','slower','somewhat unsteady or tires','needs help','cannot climb stairs']},
- {n:'10',d:'resp',t:'Breathlessness',a:['none','when walking','with everyday tasks such as eating, washing or dressing','at rest, sitting or lying','severe; mechanical support being considered']},
- {n:'11',d:'resp',t:'Breathlessness lying flat',a:['none','some broken sleep from breathlessness','needs extra pillows to sleep','can sleep only sitting up','cannot sleep for breathlessness']},
- {n:'12',d:'resp',t:'Breathing support',a:['none','NIV used some of the time','NIV through the night','NIV day and night','invasive ventilation (intubation or tracheostomy)']}
+ {n:'1',d:'bulbar',t:'Speech'},
+ {n:'2',d:'bulbar',t:'Saliva'},
+ {n:'3',d:'bulbar',t:'Swallowing'},
+ {n:'4',d:'fine',t:'Handwriting'},
+ {n:'5a',d:'fine',t:'Cutting food and using cutlery'},
+ {n:'5b',d:'fine',t:'Handling the feeding tube and fastenings'},
+ {n:'6',d:'fine',t:'Dressing and washing'},
+ {n:'7',d:'gross',t:'Turning in bed and adjusting bedclothes'},
+ {n:'8',d:'gross',t:'Walking'},
+ {n:'9',d:'gross',t:'Climbing stairs'},
+ {n:'10',d:'resp',t:'Breathlessness'},
+ {n:'11',d:'resp',t:'Breathlessness lying flat'},
+ {n:'12',d:'resp',t:'Breathing support'}
 ];
 const CO_EX={
  limb:{m:14,g:false,v:{'1':4,'2':4,'3':4,'4':2,'5':2,'6':3,'7':3,'8':2,'9':1,'10':4,'11':4,'12':4}},
@@ -2552,14 +2553,14 @@ inits.course=()=>{
       h+=`<fieldset data-dom="${d}"><legend><span class="co-sw" style="background:${CO_DCOL[d]}"></span><b data-dtot="${d}"></b></legend>`;
       CO_ITEMS.filter(it=>it.d===d&&!(it.n==='5a'&&gas)&&!(it.n==='5b'&&!gas)).forEach(it=>{const key=it.n==='5a'||it.n==='5b'?'5':it.n;
         h+=`<div class="co-it" role="group" aria-labelledby="coIt${it.n}"><div class="co-ih"><span class="n">${it.n}</span><span id="coIt${it.n}">${it.t}</span></div><div class="co-sc">`;
-        [4,3,2,1,0].forEach(v=>{h+=`<button class="btn" data-it="${key}" data-v="${v}" aria-pressed="${sc[key]===v}" aria-label="${CO_TXT.scoreAria(v,it.a[4-v])}">${v}</button>`});
+        [4,3,2,1,0].forEach(v=>{h+=`<button class="btn" data-it="${key}" data-v="${v}" aria-pressed="${sc[key]===v}" aria-label="${CO_TXT.scoreAria(v,it.t)}">${v}</button>`});
         h+=`</div><p class="co-an" data-an="${key}"></p></div>`});
       h+='</fieldset>'});
     box.innerHTML=h;
   }
   function calc(){
     $$('[data-it]',box).forEach(b=>b.setAttribute('aria-pressed',sc[b.dataset.it]===+b.dataset.v));
-    $$('[data-an]',box).forEach(p=>{const it=itemOf(p.dataset.an),v=sc[p.dataset.an];p.innerHTML=`<b>${v}</b> · ${it.a[4-v]}`});
+    $$('[data-an]',box).forEach(p=>{const it=itemOf(p.dataset.an),v=sc[p.dataset.an];p.innerHTML=CO_TXT.anTxt(v)});
     const dsum={bulbar:0,fine:0,gross:0,resp:0};
     Object.keys(sc).forEach(k=>{dsum[itemOf(k).d]+=sc[k]});
     $$('[data-dtot]',box).forEach(b=>{const d=b.dataset.dtot;b.textContent=CO_TXT.domTot(CO_TXT.dom[d],dsum[d])});
@@ -3996,7 +3997,7 @@ const NC_TXT={
  /* liver tests */
  lftUS:'US label',lftEU:'EU SmPC',lftBefore:'before',lftPer:'then periodically',lftAfter:'after year 1',
  lftCap:(m,a,b)=>`Month ${m}: ${a} dated tests on the US schedule, ${b} on the EU schedule.`,
- lftNote:'<div class="kicker">Controversy: the labels differ</div><h4>Monthly for 3 months, then?</h4><p>The US label measures aminotransferases before and during treatment, monitoring for liver injury "every month for the first 3 months of treatment, and periodically thereafter". <sup class="c" data-ref="FDA2026Riluzole" title="Source 177"><a href="/als/sources/#src-FDA2026Riluzole">177</a></sup> The EU SmPC asks for ALT every month for the first 3 months, every 3 months for the rest of the first year, and periodically after that, and stops riluzole if ALT reaches 5 times the upper limit of normal. <sup class="c" data-ref="EMA_RilutekSmPC" title="Source 163"><a href="/als/sources/#src-EMA_RilutekSmPC">163</a></sup></p><div class="hook"><b>Exam hook</b>On the US label about 50% had at least one ALT above the upper limit of normal and 8% above 3 times, with the largest rise within 3 months. <sup class="c" data-ref="FDA2026Riluzole" title="Source 177"><a href="/als/sources/#src-FDA2026Riluzole">177</a></sup></div><div class="pt"><b>In plain words</b>Riluzole can irritate the liver, mostly early on, so blood tests are done monthly at first. Europe then asks for them every three months during the first year.</div>',
+ lftNote:'<div class="kicker">Controversy: the labels differ</div><h4>Monthly for 3 months, then?</h4><p>The US label measures aminotransferases before and during treatment, monitoring for liver injury monthly for the first 3 months of treatment and from time to time after that. <sup class="c" data-ref="FDA2026Riluzole" title="Source 177"><a href="/als/sources/#src-FDA2026Riluzole">177</a></sup> The EU SmPC asks for ALT every month for the first 3 months, every 3 months for the rest of the first year, and periodically after that, and stops riluzole if ALT reaches 5 times the upper limit of normal. <sup class="c" data-ref="EMA_RilutekSmPC" title="Source 163"><a href="/als/sources/#src-EMA_RilutekSmPC">163</a></sup></p><div class="hook"><b>Exam hook</b>On the US label about 50% had at least one ALT above the upper limit of normal and 8% above 3 times, with the largest rise within 3 months. <sup class="c" data-ref="FDA2026Riluzole" title="Source 177"><a href="/als/sources/#src-FDA2026Riluzole">177</a></sup></div><div class="pt"><b>In plain words</b>Riluzole can irritate the liver, mostly early on, so blood tests are done monthly at first. Europe then asks for them every three months during the first year.</div>',
  lftDraw:'Only the US label\'s pre-treatment test is drawn; the EU wording on a baseline test was not part of this guide\'s research.',
  /* gastrostomy */
  pegModes:[ ['espen','ESPEN 2022'],['esge','ESGE 2021'] ],
@@ -4477,7 +4478,7 @@ const CU_CARDS=[
    txt:`106 adults with C9orf72-ALS received intrathecal BIIB078 (5-90 mg) or placebo. Serious adverse events occurred in 18% on BIIB078 and 33% on placebo. There was no reduction in neurofilament levels and no benefit on clinical outcomes, and development was discontinued <sup class="c" data-ref="vandenBerg2024,NCT03626012" title="Source 365,509"><a href="/als/sources/#src-vandenBerg2024">365,509</a></sup>. In tissue from treated people, CSF dipeptide repeat proteins fell, but these proteins and phosphorylated TDP-43 remained abundant in the brain <sup class="c" data-ref="McEachin2025" title="Source 324"><a href="/als/sources/#src-McEachin2025">324</a></sup>.`,
    reg:[{n:'BIIB078 phase 1',id:'NCT03626012',s:'COMPLETED',d:'2022-01-14'}]},
   {ev:'neg',h:'WVE-004 (FOCUS-C9)',
-   txt:`Terminated with 35 enrolled. The registry reason reads "Despite robust, sustained reductions in poly(GP), no clinical benefit was seen at 24 weeks"; the company reported maximal mean poly(GP) reductions of 48-51% <sup class="c" data-ref="NCT04931862,Wave2023" title="Source 374,531"><a href="/als/sources/#src-NCT04931862">374,531</a></sup>.`,
+   txt:`Terminated with 35 enrolled. The registry gives the reason: poly(GP) fell strongly and stayed down, but there was no clinical benefit at 24 weeks; the company reported maximal mean poly(GP) reductions of 48-51% <sup class="c" data-ref="NCT04931862,Wave2023" title="Source 374,531"><a href="/als/sources/#src-NCT04931862">374,531</a></sup>.`,
    reg:[{n:'FOCUS-C9',id:'NCT04931862',s:'TERMINATED',d:'2023-10-23'}]},
   {ev:'early',w:'Early evidence: one person, biomarker only',h:'An optimised C9orf72 antisense in one person',
    txt:`Repeated intrathecal dosing was well tolerated with significant falls in CSF poly(GP). The authors state that further trials are needed to show safety and efficacy <sup class="c" data-ref="Tran2022" title="Source 496"><a href="/als/sources/#src-Tran2022">496</a></sup>.`},
@@ -4508,7 +4509,7 @@ const CU_CARDS=[
    txt:`A February 2026 company release reported a reduction in pNfH in the low-dose group, an ALSFRS-R "trend", and a significant result only in a post hoc subgroup. No numbers were released. The company plans a phase 3 in 2027. 69 are enrolled <sup class="c" data-ref="NCT05633459,QurAlis2026" title="Source 377,437"><a href="/als/sources/#src-NCT05633459">377,437</a></sup>.`,
    reg:[{n:'ANQUR',id:'NCT05633459',s:'ACTIVE_NOT_RECRUITING',d:'2026-05-15'}]}
  ]},
- {t:'Other TDP-43 routes: UNC13A, antibodies, PIKFYVE',lede:`Silencing TDP-43 itself is probably not appropriate given its critical cellular functions, which is why indirect routes were pursued <sup class="c" data-ref="Becker2017" title="Source 44"><a href="/als/sources/#src-Becker2017">44</a></sup>.`,items:[
+ {t:'Other TDP-43 routes: UNC13A, antibodies, PIKFYVE',lede:`TDP-43 does vital work in the cell, so switching it off directly is probably unwise; that is why indirect routes were tried <sup class="c" data-ref="Becker2017" title="Source 44"><a href="/als/sources/#src-Becker2017">44</a></sup>.`,items:[
   {ev:'hyp',h:'UNC13A',
    txt:`TDP-43 loss lets a cryptic exon into UNC13A RNA and lowers the protein; the ALS and FTD risk variants sit in that intron and increase cryptic exon inclusion. Both 2022 papers name it a therapeutic target <sup class="c" data-ref="Ma2022,Brown2022" title="Source 80,307"><a href="/als/sources/#src-Ma2022">80,307</a></sup>.`},
   {ev:'neg',w:'Tested and negative (interim analysis)',h:'Lithium in UNC13A C/C carriers (TRICALS)',

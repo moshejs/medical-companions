@@ -28,7 +28,7 @@ const CL_STEPS=[
  {from:.72,at:.94,k:'Zoom in',t:'The wall in layers',
   txt:`Cut through the wall and it has layers: the mucosa on the inside (the lining, folded into crypts), the submucosa, the muscularis propria, the subserosa and serosa, and fat beyond the wall. How far a cancer has grown through these layers is the "T" of its stage: see <a href="#staging" data-go="staging">Staging: TNM calculator</a>. Almost every colorectal cancer starts in the mucosa, in a crypt, which is where the next animation goes. [[Humphries2008,Fearon1990]]`,
   pt:`The bowel wall is built in layers like a sandwich. Cancer starts in the thin inner lining and can grow outwards through the others.`,
-  hook:`The intestinal epithelium is the most rapidly self-renewing tissue in adult mammals. [[Barker2007]]`}
+  hook:`No adult mammalian tissue renews itself faster than the lining of the intestine. [[Barker2007]]`}
 ];
 const CL_CR_N=[
  {from:0,at:.03,k:'Day 0',t:'Stem cells at the base',

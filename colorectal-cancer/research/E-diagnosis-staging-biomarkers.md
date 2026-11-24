@@ -65,25 +65,25 @@ Access notes:
 
 ### staging · AJCC 8th edition TNM: primary tumour (T)
 - The AJCC 8th edition (published 2017) is the current reference TNM system for colon and rectum. Colon and rectal cancers share one TNM system [[Amin2017AJCC,Tong2018]].
-- TX: primary tumour cannot be assessed. T0: no evidence of primary tumour [[Amin2017AJCC,Tong2018]].
-- Tis: carcinoma in situ, intramucosal carcinoma (tumour limited to the epithelium or invading the lamina propria). AJCC adds that there is no extension through the muscularis mucosae (that phrase not printed in Tong2018) [[Amin2017AJCC,Tong2018]].
-- T1: tumour invades the submucosa (through the muscularis mucosae but not into the muscularis propria) [[Amin2017AJCC,Tong2018]].
-- T2: tumour invades the muscularis propria [[Amin2017AJCC,Tong2018]].
-- T3: tumour invades through the muscularis propria into pericolorectal tissues [[Amin2017AJCC,Tong2018]].
-- T4a: tumour penetrates the visceral peritoneum. AJCC also counts gross perforation of the bowel through tumour, and continuous invasion through inflammation to the peritoneal surface, as T4a (that detail not printed in Tong2018) [[Amin2017AJCC,Tong2018]].
-- T4b: tumour directly invades or adheres to other organs or structures [[Amin2017AJCC,Tong2018]].
+- TX: the primary tumour cannot be judged. T0: no primary tumour found [[Amin2017AJCC,Tong2018]].
+- Tis: carcinoma in situ or intramucosal carcinoma, still inside the lining (the epithelium, or the lamina propria just beneath it). AJCC adds that the tumour has not crossed the muscularis mucosae (a point not printed in Tong2018) [[Amin2017AJCC,Tong2018]].
+- T1: the tumour has crossed the muscularis mucosae and reached the submucosa, but not the muscularis propria [[Amin2017AJCC,Tong2018]].
+- T2: the tumour has reached the muscularis propria, the main muscle coat [[Amin2017AJCC,Tong2018]].
+- T3: the tumour has passed through the muscle coat into the tissue around the colon or rectum [[Amin2017AJCC,Tong2018]].
+- T4a: the tumour has broken through the visceral peritoneum. AJCC also puts in T4a a tumour that has visibly perforated the bowel, and one that reaches the peritoneal surface by spreading without a break through inflamed tissue (a detail not printed in Tong2018) [[Amin2017AJCC,Tong2018]].
+- T4b: the tumour has grown into, or is stuck to, another organ or structure [[Amin2017AJCC,Tong2018]].
 - The 8th edition made no change to T categories compared with the 7th [[Tong2018]].
 
 ### staging · AJCC 8th edition TNM: nodes (N) and metastasis (M)
-- NX: regional nodes cannot be assessed. N0: no regional lymph-node metastasis and no tumour deposits [[Amin2017AJCC,Tong2018]].
-- N1a: metastasis in 1 regional lymph node [[Amin2017AJCC,Tong2018]].
-- N1b: metastasis in 2–3 regional lymph nodes [[Amin2017AJCC,Tong2018]].
-- N1c: no regional lymph nodes are positive, but there are tumour deposits in the subserosa, mesentery, or non-peritonealised pericolic or perirectal/mesorectal tissues [[Amin2017AJCC,Tong2018]].
-- N2a: metastasis in 4–6 regional lymph nodes. N2b: metastasis in 7 or more regional lymph nodes [[Amin2017AJCC,Tong2018]].
+- NX: the regional nodes cannot be judged. N0: no cancer in regional lymph nodes and no tumour deposits [[Amin2017AJCC,Tong2018]].
+- N1a: cancer in 1 regional lymph node [[Amin2017AJCC,Tong2018]].
+- N1b: cancer in 2–3 regional lymph nodes [[Amin2017AJCC,Tong2018]].
+- N1c: no regional node holds cancer, but tumour deposits sit in the subserosa, the mesentery, or pericolic or perirectal/mesorectal fat not covered by peritoneum [[Amin2017AJCC,Tong2018]].
+- N2a: cancer in 4–6 regional lymph nodes. N2b: cancer in 7 or more regional lymph nodes [[Amin2017AJCC,Tong2018]].
 - Tumour deposits do not change the T category. Without nodal metastasis they make the case N1c; with nodal metastasis they are not added to the positive-node count [[Tong2018]].
-- M0: no distant metastasis. M1a: metastasis confined to one organ or site (e.g. liver, lung, ovary, non-regional node) without peritoneal metastasis [[Amin2017AJCC,Tong2018]].
-- M1b: metastasis to two or more organs or sites, without peritoneal metastasis [[Amin2017AJCC,Tong2018]].
-- M1c: metastasis to the peritoneal surface, alone or with other site or organ metastases [[Amin2017AJCC,Tong2018]].
+- M0: no spread to distant sites. M1a: spread to a single distant organ or site (e.g. liver, lung, ovary, non-regional node), with the peritoneum clear [[Amin2017AJCC,Tong2018]].
+- M1b: spread to two or more distant organs or sites, with the peritoneum clear [[Amin2017AJCC,Tong2018]].
+- M1c: spread to the peritoneum, with or without other distant sites [[Amin2017AJCC,Tong2018]].
 - The main change from the 7th to the 8th edition was the new M1c category and stage IVC for peritoneal metastasis. In the 7th edition, peritoneal disease was part of M1b [[Tong2018,Weiser2018]].
 - In one cohort of 1,090 patients restaged from the 7th to the 8th edition, stage IVB fell from 2.8% to 0.8% and 2% moved into the new IVC. DFS and OS were significantly shorter for IVC than IVB (P=0.012) [[Tong2018]].
 - The 8th edition kept the 7th-edition stage II and III groups unchanged [[Tong2018]].
@@ -143,10 +143,10 @@ IVC,any,any,M1c
 
 ### staging · High-risk stage II and other pathology risk features
 - ASCO 2004: routine adjuvant chemotherapy was not recommended for medically fit patients with stage II colon cancer. Groups that could be considered for it included those with inadequately sampled nodes, T4 lesions, perforation or poorly differentiated histology [[Benson2004]].
-- The ASCO 2022 guideline update says adjuvant chemotherapy is not routine for stage II colon cancer outside a high-risk subgroup [[Baxter2022]].
-- ASCO 2022: patients with T4 tumours are at higher risk of recurrence and should be offered adjuvant chemotherapy [[Baxter2022]].
-- ASCO 2022: other high-risk factors that may lead to an offer of adjuvant chemotherapy are fewer than 12 lymph nodes sampled, perineural or lymphovascular invasion, poorly or undifferentiated grade, intestinal obstruction, tumour perforation, and grade BD3 tumour budding [[Baxter2022]].
-- ASCO 2022: patients with dMMR/MSI tumours should not routinely be offered adjuvant chemotherapy. If dMMR plus high-risk features leads to an offer, oxaliplatin-containing chemotherapy is recommended [[Baxter2022]].
+- The ASCO 2022 guideline update does not advise routine adjuvant chemotherapy for stage II colon cancer unless the patient is in a high-risk subgroup [[Baxter2022]].
+- ASCO 2022: a T4 tumour carries a higher risk of recurrence, so adjuvant chemotherapy should be offered [[Baxter2022]].
+- ASCO 2022: adjuvant chemotherapy may be offered for the other high-risk factors: under 12 lymph nodes examined, perineural or lymphovascular invasion, high (poorly or undifferentiated) grade, bowel obstruction, a perforated tumour, and BD3 tumour budding [[Baxter2022]].
+- ASCO 2022 advises against routinely offering adjuvant chemotherapy for dMMR/MSI tumours. If dMMR together with high-risk features leads to an offer, a regimen that includes oxaliplatin is recommended [[Baxter2022]].
 - The ITBCC consensus defines a tumour bud as a single tumour cell or a cluster of 4 cells or fewer [[Lugli2017]].
 - ITBCC counts budding on H&E in one hotspot (a field of 0.785 mm²) at the invasive front and reports it on a three-tier system (BD1–BD3) with the count [[Lugli2017]].
 - ITBCC agreed that budding independently predicts lymph-node metastasis in pT1 CRC and survival in stage II CRC, and that budding and tumour grade are not the same [[Lugli2017]].
@@ -273,7 +273,7 @@ IVC,any,any,M1c
 - About 1 in 25 people with CRC has a synchronous second CRC, so the whole colon should be examined, ideally before surgery [[Mulder2011]].
 - CEA is not a screening or early-diagnosis test. It is ordered before surgery for prognosis and planning, and serially for surveillance [[Duffy2001,Locker2006]].
 - CEA cut-off trade-off for recurrence: 2.5 µg/L gives 82% sensitivity/80% specificity; 10 µg/L gives 68%/97% [[Nicholson2015]].
-- T1 = submucosa; T2 = muscularis propria; T3 = through the muscularis propria into pericolorectal tissue; T4a = visceral peritoneum; T4b = other organs or structures [[Amin2017AJCC,Tong2018]].
+- T1 = submucosa; T2 = muscularis propria; T3 = past the muscle coat into the tissue around the bowel; T4a = through the visceral peritoneum; T4b = into another organ or structure [[Amin2017AJCC,Tong2018]].
 - N1a = 1 node; N1b = 2–3; N1c = tumour deposits with no positive nodes; N2a = 4–6; N2b = 7 or more [[Amin2017AJCC,Tong2018]].
 - M1a = one organ; M1b = two or more organs; M1c = peritoneum (new in the 8th edition, giving stage IVC) [[Amin2017AJCC,Tong2018]].
 - Stage IIIA can have better survival than stage IIB/IIC (the "survival paradox"), because T4 depth matters more than a few positive nodes and stage III gets chemotherapy [[OConnell2004,Yu2024]].
@@ -488,6 +488,6 @@ Calculator note: SEER summary stage is a separate system from AJCC. As an approx
 - Full text read (Europe PMC fullTextXML): Siegel2026 (PMC12798275; stage-specific survival table), Siegel2026CRC (PMC12951547), Tong2018 (PMC6230917; TNM and stage-group tables, substage survival table), Sepulveda2017 via the Am J Clin Pathol co-publication (PMC7263311), Monahan2022 (PMC9484376) and Yu2024 (PMC11436827).
 - Not accessible: the AJCC manual chapter text; Weiser2018 full text (paywalled, no abstract); Gunderson2010 full text (publisher blocks PMC download, so only the abstract was used); the Dukes 1932 and Astler–Coller 1954 originals; and the ESMO colon, rectal and metastatic guidelines (no abstract, publisher site blocked), which were dropped.
 - Marked (unverified): the Dukes and Astler–Coller descriptions and their TNM mapping, and the approximate SEER-summary-stage-to-AJCC mapping in the calculator note.
-- AJCC wording beyond Tong2018's table (Tis "no extension through the muscularis mucosae"; T4a including perforation) comes from the AJCC 8th edition as commonly reproduced and could not be checked against the manual text. Tong2018's English rendering of N1c ("submucosal, mesangial") is a translation artefact. The standard AJCC wording (subserosa, mesentery, non-peritonealised pericolic/perirectal tissue) is used here.
+- AJCC detail beyond Tong2018's table (Tis not crossing the muscularis mucosae; T4a including perforation) comes from the AJCC 8th edition as commonly reproduced and could not be checked against the manual text. All TNM descriptors in this file are written in our own words (2026-11-24 rewrite). Tong2018's English rendering of N1c ("submucosal, mesangial") is a translation artefact. The standard AJCC sites (subserosa, mesentery, pericolic/perirectal tissue not covered by peritoneum) are used here.
 - Brief items not supported as requested: a stage-specific MSI-H frequency of "~15% stage II" was not found in an accessible abstract. The file gives about 15% for stage II–III trial cohorts [[Sargent2010]] and 26% of right-sided colon tumours in a mainly stage II trial [[Hutchins2011]]. NTRK alone has no CRC-specific frequency from a validated abstract, so the combined ALK/ROS1/NTRK figure (0.2–2.4%) is given. The ASCP/CAP/AMP/ASCO guideline (2017) predates the KRAS G12C, HER2 and NTRK targeted-therapy era, so those frequencies come from trials.
 - Dropped: Nelson2001 (NCI surgery guidelines; the abstract does not state the 12-node figure), the WHO 2019 classification summary (no CRC-specific grading text found), and the KRAS G12C frequency from guidelines (taken from the CodeBreaK 300 abstract instead).

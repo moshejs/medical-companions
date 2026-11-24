@@ -1,7 +1,7 @@
 /* =============== 4.3 Hepatic encephalopathy =============== */
 const EN_STEPS=[
  {from:0,at:.07,k:'Step 1 · the source',t:'Gut bacteria make ammonia',
-  txt:`Ammonia "is primarily produced in the gut, as an end product of protein digestion, amino acid deamination and bacterial urease activity". From the bowel it is carried to the liver in the portal vein. [[Rose2020]]`,
+  txt:`Most ammonia is made in the gut: it is left over when protein is digested and amino acids are broken down, and bacteria add more through the enzyme urease. From the bowel it is carried to the liver in the portal vein. [[Rose2020]]`,
   pt:`Digestion and bacteria in the bowel make ammonia, a waste product, every day. [[Rose2020]]`,
   hook:`Main source of ammonia: the gut (protein digestion, amino acid deamination, bacterial urease). [[Rose2020]]`},
  {from:.17,at:.26,k:'Step 2 · the filter',t:'A healthy liver clears it',
@@ -13,11 +13,11 @@ const EN_STEPS=[
   pt:`When the liver is scarred and blood takes detours around it, ammonia stays in the blood. [[Vilstrup2014HE,Rose2020]]`,
   hook:`HE = brain dysfunction from liver insufficiency and/or portosystemic shunting; in cirrhosis it is "type C". [[Vilstrup2014HE]]`},
  {from:.5,at:.58,k:'Step 4 · the brain',t:'Astrocytes swell',
-  txt:`Ammonia "passes freely into the brain which is exclusively removed by astrocytes via glutamine synthetase". "The generation of glutamine renders the astrocyte hypertonic resulting in swelling and impaired function and brain oedema." Inflammation, oxidative stress, blood–brain barrier changes and increased GABAergic tone add to it. At first the change is covert: minimal HE shows only on tests, and grade I is a "trivial lack of awareness". [[Rose2020,Vilstrup2014HE]]`,
+  txt:`Ammonia crosses easily into the brain, where only astrocytes can clear it, using the enzyme glutamine synthetase. The glutamine they make draws water into these cells, so they swell, work less well, and the brain becomes oedematous. Inflammation, oxidative stress, blood–brain barrier changes and increased GABAergic tone add to it. At first the change is covert: minimal HE shows only on tests, and grade I brings only subtle changes in awareness. [[Rose2020,Vilstrup2014HE]]`,
   pt:`Support cells in the brain soak up ammonia and swell. At first the change is so slight that only special tests pick it up. [[Rose2020,Vilstrup2014HE]]`,
   hook:`Astrocytes turn ammonia into glutamine → they swell. Covert HE = minimal HE + grade I. [[Rose2020,Vilstrup2014HE]]`},
  {from:.64,at:.76,k:'Step 5 · overt HE',t:'Confusion deepens: grades II–IV',
-  txt:`Overt HE runs from grade II (disoriented for time, asterixis) through grade III (also disoriented for place, somnolent) to grade IV (coma). Precipitating factors "can be identified in nearly all bouts of episodic HE type C". After a first bout, the cumulative risk of another within a year is 40%, "despite lactulose treatment". [[Vilstrup2014HE]]`,
+  txt:`Overt HE runs from grade II (disoriented for time, asterixis) through grade III (also disoriented for place, somnolent) to grade IV (coma). In cirrhosis, a trigger can be found for almost every episode of HE. After a first bout, the cumulative risk of another within a year is 40%, "despite lactulose treatment". [[Vilstrup2014HE]]`,
   pt:`The person may get muddled about the date, become very sleepy or act out of character, and in the most serious stage cannot be woken. New confusion or drowsiness needs urgent care. [[Vilstrup2014HE]]`,
   hook:`Grade II: disoriented for time + asterixis. Grade III: also for place, somnolent. Grade IV: coma. [[Vilstrup2014HE]]`},
  {from:.86,at:.95,k:'Step 6 · treatment',t:'Find the trigger, lower the ammonia',
@@ -26,11 +26,11 @@ const EN_STEPS=[
   hook:`Lactulose first, titrated to 2–3 soft bowel movements a day; rifaximin added after a second episode. [[Vilstrup2014HE]]`}
 ];
 const EN_WH=[
- {n:'Minimal',s:'Min.',g:'covert',d:'abnormal psychometric or neurophysiological tests "without clinical evidence of mental change"'},
- {n:'Grade I',s:'I',g:'covert',d:'"trivial lack of awareness", euphoria or anxiety, shortened attention span, impaired addition or subtraction, altered sleep rhythm; still oriented in time and space'},
- {n:'Grade II',s:'II',g:'overt',d:'lethargy or apathy, disorientation for time, obvious personality change, inappropriate behaviour, dyspraxia, asterixis'},
- {n:'Grade III',s:'III',g:'overt',d:'somnolence to semistupor, responsive to stimuli, confused, gross disorientation, bizarre behaviour'},
- {n:'Grade IV',s:'IV',g:'overt',d:'coma: "does not respond even to painful stimuli"'}];
+ {n:'Minimal',s:'Min.',g:'covert',d:'no change a clinician can see; picked up only by psychometric or neurophysiological testing'},
+ {n:'Grade I',s:'I',g:'covert',d:'subtle signs: mild unawareness, a lifted or anxious mood, a shorter attention span, slips with simple sums, a disturbed sleep pattern; still knows the date and place'},
+ {n:'Grade II',s:'II',g:'overt',d:'drowsy or apathetic, mixed up about the date, clearly changed personality or behaviour, clumsy planned movements, and asterixis'},
+ {n:'Grade III',s:'III',g:'overt',d:'very sleepy, close to stupor but still rousable, deeply confused, behaving oddly, and also wrong about where they are'},
+ {n:'Grade IV',s:'IV',g:'overt',d:'coma, with no response even to pain'}];
 const EN_TR=[
  {n:'Overt HE came back, median 14 months',a:46.8,b:19.6,arms:['Placebo','Lactulose'],cap:'Sharma 2009, open-label RCT in people who had recovered from HE: recurrence in 30/64 on placebo vs 12/61 on lactulose (P = .001); deaths 11 vs 5 (P = .18, not significant). Population statistics. [[Sharma2009Lactulose]]'},
  {n:'Breakthrough HE within 6 months',a:45.9,b:22.1,arms:['Placebo','Rifaximin'],cap:'Bass 2010: 299 people in remission from recurrent HE, rifaximin 550 mg twice daily vs placebo; HR 0.42 (95% CI 0.28–0.64). "More than 90%" were also taking lactulose. Population statistics. [[Bass2010Rifaximin]]'},
@@ -39,7 +39,7 @@ const EN_PC=[
  {n:'Infections',t:'Infection',x:`Infections head the guideline's list for episodic overt HE, and newer case series "confirm the dominant role of infections". Infection of ascitic fluid can be quiet, which is why a fluid sample is taken: see <a href="#ascites" data-go="ascites">Ascites, infection &amp; kidney injury</a>. [[Vilstrup2014HE,EASL2018Decomp]]`},
  {n:'GI bleeding',t:'Bleeding into the gut',x:`Gastrointestinal bleeding is second for episodic HE. After variceal bleeding, Baveno VII says rapid removal of blood from the gut with lactulose (oral or enemas) should be used to prevent HE. [[Vilstrup2014HE,deFranchis2022BavenoVII]]`},
  {n:'Constipation',t:'Constipation',x:`Constipation appears on both ranked lists. Lactulose is titrated to soft bowel movements, as published. [[Vilstrup2014HE]]`},
- {n:'Diuretic overdose',t:'Dehydration or too much diuretic',x:`"Diuretic overdose" is third for episodic HE. The guideline also warns that too much lactulose can cause dehydration, "and overuse can even precipitate HE". [[Vilstrup2014HE]]`},
+ {n:'Diuretic overdose',t:'Dehydration or too much diuretic',x:`"Diuretic overdose" is third for episodic HE. The guideline also warns that too much lactulose can dehydrate a person and can itself bring on HE. [[Vilstrup2014HE]]`},
  {n:'Electrolyte disorder',t:'Electrolyte problems',x:`Electrolyte disorder heads the list for recurrent HE. Low sodium (hyponatraemia) can cause encephalopathy on its own as well as precipitate HE. [[Vilstrup2014HE]]`},
  {n:null,t:'Sedating medicines',x:`Not in the guideline's frequency table, but linked to HE in cohorts: opioids (HE within a year in 3.3% with none, 5.0% with short-term and 6.3% with chronic prescriptions), benzodiazepines (long-acting agents, high doses, use beyond 2 months) and proton pump inhibitors (adjusted HR 1.36). Never stop a prescribed medicine without advice. [[Moon2020Opioids,Lee2014BZD,Dam2016PPI]]`}];
 const EN_EP=['Infections','GI bleeding','Diuretic overdose','Electrolyte disorder','Constipation','Unidentified'],EN_RE=['Electrolyte disorder','Infections','Unidentified','Constipation','Diuretic overdose','GI bleeding'];
@@ -125,7 +125,7 @@ inits.encephalopathy=()=>{
     svg.innerHTML=s;setSt(p);
     const nhw=t<.17?'made in the gut':t<.34?'low (cleared by the liver)':treat>.3?'falling':byp>.4?'high':'rising';
     $('#enRead').innerHTML=`<span>step <b>${p+1}/6</b></span><span>blood ammonia <b>${nhw}</b></span><span>West Haven <b>${cur<0?'no HE':EN_WH[cur].n+' ('+EN_WH[cur].g+')'}</b></span>`;
-    $('#enNote').innerHTML=noteHTML(S[p])+(cur>=0?`<div class="kv"><div><dt>${EN_WH[cur].n} · ${EN_WH[cur].g}, as published</dt><dd>${EN_WH[cur].d}. [[Vilstrup2014HE]]</dd></div></div>`:'');
+    $('#enNote').innerHTML=noteHTML(S[p])+(cur>=0?`<div class="kv"><div><dt>${EN_WH[cur].n} · ${EN_WH[cur].g}, in summary</dt><dd>${EN_WH[cur].d}. [[Vilstrup2014HE]]</dd></div></div>`:'');
   }
   const stop=playWire(rg,$('#enPlay'),draw,28000,'%t:player.replay%','encephalopathy');
   const setSt=stepWire($('#enSteps'),S,rg,draw,stop);

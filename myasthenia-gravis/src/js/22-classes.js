@@ -1,14 +1,14 @@
 /* =============== 2.2 MGFA class & scores =============== */
 const CL_ROWS=[{c:'—',d:'no weakness'},{c:'I',d:'ocular only'},{c:'IIa',d:'mild, limb'},{c:'IIb',d:'mild, bulbar'},{c:'IIIa',d:'moderate, limb'},{c:'IIIb',d:'moderate, bulbar'},{c:'IVa',d:'severe, limb'},{c:'IVb',d:'severe, bulbar'},{c:'V',d:'intubation'}];
 const CL_SEV={II:'Mild',III:'Moderate',IV:'Severe'};
-const CL_A='Predominantly affecting limb, axial muscles, or both. May also have lesser involvement of oropharyngeal muscles.';
-const CL_B='Predominantly affecting oropharyngeal, respiratory muscles, or both. May also have lesser or equal involvement of limb, axial muscles, or both.';
+const CL_A='Mainly the limbs, the neck and trunk (axial muscles), or both. Mouth and throat muscles may be involved to a lesser degree.';
+const CL_B='Mainly the mouth and throat (oropharyngeal) muscles, the breathing muscles, or both. Limb or axial muscles may be involved to the same or a lesser degree.';
 function clWording(r){
   if(r===0)return 'Not an MGFA class. The classification describes weakness, and none is found on examination; the post-intervention status (for example, remission) describes this person instead.';
-  if(r===1)return '"Any ocular muscle weakness; may have weakness of eye closure. All other muscle strength is normal."';
-  if(r===8)return '"Defined as intubation, with or without mechanical ventilation, except when employed during routine postoperative management. The use of a feeding tube without intubation places the patient in class IVb."';
+  if(r===1)return 'Weakness only in the eye muscles, which can include weak eye closing. Strength everywhere else is normal.';
+  if(r===8)return 'A breathing tube (intubation), with or without a ventilator, unless it is only part of routine care after an operation. A feeding tube without intubation counts as Class IVb.';
   const c=CL_ROWS[r].c,n=c.slice(0,-1),ab=c.slice(-1);
-  return `"${CL_SEV[n]} weakness affecting muscles other than ocular muscles; may also have ocular muscle weakness of any severity." ${ab}: "${ab==='a'?CL_A:CL_B}"`}
+  return `${CL_SEV[n]} weakness in muscles beyond the eyes; the eye muscles may also be weak, to any degree. ${ab}: ${ab==='a'?CL_A:CL_B}`}
 /* schematic courses: [month, row]; 'X' is the crisis row, set by the breathing toggle */
 const CL_COURSE={
  b:{pts:[[0,1],[3,3],[4.5,5],[6,7],[7,'X'],[8.3,7],[9.5,5],[11,3],[26,5],[28,3]],thy:13,
@@ -23,23 +23,23 @@ const CL_COURSE={
 };
 const CL_STEPS=[
  {from:0,at:.02,k:'Class I',t:'Ocular only',
-  txt:`Class I: "Any ocular muscle weakness; may have weakness of eye closure. All other muscle strength is normal." [[Jaretzki2000,MGFAClass2016]] The 2016 consensus defines ocular MG as Class I at a specified point in time, not by how long the disease has lasted, and asks for judgment before putting fatigue with normal strength testing down to generalized MG. [[Sanders2016]]`,
+  txt:`Class I: weakness is confined to the eye muscles, weak eye closing included, and every other muscle tests normal. [[Jaretzki2000,MGFAClass2016]] The 2016 consensus defines ocular MG as Class I at a specified point in time, not by how long the disease has lasted, and asks for judgment before putting fatigue with normal strength testing down to generalized MG. [[Sanders2016]]`,
   pt:`Class I means only the eye muscles are weak: a drooping lid, double vision, perhaps weak eye closing.`,
   hook:`Class I = ocular only. Weak eye closure is allowed; every other muscle must be normal.`},
  {from:.09,at:.16,k:'Classes II to IV',t:'Mild, moderate, severe; a limb, b bulbar',
-  txt:`Classes II, III and IV are mild, moderate and severe weakness "affecting muscles other than ocular muscles", with ocular weakness of any severity allowed. The letter says which muscles lead: "a" is predominantly limb, axial or both, with lesser oropharyngeal involvement; "b" is predominantly oropharyngeal, respiratory or both, with lesser or equal limb or axial involvement. [[Jaretzki2000,MGFAClass2016]]`,
+  txt:`Classes II, III and IV are mild, moderate and severe weakness in muscles beyond the eyes, and the eye muscles may be weak to any degree as well. The letter says which muscles lead: "a" is mainly limb or axial, with less mouth and throat involvement; "b" is mainly mouth and throat or breathing, with limb or axial involvement equal or less. [[Jaretzki2000,MGFAClass2016]]`,
   pt:`The number says how weak; the letter says where. "a" is arms, legs and trunk; "b" is speaking, swallowing and breathing.`,
   hook:`a = limb or axial predominant; b = oropharyngeal or respiratory predominant. Ocular weakness can be any severity in II to IV.`},
  {from:.195,at:.21,k:'Class IVb',t:'The feeding-tube rule',
-  txt:`The Class V definition ends with a rule about feeding tubes: "The use of a feeding tube without intubation places the patient in class IVb." [[MGFAClass2016]] Bulbar weakness also threatens breathing: crisis can come from weak breathing muscles or from bulbar weakness with collapse of the upper airway. [[Claytor2023]]`,
+  txt:`The Class V definition ends with a rule about feeding tubes: a person with a feeding tube but no breathing tube is placed in Class IVb. [[MGFAClass2016]] Bulbar weakness also threatens breathing: crisis can come from weak breathing muscles or from bulbar weakness with collapse of the upper airway. [[Claytor2023]]`,
   pt:`Needing a feeding tube is severe, but without a breathing tube it is still Class IVb, not V.`,
   hook:`Feeding tube without intubation = IVb.`},
  {from:.23,at:.245,k:'Class V',t:'Intubation, and the mask question',
-  txt:`Class V is "defined as intubation, with or without mechanical ventilation, except when employed during routine postoperative management". [[Jaretzki2000,MGFAClass2016]] The 2016 international consensus defines manifest myasthenic crisis as Class V meaning worsening "requiring intubation or noninvasive ventilation to avoid intubation", which adds non-invasive ventilation to the original wording. [[Sanders2016]] Switch the crisis to "BiPAP mask only" to see the two readings split.`,
+  txt:`Class V means intubation, whether or not a ventilator is used, leaving out intubation that is only routine care after an operation. [[Jaretzki2000,MGFAClass2016]] The 2016 international consensus defines manifest myasthenic crisis as Class V meaning worsening "requiring intubation or noninvasive ventilation to avoid intubation", which adds non-invasive ventilation to the original wording. [[Sanders2016]] Switch the crisis to "BiPAP mask only" to see the two readings split.`,
   pt:`Class V means a breathing tube. Whether a breathing mask also counts depends on which definition is used. Trouble breathing or swallowing in MG is an emergency.`,
   hook:`Class V = intubation, except routine post-operative care. The 2016 crisis definition also counts non-invasive ventilation used to avoid intubation.`},
  {from:.3,at:.45,k:'Over months',t:'A snapshot, re-taken',
-  txt:`The MGFA class describes the disease at that examination; the 2025 MGFA task force says it should be updated every 3 to 6 months to reflect current status. [[Ruzhansky2025]] Ventilation after an operation does not count: intubation "employed during routine postoperative management" is excluded from Class V. [[MGFAClass2016]] See <a href="#thymectomy" data-go="thymectomy">Thymectomy over the years</a>.`,
+  txt:`The MGFA class describes the disease at that examination; the 2025 MGFA task force says it should be updated every 3 to 6 months to reflect current status. [[Ruzhansky2025]] Ventilation after an operation does not count: intubation that is only part of routine post-operative care is left out of Class V. [[MGFAClass2016]] See <a href="#thymectomy" data-go="thymectomy">Thymectomy over the years</a>.`,
   pt:`The class is a snapshot of today, not a permanent label. It is updated as the person changes.`,
   hook:`MGFA class = status at that examination. The 2025 MGFA task force: update it every 3 to 6 months. [[Ruzhansky2025]]`},
  {from:.55,at:.7,k:'MGFA-PIS',t:'Post-intervention status',
@@ -52,14 +52,15 @@ const CL_STEPS=[
   hook:`E = worse after having reached CSR, PR or MM. Refractory = unchanged or worse after steroids plus at least 2 other immunosuppressants.`}
 ];
 const CL_ADL=[
- {n:'Talking',d:'o',a:['Normal','Intermittent slurring or nasal speech','Constant slurring or nasal, but can be understood','Difficult to understand speech']},
- {n:'Chewing',d:'o',a:['Normal','Fatigue with solid food','Fatigue with soft food','Gastric tube']},
- {n:'Swallowing',d:'o',a:['Normal','Rare episode of choking','Frequent choking necessitating changes in diet','Gastric tube']},
- {n:'Breathing',d:'r',a:['Normal','Shortness of breath with exertion','Shortness of breath at rest','Ventilator dependence']},
- {n:'Impairment of ability to brush teeth or comb hair',d:'x',a:['None','Extra effort, but no rest periods needed','Rest periods needed','Cannot do one of these functions']},
- {n:'Impairment of ability to arise from a chair',d:'x',a:['None','Mild, sometimes uses arms','Moderate, always uses arms','Severe, requires assistance']},
- {n:'Double vision',d:'e',a:['None','Occurs, but not daily','Daily, but not constant','Constant']},
- {n:'Eyelid droop',d:'e',a:['None','Occurs, but not daily','Daily, but not constant','Constant']}
+/* topic labels only: the official item and answer wording is on the MG-ADL form (source key MGADLForm) */
+ {n:'Talking',d:'o'},
+ {n:'Chewing',d:'o'},
+ {n:'Swallowing',d:'o'},
+ {n:'Breathing',d:'r'},
+ {n:'Teeth and hair care',d:'x'},
+ {n:'Getting up from a chair',d:'x'},
+ {n:'Double vision',d:'e'},
+ {n:'Drooping eyelids',d:'e'}
 ];
 const CL_DOM={e:['ocular','var(--nerve)'],o:['oropharyngeal','var(--ab)'],r:['respiratory','var(--warn)'],x:['extremity','var(--musk)']};
 const CL_EX={gen:[1,1,2,1,2,2,0,1],ocu:[0,0,0,0,0,0,2,3],zero:[0,0,0,0,0,0,0,0]};
@@ -135,7 +136,7 @@ inits.classes=()=>{
   /* ---------- MG-ADL calculator ---------- */
   const sc=CL_ADL.map(()=>0);let base=13,shown=0,shownD=0,stopA=null;
   $('#clAdl').innerHTML=CL_ADL.map((it,i)=>`<fieldset><legend><span class="cl-dom" style="background:${CL_DOM[it.d][1]}"></span>${i+1} · ${it.n}</legend>`+
-    it.a.map((a,v)=>`<button class="cl-opt" data-adl="${i}" data-v="${v}" aria-pressed="${v===0}"><b>${v}</b><span>${a}</span></button>`).join('')+'</fieldset>').join('');
+    [0,1,2,3].map(v=>`<button class="cl-opt" data-adl="${i}" data-v="${v}" aria-pressed="${v===0}" aria-label="${it.n}: ${v} point${v===1?'':'s'}"><b>${v}</b></button>`).join('')+'</fieldset>').join('');
   const as=$('#clAdlSvg');
   function gauge(tot,del){
     const N=vb(as,'720 200','400 236');
@@ -176,17 +177,17 @@ inits.classes=()=>{
   /* ---------- PIS finder ---------- */
   const q={q1:'none',q2:'none',q3:'y'};
   function pis(){let h,cls='';const yr=q.q3==='y',che=q.q2==='che'||q.q2==='both';
-    if(q.q1==='func'){h=['Not minimal manifestations or better','Functional limitation from MG rules out CSR, PR and MM. The status is described as a change from before treatment: Improved, Unchanged or Worse, or Exacerbation if CSR, PR or MM had been reached before.']}
+    if(q.q1==='func'){h=['Not minimal manifestations or better','If MG limits what the person can do, CSR, PR and MM do not apply. The status is then a comparison with before treatment: Improved, Unchanged or Worse, or Exacerbation if CSR, PR or MM had been reached earlier.']}
     else if(q.q1==='none'){
-      if(che){h=['Not a remission',`Patients taking cholinesterase inhibitors are excluded from remission, "because their use suggests weakness". The 2016 consensus also excludes daily cholinesterase-inhibitor use with evidence of benefit. If weakness is found, see MM-2 or MM-3.`];cls='warn'}
+      if(che){h=['Not a remission',`Anyone taking a cholinesterase inhibitor is left out of remission, since needing one points to remaining weakness. The 2016 consensus also excludes daily cholinesterase-inhibitor use with evidence of benefit. If weakness is found, see MM-2 or MM-3.`];cls='warn'}
       else if(!yr){h=['Not yet',`${q.q2==='none'?'Complete stable':'Pharmacologic'} remission needs no symptoms or signs for at least 1 year.`];cls='warn'}
-      else if(q.q2==='none'){h=['Complete stable remission (CSR)','No symptoms or signs for at least 1 year with no MG therapy. Isolated weakness of eyelid closure is accepted.'];cls='good'}
-      else{h=['Pharmacologic remission (PR)','The CSR criteria are met, but the person continues some MG therapy, not a cholinesterase inhibitor.'];cls='good'}}
+      else if(q.q2==='none'){h=['Complete stable remission (CSR)','At least 1 year free of MG symptoms and signs, taking no MG treatment. Weak eye closing on its own is allowed.'];cls='good'}
+      else{h=['Pharmacologic remission (PR)','As for CSR, except that some MG treatment continues, and it is not a cholinesterase inhibitor.'];cls='good'}}
     else{cls='good';
-      if(q.q2==='none')h=yr?['MM-0','Minimal manifestations with no MG treatment for at least 1 year.']:(cls='warn',['Minimal manifestations, subgroup not yet set','MM-0 needs no MG treatment for at least 1 year.']);
-      else if(q.q2==='is')h=['MM-1','Minimal manifestations while continuing immunosuppression, with no cholinesterase inhibitor or other symptomatic therapy.'];
-      else if(q.q2==='che')h=yr?['MM-2','Minimal manifestations on only low-dose cholinesterase inhibitors (under 120 mg pyridostigmine a day) for at least 1 year.']:(cls='warn',['Minimal manifestations, subgroup not yet set','MM-2 needs at least 1 year on low-dose cholinesterase inhibitor only.']);
-      else h=['MM-3','Minimal manifestations with cholinesterase inhibitors or other symptomatic therapy plus some immunosuppression during the past year.']}
+      if(q.q2==='none')h=yr?['MM-0','Minimal manifestations, and no MG treatment for at least 1 year.']:(cls='warn',['Minimal manifestations, subgroup not yet set','MM-0 needs no MG treatment for at least 1 year.']);
+      else if(q.q2==='is')h=['MM-1','Minimal manifestations, still on immunosuppression, with no cholinesterase inhibitor or other drug for symptoms.'];
+      else if(q.q2==='che')h=yr?['MM-2','Minimal manifestations, with a low-dose cholinesterase inhibitor (under 120 mg pyridostigmine a day) as the only treatment for at least 1 year.']:(cls='warn',['Minimal manifestations, subgroup not yet set','MM-2 needs at least 1 year on low-dose cholinesterase inhibitor only.']);
+      else h=['MM-3','Minimal manifestations, with a cholinesterase inhibitor or other drug for symptoms and also some immunosuppression in the past year.']}
     const o=$('#clPisOut');o.className='cl-out'+(cls?' '+cls:'');
     o.innerHTML=`<strong>${h[0]}</strong>${h[1]} The 2016 treatment goal is minimal manifestations or better, with no more than grade 1 medication side effects. [[MGFAPIS2016,Sanders2016]]`;
     ['q1','q2','q3'].forEach(k=>$$(`#m-classes [data-cl${k}]`).forEach(b=>b.setAttribute('aria-pressed',b.dataset['cl'+k]===q[k])))}

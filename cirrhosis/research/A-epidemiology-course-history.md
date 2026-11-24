@@ -17,7 +17,7 @@ Access notes:
 ### what · What cirrhosis is and its many causes
 - Cirrhosis develops after a long period of inflammation that replaces healthy liver tissue with fibrous scar and regenerative nodules, which leads to portal hypertension [[Gines2021Lancet]].
 - Causes include obesity and fatty liver disease, high alcohol consumption, hepatitis B or C, autoimmune diseases, cholestatic diseases, and iron or copper overload. Cirrhosis is not caused by alcohol alone [[Gines2021Lancet]].
-- The disease moves from an asymptomatic phase (compensated cirrhosis) to a symptomatic phase (decompensated cirrhosis). Complications of the decompensated phase often lead to hospital admission, poorer quality of life and high mortality [[Gines2021Lancet]].
+- Cirrhosis is silent at first (compensated) and causes symptoms later (decompensated). Once it is decompensated, its complications commonly bring hospital stays, a worse quality of life and a high death rate [[Gines2021Lancet]].
 - Progressive portal hypertension, systemic inflammation and liver failure drive outcomes. Management centres on treating the cause and the complications, and some people need a liver transplant [[Gines2021Lancet]].
 - In the US the most common causes overlap: alcohol use disorder in about 45% of cases, nonalcoholic fatty liver disease in 26% and hepatitis C in 41% (these add to more than 100% because many people have more than one cause) [[Tapper2023JAMA]].
 - Baveno VII defines compensated cirrhosis by the absence of present or past complications. The move from compensated to decompensated cirrhosis raises the risk of death [[deFranchis2022BavenoVII]].
@@ -62,7 +62,7 @@ Access notes:
 ### what · United States: prevalence and awareness
 - NHANES 1999–2010 put US cirrhosis prevalence at about 0.27%, or 633,323 adults. Cirrhosis was defined by an AST-to-platelet ratio above 2 plus abnormal liver tests [[Scaglione2015]].
 - 69% of these adults reported that they were unaware of having liver disease [[Scaglione2015]].
-- Prevalence was higher in non-Hispanic Black and Mexican American adults, people living below the poverty level and those with less than a 12th-grade education [[Scaglione2015]].
+- Cirrhosis was more common among non-Hispanic Black and Mexican American adults, among people below the poverty line, and among those who had not finished 12th grade [[Scaglione2015]].
 - Viral hepatitis (mostly hepatitis C), diabetes and alcohol misuse together had a population-attributable fraction of 53.5%. More than half of cases are potentially preventable [[Scaglione2015]].
 - Mortality was 26.4% per 2-year interval in adults with cirrhosis, compared with 8.4% in propensity-matched controls [[Scaglione2015]].
 - A 2023 JAMA review estimates that about 2.2 million US adults have cirrhosis [[Tapper2023JAMA]].
@@ -176,7 +176,7 @@ Access notes:
 - Many cases are undiagnosed. In NHANES, 69% of people with laboratory evidence of cirrhosis did not know they had liver disease [[Scaglione2015]].
 
 ### history · Naming and early description
-- René Laennec named cirrhosis from the Greek *kirrhos* ("tawny", an orange-yellow colour) in a brief footnote to his treatise *De l'auscultation médiate* (1819) [[Duffin1987]].
+- René Laennec named cirrhosis from the Greek *kirrhos* ("tawny", an orange-yellow colour) in a short footnote to his 1819 book on listening to the chest, *De l'auscultation médiate* [[Duffin1987]].
 - The liver lesion had first been recognised in England more than a century before Laennec named it [[Duffin1987]].
 - The eponym "Laennec's cirrhosis" came into common North American use only after William Osler's textbook, and it is rarely used in France [[Duffin1987]].
 

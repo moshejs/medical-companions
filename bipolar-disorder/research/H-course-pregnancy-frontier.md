@@ -134,13 +134,13 @@ Shared keys used and checked: Judd2002 (PMID 12044195), Merikangas2011 (21383262
 - In EURAP, malformation risk rose with dose at conception for valproate, carbamazepine, lamotrigine and phenobarbital [[Tomson2018]].
 - In the NEAD study, mean IQ at age 6 was 97 (95% CI 94–101) after fetal valproate exposure, compared with 105 after carbamazepine, 108 after lamotrigine and 108 after phenytoin [[Meador2013NEAD]].
 - In NEAD, higher valproate doses were associated with lower IQ (r = −0.56), and the effect spanned verbal, memory and executive domains [[Meador2013NEAD]].
-- The Depakote boxed warning (Fetal Risk) says valproate "can cause major congenital malformations, particularly neural tube defects", decreased IQ and neurodevelopmental disorders. It "should not be used to treat women with epilepsy or bipolar disorder who are pregnant or who plan to become pregnant unless other medications have failed" [[FDA-Depakote]].
-- NICE CG192 says not to offer valproate for a mental health problem to women or girls of childbearing potential "unless other options are ineffective or not tolerated and the pregnancy prevention programme is in place" [[NICE2014CG192]].
+- The Depakote boxed warning (Fetal Risk) says valproate can cause major birth defects, especially neural tube defects, as well as lower IQ and neurodevelopmental disorders. It says valproate should not be used to treat epilepsy or bipolar disorder in women who are pregnant or planning a pregnancy, unless other medicines have not worked [[FDA-Depakote]].
+- NICE CG192 says not to offer valproate for a mental health problem to women or girls who could become pregnant, unless other options have not worked or are not tolerated and the pregnancy prevention programme is in place [[NICE2014CG192]].
 - NICE CG192 also says not to offer carbamazepine to women planning a pregnancy, pregnant or considering breastfeeding, and to check lamotrigine levels often around pregnancy "because they vary substantially at these times" [[NICE2014CG192]].
 - The US lamotrigine label states that pregnancy registries and epidemiological studies "have not detected an increased frequency of major congenital malformations" with lamotrigine compared with the general population [[FDA-Lamictal]].
 
 ### pregnancy · Breastfeeding (label and guideline statements)
-- The Lithobid label says lithium is excreted in human milk and that nursing "should not be undertaken during lithium therapy except in rare and unusual circumstances". It lists infant toxicity signs that have been reported (hypertonia, hypothermia, cyanosis, ECG changes) [[FDA-Lithobid]].
+- The Lithobid label says lithium is excreted in human milk and advises against breastfeeding during lithium treatment except in rare, exceptional cases. It lists infant toxicity signs that have been reported (hypertonia, hypothermia, cyanosis, ECG changes) [[FDA-Lithobid]].
 - In 10 mother–infant pairs, average trough lithium was 0.76 mEq/L in maternal serum, 0.35 in breast milk and 0.16 in infant serum, each about half the one before. No serious infant adverse events were seen [[Viguera2007Breastmilk]].
 - NICE CG192 says to encourage breastfeeding unless the woman is taking carbamazepine, clozapine or lithium, and to support each woman's own feeding choice [[NICE2014CG192]].
 - The Depakote label reports valproate in milk at 1%–10% of maternal serum levels and advises monitoring breastfed infants for signs of liver damage [[FDA-Depakote]].
@@ -156,13 +156,13 @@ Shared keys used and checked: Judd2002 (PMID 12044195), Merikangas2011 (21383262
 - Disruptive mood dysregulation disorder (DMDD) is a DSM-5 depressive disorder for children with severe, chronic irritability. It was added in part to address overdiagnosis of bipolar disorder in children [[APA2022,Copeland2013DMDD]].
 - In 3 community samples aged 2–17, the 3-month prevalence of DMDD was 0.8%–3.3%, highest in preschoolers. It co-occurred with another disorder 62%–92% of the time [[Copeland2013DMDD]].
 - In the COBY study (413 youths aged 7–17 with bipolar spectrum disorders), 81.5% had fully recovered about 2.5 years after onset of the index episode, but 62.5% had a syndromal recurrence 1.5 years later, mostly depression [[Birmaher2009COBY]].
-- COBY participants were symptomatic for 60% of follow-up. 25% of youths with bipolar II and 38% with bipolar disorder not otherwise specified converted to bipolar I or II [[Birmaher2009COBY]].
+- COBY participants were symptomatic for 60% of follow-up. Over follow-up, 25% of youths with bipolar II and 38% of those with bipolar disorder not otherwise specified moved to a diagnosis of bipolar I or II [[Birmaher2009COBY]].
 - The Vraylar label now includes acute manic or mixed episodes of bipolar I disorder in patients aged 10 and older. Its safety and effectiveness for bipolar depression in pediatric patients have not been established [[FDA-Vraylar]].
 - A phase 3 trial of lumateperone for bipolar I or II depression in pediatric patients is recruiting (estimated 384 participants; primary outcome CDRS-R at week 6; estimated primary completion 2031-10-31) [[NCT06372964]].
 
 ### frontier · Genomics and new treatment targets
 - A GWAS of 41,917 bipolar disorder cases and 371,549 controls found 64 associated loci. Risk genes were enriched in synaptic signalling and in neurons of the prefrontal cortex and hippocampus (Established) [[Mullins2021]].
-- That GWAS found signal enrichment in genes encoding targets of antipsychotics, calcium channel blockers, antiepileptics and anesthetics. It named druggable genes such as HTR6, MCHR1, DCLK3 and FURIN as possible new leads (Hypothesis) [[Mullins2021]].
+- In that GWAS, the signal was concentrated in genes coding for the targets of antipsychotics, calcium channel blockers, antiepileptics and anaesthetics. It named druggable genes such as HTR6, MCHR1, DCLK3 and FURIN as possible new leads (Hypothesis) [[Mullins2021]].
 - A 2025 multi-ancestry GWAS (158,036 cases; 2.8 million controls) found 298 genome-wide significant loci, a fourfold increase. It prioritized 36 credible genes and implicated GABAergic interneurons and medium spiny neurons (Established for loci; Hypothesis for cell-type mechanisms) [[OConnell2025]].
 - The genetic architecture differed by how cases were recruited (clinical, community or self-report) and by subtype (bipolar I vs II) [[OConnell2025]].
 

@@ -149,7 +149,7 @@ Call-now box (for every page that discusses symptoms or warning signs): If you t
 - OCEAN(a)-DOSE (phase 2; 281 people with atherosclerotic disease and Lp(a) >150 nmol/L): the small interfering RNA olpasiran lowered Lp(a) at 36 weeks by 70.5% (10 mg) to 101.1% (225 mg every 12 weeks), placebo-adjusted. This was a biomarker trial (Early evidence) [[ODonoghue2022]].
 - OCEAN(a)-Outcomes (7,297 participants) is testing whether olpasiran reduces coronary death, MI or urgent coronary revascularisation. It is active, not recruiting, with estimated primary completion in March 2028 (Hypothesis) [[NCT05581303]].
 - Lp(a)HORIZON (8,323 participants) tested the antisense drug pelacarsen. ClinicalTrials.gov lists it as completed (primary completion July 2026) with no results posted [[NCT04023552]].
-- Topline Lp(a)HORIZON results, announced in September 2026, showed that pelacarsen lowered Lp(a) but did not reduce the primary composite cardiovascular endpoint. Full data are awaited (Early evidence: topline only, not yet peer-reviewed) [[Sabouret2026]].
+- Topline Lp(a)HORIZON results, announced in September 2026, showed lower Lp(a) with pelacarsen but no fall in the main composite cardiovascular endpoint. Full data are awaited (Early evidence: topline only, not yet peer-reviewed) [[Sabouret2026]].
 - Inclisiran outcome trials are under way: ORION-4 (16,124 participants; primary completion listed as October 2026) and VICTORION-2P (17,004 participants; estimated primary completion May 2027). Both are active, not recruiting (Hypothesis until reported) [[NCT03705234,NCT05030428]].
 
 ### frontier · Preventing heart failure after MI

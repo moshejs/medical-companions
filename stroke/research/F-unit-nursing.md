@@ -19,7 +19,7 @@ Access notes:
 - The model of care matters. In the network meta-analysis against a general ward, the odds of poor outcome were: stroke ward OR 0.74 (0.62 to 0.89, moderate quality), mixed rehabilitation ward OR 0.70 (0.52 to 0.95, low quality), mobile stroke team OR 0.88 (0.58 to 1.34, low quality) [[Langhorne2020]].
 - Benefits were most obvious in units based in a discrete stroke ward [[Langhorne2020]].
 - In a national audit in England and Wales of 143,578 people with acute stroke in 154 hospitals (2013 to 2015), 14.4% died within 30 days [[Paley2018]].
-- Admission to hospitals with higher ratios of nurses trained in swallow screening was associated with reduced odds of death (P=0.004) [[Paley2018]].
+- People admitted to hospitals where a larger share of nurses had swallow-screening training had lower odds of dying (P=0.004) [[Paley2018]].
 - Daily physician ward rounds were associated with 10% lower odds of mortality than less frequent rounds (95% CI 0.82 to 0.98) [[Paley2018]].
 - Number of admissions and the overall weekend registered-nurse ratio were not independently associated with mortality [[Paley2018]].
 - The authors estimated, if the associations are causal, an extra 1332 deaths saved each year in England and Wales with at least 3 swallow-trained nurses per 10 beds and daily stroke physician rounds [[Paley2018]].
@@ -40,9 +40,9 @@ Access notes:
 - At 90 days, death or dependency (mRS 2 or more) was 42% (236 of 558) in intervention units versus 58% (259 of 449) in control units (p=0.002; number needed to treat 6.4; adjusted absolute difference 15.7%, 95% CI 5.8 to 25.4) [[Middleton2011]].
 - SF-36 physical summary was better (45.6 vs 42.5, p=0.002). Mortality (4% vs 5%, p=0.36), SF-36 mental summary and Barthel index were not different at 90 days [[Middleton2011]].
 - At a median of 4.1 years in 1076 participants, 264 (24.5%) had died. The survival gain was above 20% but significant only after adjustment: unadjusted HR 0.79 (0.58 to 1.07, P=0.13), adjusted HR 0.77 (0.59 to 0.99, P=0.045) [[Middleton2017]].
-- Summarised FeSS protocol elements, as listed for a later QASC translation trial: temperature monitored and recorded at least four times per day for the first 72 h, and "If temperature => 37.5°C treat with paracetamol or other anti-pyretic" [[Fasugba2023]].
-- Sugar element as listed: formal venous glucose on admission; readings at least four times per day for the first 48 h, continuing for 72 h if unstable; "If blood glucose level >10 mmol/L (180mg/dl) treat with insulin" [[Fasugba2023]].
-- Swallow element as listed: "Swallow screen or swallow assessment within 4 h of admission and prior to being given oral food, drink, or medications", with referral to a speech pathologist for those who fail [[Fasugba2023]].
+- Summarised FeSS protocol elements, as listed for a later QASC translation trial: temperature monitored and recorded at least four times per day for the first 72 h, and treatment with paracetamol or another antipyretic at 37.5°C or above [[Fasugba2023]].
+- Sugar element as listed: formal venous glucose on admission; readings at least four times per day for the first 48 h, continuing for 72 h if unstable; insulin if glucose is above 10 mmol/L (180 mg/dl) [[Fasugba2023]].
+- Swallow element as listed: a swallow screen or assessment within 4 h of admission and before any food, drink or medicines by mouth, with referral to a speech pathologist for those who fail [[Fasugba2023]].
 - The same paper cites a 2021 Australian national audit: 50% of people with fever of 37.5°C or more had paracetamol within an hour, 29% had insulin within 1 h of a first elevated finger-prick glucose of 10 mmol/L or more, and 60% had a swallow screen or assessment before oral intake [[Fasugba2023]].
 - QASC Germany, a before-and-after implementation study (771 and 679 patients), raised overall FeSS adherence from 20% to 28%, antipyretic within one hour from 29% to 59%, insulin within one hour from 41% to 60%, and swallow screen within 24 h from 65% to 74% [[CassierWoidasky2024]].
 - The European scale-up used a cascading facilitation model, with nurse champions as a key factor [[McInnes2024]].
@@ -70,7 +70,7 @@ Access notes:
 - SCAST (2029 people, candesartan vs placebo for 7 days) found no benefit: vascular composite HR 1.09 (0.84 to 1.41); functional outcome common OR 1.17 (1.00 to 1.38; p=0.048, not significant at the trial's threshold of p≤0.025). The authors wrote that, if anything, the evidence suggested harm [[Sandset2011]].
 - ENCHANTED (2196 alteplase-eligible people) compared intensive systolic lowering (target 130 to 140 mm Hg within 1 h) with guideline care. Mean 24 h systolic was 144.3 vs 149.8 mm Hg [[Anderson2019]].
 - Functional outcome did not differ (OR 1.01, 0.87 to 1.17), though any intracranial haemorrhage fell (14.8% vs 18.7%; OR 0.75, 0.60 to 0.94) [[Anderson2019]].
-- ESO 2021 recommends "early and modest blood pressure control (avoiding blood pressure levels >180/105 mm Hg)" in people with ischaemic stroke undergoing reperfusion therapies, and describes the overall evidence for lowering in ischaemic stroke as generally low quality [[Sandset2021]].
+- ESO 2021 recommends early, modest blood pressure control that keeps levels from going above 180/105 mm Hg in people with ischaemic stroke undergoing reperfusion therapies, and describes the overall evidence for lowering in ischaemic stroke as generally low quality [[Sandset2021]].
 
 ### unit · Glucose
 - Admission hyperglycaemia predicts poor outcome. Admission glucose above 6.1 to 7.0 mmol/L (110 to 126 mg/dL) after ischaemic stroke carried a relative risk of in-hospital or 30-day death of 3.28 (2.32 to 4.64) in people without diabetes [[Capes2001]].
@@ -218,7 +218,7 @@ Access notes:
 - OPTIMISTmain enrolled 4922 people at 114 hospitals in 8 countries, who were clinically stable with NIHSS under 10 within 2 h of starting thrombolysis [[Anderson2025]].
 - mRS 2 to 6 at 90 days was 31.7% vs 30.9% (RR 1.03, 0.92 to 1.15; p for non-inferiority 0.057). Symptomatic haemorrhage was 0.2% vs 0.4%. Serious adverse events were 11.1% vs 11.3% [[Anderson2025]].
 - The non-inferiority margin was an RR of 1.15, which the upper confidence limit reached. The authors call this "weak evidence" of non-inferiority and say hospitals could consider the approach according to local circumstances [[Anderson2025]].
-- The Activase label states: "During and following Activase administration for the treatment of acute ischemic stroke, frequently monitor and control blood pressure" [[FDA-Activase]].
+- The Activase label asks for frequent blood pressure monitoring and control during and after treatment for acute ischaemic stroke [[FDA-Activase]].
 - The label reports angioedema "during and up to 2 hours after" infusion, and says to stop the infusion and treat if anaphylactoid reaction or angioedema develops [[FDA-Activase]].
 - In a UK series of 530 people, orolingual angio-oedema occurred in 7.9% (5.5 to 10.6), starting 5 to 189 min after alteplase began (median 65 min) [[Hurford2015]].
 - 12% of those cases were severe (1% of all treated) and needed urgent advanced airway management. Prior ACE inhibitor use was the only independent predictor (OR 2.3, 1.1 to 4.7) [[Hurford2015]].

@@ -107,7 +107,7 @@ Corrections to the brief:
 - GJH is sex- and age-related (more common in women and children), and racial differences are identifiable [[Remvig2007]].
 - In 6,022 UK 14-year-olds (ALSPAC, mean age 13.8), 27.5% of girls and 10.6% of boys had a Beighton score of ≥4. Hypermobile fingers were found in 45% of girls and 29% of boys [[Clinch2011]].
 - Earlier school studies reported GJH in 8.8% to 64.6% of 6–15-year-olds. The wide range reflects selected samples and differing cut-offs [[Clinch2011]].
-- In 1,000 Australians aged 3–101 years, females and non-Caucasians had higher Beighton scores across the lifespan (P<0.001) [[Singh2017]].
+- In 1,000 Australians aged 3–101 years, Beighton scores were higher at every age in women and girls, and in people who were not Caucasian (P<0.001) [[Singh2017]].
 - In the same study, the ≥4 cut-off had a sensitivity of 0.8%, a specificity of 99.3% and a 60% false-positive rate. It was appropriate only for females aged 40–59 and males aged 8–39 [[Singh2017]].
 - US college students aged 17–26 (n=267, Beighton cut-off 5/9) [[Russek2016]]:
   - GJH: 26.2% overall (females 36.7%, males 13.7%)
@@ -125,11 +125,11 @@ Corrections to the brief:
 - A condition with joint laxity and multiple scars was described by Hippocrates in 400 BC [[Parapia2008,Forghani2019]].
 - In 1892 the Russian dermatologist Tschernogubow (also spelled Chernogubov) published the first comprehensive description [[Forghani2019]]. One source dates his report to 1891 [[Rauterberg2025]].
 - In 1901 the Danish dermatologist Edvard Ehlers recognised the condition as a distinct entity [[Parapia2008,Forghani2019]].
-- In 1908 the French dermatologist Henri-Alexandre Danlos suggested that skin extensibility and fragility were its cardinal features [[Parapia2008]].
+- In 1908 the French dermatologist Henri-Alexandre Danlos proposed that stretchy, fragile skin was the key sign of the condition [[Parapia2008]].
 - In 1936 the English dermatologist Frederick Parkes-Weber suggested the name "Ehlers-Danlos syndrome" [[Forghani2019]].
 - The first description of joint hypermobility syndrome was published in 1967 by Kirk, Ansell and Bywaters [[Kirk1967,Forghani2019]].
 - In the 1960s it became clear that EDS was several disorders with different Mendelian inheritance patterns. Classification began in the late 1960s [[VanDijk2024,Beighton1998]].
-- EDS is one of the oldest known causes of bruising and bleeding [[Parapia2008]].
+- EDS was among the first recognised conditions that make people bruise and bleed easily [[Parapia2008]].
 
 ### history · Berlin, Villefranche, Brighton and 2017
 - **Berlin nosology:** proposed at the 7th International Congress of Human Genetics (Berlin, 1986) and published in 1988 [[Beighton1988,Forghani2019]].
@@ -202,7 +202,7 @@ Corrections to the brief:
   - Siblings without EDS also had raised risks of ADHD, depression and suicide attempt.
 - Swedish EDS association survey (250 respondents): 74.8% scored high for anxiety and 22.4% for depression on the HADS. SF-36 health-related quality of life was lower than a Swedish population sample [[Berglund2015]].
 - Females with EDS hypermobility type had a burden of disease similar to fibromyalgia and worse than rheumatoid arthritis on the Sickness Impact Profile. Pain severity and life interference were higher than in rheumatoid arthritis [[Rombaut2011]].
-- Among 273 Dutch EDS patient-organisation members, chronic pain was highly prevalent, more severe in the hypermobility type than in the classic type, and contributed to functional impairment independent of fatigue [[Voermans2010]].
+- Among 273 Dutch EDS patient-organisation members, chronic pain was very common. It was worse in the hypermobility type than in the classic type, and it added to loss of function separately from fatigue [[Voermans2010]].
 - Norwegian adults with JHS/EDS-HT vs matched controls [[Johannessen2016]]:
   - SF-36 Physical Component Score: 28.1 vs 49.9
   - pain NRS: 6.4 vs 2.7

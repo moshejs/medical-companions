@@ -39,7 +39,7 @@ const OS_TYPES={
    hook:`Tranexamic acid: earlier is better; after 3 h the RR for bleeding death was 1.44 [[CRASH2-2011]].`}]},
  obstr:{name:'Obstructive',fail:['block'],kind:'tamp',steps:[
   {k:'Obstructive · 1',t:'Fluid gathers round the heart',
-   txt:`ESC 2015 defines cardiac tamponade as "a life-threatening, slow or rapid compression of the heart due to the pericardial accumulation of fluid" [[Adler2015ESC]]. Obstructive causes either reduce filling (vena cava compression, tension pneumothorax, tamponade) or raise the load on the right ventricle (pulmonary embolism, a mediastinal mass) [[Standl2018]].`,
+   txt:`ESC 2015 describes cardiac tamponade as life-threatening squeezing of the heart, fast or slow, by fluid building up in the pericardium [[Adler2015ESC]]. Obstructive causes either reduce filling (vena cava compression, tension pneumothorax, tamponade) or raise the load on the right ventricle (pulmonary embolism, a mediastinal mass) [[Standl2018]].`,
    pt:`Fluid can build up in the sac around the heart and squeeze it so it cannot fill [[Adler2015ESC]].`,
    hook:`Obstructive shock is likely the rarest type, 1–2% in Standl's table [[Standl2018]].`},
   {k:'Obstructive · 2',t:'The heart cannot fill',
@@ -51,7 +51,7 @@ const OS_TYPES={
    pt:`Trapped air in the chest or a large clot in the lungs can also block blood flow, and both need urgent treatment [[Standl2018]].`,
    hook:`Ventilated patients with tension pneumothorax become hypotensive or arrest far more often than spontaneously breathing ones [[Roberts2015TPTX]].`},
   {k:'Obstructive · 4',t:'Relieve the blockage',
-   txt:`Standl 2018 says obstructive shock "shall be treated with an immediate life-saving intervention" [[Standl2018]]. For tamponade, ESC 2015 advises drainage, "preferably by needle pericardiocentesis", without delay in unstable patients, and surgery in some cases such as purulent pericarditis [[Adler2015ESC]]. For high-risk PE, ESC 2019 names primary reperfusion, in most cases systemic thrombolysis, as the treatment of choice; its Table 10 lists rtPA 100 mg over 2 h (quoted as published) [[Konstantinides2020ESC]].`,
+   txt:`Standl 2018 says obstructive shock "shall be treated with an immediate life-saving intervention" [[Standl2018]]. For tamponade, ESC 2015 advises drainage, "preferably by needle pericardiocentesis", without delay in unstable patients, and surgery in some cases such as purulent pericarditis [[Adler2015ESC]]. For high-risk PE, ESC 2019 names primary reperfusion, in most cases systemic thrombolysis, as the treatment of choice; its Table 10 lists rtPA 100 mg over 2 h [[Konstantinides2020ESC]].`,
    pt:`Draining the fluid or clearing the clot lets the heart fill and pump again [[Standl2018,Adler2015ESC]].`,
    hook:`Tamponade: needle pericardiocentesis. High-risk PE: systemic thrombolysis [[Adler2015ESC,Konstantinides2020ESC]].`}]},
  anaph:{name:'Anaphylactic',fail:['pipes'],kind:'tamp',steps:[

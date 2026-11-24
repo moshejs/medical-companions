@@ -25,9 +25,9 @@ inits.beighton=()=>{
      pt:`The little finger is gently bent backwards. If it goes back to a right angle or further, that side scores a point.`,
      hook:`Beighton = 9 points from 5 manoeuvres: little finger, thumb, elbow and knee on each side (8), plus palms flat (1). [[Thwaites2022,Carroll2023]]`},
     {from:.17,at:.335,k:'Manoeuvre 2 · 2 points',t:'Thumb to forearm',
-     txt:`The thumb is pressed passively towards the flexor (palm-side) surface of the same forearm. A point is scored only if it touches. The left thumb folds flat against the forearm; the right stops with a gap, so the right side scores nothing. Only one plane of movement is tested, and the score says whether hypermobility is there, not how severe it is. [[Thwaites2022,Carroll2023,Malek2021C]]`,
+     txt:`The examiner moves the thumb down towards the inner, palm-side face of the forearm on the same side, without the person helping. That side scores only if the thumb reaches the skin. The left thumb folds flat against the forearm; the right stops with a gap, so the right side scores nothing. Only one plane of movement is tested, and the score says whether hypermobility is there, not how severe it is. [[Thwaites2022,Carroll2023,Malek2021C]]`,
      pt:`Each side is scored on its own. One thumb can reach the arm while the other cannot.`,
-     hook:`Thumb item = apposition of the thumb to the volar (flexor) forearm, scored left and right. [[Thwaites2022]]`},
+     hook:`Thumb item: can the thumb be brought down onto the palm side of its own forearm? Each side scores separately. [[Thwaites2022]]`},
     {from:.34,at:.505,k:'Manoeuvre 3 · 2 points',t:'Elbow beyond straight',
      txt:`The elbow scores when it straightens 10° or more past a straight line (hyperextension). The dashed ray marks the 10° threshold. Ten degrees is hard to judge by eye: in children the score was shown valid "when goniometry is used", and with a structured protocol in degrees raters agreed within 5°. [[Thwaites2022,Carroll2023,Smits-Engelsman2011,Schlager2018]]`,
      pt:`The arm is straightened. If it bends backwards past straight by a small but definite angle, it counts.`,
@@ -37,7 +37,7 @@ inits.beighton=()=>{
      pt:`A knee can look very straight and still miss the 10° mark. That is one reason careful measuring matters.`,
      hook:`The Beighton score does not test the shoulders, hips or ankles. [[Malek2021C]]`},
     {from:.68,at:.845,k:'Manoeuvre 5 · 1 point',t:'Palms flat on the floor',
-     txt:`With knees locked straight and feet together, the person bends forward until both palms rest flat on the floor: 1 point, the only unpaired item. It can be trained (as in ballet) and is limited by short hamstrings: in one study, 84.2% of over 200 hypermobile people (score 5 or more) could not do it. [[Thwaites2022,Carroll2023,Malek2021C]]`,
+     txt:`Standing with feet together and knees fully straight, the person bends forward; if both hands can lie flat on the floor, that is 1 point, the only item not scored per side. It can be trained (as in ballet) and is limited by short hamstrings: in one study, 84.2% of over 200 hypermobile people (score 5 or more) could not do it. [[Thwaites2022,Carroll2023,Malek2021C]]`,
      pt:`Bending to put both hands flat on the floor, without bending the knees, adds one point.`,
      hook:`Trunk flexion is the single 1-point item; the score runs 0 to 9. [[Thwaites2022]]`},
     {from:.85,at:.97,k:'Total · compare with the cut-off',t:'7 of 9, then the age cut-off',
@@ -134,11 +134,11 @@ inits.beighton=()=>{
   /* ================= teaching calculator ================= */
   const CI=[{k:'f',n:'Little finger',s:'bends back to 90° or more'},{k:'t',n:'Thumb',s:'touches the forearm'},
     {k:'e',n:'Elbow',s:'10° or more past straight'},{k:'k',n:'Knee',s:'10° or more past straight'}];
-  const PQ=['Do you consider yourself double-jointed?',
-    'Can you now (or could you ever) place your hands flat on the floor without bending your knees?',
-    'Can you now (or could you ever) bend your thumb to touch your forearm?',
-    'As a child, did you amuse your friends by contorting your body into strange shapes, or could you do the splits?',
-    'As a child or teenager, did your shoulder or kneecap dislocate on more than one occasion?'];
+  const PQ=['Self-image: double-jointed',
+    'Palms to floor, knees straight (present or past)',
+    'Thumb to forearm (present or past)',
+    'Childhood contortions or splits',
+    'Repeated shoulder or kneecap dislocation when young'];
   const saved=store.get('beCalc',null);
   const C=saved&&saved.c?saved:{c:{},pq:[0,0,0,0,0],age:'5',tab:'bs'};
   const btnTxt=(sd,on)=>`${on?'✓ ':''}${sd}${on?'':': no'}`;

@@ -129,7 +129,7 @@ Access notes:
 - "Minimal function" and "residual function" are genotype groups used in trials and labels. Lopes-Pacheco describes classes I and II as minimal function and classes IV, V and VI as residual function [[LopesPacheco2019]].
 - The phase 3 elexacaftor–tezacaftor–ivacaftor trial enrolled people who had F508del on one allele and a minimal-function variant on the other (F508del–minimal function genotype), a group that earlier modulators did not help. The qualifying variants were listed in a supplementary table [[Middleton2019ETI]].
 - Residual function was defined in one cohort as carrying at least one partial-function variant (class IV or V). Minimal-function individuals had a higher hazard of acquiring 9 of 13 respiratory organisms (HR 1.7 to 3.78) and acquired 12 of 13 organisms at younger ages [[Green2010Residual]].
-- Theratypes are defined as "a recently invented term used to classify disease-associated DNA variants according to the molecular-based treatment to which they respond" [[Cutting2015]].
+- "Theratype" is a newer term that groups disease-causing variants by the targeted treatment they respond to [[Cutting2015]].
 - Theratyping uses CFTR modulators in laboratory models to define a variant's defect and predict drug response. The models include Fischer rat thyroid (FRT) cell lines, human bronchial and nasal epithelial cells and rectal organoids [[Clancy2019]].
 - In vitro, ivacaftor potentiated several of 54 missense CFTR forms in FRT cells, including variants with mild processing or conductance defects [[VanGoor2014]].
 - In 2017 the FDA expanded the ivacaftor label to rare variants on the basis of in vitro FRT assay data instead of clinical trial data [[Durmowicz2018]].
@@ -166,7 +166,7 @@ Access notes:
 - Type 2 diabetes risk genes (TCF7L2, CDKAL1, CDKN2A/B, IGF2BP2) modify age at onset of CF-related diabetes [[Cutting2015]].
 
 ### variants · CFTR-related disorders and carriers
-- A CFTR-related disorder (CFTR-RD) is "a clinical entity associated with CFTR dysfunction that does not fulfil diagnostic criteria for CF". Recognised CFTR-RDs are CBAVD, acute recurrent or chronic pancreatitis and disseminated bronchiectasis [[Bombieri2011]].
+- A CFTR-related disorder (CFTR-RD) is a condition linked to CFTR dysfunction in someone who does not meet the diagnostic criteria for CF. Recognised CFTR-RDs are CBAVD, acute recurrent or chronic pancreatitis and disseminated bronchiectasis [[Bombieri2011]].
 - In 102 men with CBAVD, 19 had CFTR variants on both copies. Fifty-four had one variant, and 63% of those had 5T on the other gene. The 5T allele was found in about 5% of the general population [[Chillon1995]].
 - A meta-analysis found at least one CFTR variant in 78% of men with CBAVD (46% two, 28% one). The pooled odds ratio for CBAVD was 9.25 for 5T and 19.43 for 5T with (TG)12–13 [[Yu2012CBAVD]].
 - About 10% of the general population carries 5T. When 5T sits in trans with a severe variant, 12 or 13 TG repeats next to 5T made an abnormal phenotype much more likely than 11 TG repeats (OR 34.0; 95% CI 11.1–103.7) [[Groman2004]].

@@ -16,7 +16,7 @@ Access notes:
 ## Findings
 
 ### antithrombotic · Why two kinds of drug: platelets and clotting proteins
-- When a plaque ruptures, platelets stick, are activated and clump. The clotting (coagulation) cascade also makes thrombin and fibrin. ESC 2023 says "A combination of antiplatelet and anticoagulant therapy is indicated acutely for patients with ACS." [[Byrne2023ESC]]
+- When a plaque ruptures, platelets stick, are activated and clump. The clotting (coagulation) cascade also makes thrombin and fibrin. ESC 2023 says people with ACS need both an antiplatelet and an anticoagulant in the acute phase. [[Byrne2023ESC]]
 - Aspirin blocks the enzyme cyclooxygenase (COX), which makes prostaglandins. These include the platelet products that "aggregate platelets when required". COX-1 is the constitutive isoform. [[Vane2003]]
 - Low-dose aspirin inactivates platelet COX-1. This gives "long-lasting suppression of thromboxane (TX) A2 production" and of TXA2-mediated platelet activation and aggregation. This effect explains both its benefit against atherothrombosis and its bleeding liability. [[Patrono2015]]
 - Aspirin is "an irreversible inhibitor of platelet cyclooxygenase activity". It works by acetylating the serine 529 residue of platelet COX-1. [[Undas2014]]
@@ -24,12 +24,12 @@ Access notes:
 - Prasugrel's active metabolite also binds the P2Y12 receptor irreversibly. [[FDA-Effient]]
 - Ticagrelor and its major metabolite bind the P2Y12 receptor reversibly. The parent drug and the metabolite are "approximately equipotent". [[FDA-Brilinta]]
 - Cangrelor is an intravenous, direct P2Y12 inhibitor that binds "selectively and reversibly". [[FDA-Kengreal]]
-- Tirofiban (AGGRASTAT) is "a reversible antagonist of fibrinogen binding to the GP IIb/IIIa receptor, the major platelet surface receptor involved in platelet aggregation". [[FDA-Aggrastat]]
+- Tirofiban (AGGRASTAT) reversibly stops fibrinogen binding to the GP IIb/IIIa receptor, the main receptor on the platelet surface that drives clumping. [[FDA-Aggrastat]]
 
 ### antithrombotic · Speed of onset and offset (platelet/P2Y12 animation)
-- Clopidogrel: "Dose-dependent inhibition of platelet aggregation can be seen 2 hours after single oral doses". With 75 mg daily, inhibition reaches steady state between day 3 and day 7, at an average of 40% to 60%. Platelet function returns to baseline "generally in about 5 days" after stopping. [[FDA-Plavix]]
+- Clopidogrel: a single dose starts to inhibit aggregation, in proportion to the dose, within 2 hours. With 75 mg daily, inhibition reaches steady state between day 3 and day 7, at an average of 40% to 60%. Platelet function usually returns to baseline about 5 days after stopping. [[FDA-Plavix]]
 - The Plavix label says starting without a loading dose "will delay establishment of an antiplatelet effect by several days". [[FDA-Plavix]]
-- Prasugrel: after a 60 mg loading dose, "approximately 90% of patients had at least 50% inhibition of platelet aggregation by 1 hour". Maximum inhibition was about 80%. Steady state was about 70% after 3–5 days of 10 mg daily. Aggregation returns to baseline over 5–9 days, which reflects "new platelet production rather than pharmacokinetics". [[FDA-Effient]]
+- Prasugrel: after a 60 mg loading dose, about 90% of patients reached at least 50% inhibition of aggregation within 1 hour. Maximum inhibition was about 80%. Steady state was about 70% after 3–5 days of 10 mg daily. Aggregation returns to baseline over 5–9 days, because new platelets have to be made, not because the drug is cleared. [[FDA-Effient]]
 - Ticagrelor (label): after a 180 mg loading dose, maximum inhibition of platelet aggregation (IPA) was reached at about 2 hours and kept for at least 8 hours. After 6 weeks of treatment, mean maximum IPA was 88% with ticagrelor and 62% with clopidogrel. By 5 days after the last dose, IPA on ticagrelor was similar to placebo. [[FDA-Brilinta]]
 - ONSET/OFFSET (123 people with stable coronary disease on aspirin) compared ticagrelor 180 mg with clopidogrel 600 mg loading doses. At 2 hours, more people on ticagrelor reached >50% IPA (98% vs 31%) and >70% IPA (90% vs 16%). [[Gurbel2009ONSET]]
 - ONSET/OFFSET offset: the 4–72 h slope was −1.04 vs −0.48 %IPA/h. At 24 h after the last dose, IPA was 58% for ticagrelor and 52% for clopidogrel (not significant). Ticagrelor at day 5 did not differ from placebo. [[Gurbel2009ONSET]]
@@ -45,7 +45,7 @@ Access notes:
 - ISIS-2: aspirin's odds reductions by time from pain onset were 25% (0–4 h), 21% (5–12 h) and 21% (13–24 h). Benefit was seen even with late treatment. [[ISIS2_1988]]
 - Antithrombotic Trialists' meta-analysis (287 studies; 135,000 patients in antiplatelet-vs-control comparisons): antiplatelet therapy cut serious vascular events by about one quarter. It reduced non-fatal MI by one third, non-fatal stroke by one quarter and vascular death by one sixth. [[ATT2002]]
 - In the same meta-analysis, people treated for about one month for acute MI had 38 (SE 5) fewer serious vascular events per 1000. People with previous MI had 36 (SE 5) fewer per 1000 over two years. [[ATT2002]]
-- In the same meta-analysis, aspirin 75–150 mg daily was "at least as effective as higher daily doses". In acute settings "an initial loading dose of at least 150 mg aspirin may be required". [[ATT2002]]
+- In the same meta-analysis, aspirin 75–150 mg daily worked at least as well as higher daily doses, and in acute settings a first dose of at least 150 mg may be needed. [[ATT2002]]
 - CURRENT-OASIS 7 (25,086 patients with ACS referred for an invasive strategy) compared higher-dose (300–325 mg) with lower-dose (75–100 mg) aspirin. 30-day CV death, MI or stroke was 4.2% vs 4.4% (HR 0.97; 95% CI 0.86–1.09). Major bleeding was 2.3% in both arms. [[Mehta2010CURRENTNEJM]]
 - ADAPTABLE (15,076 people with established atherosclerotic disease; median 26.2 months) compared 81 mg with 325 mg aspirin. Death, MI or stroke hospitalisation was 7.28% vs 7.51% (HR 1.02; 95% CI 0.91–1.14). Major-bleeding hospitalisation was 0.63% vs 0.60%. 41.6% of the 325 mg group switched dose, compared with 7.1% of the 81 mg group. [[Jones2021ADAPTABLE]]
 - ESC 2023 Table 6 (aspirin): oral loading dose "150–300 mg orally" and maintenance "75–100 mg o.d." [[Byrne2023ESC]]
@@ -59,11 +59,11 @@ Access notes:
 - COMMIT: fatal, transfused or cerebral bleeds were 0.58% vs 0.55% (p=0.59). There was no significant excess with clopidogrel, including in people over 70 years or given fibrinolytic therapy. [[Chen2005COMMIT]]
 - CURRENT-OASIS 7, all patients: double-dose clopidogrel (600 mg, then 150 mg on days 2–7, then 75 mg) did not reduce 30-day CV death, MI or stroke (4.2% vs 4.4%; HR 0.94). It increased major bleeding (2.5% vs 2.0%; HR 1.24). [[Mehta2010CURRENTNEJM]]
 - CURRENT-OASIS 7, prespecified PCI subgroup (17,263 patients): double-dose clopidogrel reduced the primary outcome (3.9% vs 4.5%; adjusted HR 0.86, 95% CI 0.74–0.99). It also reduced definite stent thrombosis (0.7% vs 1.3%; HR 0.54). Major bleeding rose (1.6% vs 1.1%). [[Mehta2010CURRENTLancet]]
-- Plavix label, ACS: "Initiate Plavix with a single 300 mg oral loading dose and then continue at 75 mg once daily." [[FDA-Plavix]]
-- ESC 2023 Table 6 (clopidogrel): "LD of 300–600 mg orally, followed by an MD of 75 mg o.d." Clopidogrel "should only be used when prasugrel or ticagrelor are contraindicated/not available." [[Byrne2023ESC]]
+- Plavix label, ACS: one 300 mg loading dose by mouth, then 75 mg once a day. [[FDA-Plavix]]
+- ESC 2023 Table 6 (clopidogrel): loading dose (LD) 300–600 mg by mouth, then a maintenance dose (MD) of 75 mg once daily. Clopidogrel is reserved for people who cannot take prasugrel or ticagrelor or cannot get them. [[Byrne2023ESC]]
 
 ### antithrombotic · Clopidogrel response genes (CYP2C19)
-- Plavix boxed warning: "Effectiveness of Plavix depends on conversion to an active metabolite by the cytochrome P450 (CYP) system, principally CYP2C19." It adds: "Consider use of another platelet P2Y12 inhibitor in patients identified as CYP2C19 poor metabolizers." [[FDA-Plavix]]
+- Plavix boxed warning, in summary: clopidogrel works only after cytochrome P450 enzymes, mainly CYP2C19, convert it to its active form, so another P2Y12 inhibitor should be considered in known CYP2C19 poor metabolisers. [[FDA-Plavix]]
 - Plavix label: about 2% of White and 4% of Black patients are CYP2C19 poor metabolizers. The proportion is higher in Asian patients (e.g. 14% of Chinese). [[FDA-Plavix]]
 - Mega 2009, healthy subjects: carriers of at least one CYP2C19 reduced-function allele (about 30% of the study population) had 32.4% lower exposure to the active metabolite. [[Mega2009CYP2C19]]
 - Mega 2009, 1477 clopidogrel-treated ACS patients from TRITON-TIMI 38: carriers had more CV death, MI or stroke (12.1% vs 8.0%; HR 1.53). They also had about three times the stent thrombosis (2.6% vs 0.8%; HR 3.09). [[Mega2009CYP2C19]]
@@ -78,8 +78,8 @@ Access notes:
 - Effient label: in people ≥75 years, fatal bleeding was 1.0% on prasugrel vs 0.1% on clopidogrel. Non-CABG TIMI major or minor bleeding was 9.0% vs 6.9%. [[FDA-Effient]]
 - Effient label: in people weighing <60 kg, non-CABG TIMI major or minor bleeding was 10.1% vs 6.5%. In people ≥60 kg it was 4.2% vs 3.3%. [[FDA-Effient]]
 - Effient label: CABG-related TIMI major or minor bleeding was 14.1% with prasugrel vs 4.5% with clopidogrel. [[FDA-Effient]]
-- Effient boxed warning, as published: "In patients ≥75 years of age, Effient is generally not recommended … except in high-risk situations (patients with diabetes or a history of prior myocardial infarction [MI])". It lists "body weight <60 kg" as an additional risk factor. [[FDA-Effient]]
-- Effient dosing, as published: "a single 60 mg oral loading dose and then continue at 10 mg orally once daily". The label says "Consider 5 mg once daily for patients <60 kg" and notes the 5 mg dose "has not been prospectively studied". [[FDA-Effient]]
+- Effient boxed warning, in summary: generally not advised at age ≥75 years except in high-risk situations (diabetes or a previous MI); body weight <60 kg is named as a further bleeding risk factor. [[FDA-Effient]]
+- Effient dosing: one 60 mg loading dose by mouth, then 10 mg once daily; 5 mg once daily can be considered below 60 kg (<60 kg), a dose the label says has not been tested prospectively. [[FDA-Effient]]
 - ACCOAST (4033 people with troponin-positive non-ST-elevation ACS) tested prasugrel 30 mg before angiography. Pretreatment did not reduce 7-day ischaemic events (HR 1.02). It increased TIMI major bleeding (HR 1.90; 95% CI 1.19–3.02). [[Montalescot2013ACCOAST]]
 
 ### antithrombotic · Ticagrelor: PLATO
@@ -87,13 +87,13 @@ Access notes:
 - PLATO, 12 months: vascular death, MI or stroke was 9.8% with ticagrelor vs 11.7% with clopidogrel (HR 0.84; 95% CI 0.77–0.92). [[Wallentin2009PLATO]]
 - PLATO: MI was 5.8% vs 6.9%. Vascular death was 4.0% vs 5.1%. Stroke was 1.5% vs 1.3% (not significant). All-cause death was 4.5% vs 5.9%. [[Wallentin2009PLATO]]
 - PLATO bleeding: overall major bleeding was 11.6% vs 11.2% (P=0.43). Non-CABG major bleeding was higher with ticagrelor (4.5% vs 3.8%, P=0.03), "including more instances of fatal intracranial bleeding". [[Wallentin2009PLATO]]
-- BRILINTA label: "about half of the non-CABG major bleeding events were in the first 30 days" in PLATO. [[FDA-Brilinta]]
+- BRILINTA label: in PLATO, roughly half of major bleeds not related to CABG happened in the first 30 days. [[FDA-Brilinta]]
 - BRILINTA label: in clinical trials "about 14% (PLATO and PEGASUS) to 21% (THEMIS)" of treated patients developed dyspnoea (breathlessness). "Dyspnea from BRILINTA is self-limiting." The label also lists bradyarrhythmias, including ventricular pauses. [[FDA-Brilinta]]
 - PLATO aspirin interaction: in the US, 53.6% of patients took a median aspirin dose ≥300 mg/day, compared with 1.7% elsewhere. Aspirin dose was the only one of 37 factors that explained much of the regional difference. [[Mahaffey2011PLATO]]
-- BRILINTA label, as published: "there appears to be good reason to restrict aspirin maintenance dosage accompanying ticagrelor to 100 mg", and "there is a strong suggestion that use of such doses reduces the effectiveness of BRILINTA." [[FDA-Brilinta]]
-- BRILINTA dosing, as published: "Initiate treatment with a 180 mg loading dose … Administer 90 mg of BRILINTA twice daily during the first year after an ACS event. After one year, administer 60 mg of BRILINTA twice daily," with "a daily maintenance dose of aspirin of 75 mg to 100 mg." [[FDA-Brilinta]]
-- The BRILINTA label now adds: "in patients who have undergone percutaneous coronary intervention (PCI), consider single antiplatelet therapy with BRILINTA based on the evolving risk for thrombotic versus bleeding events." [[FDA-Brilinta]]
-- BRILINTA boxed warning, as published: "Do not start BRILINTA in patients undergoing urgent coronary artery bypass graft surgery (CABG)." It continues: "If possible, manage bleeding without discontinuing BRILINTA. Stopping BRILINTA increases the risk of subsequent cardiovascular events." [[FDA-Brilinta]]
+- BRILINTA label, in summary: there are grounds to keep the aspirin taken with ticagrelor at no more than 100 mg a day, because higher doses appear to make ticagrelor less effective. [[FDA-Brilinta]]
+- BRILINTA dosing: a 180 mg loading dose, then 90 mg twice daily for the first year after ACS and 60 mg twice daily after that, with aspirin 75 mg to 100 mg a day. [[FDA-Brilinta]]
+- The BRILINTA label now adds that after PCI, ticagrelor alone (single antiplatelet therapy) can be considered, depending on how the balance of clotting and bleeding risk changes over time. [[FDA-Brilinta]]
+- BRILINTA boxed warning, in summary: do not start it in someone about to have urgent bypass surgery (CABG); where possible, treat bleeding without stopping it, because stopping raises the risk of later cardiovascular events. [[FDA-Brilinta]]
 - ATLANTIC (1862 people with STEMI of <6 h) compared ticagrelor given in the ambulance with ticagrelor given in the cath lab. The median time difference was 31 min. Pre-PCI reperfusion did not improve. Definite stent thrombosis was lower with ambulance dosing (0% vs 0.8% at 24 h; 0.2% vs 1.2% at 30 days). [[Montalescot2014ATLANTIC]]
 
 ### antithrombotic · Prasugrel versus ticagrelor: ISAR-REACT 5
@@ -101,20 +101,20 @@ Access notes:
 - ISAR-REACT 5, 1 year: death, MI or stroke was 9.3% with ticagrelor vs 6.9% with prasugrel (HR 1.36; 95% CI 1.09–1.70). [[Schupke2019ISAR5]]
 - ISAR-REACT 5 components (ticagrelor vs prasugrel): death 4.5% vs 3.7%; MI 4.8% vs 3.0%; stroke 1.1% vs 1.0%. Definite stent thrombosis was 1.1% vs 0.6%. [[Schupke2019ISAR5]]
 - ISAR-REACT 5: BARC major bleeding was 5.4% vs 4.8% (HR 1.12; 95% CI 0.83–1.51), not significantly different. [[Schupke2019ISAR5]]
-- ESC 2023: "Prasugrel should be considered in preference to ticagrelor for ACS patients who proceed to PCI." [[Byrne2023ESC]]
-- ESC 2023 default: "dual antiplatelet therapy (DAPT) including aspirin and a potent P2Y12 receptor inhibitor (prasugrel or ticagrelor) is recommended as the default DAPT strategy." [[Byrne2023ESC]]
+- ESC 2023: for people with ACS who go on to PCI, prasugrel should be considered ahead of ticagrelor. [[Byrne2023ESC]]
+- ESC 2023 default: dual antiplatelet therapy (DAPT) pairing aspirin with a potent P2Y12 inhibitor (prasugrel or ticagrelor). [[Byrne2023ESC]]
 - ACC/AHA 2025 also prefers ticagrelor or prasugrel to clopidogrel in ACS treated with PCI (as summarised by Restrepo and Rao). [[Restrepo2026,Rao2025ACC]]
 
 ### antithrombotic · Timing: pretreatment and intravenous P2Y12 inhibition
 - ESC 2023: routine pretreatment with a P2Y12 inhibitor in NSTE-ACS with a planned early invasive strategy "is not recommended". In STEMI going to primary PCI, "pre-treatment with a P2Y12 receptor inhibitor may be considered". [[Byrne2023ESC]]
-- ESC 2023: "In all ACS patients proceeding to PCI who did not receive P2Y12 receptor inhibitor pre-treatment, an LD is recommended at the time of PCI." [[Byrne2023ESC]]
+- ESC 2023: anyone with ACS going to PCI who has not been pre-treated with a P2Y12 inhibitor should get a loading dose (LD) at the time of PCI. [[Byrne2023ESC]]
 - CHAMPION PHOENIX (11,145 people having urgent or elective PCI) compared intravenous cangrelor with a clopidogrel loading dose. The 48-hour composite of death, MI, ischaemia-driven revascularisation or stent thrombosis was 4.7% vs 5.9% (adjusted OR 0.78). [[Bhatt2013PHOENIX]]
 - CHAMPION PHOENIX: stent thrombosis was 0.8% vs 1.4%. Severe bleeding was 0.16% vs 0.11% (not significant). Transient dyspnoea was 1.2% vs 0.3%. [[Bhatt2013PHOENIX]]
-- KENGREAL dosing, as published: "30 mcg/kg intravenous (IV) bolus prior to PCI followed immediately by a 4 mcg/kg/min IV infusion for at least 2 hours or duration of procedure, whichever is longer". It is indicated in patients "who have not been treated with a P2Y12 platelet inhibitor and are not being given a glycoprotein IIb/IIIa inhibitor". [[FDA-Kengreal]]
-- ESC 2023: "cangrelor may be considered on a case-by-case basis in P2Y12 receptor inhibitor-naïve ACS patients." [[Byrne2023ESC]]
+- KENGREAL dosing: a 30 mcg/kg IV bolus before PCI, then straight away a 4 mcg/kg/min IV infusion for at least 2 hours or for the whole procedure if that is longer. It is for patients not already on a P2Y12 inhibitor and not receiving a GP IIb/IIIa inhibitor. [[FDA-Kengreal]]
+- ESC 2023: cangrelor may be considered, case by case, in people with ACS who have had no P2Y12 inhibitor. [[Byrne2023ESC]]
 
 ### antithrombotic · How long: DAPT duration and default 12 months
-- ESC 2023: "a default DAPT regimen consisting of a potent P2Y12 receptor inhibitor … and aspirin is generally recommended for 12 months, irrespective of the stent type." [[Byrne2023ESC]]
+- ESC 2023: the usual default is 12 months of DAPT (aspirin plus a potent P2Y12 inhibitor), whatever stent type was used. [[Byrne2023ESC]]
 - The 2025 ACC/AHA ACS guideline retires the 2016 ACC/AHA focused update on DAPT duration. [[Rao2025ACC]]
 - DAPT trial (9961 people with a drug-eluting stent who were event-free after 12 months of DAPT): continuing a thienopyridine for 18 more months reduced stent thrombosis (0.4% vs 1.4%; HR 0.29). It also reduced MACCE (4.3% vs 5.9%; HR 0.71) and MI (2.1% vs 4.1%). [[Mauri2014DAPT]]
 - DAPT trial: moderate or severe bleeding rose (2.5% vs 1.6%). All-cause death was 2.0% vs 1.5% (HR 1.36; 95% CI 1.00–1.85; P=0.05). Stent thrombosis and MI rose in both groups in the 3 months after stopping. [[Mauri2014DAPT]]
@@ -122,7 +122,7 @@ Access notes:
 - PEGASUS: TIMI major bleeding was 2.60% (90 mg) and 2.30% (60 mg) vs 1.06% on placebo. Intracranial or fatal bleeding was 0.63%, 0.71% and 0.60%. [[Bonaca2015PEGASUS]]
 
 ### antithrombotic · Shorter DAPT and P2Y12 monotherapy
-- ESC 2023 describes "DAPT duration further shortened to 1–3 months followed by P2Y12 receptor inhibitor monotherapy". In high bleeding risk (HBR) patients, "aspirin or P2Y12 receptor inhibitor monotherapy after 1 month of DAPT may be considered." [[Byrne2023ESC]]
+- ESC 2023 describes cutting DAPT to 1–3 months and then continuing a P2Y12 inhibitor alone. In high bleeding risk (HBR), a single drug (aspirin or a P2Y12 inhibitor) after 1 month of DAPT may be considered. [[Byrne2023ESC]]
 - ACC/AHA 2025 "formally" recommends switching to P2Y12 monotherapy at one month in patients at high bleeding risk, as an alternative to standard DAPT (as summarised by Restrepo and Rao). [[Restrepo2026]]
 - TWILIGHT enrolled 9006 high-risk PCI patients. After 3 months of ticagrelor plus aspirin, 7119 event-free patients were randomised to ticagrelor plus placebo or ticagrelor plus aspirin for 1 year. [[Mehran2019TWILIGHT]]
 - TWILIGHT: BARC 2, 3 or 5 bleeding was 4.0% with ticagrelor alone vs 7.1% with ticagrelor plus aspirin (HR 0.56; 95% CI 0.45–0.68). BARC 3 or 5 bleeding was 1.0% vs 2.0% (HR 0.49). [[Mehran2019TWILIGHT]]
@@ -133,7 +133,7 @@ Access notes:
 - MASTER DAPT (high bleeding risk; 1 month after a sirolimus-eluting stent): stopping DAPT was noninferior for net adverse clinical events (7.5% vs 7.7%) and for MACCE (6.1% vs 5.9%). It reduced major or clinically relevant non-major bleeding (6.5% vs 9.4%). [[Valgimigli2021MASTER]]
 
 ### antithrombotic · De-escalation (switching potent P2Y12 to clopidogrel)
-- ESC 2023 defines de-escalation as "switching from prasugrel/ticagrelor to clopidogrel". It says "this strategy is not recommended in the first 30 days after the index ACS event." [[Byrne2023ESC]]
+- ESC 2023 defines de-escalation as "switching from prasugrel/ticagrelor to clopidogrel". It advises against doing this in the first 30 days after the ACS. [[Byrne2023ESC]]
 - TROPICAL-ACS (2610 people with biomarker-positive ACS after PCI) used guided de-escalation: 1 week of prasugrel, 1 week of clopidogrel, then platelet-function-test-guided therapy. It was noninferior to 12 months of prasugrel for net clinical benefit (7% vs 9%; HR 0.81). [[Sibbing2017TROPICAL]]
 - TOPIC (646 people with ACS, single centre, open-label): switching to aspirin plus clopidogrel at 1 month halved the composite endpoint (13.4% vs 26.3%; HR 0.48). BARC ≥2 bleeding fell (4.0% vs 14.9%; HR 0.30). [[Cuisset2017TOPIC]]
 - TALOS-AMI (2697 stabilised patients with acute MI in Korea): unguided switch from ticagrelor to clopidogrel at 1 month cut net clinical events (4.6% vs 8.2%; HR 0.55). The difference was mainly from less BARC 2, 3 or 5 bleeding (3.0% vs 5.6%). [[Kim2021TALOS]]
@@ -144,8 +144,8 @@ Access notes:
 - A 2026 review notes that HOST-EXAM and SMART-CHOICE 3 "suggest that P2Y12 monotherapy may be better than aspirin" for long-term prevention, which may influence future guidelines. (Early evidence) [[Restrepo2026]]
 
 ### antithrombotic · Bleeding risk: ARC-HBR and PRECISE-DAPT (teaching tools)
-- ARC-HBR is a 31-member consortium that included the US FDA and Japan's PMDA. It produced "the first pragmatic approach to a consistent definition of high bleeding risk" for PCI trials. [[Urban2019ARCHBR]]
-- ESC 2023: "The presence of one major or two minor ARC-HBR risk factors indicates high bleeding risk (HBR)." [[Byrne2023ESC]]
+- ARC-HBR is a 31-member consortium that included the US FDA and Japan's PMDA. It produced what it described as the first practical, consistent definition of high bleeding risk for PCI trials. [[Urban2019ARCHBR]]
+- ESC 2023 counts one major or two minor ARC-HBR risk factors as high bleeding risk (HBR). [[Byrne2023ESC]]
 - PRECISE-DAPT is a five-item score built from 14,963 DAPT patients in eight trials. The items are age, creatinine clearance, haemoglobin, white-cell count and previous spontaneous bleeding. [[Costa2017PRECISE]]
 - PRECISE-DAPT c-index for out-of-hospital TIMI major or minor bleeding: 0.73 in derivation, 0.70 in PLATO validation, 0.66 in the BernPCI registry. [[Costa2017PRECISE]]
 - PRECISE-DAPT: longer DAPT (12–24 months) significantly increased bleeding in people with a score ≥25. In lower-risk people it did not, and ischaemic benefit appeared only in that lower-risk group (p-interaction=0.007). [[Costa2017PRECISE]]
@@ -154,15 +154,15 @@ Access notes:
 ### antithrombotic · Stomach protection: proton pump inhibitors
 - COGENT (3761 people on aspirin plus clopidogrel analysed; stopped early when funding was lost): omeprazole reduced 180-day gastrointestinal events (1.1% vs 2.9%; HR 0.34) and overt upper GI bleeding (HR 0.13). [[Bhatt2010COGENT]]
 - COGENT: cardiovascular events were 4.9% with omeprazole vs 5.7% with placebo (HR 0.99; 95% CI 0.68–1.44). The authors say this does "not rule out a clinically meaningful difference". [[Bhatt2010COGENT]]
-- Plavix label, as published: "Avoid concomitant use of Plavix with omeprazole or esomeprazole because both significantly reduce the antiplatelet activity of Plavix." [[FDA-Plavix]]
+- Plavix label: do not combine it with omeprazole or esomeprazole, which markedly reduce its antiplatelet effect. [[FDA-Plavix]]
 - ESC 2023 Table 7 recommends PPIs for "patients on dual antiplatelet therapy at higher-than-average risk of gastrointestinal bleeds". [[Byrne2023ESC]]
 
 ### antithrombotic · Anticoagulants: heparin, enoxaparin, fondaparinux
-- ESC 2023 Table 6 (UFH during PCI): "70–100 U/kg i.v. bolus or according to ACT in case of UFH pre-treatment." [[Byrne2023ESC]]
+- ESC 2023 Table 6 (UFH during PCI): an i.v. bolus of 70–100 U/kg, or a dose guided by ACT if UFH was already given. [[Byrne2023ESC]]
 - ATOLL (910 people with STEMI having primary PCI) compared IV enoxaparin 0.5 mg/kg with UFH. The primary 30-day endpoint was 28% vs 34% (RR 0.83; p=0.06). The main secondary endpoint was reduced (7% vs 11%; RR 0.59). Major bleeding was 5% vs 5%. [[Montalescot2011ATOLL]]
 - ExTRACT-TIMI 25 (20,506 people with STEMI receiving fibrinolysis): enoxaparin through the hospital stay vs UFH for ≥48 h. Death or non-fatal reinfarction at 30 days was 9.9% vs 12.0% (17% RRR). Major bleeding was 2.1% vs 1.4%. [[Antman2006ExTRACT]]
 - SYNERGY (about 10,000 high-risk people with NSTE-ACS, early invasive): enoxaparin was noninferior to UFH for 30-day death or MI (14.0% vs 14.5%). TIMI major bleeding was higher (9.1% vs 7.6%). [[Ferguson2004SYNERGY]]
-- Lovenox label (STEMI), as published: "a single intravenous bolus of 30 mg plus a 1 mg/kg subcutaneous dose followed by 1 mg/kg administered subcutaneously every 12 hours (maximum 100 mg for the first two doses only…)". The dose is reduced at ≥75 years. If the last dose was "less than 8 hours before balloon inflation, no additional dosing is needed". [[FDA-Lovenox]]
+- Lovenox label (STEMI): one 30 mg i.v. bolus plus 1 mg/kg under the skin, then 1 mg/kg under the skin every 12 hours, with a 100 mg cap on the first two doses only. The dose is reduced at ≥75 years. No extra dose is needed if the last one was given less than 8 hours before balloon inflation. [[FDA-Lovenox]]
 - Lovenox carries a boxed warning for spinal or epidural haematomas with neuraxial anaesthesia or spinal puncture. [[FDA-Lovenox]]
 - OASIS-5 (20,078 people with ACS): fondaparinux 2.5 mg daily vs enoxaparin 1 mg/kg twice daily. The 9-day ischaemic outcome was 5.8% vs 5.7% (noninferior). Major bleeding was 2.2% vs 4.1% (HR 0.52). [[Yusuf2006OASIS5]]
 - OASIS-5: fondaparinux was associated with fewer deaths at 30 days (295 vs 352, P=0.02) and at 180 days (574 vs 638, P=0.05). [[Yusuf2006OASIS5]]
@@ -176,12 +176,12 @@ Access notes:
 - MATRIX (7213 people with ACS): bivalirudin vs UFH. MACE was 10.3% vs 10.9% (RR 0.94), and net adverse clinical events were 11.2% vs 12.4% (RR 0.89). Neither difference was significant. [[Valgimigli2015MATRIXE]]
 - VALIDATE-SWEDEHEART (6006 people with MI on a potent P2Y12 inhibitor, mostly radial PCI): death, MI or major bleeding at 180 days was 12.3% with bivalirudin vs 12.8% with heparin (HR 0.96). Major bleeding was 8.6% in both arms. [[Erlinge2017VALIDATE]]
 - BRIGHT-4 (6016 people with STEMI, 93.1% radial; China): bivalirudin plus a 2–4 h high-dose infusion after PCI vs UFH. 30-day death or BARC 3–5 bleeding was 3.06% vs 4.39% (HR 0.69). Death was 2.96% vs 3.92%. Stent thrombosis was 0.37% vs 1.10%. [[Li2022BRIGHT4]]
-- ESC 2023 Table 6 (bivalirudin in primary PCI): "0.75 mg/kg i.v. bolus followed by i.v. infusion of 1.75 mg/kg/h for 4 h after the procedure." [[Byrne2023ESC]]
+- ESC 2023 Table 6 (bivalirudin in primary PCI): 0.75 mg/kg i.v. bolus, then 1.75 mg/kg/h i.v. infusion continued for 4 h after the procedure. [[Byrne2023ESC]]
 - The 2025 ACC/AHA guideline gives bivalirudin with a high-dose post-PCI infusion a Class I recommendation for primary PCI in STEMI, based on BRIGHT-4 (as summarised by Restrepo and Rao). [[Restrepo2026]]
 
 ### antithrombotic · GP IIb/IIIa inhibitors: from routine to bail-out
 - In the Antithrombotic Trialists' meta-analysis, people at high risk of immediate coronary occlusion who got a short IV GP IIb/IIIa antagonist on top of aspirin had 20 (SE 4) fewer vascular events per 1000. They also had 23 more major (rarely fatal) extracranial bleeds per 1000. [[ATT2002]]
-- ESC 2023: GP IIb/IIIa inhibitor "use should be considered for bailout if there is evidence of no-reflow or a thrombotic complication during PCI." [[Byrne2023ESC]]
+- ESC 2023: a GP IIb/IIIa inhibitor should be considered as bail-out when PCI is complicated by no-reflow or new clot. [[Byrne2023ESC]]
 - AGGRASTAT (tirofiban) is indicated to reduce thrombotic CV events (death, MI, or refractory ischaemia/repeat cardiac procedure) in NSTE-ACS. [[FDA-Aggrastat]]
 
 ### antithrombotic · Patients who also need an anticoagulant (atrial fibrillation)
@@ -192,13 +192,13 @@ Access notes:
 - AUGUSTUS: major or clinically relevant non-major bleeding was 10.5% with apixaban vs 14.7% with VKA (HR 0.69). It was 16.1% with aspirin vs 9.0% with placebo (HR 1.89; 95% CI 1.59–2.24). [[Lopes2019AUGUSTUS]]
 - AUGUSTUS: death or hospitalisation was 23.5% with apixaban vs 27.4% with VKA (HR 0.83). Ischaemic events were similar for apixaban vs VKA and for aspirin vs placebo. [[Lopes2019AUGUSTUS]]
 - ENTRUST-AF PCI (1506 people): an edoxaban-based dual regimen was noninferior to VKA triple therapy for major or clinically relevant non-major bleeding (17% vs 20%; HR 0.83; 95% CI 0.65–1.05). It was not superior. [[Vranckx2019ENTRUST]]
-- ESC 2023: dual therapy with a NOAC and a single antiplatelet "is recommended as the default strategy for up to 12 months after up to 1 week of TAT [triple antithrombotic therapy]". "The use of prasugrel or ticagrelor as part of TAT is not recommended." [[Byrne2023ESC]]
-- ESC 2023 Figure 12 NOAC doses, as published: "Apixaban 5 mg b.i.d., Dabigatran 110 mg or 150 mg b.i.d., Edoxaban 60 mg o.d., Rivaroxaban 15 mg or 20 mg o.d." [[Byrne2023ESC]]
+- ESC 2023: after up to 1 week of triple antithrombotic therapy (TAT), the default for up to 12 months is a NOAC plus one antiplatelet drug; prasugrel and ticagrelor are not advised within triple therapy. [[Byrne2023ESC]]
+- ESC 2023 Figure 12 NOAC doses: apixaban 5 mg twice daily, dabigatran 110 mg or 150 mg twice daily, edoxaban 60 mg once daily, rivaroxaban 15 mg or 20 mg once daily. [[Byrne2023ESC]]
 
 ### antithrombotic · Stopping and surgery
-- Effient label: discontinuing prasugrel, "particularly in the first few weeks after acute coronary syndrome, increases the risk of subsequent cardiovascular (CV) events". The label says "When possible, discontinue Effient at least 7 days prior to any surgery." [[FDA-Effient]]
-- BRILINTA label: "When possible, interrupt therapy with BRILINTA for five days prior to surgery that has a major risk of bleeding. Resume BRILINTA as soon as hemostasis is achieved." [[FDA-Brilinta]]
-- Plavix label: "Discontinue 5 days prior to elective surgery that has a major risk of bleeding." [[FDA-Plavix]]
+- Effient label: stopping prasugrel early, especially in the first weeks after ACS, raises the risk of later cardiovascular events. Where possible, it should be stopped at least 7 days before any surgery. [[FDA-Effient]]
+- BRILINTA label: where possible, pause it for five days before surgery with a major bleeding risk, and restart it as soon as bleeding is controlled (haemostasis). [[FDA-Brilinta]]
+- Plavix label: stop it 5 days before planned surgery that carries a major bleeding risk. [[FDA-Plavix]]
 
 ### Exam hooks
 - ISIS-2: aspirin alone cut 5-week vascular death from 11.8% to 9.4% (23% odds reduction). Aspirin plus streptokinase cut it from 13.2% to 8.0% (42%). The effects were additive. [[ISIS2_1988]]

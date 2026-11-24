@@ -38,7 +38,7 @@ Unit note: 1 mg/dL serum urate ≈ 59.5 µmol/L. Guideline targets are written a
 - Benzbromarone: 100 mg/day lowered SU by 5.04 mg/dL (from 8.58 to 3.54 mg/dL), and 100% of underexcretors reached <6 mg/dL, compared with 53% on allopurinol 300 mg/day [[PerezRuiz1998]].
 - Benzbromarone safety: registered in about 20 countries, then withdrawn by Sanofi-Synthélabo in 2003 after reports of hepatotoxicity, though other companies still market it. The estimated hepatotoxicity risk in Europe is about 1 in 17,000 patients (possibly higher in Japan). It is metabolised by CYP2C9 and inhibits it, so it interacts with warfarin [[Lee2008]]. Drugs@FDA lists no benzbromarone application [[DrugsFDA-ULT]].
 - Head-to-head trials after allopurinol failure (normal kidney function, target ≤5 mg/dL [300 µmol/L]): benzbromarone 200 mg reached target in 92% (22/24) and probenecid 2 g/day in 65% (20/31). Mean SU fell 64% and 50% [[Reinders2009Prob]].
-- Lesinurad (a URAT1 inhibitor) was approved in the US on 22 Dec 2015 as 200 mg/day with a xanthine oxidase inhibitor, never alone. Its boxed warning reads "risk of acute renal failure, more common when used without a xanthine oxidase inhibitor" [[FDA-Zurampic,DrugsFDA-ULT]].
+- Lesinurad (a URAT1 inhibitor) was approved in the US on 22 Dec 2015 as 200 mg/day with a xanthine oxidase inhibitor, never alone. Its boxed warning is about acute kidney failure, which occurred more often when lesinurad was taken without a xanthine oxidase inhibitor [[FDA-Zurampic,DrugsFDA-ULT]].
 - CLEAR 1 (n = 603; allopurinol ≥300 mg): lesinurad 200 mg plus allopurinol brought 54.2% to SU <6 mg/dL at month 6 (400 mg: 59.2%) versus 27.9% on allopurinol alone. There was no significant benefit on flares or tophus resolution [[Saag2017]].
 - CLEAR 2 (n = 610): 55.4% (200 mg) and 66.5% (400 mg) versus 23.3% reached target. Renal adverse events occurred in 5.9%, 15.0% and 4.9%, and creatinine rose ≥1.5× baseline in 5.9%, 15.0% and 3.4% [[Bardin2017]].
 - Lesinurad's market status: withdrawn from the US market by the manufacturer while the ACR 2020 guideline was being written (Drugs@FDA lists it as "Discontinued"). The EU authorisation (granted 18 Feb 2016) was withdrawn for commercial reasons, with notification on 31 Jul 2020 [[FitzGerald2020,DrugsFDA-ULT,EMA-Zurampic]].
@@ -63,7 +63,7 @@ Unit note: 1 mg/dL serum urate ≈ 59.5 µmol/L. Guideline targets are written a
 - ACR 2020 strongly recommends treat-to-target dosing guided by serial SU over fixed dosing, and strongly recommends a target of <6 mg/dL (high certainty) for everyone on ULT [[FitzGerald2020]].
 - EULAR 2016 sets <6 mg/dL (360 µmol/L), or <5 mg/dL (300 µmol/L) in severe gout [[Richette2017]]. EULAR also advises against SU <3 mg/dL (180 µmol/L) over the long term; this detail is not confirmed against the full text, only in secondary sources [[Richette2017]] (unverified).
 - The 2016 international T2T task force issued 4 overarching principles and 9 recommendations. It found no randomised strategy trial, so these are level-D expert recommendations focused on crystal dissolution, flare prevention, education, adherence and SU monitoring [[Kiltz2017]].
-- Allopurinol starting dose: ACR 2020 strongly recommends ≤100 mg/day, lower in CKD stage ≥3, and says "even lower initial allopurinol doses (e.g., ≤50 mg/day) should be considered in patients with CKD". For febuxostat it recommends ≤40 mg/day [[FitzGerald2020]].
+- Allopurinol starting dose: ACR 2020 strongly recommends ≤100 mg/day, lower in CKD stage ≥3, and adds that clinicians should consider a still lower first dose (for example ≤50 mg/day) in CKD. For febuxostat it recommends ≤40 mg/day [[FitzGerald2020]].
 - Titration interval: ACR 2020 says titration should take "weeks to months, not years", cites the 2012 ACR advice of every 2–5 weeks, and asks for an SU check after each dose step [[FitzGerald2020]].
   - The US label raises the dose by 100 mg each week to SU ≤6 mg/dL, with a maximum of 800 mg/day [[FDA-Zyloprim]].
   - The UK SmPC starts at 100 mg/day, gives 300–600 mg/day for moderately severe and 700–900 mg/day for severe disease, so the maximum is 900 mg [[SmPC-Allopurinol-UK]].
@@ -96,7 +96,7 @@ Unit note: 1 mg/dL serum urate ≈ 59.5 µmol/L. Guideline targets are written a
 - In Doherty's baseline cohort only 39% were on ULT, at a mean dose of 227 mg/day, and about 20% were at target [[Doherty2018]].
 
 ### t2t · Why flares rise early, and prophylaxis
-- Mechanism: the US label attributes early flares to "mobilization of urates from tissue deposits which cause fluctuations in the serum uric acid levels" and says flares become shorter and milder after several months [[FDA-Zyloprim]]. Flares are expected in the first months and do not mean the drug is failing; febuxostat need not be stopped during a flare [[FDA-Uloric]].
+- Mechanism: the US label explains early flares as urate being released from tissue deposits, which makes serum uric acid swing up and down, and says flares become shorter and milder after several months [[FDA-Zyloprim]]. Flares are expected in the first months and do not mean the drug is failing; febuxostat need not be stopped during a flare [[FDA-Uloric]].
 - In Doherty 2018, the proportion with ≥2 flares per year was higher with nurse-led T2T at 1 year (54% vs 40%, RR 1.36) and much lower at 2 years (8% vs 24%, RR 0.33). Four or more flares went 28% → 1% vs 21% → 12% [[Doherty2018]].
 - Borstad 2004 RCT (n = 43; colchicine 0.6 mg twice daily vs placebo when starting allopurinol):
   - total flares 0.52 vs 2.91
@@ -114,7 +114,7 @@ Unit note: 1 mg/dL serum urate ≈ 59.5 µmol/L. Guideline targets are written a
   - 18.9% on fixed 40 mg plus colchicine 0.5 mg/day
   - 36.0% on fixed 40 mg alone
   - The comparisons were P = 0.047 and 0.024, not significant after multiplicity correction [[Yamanaka2018]].
-- ACR 2020: "a lower starting dose of any ULT reduces the risk of flare associated with initiation" [[FitzGerald2020]].
+- ACR 2020: starting any ULT at a low dose lowers the chance of a flare when treatment begins [[FitzGerald2020]].
 
 ### t2t · How long to continue
 - ACR 2020 conditionally recommends continuing ULT indefinitely (very low certainty). In the cited case series of withdrawal after years of control, only 13% (27/211) of those whose SU stayed <7 mg/dL off ULT were flare-free over 5 years [[FitzGerald2020]].
@@ -383,7 +383,7 @@ Unit note: 1 mg/dL serum urate ≈ 59.5 µmol/L. Guideline targets are written a
 - Corrections to the brief and dossier hand-offs:
   1. The Stamp 2017 dose-escalation RCT is in Ann Rheum Dis 2017;76(9):1522-1528 (PMID 28314755), not Arthritis Rheumatol. Its extension is Ann Rheum Dis 2017;76(12):2065-2070. At 12 months, 69% vs 32% reached target.
   2. The dossier's "Stamp2012 dose escalation above creatinine-clearance dose" mixes two papers. Escalation above the CrCl dose is Stamp2011 (and Stamp2017RCT/OLE); Stamp2012 is the starting-dose risk factor (1.5 mg per mL/min eGFR).
-  3. On the ACR CKD starting dose, the dossier says "≤50 mg/day in CKD stage ≥4". ACR 2020 actually says "≤100 mg/day and lower in patients with CKD [stage ≥3]" and "even lower initial doses (e.g., ≤50 mg/day) should be considered in patients with CKD". No stage-4 threshold is stated.
+  3. On the ACR CKD starting dose, the dossier says "≤50 mg/day in CKD stage ≥4". ACR 2020 actually gives ≤100 mg/day, lower in CKD stage ≥3, and says clinicians should consider a still lower first dose (for example ≤50 mg/day) in CKD. No stage-4 threshold is stated.
   4. The ACR titration interval "every 2–5 weeks" is ACR 2020 quoting the 2012 ACR guideline. The US label itself titrates weekly by 100 mg.
   5. The brief's "didanosine with febuxostat" is not supported. The interaction is with allopurinol (UK SmPC: Cmax and AUC roughly doubled; US didanosine label: contraindicated). Neither febuxostat label lists didanosine.
   6. Lesinurad: US approval 22 Dec 2015 is confirmed. The exact US market-withdrawal date (2019) was not confirmed in a primary source; ACR 2020 states it was withdrawn by the manufacturer during guideline development. The EU withdrawal was notified 31 Jul 2020.

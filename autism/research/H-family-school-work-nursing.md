@@ -51,7 +51,7 @@ Access notes:
 - US special-education data for 2019: 71% of autistic students exiting high school graduated with a diploma, compared with 48% of students with intellectual disability and 72.5% of students with other disabilities; autistic students had lower dropout rates (6–8% vs 15–18% for other disabilities) [[McLean2026]].
 - A meta-analysis of 13 TEACCH (structured teaching) studies with 172 people found small effects on perceptual, motor, verbal and cognitive skills and moderate-to-large gains in social and maladaptive behaviour; the authors called the results exploratory [[ViruesOrtega2013]].
 - The third-generation US evidence review synthesised 972 articles and identified 28 focused intervention practices that met its criteria for evidence-based practice [[Hume2021]].
-- In a US population-based cohort of 1,787 autistic adolescents (ADDM Network, born 2004), school-based IEP services varied widely across sites, students with intellectual disability were less likely to receive school-based mental health services, and 37% did not take part in standardised testing [[Hughes2024IEP]].
+- In a US population-based cohort of 1,787 autistic adolescents (ADDM Network, born 2004), school IEP services differed a great deal between sites, school mental health services reached fewer students with intellectual disability, and 37% did not take part in standardised testing [[Hughes2024IEP]].
 - In the same cohort, ADHD (47%) and anxiety (39%) were the most common co-occurring conditions recorded by age 16 [[Hughes2024IEP]].
 
 ### school · Visual schedules, Social Stories and transitions
@@ -72,7 +72,7 @@ Access notes:
 - A multi-informant English study (12 autistic pupils with avoidance or exclusion, plus parents, teachers and local authority professionals) described parents "fighting" a complex system for support, and found pupils could attend and enjoy school when they received appropriate support [[Gray2023School]].
 
 ### school · Legal frameworks (general principles, not legal advice)
-- US: the Individuals with Disabilities Education Act (IDEA) provides special education services to eligible students with disabilities, including autistic students, up to age 21; the mean exit age for autistic students was about 18 years (graduation age 17.9), so many leave before eligibility ends [[McLean2026]].
+- US: under the Individuals with Disabilities Education Act (IDEA), eligible disabled students, autistic students among them, can receive special education until age 21; the mean exit age for autistic students was about 18 years (graduation age 17.9), so many leave before eligibility ends [[McLean2026]].
 - US: Section 504 of the Rehabilitation Act gives accommodations to students who may not qualify for an IEP; over 1.38 million students are served by Section 504 plans, and most of 23 families of autistic children interviewed reported negative experiences, often schools unwilling to provide accommodations [[Lindsay2026]].
 - England: Education, Health and Care Plans (EHCPs) are the legal framework for accessing additional support for school-age children; six mothers of autistic children in mainstream school described the process as intimidating and overwhelmingly difficult [[Keville2025]].
 - NICE CG128 recommends that, with consent, the diagnostic profile is shared with education professionals (for example through a school visit) so it can inform the child's individual education plan [[NICE-CG128]].
@@ -82,7 +82,7 @@ Access notes:
 - The odds of receiving no services were higher for African American young adults and those from low-income families [[Shattuck2011Services]].
 - A 14-year longitudinal study of 204 autistic people (59% with intellectual disability) found services declined during high school, dropped at school exit (sharply for those with intellectual disability) and unmet needs rose right after exit: the "services cliff" begins before school ends [[Laxman2019]].
 - NICE CG170 recommends reassessing autistic young people in child services at around age 14, completing transition usually by age 18, and telling them about their right to a social care assessment at 18 [[NICE-CG170]].
-- Among 66 US young adults who had recently left school, 56% spent time in sheltered workshops or day activity centres, and those without intellectual disability were three times more likely to have no daytime activities than those with intellectual disability [[Taylor2011Employment]].
+- Among 66 US young adults who had recently left school, 56% spent time in sheltered workshops or day activity centres, and young adults without intellectual disability were three times as likely as those with it to have no daytime activities at all [[Taylor2011Employment]].
 
 ### adult · Employment
 - In NLTS2, 55.1% of autistic young adults had held paid employment and 34.7% had attended college during the first 6 years after high school; more than 50% of those who had left school in the past 2 years had no employment or education [[Shattuck2012]].
@@ -90,7 +90,7 @@ Access notes:
 - At ages 21–25, 53.4% of autistic young adults had ever worked for pay since high school (lowest of the disability groups), earning on average $8.10 per hour [[Roux2013]].
 - UK (ONS, Annual Population Survey, 6 months to June 2020): 21.7% of disabled people whose main impairment was autism were employed, the lowest of any impairment group, against 52.1% of all disabled people and 81.3% of non-disabled people (July–September 2020) [[ONS2021Outcomes]].
 - UK (ONS, year ending June 2021): employment for disabled people whose main impairment was autism was 29.0%, against 53.5% for all disabled people and 81.6% for non-disabled people (July–September 2021); autism was first added as an answer option in January 2020, so these are early, self-reported estimates [[ONS2022Outcomes]].
-- In an online survey of 254 US autistic adults, 61.4% were employed; those who had disclosed their diagnosis to their employer were more than three times as likely to be employed (cross-sectional association, not cause) [[Ohl2017]].
+- In an online survey of 254 US autistic adults, 61.4% were employed; people who had told their employer about their diagnosis were over three times as likely to be in work (cross-sectional association, not cause) [[Ohl2017]].
 - A systematic review of 50 empirical employment studies (58,134 autistic adults) found most were limited by small samples, poor participant description and lack of randomisation or controls [[Hedley2017]].
 - Project SEARCH plus ASD Supports RCT (49 students aged 18–21): at 3 months after graduation, 90% of the intervention group had competitive part-time jobs (US $9.53–10.66 per hour) vs 6% of controls; 87% kept their jobs at 12 months, while 12% of controls had found jobs by 12 months (Early evidence: small trial) [[Wehman2017]].
 - A systematic review found no strong evidence for or against a workplace "autism advantage" (e.g., attention to detail) and warned against stereotypes that may not fit individuals [[Bury2020]].

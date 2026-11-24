@@ -55,7 +55,7 @@ const PT_SUP={
   txt:`Teaches children to manage materials, track assignments and plan time; classed "well-established". In 158 children in grades 3–5, it beat the wait list on parent-rated (d 2.77) and teacher-rated (d 1.18) organisation, and 60% versus 3% no longer met criteria for organisational impairment. Brief school-delivered versions (sessions averaging under 20 minutes) also gave large gains in 280 middle-school pupils. [[Evans2014,Abikoff2013,Langberg2018]]`,
   num:'60% vs 3%',nl:'no longer organisationally impaired'},
  acc:{n:'Extended time',ev:'hyp',fd:0,ds:0,fc:0,
-  txt:`Accommodations are "by far the most common response to ADHD in educational settings", and extended time on tests is especially common, but most showed no ADHD-specific benefit; read-aloud for younger pupils was the exception. College students with more symptoms benefited less from extra time. Reviewers advise giving accommodations alongside evidence-based interventions, not straight after diagnosis. [[Lovett2021,Lovett2015]]`,
+  txt:`Accommodations are by far the most common way schools respond to ADHD, and extended time on tests is especially common, but most showed no ADHD-specific benefit; read-aloud for younger pupils was the exception. College students with more symptoms benefited less from extra time. Reviewers advise giving accommodations alongside evidence-based interventions, not straight after diagnosis. [[Lovett2021,Lovett2015]]`,
   num:'1',nl:'accommodation with specific benefit (read-aloud)'}
 };
 const PT_EVL={est:'<span class="ev est">Established</span>',early:'<span class="ev early">Early evidence</span>',hyp:'<span class="tag warn">Little ADHD-specific evidence</span>'};

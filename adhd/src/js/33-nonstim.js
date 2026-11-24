@@ -10,7 +10,7 @@ inits.nonstim=()=>{
   const STEPS={
     atx:[NET0,
      {from:.2,at:.32,k:'Step 2 · atomoxetine arrives',t:'A selective NET blocker',
-      txt:`The Strattera label says the mechanism "is thought to be related to selective inhibition of the pre-synaptic norepinephrine transporter". Atomoxetine binds human NET far more tightly than the serotonin or dopamine transporters (Ki 5, 77 and 1,451 nM). In monkey PET, clinically relevant doses were estimated to occupy more than 90% of NET and more than 85% of the serotonin transporter. [[FDA-Strattera,Bymaster2002,Ding2014Atomoxetine]]`,
+      txt:`The Strattera label says the mechanism is thought to come from selectively blocking the norepinephrine transporter on the presynaptic neuron. Atomoxetine binds human NET far more tightly than the serotonin or dopamine transporters (Ki 5, 77 and 1,451 nM). In monkey PET, clinically relevant doses were estimated to occupy more than 90% of NET and more than 85% of the serotonin transporter. [[FDA-Strattera,Bymaster2002,Ding2014Atomoxetine]]`,
       pt:`The medicine sits in the recycling pump, so the messenger stays outside the cell for longer.`,
       hook:`Atomoxetine = selective noradrenaline reuptake inhibitor; not a stimulant and not a controlled substance. [[FDA-Strattera]]`},
      {from:.4,at:.5,k:'Step 3 · the cleft fills',t:'Noradrenaline and dopamine rise in the prefrontal cortex only',

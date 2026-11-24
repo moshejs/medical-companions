@@ -28,7 +28,7 @@ Access notes:
 
 ### brain · Infant-sibling MRI: changes before diagnosis
 - In 106 high-familial-likelihood infants and 42 low-likelihood infants, cortical surface-area hyperexpansion at 6–12 months came before brain-volume overgrowth at 12–24 months in the 15 infants diagnosed with autism at 24 months (Early evidence) [[Hazlett2017]].
-- In the same study, brain-volume overgrowth was linked to the emergence and severity of autistic social differences (Early evidence) [[Hazlett2017]].
+- In the same study, faster growth in brain volume went with the appearance, and the severity, of autistic social differences (Early evidence) [[Hazlett2017]].
 - A deep-learning model using mainly 6–12-month surface-area data predicted a 24-month autism diagnosis in high-likelihood infants. Its positive predictive value was 81% and its sensitivity 88% (Early evidence; research cohort only, not a clinical test) [[Hazlett2017]].
 - In 343 infants (221 high-likelihood), the 47 diagnosed at 24 months had 18% more extra-axial cerebrospinal fluid at 6 months than high-likelihood infants without autism (d = 0.54). Extra-axial fluid is fluid in the space around the brain. It stayed elevated through 24 months (d = 0.46) (Early evidence) [[Shen2017]].
 - Extra-axial CSF at 6 months predicted a 24-month diagnosis with 69% accuracy (66% sensitivity, 68% specificity), cross-validated in a separate sample (Early evidence) [[Shen2017]].
@@ -149,7 +149,7 @@ Access notes:
 - The brain-change timeline (surface area 6–12 months, volume 12–24 months, extra-axial CSF from 6 months) overlaps the period when behavioural signs first appear (Early evidence) [[Hazlett2017,Shen2017]].
 
 ### senses · What DSM-5-TR says (criterion B4)
-- Paraphrase of criterion B4: being much more or much less reactive to sensory input, or unusually interested in sensory aspects of the surroundings. Examples include seeming indifferent to pain or temperature, strong reactions to certain sounds or textures, lots of smelling or touching of objects, and visual fascination with lights or movement (Established) [[APA2022]].
+- Criterion B4 in our words: responding much more strongly or much more weakly than usual to what the senses take in, or being unusually drawn to sensory experiences. The manual's examples range from not seeming to notice pain or heat and cold, to being upset by particular noises or fabrics, to sniffing or handling objects a lot, or being absorbed by lights or moving things (Established) [[APA2022]].
 - DSM-5 placed sensory differences (hyper- and hypo-responsiveness and sensation seeking) in the restricted and repetitive behaviours domain to reflect how common they are (Established) [[Lord2020NRDP]].
 - Atypical sensory behaviour (by Short Sensory Profile and ADI-R) was reported in 92% of 116 autistic children aged 10–14 and in 67% of 72 non-autistic children with special educational needs. So sensory differences are common but not unique to autism (Established) [[Green2016DSM5]].
 
@@ -436,4 +436,4 @@ Series notes: `brain_volume_index` is derived from Knickmeyer's percentages, wit
 - Keys and line text reused from passes B, E, F and G: Lord2018, Jones2023, Satterstrom2020, Jiang2016Infection, Atladottir2010, Hornig2018, Kang2019, Kenny2016 and Gringras2014. APA2022 reuses the text of the borderline-personality-disorder companion's sources.json.
 - Dropped after checking: reviews with no citable numbers in the abstract (Bethlehem 2022 brain charts, Gilmore 2018, Tau 2010, Silbereis 2016, Bystron 2008). Dunn's model is taken from Dunn 2001 only, because the 1997 model paper is not in PubMed. Ben-Sasson 2009 and 2019 effect-size values were paywalled, so only directions and moderators are given.
 - Key suffixes: the brief's "Pellicano & Burr 2012" is cited as Pellicano2012 (distinct from pass E's Pellicano2014). Courchesne2003HC and Courchesne2011PFC, Williams2021Hyperacusis, Williams2021DST, Williams2023Interoception, Green2015SOR, Green2016DSM5, Pfeiffer2019EDA and Pfeiffer2019Participation carry suffixes so they cannot collide with other passes' keys.
-- DSM-5-TR criterion B4 is paraphrased, not quoted. The milestone ages are the CDC/AAP checklist ages from Zubler2022's tables. Each milestone sits at the age by which at least 75% of children show it.
+- DSM-5-TR criterion B4 is summarised in our own words, not quoted. The milestone ages are the CDC/AAP checklist ages from Zubler2022's tables. Each milestone sits at the age by which at least 75% of children show it.

@@ -21,7 +21,7 @@ Access notes:
 - Populations who keep lifelong low levels of apoB lipoproteins have about a 90% lower risk of coronary artery disease [[Tabas2007]].
 - AHA lesion classification, type I: the earliest lesion has more intimal macrophages and scattered lipid-filled macrophages (foam cells) [[Stary1994]].
 - Type II lesions include the fatty streak, the first lesion visible to the naked eye. They consist of layers of macrophage foam cells and lipid droplets inside intimal smooth muscle cells [[Stary1994]].
-- Types I and II are generally the only lesion types found in children [[Stary1994]].
+- In children, lesions are usually limited to types I and II [[Stary1994]].
 - Type III (intermediate) lesions add pools of extracellular lipid. They appear in progression-prone "adaptive intimal thickenings" in young adults [[Stary1994]].
 - Adaptive intimal thickenings are present at constant locations in everyone from birth. They do not narrow the lumen, and they are where lesions progress most [[Stary1995]].
 - Type IV lesions (atheroma) have a confluent core of extracellular lipid and can cause symptoms. From around the fourth decade of life, lesions may add thick fibrous layers (type V, fibroatheroma) and/or fissure, haematoma and thrombus (type VI, "complicated" lesion) [[Stary1995]].

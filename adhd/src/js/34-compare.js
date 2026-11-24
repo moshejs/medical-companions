@@ -29,7 +29,7 @@ inits.compare=()=>{
      txt:`On clinician ratings, amphetamines reached SMD −1.02 (95% CI −1.19 to −0.85) in children and adolescents and −0.79 (−0.99 to −0.58) in adults. Head to head, amphetamines also beat methylphenidate, atomoxetine and modafinil on clinician ratings (children SMDs −0.46 to −0.24; adults −0.94 to −0.29). [[Cortese2018]]`,
      pt:`On average, amphetamine medicines lowered clinician-rated symptoms the most.`},
     {from:.38,at:.5,k:'Step 3 · methylphenidate',t:'Large in children, moderate in adults',
-     txt:`Methylphenidate reached SMD −0.78 (−0.93 to −0.62) in children on clinician ratings and −0.49 (−0.64 to −0.35) in adults. On teacher ratings in children it was −0.82 (−1.16 to −0.48), one of only two medicines with teacher-rated data that beat placebo. The authors concluded the evidence "supports methylphenidate in children and adolescents, and amphetamines in adults, as preferred first-choice medications". [[Cortese2018]]`,
+     txt:`Methylphenidate reached SMD −0.78 (−0.93 to −0.62) in children on clinician ratings and −0.49 (−0.64 to −0.35) in adults. On teacher ratings in children it was −0.82 (−1.16 to −0.48), one of only two medicines with teacher-rated data that beat placebo. The authors concluded that, for short-term treatment, the evidence favours methylphenidate as the first choice in children and adolescents, and amphetamines in adults. [[Cortese2018]]`,
      pt:`Methylphenidate is the usual first choice for children; amphetamines for adults.`,
      hook:`Cortese 2018: first choice methylphenidate in children and adolescents, amphetamines in adults (short-term). [[Cortese2018]]`},
     {from:.58,at:.7,k:'Step 4 · the others',t:'Atomoxetine, bupropion, modafinil',

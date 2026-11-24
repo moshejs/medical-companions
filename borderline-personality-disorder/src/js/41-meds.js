@@ -8,11 +8,11 @@ const ME_PILLS=[
  {m:16,lab:'Mood stabiliser added',col:'var(--accent)',keep:false}];
 const ME_STEPS=[
  {from:0,at:.1,k:'Month 2 · first crisis',t:'One crisis, one prescription',
-  txt:`A crisis brings the person to a doctor, and a sedative is started. NICE CG78 allows short-term sedative medication "cautiously" in a crisis: a single drug with a low side-effect profile, low addictive properties and "relative safety in overdose", agreed in advance, and usually stopped within 1 week. [[NICE2009]]`,
+  txt:`A crisis brings the person to a doctor, and a sedative is started. NICE CG78 allows short-term sedative medication "cautiously" in a crisis: one medicine with few side effects, little risk of addiction and "relative safety in overdose", agreed in advance, and usually stopped within 1 week. [[NICE2009]]`,
   pt:`A short-term medicine in a crisis can be reasonable. The plan should say when it stops.`,
   hook:`NICE CG78: crisis sedatives only short-term, usually stopped within 1 week. [[NICE2009]]`},
  {from:.2,at:.27,k:'Month 6 · another crisis',t:'Another crisis, another drug',
-  txt:`The first medicine was never stopped, and a new crisis adds an antipsychotic. APA 2024 warns that "Frequent dose escalation or medication changes in response to crises or transient mood states are also problematic and rarely effective", and that medicines "would not be expected to affect core features of BPD". [[APA2024Guideline]]`,
+  txt:`The first medicine was never stopped, and a new crisis adds an antipsychotic. APA 2024 warns that raising doses or changing medicines often in response to crises or passing moods causes problems and rarely works, and that medicines "would not be expected to affect core features of BPD". [[APA2024Guideline]]`,
   pt:`Adding a new medicine after every crisis rarely helps, because medicines do not treat the core of BPD.`},
  {from:.4,at:.5,k:'Month 11 · the pile-up',t:'Most people end up on several',
   txt:`This is common. In 2195 European inpatients with BPD, 90% received at least one psychotropic drug, 80% two or more and 54% three or more (mean 2.8); quetiapine was the most used single drug (22%). In a UK audit, 92% of people with emotionally unstable personality disorder were prescribed psychotropics. A review puts it at "up to 96%". [[Bridler2015,Paton2015,Gartlehner2021]]`,
@@ -26,7 +26,7 @@ const ME_STEPS=[
   pt:`It is reasonable to ask what each medicine is for and when it will be reviewed. Changes should be planned with your doctor, not made suddenly on your own.`,
   hook:`APA 2024 (1C): review and reconcile medicines at least every 6 months. NICE: aim to reduce and stop unnecessary drugs. [[APA2024Guideline,NICE2009]]`},
  {from:.9,at:1,k:'Month 24 · what stays',t:'A clear target, or nothing',
-  txt:`What remains should have a clear reason. NICE allows drug treatment for "comorbid conditions"; APA suggests (2C) any medicine be "time-limited, aimed at addressing a specific measurable target symptom, and adjunctive to psychotherapy". In this sketch, an antidepressant stays because a co-occurring depression was diagnosed; the main treatment is psychotherapy. [[NICE2009,APA2024Guideline,Bohus2021]]`,
+  txt:`What remains should have a clear reason. NICE allows drug treatment for "comorbid conditions"; APA suggests (2C) that any medicine be given for a limited time, aimed at one specific symptom that can be measured, and used alongside psychotherapy. In this sketch, an antidepressant stays because a co-occurring depression was diagnosed; the main treatment is psychotherapy. [[NICE2009,APA2024Guideline,Bohus2021]]`,
   pt:`A medicine can still be right for a separate condition such as depression. Therapy remains the main treatment for BPD.`,
   hook:`APA 2024 (2C): time-limited, a measurable target symptom, adjunctive to psychotherapy. [[APA2024Guideline]]`}
 ];
@@ -59,7 +59,7 @@ const ME_CL={
  bz:{n:'Benzodiazepines',sh:'Benzos',col:'var(--bad)',ring:1,rows:[],
   trials:[`<b>No trial benefit</b> on core BPD outcomes in the research summarised here. Swedish within-person cohort (22,601 people): attempted or completed suicide HR 1.61 (1.45–1.78) on vs off benzodiazepines, the highest of the classes studied. <span class="ev early">Early evidence: observational</span> [[Lieslehto2023Suicide]]`,
    `<b>Rehospitalisation</b>: HR 1.38 on benzodiazepines in a sister analysis of 17,532 people. [[Lieslehto2023Outcomes]]`],
-  harm:`APA: "not generally recommended because of potential for greater impulsivity or disinhibition as well as potential for misuse or development of dependence". [[APA2024Guideline]]`,
+  harm:`APA: generally not recommended, because they can increase impulsivity or disinhibition and carry a risk of misuse and dependence. [[APA2024Guideline]]`,
   co:`Anxiety disorders are common with BPD (lifetime 84.8% in NESARC); the APA caution about benzodiazepines in BPD still applies. [[Tomko2014,APA2024Guideline]]`},
  o3:{n:'Omega-3 and others',sh:'Omega-3',col:'var(--med)',rows:[],
   trials:[`<b>Omega-3</b> (ethyl-EPA 1 g/day, 30 women, 8 weeks): better than placebo for aggression and depressive symptoms in this pilot. <span class="ev early">Early evidence</span> [[Zanarini2003Omega3]]`,
@@ -171,9 +171,9 @@ inits.meds=()=>{
   function openCard(quiet){
     const C=ME_CL[cl];if(stopC)stopC();
     const head=`<div class="sub">${lens==='core'?'Core BPD outcomes':'Co-occurring conditions'}</div><h4>${C.n}</h4>`;
-    if(lens==='co'){card.innerHTML=head+`<p>${C.co}</p><p>NICE: drug treatment "may be considered in the overall treatment of comorbid conditions". A 2025 re-analysis of the Cochrane data found that its findings "do not support the use of pharmacological interventions in people with BPD to target co-occurring psychopathology" within BPD. Treating a diagnosed co-occurring condition in its own right, on that condition's evidence, is a separate question. [[NICE2009,PereiraRibeiro2025]]</p><p class="stage-cap">Lifetime co-occurring disorders in BPD (NESARC): anxiety 84.8%, mood 82.7%, substance use 78.2%; about 30% have PTSD. [[Tomko2014,Pagura2010PTSD]]</p>`;return}
+    if(lens==='co'){card.innerHTML=head+`<p>${C.co}</p><p>NICE: drug treatment "may be considered in the overall treatment of comorbid conditions". A 2025 re-analysis of the Cochrane data concluded that the findings do not support using medicines in people with BPD to target co-occurring psychopathology within BPD. Treating a diagnosed co-occurring condition in its own right, on that condition's evidence, is a separate question. [[NICE2009,PereiraRibeiro2025]]</p><p class="stage-cap">Lifetime co-occurring disorders in BPD (NESARC): anxiety 84.8%, mood 82.7%, substance use 78.2%; about 30% have PTSD. [[Tomko2014,Pagura2010PTSD]]</p>`;return}
     const hasF=C.rows.length;
-    const draw1=k=>{card.innerHTML=head+(hasF?`<p class="sub">Cochrane 2022 vs placebo</p>${forest(C,k)}`:`<p class="sub">No pooled Cochrane estimate</p>`)+`<p class="sub">Key trials</p><ul>${C.trials.map(x=>`<li>${x}</li>`).join('')}</ul><p class="sub">Harms</p><p>${C.harm}</p>`+(hasF?`<p class="stage-cap">Cochrane 2022: 46 trials, 2769 participants; "no difference in effects were observed on any of the primary outcomes at the end of treatment for any medication". [[StoffersWinterling2022]]</p>`:'')};
+    const draw1=k=>{card.innerHTML=head+(hasF?`<p class="sub">Cochrane 2022 vs placebo</p>${forest(C,k)}`:`<p class="sub">No pooled Cochrane estimate</p>`)+`<p class="sub">Key trials</p><ul>${C.trials.map(x=>`<li>${x}</li>`).join('')}</ul><p class="sub">Harms</p><p>${C.harm}</p>`+(hasF?`<p class="stage-cap">Cochrane 2022: 46 trials, 2769 participants; no medicine differed from placebo on any primary outcome at the end of treatment. [[StoffersWinterling2022]]</p>`:'')};
     if(hasF&&!quiet){stopC=animate(700,p=>draw1(ease(p)))}else draw1(1)}
   function pick(k,quiet){cl=k;$$('[data-cl]',sec).forEach(b=>{if(b.tagName==='BUTTON')b.setAttribute('aria-pressed',b.dataset.cl===k)});drawBoard();openCard(quiet)}
   $$('button[data-cl]',sec).forEach(b=>b.addEventListener('click',()=>pick(b.dataset.cl)));

@@ -4,9 +4,9 @@ This file covers how MS is diagnosed: the 2017 McDonald criteria, the 2024 McDon
 ## Facts
 
 ### McDonald 2017: definitions
-- An attack (relapse, exacerbation) is defined as patient-reported symptoms with corroborating objective findings on examination or paraclinical testing that reflect an inflammatory demyelinating CNS event typical of MS. It develops acutely or subacutely, lasts at least 24 h, may or may not recover, and occurs in the absence of fever or infection. This wording comes from the 2024-era glossary; I could not read the 2017 full text to compare word for word [Solomon2026].
+- An attack (also called a relapse or exacerbation) means symptoms the person reports, backed by findings on examination or on tests, that fit an inflammatory demyelinating CNS event of the kind seen in MS. It comes on over hours to days, lasts 24 h or more, may or may not recover, and happens without fever or infection. This summary follows the 2024-era glossary; the 2017 full text was not read for comparison [Solomon2026].
 - A clinically isolated syndrome (CIS) is a first demyelinating event suggestive of MS that meets the attack definition [Solomon2026].
-- "No better explanation" means the presentation is typical of MS and there are no clinical or paraclinical findings suggesting another diagnosis, or the relevant workup for those diagnoses is negative [Solomon2026].
+- "No better explanation" means the picture fits MS and nothing on examination or testing points to another diagnosis, or tests for those other diagnoses have come back negative [Solomon2026].
 - The 2017 criteria apply primarily to people with a typical CIS. They define what is needed to fulfil dissemination in time (DIT) and dissemination in space (DIS), and they stress the need for "no better explanation" [Thompson2018].
 - 2017 DIS by MRI: ≥1 T2-hyperintense lesion in ≥2 of 4 areas (periventricular, cortical/juxtacortical, infratentorial, spinal cord) [Thompson2018; Filippi2023].
 - 2017 change: symptomatic lesions can count towards DIS or DIT in people with a supratentorial, infratentorial or spinal cord syndrome. By implication, symptomatic optic nerve lesions in optic neuritis do not count [Thompson2018].
@@ -56,7 +56,7 @@ This file covers how MS is diagnosed: the 2017 McDonald criteria, the 2024 McDon
 - OCT and VEP performance in children is less clear, and PRLs are less studied in paediatric MS [Samara2025].
 
 ### McDonald 2024: dissemination in time and "positive CSF"
-- 2024 DIT (Figure 3 footnote): "one or more new T2 lesions or one or more gadolinium-positive lesions or a clinical attack" [Montalban2025; IACCTMS2025Slides]. The companion glossary instead defines MRI DIT as new T2 lesions over time, or Gd-enhancing and non-enhancing lesions present together on one MRI [Solomon2026].
+- 2024 DIT (Figure 3 footnote): any one of a new T2 lesion, a gadolinium-enhancing lesion or a clinical attack [Montalban2025; IACCTMS2025Slides]. The companion glossary instead defines MRI DIT as new T2 lesions over time, or Gd-enhancing and non-enhancing lesions present together on one MRI [Solomon2026].
 - DIS plus DIT is sufficient for diagnosis, as in 2017. DIS plus positive CSF (OCB and/or kFLC) is also sufficient [IACCTMS2025Slides].
 - DIT is no longer mandatory in specific situations [IACCTMS2025Slides; Samara2025].
 - Positive CSF means either ≥2 CSF-restricted oligoclonal IgG bands (type 2 or 3 pattern on isoelectric focusing with IgG immunoblot), or a κ-FLC index ≥6.1 [Deisenhammer2025; Solomon2026].

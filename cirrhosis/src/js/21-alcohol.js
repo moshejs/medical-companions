@@ -17,7 +17,7 @@ inits.alcohol=()=>{
      pt:`The liver cells become irritated and swollen. Scar can start to form if drinking continues.`,
      hook:`Teli 1995: 9 of 88 people with "simple" alcohol-related fatty liver reached cirrhosis in about 10 years, mostly those who kept drinking.`},
     {from:.6,at:.72,k:'Years to decades',t:'Cirrhosis or severe hepatitis in 1–2 in 10',
-     txt:`ACG 2018: "only about 10–20% of chronic heavy drinkers develop severe forms such as AH or cirrhosis", with behavioural, environmental and genetic cofactors as likely modifiers. People with ARLD progress faster than people with other causes and more often present late. Alcohol-related cirrhosis carries a lifetime liver-cancer risk of about 3–10% (about 1% a year). [[Singal2018ACG,Jophlin2024ACG]]`,
+     txt:`ACG 2018 notes that only a minority of long-term heavy drinkers, about 10–20%, go on to severe disease such as AH or cirrhosis, with behavioural, environmental and genetic cofactors as likely modifiers. People with ARLD progress faster than people with other causes and more often present late. Alcohol-related cirrhosis carries a lifetime liver-cancer risk of about 3–10% (about 1% a year). [[Singal2018ACG,Jophlin2024ACG]]`,
      pt:`Most heavy drinkers never get cirrhosis, but no one can tell in advance who will. Genes, weight and drinking pattern all play a part.`,
      hook:`Only 10–20% of chronic heavy drinkers develop severe AH or cirrhosis (shaded icons: the lighter ten show the upper end of the range). [[Singal2018ACG]]`},
     {from:.8,at:.93,k:'What stopping does',t:'Stopping drinking',
@@ -141,7 +141,7 @@ inits.alcohol=()=>{
      pt:`After about a week, a score checks whether the bilirubin (the yellow pigment) is coming down. If it is not, steroids are unlikely to help.`,
      hook:`Lille ≥0.45 at day 7 = non-response: 6-month survival 25% vs 85%. [[Louvet2007Lille]]`},
     {from:.8,at:.93,k:'When medicine fails',t:'Early liver transplant',
-     txt:`People not responding to medical therapy had about 30% 6-month survival, with most deaths in the first 2 months, so a 6-month abstinence rule excluded most of them. In a Franco-Belgian pilot, 26 highly selected people (fewer than 2% of admissions) had 6-month survival of 77% with early transplant vs 23% in matched controls. In ACCELERATE-AH (147 people, median 55 days' abstinence), survival was 94% at 1 year and 84% at 3 years. ACG 2024: transplant "should be considered in selected patients with AH, who are unresponsive to medical therapy and have a low risk of relapse". [[Mathurin2011NEJM,Lee2018Gastro,Jophlin2024ACG]]`,
+     txt:`People not responding to medical therapy had about 30% 6-month survival, with most deaths in the first 2 months, so a 6-month abstinence rule excluded most of them. In a Franco-Belgian pilot, 26 highly selected people (fewer than 2% of admissions) had 6-month survival of 77% with early transplant vs 23% in matched controls. In ACCELERATE-AH (147 people, median 55 days' abstinence), survival was 94% at 1 year and 84% at 3 years. ACG 2024 says transplant can be considered for carefully selected people with AH who have not responded to medical treatment and whose risk of returning to drinking is low. [[Mathurin2011NEJM,Lee2018Gastro,Jophlin2024ACG]]`,
      pt:`For a small number of carefully chosen people who do not get better with medicine, a liver transplant can be life-saving.`,
      hook:`Mathurin 2011: early transplant, 6-month survival 77% vs 23%. [[Mathurin2011NEJM]]`}];
   const ah=$('#alAh'),ar=$('#alAhT');let setAh=()=>{};

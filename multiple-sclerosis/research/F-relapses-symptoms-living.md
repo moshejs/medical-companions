@@ -11,7 +11,7 @@ Scope: what relapses are and how they are treated, the commoner MS symptoms (wit
 
 ### Relapses: time course, MRI and recovery
 - A new lesion's gadolinium enhancement is short-lived. In 26 people with RRMS scanned weekly, enhancement lasted 3.07 weeks on average (median 2 weeks), shorter than the roughly 1 month that trial designs had assumed [Cotton2003].
-- In CombiRx (240 first on-trial relapses), median time to relapse recovery was 111 days. Of 202 people who recovered, 80% did so by 180 days and 94% by 365 days. Relapse severity was the only factor associated with speed of recovery [Koch2023].
+- In CombiRx (240 first on-trial relapses), median time to relapse recovery was 111 days. Of 202 people who recovered, 80% did so by 180 days and 94% by 365 days. Of the factors tested, only how severe the relapse was predicted how fast recovery came [Koch2023].
 - In pooled placebo-arm trial data, 42% of patients had a residual deficit of at least 0.5 EDSS points, and 28% of at least 1.0 point, an average of 64 days after an exacerbation [Lublin2003].
 - In a Welsh series of 279 relapses (182 patients), mean EDSS was 3.73 before, 5.18 during and 4.23 after relapse (assessed a mean 127 days later). 49.4% had a residual increase of at least 0.5 points and 32.7% of at least 1 point [Hirst2008].
 

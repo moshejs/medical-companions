@@ -143,7 +143,7 @@ Access notes:
 - In 1,507 autistic adults in Kaiser Permanente Northern California and 15,070 matched controls (Croen 2015), all major psychiatric disorders, including depression, anxiety, bipolar disorder, OCD, schizophrenia and suicide attempts, were significantly more common [[Croen2015Adults]].
 - Nearly all medical conditions in Croen 2015 were more common in autistic adults, including immune, gastrointestinal and sleep disorders, seizures, obesity, dyslipidaemia, hypertension and diabetes [[Croen2015Adults]].
 - Among 4,123 autistic people aged 14–25 (Davignon 2018), 34% had a co-occurring psychiatric condition, and the commonest medical conditions were infections (42%), obesity (25%), neurological (18%), allergy or immune (16%), musculoskeletal (15%) and gastrointestinal (11%) conditions [[Davignon2018]].
-- Davignon 2018 concluded that autism should be approached as a chronic health condition requiring regular follow-up and routine screening [[Davignon2018]].
+- Davignon 2018 concluded that autism should be managed like a long-term health condition, with regular follow-up and routine screening [[Davignon2018]].
 - An online survey found more heart conditions, lung conditions and diabetes in autistic than non-autistic adults, persisting after accounting for smoking, alcohol and body mass index [[Weir2021]].
 - In 2,305 adults, autistic people had elevated rates of non-communicable conditions across all organ systems, including gastrointestinal, neurological, endocrine, visual, ear-nose-throat, skin, liver, kidney and haematological conditions (convenience sample; Early evidence) [[Ward2023PhysHealth]].
 
@@ -169,7 +169,7 @@ Access notes:
 - A meta-analysis of 12 studies (154,238 autistic participants; Catalá-López 2022) found all-cause mortality RR 2.37 (95% CI 1.97–2.85; moderate confidence) [[CatalaLopez2022]].
 - Catalá-López 2022 found deaths from natural causes RR 3.80 (2.06–7.01) and from unnatural causes RR 2.50 (1.49–4.18), both rated low confidence because of high heterogeneity (I² 95–96%) [[CatalaLopez2022]].
 - In a US community cohort of 406 autistic adolescents and adults followed for 20 years, 6.4% died, at an average age of 39 [[SmithDaWalt2019]].
-- Causes of death in Smith DaWalt 2019 included chronic conditions (such as cancer and heart disease), accidents (such as choking on food and accidental poisoning) and medication side effects [[SmithDaWalt2019]].
+- Causes of death in Smith DaWalt 2019 included long-term illnesses (for example cancer and heart disease), accidents (for example choking on food or accidental poisoning) and side effects of medicines [[SmithDaWalt2019]].
 - Early childhood social reciprocity difficulties and higher functional impairment predicted mortality in Smith DaWalt 2019, after controlling for age and health [[SmithDaWalt2019]].
 - In Medicare enrollees aged 65 and over, autistic older adults had a 2.87 times higher 5-year mortality rate (95% CI 2.61–3.07) than non-autistic older adults [[Krantz2023]].
 - Median age of death among decedents in Krantz 2023 was 72 for autistic and 75 for non-autistic older adults, a much smaller gap than in younger cohorts [[Krantz2023]].

@@ -35,8 +35,8 @@ Shared keys checked and used: WHO-GTR2025, WHO-Mod4-2025 (PMID 40163610), Conrad
 
 ### resistance · WHO definitions (2021 update)
 - MDR-TB: resistant to both rifampicin and isoniazid. RR-TB: resistant to rifampicin, with or without isoniazid resistance. The two are reported together as MDR/RR-TB [[WHO-Mod4-2025]].
-- Pre-XDR-TB: rifampicin-resistant (possibly also isoniazid-resistant) and resistant to at least one fluoroquinolone (levofloxacin or moxifloxacin) [[WHO-Mod4-2025,Viney2021]].
-- XDR-TB: rifampicin-resistant, resistant to at least one fluoroquinolone, and resistant to at least one other Group A drug (bedaquiline or linezolid) [[WHO-Mod4-2025,Viney2021]].
+- Pre-XDR-TB (summary): MDR/RR-TB whose strain also resists a fluoroquinolone (levofloxacin or moxifloxacin) [[WHO-Mod4-2025,Viney2021]].
+- XDR-TB (summary): pre-XDR-TB whose strain also resists bedaquiline or linezolid, the other Group A drugs [[WHO-Mod4-2025,Viney2021]].
 - The 2021 XDR definition replaced the older one, which was based on fluoroquinolone plus second-line injectable resistance. Trials enrolling before 2021 (Nix-TB, ZeNix) used the old definition [[Viney2021,Conradie2022]].
 - Hr-TB: isoniazid-resistant, rifampicin-susceptible TB [[WHO-Mod4-2025]].
 - WHO Group A medicines are levofloxacin or moxifloxacin, bedaquiline and linezolid. Group B is clofazimine and cycloserine/terizidone. Group C includes ethambutol, delamanid, pyrazinamide, imipenem–cilastatin, meropenem and amikacin [[WHO-Mod4-2025]].
@@ -49,7 +49,7 @@ Shared keys checked and used: WHO-GTR2025, WHO-Mod4-2025 (PMID 40163610), Conrad
 - Four countries accounted for over half of incident MDR/RR-TB in 2024: India 32%, China 7.1%, the Philippines 7.1% and the Russian Federation 6.7% [[WHO-GTR2025]].
 - An estimated 18% (95% UI 15–20%) of MDR/RR-TB cases in 2024 were pre-XDR-TB [[WHO-GTR2025]].
 - There were an estimated 1.5 million incident cases of isoniazid-resistant TB in 2024 (95% UI 0.59–2.4 million), counting both rifampicin-susceptible and rifampicin-resistant forms [[WHO-GTR2025]].
-- About a quarter of deaths caused by antimicrobial resistance are due to rifampicin-resistant TB [[Dean2022]].
+- Rifampicin-resistant TB accounts for roughly one in four deaths from antimicrobial resistance [[Dean2022]].
 - In 2024, 164 545 people were enrolled on MDR/RR-TB treatment, down from 179 491 in 2022 and 177 017 in 2023 [[WHO-GTR2025]].
 - Enrolment set against the 390 000 estimated incident cases gives roughly 42% treatment coverage in 2024 (calculated here from the two WHO figures) [[WHO-GTR2025]].
 - In 2024, ten countries accounted for 74% of the global gap between incident MDR/RR-TB and people enrolled on treatment. India alone accounted for 33% [[WHO-GTR2025]].

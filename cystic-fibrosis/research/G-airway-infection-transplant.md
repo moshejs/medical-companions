@@ -108,7 +108,7 @@ Corrections to the brief:
 - At week 20, FEV1 rose 10% on tobramycin versus a 2% fall on placebo (P < 0.001). Sputum P. aeruginosa density fell 0.8 log10 CFU/g versus a 0.3 rise [[Ramsey1999TOBI]].
 - Hospitalisation was 26% less likely on tobramycin (95% CI 2% to 43%), with no detectable ototoxicity or nephrotoxicity [[Ramsey1999TOBI]].
 - Isolates with tobramycin MIC ≥8 μg/mL rose from 25% to 32% on tobramycin, versus 20% to 17% on placebo [[Ramsey1999TOBI]].
-- TOBI label, quoted as published: 300 mg twice daily by inhalation "in alternating periods of 28 days on drug, followed by 28 days off drug", for people aged ≥6 years with P. aeruginosa [[FDA-TOBI]].
+- TOBI label: 300 mg twice daily by inhalation in repeating cycles of 28 days on and 28 days off, for people aged ≥6 years with P. aeruginosa [[FDA-TOBI]].
 - The TOBI label notes that safety and efficacy were not shown under age 6, at FEV1 <25% or >75% predicted, or with Burkholderia cepacia. Its warnings cover bronchospasm, ototoxicity (tinnitus, hearing loss), nephrotoxicity, neuromuscular effects and embryo-fetal toxicity [[FDA-TOBI]].
 - AIR-CF1 (164 people aged ≥6, FEV1 25–75%, no recent antipseudomonal antibiotics or azithromycin) gave 28 days of aztreonam lysine 75 mg three times daily [[RetschBogart2009AZLI]].
 - In AIR-CF1, CFQ-R respiratory score improved by 9.7 points and FEV1 by 10.3% predicted versus placebo [[RetschBogart2009AZLI]].
@@ -151,12 +151,12 @@ Corrections to the brief:
 
 ### infection · Infection prevention and control (CFF 2013 update), quoted as published
 - Core principle: "all individuals with CF may harbor potentially transmissible pathogens", so the precautions apply to everyone with CF, whatever their culture results [[Saiman2014IPC]].
-- Quoted as published: "Separate all people with CF from others with CF, regardless of their respiratory tract culture results, at least 6 feet (2 meters) in all settings" [[Saiman2014IPC]].
+- Everyone with CF should keep at least 6 feet (2 metres) from others with CF in every setting, whatever their airway culture results [[Saiman2014IPC]].
 - The guideline cites data that droplets can travel as far as 6 feet (2 metres) [[Saiman2014IPC]].
 - People with CF should wear a surgical mask in healthcare settings. Staff should use Contact Precautions (gown and gloves) for all people with CF, in both clinic and hospital [[Saiman2014IPC]].
 - People with CF, their families and friends should all perform hand hygiene [[Saiman2014IPC]].
 - Inpatients with CF should have a single-patient room. Only people with CF from the same household may share [[Saiman2014IPC]].
-- Quoted as published: "Only 1 person with CF may attend a CF Foundation–sponsored indoor event" [[Saiman2014IPC]].
+- No more than one person with CF should attend an indoor event sponsored by the CF Foundation [[Saiman2014IPC]].
 - The guideline recommends against CF-specific camps and retreats, and encourages camps and sports with people who do not have CF [[Saiman2014IPC]].
 - Pulmonary function testing options include testing in the exam room at the start of the visit, a negative-pressure room, a HEPA-filtered lab, or allowing 30 minutes between people with CF [[Saiman2014IPC]].
 - The guideline cites P. aeruginosa recovered from hospital-room air 45 minutes to 2 hours after a person with CF left [[Saiman2014IPC]].
@@ -183,7 +183,7 @@ Corrections to the brief:
 
 ### transplant · Transplant outcomes and special infections
 - The CFF guideline cites the ISHLT registry report: median post-transplant survival among adults with CF of 9.5 years (population statistic) [[Ramos2019Referral]].
-- 2005–2016 CF lung transplant survival at 1, 3 and 5 years: US (2,653 recipients) 88.3%, 71.8% and 60.3%; Canada (470) 90.5%, 79.9% and 69.7%. People in the US were also more likely to die on the waitlist [[Stephenson2021Transplant]].
+- 2005–2016 CF lung transplant survival at 1, 3 and 5 years: US (2,653 recipients) 88.3%, 71.8% and 60.3%; Canada (470) 90.5%, 79.9% and 69.7%. Deaths on the waitlist were also more likely in the US [[Stephenson2021Transplant]].
 - Among people with FEV1 <40%, US residents had a higher risk of death without transplant than Canadians (HR 1.79, 95% CI 1.52 to 2.1) and a lower transplant rate (HR 0.66) [[Ramos2021ALD]].
 - These gaps were larger for people with Medicaid/Medicare and for non-white people [[Ramos2021ALD]].
 - In 121 CF transplants at one US centre, people infected with B. cepacia complex before transplant had higher 6-month mortality (33% versus 12%, p = 0.01). Genomovar III (B. cenocepacia) carried the highest risk (5 of 12 versus 0 of 8 deaths) [[Aris2001Bcc]].

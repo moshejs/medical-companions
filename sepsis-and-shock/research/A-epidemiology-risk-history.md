@@ -67,7 +67,7 @@ Access notes:
 - Among EPIC III patients with a positive culture, gram-negative organisms were found in 67%, gram-positive in 37% and fungi in 16%. ICU-acquired infection carried higher adjusted mortality than community-acquired infection (OR 1.32; 95% CI 1.10–1.60) [[Vincent2020EPICIII]]
 - In England, Wales and Northern Ireland critical care (ICNARC, 1996–2004), 27.0% of admissions had severe sepsis in the first 24 hours. Hospital mortality for these admissions fell from 48.3% to 44.7%, while estimated deaths rose from 9,000 to 14,000 a year [[Harrison2006ICNARC]]
 - ICNARC treated incidence of severe sepsis in critical care rose from 46 to 66 per 100,000 population (1996 to 2003) [[Harrison2006ICNARC]]
-- A UK emergency-medicine study stated, in its background, that severe sepsis "is likely to account for around 37,000 deaths annually in the UK". This is an estimate quoted by the authors, not measured in the study [[Daniels2011SepsisSix]]
+- A UK emergency-medicine study stated, in its background, that severe sepsis probably causes about 37,000 deaths a year in the UK. This is an estimate quoted by the authors, not measured in the study [[Daniels2011SepsisSix]]
 
 ### what · Septic shock outcomes (population statistics)
 - In the Sepsis-3 systematic review (44 studies; 166,479 patients), crude septic-shock mortality was 46.5% (95% CI 42.7–50.3%) [[ShankarHari2016Shock]]
@@ -80,7 +80,7 @@ Access notes:
 ### what · Children and newborns
 - A 2018 review estimated 48 sepsis cases (95% CI 27–86) and 22 severe-sepsis cases per 100,000 child-years, and 2,202 neonatal sepsis cases per 100,000 live births. Extrapolated globally, that is about 3.0 million neonatal and 1.2 million paediatric cases a year [[FleischmannStruzek2018Paeds]]
 - A 2021 neonatal meta-analysis estimated 2,824 cases per 100,000 live births (95% CI 1,892–4,194), with 17.6% dying. Incidence was 3,930 per 100,000 in 2009–2018, based on 4 low- and middle-income-country studies [[Fleischmann2021Neonatal]]
-- In the SPROUT point-prevalence study (128 PICUs, 26 countries), 8.2% of PICU patients had severe sepsis. Hospital mortality was 25% and did not differ by age or between developed and resource-limited countries [[Weiss2015SPROUT]]
+- In the SPROUT point-prevalence study (128 PICUs, 26 countries), 8.2% of PICU patients had severe sepsis. Hospital mortality was 25%, with no difference by age or between developed and resource-limited countries [[Weiss2015SPROUT]]
 - In SPROUT, the commonest infection sites were respiratory (40%) and bloodstream (19%). 67% of patients had multiorgan dysfunction at recognition, and 17% of survivors developed at least moderate disability [[Weiss2015SPROUT]]
 - In 7 US states, paediatric severe-sepsis prevalence rose from 0.56 to 0.89 per 1,000 children (1995–2005). Newborn prevalence more than doubled, from 4.5 to 9.7 per 1,000 births, and case fatality fell from 10.3% to 8.9% [[Hartman2013Paeds]]
 - Under the Phoenix criteria, children with sepsis (Phoenix Sepsis Score ≥2) had in-hospital mortality of 7.1% in higher-resource and 28.5% in lower-resource settings. For septic shock the figures were 10.8% and 33.5% [[Schlapbach2024Phoenix]]

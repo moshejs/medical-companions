@@ -1156,7 +1156,7 @@ inits.risk=()=>{
 const SG_AGES=[3,6,13,18,30,60];
 const SG_STEPS=[
  {from:0,at:.1,k:'Age 3–5 · preschool',t:'Preschool: always on the go',
-  txt:`The same 18 symptoms apply at every age under 18. In a preschooler they can look like running or climbing when it is not appropriate, being unable to play quietly, acting "as if driven by a motor" and finding it very hard to wait a turn. <sup class="c" data-ref="APA2022DSM,Wolraich2019" title="Source 16,495"><a href="/adhd/sources/#src-APA2022DSM">16,495</a></sup> The AAP states that DSM-5 criteria can be applied from age 4 to the sixth birthday, and that evidence is insufficient to recommend diagnosis or treatment under 4. Requiring symptoms in more than one setting is hard to check in a child who is not in preschool or child care. <sup class="c" data-ref="Wolraich2019" title="Source 495"><a href="/adhd/sources/#src-Wolraich2019">495</a></sup>`,
+  txt:`The same 18 symptoms apply at every age under 18. In a preschooler they can look like running or climbing when it is not appropriate, being unable to play quietly, seeming constantly on the move and finding it very hard to wait a turn. <sup class="c" data-ref="APA2022DSM,Wolraich2019" title="Source 16,495"><a href="/adhd/sources/#src-APA2022DSM">16,495</a></sup> The AAP states that DSM-5 criteria can be applied from age 4 to the sixth birthday, and that evidence is insufficient to recommend diagnosis or treatment under 4. Requiring symptoms in more than one setting is hard to check in a child who is not in preschool or child care. <sup class="c" data-ref="Wolraich2019" title="Source 495"><a href="/adhd/sources/#src-Wolraich2019">495</a></sup>`,
   pt:`Lots of small children are busy and loud. What matters is behaviour that is much more than for other children of the same age, in more than one place, and that causes real problems. <sup class="c" data-ref="APA2022DSM,Wolraich2019" title="Source 16,495"><a href="/adhd/sources/#src-APA2022DSM">16,495</a></sup>`,
   hook:`AAP: evaluate for ADHD from age 4 to the 18th birthday; insufficient evidence under 4. <sup class="c" data-ref="Wolraich2019" title="Source 495"><a href="/adhd/sources/#src-Wolraich2019">495</a></sup>`},
  {from:.2,at:.3,k:'Age 6–12 · school',t:'School age: the classroom shows it',
@@ -1308,15 +1308,15 @@ const CR_STEPS=[
   pt:'Today the two main manuals agree closely. The American one counts symptoms; the WHO one describes them.',
   hook:'Codes: combined F90.2 / 6A05.2, inattentive F90.0 / 6A05.0, hyperactive-impulsive F90.1 / 6A05.1. <sup class="c" data-ref="APA2022DSM,TebartzVanElst2025" title="Source 16,445"><a href="/adhd/sources/#src-APA2022DSM">16,445</a></sup>'}
 ];
-/* criteria items: close paraphrases of DSM-5-TR A1 and A2 <sup class="c" data-ref="APA2022DSM" title="Source 16"><a href="/adhd/sources/#src-APA2022DSM">16</a></sup> */
-const CR_A1=['Careless mistakes or misses details','Trouble keeping attention on tasks or play','Seems not to listen when spoken to directly','Does not follow through; leaves tasks unfinished','Trouble organising tasks and activities','Avoids or dislikes tasks that need sustained mental effort','Loses things needed for tasks','Easily distracted (in adults this can include unrelated thoughts)','Forgetful in daily activities'];
-const CR_A2=['Fidgets, taps or squirms','Leaves seat when staying seated is expected','Runs or climbs when it is inappropriate (in teens and adults, may be only restlessness)','Cannot play or do leisure activities quietly','“On the go”, as if “driven by a motor”','Talks excessively','Blurts out answers','Trouble waiting their turn','Interrupts or intrudes on others'];
+/* criteria items: short plain-language summaries written for this guide, one per DSM-5-TR A1 and A2 symptom; not the manual's wording <sup class="c" data-ref="APA2022DSM" title="Source 16"><a href="/adhd/sources/#src-APA2022DSM">16</a></sup> */
+const CR_A1=['Slips up on details; makes avoidable errors','Hard to stay focused on a task, lesson or game','Appears not to be listening, even when addressed directly','Starts things but leaves them unfinished','Struggles to plan and order what needs doing','Puts off or dislikes jobs that need long mental effort','Often mislays things needed for everyday tasks','Attention is easily pulled away (in adults, also by their own unrelated thoughts)','Forgets everyday routines and commitments'];
+const CR_A2=['Restless hands or feet; shifts about in the seat','Gets up when they are expected to stay seated','Runs about or climbs where it does not fit (in teens and adults, may be only a feeling of restlessness)','Finds it hard to do leisure activities quietly','Constantly busy and hard to keep still','Talks a great deal','Answers before the question is finished','Finds waiting for a turn hard','Cuts into other people’s conversations or activities'];
 const CR_OTHER=[
  {id:'dur',t:'Symptoms have lasted 6 months or more',s:'Criterion A, duration'},
  {id:'b',t:'Several symptoms were present before age 12',s:'Criterion B'},
- {id:'c',t:'Several symptoms show in two or more settings (home, school or work, friends, other activities)',s:'Criterion C'},
- {id:'d',t:'Clear evidence they interfere with, or reduce the quality of, social, school or work functioning',s:'Criterion D'},
- {id:'e',t:'Not better explained by another condition (for example a mood, anxiety or psychotic disorder, or substance intoxication or withdrawal)',s:'Criterion E'}
+ {id:'c',t:'Several symptoms show up in at least two parts of life (for example home, school or work, time with friends)',s:'Criterion C'},
+ {id:'d',t:'The symptoms clearly get in the way of, or make worse, social life, study or work',s:'Criterion D'},
+ {id:'e',t:'Another condition does not account for them better (for example a mood, anxiety or psychotic disorder, or the effects of a drug or of stopping it)',s:'Criterion E'}
 ];
 const CR_PRESETS={
  kid:{age:'u',a1:[0,1,2,3,4,6,8],a2:[0],o:['dur','b','c','d','e'],lab:'An 8-year-old with mostly inattentive symptoms'},
@@ -1534,16 +1534,16 @@ const SC_SET=[
  {id:'sud',n:'Adults in substance-use treatment',p:23.1,c:'<sup class="c" data-ref="vanEmmerikvanOortmerssen2012" title="Source 460"><a href="/adhd/sources/#src-vanEmmerikvanOortmerssen2012">460</a></sup>'},
  {id:'cl',n:'Adults referred to a psychiatry clinic (NYU sample)',p:57.7,c:'<sup class="c" data-ref="Ustun2017" title="Source 453"><a href="/adhd/sources/#src-Ustun2017">453</a></sup>'}
 ];
-/* illustrative screening questions, written for this guide (NOT the ASRS wording), each tied to a DSM-5-TR item <sup class="c" data-ref="APA2022DSM" title="Source 16"><a href="/adhd/sources/#src-APA2022DSM">16</a></sup> */
+/* illustrative topics only, each tied to a DSM-5-TR item <sup class="c" data-ref="APA2022DSM" title="Source 16"><a href="/adhd/sources/#src-APA2022DSM">16</a></sup>; no ASRS question wording is reproduced */
 const SC_Q=[
- {q:'How often do you have trouble finishing the last details of a task once the hard part is done?',d:'A1(d) does not follow through'},
- {q:'How often is it hard to get things in order when a task needs organising?',d:'A1(e) organising'},
- {q:'How often do you forget appointments or things you meant to do?',d:'A1(i) forgetful'},
- {q:'How often do you put off starting a task that needs a lot of thought?',d:'A1(f) avoids sustained effort'},
- {q:'How often do you fidget or squirm when you have to sit for a long time?',d:'A2(a) fidgets'},
- {q:'How often do you feel driven, as if you have to keep moving?',d:'A2(e) “driven by a motor”'}
+ {q:'Finishing tasks',d:'A1(d) unfinished tasks'},
+ {q:'Getting organised',d:'A1(e) organising'},
+ {q:'Remembering commitments',d:'A1(i) forgets routines'},
+ {q:'Starting effortful work',d:'A1(f) avoids effort'},
+ {q:'Fidgeting when seated',d:'A2(a) fidgeting'},
+ {q:'Feeling restless',d:'A2(e) always busy'}
 ];
-const SC_FREQ=['Never','Rarely','Sometimes','Often','Very often'];
+const SC_FREQ=['0','1','2','3','4'];
 inits.scales=()=>{
   /* ---------------- the assessment pathway ---------------- */
   const svg=$('#scSvg'),rg=$('#scT');
@@ -1595,11 +1595,11 @@ inits.scales=()=>{
   /* ---------------- the screener walkthrough ---------------- */
   const ans=new Array(6).fill(-1);
   const wq=$('#scWalk');
-  wq.innerHTML=SC_Q.map((q,i)=>`<div class="scq"><p><b>${i+1}.</b> ${q.q} <span class="scd">${q.d}</span></p><div class="scf" role="group" aria-label="Question ${i+1}">${SC_FREQ.map((f,k)=>`<button class="btn" data-q="${i}" data-f="${k}" aria-pressed="false">${f}</button>`).join('')}</div></div>`).join('');
+  wq.innerHTML=SC_Q.map((q,i)=>`<div class="scq"><p><b>${i+1}.</b> ${q.q} <span class="scd">${q.d}</span></p><div class="scf" role="group" aria-label="Topic ${i+1}: ${q.q}, points 0 to 4">${SC_FREQ.map((f,k)=>`<button class="btn" data-q="${i}" data-f="${k}" aria-pressed="false" aria-label="${f} points">${f}</button>`).join('')}</div></div>`).join('');
   function walk(){const n=ans.filter(a=>a>=0).length,hi=ans.filter(a=>a>=3).length;
     let h=`<div class="kicker">${n} of 6 answered</div>`;
-    if(n<6)h+=`<h4>Keep going</h4><p>So far ${hi} answer${hi===1?'':'s'} at "often" or "very often". A screener only makes sense once every question is answered.</p>`;
-    else h+=`<h4>${hi} of 6 at "often" or more</h4><p>On a real screener a published scoring rule turns answers like these into "screen positive" or "screen negative". This illustrative set has no validated rule, so it gives no result, on purpose.</p>`;
+    if(n<6)h+=`<h4>Keep going</h4><p>So far ${hi} answer${hi===1?'':'s'} at 3 or 4 points. A screener only makes sense once every topic is rated.</p>`;
+    else h+=`<h4>${hi} of 6 at 3 points or more</h4><p>On a real screener a published scoring rule turns answers like these into "screen positive" or "screen negative". This illustrative set has no validated rule, so it gives no result, on purpose.</p>`;
     h+=`<div class="pt"><b>What a positive screen means</b>Only that a full assessment may be worth having. The ASRS was built for case-finding in surveys and outreach. <sup class="c" data-ref="Kessler2005,Ustun2017" title="Source 225,453"><a href="/adhd/sources/#src-Kessler2005">225,453</a></sup> In the validation sample the 6-question screener caught 68.7% of people with ADHD (sensitivity) and correctly cleared 99.5% without it (specificity). <sup class="c" data-ref="Kessler2005" title="Source 225"><a href="/adhd/sources/#src-Kessler2005">225</a></sup></div>`;
     h+=`<div class="hook"><b>What a full assessment adds</b>A clinical interview, childhood history, reports from people in other settings, checks for look-alikes and co-occurring conditions, and the impact on daily life. Single ASRS items agreed with clinicians only modestly (kappa 0.16–0.81), so no one answer carries much weight. <sup class="c" data-ref="Kessler2005,Faraone2021" title="Source 130,225"><a href="/adhd/sources/#src-Kessler2005">130,225</a></sup></div>`;
     $('#scWalkOut').innerHTML=h}
@@ -1982,7 +1982,7 @@ const ST_STEPS={
    pt:`The medicine plugs the recycling pumps, like a cork in a drain.`,
    hook:`Methylphenidate ED50: DAT 0.25 mg/kg, NET 0.14 mg/kg. NET blockade may contribute to its effect. <sup class="c" data-ref="Volkow1998,Hannestad2010" title="Source 185,464"><a href="/adhd/sources/#src-Volkow1998">185,464</a></sup>`},
   {from:.45,at:.6,k:'Cleft dopamine rises',t:'Each pulse lingers',
-   txt:`With the pumps blocked, each released puff stays in the cleft longer and reaches more receptors. Oral methylphenidate (about 0.8 mg/kg) increased extracellular dopamine in the striatum of 11 healthy adults, shown by a 20 ± 12% drop in D2 receptor availability. The label states that it "blocks the reuptake of norepinephrine and dopamine into the presynaptic neuron and increases the release of these monoamines into the extraneuronal space". <sup class="c" data-ref="Volkow2001,FDA-RitalinC,FDA-Concerta" title="Source 141,155,465"><a href="/adhd/sources/#src-Volkow2001">141,155,465</a></sup>`,
+   txt:`With the pumps blocked, each released puff stays in the cleft longer and reaches more receptors. Oral methylphenidate (about 0.8 mg/kg) increased extracellular dopamine in the striatum of 11 healthy adults, shown by a 20 ± 12% drop in D2 receptor availability. The label explains that it stops the nerve ending from taking norepinephrine and dopamine back up, and increases how much of both is released into the space outside the neuron. <sup class="c" data-ref="Volkow2001,FDA-RitalinC,FDA-Concerta" title="Source 141,155,465"><a href="/adhd/sources/#src-Volkow2001">141,155,465</a></sup>`,
    pt:`Because less dopamine is vacuumed up, more of it stays in the gap to pass on the message.`,
    hook:`Methylphenidate = reuptake blocker (DAT and NET). <sup class="c" data-ref="FDA-RitalinC,Volkow1998,Hannestad2010" title="Source 155,185,464"><a href="/adhd/sources/#src-FDA-RitalinC">155,185,464</a></sup>`},
   {from:.7,at:.86,k:'Steady state',t:'Louder signals, same timing',
@@ -2293,7 +2293,7 @@ inits.nonstim=()=>{
   const STEPS={
     atx:[NET0,
      {from:.2,at:.32,k:'Step 2 · atomoxetine arrives',t:'A selective NET blocker',
-      txt:`The Strattera label says the mechanism "is thought to be related to selective inhibition of the pre-synaptic norepinephrine transporter". Atomoxetine binds human NET far more tightly than the serotonin or dopamine transporters (Ki 5, 77 and 1,451 nM). In monkey PET, clinically relevant doses were estimated to occupy more than 90% of NET and more than 85% of the serotonin transporter. <sup class="c" data-ref="FDA-Strattera,Bymaster2002,Ding2014Atomoxetine" title="Source 56,109,158"><a href="/adhd/sources/#src-FDA-Strattera">56,109,158</a></sup>`,
+      txt:`The Strattera label says the mechanism is thought to come from selectively blocking the norepinephrine transporter on the presynaptic neuron. Atomoxetine binds human NET far more tightly than the serotonin or dopamine transporters (Ki 5, 77 and 1,451 nM). In monkey PET, clinically relevant doses were estimated to occupy more than 90% of NET and more than 85% of the serotonin transporter. <sup class="c" data-ref="FDA-Strattera,Bymaster2002,Ding2014Atomoxetine" title="Source 56,109,158"><a href="/adhd/sources/#src-FDA-Strattera">56,109,158</a></sup>`,
       pt:`The medicine sits in the recycling pump, so the messenger stays outside the cell for longer.`,
       hook:`Atomoxetine = selective noradrenaline reuptake inhibitor; not a stimulant and not a controlled substance. <sup class="c" data-ref="FDA-Strattera" title="Source 158"><a href="/adhd/sources/#src-FDA-Strattera">158</a></sup>`},
      {from:.4,at:.5,k:'Step 3 · the cleft fills',t:'Noradrenaline and dopamine rise in the prefrontal cortex only',
@@ -2480,7 +2480,7 @@ inits.compare=()=>{
      txt:`On clinician ratings, amphetamines reached SMD −1.02 (95% CI −1.19 to −0.85) in children and adolescents and −0.79 (−0.99 to −0.58) in adults. Head to head, amphetamines also beat methylphenidate, atomoxetine and modafinil on clinician ratings (children SMDs −0.46 to −0.24; adults −0.94 to −0.29). <sup class="c" data-ref="Cortese2018" title="Source 86"><a href="/adhd/sources/#src-Cortese2018">86</a></sup>`,
      pt:`On average, amphetamine medicines lowered clinician-rated symptoms the most.`},
     {from:.38,at:.5,k:'Step 3 · methylphenidate',t:'Large in children, moderate in adults',
-     txt:`Methylphenidate reached SMD −0.78 (−0.93 to −0.62) in children on clinician ratings and −0.49 (−0.64 to −0.35) in adults. On teacher ratings in children it was −0.82 (−1.16 to −0.48), one of only two medicines with teacher-rated data that beat placebo. The authors concluded the evidence "supports methylphenidate in children and adolescents, and amphetamines in adults, as preferred first-choice medications". <sup class="c" data-ref="Cortese2018" title="Source 86"><a href="/adhd/sources/#src-Cortese2018">86</a></sup>`,
+     txt:`Methylphenidate reached SMD −0.78 (−0.93 to −0.62) in children on clinician ratings and −0.49 (−0.64 to −0.35) in adults. On teacher ratings in children it was −0.82 (−1.16 to −0.48), one of only two medicines with teacher-rated data that beat placebo. The authors concluded that, for short-term treatment, the evidence favours methylphenidate as the first choice in children and adolescents, and amphetamines in adults. <sup class="c" data-ref="Cortese2018" title="Source 86"><a href="/adhd/sources/#src-Cortese2018">86</a></sup>`,
      pt:`Methylphenidate is the usual first choice for children; amphetamines for adults.`,
      hook:`Cortese 2018: first choice methylphenidate in children and adolescents, amphetamines in adults (short-term). <sup class="c" data-ref="Cortese2018" title="Source 86"><a href="/adhd/sources/#src-Cortese2018">86</a></sup>`},
     {from:.58,at:.7,k:'Step 4 · the others',t:'Atomoxetine, bupropion, modafinil',
@@ -2830,7 +2830,7 @@ const PT_SUP={
   txt:`Teaches children to manage materials, track assignments and plan time; classed "well-established". In 158 children in grades 3–5, it beat the wait list on parent-rated (d 2.77) and teacher-rated (d 1.18) organisation, and 60% versus 3% no longer met criteria for organisational impairment. Brief school-delivered versions (sessions averaging under 20 minutes) also gave large gains in 280 middle-school pupils. <sup class="c" data-ref="Evans2014,Abikoff2013,Langberg2018" title="Source 4,119,241"><a href="/adhd/sources/#src-Evans2014">4,119,241</a></sup>`,
   num:'60% vs 3%',nl:'no longer organisationally impaired'},
  acc:{n:'Extended time',ev:'hyp',fd:0,ds:0,fc:0,
-  txt:`Accommodations are "by far the most common response to ADHD in educational settings", and extended time on tests is especially common, but most showed no ADHD-specific benefit; read-aloud for younger pupils was the exception. College students with more symptoms benefited less from extra time. Reviewers advise giving accommodations alongside evidence-based interventions, not straight after diagnosis. <sup class="c" data-ref="Lovett2021,Lovett2015" title="Source 262,263"><a href="/adhd/sources/#src-Lovett2021">262,263</a></sup>`,
+  txt:`Accommodations are by far the most common way schools respond to ADHD, and extended time on tests is especially common, but most showed no ADHD-specific benefit; read-aloud for younger pupils was the exception. College students with more symptoms benefited less from extra time. Reviewers advise giving accommodations alongside evidence-based interventions, not straight after diagnosis. <sup class="c" data-ref="Lovett2021,Lovett2015" title="Source 262,263"><a href="/adhd/sources/#src-Lovett2021">262,263</a></sup>`,
   num:'1',nl:'accommodation with specific benefit (read-aloud)'}
 };
 const PT_EVL={est:'<span class="ev est">Established</span>',early:'<span class="ev early">Early evidence</span>',hyp:'<span class="tag warn">Little ADHD-specific evidence</span>'};
@@ -3543,9 +3543,9 @@ const LV_LAB={g:'<span class="tag accent">Guideline</span>',l:'<span class="tag 
 const LV_MODT={release:'Formulations &amp; the daily curve',nursing:'Nursing care',therapy:'CBT, coaching &amp; adult support',parenting:'Parent training &amp; classroom support',outcomes:'Course &amp; outcomes',compare:'How well treatments work',safety:'Side effects, safety &amp; misuse'};
 const LV_SET={
  us:{h:'School in the United States',cards:[
-  ['g','IEP or 504 plan',`AAP 2019 says educational interventions and individualised instructional supports are "a necessary part of any treatment plan" and "often include an Individualized Education Program (IEP) or a rehabilitation plan (504 plan)" (grade A, strong recommendation). <sup class="c" data-ref="Wolraich2019" title="Source 495"><a href="/adhd/sources/#src-Wolraich2019">495</a></sup>`],
+  ['g','IEP or 504 plan',`AAP 2019 says educational interventions and individualised instructional supports are a necessary part of any treatment plan, and that they often take the form of an Individualized Education Program (IEP) or a 504 rehabilitation plan (grade A, strong recommendation). <sup class="c" data-ref="Wolraich2019" title="Source 495"><a href="/adhd/sources/#src-Wolraich2019">495</a></sup>`],
   ['pop','What plans contain',`In 97 US middle-school students with ADHD, 61.9% had an IEP and 38.1% a 504 plan. Listed services often matched federal recommendations "but had little to no research supporting their effectiveness"; in 85% of IEPs the present-performance statement described behaviour problems, yet fewer than half had measurable goals for them. <sup class="c" data-ref="Spiel2014" title="Source 424"><a href="/adhd/sources/#src-Spiel2014">424</a></sup>`],
-  ['weak','Extended time',`Accommodations are "by far the most common response to ADHD in educational settings". Most showed no ADHD-specific benefit; read-aloud accommodations for younger students were the exception. The review advises pairing accommodations with evidence-based interventions. <sup class="c" data-ref="Lovett2021" title="Source 263"><a href="/adhd/sources/#src-Lovett2021">263</a></sup>`],
+  ['weak','Extended time',`Accommodations are by far the most common way schools respond to ADHD. Most showed no ADHD-specific benefit; read-aloud accommodations for younger students were the exception. The review advises pairing accommodations with evidence-based interventions. <sup class="c" data-ref="Lovett2021" title="Source 263"><a href="/adhd/sources/#src-Lovett2021">263</a></sup>`],
   ['early','Skill-building',`In a randomised trial of 64 middle-school students, organisation training, self-management and note-taking instruction beat accommodations (organisation support, extended time, a copy of the teacher's notes) for organised binders and accurate notes. <sup class="c" data-ref="Harrison2020" title="Source 187"><a href="/adhd/sources/#src-Harrison2020">187</a></sup>`]]},
  uk:{h:'School in the United Kingdom',note:`UK special educational needs law is not summarised here, because this guide's research did not include a validated source for it. The points below are NICE's.`,cards:[
   ['g','Talking to the school',`With consent, NICE asks clinicians to contact the school, college or university at diagnosis, when symptoms change, and at each transition. The contact covers how ADHD may affect school life, the treatment plan, special educational needs, and "reasonable adjustments and environmental modifications". <sup class="c" data-ref="NICE2018F" title="Source 326"><a href="/adhd/sources/#src-NICE2018F">326</a></sup>`],
@@ -3733,7 +3733,7 @@ inits.living=()=>{
 /* =============== 5.3 Nursing care =============== */
 const NU_STEPS=[
  {from:0,at:.1,k:'Station 1',t:'Referral and assessment',
-  txt:`Diagnosis is made by a specialist after a full assessment. NICE says "a diagnosis of ADHD should not be made solely on the basis of rating scale or observational data": parent and teacher scales are aids, not tests. For children under 5, group parent training comes first, and NICE says do not offer medication "without a second specialist opinion". <sup class="c" data-ref="NICE2018F" title="Source 326"><a href="/adhd/sources/#src-NICE2018F">326</a></sup>`,
+  txt:`Diagnosis is made by a specialist after a full assessment. NICE says rating scales or observation alone are not enough to make the diagnosis: parent and teacher scales are aids, not tests. For children under 5, group parent training comes first, and NICE says do not offer medication "without a second specialist opinion". <sup class="c" data-ref="NICE2018F" title="Source 326"><a href="/adhd/sources/#src-NICE2018F">326</a></sup>`,
   pt:`The questionnaires you fill in help the specialist, but they cannot diagnose ADHD on their own.`,
   hook:`Rating scales support, but never replace, a full diagnostic assessment.`,
   ck:[[`Parent and teacher rating scales collected as aids`,`NICE2018F`],[`Under 5: parent training first; medication only after a second specialist opinion`,`NICE2018F`],[`Explain that parent training "does not imply bad parenting"`,`NICE2018F`]],
@@ -3763,7 +3763,7 @@ const NU_STEPS=[
   ck:[[`Benefits, adverse effects, school or work`,`NICE2018F`],[`Effects of missed doses and breaks`,`NICE2018F`],[`Consider a trial off or a lower dose`,`NICE2018F`],[`Consider a holiday break if growth is affected`,`NICE2018F`]],
   doc:`The reasons for continuing medication.`},
  {from:.85,at:1,k:'Station 6',t:'Transition to adult services',
-  txt:`NICE: reassess at school-leaving age, and if treatment is still needed the transfer "should usually be completed by the time the young person is 18 years", with a formal meeting between services considered and a full assessment by adult services. The AAP suggests planning from about 14. In UK surveillance of young people on ADHD medication, 64% had a referral accepted, 22% attended a first adult appointment and 6% had an optimal transition. In UK primary care, 63% were still on medication at 17 and 41% at 18. <sup class="c" data-ref="NICE2018F,Wolraich2019,Eke2020,NewloveDelgado2018" title="Source 115,322,326,495"><a href="/adhd/sources/#src-NICE2018F">115,322,326,495</a></sup>`,
+  txt:`NICE: reassess at school-leaving age, and if treatment is still needed the transfer should normally be finished by age 18, with a formal meeting between services considered and a full assessment by adult services. The AAP suggests planning from about 14. In UK surveillance of young people on ADHD medication, 64% had a referral accepted, 22% attended a first adult appointment and 6% had an optimal transition. In UK primary care, 63% were still on medication at 17 and 41% at 18. <sup class="c" data-ref="NICE2018F,Wolraich2019,Eke2020,NewloveDelgado2018" title="Source 115,322,326,495"><a href="/adhd/sources/#src-NICE2018F">115,322,326,495</a></sup>`,
   pt:`Moving from children's to adult services is where many people fall through the gap. Start talking about it around age 14.`,
   hook:`Only 6% of UK young people on ADHD medication had an optimal transition.`,
   ck:[[`Reassess at school-leaving age`,`NICE2018F`],[`Plan from about age 14`,`Wolraich2019`],[`Formal meeting between child and adult services`,`NICE2018F`],[`Transfer usually completed by 18`,`NICE2018F`]],
@@ -4224,7 +4224,7 @@ inits.history=()=>{
 };
 /* =============== 6.2 flashcards & mnemonics =============== */
 const RV_PARTN={1:"Part 1 · The condition",2:"Part 2 · Recognising & diagnosing",3:"Part 3 · Medication",4:"Part 4 · Behavioural & psychological care",5:"Part 5 · Living with ADHD",6:"Part 6 · History"};
-/* [part, question, answer]: every answer cited; doses and criteria quoted as published, never as instructions */
+/* [part, question, answer]: every answer cited; doses and criteria stated as published (in our own words, with short attributed quotes only), never as instructions */
 const RV_FC=[
  [1,`About how many children and adolescents worldwide have ADHD?`,`About 5 in 100: the pooled prevalence across 102 studies (171,756 people aged 18 or under) was 5.29% <sup class="c" data-ref="Polanczyk2007" title="Source 354"><a href="/adhd/sources/#src-Polanczyk2007">354</a></sup>.`],
  [1,`Why do prevalence estimates for ADHD differ so much between studies?`,`Mainly method: the diagnostic criteria, who reports the symptoms and whether impairment is required. Geography and year of study did not explain the variation <sup class="c" data-ref="Polanczyk2014" title="Source 356"><a href="/adhd/sources/#src-Polanczyk2014">356</a></sup>.`],
@@ -4269,7 +4269,7 @@ const RV_FC=[
  [3,`How does CYP2D6 status change atomoxetine?`,`Half-life is 5.2 h in normal metabolisers and 21.6 h in poor metabolisers, with 3.3-fold accumulation <sup class="c" data-ref="FDA-Strattera" title="Source 158"><a href="/adhd/sources/#src-FDA-Strattera">158</a></sup>.`],
  [3,`How fast do stimulants and atomoxetine start working?`,`Stimulants act from the first dose; lisdexamfetamine separated from placebo from week 1 <sup class="c" data-ref="Adler2008LDX" title="Source 8"><a href="/adhd/sources/#src-Adler2008LDX">8</a></sup>. Atomoxetine may start within 1–2 weeks and keeps improving for months <sup class="c" data-ref="Clemow2015" title="Source 75"><a href="/adhd/sources/#src-Clemow2015">75</a></sup>.`],
  [3,`Why must guanfacine ER and clonidine ER be tapered?`,`Abrupt stopping can cause rebound hypertension; the Intuniv label states tapering by no more than 1 mg every 3 to 7 days <sup class="c" data-ref="FDA-Intuniv,FDA-ClonidineER" title="Source 140,147"><a href="/adhd/sources/#src-FDA-Intuniv">140,147</a></sup>.`],
- [3,`What did the Cortese 2018 network meta-analysis conclude?`,`The evidence "supports methylphenidate in children and adolescents, and amphetamines in adults, as preferred first-choice medications" for short-term treatment <sup class="c" data-ref="Cortese2018" title="Source 86"><a href="/adhd/sources/#src-Cortese2018">86</a></sup>.`],
+ [3,`What did the Cortese 2018 network meta-analysis conclude?`,`For short-term treatment, the evidence favours methylphenidate as the first choice in children and adolescents, and amphetamines in adults <sup class="c" data-ref="Cortese2018" title="Source 86"><a href="/adhd/sources/#src-Cortese2018">86</a></sup>.`],
  [3,`What does NICE NG87 offer first for adults and for children aged 5 and over?`,`Adults: lisdexamfetamine or methylphenidate. Children 5 and over: methylphenidate <sup class="c" data-ref="NICE2018F" title="Source 326"><a href="/adhd/sources/#src-NICE2018F">326</a></sup>.`],
  [3,`Do stimulants cause tics?`,`In 22 RCTs, new or worsening tics occurred as often on stimulants (5.7%) as on placebo (6.5%), RR 0.99 <sup class="c" data-ref="Cohen2015Tics" title="Source 76"><a href="/adhd/sources/#src-Cohen2015Tics">76</a></sup>.`],
  [3,`Which stimulant class carries the higher psychosis risk in young people?`,`Amphetamine: 0.21% vs 0.10% on methylphenidate (HR 1.65) in 13–25-year-olds <sup class="c" data-ref="Moran2019NEJM" title="Source 293"><a href="/adhd/sources/#src-Moran2019NEJM">293</a></sup>.`],
@@ -4326,8 +4326,8 @@ const RV_MN=[
  ["6 · 3 · 6, then 120 or 95","memory aid",`NICE as published: height every 6 months, weight every 3 months at age 10 and under, pulse and blood pressure every 6 months and after dose changes; review if resting heart rate stays above 120 or systolic pressure above the 95th percentile <sup class="c" data-ref="NICE2018F" title="Source 326"><a href="/adhd/sources/#src-NICE2018F">326</a></sup>.`],
  ["68 · 56 · 34 · 25","memory aid",`MTA "success" rates at 14 months: combined 68%, medication management 56%, behavioural treatment 34%, community care 25% <sup class="c" data-ref="Swanson2001MTA" title="Source 440"><a href="/adhd/sources/#src-Swanson2001MTA">440</a></sup>.`]
 ];
-const RV_A1=['careless mistakes','sustaining attention','seems not to listen','does not finish tasks','organising tasks','avoids mental effort','loses things','easily distracted','forgetful'];
-const RV_A2=['fidgets, taps, squirms','leaves seat','runs, climbs / restless','not quiet at play','"on the go"','talks excessively','blurts out answers','trouble waiting turn','interrupts, intrudes'];
+const RV_A1=['detail slips','staying focused','not listening','unfinished tasks','organising','avoids effort','mislays things','distractible','forgets routines'];
+const RV_A2=['fidgeting','leaves seat','runs about / restless','noisy at play','always busy','talks a lot','answers too soon','waiting is hard','cuts in on others'];
 const RV_ON1=[1,1,1,1,1,0,1,1,0],RV_ON2=[1,1,0,0,1,1,1,0,1];
 const RV_STEPS=[
  {from:0,at:.17,k:'18 · symptoms',t:'Nine plus nine',txt:`DSM-5-TR lists 9 inattentive symptoms (Criterion A1) and 9 hyperactive-impulsive symptoms (A2). Each must occur "often", for at least 6 months, beyond what is expected for developmental level <sup class="c" data-ref="APA2022DSM" title="Source 16"><a href="/adhd/sources/#src-APA2022DSM">16</a></sup>. This illustrative 9-year-old has 7 inattentive and 6 hyperactive-impulsive symptoms.`,pt:'There are two lists of nine signs: one about attention, one about restlessness and acting without thinking.',hook:'18 symptoms: 9 inattentive (A1) and 9 hyperactive-impulsive (A2) <sup class="c" data-ref="APA2022DSM" title="Source 16"><a href="/adhd/sources/#src-APA2022DSM">16</a></sup>.'},

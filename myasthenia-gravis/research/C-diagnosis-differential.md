@@ -87,11 +87,11 @@ This pass covers how myasthenia gravis (MG) is confirmed: antibody assays, elect
 
 ### Thymus imaging
 - Thymoma is present in up to 15% of MG patients, mostly AChR-antibody positive. No clinical or serological feature reliably excludes it, so thymus imaging is advised in all confirmed or strongly suspected MG. CT is preferred for screening [Rousseff2021].
-- All MG patients, whatever the subtype, should undergo chest imaging (CT or MRI) to screen for thymoma [Habib2025].
+- Every person with MG, of any subtype, should have chest CT or MRI to look for a thymoma [Habib2025].
 - In ICI-related MG, CT was negative for thymoma [Safa2019].
 
 ### Diagnostic pathway, step order as published
-- Gilhus: diagnosis is straightforward in most patients with typical symptoms and a positive antibody test. Detailed clinical and neurophysiological examination matters in antibody-negative patients. Patients are grouped by antibody, symptoms, age at onset and thymus pathology [Gilhus2019].
+- Gilhus: with typical symptoms and a positive antibody test, the diagnosis is usually simple. Without antibodies, careful clinical and neurophysiological testing carries more weight. Patients are grouped by antibody, symptoms, age at onset and thymus pathology [Gilhus2019].
 - Habib and Punga's order: 1) clinical examination for fatigable weakness (ocular, bulbar, limb-girdle); 2) antibody testing (RIA most sensitive for AChR and MuSK, then clustered-receptor CBA, with ELISA less specific); 3) RNS, with SFEMG if RNS is inconclusive; 4) chest CT or MRI in all. The ice-pack test is commonly used for ptosis, and an AChE-inhibitor response may support diagnosis [Habib2025].
 - Rousseff's suggested order: Step 1 is AChR and MuSK antibodies in anyone with the clinical picture; a positive result is diagnostic per some authors. Step 2 (if seropositive) is thymus imaging and thyroid function tests. Step 3 (if seronegative) is RNS of clinically affected muscles, as many as tolerated, then jitter if RNS is negative; a confirmed postsynaptic disorder makes the diagnosis definite. Step 4 is a pharmacological test as a second-line alternative where available, especially in ocular MG, with the ice-pack "recommended by some" at this step. Step 5: if everything is negative but there is clearly fluctuating asymmetric ptosis and diplopia, ocular MG is "probable", with observation and retesting; UK guidance suggests brain imaging to exclude structural mimics [Rousseff2021].
 - Patients negative on all objective tests but still symptomatic are unlikely to have MG. Such cases, undiagnosed after 2 years at a specialized MG clinic, may be over 10% of referrals [Rousseff2021].
@@ -99,55 +99,46 @@ This pass covers how myasthenia gravis (MG) is confirmed: antibody assays, elect
 - Misdiagnosis cost: among 61 patients reviewed after SFEMG was introduced locally, 8 had been wrongly diagnosed and treated as refractory MG. The mean duration of misdiagnosis was 9 years (SD 5.2), and the 8 included two thymectomies. Mimics should be suspected when disease is static and treatment-refractory, and functional mimics when flares are frequent [Harrison2023].
 - Of 80 patients diagnosed with double-seronegative MG at two Italian centres (2012-2024), MG was confirmed in 64% (51). The other 36% (29) received alternative diagnoses, and RNS and SFEMG were "highly accurate" in identifying MG [Maccora2025].
 
-### MGFA clinical classification (Jaretzki 2000; MGFA wording)
-- Class I: "Any ocular muscle weakness; may have weakness of eye closure. All other muscle strength is normal." [Jaretzki2000; MGFAClass2016]
-- Class II: "Mild weakness affecting muscles other than ocular muscles; may also have ocular muscle weakness of any severity." IIa: "Predominantly affecting limb, axial muscles, or both. May also have lesser involvement of oropharyngeal muscles." IIb: "Predominantly affecting oropharyngeal, respiratory muscles, or both. May also have lesser or equal involvement of limb, axial muscles, or both." [Jaretzki2000; MGFAClass2016]
-- Class III: "Moderate weakness affecting muscles other than ocular muscles; may also have ocular muscle weakness of any severity." IIIa and IIIb use the same "a" (limb/axial predominant) and "b" (oropharyngeal/respiratory predominant) wording as IIa/IIb [Jaretzki2000; MGFAClass2016].
-- Class IV: "Severe weakness affecting muscles other than ocular muscles; may also have ocular muscle weakness of any severity." IVa and IVb use the same a/b wording [Jaretzki2000; MGFAClass2016].
-- Class V: "Defined as intubation, with or without mechanical ventilation, except when employed during routine postoperative management. The use of a feeding tube without intubation places the patient in class IVb." [Jaretzki2000; MGFAClass2016]
-- Definitional difference for the app: the 2016 consensus defines manifest myasthenic crisis as MGFA Class V meaning "worsening of myasthenic weakness requiring intubation or noninvasive ventilation to avoid intubation". This adds non-invasive ventilation, which the original Class V wording does not include [Sanders2016; MGFAClass2016].
-- The 2016 consensus defines ocular MG as MGFA Class I at a specified point in time, not dependent on disease duration. It adds that some patients report fatigue with normal strength testing and that clinicians should use judgment before attributing fatigue to generalized MG [Sanders2016].
+### MGFA clinical classification (Jaretzki 2000; summarised, official wording on the MGFA form)
+- Class I: weakness confined to the eye muscles; weak eye closing may be present; all other strength normal [Jaretzki2000; MGFAClass2016].
+- Classes II, III and IV: mild, moderate and severe weakness in muscles beyond the eyes, with eye-muscle weakness of any degree also allowed. Subtype "a": mainly limb and/or axial muscles, with lesser mouth-and-throat involvement possible. Subtype "b": mainly oropharyngeal and/or breathing muscles, with limb or axial involvement equal or lesser. The same a/b split applies at each of II, III and IV [Jaretzki2000; MGFAClass2016].
+- Class V: intubation, with or without mechanical ventilation, excluding intubation that is only part of routine post-operative care. A feeding tube without intubation is classed as IVb [Jaretzki2000; MGFAClass2016].
+- Definitional difference for the app: the 2016 consensus defines manifest myasthenic crisis as MGFA Class V meaning worsening weakness "requiring intubation or noninvasive ventilation to avoid intubation". This adds non-invasive ventilation, which the original Class V wording does not include [Sanders2016; MGFAClass2016].
+- The 2016 consensus treats ocular MG as MGFA Class I at a given point in time, whatever the disease duration. It notes that some patients report fatigue while strength tests are normal, and asks clinicians to use judgment before blaming that fatigue on generalized MG [Sanders2016].
 - The MGFA clinical classification describes disease at that examination and should be updated every 3-6 months to reflect current status [Ruzhansky2025].
 
 ### MGFA post-intervention status (MGFA-PIS)
-- Complete stable remission (CSR): no symptoms or signs of MG for at least 1 year and no MG therapy during that time. There is no weakness of any muscle on careful examination by someone skilled in neuromuscular evaluation, though isolated weakness of eyelid closure is accepted [Jaretzki2000; MGFAPIS2016].
-- Pharmacologic remission (PR): the same criteria as CSR except the patient continues some form of MG therapy. Patients taking cholinesterase inhibitors are excluded, because their use suggests weakness [Jaretzki2000; MGFAPIS2016].
-- Minimal manifestations (MM): no symptoms of functional limitation from MG but some weakness on examination of some muscles [Jaretzki2000; MGFAPIS2016]. Subgroups by treatment:
+- Complete stable remission (CSR): at least 1 year with no MG symptoms or signs and no MG treatment; careful examination by an experienced neuromuscular examiner finds no weak muscle, though weak eye closing on its own is allowed [Jaretzki2000; MGFAPIS2016].
+- Pharmacologic remission (PR): as for CSR, except that some MG treatment continues. Anyone on a cholinesterase inhibitor does not qualify, since needing one points to remaining weakness [Jaretzki2000; MGFAPIS2016].
+- Minimal manifestations (MM): MG does not limit function, but examination still finds some weak muscles [Jaretzki2000; MGFAPIS2016]. Subgroups by treatment:
   - MM-0: no MG treatment for at least 1 year.
-  - MM-1: continuing immunosuppression but no cholinesterase inhibitors or other symptomatic therapy.
-  - MM-2: only low-dose cholinesterase inhibitors (<120 mg pyridostigmine/day) for at least 1 year.
-  - MM-3: cholinesterase inhibitors or other symptomatic therapy plus some immunosuppression during the past year [MGFAPIS2016].
+  - MM-1: still on immunosuppression, with no cholinesterase inhibitor or other drug for symptoms.
+  - MM-2: a low-dose cholinesterase inhibitor (<120 mg pyridostigmine/day) as the only treatment for at least 1 year.
+  - MM-3: a cholinesterase inhibitor or other drug for symptoms together with some immunosuppression in the past year [MGFAPIS2016].
 - Change in status [MGFAPIS2016]:
-  - Improved (I): a substantial decrease in pretreatment manifestations, or a sustained substantial reduction in MG medications; in prospective studies, a specific decrease in QMG score.
-  - Unchanged (U): no substantial change.
-  - Worse (W): a substantial increase in manifestations or in MG medications.
-  - Exacerbation (E): a patient who met CSR, PR or MM criteria then developed findings beyond those criteria.
-  - Died of MG (D of MG): death from MG, from complications of therapy, or within 30 days after thymectomy.
+  - Improved (I): clearly fewer manifestations than before treatment, or a lasting, clear cut in MG medicines; prospective studies set a defined fall in QMG score.
+  - Unchanged (U): no clear change.
+  - Worse (W): clearly more manifestations, or clearly more MG medicine needed.
+  - Exacerbation (E): CSR, PR or MM had been reached, and findings later went beyond that status.
+  - Died of MG (D of MG): death from MG, from a complication of its treatment, or within 30 days of thymectomy.
 - The 2016 consensus defines the treatment goal as MGFA-PIS minimal manifestation status or better, with no more than CTCAE grade 1 medication side effects. Its remission definition excludes patients taking ChEIs every day with reasonable evidence of symptomatic benefit. Refractory MG is PIS unchanged or worse after corticosteroids and at least 2 other immunosuppressive agents at adequate dose and duration [Sanders2016].
 - The 2025 MGFA task force: MGFA-PIS is the evaluator's overall clinical judgement and does not require a defined change on any outcome measure [Ruzhansky2025].
 
-### MG-ADL (Wolfe 1999): 8 items, anchors 0/1/2/3
-- Talking: 0 Normal; 1 Intermittent slurring or nasal speech; 2 Constant slurring or nasal, but can be understood; 3 Difficult to understand speech [Wolfe1999; MGADLForm].
-- Chewing: 0 Normal; 1 Fatigue with solid food; 2 Fatigue with soft food; 3 Gastric tube [Wolfe1999; MGADLForm].
-- Swallowing: 0 Normal; 1 Rare episode of choking; 2 Frequent choking necessitating changes in diet; 3 Gastric tube [Wolfe1999; MGADLForm].
-- Breathing: 0 Normal; 1 Shortness of breath with exertion; 2 Shortness of breath at rest; 3 Ventilator dependence [Wolfe1999; MGADLForm].
-- Impairment of ability to brush teeth or comb hair: 0 None; 1 Extra effort, but no rest periods needed; 2 Rest periods needed; 3 Cannot do one of these functions [Wolfe1999; MGADLForm].
-- Impairment of ability to arise from a chair: 0 None; 1 Mild, sometimes uses arms; 2 Moderate, always uses arms; 3 Severe, requires assistance [Wolfe1999; MGADLForm].
-- Double vision: 0 None; 1 Occurs, but not daily; 2 Daily, but not constant; 3 Constant [Wolfe1999; MGADLForm].
-- Eyelid droop: 0 None; 1 Occurs, but not daily; 2 Daily, but not constant; 3 Constant [Wolfe1999; MGADLForm].
+### MG-ADL (Wolfe 1999): 8 items, each scored 0-3
+- Topics: talking, chewing, swallowing, breathing, teeth and hair care, getting up from a chair, double vision, drooping eyelids. Each item runs from 0 (normal) to 3 (most affected). Question and answer wording is not reproduced here; it is on the official form [Wolfe1999; MGADLForm].
 - Total = sum of items 1-8, range 0-24. The items cover 2 ocular, 3 oropharyngeal, 1 respiratory and 2 extremity symptoms. Current MGNet instructions: self-completed by the patient, rating average function over the last 7 days, taking current MG medicines into account and counting only MG-related symptoms. If torn between two scores, record the higher [MGNetADL2022].
 - Original validation: 254 consecutive encounters, mean MG-ADL 4.89 ± 3.63 versus mean QMG 10.80 ± 5.70, with Pearson r=0.583 (p<0.001) [Wolfe1999].
 - Clinically meaningful change: a 2-point improvement in MG-ADL indicates clinical improvement. In 87 patients, the correlation with MG Composite was r=0.85 [Muppidi2011].
 - Other MG-ADL thresholds collected by MGNet: "minimal symptom expression" is an MG-ADL of 0 or 1, used as a trial endpoint; the patient-acceptable symptom state (PASS) threshold is 2; and the scale has a floor effect [MGNetSummaries2023].
 
 ### QMG, MG Composite, MG-QOL15r
-- QMG has 13 clinician-administered items, each graded 0 (none) to 3 (severe), for a total range of 0-39. The items are diplopia on lateral gaze, ptosis on upward gaze, facial muscles, swallowing, speech, right and left arm outstretched, FVC, right and left hand grip, head lift, and right and left leg outstretched. It takes about 20-30 min and needs a spirometer, stopwatch and dynamometer [MGNetSummaries2023; MGNetQMGR2022].
+- QMG has 13 clinician-administered items, each graded 0 (none) to 3 (severe), for a total range of 0-39. Topics: double vision, eyelid droop, face, swallowing, speech, FVC, head lift, and on each side arm holding time, grip and leg holding time. It takes about 20-30 min and needs a spirometer, stopwatch and dynamometer [MGNetSummaries2023; MGNetQMGR2022].
 - QMG meaningful change: MCID cut-offs were below a QMG change of 3.0 in an IVIg vs placebo trial [Katzberg2014]. The MGNet summary gives these thresholds: ≥2 points if baseline QMG is 0-16 and ≥3 points if >16 (Katzberg), ≥2.3 (Bedlack) and 2.6 (Barohn). The individual minimum detectable change of 4.3 may exceed the MCID [MGNetSummaries2023; Bedlack2005; Barohn1998].
 - QMG responsiveness and longitudinal construct validity were confirmed in 53 patients [Bedlack2005].
-- MG Composite has 10 items and weighted scoring, maximum 50 [Burns2008; MGNetMGC2022]:
-  - Ptosis on upgaze: >45 s 0; 11-45 s 1; 1-10 s 2; immediate 3.
-  - Diplopia on lateral gaze: >45 s 0; 11-45 s 1; 1-10 s 3; immediate 4.
-  - Eye closure: normal 0; mild (forced open with effort) 0; moderate (forced open easily) 1; severe (cannot keep closed) 2.
+- MG Composite has 10 items and weighted scoring, maximum 50. Points per level (level wording is on the official form, not reproduced) [Burns2008; MGNetMGC2022]:
+  - Ptosis on upgaze: 0/1/2/3.
+  - Diplopia on lateral gaze: 0/1/3/4.
+  - Eye closure: 0/0/1/2.
   - Talking: 0/2/4/6.
   - Chewing: 0/2/4/6.
   - Swallowing: 0/2/5/6.
@@ -155,7 +146,6 @@ This pass covers how myasthenia gravis (MG) is confirmed: antibody assays, elect
   - Neck flexion or extension: 0/1/3/4.
   - Shoulder abduction: 0/2/4/5.
   - Hip flexion: 0/2/4/5.
-  - Mild = MRC 4+, moderate = MRC 4 to 4-, severe = MRC 3 or less.
 - MG Composite validation: 175 patients at 11 centres. A 3-point improvement was optimal for signifying clinical improvement, and test-retest reliability was 98% (lower 95% CI 97%) [Burns2010].
 - MG-QOL15 was revised to the MG-QOL15r after Rasch analysis of >1,300 surveys: 3 items were reworded and a 3-response format performed best. The MG-QOL15r is the preferred HRQOL instrument [Burns2016]. With 15 items at 3 response levels (0-2), the total range is 0-30; this range is inferred from the item structure, not stated in the abstract.
 - The MG-QOL15r MCID, anchored to MG-ADL in ADAPT (n=157) and MyRealWorld-MG (n=92), ranged from 1.6 to 3.0. The authors suggest 2- and 3-point thresholds [Ben2026].

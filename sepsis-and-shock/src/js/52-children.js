@@ -2,7 +2,7 @@
 /* timings from Thompson 2006 (meningococcal disease in 448 UK children); hour = t*24 */
 const CH_STEPS=[
  {from:0,at:2/24,t:'0–6 h',k:'First hours',h:'At first, it looks like any illness',
-  txt:`Most children had only non-specific symptoms in the first 4–6 hours, the kind seen with many ordinary infections, yet many were close to death by 24 hours. This is why early recognition is so hard. [[Thompson2006Meningococcal]]`,
+  txt:`For the first 4–6 hours, most children showed only vague symptoms, the kind seen with many ordinary infections, yet many were close to death by 24 hours. This is why early recognition is so hard. [[Thompson2006Meningococcal]]`,
   pt:`In the first hours, a child with sepsis can look like a child with a cold or a tummy bug. What matters is how fast things change.`,
   hook:`Meningococcal disease: non-specific symptoms in the first 4–6 h.`},
  {from:6/24,at:8.5/24,t:'≈8 h',k:'Early sepsis signs',h:'Leg pain, cold hands and feet, odd skin colour',
@@ -18,7 +18,7 @@ const CH_STEPS=[
   pt:`Many children were seen by a doctor early but sent home, because it looked like a minor illness. If your child gets worse after being seen, go back or call for help. That is the right thing to do.`,
   hook:`Only 51% were referred to hospital at the first consultation.`},
  {from:21/24,at:23.6/24,t:'24 h',k:'By 24 hours',h:'Why hours matter',
-  txt:`Most children had only non-specific symptoms in the first 4–6 hours but were close to death by 24 hours. The window between the early sepsis signs (about 8 h) and admission (about 19 h) is where recognition can be earlier. [[Thompson2006Meningococcal]]`,
+  txt:`For the first 4–6 hours most children showed only vague symptoms, yet by 24 hours many were close to death. The window between the early sepsis signs (about 8 h) and admission (about 19 h) is where recognition can be earlier. [[Thompson2006Meningococcal]]`,
   pt:`Spotting the early signs gives doctors hours that matter. You do not need to be sure it is sepsis to ask for help.`,
   hook:`Early signs at ~8 h, admission at ~19 h: an 11-hour window for earlier recognition.`}];
 const CH_CHIPS=[{h:0,s:'Non-specific symptoms'},{h:8,s:'Leg pain'},{h:8,s:'Cold hands and feet'},{h:8,s:'Abnormal skin colour'},{h:13,s:'Haemorrhagic rash'},{h:13,s:'Stiff neck'},{h:13,s:'Drowsy, hard to wake'},{h:19,s:'Admitted to hospital'}];

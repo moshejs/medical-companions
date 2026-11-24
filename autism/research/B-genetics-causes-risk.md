@@ -64,7 +64,7 @@ Access notes:
 - In that GWAS, SNP heritability on the liability scale was 0.118 (SE 0.010), assuming a population prevalence of 1.2% [[Grove2019]].
 - Genetic correlations of autism in that GWAS were 0.412 with major depression, 0.211 with schizophrenia and 0.199 with educational attainment (all P<10⁻⁴) [[Grove2019]].
 - In more than 2,500 simplex families, de novo missense and de novo likely gene-disrupting mutations contributed to about 12% and 9% of diagnoses respectively [[Iossifov2014]].
-- Including copy-number variants, coding de novo mutations contribute to about 30% of all simplex diagnoses and 45% of diagnoses in girls [[Iossifov2014]].
+- Counting copy-number variants as well, new (de novo) coding mutations account for about 30% of simplex diagnoses overall and 45% in girls [[Iossifov2014]].
 - About one-third of de novo variants seen in families also appear as ordinary variation in 60,706 population adults (ExAC). Those variants do not add neurodevelopmental risk, so population reference data are essential when interpreting a "new" variant [[Kosmicki2017]].
 - The Simons Simplex Collection CNV analysis (2,591 families) confirmed six de novo CNV risk loci: 1q21.1, 3q29, 7q11.23, 16p11.2, 15q11.2–13 and 22q11.2. Together with 65 genes, these made 71 risk loci [[Sanders2015Neuron]].
 - An exome study of 35,584 samples (11,986 autistic) identified 102 risk genes at FDR ≤0.1 [[Satterstrom2020]].
@@ -115,7 +115,7 @@ Access notes:
 - FMR1 lies on the X chromosome (Xq27.3) [[Verkerk1991]]. In line with X-linkage, autism is more common in males with fragile X (about half) than in females (14–20%) [[Kaufmann2017,Marlborough2021]].
 - Pedigree teaching point: a full mutation passed from a mother to a son is not offset by a second X, whereas daughters have a second X that partly compensates (unverified: standard X-linked inheritance, not quoted from a cited abstract).
 - Rett syndrome is caused by mutations in the X-linked gene MECP2. In the discovery paper, 5 of 21 sporadic patients carried de novo mutations [[Amir1999]].
-- Rett syndrome affects about 1 in 10,000 live female births and is often caused by MECP2 mutations. It remains a clinical diagnosis based on distinct criteria, whatever the molecular result [[Neul2010]].
+- Rett syndrome occurs in about 1 in 10,000 girls born alive, usually because of a MECP2 mutation. It remains a clinical diagnosis based on distinct criteria, whatever the molecular result [[Neul2010]].
 - Classic Rett syndrome has been proposed to be X-linked dominant with lethality in hemizygous males, which is why it occurs almost only in females. Children appear to develop typically until 6–18 months. They then lose speech and purposeful hand use and develop features that include autism [[Amir1999]].
 - Tuberous sclerosis complex (TSC) is autosomal dominant. It is caused by loss-of-function variants in TSC1 or TSC2, which overactivate mTOR signalling. Its neuropsychiatric features (TAND) can include autism and cognitive disability [[Henske2016]].
 - In a cohort of 50 children with TSC assessed in depth, 28 (56%) were autistic. Autistic children were more likely to have intellectual disability (79% vs 32%) [[Mitchell2025TSC]].
@@ -193,7 +193,7 @@ Access notes:
 - In 655,615 Danish children, the 14-year absolute risk of ASD was 1.53% (95% CI 1.47–1.58%) overall. It was 4.42% (2.59–7.46%) in the 508 children exposed to valproate in pregnancy (adjusted HR 2.9; 1.7–4.9) [[Christensen2013]].
 - In the same cohort, childhood autism risk was 2.50% after valproate exposure against 0.48% overall (adjusted HR 5.2; 2.7–10.0) [[Christensen2013]].
 - Restricting to the 6,584 children of mothers with epilepsy, ASD risk was 4.15% (2.20–7.81%) in 432 valproate-exposed children and 2.44% (1.88–3.16%) in 6,152 unexposed children. The adjusted HR was 1.7 (0.9–3.2) for ASD and 2.9 (1.4–6.0) for childhood autism [[Christensen2013]].
-- The US Depakote label's boxed warning on Fetal Risk states that "valproate can cause decreased IQ scores and neurodevelopmental disorders following in utero exposure" [[FDA-Depakote]].
+- The US Depakote label carries a boxed warning on fetal risk: exposure to valproate in the womb can lower IQ scores and cause neurodevelopmental disorders [[FDA-Depakote]].
 - Section 8.1 of the same label names ASD, intellectual disability and ADHD among these risks, compared with exposure to other antiseizure drugs or none [[FDA-Depakote]].
 - The label states valproate should not be used in pregnant women with epilepsy or bipolar disorder unless other medicines have failed or are unacceptable, and that it is contraindicated for migraine prophylaxis in pregnancy. Quoted as published, not as advice. Anyone taking valproate should not stop it without their prescriber [[FDA-Depakote]].
 - At population level, first-trimester antidepressant exposure was linked with ASD in 1,580,629 Swedish offspring (5.28% exposed vs 2.14% unexposed by age 15; HR 2.02) [[Sujan2017]].

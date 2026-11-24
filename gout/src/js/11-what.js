@@ -51,9 +51,9 @@ const WH_J=[
  {id:'fing',n:'Fingers',bar:null,v:'—',x:312,y:284,lx:312,ly:322,a:'middle',lab:'fingers',
   txt:'MCP and finger joints can be involved. [[Roddy2011]] Tophi form in finger pads. [[Neogi2015]] Women with gout have less podagra and more involvement of other joints than men. [[DirkenHeukensfeldt2010]] In a polyarticular pattern, foot involvement is not specific for gout, because rheumatoid arthritis does it too. [[Neogi2015]]'},
  {id:'olec',n:'Elbow (olecranon bursa)',bar:null,v:'tophi',x:228,y:146,lx:222,ly:176,a:'end',lab:'olecranon',
-  txt:'The bursa over the point of the elbow is a typical place for tophi. [[Neogi2015]] Bursae count from the start: the entry criterion of the 2015 criteria is at least one episode of swelling, pain or tenderness in a peripheral joint or bursa. [[Neogi2015]]'},
+  txt:'The bursa over the point of the elbow is a typical place for tophi. [[Neogi2015]] Bursae count from the start: to enter the 2015 criteria, a peripheral joint or bursa must have been swollen, painful or tender at least once. [[Neogi2015]]'},
  {id:'ear',n:'Ear (helix)',bar:null,v:'tophi',x:331,y:62,lx:300,ly:24,a:'middle',lab:'ear helix',
-  txt:'A tophus is a chalk-like nodule under thin skin, often with small vessels over it, in typical places such as the ears. A clinical tophus scores 4 points in the 2015 criteria. [[Neogi2015]] In 1797 Wollaston showed urate in a tophus from his own ear. [[Nuki2006]]'}
+  txt:'A tophus is a chalky lump under thin skin, sometimes with small blood vessels visible over it, found in places such as the ears. A clinical tophus scores 4 points in the 2015 criteria. [[Neogi2015]] In 1797 Wollaston showed urate in a tophus from his own ear. [[Nuki2006]]'}
 ];
 inits.what=()=>{
   /* ---------- 1. population bars ---------- */

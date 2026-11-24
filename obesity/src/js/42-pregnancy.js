@@ -19,7 +19,7 @@ const PG_LAMP=[
 const PG_GWG=[{b:'BMI under 18.5',lo:12.5,hi:18},{b:'BMI 18.5 to 24.9',lo:11.5,hi:16},{b:'BMI 25 to 29.9',lo:7,hi:11},{b:'BMI 30 or more',lo:5,hi:9}];
 const PG_STEPS=[
  {from:0,at:.06,k:'Before pregnancy',t:'Fertility and planning',
-  txt:'Obesity is the most common medical condition in women of reproductive age. [[ACOG2021PB230,Catalano2017]] It reduces fertility and increases the time taken to conceive. [[Poston2016]] In 47,835 Danish couples, each step up in BMI group raised the odds of taking more than 12 months to conceive (OR 1.32 per group in women, 1.19 in men). [[RamlauHansen2007]] ACOG recommends that obesity management begin before pregnancy and continue through the postpartum period. [[ACOG2021PB230]]',
+  txt:'No medical condition is more common than obesity in women of reproductive age. [[ACOG2021PB230,Catalano2017]] It reduces fertility and increases the time taken to conceive. [[Poston2016]] In 47,835 Danish couples, each step up in BMI group raised the odds of taking more than 12 months to conceive (OR 1.32 per group in women, 1.19 in men). [[RamlauHansen2007]] ACOG recommends that obesity management begin before pregnancy and continue through the postpartum period. [[ACOG2021PB230]]',
   pt:'Planning ahead helps: a check-up before pregnancy is a good time to talk about vitamins, any weight medicines and other health conditions.',
   hook:'Wegovy label: stop at least 2 months before a planned pregnancy. [[FDA-Wegovy]]'},
  {from:.16,at:.22,k:'Weeks 0 to 13',t:'The first trimester',
@@ -49,7 +49,7 @@ const PG_CARDS=[
   bars:[{r:0,a:-6,b:-2,col:'var(--rx-drug)',l:'on semaglutide'},{r:0,a:-2,b:0,col:'var(--warn)',l:'2 months off',out:1}],
   marks:[{at:0,l:'planned conception'}],
   k:'Label statement, quoted',t:'Stop at least 2 months before',
-  txt:'The Wegovy label: “discontinue WEGOVY in patients at least 2 months before they plan to become pregnant to account for the long half-life of semaglutide”. It also says to stop when pregnancy is recognised: weight loss offers no benefit in pregnancy and may cause fetal harm, and semaglutide caused embryofetal harm in animal studies. [[FDA-Wegovy]] In early-pregnancy data from mothers with type 2 diabetes (938 exposed infants), the adjusted RR for major malformations vs insulin was 0.95 (95% CI 0.72 to 1.26), reassuring but imprecise. <span class="ev early">Early evidence</span> [[Cesta2024Pregnancy]]'},
+  txt:'The Wegovy label advises stopping Wegovy at least 2 months before a planned pregnancy, because semaglutide has a long half-life. It also says to stop when pregnancy is recognised: weight loss offers no benefit in pregnancy and may cause fetal harm, and semaglutide caused embryofetal harm in animal studies. [[FDA-Wegovy]] In early-pregnancy data from mothers with type 2 diabetes (938 exposed infants), the adjusted RR for major malformations vs insulin was 0.95 (95% CI 0.72 to 1.26), reassuring but imprecise. <span class="ev early">Early evidence</span> [[Cesta2024Pregnancy]]'},
  {b:'Tirzepatide (Zepbound)',ax:{a:0,b:24,step:4,u:'weeks after starting'},
   bars:[{r:0,a:0,b:4,col:'var(--rx-drug)',l:'2.5 mg',op:.45},{r:0,a:4,b:8,col:'var(--rx-drug)',l:'5',op:.6},{r:0,a:8,b:12,col:'var(--rx-drug)',l:'7.5',op:.8},{r:0,a:12,b:24,col:'var(--rx-drug)',l:'10 mg maintenance'},
         {r:1,a:0,b:4,col:'var(--warn)',l:'4 wk',out:1},{r:1,a:4,b:8,col:'var(--warn)',l:'4 wk',out:1},{r:1,a:8,b:12,col:'var(--warn)',l:'4 wk',out:1},{r:1,a:12,b:16,col:'var(--warn)',l:'4 wk',out:1}],

@@ -3,29 +3,29 @@ inits.criteria=()=>{
   const svg=$('#crSvg'),rg=$('#crT');
   /* Feature A: short label for the animation, longer wording for the checklist */
   const A=[
-    ['Soft skin','Unusually soft or velvety skin'],
-    ['Skin stretch','Mild skin hyperextensibility','over 1.5 cm forearm or back of hand; over 3 cm neck, elbow, knee; over 1 cm palm'],
-    ['Striae','Unexplained striae','back, groins, thighs, breasts or abdomen; no significant weight change'],
-    ['Heel papules','Bilateral piezogenic papules of the heel'],
-    ['Hernias','Recurrent or multiple abdominal hernias'],
-    ['Atrophic scars','Atrophic scarring at 2 or more sites','not truly paper-thin or haemosiderotic'],
-    ['Prolapse','Pelvic floor, rectal or uterine prolapse','only in children, men or nulliparous women, without other cause'],
-    ['Palate, teeth','Dental crowding with a high or narrow palate'],
-    ['Long fingers','Arachnodactyly','positive wrist or thumb sign on both sides'],
-    ['Span ≥1.05','Arm span-to-height ratio ≥ 1.05'],
-    ['MVP','Mitral valve prolapse','mild or greater on strict echo criteria'],
-    ['Aortic root','Aortic root dilatation, Z-score above +2']];
-  const CC=[['Pain in 2+ limbs','Musculoskeletal pain in two or more limbs, recurring daily for at least 3 months'],
-    ['Widespread pain','Chronic widespread pain for 3 months or more'],
-    ['Dislocations','Recurrent joint dislocations or frank joint instability without trauma']];
-  const EX=[['No skin fragility','No unusual skin fragility'],
-    ['No other CTD','Other heritable and acquired connective tissue disorders excluded','including autoimmune rheumatological conditions'],
-    ['No alternative','Alternative diagnoses excluded','hypermobility from hypotonia or tissue laxity: neuromuscular disorders, other EDS types, Marfan, Loeys-Dietz, skeletal dysplasias']];
+    ['Soft skin','Skin that feels unusually soft or velvety'],
+    ['Skin stretch','Skin that stretches a little more than usual','beyond 1.5 cm on the forearm or back of the hand, 3 cm on the neck, elbow or knee, 1 cm on the palm'],
+    ['Striae','Stretch marks with no clear cause','only on the back, groins, thighs, breasts or abdomen, and not after a big weight change'],
+    ['Heel papules','Small bumps on both heels on standing (piezogenic papules)'],
+    ['Hernias','Abdominal hernias that keep coming back, or more than one'],
+    ['Atrophic scars','Thin, sunken scars in 2 or more places','not truly paper-thin and not stained by old blood (haemosiderin)'],
+    ['Prolapse','Prolapse of the pelvic floor, rectum or womb','counts only in children, men or women who have never given birth, with no other cause'],
+    ['Palate, teeth','Crowded teeth with a high or narrow palate'],
+    ['Long fingers','Long, slender fingers (arachnodactyly)','wrist sign or thumb sign present on both hands'],
+    ['Span ≥1.05','Arm span at least 1.05 times height'],
+    ['MVP','Mitral valve prolapse','at least mild when strict echo criteria are used'],
+    ['Aortic root','Widened aortic root, Z-score over +2']];
+  const CC=[['Pain in 2+ limbs','Daily pain in the muscles or joints of two or more limbs, going on for at least 3 months'],
+    ['Widespread pain','Long-term pain all over the body for 3 months or more'],
+    ['Dislocations','Joints that dislocate again and again, or are clearly unstable, without an injury']];
+  const EX=[['No skin fragility','Skin that is not unusually fragile'],
+    ['No other CTD','Other connective tissue disorders ruled out','inherited and acquired ones, autoimmune rheumatic disease among them'],
+    ['No alternative','Other causes of loose joints ruled out','low muscle tone or lax tissue from, for example, neuromuscular disorders, other EDS types, Marfan, Loeys-Dietz or skeletal dysplasias']];
   const AFILL=[0,1,2,3,7];/* the illustrative person's five Feature A items, in the order they are found */
 
   const STEPS=[
     {from:0,at:.12,k:'The rule',t:'Three gates, all required',
-     txt:`A diagnosis of hEDS needs Criterion 1, Criterion 2 and Criterion 3 all to be met. hEDS is the only one of the 13 types of the 2017 classification without a known gene, so no genetic test can confirm it; for every other type a definite diagnosis "relies on molecular confirmation". The 2017 consortium revised the hEDS criteria "to allow for a better distinction from other joint hypermobility disorders". [[Fairweather2025,Malfait2017,Yew2021]]`,
+     txt:`A diagnosis of hEDS needs Criterion 1, Criterion 2 and Criterion 3 all to be met. hEDS is the only one of the 13 types of the 2017 classification without a known gene, so no genetic test can confirm it; for every other type a definite diagnosis "relies on molecular confirmation". The 2017 consortium tightened the hEDS criteria so that hEDS could be told apart more clearly from other conditions with loose joints. [[Fairweather2025,Malfait2017,Yew2021]]`,
      pt:`There is no blood or gene test for hypermobile EDS yet. Doctors use a three-part checklist, and every part has to be met.`,
      hook:`hEDS = Criterion 1 (GJH) + Criterion 2 (2 of Features A, B, C) + Criterion 3 (exclusions). [[Fairweather2025,Thwaites2022]]`},
     {from:.14,at:.31,k:'Gate 1 · Criterion 1',t:'Generalised joint hypermobility',
@@ -37,11 +37,11 @@ inits.criteria=()=>{
      pt:`Doctors check the skin, the mouth, the hands, body proportions and a heart scan for small signs that the body's connective tissue is different. Five of twelve are needed.`,
      hook:`Feature A threshold: ≥ 5 of 12 items. Heel piezogenic papules were added in 2017. [[Fairweather2025,AubryRozier2021]]`},
     {from:.52,at:.66,k:'Gate 2 · Features B and C',t:'Two of A, B and C',
-     txt:`Feature B is a first-degree relative who independently meets the current hEDS criteria. Feature C is musculoskeletal complications: daily pain in two or more limbs for at least 3 months, chronic widespread pain for 3 months or more, or recurrent atraumatic dislocations or instability. Criterion 2 needs any two of A, B and C; this person has all three, so the gate opens. [[Fairweather2025,Thwaites2022]]`,
+     txt:`Feature B is a parent, brother, sister or child who meets the current hEDS criteria in their own right. Feature C is about joints and muscles: daily pain in two or more limbs lasting at least 3 months, long-term pain all over the body for 3 months or more, or repeated dislocations or instability without injury. Criterion 2 needs any two of A, B and C; this person has all three, so the gate opens. [[Fairweather2025,Thwaites2022]]`,
      pt:`The second gate asks about body signs, close family and long-lasting pain or unstable joints. Two of these three are enough.`,
      hook:`Criterion 2 = 2 of 3 Features. Feature C needs only 1 of its 3 items. [[Thwaites2022]]`},
     {from:.68,at:.86,k:'Gate 3 · Criterion 3',t:'Excluding other causes',
-     txt:`Three exclusions must all hold: no unusual skin fragility (which should prompt consideration of other EDS types); other heritable and acquired connective tissue disorders excluded, including autoimmune rheumatological conditions; and alternative diagnoses that cause hypermobility through hypotonia or tissue laxity excluded, such as myopathic EDS, Bethlem myopathy, Marfan or Loeys-Dietz syndrome and osteogenesis imperfecta. Exclusion can rest on history, examination and molecular testing "as indicated". [[Fairweather2025,Thwaites2022]]`,
+     txt:`All three exclusions have to hold. The skin must not be unusually fragile; if it is, other EDS types come into question. Other connective tissue disorders, inherited or acquired, must be ruled out, autoimmune rheumatic disease among them. And other conditions that loosen joints through low muscle tone or lax tissue must be ruled out too, for example myopathic EDS, Bethlem myopathy, Marfan or Loeys-Dietz syndrome and osteogenesis imperfecta. History, examination and, where needed, gene testing are the tools for this. [[Fairweather2025,Thwaites2022]]`,
      pt:`Last, the doctor makes sure nothing else explains the picture, including other types of EDS that a gene test can find.`,
      hook:`With an acquired autoimmune disease (e.g. lupus), hEDS needs Features A and B; Feature C cannot count. [[Fairweather2025]]`},
     {from:.88,at:.98,k:'The exits',t:'All three met, and the other doors',
@@ -102,7 +102,7 @@ inits.criteria=()=>{
     {const [bx,by,bw]=G.box[2];
       s+=`<text x="${bx+14}" y="${by+22}" class="t-sm" style="fill:var(--dx)">GATE 3 · CRITERION 3</text>`;
       if(!N)s+=`<text x="${bx+14}" y="${by+44}" class="t-lbl">Exclusions, all 3</text>`;
-      EX.forEach((e,k)=>{const y=N?by+44+k*20:by+80+k*44;s+=tick(bx+24,y-4,k<exN,8)+`<text x="${bx+40}" y="${y}" class="t-lbl" style="font-size:${N?12:12.5}px;${k<exN?'':'fill:var(--muted)'}">${N?e[1].replace('Other heritable and acquired connective tissue disorders excluded','Other connective tissue disorders excluded'):e[0]}</text>`;
+      EX.forEach((e,k)=>{const y=N?by+44+k*20:by+80+k*44;s+=tick(bx+24,y-4,k<exN,8)+`<text x="${bx+40}" y="${y}" class="t-lbl" style="font-size:${N?12:12.5}px;${k<exN?'':'fill:var(--muted)'}">${N?e[1]:e[0]}</text>`;
         if(!N)s+=`<text x="${bx+40}" y="${y+15}" class="t-xs">${['else think other types','incl. autoimmune','e.g. Marfan, myopathy'][k]}</text>`});}
     /* gates and exits */
     const ex=[['not hEDS','if not met'],['HSD?','if not met'],['gene tests','skin fragile']];

@@ -60,14 +60,14 @@ const DX_PATH=[
   pt:'A hot, swollen joint with fever or chills needs a doctor the same day.',
   hook:`Crystals do not exclude infection: 1.5–5% of crystal-positive joints are also septic. [[Shah2007,Papanicolas2012]]`},
  {from:DX_PL[1],at:.37,k:'Step 2',t:'Aspirate and look for crystals',
-  txt:`EULAR 2018 recommends a search for crystals in every person with suspected gout, because MSU crystals give a definite diagnosis. [[Richette2020]] The synovial white count and neutrophil share guide care before the Gram stain and culture come back. [[Margaretten2007,Mathews2010]] The ACP 2017 primary-care guideline advises fluid analysis when clinical judgement says testing is needed (weak recommendation). [[Qaseem2017Dx]]`,
+  txt:`EULAR 2018 advises looking for crystals whenever gout is suspected, since finding MSU crystals settles the diagnosis. [[Richette2020]] The synovial white count and neutrophil share guide care before the Gram stain and culture come back. [[Margaretten2007,Mathews2010]] The ACP 2017 primary-care guideline advises fluid analysis when clinical judgement says testing is needed (weak recommendation). [[Qaseem2017Dx]]`,
   pt:'A little fluid from the joint, checked under a special microscope, gives the clearest answer.',
   hook:`EULAR 2006: crystal identification in symptomatic gout had a likelihood ratio of 567. [[Zhang2006Dx]]`},
  {from:DX_PL[2],at:.62,k:'Step 3',t:'No crystals? Score and image',
   txt:`Where crystals cannot be sought, atypical presentations should be imaged, especially with ultrasound for the double-contour sign and tophi. Gout should not be diagnosed on hyperuricaemia alone. [[Richette2020]] The ACR/EULAR score uses the highest urate, ideally measured more than 4 weeks after the flare began. [[Neogi2015]] In primary care the Janssens rule gives a probability band. [[Janssens2010,Kienhorst2015]]`,
   pt:'Without fluid, doctors combine the story, the blood urate and a scan.'},
  {from:DX_PL[3],at:.9,k:'Step 4',t:'Screen what travels with gout',
-  txt:`EULAR strongly recommends assessing every person with gout for comorbidities, cardiovascular risk factors and causes of chronic hyperuricaemia. [[Richette2020]] Among US adults with gout (NHANES 2007–2008): hypertension 74%, CKD stage 2 or higher 71%, obesity 53%, diabetes 26%, kidney stones 24%, myocardial infarction 14%, heart failure 11%, stroke 10%. [[Zhu2012]] The ACR 2020 guideline advises HLA-B*5801 testing before allopurinol in people of Southeast Asian descent and African American people. [[FitzGerald2020]]`,
+  txt:`EULAR strongly recommends that everyone with gout is checked for other illnesses, heart and vessel risk factors and the reasons their urate stays high. [[Richette2020]] Among US adults with gout (NHANES 2007–2008): hypertension 74%, CKD stage 2 or higher 71%, obesity 53%, diabetes 26%, kidney stones 24%, myocardial infarction 14%, heart failure 11%, stroke 10%. [[Zhu2012]] The ACR 2020 guideline advises HLA-B*5801 testing before allopurinol in people of Southeast Asian descent and African American people. [[FitzGerald2020]]`,
   pt:'After diagnosis, ask to have your blood pressure, kidneys, blood sugar and heart risk checked.',
   hook:`ACR 2020 strongly recommends urate-lowering therapy for tophi, radiographic damage or frequent flares, with a target under 6 mg/dL (360 µmol/L). [[FitzGerald2020]]`}
 ];
@@ -175,7 +175,7 @@ inits.dx=()=>{
     if(RM){DX_DOM.forEach(d=>shown[d.id]=S.pts[d.id]);gauge(shown,S)}
     const v=$('#dxVerdict');let cls='',h='';
     const best=S.tot-S.pts.urate+4;
-    if(!S.entry){cls='na';h=`<strong>Criteria not applied</strong><span>The entry criterion comes first: at least one episode of swelling, pain or tenderness in a peripheral joint or bursa. [[Neogi2015]]</span>`}
+    if(!S.entry){cls='na';h=`<strong>Criteria not applied</strong><span>The entry criterion comes first: a peripheral joint or bursa must have been swollen, painful or tender at least once. [[Neogi2015]]</span>`}
     else if(S.suff){cls='yes';h=`<strong>Classified as gout: sufficient criterion</strong><span>MSU crystals in a symptomatic joint, bursa or tophus classify without any scoring. [[Neogi2015]]</span>`}
     else if(S.uMiss){cls='na';h=`<strong>Score cannot be computed yet</strong><span>Serum urate is mandatory. The other items add up to ${S.tot}. [[Neogi2015]]</span>`}
     else if(S.tot>=8){cls='yes';h=`<strong>Classified as gout: ${S.tot} of 23</strong><span>A score of 8 or more meets the classification criteria. [[Neogi2015]]</span>`}

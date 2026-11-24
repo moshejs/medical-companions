@@ -19,11 +19,11 @@ Access notes:
 ### shock · Physiology for the animated circuit
 - Cardiac output (the amount of blood the heart pumps in one minute, in L/min) equals stroke volume times heart rate. It depends on four things: heart rate, contractility, preload and afterload [[Vincent2008CO]].
 - Preload is "the degree of myocardial distension prior to shortening". Within limits, the more heart muscle is stretched, the harder it contracts (the Frank–Starling relationship). Venous return equals cardiac output, and preload is only one component of it [[Vincent2008CO]].
-- Afterload is "the force against which the ventricles must act in order to eject blood" and depends largely on arterial pressure and vascular tone. Lowering afterload can raise cardiac output, especially when contractility is impaired [[Vincent2008CO]].
+- Afterload is the force the ventricles have to work against to push blood out, and it depends largely on arterial pressure and vascular tone. Lowering afterload can raise cardiac output, especially when contractility is impaired [[Vincent2008CO]].
 - In sepsis, cardiac output is usually normal or high even though the heart muscle may be depressed. Tachycardia and low vascular tone reduce afterload, and fluid therapy usually comes first. The review compares this to a tired cyclist keeping up speed on a smooth downhill road [[Vincent2008CO]].
 - Fluids raise stroke volume through the Frank–Starling mechanism ("like adding a tailwind to the cyclist"). Excessive inotropic stimulation can raise myocardial oxygen demand [[Vincent2008CO]].
 - The traditional estimate of mean arterial pressure is diastolic pressure plus one third of pulse pressure (factor 0.33). In 1878 people, a factor of 0.412 (MAP = DBP + 0.412 × PP) correlated better with target-organ damage than the traditional formula [[Papaioannou2016]].
-- The ESICM task force defines circulatory shock as "a life-threatening, generalized form of acute circulatory failure associated with inadequate oxygen utilization by the cells". The result is cellular dysoxia with raised blood lactate [[Cecconi2014ESICM]].
+- The ESICM task force describes circulatory shock as a widespread, life-threatening failure of the circulation in which the cells cannot use enough oxygen. The result is cellular dysoxia with raised blood lactate [[Cecconi2014ESICM]].
 - Shock does not require hypotension. Hypotension (SBP <90 mmHg, MAP <65 mmHg, or a fall of ≥40 mmHg from baseline) is commonly present but "should not be required to define shock" (Level 1, QoE B) [[Cecconi2014ESICM]].
 - Lactate is "typically >2 mEq/L (or mmol/L) in shock states". Lactate levels above 1.5 mmol/L in septic shock are associated with increased mortality [[Cecconi2014ESICM]].
 - The ESICM consensus names three "windows" for checking tissue perfusion at the bedside: the skin (cutaneous perfusion), the kidneys (urine output) and the brain (mental status) [[Cecconi2014ESICM]].
@@ -50,7 +50,7 @@ Access notes:
 - Standl 2018 subdivides distributive shock into septic, anaphylactic/anaphylactoid and neurogenic shock [[Standl2018]].
 - Standl 2018 lists the obstructive causes as vena cava compression, tension pneumothorax and pericardial tamponade (which reduce preload), and pulmonary embolism or a mediastinal mass (which raise right-ventricular afterload) [[Standl2018]].
 - Standl 2018 gives cardiogenic shock criteria of a cardiac index <1.8 L/min/m² without support (<2.0 L/min/m² with pharmacological or mechanical support) together with SBP <90 mmHg [[Standl2018]].
-- Haemodynamic signature, septic (distributive): Sepsis-3 identifies septic shock by "a vasopressor requirement to maintain a mean arterial pressure of 65 mm Hg or greater and serum lactate level greater than 2 mmol/L (>18 mg/dL) in the absence of hypovolemia", with hospital mortality greater than 40% [[Singer2016Sepsis3]].
+- Haemodynamic signature, septic (distributive): Sepsis-3 recognises septic shock when a vasopressor is needed to keep the mean arterial pressure at 65 mm Hg or more and serum lactate is above 2 mmol/L (>18 mg/dL), with hypovolaemia excluded; hospital mortality is above 40% [[Singer2016Sepsis3]].
 - In the Sepsis-3 derivation (Surviving Sepsis Campaign database), patients needing vasopressors for MAP ≥65 mmHg with lactate >2 mmol/L after fluids had mortality of 42.3% (95% CI 41.2–43.3%). Crude septic-shock mortality across 44 studies (166,479 patients) was 46.5% (95% CI 42.7–50.3%) [[ShankarHari2016Shock]].
 - In septic shock, cardiac output is typically normal or high because afterload falls. In cardiogenic shock, primary pump failure lowers cardiac output (the low-flow pattern) [[Vincent2008CO,Cecconi2014ESICM]].
 
@@ -60,7 +60,7 @@ Access notes:
   - cardiogenic shock 17%
   - hypovolaemia 16% [[Cecconi2014ESICM]]
 - The SOAP II trial report gives the counts: 1044 septic, 280 cardiogenic and 263 hypovolaemic of 1679 patients randomised [[DeBacker2010SOAPII]].
-- Cecconi 2014 reports septic shock case-fatality "in the range of 40–50 %, reaching as high as 80 %" [[Cecconi2014ESICM]].
+- Cecconi 2014 puts septic shock case-fatality at about 40–50%, and as high as 80% in some reports [[Cecconi2014ESICM]].
 - Standl 2018 tabulates shares of shock as follows:
   - distributive: 66% (published figures) or 59% (authors' calculation)
   - hypovolaemic: 16% or 27%
@@ -73,7 +73,7 @@ Access notes:
 - Allgöwer and Burri introduced the shock index ("Schockindex") in 1967 [[Allgower1967]].
 - The usual normal range is 0.5–0.7. Some evidence accepts up to 0.9, and values approaching 1.0 indicate worsening haemodynamic status and shock [[Koch2019SI,Rady1994]].
 - Rady 1994 (275 ED adults whose vital signs looked stable): an SI >0.9 (41 patients) was associated with more immediate-priority triage, hospital admission and ICU care than SI <0.9 [[Rady1994]].
-- Koch 2019 review: SI >1.0 "has been widely found to predict increased risk of mortality" and markers of morbidity such as massive transfusion protocol activation and ICU admission [[Koch2019SI]].
+- Koch 2019 review: many studies link SI >1.0 with a higher risk of death and with markers of morbidity such as massive transfusion protocol activation and ICU admission [[Koch2019SI]].
 - Berger 2013 (2524 ED patients screened for sepsis) compared two SI cut-offs:
   - SI ≥0.7: most sensitive screen for lactate ≥4 mmol/L (sensitivity 0.83, NPV 0.95, the same NPV as SIRS)
   - SI ≥1.0: most specific (specificity 0.81) [[Berger2013SI,Koch2019SI]]
@@ -90,7 +90,7 @@ Access notes:
 ### shock · Bedside ultrasound (RUSH)
 - The RUSH exam (Rapid Ultrasound in SHock) is a stepwise bedside ultrasound algorithm. It assesses the "Pump" (heart), the "Tank" (volume status) and the "Pipes" (large vessels) to identify the type of shock [[Perera2010RUSH]].
 - ESICM: echocardiography can help characterise the haemodynamic disorder, select treatment, and evaluate the response to it [[Cecconi2014ESICM]].
-- ESC 2019 PE guideline: in an unstable patient with suspected PE, "echocardiographic evidence of RV dysfunction is sufficient to prompt immediate reperfusion without further testing" [[Konstantinides2020ESC]].
+- ESC 2019 PE guideline: in an unstable patient with suspected PE, RV dysfunction seen on echo is enough to go straight to reperfusion without more tests [[Konstantinides2020ESC]].
 
 ### othershock · Cardiogenic shock
 - Cardiogenic shock affects 40,000–50,000 people in the US each year and is the leading cause of in-hospital death after acute MI. Thirty-day mortality is about 40% and 1-year mortality approaches 50% [[Samsky2021]].
@@ -135,15 +135,15 @@ Access notes:
   - 30-day mortality: 22.4% vs 26.1% (P=0.26)
   - death from exsanguination by 24 h: 9.2% vs 14.6%
   - haemostasis achieved: 86% vs 78% [[Holcomb2015PROPPR]]
-- Severe burns bring an immune and inflammatory response, metabolic changes and distributive shock that can lead to multiple organ failure [[Jeschke2020Burns]].
+- Severe burns set off inflammation and immune activation, change metabolism and cause distributive shock, which can end in multiple organ failure [[Jeschke2020Burns]].
 
 ### othershock · Obstructive shock
 - Tension pneumothorax (systematic review; 183 case reports and 5 cohorts):
   - hypoxia was reported in 50.0% of people breathing unassisted vs 91.8% of ventilated people
   - compared with unassisted breathing, the adjusted odds of hypotension were 12.6 times higher with assisted ventilation, and of cardiac arrest 17.7 times higher
   - 70.4% of ventilated patients who became hypotensive or arrested did so within minutes [[Roberts2015TPTX]]
-- ESC 2015 defines cardiac tamponade as "a life-threatening, slow or rapid compression of the heart due to the pericardial accumulation of fluid". Listed signs include tachycardia, hypotension, pulsus paradoxus, raised jugular venous pressure and muffled heart sounds [[Adler2015ESC]].
-- ESC 2015 defines pulsus paradoxus as "an inspiratory decrease in systolic arterial pressure of >10 mmHg during normal breathing" [[Adler2015ESC]].
+- ESC 2015 describes cardiac tamponade as life-threatening squeezing of the heart, fast or slow, by fluid building up in the pericardium. Listed signs include tachycardia, hypotension, pulsus paradoxus, raised jugular venous pressure and muffled heart sounds [[Adler2015ESC]].
+- ESC 2015 defines pulsus paradoxus as a fall in systolic pressure of more than 10 mmHg when breathing in, during normal breathing [[Adler2015ESC]].
 - ESC 2015 calls echocardiography "the single most useful diagnostic tool". Treatment is drainage, "preferably by needle pericardiocentesis", without delay in unstable patients. Surgical drainage is preferred in some situations such as purulent pericarditis or urgent bleeding [[Adler2015ESC]].
 - The classically taught Beck's triad (hypotension, raised neck veins, muffled heart sounds) "does not appear commonly", and dyspnoea is the most frequently reported symptom [[Alerhand2022]].
 - Echo findings in tamponade include diastolic right-ventricular collapse (specific), systolic right-atrial collapse (sensitive) and a plethoric, non-collapsing IVC (sensitive). Positive-pressure ventilation and sedation can lower cardiac output in tamponade [[Alerhand2022]].
@@ -151,7 +151,7 @@ Access notes:
   - cardiac arrest
   - obstructive shock (SBP <90 mmHg, or vasopressors needed to reach ≥90 mmHg despite adequate filling, together with end-organ hypoperfusion)
   - persistent hypotension (SBP <90 mmHg or a drop of ≥40 mmHg for >15 min, not caused by arrhythmia, hypovolaemia or sepsis) [[Konstantinides2020ESC]]
-- ESC 2019: "Primary reperfusion treatment, in most cases systemic thrombolysis, is the treatment of choice for patients with high-risk PE". Surgical embolectomy or catheter-directed treatment are alternatives. Routine full-dose thrombolysis "is not recommended" in intermediate-risk PE [[Konstantinides2020ESC]].
+- ESC 2019 makes primary reperfusion, usually systemic thrombolysis, the treatment of choice in high-risk PE. Surgical embolectomy or catheter-directed treatment are alternatives. Routine full-dose thrombolysis "is not recommended" in intermediate-risk PE [[Konstantinides2020ESC]].
 - ESC 2019 Table 10 lists the published rtPA regimen as 100 mg over 2 h, with an accelerated regimen of 0.6 mg/kg over 15 min (maximum 50 mg) that is not officially approved. It describes cautious volume loading as ≤500 mL over 15–30 min. (Quoted as published, not as instructions.) [[Konstantinides2020ESC]]
 - ICOPER (2392 patients with acute PE): 4.5% had massive PE (SBP <90 mmHg). Their 90-day mortality was 52.4% vs 14.7% for non-massive PE [[Kucher2006ICOPER]].
 - Meta-analysis of 16 trials (2115 patients), thrombolysis vs anticoagulation:

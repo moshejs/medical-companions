@@ -161,13 +161,13 @@ inits.nursing=()=>{
 
   /* =========== 1b 4AT calculator =========== */
   const FOUR=[
-   {n:'1 · Alertness',o:[ ['Normal',0],['Clearly abnormal',4] ]},
-   {n:'2 · AMT4: age, date of birth, place, current year',o:[ ['No mistakes',0],['1 mistake',1],['2 or more, or untestable',2] ]},
-   {n:'3 · Attention: months of the year backwards',o:[ ['7 or more correct',0],['Starts, fewer than 7, or refuses',1],['Untestable',2] ]},
-   {n:'4 · Acute change or fluctuating course',o:[ ['No',0],['Yes',4] ]}];
+   {n:'1 · Alertness',o:[ ['',0],['',4] ]},
+   {n:'2 · AMT4 (orientation)',o:[ ['',0],['',1],['',2] ]},
+   {n:'3 · Attention',o:[ ['',0],['',1],['',2] ]},
+   {n:'4 · Acute change or fluctuating course',o:[ ['',0],['',4] ]}];
   const fsel=[0,0,0,0];let fShown=0,fStop=null;
   $('#nuFour').insertAdjacentHTML('beforeend',FOUR.map((it,i)=>`<div class="nu-item"><span id="nuF${i}">${it.n}</span><div class="nu-opts" role="group" aria-labelledby="nuF${i}">${it.o.map((o,j)=>`<button class="btn" data-f="${i}" data-j="${j}" aria-pressed="${j===0}"><b>${o[1]}</b>${o[0]}</button>`).join('')}</div></div>`).join('')+
-    `<div class="ctrls"><button class="btn" id="nuFourEx">Example: severe dementia, no acute change</button><button class="btn" id="nuFourReset">Reset</button></div><p class="stage-cap">Item wording shortened from the 4AT; scoring as in its user guide. ${NU4AT}</p>`);
+    `<div class="ctrls"><button class="btn" id="nuFourEx">Example: severe dementia, no acute change</button><button class="btn" id="nuFourReset">Reset</button></div><p class="stage-cap">Topic labels and points only. The official item wording and instructions are on the 4AT form at <a href="https://www.the4at.com/">the4at.com</a>; scoring as in its user guide. ${NU4AT}</p>`);
   const fScore=()=>fsel.reduce((a,j,i)=>a+FOUR[i].o[j][1],0);
   function drawFourG(v){
     const sv=$('#nuFourSvg'),N=vb(sv,'520 150','400 160');
@@ -196,14 +196,14 @@ inits.nursing=()=>{
 
   /* =========== 1c PAINAD =========== */
   const PAIN=[
-   {n:'Breathing, independent of vocalisation',o:['Normal','Occasional laboured breathing, short hyperventilation','Noisy laboured breathing, long hyperventilation, Cheyne-Stokes']},
-   {n:'Negative vocalisation',o:['None','Occasional moan or groan, low-level negative speech','Repeated troubled calling out, loud moaning, crying']},
-   {n:'Facial expression',o:['Smiling or inexpressive','Sad, frightened, frown','Facial grimacing']},
-   {n:'Body language',o:['Relaxed','Tense, distressed pacing, fidgeting','Rigid, fists clenched, knees pulled up, pushing away, striking out']},
-   {n:'Consolability',o:['No need to console','Distracted or reassured by voice or touch','Unable to console, distract or reassure']}];
+   {n:'Breathing',o:['','','']},
+   {n:'Negative vocalisation',o:['','','']},
+   {n:'Facial expression',o:['','','']},
+   {n:'Body language',o:['','','']},
+   {n:'Consolability',o:['','','']}];
   const psel=[0,0,0,0,0];let pShown=0,pStop=null,barP=0;
   $('#nuPain').insertAdjacentHTML('beforeend',PAIN.map((it,i)=>`<div class="nu-item"><span id="nuPn${i}">${i+1} · ${it.n}</span><div class="nu-opts" role="group" aria-labelledby="nuPn${i}">${it.o.map((o,j)=>`<button class="btn" data-p="${i}" data-j="${j}" aria-pressed="${j===0}"><b>${j}</b>${o}</button>`).join('')}</div></div>`).join('')+
-    `<div class="ctrls"><button class="btn" id="nuPainReset">Reset</button></div><p class="stage-cap">Item descriptors shortened from the published tool. [[Warden2003]]</p>`);
+    `<div class="ctrls"><button class="btn" id="nuPainReset">Reset</button></div><p class="stage-cap">Topic labels and points only. The official item descriptors are in the published PAINAD scale. [[Warden2003]]</p>`);
   const pScore=()=>psel.reduce((a,b)=>a+b,0);
   function drawPainG(v){
     const sv=$('#nuPainSvg'),N=vb(sv,'520 330','400 316');

@@ -3,7 +3,7 @@
    Everything in that drawing is schematic: the order follows the sources, the timing and bar levels do not encode data. */
 const WH_STEPS=[
  {from:0,at:.06,s:'nerves',k:'Where',t:'The peripheral nerves',
-  txt:'GBS is a rare but potentially fatal immune-mediated disease of the peripheral nerves and nerve roots, usually triggered by an infection. [[Leonhard2019]] These are the nerves outside the brain and spinal cord. Besides weakness and changed sensation, GBS can affect the cranial nerves of the face and throat, breathing, the autonomic nerves that steady blood pressure, heart rate, bowel and bladder, and it often causes pain. [[vanDoorn2023,Leonhard2019]] On the right, an impulse jumps from node to node along a healthy, myelinated fibre.',
+  txt:'GBS is an uncommon immune disorder that attacks the peripheral nerves and their roots. It usually follows an infection, and it can be fatal. [[Leonhard2019]] These are the nerves outside the brain and spinal cord. Besides weakness and changed sensation, GBS can affect the cranial nerves of the face and throat, breathing, the autonomic nerves that steady blood pressure, heart rate, bowel and bladder, and it often causes pain. [[vanDoorn2023,Leonhard2019]] On the right, an impulse jumps from node to node along a healthy, myelinated fibre.',
   pt:'Nerves carry messages between the spinal cord and the muscles and skin. In GBS the immune system attacks these nerves, not the brain or spinal cord.',
   hook:'An acute <b>polyradiculoneuropathy</b>: many nerve roots (radiculo-) and nerves (neuropathy) at once. [[vanDoorn2023]]'},
  {from:.15,at:.22,s:'infection',k:'Weeks before',t:'An infection first',

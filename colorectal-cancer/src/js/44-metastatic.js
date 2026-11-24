@@ -39,7 +39,7 @@ const MT_RX=[
   lab:`Opdivo and Yervoy labels: for adults and children 12 years and older with unresectable or metastatic MSI-H or dMMR CRC. [[FDA-Opdivo,FDA-Yervoy]]`},
  {l:1,p:['ras'],n:'Chemotherapy + anti-EGFR (panitumumab or cetuximab)',tr:'PARADIGM · CRYSTAL',k:'OS 37.9 vs 34.3 months (PARADIGM)',
   r:`PARADIGM, left-sided RAS wild-type: panitumumab plus mFOLFOX6 gave OS 37.9 vs 34.3 months with bevacizumab (HR 0.82), response 80.2% vs 68.6%, acneiform rash 74.8%. CRYSTAL, KRAS wild-type: FOLFIRI plus cetuximab OS 23.5 vs 20.0 months. [[Watanabe2023,VanCutsem2011]]`,
-  lab:`Erbitux label: "not indicated for treatment of Ras-mutant colorectal cancer or when the results of the Ras mutation tests are unknown." Vectibix: RAS status confirmed across KRAS and NRAS exons 2, 3 and 4. [[FDA-Erbitux,FDA-Vectibix]]`},
+  lab:`Erbitux label: not for use in Ras-mutant colorectal cancer, or when Ras test results are not known. Vectibix: RAS status confirmed across KRAS and NRAS exons 2, 3 and 4. [[FDA-Erbitux,FDA-Vectibix]]`},
  {l:1,p:['oth','her2','g12c'],n:'Doublet chemotherapy + bevacizumab',tr:'Hurwitz 2004',k:'OS 20.3 vs 15.6 months',
   r:`Adding bevacizumab to IFL: OS 20.3 vs 15.6 months (HR 0.66), PFS 10.6 vs 6.2 months; grade 3 hypertension 11.0% vs 2.3%. [[Hurwitz2004]]`,
   lab:`Avastin label: with IV fluorouracil-based chemotherapy, first- or second-line; it "is not indicated for adjuvant treatment of colon cancer". [[FDA-Avastin]]`},

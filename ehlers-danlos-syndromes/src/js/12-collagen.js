@@ -57,7 +57,7 @@ const CO_VN={
   `Without lysyl hydroxylase 1, lysines stay unhydroxylated (orange crosses). Hydroxylysines carry the sugars and are precursors of the cross-links that give collagen its tensile strength. [[Yeowell2000]]`,
   `Trimming is not the step that fails in kEDS: watch step 6.`,
   `Fibrils still assemble: telopeptide cross-links form after assembly and are not needed to build the fibril. [[Shoulders2009]]`,
-  `Cross-links now form from unhydroxylated lysines (dashed orange). The urinary LP/HP cross-link ratio is about 6 in PLOD1-kEDS against about 0.2 in controls, and a markedly raised ratio can confirm the diagnosis when genetic testing finds only one variant or a VUS. [[Giunta2008,RohrbachGR-kEDS]]`]
+  `Cross-links now form from unhydroxylated lysines (dashed orange). The urinary LP/HP cross-link ratio is about 6 in PLOD1-kEDS against about 0.2 in controls, and when the gene test is unclear (one variant only, or a VUS) a clearly raised ratio confirms the diagnosis. [[Giunta2008,RohrbachGR-kEDS]]`]
 };
 /* "which step breaks": cells c = {column: 2 main, 1 also}; columns 0..5 are the animation steps, 6 lies outside collagen itself */
 const CO_MX=[
@@ -70,7 +70,7 @@ const CO_MX=[
  {ab:'dEDS',name:'Dermatosparaxis EDS',gene:'ADAMTS2',inh:'AR',v:'d',c:{3:2,4:1},
   txt:`Biallelic ADAMTS2 variants abolish procollagen N-proteinase activity. Fifteen people had been reported by 2025. Extreme skin fragility with redundant, almost lax skin. [[Colige1999,Angwin2025,VanDijk2024]]`},
  {ab:'kEDS',name:'Kyphoscoliotic EDS, PLOD1',gene:'PLOD1',inh:'AR',v:'k',c:{2:2,5:1},
-  txt:`Lysyl hydroxylase 1 deficiency. Without hydroxylysine the cross-link pattern shifts: the urinary LP/HP ratio is about 6, against about 0.2 in controls, and a markedly raised ratio can confirm the diagnosis when testing finds only one variant or a VUS. [[Yeowell2000,Giunta2008,RohrbachGR-kEDS]]`},
+  txt:`Lysyl hydroxylase 1 deficiency. Without hydroxylysine the cross-link pattern shifts: the urinary LP/HP ratio is about 6, against about 0.2 in controls, and when the gene test is unclear (one variant only, or a VUS) a clearly raised ratio confirms the diagnosis. [[Yeowell2000,Giunta2008,RohrbachGR-kEDS]]`},
  {ab:'kEDS',name:'Kyphoscoliotic EDS, FKBP14',gene:'FKBP14',inh:'AR',v:null,c:{2:2},
   txt:`An ER folding catalyst for type III collagen. It looks almost the same as PLOD1-kEDS, but urinary pyridinolines are normal and hearing loss is common; patients' fibroblasts have enlarged ER cisterns. [[Giunta2018,Baumann2012]] The animation shows the normal folding step.`},
  {ab:'spEDS',name:'Spondylodysplastic EDS, SLC39A13',gene:'SLC39A13',inh:'AR',v:null,c:{2:2},

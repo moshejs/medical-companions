@@ -239,7 +239,7 @@ inits.living=()=>{
 
   /* ---- language toggle ---- */
   const lb=$('#lvLangBtn'),lo=$('#lvLangOut');let res=false;
-  const LANG=[`<b>Everyday wording:</b> "Ana is living with dementia. Her son talks about the impact of supporting her, and about changed behaviours that can be an expression of unmet need." [[DementiaAustralia2021]]`,
+  const LANG=[`<b>Everyday wording:</b> "Ana lives with dementia. Her son describes what supporting her involves, and sees her changed behaviours as a sign of a need that is not being met." Our example, using the guidelines' preferred terms. [[DementiaAustralia2021]]`,
               `<b>Research wording:</b> "Caregiver burden was measured with the Zarit Burden Interview." Trials such as ATTILA report carer burden as an outcome. [[DementiaAustralia2021,Lamb2018,Gathercole2021]]`];
   function lang(){lb.setAttribute('aria-pressed',res);lb.textContent=res?'Show the everyday wording':'Show the research wording';lo.innerHTML=LANG[res?1:0]}
   lb.addEventListener('click',()=>{res=!res;lang()});lang();

@@ -233,7 +233,7 @@ Access notes:
 - In facilitated communication (FC), a facilitator gives physical support while the person types or points [[Schlosser2014FC]].
 - An ISAAC-commissioned systematic review found "unequivocal evidence for facilitator control": FC messages are authored by the facilitator, and FC "has no validity" (Established) [[Schlosser2014FC]].
 - ASHA's 2018 position statement calls FC "a discredited technique that should not be used". It cites extensive evidence that messages are authored by the facilitator and of harms from FC [[ASHA2018FC]].
-- ASHA's 2018 RPM statement says the Rapid Prompting Method "is not recommended because of prompt dependency and the lack of scientific validity". Information obtained through RPM should not be assumed to be the person's communication [[ASHA2018RPM]].
+- ASHA's 2018 RPM statement advises against the Rapid Prompting Method because it makes the person depend on prompts and lacks scientific validity. Information obtained through RPM should not be assumed to be the person's communication [[ASHA2018RPM]].
 - RPM differs from FC in that the facilitator holds and moves the letter board rather than the person's hand. Its proponents make claims similar to those once made for FC [[Tostanoski2014]].
 - A 2019 systematic review found no evidence supporting RPM [[Schlosser2019RPM]].
 - A 2026 systematic review of authorship in RPM, Spelling2Communicate (S2C), Spellers Method and variants found no study that met its design criteria (an "empty review"). The authors advise discontinuing these methods until independent authorship studies show they are valid [[Schlosser2026RPM]].

@@ -30,7 +30,7 @@ const DG_STEPS=[
   pt:`There are several more add-ons. For these, the extra benefit over a dummy pill was about an hour of off-time a day or less.`,
   hook:`Istradefylline acts at the <b>adenosine A2A receptor</b>, not a dopamine receptor. Tavapadon is a selective <b>D1/D5</b> partial agonist. [[Hauser2021,AgonistLabels2026]]`},
  {from:.66,at:.72,k:'Rung 5 · Dyskinesia',t:'Amantadine for extra movements',
-  txt:`If dyskinesia is not managed by modifying existing therapy, NICE (1.3.13) suggests considering amantadine. The MDS review lists amantadine, clozapine and bilateral STN or GPi DBS as clinically useful for dyskinesia. Amantadine is a weak NMDA antagonist. In EASE LID, extended-release amantadine improved the dyskinesia rating (UDysRS) by 15.9 points against 8.0 and cut off-time by 0.9 hours, but visual hallucinations (23.8% vs 1.7%), peripheral oedema (23.8% vs 0%) and dizziness (22.2% vs 0%) were more common. NICE: "Do not offer anticholinergics to people with Parkinson's disease who have developed dyskinesia and/or motor fluctuations" (1.3.14). [[NICE2017,Fox2018,AmantadineLabels2026,Pahwa2017]]`,
+  txt:`If dyskinesia is not managed by modifying existing therapy, NICE (1.3.13) suggests considering amantadine. The MDS review lists amantadine, clozapine and bilateral STN or GPi DBS as clinically useful for dyskinesia. Amantadine is a weak NMDA antagonist. In EASE LID, extended-release amantadine improved the dyskinesia rating (UDysRS) by 15.9 points against 8.0 and cut off-time by 0.9 hours, but visual hallucinations (23.8% vs 1.7%), peripheral oedema (23.8% vs 0%) and dizziness (22.2% vs 0%) were more common. NICE advises against offering anticholinergics once dyskinesia or motor fluctuations have developed (1.3.14). [[NICE2017,Fox2018,AmantadineLabels2026,Pahwa2017]]`,
   pt:`Amantadine can calm the extra, writhing movements, at the cost of side effects such as hallucinations and ankle swelling in some people.`,
   hook:`Dyskinesia → <b>amantadine</b> (NICE 1.3.13). Fluctuations or dyskinesia → <b>no anticholinergics</b> (NICE 1.3.14). [[NICE2017]]`},
  {from:.82,at:.9,k:'Rung 6 · Advanced',t:'Pumps and surgery',
@@ -149,7 +149,7 @@ const DG_CARDS=[
   a:`Dyskinesia in 16.1 to 17.7% against 9.6% on placebo. [[Hauser2021]]`},
  {n:'Anticholinergics',cl:'Anticholinergic',fx:'oh hall',fda:'NICE 1.3.14: not once fluctuations start',
   m:`Medicines that block acetylcholine; NICE treats them as a class. [[NICE2017]]`,
-  e:`NICE: "Do not offer anticholinergics to people with Parkinson's disease who have developed dyskinesia and/or motor fluctuations." [[NICE2017]]`,
+  e:`NICE advises against offering anticholinergics once a person with Parkinson's has dyskinesia or motor fluctuations. [[NICE2017]]`,
   a:`NICE lists them among medicines to review when orthostatic hypotension appears. The Parkinson's Foundation warns that bladder-control drugs, among others, may cause confusion, hallucinations and falls. [[NICE2017,PF2023]]`}
 ];
 const DG_FX={
