@@ -205,7 +205,7 @@ Access notes:
 - Reversible cerebral vasoconstriction syndrome: 67 cases, multiple thunderclap headaches in 94% [[Ducros2007]].
 
 ### tia · Definition
-- Tissue definition from the AHA/ASA 2009: "a transient episode of neurological dysfunction caused by focal brain, spinal cord, or retinal ischemia, without acute infarction" [[Easton2009]]. This followed a 2002 proposal [[Albers2002]]. The stroke definition was updated in 2013 to tissue-based CNS infarction [[Sacco2013]].
+- Tissue definition from the AHA/ASA 2009, our summary: a passing episode of neurological dysfunction from focal ischaemia of the brain, spinal cord or retina, "without acute infarction" [[Easton2009]]. This followed a 2002 proposal [[Albers2002]]. The stroke definition was updated in 2013 to tissue-based CNS infarction [[Sacco2013]].
 - The ESO keeps a pragmatic clinical definition of under 24 hours [[Fonseca2021]], while others say the 24-hour limit should be abandoned, as up to 50% have infarct on diffusion imaging [[Nadarajan2014]].
 - Pooled DWI positivity 34.3% (30.5-38.4), range 9-67% [[Brazzelli2014]]. In 87 consecutive people with TIA, 41.3% had acute infarct; in-hospital recurrent stroke or TIA was 19.4% with transient symptoms with infarction vs 1.3% with ischaemic stroke [[Ay2005]]. TIAregistry.org: 33.4% infarct [[Amarenco2016]].
 
@@ -233,9 +233,9 @@ Access notes:
 - EXPRESS (Oxford): 90-day stroke 10.3% (32 of 310) before vs 2.1% (6 of 281) after, adjusted HR 0.20 (0.08-0.49); delay to assessment fell from 3 days to under 1 day, first prescription from 20 days to 1 day [[Rothwell2007]]. Fatal or disabling 16 of 310 vs 1 of 281; bed days 1,365 vs 427; saving GBP 624 per patient [[LuengoFernandez2009]].
 - SOS-TIA (Paris, 1,085 people): 53% seen within 24 hours; 65% confirmed TIA or minor stroke, 13% possible; 74% home the same day; 90-day stroke 1.24% vs 5.96% predicted; carotid revascularisation 5%, AF anticoagulated 5% [[Lavallee2007]].
 - AHA 2023 scientific statement: at least 240,000 TIA per year in the US; 90-day risk as high as 17.8%, almost half in 2 days; protocols with acute imaging [[Amin2023]].
-- NICE 1.1.4: "Offer aspirin (300 mg daily), unless contraindicated, to people who have had a suspected TIA, to be started immediately. [2019]" [[NICE-NG128]].
-- NICE 1.1.5: "Refer immediately people who have had a suspected TIA for specialist assessment and investigation, to be seen within 24 hours of onset of symptoms. [2019]" [[NICE-NG128]].
-- NICE 1.1.6: "Do not use scoring systems, such as ABCD2, to assess risk of subsequent stroke or to inform urgency of referral for people who have had a suspected or confirmed TIA. [2019]" [[NICE-NG128]].
+- NICE 1.1.4 (2019): start aspirin 300 mg daily straight away after a suspected TIA, unless contraindicated [[NICE-NG128]].
+- NICE 1.1.5 (2019): refer a suspected TIA immediately for specialist assessment and investigation, to be seen within 24 hours of symptom onset [[NICE-NG128]].
+- NICE 1.1.6 (2019): scoring systems such as ABCD2 should not be used to estimate later stroke risk or to set the urgency of referral after a suspected or confirmed TIA [[NICE-NG128]].
 - NICE also says: secondary prevention as soon as possible after diagnosis is confirmed (1.1.7, 2008, amended 2019); no CT unless clinical suspicion of alternative diagnosis (1.2.1, 2019); consider MRI (diffusion-weighted and blood-sensitive sequences) after specialist assessment, on the same day (1.2.2, 2019); FAST in the community (1.1.1), exclude hypoglycaemia (1.1.2), ROSIER (1.1.3); committee notes 30-50% of suspected TIA have an alternative diagnosis [[NICE-NG128]].
 - AHA 2009 considered hospitalisation reasonable within 72 hours with ABCD2 of 3 or more, and imaging within 24 hours [[Easton2009]]. ESO: high risk as ABCD2 of 4 or more, specialist review within 24 hours, strong recommendation for dual antiplatelet therapy, against prediction tools alone [[Fonseca2021]].
 

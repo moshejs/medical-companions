@@ -59,7 +59,7 @@ Gaps:
 - NICE: do not offer olanzapine. Other antipsychotics such as phenothiazines and butyrophenones (the class that includes haloperidol) can worsen motor features. Lower doses of quetiapine and clozapine are needed in PD than in other indications [NICE2017].
 - Parkinson Study Group trial: 60 patients (mean age 72) with drug-induced psychosis received low-dose clozapine 6.25-50 mg/day (mean 24.7 mg) for 4 weeks with weekly blood counts. Clinical Global Impression improved by 1.6 points on clozapine vs 0.5 on placebo, without worsening parkinsonism [PSG1999].
 - Pimavanserin phase 3 trial: a 2-week non-drug lead-in, then 6 weeks of 40 mg/day vs placebo in 199 patients. SAPS-PD fell by 5.79 vs 2.73 points (difference -3.06, 95% CI -4.91 to -1.20, p=0.001, Cohen's d 0.50), with no worsening of motor function [Cummings2014].
-- Pimavanserin (Nuplazid, NDA 207318) was approved on 29 April 2016 "for the treatment of hallucinations and delusions associated with Parkinson's disease psychosis". It carries a boxed warning about increased mortality in elderly patients with dementia-related psychosis [openFDA2026].
+- Pimavanserin (Nuplazid, NDA 207318) was approved on 29 April 2016 to treat the hallucinations and delusions of Parkinson's disease psychosis. It carries a boxed warning about increased mortality in elderly patients with dementia-related psychosis [openFDA2026].
 - MDS warns that all atypical antipsychotics need great caution in psychotic patients with dementia, because of falls, cognitive worsening, pneumonia, cardiovascular effects, stroke and death. Pimavanserin's controlled safety data do not extend beyond 6 weeks [Seppi2019].
 
 ### Treatment evidence: depression and apathy

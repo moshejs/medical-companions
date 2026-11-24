@@ -17,9 +17,9 @@ Call-now box (for every page built from this file that discusses symptoms, recog
 ## Findings
 
 ### source · Source control: principles
-- SSC 2021: "For adults with sepsis or septic shock, we recommend rapidly identifying or excluding a specific anatomical diagnosis of infection that requires emergent source control and implementing any required source control intervention as soon as medically and logistically practical" (Best Practice Statement) [[Evans2021SSC]]
+- SSC 2021: in adults with sepsis or septic shock, quickly confirm or rule out an infection in a specific place that needs urgent source control, and carry out any needed procedure "as soon as medically and logistically practical" (Best Practice Statement) [[Evans2021SSC]]
 - SSC 2021 rationale: smaller studies suggest source control within 6–12 h is advantageous, and studies generally show reduced survival beyond that point. Failure to show a benefit under 6 h may reflect small numbers and varied interventions [[Evans2021SSC]]
-- SSC 2021: "we recommend prompt removal of intravascular access devices that are a possible source of sepsis or septic shock after other vascular access has been established" (Best Practice Statement) [[Evans2021SSC]]
+- SSC 2021: once other vascular access is in place, promptly remove any intravascular device that may be the source of sepsis or septic shock (Best Practice Statement) [[Evans2021SSC]]
 - SSC 2021 rationale: the least invasive effective option is preferred. Surgery is considered when percutaneous or other approaches are inadequate or cannot be done in time, or when diagnostic uncertainty persists after imaging. Staff availability is a real logistic factor [[Evans2021SSC]]
 - In a Spanish multicentre cohort of 3,663 ICU patients with severe sepsis or septic shock (99 ICUs, 2011–2013), 1,173 (32%) needed source control, mostly abdominal, urinary and soft-tissue infections [[Martinez2017Source]]
 - In the same cohort, people who had source control were sicker but had lower crude ICU mortality (21.2% vs 25.1%) and lower adjusted hospital mortality (OR 0.809, 95% CI 0.658–0.994) than those who did not need it [[Martinez2017Source]]
@@ -37,7 +37,7 @@ Call-now box (for every page built from this file that discusses symptoms, recog
 - IDSA 2009: short-term catheters should be removed for catheter-related bloodstream infection due to gram-negative bacilli, S. aureus, enterococci, fungi and mycobacteria (A-II) [[Mermel2009IDSA]]
 
 ### source · Empirical antibiotic choice and timing
-- SSC 2021: "For adults with possible septic shock or a high likelihood for sepsis, we recommend administering antimicrobials immediately, ideally within 1 h of recognition" (strong recommendation) [[Evans2021SSC]]
+- SSC 2021: adults with possible septic shock, or in whom sepsis is likely, should get antimicrobials at once, ideally within 1 h of recognition (strong recommendation) [[Evans2021SSC]]
 - SSC 2021: for possible sepsis without shock, a time-limited course of rapid investigation is suggested and, if concern for infection persists, antimicrobials "within 3 h from the time when sepsis was first recognised" (weak recommendation) [[Evans2021SSC]]
 - In 2,154 people with septic shock in 14 ICUs, effective antimicrobials in the first hour of hypotension were linked to 79.9% survival to discharge. Each hour of delay over the next 6 hours was linked to an average fall in survival of 7.6% [[Kumar2006Delay]]
 - In the same cohort, adjusted odds of death rose 1.119 per hour of delay (95% CI 1.103–1.136). Median time to effective therapy was 6 hours, and only 50% received it within 6 hours of hypotension [[Kumar2006Delay]]
@@ -81,7 +81,7 @@ Call-now box (for every page built from this file that discusses symptoms, recog
 - GBD AMR forecast for 2050: 1.91 million attributable and 8.22 million associated deaths. A "better care" scenario could avert 92.0 million deaths cumulatively from 2025 to 2050 [[Naghavi2024GRAM]]
 - GBD AMR: MRSA-attributable deaths rose from 57,200 in 1990 to 130,000 in 2021. Carbapenem-resistance deaths in gram-negatives rose from 619,000 to 1.03 million associated deaths [[Naghavi2024GRAM]]
 - The WHO AWaRe classification sorts antibiotics into Access, Watch and Reserve groups as a simple "traffic light" stewardship metric. In a 56-country paediatric survey, Access use in children ranged from 7.8% (China) to 61.2% (Slovenia) of prescriptions, and Reserve use was low everywhere [[Hsia2019AWaRe]]
-- C. difficile is described in IDSA/SHEA guidelines as the most commonly identified cause of healthcare-associated infection in adults in the United States [[McDonald2018CDI]]
+- IDSA/SHEA guidelines describe C. difficile as the infection most often identified as healthcare-associated in US adults [[McDonald2018CDI]]
 - In a community meta-analysis, the antibiotics most strongly linked to C. difficile infection were clindamycin (OR 16.80), cephalosporins/monobactams/carbapenems (OR 5.68) and fluoroquinolones (OR 5.50), vs penicillins (2.71), macrolides (2.65) and tetracyclines (0.92, no effect) [[Brown2013CDI]]
 
 ### icu · Who is in the ICU with sepsis
@@ -176,11 +176,11 @@ Call-now box (for every page built from this file that discusses symptoms, recog
 - In ARDS, a protocol that kept fluid balance near even over 7 days (−136 mL vs +6,992 mL) shortened ventilation and ICU stay without more shock or dialysis. This supports careful daily fluid balance charting [[Wiedemann2006FACTT]]
 
 ### nursing · Vasopressor infusion safety and extravasation
-- SSC 2021: starting vasopressors peripherally is suggested rather than delaying until a central line is placed (weak recommendation). When peripheral, they "should be administered only for a short period of time and in a vein in or proximal to the antecubital fossa" [[Evans2021SSC]]
+- SSC 2021: starting vasopressors peripherally is suggested rather than delaying until a central line is placed (weak recommendation). When peripheral, they should run only for a short time and in a vein at or above the antecubital fossa [[Evans2021SSC]]
 - In one medical ICU, 734 patients received norepinephrine, dopamine or phenylephrine through a peripheral IV 783 times for 49 ± 22 hours. Extravasation occurred in 19 (2%), with no tissue injury after local phentolamine and nitroglycerin paste. 13% later needed a central line [[CardenasGarcia2015Peripheral]]
 - In a systematic review of 325 published extravasation or tissue-injury events, 318 came from peripheral lines, and 85.3% of peripheral injury events involved a site below the antecubital or popliteal fossa [[Loubani2015Extravasation]]
 - A meta-analysis of 11 adult studies (16,055 patients) found a pooled 1.8% incidence of local adverse events with peripheral vasopressors (95% CI 0.1–4.8%). The rate in children was 3.3% [[Owen2021Peripheral]]
-- Levophed (norepinephrine) label: "Infuse LEVOPHED into a large vein." Extravasated areas "should be infiltrated as soon as possible with 10 mL to 15 mL of saline solution containing from 5 mg to 10 mg of an adrenergic blocking agent" [[FDA-Levophed]]
+- Levophed (norepinephrine) label: run the infusion into a large vein. If it extravasates, infiltrate the area promptly with 10 mL to 15 mL of saline containing 5 mg to 10 mg of an adrenergic blocking agent [[FDA-Levophed]]
 - Levophed label: monitor blood pressure every two minutes until the desired effect is reached, then every five minutes. Reduce the infusion gradually, since abrupt stopping may cause marked hypotension. Avoid leg veins in elderly patients or those with occlusive vascular disease [[FDA-Levophed]]
 
 ### nursing · Preventing device infections (central lines, urinary catheters)

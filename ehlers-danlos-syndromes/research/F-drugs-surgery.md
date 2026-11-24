@@ -23,15 +23,15 @@ Corrections and refinements to the brief:
 
 ### meds · Pain medicines: what the evidence is
 - The Chopra 2017 international consortium paper states that nearly 90% of people with EDS report some form of chronic pain in one study. It says treatment studies "are few and insufficient to guide management" [[Chopra2017]].
-- Chopra 2017 groups management into physical therapy, medications and durable medical equipment such as cushions, compressive garments and braces. It frames pain treatment around both treating the cause (for example a dislocation) and reducing the sensation of pain (Established as expert consensus; low-level evidence) [[Chopra2017]].
-- A 2026 expert review of drug treatment for hypermobility-related pain searched PubMed, Web of Science, EMBASE, ClinicalTrials.gov and WHO ICTRP. It concluded that current evidence "is low-level and does not support the efficacy of any disease-specific, repurposed, or novel drug" [[Castori2026EOP]].
-- The same review advises one drug at a time, usually at a low dose, with benefit and adverse effects reassessed after a predefined trial. It says drug-only strategies are limited when pain is chronic and mixes nociceptive, neuropathic and nociplastic mechanisms (Early evidence; expert opinion) [[Castori2026EOP]].
+- Chopra 2017 sorts management into three groups: physical therapy, medicines, and longer-term equipment (for example cushions, compression clothing and braces). It frames pain treatment around both treating the cause (for example a dislocation) and reducing the sensation of pain (Established as expert consensus; low-level evidence) [[Chopra2017]].
+- A 2026 expert review of drug treatment for hypermobility-related pain searched PubMed, Web of Science, EMBASE, ClinicalTrials.gov and WHO ICTRP. It concluded that the evidence so far is weak and shows no drug to be effective, whether designed for the condition, borrowed from other uses or new [[Castori2026EOP]].
+- The same review advises starting a single drug at a time, normally at a low dose, and checking benefit and side effects again after a trial period set in advance. It says drug-only strategies are limited when pain is chronic and mixes nociceptive, neuropathic and nociplastic mechanisms (Early evidence; expert opinion) [[Castori2026EOP]].
 - In a cross-sectional study of 79 people with hEDS (then "EDS hypermobility type"), 92.4% used medications, and analgesics were the most common [[Rombaut2011F]].
 - In the same cohort, heavier analgesic use was associated with greater dysfunction in daily life. The study design cannot say which came first [[Rombaut2011F]].
 - In a retrospective chart review of 98 people with EDS at one US rehabilitation clinic, occupational therapy and bracing were the most effective options, with 70% reporting improvement [[Song2020PainPhysician]].
-- In the same review, neuropathic modulators were the least well tolerated, with 47% of patients reporting adverse effects [[Song2020PainPhysician]].
-- The GeneReviews hEDS chapter says chronic pain in hEDS is "often neuropathic in nature". It recommends "pain management tailored to cause and symptoms" [[Hakim2024GR]].
-- The same chapter warns that autonomic and gastrointestinal problems may limit drug choices. Its examples are common analgesics in someone with slow gut transit, and vasodilators in a person with orthostatic intolerance [[Hakim2024GR]].
+- In the same review, drugs for nerve pain caused the most trouble: 47% of patients taking them reported side effects [[Song2020PainPhysician]].
+- The GeneReviews hEDS chapter describes long-term pain in hEDS as frequently nerve-related, and advises matching pain treatment to its cause and to the symptoms [[Hakim2024GR]].
+- The same chapter cautions that autonomic and gut problems can narrow the choice of medicines. For example, everyday painkillers may not suit someone whose gut moves slowly, and drugs that widen blood vessels may not suit someone who feels faint on standing [[Hakim2024GR]].
 - The GeneReviews classic EDS chapter states that anti-inflammatory drugs may relieve joint pain in classic EDS (expert recommendation) [[Malfait2024GR]].
 - A US commercial-claims study (2005–2014) compared 4,294 people with EDS with matched controls. In adults with EDS, 62% had an opioid prescription claim versus 34.1% of controls [[Schubart2019Opioid]].
 - In children in the same study, 27.5% with EDS had an opioid claim versus 13.5% of controls. Among people prescribed opioids, those with EDS had higher cumulative doses over 2 years [[Schubart2019Opioid]].
@@ -102,14 +102,14 @@ Corrections and refinements to the brief:
 - HRS 2015 Class III (level B-NR): radiofrequency sinus-node modification, surgical correction of Chiari I malformation and jugular-vein dilation or stenting are not recommended for routine POTS care and are potentially harmful [[Sheldon2015]].
 
 ### autonomic · Mast-cell activation: treatments only with evidence labels
-- The AAAAI 2019 work group framed MCAS criteria to diagnose most cases "without overdiagnosing the disorder in patients who likely have other conditions" [[Weiler2019JACI]].
+- The AAAAI 2019 work group set its MCAS criteria to catch most true cases while avoiding labelling people whose symptoms probably have another cause [[Weiler2019JACI]].
 - The consensus MCAS-confirming lab criterion is an event-related rise in serum tryptase of at least 20% + 2 ng/mL over the person's baseline (the "20% + 2" formula, proposed in 2012) [[Valent2019IAAI]].
 - Seneviratne 2017 (EDS consortium) reviews mast-cell biology. It proposes mast-cell dysregulation as a factor in a cluster of EDS, non-IgE hypersensitivity and dysautonomia (Hypothesis) [[Seneviratne2017]].
 - A 2020 systematic search found only 4–9 original research articles across hEDS, POTS and MCAS. None studied all three together, and the authors concluded no evidence-based common mechanism has been shown (Hypothesis for the "triad") [[Kucharik2020]].
 - In a retrospective coded-records study of 195 people, MCAS was recorded in 31% of those with POTS plus EDS versus 2% of others (OR 32.46). Coding-based ascertainment limits this finding (Early evidence) [[Wang2021AAP]].
 - A 2026 Mayo Clinic study is titled "Lack of evidence for increased mast cell activation syndrome prevalence in POTS and/or hEDS". No abstract was available to check its numbers [[Valdez2026]].
 - The NIH 2019 POTS consensus states that accurate data on the frequency of MCAS in POTS are not available [[Vernino2021]].
-- The GeneReviews hEDS chapter lists "avoidance of triggers for mast cell activation disorder and pharmacotherapy or monoclonal biologic therapy as needed". This is expert-level guidance, and no EDS-specific trials of mast-cell drugs were found (Hypothesis for EDS-specific benefit) [[Hakim2024GR]].
+- The GeneReviews hEDS chapter suggests steering clear of things that set off mast-cell symptoms, with medicines or monoclonal antibody (biologic) treatment where needed. This is expert-level guidance, and no EDS-specific trials of mast-cell drugs were found (Hypothesis for EDS-specific benefit) [[Hakim2024GR]].
 - Oral cromolyn sodium (Gastrocrom) is FDA-labelled for mastocytosis, with reported improvement in diarrhoea, flushing, headaches, vomiting, urticaria, abdominal pain, nausea and itching "in some patients". It has no EDS or MCAS-in-EDS indication [[FDA-Gastrocrom]].
 
 ### meds · Bleeding, bruising and haemostasis
@@ -118,8 +118,8 @@ Corrections and refinements to the brief:
 - Wiesmann 2014 recommends desmopressin for people with a positive bleeding history. It suggests considering prophylactic tranexamic acid before surgery, as in other bleeding disorders [[Wiesmann2014]].
 - The 2026 anaesthesia Delphi panel recommends bleeding-risk evaluation, and considering desmopressin, in classical, classical-like, kyphoscoliotic and vascular EDS [[Amaral2026]].
 - In a small Toronto cohort (17 adults: 10 hEDS, 7 classical), clinically significant bleeding scores were common (86% classical, 90% hypermobile), yet ROTEM testing showed no abnormalities. This suggests bleeding in EDS is multifactorial (Early evidence) [[Lam2025CJA]].
-- GeneReviews (classic EDS) states that ascorbic acid (vitamin C) "may reduce bruising" and desmopressin "may be useful to normalize bleeding time" (expert recommendation; low-level evidence) [[Malfait2024GR]].
-- GeneReviews (hEDS) states that platelet disorders may respond to tranexamic or mefenamic acid [[Hakim2024GR]].
+- GeneReviews (classic EDS) says vitamin C (ascorbic acid) may lessen bruising and desmopressin may bring a prolonged bleeding time back to normal (expert recommendation; low-level evidence) [[Malfait2024GR]].
+- GeneReviews (hEDS) says tranexamic acid or mefenamic acid may help when platelets do not work properly [[Hakim2024GR]].
 
 ### vascular · Drug prevention in vascular EDS: celiprolol
 - Celiprolol is a β1-adrenoceptor antagonist with β2-adrenoceptor agonist action [[Ong2010]].
@@ -134,7 +134,7 @@ Corrections and refinements to the brief:
 - In a Swedish referral cohort (40 COL3A1-positive patients offered celiprolol, 2011–2019, 106 patient-years), 26 of 38 (65%) reached 400 mg/day. Six could not uptitrate because of side effects [[Baderkhan2021]].
 - The Swedish cohort's annual risk of a major vascular event was 4.7% (5/106 patient-years). This is similar to BBEST's celiprolol arm (5%) and lower than its control arm (12%). Four of the 5 events were fatal [[Baderkhan2021]].
 - A 2025 systematic review (323 participants, studies from 2010–2023, mostly European) concluded celiprolol "appears to be a promising treatment". It noted that dizziness and hypotension sometimes limit treatment (Early evidence: one open RCT plus cohorts) [[Saputra2025]].
-- The 2022 ACC/AHA aortic guideline states that celiprolol studies "have suggested a benefit … but data were considered to be insufficient" for FDA approval [[Isselbacher2022]].
+- The 2022 ACC/AHA aortic guideline notes that celiprolol studies pointed to a benefit, but the data were judged not strong enough for FDA approval [[Isselbacher2022]].
 - The same guideline notes that other β-blockers, sometimes with vasodilatory properties, are often prescribed instead, without efficacy data in vEDS [[Isselbacher2022]].
 - Regulatory status (US): celiprolol has no FDA approval for any indication. openFDA's label and Drugs@FDA endpoints returned no celiprolol records on 2026-10-25 [[openFDA-Celiprolol,Buso2024]].
 - A 2018 analysis reported that Acer Therapeutics had obtained exclusive rights to the BBEST data and intended to file for FDA approval of celiprolol (to be called Edsivo) in early 2018 [[David2018F1000]].
@@ -146,7 +146,7 @@ Corrections and refinements to the brief:
 - In ARCADE, the risk of recurrent symptomatic or non-symptomatic arterial events was lower with irbesartan (risk ratio 0.37, 95% CI 0.19–0.68, p=0.002) [[Jeunemaitre2025]].
 - Irbesartan lowered systolic blood pressure by 5.4 mm Hg (baseline-adjusted), but this reduction was not related to the outcome benefit. Eleven hypotension episodes led to down-titration in 4 patients [[Jeunemaitre2025]].
 - A 2026 review states that randomized evidence now supports irbesartan added to celiprolol, with expert-centre use of an ARB when celiprolol is not tolerated [[Corrao2026]].
-- The 2022 ACC/AHA guideline, written before ARCADE reported, stated "There are no studies showing a benefit of ARBs in vascular Ehlers-Danlos syndrome" [[Isselbacher2022]].
+- The 2022 ACC/AHA guideline, written before ARCADE reported, said no study had yet shown ARBs to help in vascular EDS [[Isselbacher2022]].
 - DiSCOVER (NCT05432466; sponsor Acer Therapeutics) is a phase 3, randomized, double-blind, decentralised trial of celiprolol (ACER-002) 200 mg twice daily versus placebo in COL3A1-positive vEDS, ages 15–64 [[NCT05432466]].
 - DiSCOVER status: recruiting. Started 7 Nov 2022, estimated enrolment 150, estimated primary completion 1 Mar 2029, last registry update 24 Aug 2025 [[NCT05432466]].
 - DiSCOVER primary endpoint: time to first vEDS-related clinical event requiring medical attention. This covers cardiac or arterial events, uterine rupture, intestinal rupture, or unexplained sudden death, over a double-blind period estimated at 40 months [[NCT05432466]].
@@ -157,21 +157,21 @@ Corrections and refinements to the brief:
 ### vascular · Blood pressure, lifestyle and surveillance imaging
 - The 2017 international vEDS consensus recommends confirming the COL3A1 variant before applying the diagnosis, adapting lifestyle to minimise injury, and building a care team [[Byers2017]].
 - The same consensus says to "maintain blood pressure in the normal range and treat hypertension aggressively" [[Byers2017]].
-- The 2017 consensus also says to survey the vascular tree with Doppler ultrasound, CTA (low-radiation alternatives) or MRA "if feasible on an annual basis" (expert consensus) [[Byers2017]].
+- The 2017 consensus also advises imaging the arteries, ideally once a year, using Doppler ultrasound, low-radiation CTA or MRA (expert consensus) [[Byers2017]].
 - The 2022 ACC/AHA guideline describes typical protocols. Baseline MRI or CT runs from head to pelvis, with annual imaging of any dilated or dissected segment and imaging every 2 years when the first imaging is normal. It states the right frequency is uncertain [[Isselbacher2022]].
 - The ACC/AHA guideline stresses that in vEDS the aorta and arterial branches may rupture or dissect "even without significant dilation" [[Isselbacher2022]].
 - An Italian expert-centre review reports follow-up "every 12 to 18 months" with office and 24-hour blood-pressure monitoring, echocardiography and whole-body CT or MR angiography. Celiprolol is titrated to 400 mg/day as tolerated, and an ARB is added if blood pressure is not controlled [[Buso2024]].
 - A survey of European Reference Network (VASCERN) expert centres found all endorse monitoring, but screening intervals and imaging methods differ between centres. Evidence-based guidelines are lacking [[vanDeLaar2022]].
-- GeneReviews advises regular blood-pressure monitoring so that hypertension is treated early. It lists things to avoid: collision sports, heavy lifting and extreme weight training [[Byers2025GR]].
+- GeneReviews recommends checking blood pressure regularly so that high blood pressure can be treated early. It names collision sports, lifting heavy loads and maximal weight training as things to avoid [[Byers2025GR]].
 - In the Montalcino Aortic Consortium (1,780 people with heritable aortic disease genes), arterial events beyond the aorta were most common with COL3A1 (20.8%), against 1.5% with FBN1. The authors stress smoking cessation and hypertension control [[CalderonMartinez2025]].
 - COL3A1 variant type changes risk. Missense and splice-site variants make up more than 90% of alterations, and median survival (51 years overall) is lower in men and varies by mutation type. These population statistics are relevant to trial allocation [[Pepin2014]].
 - In a French cohort of 215 people, the median age at first complication was 29 years. Glycine-substitution and splice/in-frame variants were more severe, and haploinsufficiency or terminal variants were milder [[Frank2015]].
 
 ### vascular · The emergency "passport" and what to avoid
 - The 2017 consensus recommends individual emergency-care plans (a "vascular EDS passport") carrying the diagnosis and management plan, for use when travelling. Care should be centralised at experienced centres where feasible [[Byers2017]].
-- GeneReviews advises carrying documentation of the genetic diagnosis: a MedicAlert bracelet or necklace, an emergency contact letter, or a vEDS passport [[Byers2025GR]].
-- GeneReviews also advises seeking immediate medical attention for sudden, unexplained pain, coordinated through the primary-care doctor when possible [[Byers2025GR]].
-- GeneReviews advises discouraging arteriography, using it only to find life-threatening bleeding before surgery. It also advises avoiding routine colonoscopy without concerning symptoms or a strong colon-cancer family history, and avoiding elective surgery unless the benefit is substantial [[Byers2025GR]].
+- GeneReviews advises keeping proof of the genetic diagnosis on the person, such as a MedicAlert bracelet or necklace, an emergency letter, or a vEDS passport [[Byers2025GR]].
+- GeneReviews also advises getting urgent medical help for any sudden pain without a clear cause, organised through the family doctor where possible [[Byers2025GR]].
+- GeneReviews advises against arteriography except to find a life-threatening bleed before an operation. It also advises against routine colonoscopy without worrying symptoms or a strong family history of bowel cancer, and against planned surgery unless the expected gain is large [[Byers2025GR]].
 - A 2026 review calls emergency care in vEDS "deliberately counter-intuitive" and harm-avoidant. It advises avoiding catheter angiography, elective endoscopy and unnecessary surgery, and preferring endovascular and tissue-sparing techniques [[Corrao2026]].
 - In the multi-institutional US cohort (86 people with COL3A1 variants), 37.4% of 139 aortic or arterial pathologies presented as emergencies. The mesenteric arteries were most often affected (31.7%), followed by cerebrovascular (16.5%), iliac (16.5%) and renal (12.2%) arteries [[Shalhub2019JVS]].
 
@@ -181,7 +181,7 @@ Corrections and refinements to the brief:
 - In the Mayo Clinic 30-year series (31 patients, 1971–2001), 15 patients had 30 operations for vascular complications. Procedure-related morbidity was 46%, including 37% postoperative bleeding and a 20% need for re-exploration [[Oderich2005]].
 - In the same series, 3 hospital deaths came from exsanguinating haemorrhage. Late graft-related complications affected 40% of arterial reconstructions [[Oderich2005]].
 - A 2013 systematic review of 231 published patients reported mortality of 30% after open surgery, 24% after endovascular procedures, 60% in miscellaneous cases and 39% overall. Median age at death was 31 years. The authors note likely publication bias and that only 24% of recent cases were molecularly confirmed [[Bergqvist2013]].
-- Bergqvist 2013 concluded that invasive methods "should be used only when necessary, primarily to save the patients' life" [[Bergqvist2013]].
+- Bergqvist 2013 concluded that invasive procedures should be kept for when they are truly needed, mainly to save life [[Bergqvist2013]].
 - In a single US tertiary centre (1994–2009; 40 people with classic, hypermobile or vascular EDS; 45 endovascular and 18 open elective procedures), endovascular procedures had no procedure-related deaths. Open procedures had 1 in-hospital death, in a person with vEDS [[Brooke2010]].
 - In that centre, 5-year survival free of any complication was 85% after endovascular and 54% after open procedures. The authors argued elective repair need not be withheld until rupture. Only 9 of the 40 had vEDS [[Brooke2010]].
 - In the 11-institution US cohort, most vEDS arterial pathology was managed medically. When intervention was needed, embolisation of medium-sized arteries (13.4%) and stenting (2.5%) were the main endovascular approaches [[Shalhub2019JVS]].
@@ -191,7 +191,7 @@ Corrections and refinements to the brief:
 - In older natural-history series, more than 80% of people with vEDS had at least one complication by age 40, and bowel rupture (often sigmoid colon) accounted for about a quarter of complications. These are population statistics [[Pepin2000]].
 
 ### surgery · Anaesthesia and peri-operative care
-- Wiesmann 2014 notes that EDS anaesthesia knowledge "is fragmented and consists mostly of case reports, small case series and expert opinion" [[Wiesmann2014]].
+- Wiesmann 2014 notes that what is known about anaesthesia in EDS is patchy and rests mainly on single cases, small series and expert views [[Wiesmann2014]].
 - The 2026 modified-Delphi survey (15 experts, 3 rounds) reached consensus on 7 guidelines. These include comprehensive airway assessment for all EDS types and planning around common comorbidities. It describes them as the first consensus-based anaesthesia practice guidelines for EDS [[Amaral2026]].
 - Airway: mask ventilation, intubation and laryngeal mask are all possible. Care is needed during mask ventilation to avoid dislocating the temporomandibular joint [[Wiesmann2014]].
 - Airway: repeated intubation attempts may cause bleeding, and smaller tubes may reduce mucosal damage. Cuff pressure should be checked often and kept as low as possible, and airway pressure minimised because of pneumothorax risk [[Wiesmann2014]].
@@ -208,23 +208,23 @@ Corrections and refinements to the brief:
 - In vEDS, pregnancy-related deaths occurred in 30 of 565 deliveries (5.3%). Data were insufficient to show whether mode or timing of delivery changed risk. Population statistic from pedigree review [[Murray2014GenetMed]].
 
 ### surgery · Wound closure, joints and the cervical spine
-- Classic EDS wound care (GeneReviews): close dermal wounds without tension, preferably in two layers. Apply deep stitches generously, leave skin stitches in place twice as long as usual, and tape the adjacent skin edges to prevent the scar stretching [[Malfait2024GR]].
-- Classic EDS (GeneReviews): young children with fragile skin can wear pads or bandages over the forehead, knees and shins. Older children can wear soccer pads or ski stockings with shin padding during activities [[Malfait2024GR]].
+- Classic EDS wound care (GeneReviews): close skin wounds with no pull on the edges, ideally in two layers, and use plenty of deep stitches. Leave skin stitches in for double the usual time, and tape the surrounding skin so the scar does not widen [[Malfait2024GR]].
+- Classic EDS (GeneReviews): pads or bandages can protect the forehead, knees and shins of young children with fragile skin. Older children can protect their shins during activity with football shin guards or padded ski socks [[Malfait2024GR]].
 - In the hEDS cohort of 79, 70.9% had undergone surgery, mainly on the limbs and abdomen. Only 33.9% of those operated on reported a positive outcome [[Rombaut2011F]].
 - Surgical and anaesthetic risk differs by EDS type: the 2026 Delphi panel gives type-specific advice (bleeding work-up for classical, classical-like, kyphoscoliotic and vascular EDS; multimodal and regional strategies for hEDS; caution with neuraxial blocks in vEDS), so vEDS fragility precautions are not applied to every type by default [[Amaral2026]].
 - The EDS consortium's neurology paper describes craniocervical instability, basilar invagination and Chiari I malformation as reported in EDS. It states that consensus criteria and practice guidelines "based upon stronger epidemiological and pathophysiological evidence, are needed" (Early evidence) [[Henderson2017]].
 - Occipito-cervical fixation in hEDS with craniocervical instability is described in case series with opioid-minimising peri-operative protocols. No controlled outcome data were found in this pass (Early evidence) [[RamirezPaesano2023]].
 - HRS 2015 lists surgical correction of Chiari I malformation as not recommended for routine use in POTS (Class III) [[Sheldon2015]].
-- GeneReviews (hEDS) notes that chiropractic adjustment and yoga are not contraindicated. Like all physical treatments, though, they must avoid causing subluxations or dislocations [[Hakim2024GR]].
+- GeneReviews (hEDS) does not rule out chiropractic or yoga, but, as with any physical treatment, they must be done without pushing joints out of place [[Hakim2024GR]].
 
 ### surgery · Dental and periodontal care
-- GeneReviews (hEDS) lists orthodontic, maxillofacial and ENT management for a narrow palate, crowded teeth and TMJ laxity and dysfunction. Periodontal disease gets standard treatment [[Hakim2024GR]].
+- GeneReviews (hEDS) refers a narrow palate, crowded teeth and a loose or painful jaw joint (TMJ) to orthodontists, maxillofacial surgeons and ENT specialists. Gum disease is treated in the usual way [[Hakim2024GR]].
 - Oral and TMJ involvement varies across EDS types, and TMJ disorder interacts with wider musculoskeletal dysfunction [[Mitakides2017]].
 - Periodontal EDS (pEDS) is autosomal dominant and caused by heterozygous variants in C1R or C1S, which encode subunits of complement C1. Features include rapidly progressive periodontitis starting in childhood or the teens, lack of attached gingiva, pretibial hyperpigmentation and easy bruising [[KapfererSeebacher2016]].
 - In 35 adults with genetically confirmed pEDS, 94% had stage 3–4 periodontitis or were edentulous from periodontal destruction. First permanent tooth loss came at a median age of 21.5 years (range 13–43) [[Lepperdinger2022]].
 - The probability of having no teeth at age 35–44 was 28–47% in pEDS, versus under 0.25% in the general population. Pockets were mostly shallow (94% under 4 mm), but clinical attachment loss averaged 8 mm [[Lepperdinger2022]].
-- GeneReviews (pEDS) advises regular care by a periodontist from early childhood. Supportive periodontal care (re-evaluation, hygiene instruction, supra- and sub-gingival debridement) is recommended every 3–6 months [[KapfererSeebacher2021GR]].
-- GeneReviews (pEDS) notes that prosthetic rehabilitation after tooth loss is challenging because most alveolar bone is destroyed [[KapfererSeebacher2021GR]].
+- GeneReviews (pEDS) advises seeing a periodontist regularly from early childhood. Maintenance gum care every 3–6 months should include rechecking the gums, cleaning advice, and cleaning above and below the gum line [[KapfererSeebacher2021GR]].
+- GeneReviews (pEDS) notes that replacing lost teeth is difficult, because little of the jawbone that holds the teeth is left [[KapfererSeebacher2021GR]].
 - For dental local anaesthesia in EDS, survey data suggest articaine had the highest reported success, and failure was reported nearly three times as often as in people without EDS. See the local anaesthetic subsection [[Schubart2019LA]].
 
 ### Exam hooks

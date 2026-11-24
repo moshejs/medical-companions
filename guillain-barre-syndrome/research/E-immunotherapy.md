@@ -247,10 +247,10 @@ Access notes:
 
 ### whatnot · What to expect from treatment
 - Treatment speeds recovery but does not cure everyone. About 20% of treated people cannot walk at 6 months and about 5% die as a consequence of GBS (population statistics) [[Leonhard2024]]
-- About 40% of people on standard plasma exchange or IVIg do not improve in the first 4 weeks. This does not imply the treatment failed, as progression might have been worse without it [[Leonhard2019]]
+- About 40% of people show no improvement in the first 4 weeks after a standard course of plasma exchange or IVIg. That is not proof the treatment failed, since the illness might have progressed further without it [[Leonhard2019]]
 - In IGOS, 235 people (32%) did not improve after their initial treatment. The abstract does not state which subgroup forms the denominator [[Verboon2019]]
 - 60–80% can walk independently 6 months after onset, with or without treatment [[Leonhard2019]]
-- About 25% need artificial ventilation and 20% are still unable to walk unaided after 6 months [[vanDoorn2010]]
+- About 25% need a ventilator, and 6 months on, 20% still cannot walk without help [[vanDoorn2010]]
 - About 20% die or have persistent disability despite immunotherapy [[Hughes2007]]
 - Neither treatment has been shown to reduce mortality [[Hughes2007,Chevret2017]]
 - In IGOS, 92% of participants outside Bangladesh received immunotherapy, so treatment reached most but not all of them (observational cohort) [[Verboon2019]]

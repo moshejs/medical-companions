@@ -2,7 +2,7 @@
 /* Main scrubber: Pseudomonas aeruginosa arrives in the mucus, is eradicated, returns and settles as a mucoid
    (biofilm) infection, is suppressed with cycled inhaled antibiotics, and flares into an exacerbation treated with
    IV antibiotics. Beside it, the published trial numbers for each stage. Then organism glyphs for the card grid and
-   the infection-control distance diagram (CFF 2013 update, quoted as published). */
+   the infection-control distance diagram (CFF 2013 update, summarised). */
 inits.infection=()=>{
   const svg=$('#inSvg'),rg=$('#inT'),pb=$('#inPlay'),note=$('#inNote'),stEl=$('#inSteps');
   const STEPS=[
@@ -19,7 +19,7 @@ inits.infection=()=>{
       pt:'Once Pseudomonas has settled in, treatment usually aims to keep its numbers down. Even with modulators, most people in one study still grew the germs they had before [[Nichols2023]].',
       hook:'ETI lowers pathogen density 2–3 log10 within a month, but infections generally persist [[Nichols2023]].'},
     {from:.6,at:.7,k:'Stage 4 · keeping it down',t:'Chronic suppression',
-      txt:'In Ramsey 1999 (520 people), inhaled tobramycin 300 mg twice daily in three 28-on, 28-off cycles raised FEV1 10% at week 20 against a 2% fall on placebo, and hospitalisation was 26% less likely [[Ramsey1999TOBI]]. The TOBI label states "alternating periods of 28 days on drug, followed by 28 days off drug" from age 6 [[FDA-TOBI]]. In AIR-CF2, aztreonam lysine lengthened the median time to needing more antipseudomonal antibiotics from 71 to 92 days [[McCoy2008AZLI]]; the Cayston label states one 75 mg vial 3 times a day for 28 days, then 28 days off, from age 7 [[FDA-Cayston]]. Azithromycin three days a week cut exacerbation risk (HR 0.65) [[Saiman2003Azithro]].',
+      txt:'In Ramsey 1999 (520 people), inhaled tobramycin 300 mg twice daily in three 28-on, 28-off cycles raised FEV1 10% at week 20 against a 2% fall on placebo, and hospitalisation was 26% less likely [[Ramsey1999TOBI]]. The TOBI label gives it in repeating cycles of 28 days on and 28 days off, from age 6 [[FDA-TOBI]]. In AIR-CF2, aztreonam lysine lengthened the median time to needing more antipseudomonal antibiotics from 71 to 92 days [[McCoy2008AZLI]]; the Cayston label states one 75 mg vial 3 times a day for 28 days, then 28 days off, from age 7 [[FDA-Cayston]]. Azithromycin three days a week cut exacerbation risk (HR 0.65) [[Saiman2003Azithro]].',
       pt:'Some inhaled antibiotics are taken in cycles of 4 weeks on and 4 weeks off. This keeps germs like Pseudomonas down while limiting side effects [[FDA-TOBI]].',
       hook:'TOBI: 28 days on, 28 off [[FDA-TOBI]]. Cayston: three times daily for 28 days [[FDA-Cayston]]. Azithromycin HR 0.65 [[Saiman2003Azithro]]; stop it if NTM grows [[Floto2016NTM]].'},
     {from:.8,at:.92,k:'Stage 5 · a flare',t:'Exacerbation & IV antibiotics',
@@ -99,8 +99,8 @@ inits.infection=()=>{
   const RULES={
     clinic:['People with CF should wear a surgical mask in healthcare settings [[Saiman2014IPC]].','Staff use Contact Precautions (gown and gloves) for all people with CF, in clinic and hospital [[Saiman2014IPC]].','Lung function testing options include testing in the exam room at the start of the visit, a negative-pressure room, a HEPA-filtered lab, or 30 minutes between people with CF [[Saiman2014IPC]].','People with CF, their families and friends should all perform hand hygiene [[Saiman2014IPC]].'],
     hospital:['Inpatients with CF should have a single-patient room. Only people with CF from the same household may share [[Saiman2014IPC]].','The guideline cites P. aeruginosa recovered from hospital-room air 45 minutes to 2 hours after a person with CF left [[Saiman2014IPC]].','Contact Precautions (gown and gloves) for all people with CF [[Saiman2014IPC]].'],
-    event:['"Only 1 person with CF may attend a CF Foundation–sponsored indoor event" [[Saiman2014IPC]].','The rule applies to everyone with CF, whatever their culture results, because "all individuals with CF may harbor potentially transmissible pathogens" [[Saiman2014IPC]].'],
-    everyday:['"Separate all people with CF from others with CF, regardless of their respiratory tract culture results, at least 6 feet (2 meters) in all settings" [[Saiman2014IPC]].','The guideline recommends against CF-specific camps and retreats, and encourages camps and sports with people who do not have CF [[Saiman2014IPC]].']};
+    event:['At an indoor event sponsored by the CF Foundation, no more than one person with CF should attend [[Saiman2014IPC]].','The rule applies to everyone with CF, whatever their culture results, because "all individuals with CF may harbor potentially transmissible pathogens" [[Saiman2014IPC]].'],
+    everyday:['Everyone with CF should keep at least 6 feet (2 metres) from others with CF in every setting, whatever their airway culture results [[Saiman2014IPC]].','The guideline recommends against CF-specific camps and retreats, and encourages camps and sports with people who do not have CF [[Saiman2014IPC]].']};
   let ipSet='everyday';
   function ipDraw(tp){const N=vb(ip,'720 250','400 270'),d=+ipD.value,W=N?318:620,x0=N?48:56,PX=W/3.2,ax=x0+10,bx=ax+d*PX,base=N?204:196,ps=N?66:80,hy=base-ps;
     ipDv.textContent=`${d.toFixed(1)} m (${(d*3.281).toFixed(1)} ft)`;

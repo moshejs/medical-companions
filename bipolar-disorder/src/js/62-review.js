@@ -23,10 +23,10 @@ const RV_FC=[
  [1,`What is the most robust early warning sign of mania?`,`Sleep disturbance, in a median 77% of prodromes; at least 80% of people can name an early warning sign [[Jackson2003]].`],
  [1,`What does ENIGMA show in the bipolar brain, and can a scan diagnose it?`,`Thinner frontal, temporal and parietal cortex (largest d about −0.29) and a smaller hippocampus. Effects are small and overlap with healthy people, so a scan cannot diagnose [[Hibar2018,Hibar2016]].`],
  /* ---- Part 2: diagnosis ---- */
- [2,`What is Criterion A for a manic episode in DSM-5-TR?`,`Abnormally and persistently elevated, expansive or irritable mood AND increased activity or energy, for at least 1 week most of the day, nearly every day, or any duration if hospitalisation is needed [[APA2022,Yatham2018]].`],
+ [2,`What is Criterion A for a manic episode in DSM-5-TR?`,`Mood that is unusually and steadily high, expansive or irritable AND raised activity or energy, lasting at least 1 week for most of each day on almost every day, or any length if hospital care is needed [[APA2022,Yatham2018]].`],
  [2,`How many Criterion B symptoms are needed?`,`At least 3 of 7, or 4 if the mood is only irritable [[APA2022,Yatham2018]].`],
  [2,`What turns an episode into mania rather than hypomania?`,`Marked impairment in functioning, hospitalisation to prevent harm, or psychotic features [[APA2022,Yatham2018]].`],
- [2,`What are the rules for a hypomanic episode?`,`At least 4 consecutive days, an unequivocal change observable by others, no marked impairment and no hospitalisation. Psychotic features make it mania by definition [[APA2022,Yatham2018]].`],
+ [2,`What are the rules for a hypomanic episode?`,`At least 4 days in a row, a clear change that others can see, no marked impairment and no hospitalisation. Psychotic features make it mania by definition [[APA2022,Yatham2018]].`],
  [2,`What defines a major depressive episode?`,`5 or more of 9 symptoms over the same 2 weeks, including depressed mood or loss of interest or pleasure [[APA2022,Yatham2018]].`],
  [2,`Bipolar I versus bipolar II?`,`Bipolar I needs at least one manic episode. Bipolar II needs at least one hypomanic and one major depressive episode, and never mania [[APA2022,McIntyre2020Lancet]].`],
  [2,`What is cyclothymic disorder?`,`At least 2 years (1 in youth) of numerous subthreshold hypomanic and depressive periods, never meeting full episode criteria [[APA2022,Yatham2018]].`],
@@ -37,7 +37,7 @@ const RV_FC=[
  [2,`What are the ICD-11 bipolar codes?`,`6A60 bipolar type I, 6A61 bipolar type II, 6A62 cyclothymic disorder. One manic or mixed episode is enough for type I [[Harter2025,Stein2020BMC]].`],
  [2,`What counts as a positive MDQ screen?`,`7 or more of 13 items, plus several in the same period, plus a moderate or serious problem [[Hirschfeld2000MDQ,Palmer2021]].`],
  [2,`Why does the MDQ perform so differently in clinics and in the community?`,`Sensitivity 0.73 and specificity 0.90 in mood clinics, but sensitivity 0.28 and specificity 0.97 in the general population [[Hirschfeld2000MDQ,Hirschfeld2003AJP]]. A screen only says "look closer".`],
- [2,`What does NICE say about bipolar questionnaires in primary care?`,`"Do not use questionnaires in primary care to identify bipolar disorder in adults." Ask depressed adults about past overactivity lasting 4 days or more [[NICE2014CG185]].`],
+ [2,`What does NICE say about bipolar questionnaires in primary care?`,`NICE advises against using questionnaires in primary care to identify bipolar disorder in adults. Ask depressed adults about past overactivity lasting 4 days or more [[NICE2014CG185]].`],
  [2,`What is the most common misdiagnosis, and how long does diagnosis take?`,`Unipolar depression; 69% of surveyed patients had been misdiagnosed [[Hirschfeld2003]]. Median delay to diagnosis 6.7 years [[Scott2022Delay]].`],
  [2,`Which features predict that depression will later turn out to be bipolar?`,`Family history of bipolar disorder (OR 2.89), psychotic symptoms (OR 4.76) and earlier onset [[Ratheesh2017]].`],
  [2,`How do mood shifts differ in BPD and bipolar disorder?`,`In borderline personality disorder they are transient and reactive to interpersonal stress; in bipolar disorder they are sustained episodes with well intervals [[Paris2015,Yatham2018]].`],
@@ -112,17 +112,17 @@ const RV_MN=[
 const RV_B=[
  ['D','Distractibility','distractibility'],
  ['I','Insomnia','decreased need for sleep'],
- ['G','Grandiosity','inflated self-esteem or grandiosity'],
- ['F','Flight of ideas','or the feeling that thoughts race'],
+ ['G','Grandiosity','overblown sense of self-worth'],
+ ['F','Flight of ideas','thoughts racing or leaping'],
  ['A','Activity','more goal-directed activity, agitation'],
- ['S','Speech','more talkative, pressure to keep talking'],
+ ['S','Speech','talking more, driven to keep talking'],
  ['T','Thoughtlessness','risky acts with painful consequences']
 ];
 const RV_LIT=[2,1,5,3];/* order in which the counter lights rows: G, I, S, F */
 const RV_STEPS=[
- {from:0,at:.12,k:'Criterion A',t:'Mood and energy, together',txt:`A manic or hypomanic episode starts with a two-part Criterion A: abnormally and persistently elevated, expansive or irritable mood, and abnormally and persistently increased activity or energy, most of the day, nearly every day [[APA2022,Yatham2018]]. DSM-5 (2013) made energy a required core symptom; before that a mood change alone was enough [[Mason2016]].`,pt:'A high is more than a good mood: energy and activity rise too, and other people notice.',hook:'Since DSM-5: mood change AND increased activity or energy.'},
- {from:.2,at:.33,k:'DIGFAST',t:'Seven B symptoms',txt:`As a memory aid, DIGFAST holds the seven Criterion B symptoms: distractibility, decreased need for sleep, grandiosity, flight of ideas or racing thoughts, increased goal-directed activity or agitation, more talkative or pressured speech, and excessive involvement in risky activities [[APA2022,Yatham2018]]. The letters are a teaching shortcut, not DSM wording. Decreased need for sleep is also the most common early warning sign of mania [[Jackson2003]].`,pt:'Seven letters, seven signs. Sleeping much less without feeling tired is often the first one.',hook:'Sleep disturbance: most robust early sign of mania (median 77%).'},
- {from:.4,at:.53,k:'3 of 7, or 4',t:'Counting the symptoms',txt:`At least 3 of the 7 symptoms must be present to a significant degree, or 4 if the mood is only irritable [[APA2022,Yatham2018]]. Irritability is common in mania, which is "not a purely euphoric state" [[Cassidy1998]].`,pt:'If the high shows up mostly as irritability, one more sign is needed before it counts.',hook:'Irritable mood only: 4 of 7 B symptoms instead of 3.'},
+ {from:0,at:.12,k:'Criterion A',t:'Mood and energy, together',txt:`A manic or hypomanic episode starts with a two-part Criterion A: mood that is unusually and steadily high, expansive or irritable, and activity or energy that is unusually and steadily raised, for most of each day on almost every day [[APA2022,Yatham2018]]. DSM-5 (2013) made energy a required core symptom; before that a mood change alone was enough [[Mason2016]].`,pt:'A high is more than a good mood: energy and activity rise too, and other people notice.',hook:'Since DSM-5: mood change AND increased activity or energy.'},
+ {from:.2,at:.33,k:'DIGFAST',t:'Seven B symptoms',txt:`As a memory aid, DIGFAST holds the seven Criterion B symptoms: distractibility, decreased need for sleep, grandiosity, flight of ideas or racing thoughts, increased goal-directed activity or agitation, more talkative or pressured speech, and plunging into risky activities [[APA2022,Yatham2018]]. The letters are a teaching shortcut, not DSM wording. Decreased need for sleep is also the most common early warning sign of mania [[Jackson2003]].`,pt:'Seven letters, seven signs. Sleeping much less without feeling tired is often the first one.',hook:'Sleep disturbance: most robust early sign of mania (median 77%).'},
+ {from:.4,at:.53,k:'3 of 7, or 4',t:'Counting the symptoms',txt:`At least 3 of the 7 symptoms must be clearly present, or 4 if the mood is only irritable [[APA2022,Yatham2018]]. Irritability is common in mania, which is "not a purely euphoric state" [[Cassidy1998]].`,pt:'If the high shows up mostly as irritability, one more sign is needed before it counts.',hook:'Irritable mood only: 4 of 7 B symptoms instead of 3.'},
  {from:.6,at:.72,k:'Duration',t:'Four days or one week',txt:`Hypomania needs at least 4 consecutive days; mania at least 1 week, or any duration if hospitalisation is needed [[APA2022,Yatham2018]]. ICD-11 says hypomania lasts "at least several days" [[Stein2020BMC]]. In bipolar II, brief (2–6 day) and longer hypomanias did not differ on any course measure [[Judd2003]].`,pt:'How long a high lasts is one part of how doctors name it.',hook:'Hypomania ≥4 consecutive days; mania ≥1 week (any length if hospitalised).'},
  {from:.8,at:.94,k:'Criterion C',t:'What makes it mania',txt:`Mania needs marked impairment, hospitalisation to prevent harm, or psychotic features; hypomania brings an observable change without these, and psychosis makes an episode manic by definition [[APA2022,Yatham2018]]. One manic episode is enough for bipolar I; hypomania plus a major depressive episode, never mania, is bipolar II [[APA2022,McIntyre2020Lancet]]. These criteria are for learning, not for diagnosing yourself: diagnosis needs a clinician's assessment over time [[Yatham2018]].`,pt:'Most people recover from an episode with treatment: 98% after a first manic admission recovered within 2 years [[Tohen2003]].',hook:'Bipolar II is not "bipolar lite": disability is comparable to bipolar I [[Yatham2018]].'}
 ];
@@ -175,13 +175,13 @@ inits.review=()=>{
     /* phase 0: the two-part gate */
     if(v0>0){const bh=N?46:58,y1=N?44:52,y2=N?124:150,c1=ramp(t,.03,.07),c2=ramp(t,.07,.11);
       s+=`<g style="opacity:${f1(v0)}"><text class="t-lbl" x="16" y="28">Criterion A: both parts</text>`;
-      [[y1,'Mood','elevated, expansive or irritable',c1,'--up'],[y2,'Activity or energy','abnormally, persistently increased',c2,'--rx']].forEach(([y,h,sub,c,col])=>{
+      [[y1,'Mood','elevated, expansive or irritable',c1,'--up'],[y2,'Activity or energy','unusually, steadily raised',c2,'--rx']].forEach(([y,h,sub,c,col])=>{
         s+=`<rect x="16" y="${y}" width="${W-32}" height="${bh}" rx="10" style="fill:var(--panel);stroke:var(${col});stroke-width:${f1(1+c*1.4)}"/>`;
         s+=`<text class="t-lbl" x="30" y="${y+20}">${h}</text><text class="t-xs" x="30" y="${y+36}">${sub}</text>`;
         s+=`<circle cx="${W-40}" cy="${y+bh/2}" r="11" style="fill:var(${col});opacity:${f1(c)}"/><text class="t-lbl t-mid" x="${W-40}" y="${y+bh/2+4.5}" style="fill:var(--on-brand);opacity:${f1(c)}">✓</text>`});
       const ya=(y1+bh+y2)/2;s+=`<text class="t-big t-mid" x="${W/2}" y="${ya+6}" style="fill:var(--brand)">AND</text>`;
       const yf=N?196:240;
-      s+=`<text class="t-sm" x="16" y="${yf}" style="fill:var(--ink)">most of the day, nearly every day</text><text class="t-xs" x="16" y="${yf+18}">required together since DSM-5 (2013)</text>`;
+      s+=`<text class="t-sm" x="16" y="${yf}" style="fill:var(--ink)">most of each day, almost daily</text><text class="t-xs" x="16" y="${yf+18}">required together since DSM-5 (2013)</text>`;
       if(!N)s+=`<text class="t-xs" x="16" y="${yf+36}">before then, a mood change alone was enough</text>`;
       s+='</g>'}
     /* phase 1: the letters */

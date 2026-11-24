@@ -44,10 +44,10 @@ Access notes:
 - GBS is usually monophasic: 95% of the Fokke cohort, of whom 10% had a treatment-related fluctuation [[Fokke2014]]; 97% of Dutch children, including 5 with a treatment-related fluctuation [[Roodbol2017]].
 
 ### signs · Typical presentation
-- Classic GBS begins with distal paraesthesias or sensory loss, accompanied or followed by weakness that starts in the legs and progresses to the arms and cranial muscles [[Leonhard2019]].
+- In classic GBS, tingling or numbness in the hands and feet comes first or alongside weakness; the weakness begins in the legs and then spreads to the arms and the muscles supplied by cranial nerves [[Leonhard2019]].
 - All 494 adults in the Dutch cohort had bilateral limb weakness; it stayed restricted to the legs in 6% and to the arms in 1% [[Fokke2014]].
 - In 67 children, bilateral limb weakness was present at admission in 93% and at nadir in all; 70% presented with tetraparesis and 23% with paraparesis [[Roodbol2017]].
-- Weakness and sensory signs are always bilateral but can be asymmetrical, predominantly proximal or distal, and can start in the legs, the arms or all limbs at once [[Leonhard2019]].
+- Weakness and sensory signs are always on both sides, though not always equal; they may be mainly near the trunk or mainly in the hands and feet, and may begin in the legs, in the arms or in all four limbs together [[Leonhard2019]].
 - Severe diffuse pain or isolated cranial nerve dysfunction can precede weakness [[Leonhard2019]].
 - Children under 6 can present with poorly localised pain, refusal to bear weight, irritability, meningism or unsteady gait, which can delay diagnosis [[Leonhard2019]].
 - About two-thirds report an infection in the 6 weeks before onset, and about one-third report none of the queried antecedent events, so absence does not exclude GBS [[Leonhard2019,vanDoorn2023]].
@@ -75,32 +75,32 @@ Access notes:
 - The guideline states that initial hyperreflexia does not exclude GBS, though hyperreflexia still makes it less likely [[vanDoorn2023]].
 
 ### signs · Autonomic involvement
-- Dysautonomia can include blood pressure or heart rate instability, pupillary dysfunction, and bowel or bladder dysfunction [[Leonhard2019]].
+- Autonomic disturbance can mean unstable blood pressure or heart rate, abnormal pupils, and problems with bowel or bladder [[Leonhard2019]].
 - Frequencies differ by definition and setting: 25% at entry in IGOS [[Doets2018]]; 71/187 (38%) in a retrospective Mayo Clinic series [[Chakraborty2020]]; up to two-thirds in a literature review [[Zaeem2019]].
 - A Mexican series reports "51 (31%)" of 214 with dysautonomia; 51/214 computes to 24%, so this abstract's percentage is internally inconsistent and should not be used as a headline figure [[BazanRodriguez2023]].
 - In the Mayo series, the commonest features were ileus 42%, hypertension 39%, hypotension 37%, fever 29%, tachycardia or bradycardia 27% and urinary retention 24% [[Chakraborty2020]].
 - Mortality in that series was 6% with dysautonomia against 2% in the whole cohort (P=0.02; retrospective, single centre) [[Chakraborty2020]].
 
 ### signs · Red flags
-- Leonhard2019 Box 1 lists features that cast doubt on the diagnosis: CSF mononuclear or polymorphonuclear cells above 50×10^6/l; marked, persistent asymmetry of weakness; bladder or bowel dysfunction at onset or persistent; severe respiratory dysfunction with limited limb weakness at onset [[Leonhard2019]].
-- The same box continues: sensory signs with limited weakness at onset; fever at onset; nadir under 24 h; sharp sensory level; hyper-reflexia or clonus; extensor plantar responses; abdominal pain [[Leonhard2019]].
-- The same box concludes: slow progression with limited weakness without respiratory involvement; continued progression for more than 4 weeks; altered consciousness (except in Bickerstaff brainstem encephalitis) [[Leonhard2019]].
+- Leonhard2019 Box 1 groups the findings that make GBS doubtful. Paraphrased: a CSF white cell count (mononuclear or polymorphonuclear) above 50×10^6/l; weakness that is clearly and lastingly one-sided; bladder or bowel problems at the start or that persist; serious breathing failure at onset while the limbs are only mildly weak [[Leonhard2019]].
+- It goes on: sensory findings with little weakness at the start; fever at the start; reaching the worst point in under 24 h; a clear-cut sensory level on the trunk; brisk reflexes or clonus; upgoing plantar responses; abdominal pain [[Leonhard2019]].
+- And ends with: slow worsening with little weakness and no breathing involvement; worsening that goes on past 4 weeks; a change in consciousness (Bickerstaff brainstem encephalitis excepted) [[Leonhard2019]].
 - The EAN/PNS Table 1 lists findings that make GBS less likely, adding nystagmus, vomiting and abnormal routine blood tests (hyponatraemia may occur in GBS), and specifying that bladder or bowel dysfunction does not exclude GBS [[vanDoorn2023]].
 - The EAN/PNS Table 1 also lists continued worsening beyond 4 weeks or at least 3 treatment-related fluctuations as a prompt to consider A-CIDP [[vanDoorn2023]].
 - Red flags are prompts, not exclusions: mild pleocytosis and even rare counts of 50 or more are compatible with GBS after a thorough search for other causes [[AlHakem2023]].
 
 ### criteria · NINDS criteria (revised 1990)
-- Asbury and Cornblath reaffirmed the earlier criteria and expanded the electrodiagnostic criteria; the original tables could not be read for this pass, so the wording below is Leonhard's labelled adaptation [[Asbury1990,Leonhard2019]].
-- Required (as adapted): progressive bilateral weakness of arms and legs (initially only legs may be involved), and absent or decreased tendon reflexes in affected limbs at some point in the clinical course [[Leonhard2019]].
-- Strongly supportive (as adapted): progressive phase days to 4 weeks (usually under 2 weeks); relative symmetry; relatively mild sensory symptoms and signs; cranial nerve involvement, especially bilateral facial palsy; autonomic dysfunction [[Leonhard2019]].
-- Further supportive items added by Leonhard and colleagues, not in the original NINDS text: muscular or radicular back or limb pain; raised CSF protein (normal protein does not exclude); electrodiagnostic features of motor or sensorimotor neuropathy (normal early studies do not exclude) [[Leonhard2019]].
+- Asbury and Cornblath reaffirmed the earlier criteria and expanded the electrodiagnostic criteria; the original tables could not be read for this pass, so the items below follow Leonhard's labelled adaptation, restated in this guide's words [[Asbury1990,Leonhard2019]].
+- Required (as adapted): worsening weakness of the arms and legs on both sides (at first it can be confined to the legs), and tendon reflexes in the weak limbs that are lost or reduced at some stage of the illness [[Leonhard2019]].
+- Strongly supportive (as adapted): worsening over days up to 4 weeks, most often under 2; both sides affected roughly equally; fairly mild sensory findings; cranial nerves involved, typically weakness of both sides of the face; autonomic disturbance [[Leonhard2019]].
+- Further supportive items added by Leonhard and colleagues, not in the original NINDS text: back or limb pain from muscles or nerve roots; a high CSF protein (a normal level does not rule GBS out); nerve tests showing a motor or sensorimotor neuropathy (normal results early on do not rule it out) [[Leonhard2019]].
 - NINDS and Brighton were both designed to study epidemiological links between GBS and vaccination; the Leonhard panel judged NINDS better suited to clinicians and Brighton useful for grading certainty [[Leonhard2019]].
 - The criteria do not apply to some variants: bilateral facial palsy with paraesthesias, pure sensory GBS and Bickerstaff brainstem encephalitis do not fulfil commonly used criteria [[Leonhard2019]].
 
 ### criteria · EAN/PNS 2023 criteria
-- Required for motor-sensory or motor GBS: progressive weakness of arms and legs (may start in the legs or elsewhere in regional variants); tendon reflexes absent or decreased in affected limbs; progressive worsening for no more than 4 weeks [[vanDoorn2023]].
-- Clinical support: relative symmetry; relatively mild or absent sensory symptoms and signs; cranial nerve involvement; autonomic dysfunction; respiratory insufficiency from muscle weakness; pain; recent infection (under 6 weeks) [[vanDoorn2023]].
-- Laboratory support: raised CSF protein with white cells usually under 5×10^6/l; anti-GQ1b usually present in Miller Fisher syndrome; nerve conduction consistent with polyneuropathy, which may be normal in the first days [[vanDoorn2023]].
+- Required for motor-sensory or motor GBS (paraphrased): worsening weakness of the arms and legs (often beginning in the legs, or in another region in the localised variants); lost or reduced tendon reflexes in the weak limbs; a worsening phase of 4 weeks at most [[vanDoorn2023]].
+- Clinical support (paraphrased): both sides affected roughly equally; sensory findings that are mild or missing; cranial nerves involved; autonomic disturbance; breathing failure caused by weak muscles; pain; an infection in the previous 6 weeks [[vanDoorn2023]].
+- Laboratory support (paraphrased): a high CSF protein, with white cells usually under 5×10^6/l; anti-GQ1b antibodies, found in most people with Miller Fisher syndrome; nerve conduction that fits a polyneuropathy, though it can be normal in the first days [[vanDoorn2023]].
 - The guideline deliberately does not endorse specific electrodiagnostic criteria for AIDP, AMAN or AMSAN, because no gold standard exists and subtype does not currently alter management [[vanDoorn2023]].
 
 ### criteria · Brighton levels of diagnostic certainty

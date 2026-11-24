@@ -98,7 +98,7 @@ Access notes:
 
 ### fibrosis · How fast fibrosis progresses (decades, not months)
 - Untreated hepatitis C (2235 patients): the median fibrosis progression rate was 0.133 METAVIR units per year (95% CI 0.125–0.143) [[Poynard1997]].
-- In the same cohort, the median estimated time to cirrhosis was 30 years (28–32). It ranged from 13 years in men infected after age 40 to 42 years in women who did not drink alcohol and were infected before age 40 [[Poynard1997]].
+- In the same cohort, the median estimated time to cirrhosis was 30 years (28–32). The shortest estimate was 13 years, for men infected after age 40; the longest was 42 years, for non-drinking women infected before age 40 [[Poynard1997]].
 - In the same cohort, 33% had an expected median time to cirrhosis of under 20 years, and 31% would never progress or would take at least 50 years [[Poynard1997]].
 - Three factors independently sped progression: infection after age 40, drinking 50 g of alcohol or more daily, and male sex. HCV genotype had no effect [[Poynard1997]].
 - Meta-analysis of 111 hepatitis C studies (n=33,121): annual stage transition probabilities were F0→F1 0.117, F1→F2 0.085, F2→F3 0.120 and F3→F4 0.116 [[Thein2008]].

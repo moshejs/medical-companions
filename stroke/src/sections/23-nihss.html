@@ -11,7 +11,10 @@
 #m-nihss .nhitem h4{margin:0;font-family:var(--display);font-weight:700;font-size:19px;line-height:1.2}
 #m-nihss .nhitem h4 span{font:700 13px var(--mono);color:var(--dx);margin-right:6px}
 #m-nihss .nhitem .tst{font-size:13.5px;color:var(--muted)}
-#m-nihss .nhopts{display:flex;flex-direction:column;gap:4px}
+#m-nihss .nhopts{display:flex;flex-wrap:wrap;gap:4px}
+#m-nihss .nhopt:not([data-nhv="UN"]){flex:1 1 0;min-width:44px;display:flex;justify-content:center;align-items:center}
+#m-nihss .nhopt:not([data-nhv="UN"]) span:empty{display:none}
+#m-nihss .nhopt[data-nhv="UN"]{flex:1 1 100%}
 #m-nihss .nhopt{display:grid;grid-template-columns:30px minmax(0,1fr);gap:6px;align-items:baseline;text-align:left;font-size:14.5px;line-height:1.3;padding:9px 10px;min-height:40px;border-radius:9px;border:1px solid var(--line);background:var(--panel);cursor:pointer}
 #m-nihss .nhopt b{font:700 13px var(--mono)}
 #m-nihss .nhopt:hover{border-color:var(--muted)}
@@ -28,7 +31,7 @@
     <p class="lede">The NIHSS is a set of short bedside checks: 15 items, 0 to 42. Watch a score build item by item, try every item yourself with teaching notes, see what it misses, and meet the modified Rankin Scale that trials use for the end result.</p></div>
 
   <p class="teach" role="note"><b>Teaching tool</b>This calculator explains how the published scale adds up. It is never for an individual's diagnosis, prognosis or treatment, and it does not teach or certify examination. Results are shown as population figures from the cited studies, not predictions for a person.</p>
-  <div class="callout"><p><b>Where the wording comes from.</b> Item wording and score options here are taken from two secondary summaries: a 2022 narrative review [[Budincevic2022]] and a 2014 <i>Continuum</i> appendix [[ContinuumNIHSS2014]]. The official NINDS form and booklet could not be fetched for this guide (HTTP 403), so administration rules, such as which response to score, are not stated here and need checking against <a href="https://www.ninds.nih.gov/health-information/stroke/assess-and-treat/nih-stroke-scale" rel="noopener">the official NIH Stroke Scale from NINDS</a>.</p></div>
+  <div class="callout"><p><b>Where the items come from.</b> Item names, what each item tests and each item's score range come from two secondary summaries: a 2022 narrative review [[Budincevic2022]] and a 2014 <i>Continuum</i> appendix [[ContinuumNIHSS2014]]. The wording of each response is not reproduced here; it is on <a href="https://www.ninds.nih.gov/health-information/stroke/assess-and-treat/nih-stroke-scale" rel="noopener">the official NIH Stroke Scale from NINDS</a>, along with the administration rules, such as which response to score. The official form and booklet could not be fetched for this guide (HTTP 403).</p></div>
 
   <div class="stepper" id="nhSteps"></div>
   <div class="nhbar" role="group" aria-label="Invented teaching examples">
@@ -47,7 +50,7 @@
   </div>
 
   <h3 class="sub">Score every item</h3>
-  <div class="prose"><p>Pick one option for each item. Choosing an option moves the picture above to the full total. An untestable (UN) choice adds nothing to the total; one summary codes the same situations as 9 [[ContinuumNIHSS2014]]. The maximum of 42 is the sum of the item maxima and agrees with the published maximum [[Budincevic2022]].</p></div>
+  <div class="prose"><p>Pick one score for each item: 0 means normal for that item, and higher means a greater deficit. Choosing an option moves the picture above to the full total. An untestable (UN) choice adds nothing to the total; one summary codes the same situations as 9 [[ContinuumNIHSS2014]]. The maximum of 42 is the sum of the item maxima and agrees with the published maximum [[Budincevic2022]].</p></div>
   <div class="nhcalc">
     <div class="nhitems" id="nhItems"></div>
     <div class="nhsticky" id="nhTot" aria-live="polite"></div>
@@ -114,13 +117,13 @@
   </div>
 
   <h3 class="sub">The modified Rankin Scale</h3>
-  <div class="prose"><p>The NIHSS measures the deficit now. The mRS measures the result in daily life: how much help a person needs. It descends from Rankin's 1957 work [[Rankin1957]]. The 1988 interobserver study used six grades, 0 to 5 [[vanSwieten1988]]; modern usage is a 7-level scale that adds 6 for death [[Saver2021,Thomalla2018]]. Definitions below are verbatim as listed in a 2026 clinical study [[Luo2026]], because the 1988 abstract does not state them.</p></div>
+  <div class="prose"><p>The NIHSS measures the deficit now. The mRS measures the result in daily life: how much help a person needs. It descends from Rankin's 1957 work [[Rankin1957]]. The 1988 interobserver study used six grades, 0 to 5 [[vanSwieten1988]]; modern usage is a 7-level scale that adds 6 for death [[Saver2021,Thomalla2018]]. The grade names and the yes and no rows below are our summary of the definitions listed in a 2026 clinical study [[Luo2026]], because the 1988 abstract does not state them; the official wording is in the published scale.</p></div>
   <div class="stepper" id="nhMrsSteps"></div>
   <div class="lab">
     <div class="stage">
       <div class="scroll"><svg id="nhMrs" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="The seven grades of the modified Rankin Scale as a coloured bar with a pointer, and below it a figure and a short table of what each grade means, from no symptoms to death."></svg></div>
       <div class="ctrls"><button class="btn primary" id="nhMrsPlay">%t:player.play%</button><label class="stage-cap tl" for="nhMrsT">Grade <input type="range" id="nhMrsT" min="0" max="1" step="0.002" value="0.5"></label></div>
-      <p class="stage-cap">Schematic figures. The yes and no rows are read from the definition wording; a dash means the definition does not say.</p>
+      <p class="stage-cap">Schematic figures. The yes and no rows are our reading of the published definitions; a dash means the definition does not say.</p>
     </div>
     <aside class="note" id="nhMrsNote" aria-live="polite"></aside>
   </div>

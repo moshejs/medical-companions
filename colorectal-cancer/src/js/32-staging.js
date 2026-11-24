@@ -13,38 +13,38 @@ const stGrp=s=>s==null?-1:s==='0'?0:s==='I'?1:s.startsWith('IV')?4:s.startsWith(
 const ST_GC=['var(--good)','var(--good)','var(--warn)','var(--lymph)','var(--tumour)'];
 const ST_GS=['var(--good-soft)','var(--good-soft)','var(--warn-soft)','var(--lymph-soft)','var(--tumour-soft)'];
 const stCol=s=>stGrp(s)<0?'var(--muted)':ST_GC[stGrp(s)], stSoft=s=>stGrp(s)<0?'var(--panel-2)':ST_GS[stGrp(s)];
-const ST_TD={Tis:'carcinoma in situ or intramucosal carcinoma: limited to the epithelium or lamina propria',T1:'invades the submucosa',T2:'invades the muscularis propria',T3:'grows through the muscularis propria into pericolorectal tissues',T4a:'penetrates the visceral peritoneum',T4b:'directly invades or adheres to other organs or structures'};
-const ST_ND={N0:'no regional lymph-node metastasis and no tumour deposits',N1a:'metastasis in 1 regional lymph node',N1b:'metastasis in 2–3 regional lymph nodes',N1c:'no positive nodes, but tumour deposits in the subserosa, mesentery or non-peritonealised pericolic or perirectal tissue',N2a:'metastasis in 4–6 regional lymph nodes',N2b:'metastasis in 7 or more regional lymph nodes'};
-const ST_MD={M0:'no distant metastasis',M1a:'metastasis confined to one organ or site (for example liver, lung, ovary or a non-regional node), without peritoneal metastasis',M1b:'metastasis to two or more organs or sites, without peritoneal metastasis',M1c:'metastasis to the peritoneal surface, alone or with other sites'};
+const ST_TD={Tis:'cancer still inside the lining (the epithelium or the thin layer just under it), not yet past the muscularis mucosae',T1:'has reached the submucosa, the second layer',T2:'has reached the muscularis propria, the main muscle coat',T3:'has passed through the muscle coat into the tissue around the bowel',T4a:'has broken through the visceral peritoneum, the outer covering',T4b:'has grown into, or is stuck to, another organ or structure'};
+const ST_ND={N0:'cancer in none of the regional lymph nodes, and no tumour deposits',N1a:'cancer in 1 regional lymph node',N1b:'cancer in 2–3 regional lymph nodes',N1c:'no node holds cancer, but tumour deposits sit in the tissue beside the bowel (subserosa, mesentery, or pericolic or perirectal fat not covered by peritoneum)',N2a:'cancer in 4–6 regional lymph nodes',N2b:'cancer in 7 or more regional lymph nodes'};
+const ST_MD={M0:'no spread to distant sites',M1a:'spread to a single distant organ or site (such as the liver, lung, ovary or a non-regional node), with the peritoneum clear',M1b:'spread to two or more distant organs or sites, with the peritoneum clear',M1c:'spread to the lining of the abdomen (peritoneum), with or without other sites'};
 /* 5-year overall survival by 8th-edition stage in one single-centre cohort (n=1,090); IVB and IVC groups were very small */
 const ST_TONG={'0':100,I:98.5,IIA:82.6,IIB:76.8,IIC:67.7,IIIA:65.4,IIIB:60,IIIC:44.9,IVA:8.3};
 const ST_STEPS=[
  {from:0,at:.06,k:'T · primary tumour',t:'Tis: in situ',
-  txt:`Every colorectal cancer starts in the mucosa, the lining layer. Tis is carcinoma in situ or intramucosal carcinoma: tumour limited to the epithelium or invading the lamina propria, without extension through the muscularis mucosae. With N0 M0 this is stage 0. [[Amin2017AJCC,Tong2018]]`,
+  txt:`Every colorectal cancer starts in the mucosa, the lining layer. Tis covers carcinoma in situ and intramucosal carcinoma: the cancer is still inside the lining, in the epithelium or the lamina propria just beneath it, and has not crossed the thin muscularis mucosae. With N0 M0 this is stage 0. [[Amin2017AJCC,Tong2018]]`,
   pt:`The cancer cells are still only in the inner lining of the bowel.`,
   hook:`T is about depth, not size. The layers in order: mucosa, submucosa, muscularis propria, subserosa, serosa.`},
  {from:.1,at:.17,k:'T · primary tumour',t:'T1: submucosa',
-  txt:`T1 tumours break through the muscularis mucosae into the submucosa but not into the muscularis propria. The submucosa holds lymphatics and vessels, which is why depth starts to matter here: in pT1 cancers, tumour budding at the invasive front independently predicts lymph-node metastasis. T1 N0 M0 is stage I. [[Amin2017AJCC,Tong2018,Lugli2017]]`,
+  txt:`T1 tumours have crossed the muscularis mucosae and reached the submucosa, stopping short of the main muscle coat. The submucosa holds lymphatics and vessels, which is why depth starts to matter here: in pT1 cancers, tumour budding at the invasive front independently predicts lymph-node metastasis. T1 N0 M0 is stage I. [[Amin2017AJCC,Tong2018,Lugli2017]]`,
   pt:`The tumour has reached the second layer, which has small blood and lymph vessels.`,
   hook:`T1 = submucosa. A tumour bud = 1–4 tumour cells at the invasive front.`},
  {from:.2,at:.27,k:'T · primary tumour',t:'T2: muscle layer',
-  txt:`T2 tumours invade the muscularis propria, the thick muscle coat that moves bowel contents along. T2 N0 M0 is still stage I. Stage I colon cancer had 93.2% 5-year survival in SEER under the 6th edition (population figure, diagnoses 1991–2000). [[Amin2017AJCC,Tong2018,OConnell2004]]`,
+  txt:`T2 tumours have reached the muscularis propria, the thick muscle coat that moves bowel contents along. T2 N0 M0 is still stage I. Stage I colon cancer had 93.2% 5-year survival in SEER under the 6th edition (population figure, diagnoses 1991–2000). [[Amin2017AJCC,Tong2018,OConnell2004]]`,
   pt:`The tumour is in the muscle of the bowel wall but has not gone through it.`,
   hook:`T1–T2 N0 M0 = stage I.`},
  {from:.3,at:.37,k:'T · primary tumour',t:'T3: through the wall',
-  txt:`T3 tumours grow through the muscularis propria into the pericolorectal tissues (the subserosa and fat around the bowel). T3 N0 M0 is stage IIA. CT detects growth beyond the wall (T3–T4) with pooled sensitivity 90% and specificity 69%. [[Amin2017AJCC,Tong2018,Nerad2016]]`,
+  txt:`T3 tumours have passed right through the muscle coat into the subserosa and the fat around the bowel. T3 N0 M0 is stage IIA. CT detects growth beyond the wall (T3–T4) with pooled sensitivity 90% and specificity 69%. [[Amin2017AJCC,Tong2018,Nerad2016]]`,
   pt:`The tumour has grown all the way through the muscle into the fatty tissue around the bowel.`,
   hook:`T3 N0 M0 = IIA; T4a N0 = IIB; T4b N0 = IIC.`},
  {from:.4,at:.47,k:'T · primary tumour',t:'T4a: serosa',
-  txt:`T4a tumours penetrate the visceral peritoneum, the serosa that covers the bowel. The AJCC also counts gross perforation through tumour, and continuous invasion through inflammation to the peritoneal surface, as T4a. T4a N0 M0 is stage IIB. ASCO 2022: people with T4 tumours are at higher risk of recurrence and should be offered adjuvant chemotherapy. [[Amin2017AJCC,Tong2018,Baxter2022]]`,
+  txt:`T4a tumours have broken through the visceral peritoneum, the serosa that covers the bowel. The AJCC also puts in T4a a tumour that has visibly perforated the bowel, and one that reaches the peritoneal surface by spreading without a break through inflamed tissue. T4a N0 M0 is stage IIB. ASCO 2022 advises offering adjuvant chemotherapy to people with T4 tumours, because their risk of recurrence is higher. [[Amin2017AJCC,Tong2018,Baxter2022]]`,
   pt:`The tumour has broken through the bowel's thin outer covering.`,
   hook:`T4a = visceral peritoneum (serosa). T4 is the strongest high-risk feature in stage II.`},
  {from:.5,at:.57,k:'T · primary tumour',t:'T4b: other organ',
-  txt:`T4b tumours directly invade or stick to other organs or structures. T4b N0 M0 is stage IIC. T categories did not change between the 7th and 8th editions; the SEER and NCDB data behind them showed that T4a does better than T4b within each N category. [[Amin2017AJCC,Tong2018,Gunderson2010]]`,
+  txt:`T4b tumours have grown into, or are stuck to, another organ or structure. T4b N0 M0 is stage IIC. T categories did not change between the 7th and 8th editions; the SEER and NCDB data behind them showed that T4a does better than T4b within each N category. [[Amin2017AJCC,Tong2018,Gunderson2010]]`,
   pt:`The tumour has grown into a neighbouring organ, such as another loop of bowel.`,
   hook:`T4b = adjacent organ. T4b with any positive node is IIIC.`},
  {from:.6,at:.705,k:'N · regional nodes',t:'N1: 1–3 nodes or deposits',
-  txt:`Tumour cells travel along lymph vessels to the regional nodes. N1a is 1 positive node, N1b is 2–3. N1c means no positive node but tumour deposits: nodules of tumour in the subserosa, mesentery or pericolic fat with no node structure. Deposits never change T, and once any node is positive they are not added to the count. [[Amin2017AJCC,Tong2018]]`,
+  txt:`Tumour cells travel along lymph vessels to the regional nodes. N1a is 1 positive node, N1b is 2–3. N1c is used when no node is positive but there are tumour deposits: separate nodules of tumour in the subserosa, mesentery or fat beside the bowel, with no node structure left. Deposits never change T, and once any node is positive they are not added to the count. [[Amin2017AJCC,Tong2018]]`,
   pt:`Lymph nodes are small filters along the bowel's drainage. Here 1 to 3 of them contain cancer, or there are cancer nodules in the nearby fat.`,
   hook:`N1a = 1 node; N1b = 2–3; N1c = deposits with no positive nodes.`},
  {from:.72,at:.81,k:'N · regional nodes',t:'N2: 4 or more nodes',
@@ -52,7 +52,7 @@ const ST_STEPS=[
   pt:`Four or more lymph nodes contain cancer. Checking at least 12 nodes makes sure none is missed.`,
   hook:`N2a = 4–6; N2b = 7 or more. Look for ≥12 nodes.`},
  {from:.84,at:.99,k:'M · distant spread',t:'M1: distant organs',
-  txt:`M1a is spread to one organ or site (such as the liver, lung, ovary or a non-regional node) without peritoneum; M1b is two or more organs; M1c is the peritoneal surface, alone or with other sites. M1c and stage IVC were the main change in the 8th edition: in the 7th, peritoneal disease sat in M1b. Any M1 is stage IV, whatever T and N. [[Amin2017AJCC,Tong2018,Weiser2018]]`,
+  txt:`M1a means spread to a single organ or site (such as the liver, lung, ovary or a non-regional node) with the peritoneum clear; M1b means two or more organs or sites; M1c means the peritoneum is involved, whether or not other sites are. M1c and stage IVC were the main change in the 8th edition: in the 7th, peritoneal disease sat in M1b. Any M1 is stage IV, whatever T and N. [[Amin2017AJCC,Tong2018,Weiser2018]]`,
   pt:`The cancer has spread through the blood or across the belly lining to places far from the bowel.`,
   hook:`M1a = one organ; M1b = two or more; M1c = peritoneum (new in the 8th edition, stage IVC).`}
 ];
@@ -216,14 +216,14 @@ inits.staging=()=>{
   $$('[data-stp]').forEach(b=>b.addEventListener('click',()=>{pm=b.dataset.stp;$$('[data-stp]').forEach(x=>x.setAttribute('aria-pressed',x===b));if(pStop)pStop();pStop=animate(500,p=>{pp=ease(p);drawP()})}));
   drawP();
 
-  /* ---- high-risk stage II checklist (ASCO 2022 wording) ---- */
-  const HR=[['t4','T4 tumour (T4a or T4b)'],['ln','Fewer than 12 lymph nodes sampled'],['pni','Perineural invasion'],['lvi','Lymphovascular invasion'],['gr','Poorly differentiated or undifferentiated grade'],['obs','Intestinal obstruction'],['perf','Tumour perforation'],['bd3','Grade BD3 tumour budding'],['dmmr','Tumour is dMMR/MSI (not a risk factor; changes the advice)']];
+  /* ---- high-risk stage II checklist (ASCO 2022 factors, in our own words) ---- */
+  const HR=[['t4','T4 tumour (T4a or T4b)'],['ln','Under 12 lymph nodes examined'],['pni','Perineural invasion'],['lvi','Lymphovascular invasion'],['gr','High grade (poorly or undifferentiated)'],['obs','Bowel obstruction'],['perf','Perforated tumour'],['bd3','High tumour budding (BD3)'],['dmmr','Tumour is dMMR/MSI (not a risk factor; changes the advice)']];
   $('#stChk').innerHTML=HR.map(([k,n])=>`<label for="stHr_${k}"><input type="checkbox" id="stHr_${k}" data-sthr="${k}"><span>${n}</span></label>`).join('');
   function chk(){const on=HR.filter(([k])=>$('#stHr_'+k).checked).map(([k])=>k),risk=on.filter(k=>k!=='dmmr'),dm=on.includes('dmmr');
     let h;
-    if(!risk.length)h=`<p><b>No listed high-risk feature ticked.</b> ASCO 2022: adjuvant chemotherapy is not routine for stage II colon cancer outside a high-risk subgroup.${dm?' ASCO 2022 also says people with dMMR/MSI tumours should not routinely be offered adjuvant chemotherapy; in pooled trial data, stage II dMMR tumours did not benefit from fluorouracil alone.':''} ${dm?'[[Baxter2022,Sargent2010]]':'[[Baxter2022]]'}</p>`;
-    else h=`<p><b>${risk.length} high-risk feature${risk.length>1?'s':''} ticked.</b> ${risk.includes('t4')?'ASCO 2022: patients with T4 tumours are at higher risk of recurrence and should be offered adjuvant chemotherapy. ':''}${risk.some(k=>k!=='t4')?'ASCO 2022 lists the other ticked features as high-risk factors that may lead to an offer of adjuvant chemotherapy. ':''}${dm?'With dMMR plus high-risk features, if chemotherapy is offered, ASCO 2022 recommends an oxaliplatin-containing regimen.':''} [[Baxter2022]]</p>`;
-    $('#stChkOut').innerHTML=h+`<p class="stage-cap">Guideline statements as published, not advice for any one person. Treatment detail: <button class="stlink" data-go="chemo">chemotherapy after surgery</button>.</p>`}
+    if(!risk.length)h=`<p><b>No listed high-risk feature ticked.</b> ASCO 2022 does not advise routine adjuvant chemotherapy for stage II colon cancer unless the person is in a high-risk subgroup.${dm?' ASCO 2022 also advises against routinely offering adjuvant chemotherapy when the tumour is dMMR/MSI; in pooled trial data, stage II dMMR tumours did not benefit from fluorouracil alone.':''} ${dm?'[[Baxter2022,Sargent2010]]':'[[Baxter2022]]'}</p>`;
+    else h=`<p><b>${risk.length} high-risk feature${risk.length>1?'s':''} ticked.</b> ${risk.includes('t4')?'ASCO 2022: a T4 tumour carries a higher risk of recurrence, so adjuvant chemotherapy should be offered. ':''}${risk.some(k=>k!=='t4')?'ASCO 2022 counts the other ticked features as high-risk factors for which adjuvant chemotherapy may be offered. ':''}${dm?'If dMMR together with high-risk features leads to an offer of chemotherapy, ASCO 2022 recommends a regimen that includes oxaliplatin.':''} [[Baxter2022]]</p>`;
+    $('#stChkOut').innerHTML=h+`<p class="stage-cap">Guideline advice summarised in our own words, not advice for any one person. Treatment detail: <button class="stlink" data-go="chemo">chemotherapy after surgery</button>.</p>`}
   $('#stChk').addEventListener('change',chk);chk();
 
   /* ---- CEA threshold ---- */

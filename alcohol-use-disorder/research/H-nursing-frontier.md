@@ -32,8 +32,8 @@ Access notes:
   - specificity 99.5% (95% CI 98.1–99.9%)
   - PPV 93.1% and NPV 99.5%
   - inter-rater concordance 0.963 [[Maldonado2015]]
-- ASAM 2020 states that, among hospitalised patients, PAWSS "can be used for predicting risk of developing severe or complicated alcohol withdrawal in the medically ill" (Recommendation VII.12) [[ASAM2020Withdrawal]].
-- Screening itself may help. A Cochrane review of hospital brief interventions noted that "screening, asking participants about their drinking patterns, may also have a positive impact on alcohol consumption levels" [[McQueen2011]].
+- ASAM 2020 states that, among hospitalised patients, PAWSS can help predict who among medically ill patients will develop severe or complicated withdrawal (Recommendation VII.12) [[ASAM2020Withdrawal]].
+- Screening itself may help. A Cochrane review of hospital brief interventions noted that screening alone, simply asking people how they drink, may itself lower how much they drink [[McQueen2011]].
 - Midlife and older adults in the emergency department: 39,912 of 698,308 encounters (5.7%) among people aged ≥55 screened positive on AUDIT-C (≥4 for men, ≥3 for women). Brief intervention or referral happened in 30% of these encounters. Medicine for AUD was prescribed in only 3% [[Lebin2026]].
 
 ### nursing · Withdrawal monitoring as published (CIWA-Ar)
@@ -42,13 +42,13 @@ Access notes:
 - ASAM 2020 Recommendation V.1 (inpatient) gives this monitoring schedule as published:
   - Moderate to severe withdrawal, or anyone needing medication: "re-assess every 1–4 hours for 24 hours, as clinically indicated."
   - Once stable ("e.g., CIWA-Ar score < 10 for 24 hours"): monitoring "can be extended to every 4–8 hours for 24 hours." [[ASAM2020Withdrawal]]
-- ASAM 2020 states that patients with mild withdrawal and low risk of complicated withdrawal "may be observed for up to 36 hours, after which more severe withdrawal is unlikely to develop" [[ASAM2020Withdrawal]].
+- ASAM 2020 states that patients with mild withdrawal and low risk of complicated withdrawal can be watched for up to 36 hours; beyond that, worse withdrawal is unlikely to start [[ASAM2020Withdrawal]].
 - ASAM 2020 gives example CIWA-Ar severity bands as published: mild "<10", moderate "10–18" and severe "≥19" (the ≥ sign was lost in PDF text extraction and is restored from context) [[ASAM2020Withdrawal]].
 - ASAM 2020 Recommendation V.2 lists what nurses should monitor: vital signs, hydration, orientation, sleep, and emotional status "including suicidal thoughts" [[ASAM2020Withdrawal]].
 - ASAM 2020 Recommendation V.3: monitor patients who receive withdrawal medication "for signs of over-sedation and respiratory depression" [[ASAM2020Withdrawal]].
 - After an alcohol withdrawal seizure, ASAM 2020 says patients should be admitted where close monitoring is available and "re-assessed every 1-2 hours for 6–24 hours." They should also be watched for delirium and the need for IV fluids (Recommendation VI.2) [[ASAM2020Withdrawal]].
 - Symptom-triggered dosing: in a double-blind RCT (n = 101, a VA detoxification unit), symptom-triggered chlordiazepoxide was compared with a fixed four-times-daily schedule. Median treatment duration was 9 h vs 68 h. Total chlordiazepoxide was 100 mg vs 425 mg. Withdrawal severity, seizures and delirium tremens did not differ [[Saitz1994]].
-- Restraints: ASAM 2020 says they "should only be used when required to prevent injuries due to agitation or violence, and in compliance with state laws" (Recommendation VI.12) [[ASAM2020Withdrawal]].
+- Restraints: ASAM 2020 says to use them only when needed to stop injury from agitation or violence, and within state law (Recommendation VI.12) [[ASAM2020Withdrawal]].
 
 ### nursing · Supportive care, falls and delirium
 - ASAM 2020 Recommendation V.5 lists the non-drug interventions: frequent reassurance, re-orientation to time and place, and nursing care. Patients should be told what to expect during withdrawal. Patients with severe withdrawal should be cared for in "an evenly lit, quiet room" and offered "hope and the expectation of recovery" [[ASAM2020Withdrawal]].
@@ -77,7 +77,7 @@ Access notes:
 - An updated review (16 unique studies, 9 countries) found that public stigma towards people with AUD "remains comparatively high." The desire for social distance was consistently higher than for substance-unrelated mental disorders [[Kilian2021]].
 
 ### nursing · Starting treatment in hospital and linking at discharge
-- ASAM 2020 Recommendation IV.12: "When feasible, alcohol use disorder (AUD) treatment should be initiated concurrently with alcohol withdrawal management as cognitive status permits." Clinicians should offer to start medicine for AUD or link patients to evidence-based services and recovery support groups [[ASAM2020Withdrawal]].
+- ASAM 2020 Recommendation IV.12: where possible, AUD treatment should start alongside withdrawal management, as soon as the person can think clearly enough. Clinicians should offer to start medicine for AUD or link patients to evidence-based services and recovery support groups [[ASAM2020Withdrawal]].
 - San Francisco General Hospital, before and after a resident-led discharge-planning protocol for patients admitted with alcohol dependence:
   - medicine for AUD rose from 0% to 64% (p < 0.001)
   - all-cause 30-day readmission fell from 23.4% to 8.2% (p = 0.042)
@@ -126,7 +126,7 @@ Access notes:
 - In practice, the ASAM 2020 nursing monitoring list includes "emotional status including suicidal thoughts" during withdrawal [[ASAM2020Withdrawal]].
 
 ### families · Mixing alcohol with opioids or sedatives
-- The opioid label boxed warning (OxyContin, current US label) states that using opioids together with benzodiazepines or other CNS depressants, "including alcohol, may result in profound sedation, respiratory depression, coma, and death" [[FDA-OxyContin]].
+- The opioid label boxed warning (OxyContin, current US label) states that using opioids together with benzodiazepines or other CNS depressants, alcohol included, can cause deep sedation, breathing that slows or stops, coma and death [[FDA-OxyContin]].
 - The benzodiazepine boxed warning (Xanax label) says co-use with opioids may cause the same outcomes. It adds that abuse and misuse of benzodiazepines "commonly involve concomitant use of other medications, alcohol, and/or illicit substances" [[FDA-Xanax]].
 - Of 399,230 US opioid overdose deaths (1999–2017), alcohol was co-involved in 12.4% in 1999 and 14.7% in 2017. Benzodiazepines were co-involved in 8.7% and 21.0% respectively [[Tori2020]].
 - States with higher binge-drinking rates had more alcohol co-involvement in opioid overdose deaths (r = 0.34) [[Tori2020]].
@@ -141,7 +141,7 @@ Access notes:
 - A meta-analysis of 12 RCTs (n = 754) found behavioural couples therapy better than individual-based treatment overall (Cohen's d = 0.54). At follow-up the gain covered frequency of use (d = 0.45), consequences (d = 0.50) and relationship satisfaction (d = 0.51) [[Powers2008]].
 
 ### recovery · Recovery is common (population statistics)
-- In a US probability survey (n = 39,809 contacted), 9.1% of adults said they used to have a problem with alcohol or drugs but no longer do. Of those, 46% called themselves "in recovery" [[Kelly2017Recovery]].
+- In a US probability survey (n = 39,809 contacted), 9.1% of adults reported having overcome a past problem with alcohol or drugs. Of those, 46% called themselves "in recovery" [[Kelly2017Recovery]].
 - About half (53.9%) of those who resolved a problem used an "assisted" pathway: mutual help 45.1%, treatment 27.6% and recovery support services 21.8%. The rest resolved without formal help [[Kelly2017Recovery]].
 - In the same sample, quality of life, happiness, self-esteem and recovery capital rose steeply in the first 6 years after resolving a problem, then more gradually. Self-esteem and happiness dipped in the first year before rising [[Kelly2018QoL]].
 

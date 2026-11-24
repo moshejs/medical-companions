@@ -104,7 +104,7 @@ Access notes:
 - Estimated US prevalence of moderate-to-severe sleep-disordered breathing (AHI ≥15) in 2007–2010: 10% of men aged 30–49, 17% of men aged 50–70, 3% of women aged 30–49 and 9% of women aged 50–70. The authors call obesity "a strong causal factor" [[Peppard2013]].
 - Sleep AHEAD (264 adults with T2DM, mean BMI 36.7): intensive lifestyle produced 10.8 kg vs 0.6 kg weight loss and lowered AHI by 9.7 events/h relative to control. More than three times as many people had total OSA remission [[Foster2009SleepAHEAD]].
 - SURMOUNT-OSA (two trials): tirzepatide reduced AHI by 20.0 and 23.8 events/h more than placebo at 52 weeks in adults with moderate-to-severe OSA and obesity (baseline AHI about 50/h) [[Malhotra2024SURMOUNTOSA]].
-- The US Zepbound label lists an indication "to treat moderate to severe obstructive sleep apnea (OSA) in adults with obesity", in combination with reduced-calorie diet and increased physical activity [[FDA-Zepbound]].
+- The US Zepbound label lists an indication for moderate to severe obstructive sleep apnoea (OSA) in adults with obesity, in combination with reduced-calorie diet and increased physical activity [[FDA-Zepbound]].
 
 ### complications · Knee osteoarthritis and pain
 - Knee OA meta-analysis (21 studies): each 5-unit BMI increase raised the risk of knee OA by 35% (RR 1.35, 1.21–1.51). The rise was stronger in women (RR 1.38) than in men (1.22) [[Jiang2012]].
@@ -151,7 +151,7 @@ Access notes:
 
 ### assessment · History, medication review and drivers
 - The modified 5As for obesity counselling are Ask, Assess, Advise, Agree and Assist. Ask means asking permission to discuss weight, without judgement, and exploring readiness. Assess covers BMI, waist circumference, obesity stage, and the drivers and complications of excess weight [[Vallis2013]].
-- In the 5As, Advise covers health risks, the benefits of modest weight loss, the need for a long-term strategy and treatment options. Agree covers realistic expectations and the plan. Assist covers barriers, resources, referrals and regular follow-up [[Vallis2013]].
+- In the 5As, Advise means talking through health risks, what even modest weight loss can do, why a long-term plan is needed, and the treatment choices. Agree means settling on realistic expectations and a plan. Assist means working through barriers, finding resources and referrals, and following up regularly [[Vallis2013]].
 - Meta-analysis of 257 RCTs: drugs associated with weight gain versus placebo included olanzapine (2.4 kg), gabapentin (2.2 kg), pioglitazone (2.6 kg), glyburide (2.6 kg), amitriptyline (1.8 kg) and mirtazapine (1.5 kg). Population averages; no one should stop a medicine without a clinician [[Domecq2015]].
 - In the same meta-analysis, drugs associated with weight loss included metformin (1.1 kg), liraglutide (1.7 kg), topiramate (3.8 kg) and bupropion (1.3 kg) [[Domecq2015]].
 - Endocrine Society 2015: many medicines prescribed for diabetes, depression and other chronic diseases affect weight, and "knowledgeable prescribing", choosing weight-favourable options where possible, can help prevent and manage obesity [[Apovian2015]].
@@ -187,7 +187,7 @@ Access notes:
 - EOSS is a 5-point ordinal scale (0–4). In NHANES adults with overweight or obesity, over 75% scored 1 or 2 [[Padwal2011EOSS]].
 - NHANES III: EOSS stage 2 (HR 1.57) and stage 3 (HR 2.69) predicted higher mortality than stages 0–1, even after adjustment for BMI and metabolic syndrome. Survival curves separated by EOSS stage but not by obesity class alone [[Padwal2011EOSS]].
 - In 29 533 adults followed for 16 years, people with obesity at EOSS stage 2 or 3 had higher all-cause mortality than people of normal weight (HR 1.6 and 1.7). Stage 0/1 was not associated with higher mortality [[Kuk2011EOSS]].
-- The King's Obesity Staging Criteria score nine domains, A to I: Airways, BMI, Cardiovascular, Diabetes, Economic, Functional, Gonadal, Health status (perceived) and body Image. Each domain is scored 0 (normal health), 1 (at risk), 2 (established disease) or 3 (advanced disease) [[Aasheim2011]].
+- The King's Obesity Staging Criteria score nine domains, A to I: Airways, BMI, Cardiovascular, Diabetes, Economic, Functional, Gonadal, Health status (perceived) and body Image. Each domain is scored from 0 (normal health) to 3 (advanced disease) [[Aasheim2011]].
 - In 144 people before bariatric surgery, 84% were at stage 2 or 3 in at least one domain other than BMI. Clinicians agreed on the same score in more than 75% of cases for most domains [[Aasheim2011]].
 
 ### assessment · Cardiovascular-treatment labels relevant to complications

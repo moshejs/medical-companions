@@ -28,30 +28,30 @@ Urgent-care box (for every complication page): Vomiting blood, black or tarry st
 ## Findings
 
 ### encephalopathy · Definition and classification
-- AASLD/EASL 2014 definition: "a brain dysfunction caused by liver insufficiency and/or PSS [portosystemic shunting]". It shows as "a wide spectrum of neurological or psychiatric abnormalities ranging from subclinical alterations to coma" [[Vilstrup2014HE]].
+- AASLD/EASL 2014 definition: "a brain dysfunction caused by liver insufficiency and/or PSS [portosystemic shunting]". Its signs range widely across neurological and psychiatric problems, from changes found only on testing to coma [[Vilstrup2014HE]].
 - The guideline classifies HE by four factors [[Vilstrup2014HE]]:
   - underlying disease: type A from acute liver failure, type B mainly from portosystemic bypass, type C from cirrhosis
   - severity
   - time course
   - whether it was precipitated
 - By time course, HE is "episodic", "recurrent" (bouts 6 months or less apart) or "persistent" (behaviour changes always present, with relapses of overt HE) [[Vilstrup2014HE]].
-- Precipitating factors "can be identified in nearly all bouts of episodic HE type C" and should be "actively sought and treated" [[Vilstrup2014HE]].
-- Worked example from the guideline: "The patient has HE, Type C, Grade 3, Recurrent, Precipitated (by urinary tract infection)" [[Vilstrup2014HE]].
+- In cirrhosis (type C), a trigger can be found for almost every episode of HE, and the guideline says to look for it actively and treat it [[Vilstrup2014HE]].
+- Worked example from the guideline: a person with cirrhosis having a repeat grade 3 episode set off by a urine infection is described as type C, grade 3, recurrent and precipitated [[Vilstrup2014HE]].
 - HE is diagnosed by excluding other causes of brain dysfunction. Overt HE is diagnosed on clinical criteria and graded with the West Haven Criteria (WHC) and the Glasgow Coma Scale [[Vilstrup2014HE]].
-- The guideline calls the WHC the gold standard. It also notes they have "limited interobserver reliability, especially for grade I HE" [[Vilstrup2014HE]].
+- The guideline calls the WHC the gold standard. It also notes that different observers often disagree when using them, most of all about grade I [[Vilstrup2014HE]].
 
-### encephalopathy · West Haven grades as published (AASLD/EASL 2014, Table 2)
-- Minimal HE (grouped as covert): abnormal psychometric or neurophysiological tests "without clinical evidence of mental change" [[Vilstrup2014HE]].
-- Grade I (grouped as covert): "trivial lack of awareness", euphoria or anxiety, shortened attention span, impaired addition or subtraction, altered sleep rhythm. The person is still oriented in time and space [[Vilstrup2014HE]].
-- Grade II (overt): lethargy or apathy, disorientation for time, obvious personality change, inappropriate behaviour, dyspraxia, asterixis [[Vilstrup2014HE]].
-  - Operative criterion: at least three of day of the month, day of the week, month, season or year are wrong.
-- Grade III (overt): somnolence to semistupor, responsive to stimuli, confused, gross disorientation, bizarre behaviour [[Vilstrup2014HE]].
-  - Also disoriented for space: at least three of country, state or region, city or place are wrong.
-- Grade IV (overt): coma, "does not respond even to painful stimuli" [[Vilstrup2014HE]].
+### encephalopathy · West Haven grades, summarised in our words (AASLD/EASL 2014, Table 2)
+- Minimal HE (grouped as covert): no change a clinician can see; found only by psychometric or neurophysiological testing [[Vilstrup2014HE]].
+- Grade I (grouped as covert): subtle signs such as mild unawareness, a lifted or anxious mood, a shorter attention span, slips with simple sums and a disturbed sleep pattern. The person still knows the date and place [[Vilstrup2014HE]].
+- Grade II (overt): drowsy or apathetic, mixed up about the date, clearly changed personality or behaviour, clumsy planned movements, and asterixis [[Vilstrup2014HE]].
+  - Bedside check for time: three or more of date, weekday, month, season and year are wrong.
+- Grade III (overt): very sleepy, close to stupor but still rousable, deeply confused and behaving oddly [[Vilstrup2014HE]].
+  - Also wrong about place: three or more of country, state or region, city and place are wrong.
+- Grade IV (overt): coma, with no response even to pain [[Vilstrup2014HE]].
 - "Covert" HE = minimal HE plus grade I. "Overt" HE = grades II–IV (ISHEN grouping in the same table) [[Vilstrup2014HE]].
 
 ### encephalopathy · How common it is and what it means
-- Overt HE "will occur in 30%-40% of those with cirrhosis at some time during their clinical course and in the survivors in most cases repeatedly" [[Vilstrup2014HE]].
+- Overt HE affects 30–40% of people with cirrhosis at some point in their illness, and in most survivors it comes back more than once [[Vilstrup2014HE]].
 - Minimal or covert HE "occurs in 20%-80% of patients with cirrhosis" [[Vilstrup2014HE]].
 - Pooled prevalence of covert/minimal HE in a 2024 meta-analysis of 101 studies: 40.9% (95% CI 38.3–43.5%). In studies using the PHES it was 39.9% (36.7–43.1%) [[Lv2024CHE]].
 - Risk of a first bout of overt HE: 5–25% within 5 years of cirrhosis diagnosis, depending on risk factors [[Vilstrup2014HE]].
@@ -79,17 +79,17 @@ Urgent-care box (for every complication page): Vomiting blood, black or tarry st
 - Medicines as precipitants are covered under medicine safety below: opioids [[Moon2020Opioids]], benzodiazepines [[Lee2014BZD]] and proton pump inhibitors [[Dam2016PPI]].
 
 ### encephalopathy · Ammonia pathway (mechanism)
-- Ammonia "is primarily produced in the gut, as an end product of protein digestion, amino acid deamination and bacterial urease activity" [[Rose2020]].
+- Most ammonia is made in the gut, left over from protein digestion and the breakdown of amino acids, with more added by bacterial urease [[Rose2020]].
 - A healthy liver with an intact urea cycle keeps blood ammonia in "the low 35–50 μM range" [[Rose2020]].
 - In liver disease, inter-organ ammonia handling changes [[Rose2020]]:
   - glutamine synthetase and glutaminase are active in brain, muscle and kidney
   - muscle, which "houses GS", becomes an alternative ammonia sink
   - this is why sarcopenia raises HE risk
-- Ammonia "passes freely into the brain which is exclusively removed by astrocytes via glutamine synthetase" [[Rose2020]].
-  - "The generation of glutamine renders the astrocyte hypertonic resulting in swelling and impaired function and brain oedema."
+- Ammonia crosses easily into the brain, where only astrocytes can clear it, using glutamine synthetase [[Rose2020]].
+  - The glutamine made draws water into astrocytes, so they swell and work less well, and the brain becomes oedematous.
 - Ammonia "remains the central player in the pathogenesis of HE". Systemic and neuroinflammation, oxidative stress, blood–brain barrier dysfunction and increased GABAergic tone (via neurosteroids) also contribute [[Rose2020]].
 - HE has been seen as fully reversible after transplant. Evidence of neuronal cell death and persistent deficits after overt HE episodes "fundamentally changes our understanding of HE as a reversible syndrome" (Early evidence) [[Rose2020]].
-- Blood ammonia testing: "High blood-ammonia levels alone do not add any diagnostic, staging, or prognostic value in HE patients with CLD". A normal level in someone with overt HE puts the diagnosis "in question" [[Vilstrup2014HE]].
+- Blood ammonia testing: in chronic liver disease, a high blood ammonia on its own does not help diagnose HE, grade it or predict its course. A normal level in someone with overt HE puts the diagnosis "in question" [[Vilstrup2014HE]].
 
 ### encephalopathy · Testing for covert HE and driving
 - The PHES is the summed score of a paper-and-pencil test battery. The guideline notes it is copyrighted by Hannover Medical School and translated for many countries [[Vilstrup2014HE]].
@@ -101,22 +101,22 @@ Urgent-care box (for every complication page): Vomiting blood, black or tarry st
 - Driving: people with minimal HE diagnosed by the inhibitory control test had more crashes in the prior year (DOT records 17% vs 3%; relative risk 5.77) [[Bajaj2009Crashes]].
   - They also had more crashes or violations on 1-year follow-up (22% vs 7%).
   - Standard psychometric tests did not separate the groups.
-- AASLD/EASL 2014: a minimal or covert HE diagnosis "does not automatically mean that the affected subject is a dangerous driver" [[Vilstrup2014HE]].
-  - It also says doctors should counsel on driving risks, and "often, the safest advice is to stop driving until the responsible driving authorities have formally cleared the patient" (quoted, not advice).
+- AASLD/EASL 2014: a diagnosis of minimal or covert HE does not by itself make someone a dangerous driver [[Vilstrup2014HE]].
+  - It also says doctors should counsel on driving risks, and that the safest advice is often to stop driving until the driving authority has formally cleared the person (summarised, not advice).
 - Falls: 40% of outpatients with minimal HE (by PHES) reported falls in the prior year, against 12.9% without minimal HE (controls 11.6%) [[Roman2011Falls]].
   - Adjusted OR for minimal HE: 2.91 (95% CI 1.13–7.48).
 
 ### encephalopathy · Treatment and prevention: guideline statements (quoted, not instructions)
-- "An episode of OHE (whether spontaneous or precipitated) should be actively treated" [[Vilstrup2014HE]].
+- Every episode of overt HE is to be treated actively, whether or not it had a clear trigger [[Vilstrup2014HE]].
 - Four-pronged approach: care for altered consciousness, look for other causes, identify and correct precipitants, and start empirical HE treatment [[Vilstrup2014HE]].
 - "Lactulose is the first choice for treatment of episodic OHE" [[Vilstrup2014HE]].
-- Lactulose dosing as published: "25 mL of lactulose syrup every 12 hours until at least two soft or loose bowel movements per day are produced", then "titrated to maintain two to three bowel movements per day" [[Vilstrup2014HE]].
-  - The guideline warns that overuse can cause "aspiration, dehydration, hypernatremia, and severe perianal skin irritation, and overuse can even precipitate HE".
-- "Rifaximin is an effective add-on therapy to lactulose for prevention of OHE recurrence" [[Vilstrup2014HE]].
-- "Lactulose is recommended for prevention of recurrent episodes of HE after the initial episode" [[Vilstrup2014HE]].
-- "Rifaximin as an add-on to lactulose is recommended for prevention of recurrent episodes of HE after the second episode" [[Vilstrup2014HE]].
-- "Primary prophylaxis for prevention of episodes of OHE is not required, except in patients with cirrhosis with a known high risk to develop HE" [[Vilstrup2014HE]].
-- "Recurrent intractable OHE, together with liver failure, is an indication for LT [liver transplantation]" [[Vilstrup2014HE]].
+- Lactulose dosing as published, in our words: 25 mL of syrup every 12 hours until there are at least two soft or loose bowel movements a day, then adjusted to keep two to three a day [[Vilstrup2014HE]].
+  - The guideline warns that too much can lead to aspiration, dehydration, high blood sodium and badly irritated skin around the anus, and can itself bring on HE.
+- Added to lactulose, rifaximin works to stop overt HE coming back [[Vilstrup2014HE]].
+- After a first episode, lactulose is recommended to prevent another [[Vilstrup2014HE]].
+- After a second episode, rifaximin added to lactulose is recommended to prevent further ones [[Vilstrup2014HE]].
+- Preventive treatment before any overt episode is not needed, except for people with cirrhosis known to be at high risk of HE [[Vilstrup2014HE]].
+- Overt HE that keeps returning despite treatment, together with liver failure, is a reason for liver transplant [[Vilstrup2014HE]].
 - The guideline lists these as alternatives or additions when standard therapy fails [[Vilstrup2014HE]]:
   - oral branched-chain amino acids (BCAAs)
   - IV L-ornithine L-aspartate
@@ -130,7 +130,7 @@ Urgent-care box (for every complication page): Vomiting blood, black or tarry st
 - Meta-analysis of 38 RCTs (1,828 participants), lactulose and lactitol against placebo or no intervention [[Gluud2016NAD]]:
   - treatment: effect on HE RR 0.63 (95% CI 0.53–0.74; NNT 4); mortality in overt HE RR 0.36 (0.14–0.94; NNT 20)
   - prevention: development of HE RR 0.47 (0.33–0.68; NNT 6); mortality RR 0.63 (0.40–0.98)
-- Lactulose label (Enulose): "2 to 3 tablespoonfuls (30 to 45 ml, containing 20 g to 30 g of lactulose) three or four times daily", "adjusted every day or two to produce 2 or 3 soft stools daily" (as published) [[FDA-Enulose]].
+- Lactulose label (Enulose), as published: 30 to 45 ml (2 to 3 tablespoonfuls, 20 g to 30 g of lactulose) three or four times a day, with the dose changed every day or two to reach 2 or 3 soft stools a day [[FDA-Enulose]].
   - The label says lactulose reduces blood ammonia "by 25 to 50%", with clinical response in "about 75% of patients".
 - HELP trial: 50 people hospitalised with HE, 4-L PEG 3350-electrolyte solution vs standard lactulose [[Rahimi2014HELP]].
   - HE grade improved by ≥1 at 24 h in 21/23 (91%) on PEG and 13/25 (52%) on lactulose.
@@ -153,7 +153,7 @@ Urgent-care box (for every complication page): Vomiting blood, black or tarry st
 - L-ornithine L-aspartate (Cochrane, 29 trials with data): benefit on HE against placebo or no intervention (RR 0.70, 95% CI 0.59–0.83) on "very low quality evidence". No benefit in the one low-bias trial (Early evidence) [[Goh2018LOLA]].
 
 ### nutrition · Malnutrition, sarcopenia and frailty: how common
-- Malnutrition "has been reported in 20% of patients with compensated cirrhosis and in more than 50% of patients with decompensated liver disease" [[EASL2019Nutrition]].
+- Malnutrition has been found in about 20% of people with compensated cirrhosis and in more than 50% of those with decompensated disease [[EASL2019Nutrition]].
 - Sarcopenia affects "30%-70% of patients with end-stage liver disease" [[Lai2021AASLD]].
   - In one multicentre study, 21% of women and 54% of men awaiting transplant met sarcopenia criteria by skeletal muscle index.
 - AASLD 2021 reports sarcopenia in about 80% of people with decompensated alcohol-related cirrhosis and about 60% with NASH, chronic HCV or autoimmune hepatitis [[Lai2021AASLD]].
@@ -192,16 +192,16 @@ Urgent-care box (for every complication page): Vomiting blood, black or tarry st
 - LFI and SMI bands are teaching tools here. They are not for diagnosis, prognosis or transplant decisions.
 
 ### nutrition · Energy, protein and meal timing (quoted as published, not instructions)
-- EASL 2019: "Optimal daily energy intake should not be lower than the recommended 35 kcal/kg.BW/d (in non-obese individuals)" [[EASL2019Nutrition]].
-- EASL 2019: "Optimal daily protein intake should not be lower than the recommended 1.2–1.5 g/kg.BW/d" [[EASL2019Nutrition]].
-- EASL 2019: "Include late evening oral nutritional supplementation and breakfast in dietary regime of malnourished decompensated cirrhotic patients" [[EASL2019Nutrition]].
-  - Patient leaflet text: "The late-evening snack is the most important, as it covers the long interval between dinner and breakfast."
-- AASLD 2021: "Recommended protein intake for adults with cirrhosis is 1.2-1.5 g/kg ideal body weight per day". For critically ill adults: 1.2–2.0 g/kg ideal body weight per day [[Lai2021AASLD]].
-- AASLD 2021: "Fasting time should be minimized, with a maximum interval of 3-4 hours between nutritional intake while awake" [[Lai2021AASLD]].
+- EASL 2019: daily energy intake should be at least 35 kcal per kg of body weight (in people without obesity) [[EASL2019Nutrition]].
+- EASL 2019: daily protein intake should be at least 1.2–1.5 g per kg of body weight [[EASL2019Nutrition]].
+- EASL 2019: malnourished people with decompensated cirrhosis should have breakfast and a late evening oral supplement as part of their diet [[EASL2019Nutrition]].
+  - Patient leaflet, in our words: the late evening snack matters most, because it bridges the long gap between dinner and breakfast.
+- AASLD 2021: adults with cirrhosis should get 1.2–1.5 g of protein per kg of ideal body weight a day. For critically ill adults: 1.2–2.0 g/kg ideal body weight per day [[Lai2021AASLD]].
+- AASLD 2021: keep fasts short, with no more than 3–4 hours between meals or snacks while awake [[Lai2021AASLD]].
 - AASLD 2021 energy: at least 35 kcal/kg/day. This may be modified to 25–35 kcal/kg/day at BMI 30–40 and 20–25 kcal/kg/day at BMI ≥40 [[Lai2021AASLD]].
   - Measured total energy expenditure in cirrhosis is 28–38 kcal/kg/day.
 - AASLD/EASL 2014 HE guideline: "Daily energy intakes should be 35-40 kcal/kg ideal body weight" and "Daily protein intake should be 1.2-1.5 g/kg/day" [[Vilstrup2014HE]].
-  - Also: "small meals or liquid nutritional supplements evenly distributed throughout the day and a late-night snack should be offered."
+  - Also: offer small meals or liquid supplements spread evenly through the day, plus a late-night snack.
 - ISHEN 2013: 35–45 kcal/kg and 1.2–1.5 g/kg protein daily, small frequent meals and "a late-night snack of complex carbohydrates" [[Amodio2013ISHEN]].
   - It notes vegetable and dairy protein may be better tolerated.
 - Dry weight when ascites is present: subtract 5% (mild), 10% (moderate) or 15% (severe), plus 5% for bilateral pedal oedema [[EASL2019Nutrition,Lai2021AASLD]].
@@ -221,17 +221,17 @@ Urgent-care box (for every complication page): Vomiting blood, black or tarry st
 - RCT in 30 people admitted with episodic HE: a normal-protein diet gave the same HE outcome as a low-protein diet with stepwise increases. The low-protein group had more protein breakdown [[Cordoba2004]].
 - EASL 2019: "Avoid protein restriction in patients with HE" [[EASL2019Nutrition]].
   - It also states that normal to high protein intake "does not precipitate HE".
-- AASLD 2021: 1.2–1.5 g/kg/day "is safe, does not worsen HE, and minimizes protein loss compared with lower protein doses" [[Lai2021AASLD]].
-- EASL 2019 says BCAA supplementation "can be considered to improve neuropsychiatric performance and to reach the recommended nitrogen intake" in HE [[EASL2019Nutrition]].
+- AASLD 2021: 1.2–1.5 g/kg/day is safe, does not make HE worse, and limits protein loss better than lower intakes [[Lai2021AASLD]].
+- EASL 2019 says BCAA supplements may be considered in HE to improve mental performance and to help reach the recommended nitrogen intake [[EASL2019Nutrition]].
 
 ### nutrition · Medicine safety in cirrhosis
 - Review: most medicines "have not been adequately studied in cirrhosis". Lower doses or less frequent dosing are often recommended because pharmacokinetics change [[Lewis2013]].
-- Paracetamol (acetaminophen): "Paracetamol can be used safely when prescribed in relatively small doses (2-3 g or less/day) for short durations, and is recommended as first-line treatment of pain" (review wording, quoted as published) [[Lewis2013]].
-- Evidence on reduced paracetamol doses is weak: "High-quality trials are not available to support the use of decreased acetaminophen doses in compensated cirrhosis patients" [[Schweighardt2018]].
-- US OTC label (general population): "Severe liver damage may occur if you take more than 4,000 mg of acetaminophen in 24 hours". The label also says "Ask a doctor before use if you have liver disease" [[FDA-Tylenol]].
-- NSAIDs "should be used cautiously (or not at all) in advanced cirrhosis" [[Lewis2013]].
-  - Drugs that can precipitate "renal failure, gastrointestinal bleeding, SBP and encephalopathy should be identified and avoided".
-- US OTC ibuprofen label: "Ask a doctor before use if ... you have high blood pressure, heart disease, liver cirrhosis, kidney disease". It also warns that NSAIDs "may cause severe stomach bleeding" [[FDA-Advil]].
+- Paracetamol (acetaminophen): the review says it is safe at fairly low doses, 2–3 g a day or less, for short periods, and recommends it as the first-line painkiller [[Lewis2013]].
+- Evidence on reduced paracetamol doses is weak: no high-quality trials support lowering acetaminophen doses in compensated cirrhosis [[Schweighardt2018]].
+- US OTC label (general population): warns of severe liver damage with more than 4,000 mg of acetaminophen in 24 hours. The label also says "Ask a doctor before use if you have liver disease" [[FDA-Tylenol]].
+- NSAIDs call for great caution, or are best not used at all, in advanced cirrhosis [[Lewis2013]].
+  - Medicines that can bring on kidney failure, gut bleeding, SBP or encephalopathy should be spotted and avoided.
+- US OTC ibuprofen label: asks people with high blood pressure, heart disease, liver cirrhosis or kidney disease to check with a doctor first. It also warns that NSAIDs "may cause severe stomach bleeding" [[FDA-Advil]].
 - Proton pump inhibitors, in 865 people with cirrhosis and ascites from three 1-year trials [[Dam2016PPI]]:
   - 52% used a PPI at some point
   - HE: adjusted HR 1.36 (95% CI 1.01–1.84); overt HE: adjusted HR 1.88
@@ -251,7 +251,7 @@ Urgent-care box (for every complication page): Vomiting blood, black or tarry st
   - rifaximin: caution in Child–Pugh C [[FDA-Xifaxan]]
   - tacrolimus: people with severe hepatic impairment (Child–Pugh ≥10) "may require lower doses" with close blood-level monitoring [[FDA-Prograf]]
 - Vaccination (US ACIP, quoted as published):
-  - Hepatitis A: ACIP lists "Vaccination of persons with chronic liver disease, including but not limited to persons with hepatitis B virus (HBV) infection, hepatitis C virus (HCV) infection, cirrhosis, fatty liver disease, alcoholic liver disease, autoimmune hepatitis" (ACIP's own wording) [[Nelson2020ACIP]]. It says hepatitis A is more severe in people with chronic liver disease.
+  - Hepatitis A: ACIP recommends vaccination for people with any chronic liver disease, naming among others hepatitis B or C infection, cirrhosis, fatty liver disease, alcohol-related liver disease and autoimmune hepatitis [[Nelson2020ACIP]]. It says hepatitis A is more severe in people with chronic liver disease.
   - Hepatitis B: ACIP 2022 recommends universal vaccination for adults aged 19–59 [[Weng2022ACIP]]. Self-reported coverage (≥3 doses) was only 33.0% among adults with chronic liver disease in 2018, and response to the vaccine is weaker in chronic liver disease.
   - Pneumococcal: ACIP 2022 lists "Chronic liver disease" (and, in ACIP's wording, "Alcoholism") among the conditions for PCV20, or PCV15 followed by PPSV23, in adults aged 19–64 [[Kobayashi2022ACIP]].
 
@@ -265,7 +265,7 @@ Urgent-care box (for every complication page): Vomiting blood, black or tarry st
   - C-statistic 0.869 vs 0.862 for MELDNa.
   - Simulated waitlist deaths: 7,788 vs 7,850.
 - MELD 3.0 replaced MELD-Na for US allocation in July 2023 [[Kwong2025SRTR]].
-- HE and transplant: "Recurrent intractable OHE, together with liver failure, is an indication for LT" [[Vilstrup2014HE]].
+- HE and transplant: overt HE that keeps returning despite treatment, together with liver failure, is a reason for transplant [[Vilstrup2014HE]].
 - Hepatocellular carcinoma, Milan criteria: a single tumour ≤5 cm, or no more than 3 nodules each ≤3 cm [[Mazzaferro1996]].
   - In 48 transplanted patients, 4-year survival was 75% overall.
   - Within the criteria on explant pathology: 85% survival and 92% recurrence-free survival.
@@ -305,7 +305,7 @@ Urgent-care box (for every complication page): Vomiting blood, black or tarry st
 ### transplant · Living donor transplantation
 - A2ALL, 807 potential living donor recipients: receiving a living donor transplant was linked to lower mortality than waiting for a deceased donor (adjusted HR 0.56, 95% CI 0.42–0.74) [[Berg2007A2ALL]].
   - At centres with more than 20 cases: HR 0.35.
-  - The authors note this "must be balanced against the risks undertaken by the living donors themselves".
+  - The authors stress that this benefit has to be weighed against the risks the donors themselves take on.
 - US living donor transplant mortality was higher with [[Olthoff2011]]:
   - older donor (HR 1.13 per 10 years) or recipient age (HR 1.20 per 10 years)
   - ICU stay before transplant (HR 2.52)
@@ -315,7 +315,7 @@ Urgent-care box (for every complication page): Vomiting blood, black or tarry st
   - There were 659 living donors in 2023, an all-time high, and 49 (7.5%) of these transplants were paired donations.
 
 ### transplant · Alcohol-related liver disease and the six-month rule
-- "A 6-month abstinence from alcohol is usually required before patients with severe alcoholic hepatitis are considered for liver transplantation" [[Mathurin2011NEJM]].
+- The trial authors note that people with severe alcoholic hepatitis usually need 6 months without alcohol before transplant is considered [[Mathurin2011NEJM]].
   - Most deaths from alcohol-related hepatitis occur within 2 months.
 - Franco-Belgian early transplant study: 26 highly selected people with a first episode of severe alcohol-related hepatitis not responding to medical therapy [[Mathurin2011NEJM]].
   - 6-month survival: 77% with early transplant vs 23% in matched controls.
@@ -354,7 +354,7 @@ Urgent-care box (for every complication page): Vomiting blood, black or tarry st
   - Only about 20% reach "robust" LFI by 1 year, so rehabilitation continues after surgery.
 
 ### Exam hooks
-- West Haven: grade I is covert (oriented, but with trivial lack of awareness and shortened attention). Grade II adds disorientation for time and asterixis. Grade III adds disorientation for place and somnolence. Grade IV is coma [[Vilstrup2014HE]].
+- West Haven: grade I is covert (oriented, but with subtle unawareness and a shorter attention span). Grade II adds disorientation for time and asterixis. Grade III adds disorientation for place and somnolence. Grade IV is coma [[Vilstrup2014HE]].
 - Covert HE = minimal HE + grade I. Overt = grades II–IV [[Vilstrup2014HE]].
 - Overt HE occurs in 30–40% of people with cirrhosis during their course. Minimal or covert HE affects 20–80% [[Vilstrup2014HE]].
 - The commonest precipitant of episodic overt HE is infection, then GI bleeding and diuretic overdose [[Vilstrup2014HE]].

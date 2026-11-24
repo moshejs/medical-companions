@@ -41,7 +41,7 @@ const FC=[
  [3,"How does pegloticase lower urate, and how is it given?","PEGylated recombinant uricase: urate → allantoin. 8 mg IV every 2 weeks with oral methotrexate 15 mg weekly (US label)."],
  [3,"What is the pegloticase stopping rule?","Check serum urate before every infusion; stop if it rises above 6 mg/dL, particularly 2 consecutive values."],
  [3,"Nurse-led treat-to-target (Doherty 2018) at 2 years?","Serum urate <360 µmol/L in 95% vs 30% with usual care; £5066 per QALY."],
- [4,"2015 ACR/EULAR criteria: entry, sufficient criterion, threshold?","Entry: ≥1 episode of peripheral joint or bursa swelling, pain or tenderness. Sufficient: MSU crystals. Otherwise ≥8 of 23 points."],
+ [4,"2015 ACR/EULAR criteria: entry, sufficient criterion, threshold?","Entry: a peripheral joint or bursa swollen, painful or tender at least once. Sufficient: MSU crystals. Otherwise ≥8 of 23 points."],
  [4,"Which two items subtract points in the 2015 criteria?","Serum urate <4 mg/dL (−4) and MSU-negative synovial fluid (−2)."],
  [4,"How well do the 2015 criteria perform?","Full criteria: sensitivity 92%, specificity 89% (AUC 0.95). Clinical-only: 85% and 78%."],
  [4,"What do MSU crystals look like under compensated polarised light?","Needle-shaped, strongly negatively birefringent; yellow when parallel to the slow axis of the compensator."],

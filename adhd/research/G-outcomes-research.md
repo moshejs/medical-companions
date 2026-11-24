@@ -190,7 +190,7 @@ Access notes:
 
 ### frontiers · Genetics, polygenic scores and precision dosing
 - Twin, family and adoption studies give ADHD a heritability of about 74%, and about a third of that heritability is attributed to many common variants of small effect [[Faraone2019]].
-- The 2023 GWAS meta-analysis (38,691 people with ADHD, 186,843 controls) found 27 genome-wide significant loci and estimated that 84-98% of ADHD-influencing variants are shared with other psychiatric disorders [[Demontis2023]].
+- The 2023 GWAS meta-analysis (38,691 people with ADHD, 186,843 controls) found 27 genome-wide significant loci and estimated that between 84% and 98% of the variants that influence ADHD are shared with other psychiatric disorders [[Demontis2023]].
 - In 576 adults with ADHD and 530 controls, adding an ADHD polygenic score to the ASRS raised variance explained by only 0.58 percentage points (61.11% to 61.69%), so the score is "currently not a clinically useful diagnostic aid" (Hypothesis for future clinical use) [[Hoberg2024]].
 - The CPIC guideline gives atomoxetine recommendations based on CYP2D6 genotype, because CYP2D6 variants change atomoxetine exposure, efficacy and safety (Established) [[Brown2019CPIC]].
 - The US Strattera label states that atomoxetine AUC is about 10-fold higher and peak concentration about 5-fold higher in CYP2D6 poor metabolizers, and that poor metabolizers are about 7% of White and 2% of Asian and Black populations [[FDA-StratteraG]].

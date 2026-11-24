@@ -21,7 +21,7 @@ const IM_PH=[
   pt:`White blood cells rush in and throw out sticky nets to catch germs. The nets also make blood clot in tiny vessels.`,
   hook:`NETs = chromatin + granule proteins; they kill bacteria and promote immunothrombosis. [[Brinkmann2004,Iba2023DIC]]`},
  {from:.64,at:.72,k:'Phase 5 · dysregulated',t:'The response spreads and harms',
-  txt:`The response is no longer local. Sepsis is "life-threatening organ dysfunction caused by a dysregulated host response to infection". [[Singer2016Sepsis3]] Pro- and anti-inflammatory mediators rise together: in pneumonia, the highest risk of death came with both IL-6 and IL-10 high (hazard ratio 20.5), and in mouse sepsis both rose at the same time in animals that died early. [[Kellum2007GenIMS,Osuchowski2006]] Too much C5a can paralyse phagocytes. [[Ward2004C5a]] Vessels leak. [[Hotchkiss2016NRDP]]`,
+  txt:`The response is no longer local. Sepsis-3 frames sepsis as organ damage that threatens life, driven by a badly regulated host response to infection. [[Singer2016Sepsis3]] Pro- and anti-inflammatory mediators rise together: in pneumonia, the highest risk of death came with both IL-6 and IL-10 high (hazard ratio 20.5), and in mouse sepsis both rose at the same time in animals that died early. [[Kellum2007GenIMS,Osuchowski2006]] Too much C5a can paralyse phagocytes. [[Ward2004C5a]] Vessels leak. [[Hotchkiss2016NRDP]]`,
   pt:`The alarm rings far too loud and spreads through the whole body. The body's own defences start to hurt its blood vessels and organs.`,
   hook:`Worst cytokine pattern in pneumonia sepsis: high IL-6 and high IL-10 (HR 20.5). [[Kellum2007GenIMS]]`},
  {from:.8,at:.9,k:'Phase 6 · exhaustion',t:'The immune system wears out',

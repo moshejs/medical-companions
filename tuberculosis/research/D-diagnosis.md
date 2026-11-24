@@ -126,7 +126,7 @@ Shared keys checked: Lewinsohn2017 (PMID 27932390), Boehme2010 (20825313), WHO-M
 
 ### tests · Antigen-based skin tests (TBSTs)
 - TBSTs (Cy-Tb, C-Tb, Diaskintest, C-TST) inject the M. tuberculosis-specific antigens ESAT-6 and CFP-10 into the skin, so BCG does not affect them [[Krutikov2022,Hamada2021]].
-- WHO recommends that "Mycobacterium tuberculosis antigen-based skin tests (TBSTs) may be used to test for TB infection" (conditional; very low certainty of evidence) [[WHO-Mod3-2022TBI,WHO-Mod1-2024]].
+- WHO recommends that TBSTs may be used to test for TB infection (conditional; very low certainty of evidence) [[WHO-Mod3-2022TBI,WHO-Mod1-2024]].
 - In a meta-analysis, C-Tb had a sensitivity of 74.5% versus 71.7% for IGRA, and specificity of 97.9% versus 93.3% for TST at 15 mm. Diaskintest agreed with IGRA in 87.2% of a mixed cohort [[Krutikov2022]].
 - In Spanish contact tracing, C-Tb positivity rose with exposure, from 3% in negative controls to 16% in occasional and 43% in close contacts. It agreed with QFT in 94% of 834 participants aged 5 or older [[Ruhwald2017]].
 - A 2021 landscape found 20 tests for TB infection (15 in vitro, 5 skin tests). Most use ESAT-6 and CFP-10, and some use lateral-flow formats suited to decentralised testing [[Hamada2021]].

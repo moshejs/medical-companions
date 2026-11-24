@@ -23,7 +23,7 @@ Access notes:
   - hypertonic saline trial: between-group difference in ppFEV1 change −0.32% (95% CI −1.25 to 0.60)
   - dornase alfa trial: between-group difference +0.35% (95% CI −0.45 to 1.14) [[MayerHamblett2023SIMPLIFY]]
 - Even so, adverse events were more frequent among those who stopped: 35% vs 24% in the hypertonic saline trial and 37% vs 23% in the dornase alfa trial. SIMPLIFY is short-term (6 weeks) evidence and does not give advice for any individual [[MayerHamblett2023SIMPLIFY]].
-- ECFS 2024 standards stress a physically active lifestyle and the "strict avoidance of all recreational inhalations, including e-cigarettes". They also describe virtual consultations as a developing model of care [[Southern2024Standards]].
+- ECFS 2024 standards call for regular physical activity and the "strict avoidance of all recreational inhalations, including e-cigarettes". They also describe virtual consultations as a developing model of care [[Southern2024Standards]].
 
 ### living · Adherence
 - In 95 people with CF aged 6 or older, a composite medication possession ratio (from pharmacy refills) predicted having at least one exacerbation treated with IV antibiotics over 12 months (IRR 2.34, p=0.05). It predicted baseline FEV1, but not the rate of FEV1 decline [[Eakin2011]].
@@ -95,7 +95,7 @@ Access notes:
 - Because in-person contact between people with CF is discouraged, online contact is a main route to peer community. The ECFS 2024 standards also describe virtual consultations as an emerging care model [[Haggie2020,Southern2024Standards]].
 
 ### living · Ageing with CF and new comorbidities
-- The 2024 ECFS standard "Planning for a longer life" frames people with CF "not as a 'problem' to be solved, but as a success, a potential and a voice to be heard". It covers life moments that CF teams should support, including having a family [[Gramegna2024Standards]].
+- The 2024 ECFS standard "Planning for a longer life" asks that people with CF be seen as a success, with potential and a voice worth hearing, rather than as a problem to solve. It covers life moments that CF teams should support, including having a family [[Gramegna2024Standards]].
 - Reviews of the ageing CF population highlight higher risks of cancer and cardiovascular disease, obesity and body-composition change, menopause, and lifetime antimicrobial resistance [[Frost2025Ageing]].
 - In a US registry analysis of 8262 adults (20 or older) who started ETI, weight change at 1 year was:
   - lost weight: 18.1%
@@ -121,7 +121,7 @@ Access notes:
 - These rates were 2–3 times those in community samples. People with elevated anxiety were far more likely to also report depression (OR 14.97 in adolescents, 13.64 in adults) [[Quittner2014TIDES]].
 - In TIDES, adolescents whose parents reported depression were more likely to have elevated depression scores themselves (OR 2.32). The same held for anxiety (OR 2.22) [[Quittner2014TIDES]].
 - The CFF/ECFS International Committee on Mental Health (22 members) finalised 15 recommendations, each with 100% consensus [[Quittner2016ICMH]].
-- Its screening wording: "The ICMH recommends annual screening for depression and anxiety with the PHQ-9 and GAD-7 for adolescents and adults with CF (ages 12–adulthood)" [[Quittner2016ICMH]].
+- Its screening recommendation: yearly screening for depression and anxiety, with the PHQ-9 and GAD-7, for everyone with CF from age 12 into adulthood [[Quittner2016ICMH]].
 - It also recommends offering annual screening to at least one primary caregiver of children aged 0–17, using PHQ-9/GAD-7, PHQ-8/GAD-7 or PHQ-2/GAD-2 depending on resources [[Quittner2016ICMH]].
 - Children aged 7–11 should be clinically evaluated when caregiver scores are elevated or when the child shows significant symptoms. Evidence-based psychological interventions are first-line in this age group [[Quittner2016ICMH]].
 - For ages 12 and older, treatment follows a stepped-care model:
@@ -139,7 +139,7 @@ Access notes:
 - Anxiety was not associated with mortality in that cohort. These are associations, not predictions for any person [[Schechter2021Depression]].
 
 ### living · CFTR modulators and neuropsychiatric effects
-- The Trikafta label (section 5.4) warns of "Serious neuropsychiatric events, including symptoms of anxiety, depression, suicidal ideation and behavior, and sleep disturbances", reported after marketing in adults and children with and without prior symptoms [[FDA-Trikafta]].
+- The Trikafta label (section 5.4) warns of serious neuropsychiatric events (anxiety, depression, suicidal thoughts and behaviour, and sleep problems), reported after marketing in adults and children with and without prior symptoms [[FDA-Trikafta]].
 - The same label section says symptoms "may occur within the first three months". It advises assessing baseline neuropsychiatric symptoms, monitoring for new or worsening symptoms, and weighing whether to interrupt therapy [[FDA-Trikafta]].
 - The Alyftrek and Kalydeco labels carry the same class warning, worded for drugs "containing the same or similar active ingredients" [[FDA-Alyftrek,FDA-Kalydeco]].
 - A case series described 6 people at 4 US centres who reported "mental fogginess" or other mental status changes. All noticed the change within the first 3 months of ETI, and each was managed through shared decision-making (Early evidence) [[Heo2022MentalStatus]].
@@ -203,7 +203,7 @@ Access notes:
 - Trikafta label 8.1: there are "limited and incomplete human data" in pregnancy. Animal studies of each component showed no adverse developmental effects at exposures up to about 2–14 times the maximum recommended human dose [[FDA-Trikafta]].
 - The same label section gives the background US risk of major birth defects (2–4%) and miscarriage (15–20%) [[FDA-Trikafta]].
 - Trikafta label 8.2: no information exists on the presence of elexacaftor, tezacaftor or ivacaftor in human milk, though all three pass into rat milk. Breastfeeding benefits should be weighed against the mother's clinical need and any potential infant effects [[FDA-Trikafta]].
-- The Alyftrek label states there are no human pregnancy data for vanzacaftor/tezacaftor/deutivacaftor, and that "it is likely that the drug will be present in human milk" [[FDA-Alyftrek]].
+- The Alyftrek label states there are no human pregnancy data for vanzacaftor/tezacaftor/deutivacaftor, and that the drug is likely to pass into human milk [[FDA-Alyftrek]].
 - The ivacaftor-containing labels report cataracts in juvenile rats dosed from postnatal day 7 at ≥10 mg/kg/day (0.21 times the MRHD). The labels recommend baseline and follow-up eye examinations for children starting these medicines [[FDA-Trikafta,FDA-Kalydeco]].
 - In a clinician survey of 45 ETI-exposed pregnancies, 5 of the 6 women who stopped ETI out of concern for unknown fetal risk restarted it because of clinical decline. Miscarriage rates were consistent with the general US population [[TaylorCousar2021ETI]].
 - In a French prospective pharmacovigilance series of 58 modulator-exposed pregnancies (87.9% on ETI throughout), there were 53 live births. Major congenital anomaly prevalence was 3.4% (95% CI 0.4–11.9), and no cataracts were found in the 10 children examined [[Gautier2025]].
@@ -216,7 +216,7 @@ Access notes:
 - In Indiana, 19 infants exposed to ETI had lower newborn-screening IRT than infants with CF, CRMS/CFSPID or CF carriers (p<0.001). Their median IRT was 18.9 ng/mL, similar to infants with normal screens (22.5 ng/mL) [[Patel2023IRT]].
 - The authors recommend that newborn-screening programmes consider CFTR variant analysis for all ETI-exposed infants [[Patel2023IRT]].
 - A case report described a false-negative CF newborn screen and normal pancreatic function in a child with CF whose mother took a CFTR modulator during pregnancy [[Fortner2021]].
-- The CFF position paper notes that in-utero modulator exposure "has implications for infant monitoring and cystic fibrosis screening results in newborns" [[Jain2026CFFReproductive]].
+- The CFF position paper notes that modulator exposure before birth affects how infants are monitored and how their CF newborn screening results are read [[Jain2026CFFReproductive]].
 
 ### pregnancy · Lactation and early parenting
 - Clinicians report that more than half of people with CF choose to breastfeed. Calorie needs during lactation are higher than the roughly 500 kcal/day extra advised for lactating people without CF [[Montemayor2022Pregnancy]].

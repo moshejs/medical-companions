@@ -40,7 +40,7 @@ inits.frontier=()=>{
   const tOf=y=>y<YB?BRK*ramp(y,Y0,YB):BRK+(1-BRK)*ramp(y,YB,Y1);
   const STEPS=[
     {from:0,at:tOf(2017.4),k:'Up to 2017',t:'Where things stood',
-     txt:`The 2017 classification defined 13 types, all but hEDS confirmed by a gene test. One drug trial existed for any type: BBEST, an open trial of celiprolol in vascular EDS. Management of every type remains supportive: "No specific medical or genetic therapies are available for any type of EDS". [[Malfait2017,Ong2010,Malfait2020]]`,
+     txt:`The 2017 classification defined 13 types, all but hEDS confirmed by a gene test. One drug trial existed for any type: BBEST, an open trial of celiprolol in vascular EDS. Care for every type is still supportive: no medicine or gene-based treatment aimed at the cause exists for any type of EDS. [[Malfait2017,Ong2010,Malfait2020]]`,
      pt:`In 2017 there was no medicine made for EDS, and doctors could only treat its symptoms and complications.`,
      hook:`All 13 types except hEDS need molecular confirmation (2017). [[Malfait2017]]`},
     {from:tOf(2018),at:tOf(2025.7),k:'2018–2025 · genetics',t:'Hunting for hEDS genes',

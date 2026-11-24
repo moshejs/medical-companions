@@ -157,7 +157,7 @@ inits.complications=()=>{
      pt:`The heart is starting to struggle, but the organs are still coping.`,
      hook:`The line between B and C is hypoperfusion: B is without it, C has it. [[Baran2019SCAI]]`},
     {from:.4,at:.5,k:'SCAI stage C',t:'Classic shock',
-     txt:`Stage C is "classic" shock, with hypoperfusion present. [[Baran2019SCAI]] Cardiogenic shock is end-organ hypoperfusion from heart failure, often with multisystem organ failure. [[vanDiepen2017]] Immediate revascularisation of the infarct artery is the only shock treatment supported by randomised trials. [[Samsky2021]] ESC 2023 states: "Early revascularization with either PCI or CABG is recommended for patients with AMI complicated by CS". [[Byrne2023ESC]] With several narrowed arteries, CULPRIT-SHOCK favoured treating the culprit lesion first. [[Thiele2017CULPRIT]]`,
+     txt:`Stage C is "classic" shock, with hypoperfusion present. [[Baran2019SCAI]] Cardiogenic shock is end-organ hypoperfusion from heart failure, often with multisystem organ failure. [[vanDiepen2017]] Immediate revascularisation of the infarct artery is the only shock treatment supported by randomised trials. [[Samsky2021]] ESC 2023 recommends early revascularisation, by PCI or CABG, when an acute MI is complicated by cardiogenic shock (CS). [[Byrne2023ESC]] With several narrowed arteries, CULPRIT-SHOCK favoured treating the culprit lesion first. [[Thiele2017CULPRIT]]`,
      pt:`The organs are not getting enough blood. Opening the blocked artery quickly is the treatment proven in trials. [[Samsky2021]]`,
      hook:`In shock with multivessel disease: culprit-only PCI first (CULPRIT-SHOCK, death or RRT 45.9% vs 55.4%). [[Thiele2017CULPRIT]]`},
     {from:.6,at:.7,k:'SCAI stage D',t:'Deteriorating',

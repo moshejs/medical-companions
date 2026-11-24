@@ -17,8 +17,8 @@ function dxBars(rows){
 }
 const DX_CRIT={
  th:{name:'Tel Hashomer',
-  groups:[{k:'M',lg:'Major criteria',cls:'',items:['Recurrent febrile episodes with peritonitis, synovitis or pleuritis','AA amyloidosis without a predisposing disease','Favourable response to continuous colchicine']},
-          {k:'m',lg:'Minor criteria',cls:'mn',items:['Recurrent febrile episodes','Erysipelas-like erythema','FMF in a first-degree relative']}],
+  groups:[{k:'M',lg:'Major criteria',cls:'',items:['Fever attacks that keep coming back, with peritonitis, synovitis or pleuritis','AA amyloidosis with no other disease to explain it','Good response to colchicine taken every day']},
+          {k:'m',lg:'Minor criteria',cls:'mn',items:['Fever attacks that keep coming back','Erysipelas-like red patch on the skin','A parent, brother, sister or child with FMF']}],
   def:`Drawn from the 1967 Tel Hashomer survey and later summaries. Definite FMF needs <b>2 major</b>, or <b>1 major + 2 minor</b>. [[Sohar1967,Pras1998,Lancieri2023]]`,
   judge(c){const M=c.M,m=c.m;if(M>=2||(M>=1&&m>=2))return['yes','Definite FMF by Tel Hashomer',`${M} major + ${m} minor.`];
     if(M>=1&&m>=1)return['na','"Probable" FMF at most',`${M} major + ${m} minor. A "probable" tier for 1 major + 1 minor appears in secondary sources only, not verified in the primary text.`];
@@ -26,10 +26,10 @@ const DX_CRIT={
   perf:[{l:'Turkish children (Yalçınkaya 2009)',s:.988,p:.546},{l:'Eurofever children with other periodic fevers (Demirkaya 2016)',s:.45,p:.972}],
   pcite:`[[Yalcinkaya2009,Demirkaya2016]] The Eurofever figures are the ones in the published paper; an earlier conference report of the same registry gave a lower sensitivity for Tel Hashomer.`},
  liv:{name:'Livneh 1997',
-  groups:[{k:'M',lg:'Major criteria (typical attacks)',cls:'',items:['Generalized peritonitis','Unilateral pleuritis or pericarditis','Monoarthritis (hip, knee or ankle)','Fever alone']},
-          {k:'m',lg:'Minor criteria',cls:'mn',items:['Incomplete attack involving the chest','Incomplete attack involving a joint','Exertional leg pain','Favourable response to colchicine']},
-          {k:'s',lg:'Supportive criteria',cls:'sp',items:['Family history of FMF','Appropriate ethnic origin','Age under 20 at onset','Severe attacks needing bed rest','Spontaneous remission','Symptom-free intervals','Transient inflammatory response (WBC, ESR, SAA or fibrinogen)','Episodic proteinuria or haematuria','Unproductive laparotomy or a "white" appendix removed','Parental consanguinity']}],
-  def:`A <b>typical attack</b> is recurrent (at least 3 of the same type), febrile (rectal ≥38 °C) and short (12 h to 3 days). An <b>incomplete attack</b> differs in one or two ways: under 38 °C, a length outside 12 h to 3 days but not under 6 h and not over a week, no peritoneal signs, localized abdominal pain, or arthritis in other joints. [[Livneh1997,Lancieri2023,Sonmez2016]]`,
+  groups:[{k:'M',lg:'Major criteria (typical attacks)',cls:'',items:['Peritonitis spread across the abdomen','Pleuritis on one side, or pericarditis','Arthritis in a single hip, knee or ankle','Fever with no other attack site']},
+          {k:'m',lg:'Minor criteria',cls:'mn',items:['Incomplete chest attack','Incomplete joint attack','Leg pain brought on by exertion','Good response to colchicine']},
+          {k:'s',lg:'Supportive criteria',cls:'sp',items:['FMF in the family','Ancestry from a group where FMF is common','First attack before age 20','Attacks bad enough to keep the person in bed','Attacks that end without treatment','Periods with no symptoms between attacks','A short-lived rise in inflammation tests (WBC, ESR, SAA or fibrinogen)','Protein or blood in the urine that comes and goes','Abdominal surgery that found nothing, or a normal ("white") appendix removed','Parents related by blood']}],
+  def:`For these criteria a <b>typical attack</b> has happened at least 3 times in the same form, comes with fever (rectal temperature of 38 °C or more) and lasts from 12 h to 3 days. An <b>incomplete attack</b> breaks this pattern in one or two respects: the temperature stays below 38 °C; it is shorter or longer than 12 h to 3 days, while still lasting at least 6 h and no more than a week; the abdomen shows no peritoneal signs, or the belly pain stays in one area; or the arthritis is in joints other than those listed. [[Livneh1997,Lancieri2023,Sonmez2016]]`,
   judge(c,o){const M=c.M,m=c.m,s=c.s;let ok=M>=1||m>=2,how=M>=1?'at least 1 major':m>=2?'at least 2 minor':'';
     if(!ok&&o.rule==='cons'&&m>=1&&s>=5){ok=true;how='1 minor + at least 5 supportive'}
     const set=o.rule==='cons'?'conservative set':'simple set';
@@ -37,7 +37,7 @@ const DX_CRIT={
   perf:[{l:'Original study: 105 patients vs 106 controls (Livneh 1997)',s:.95,st:'>95%',p:.97,pt:'>97%'},{l:'Eurofever children with other periodic fevers (Demirkaya 2016), specificity only',p:.411}],
   pcite:`[[Livneh1997,Demirkaya2016]]`},
  yo:{name:'Yalçınkaya–Özen',
-  groups:[{k:'M',lg:'Paediatric criteria (the first four each 6–72 h, at least 3 attacks)',cls:'',items:['Fever: axillary temperature above 38 °C','Abdominal pain','Chest pain','Oligoarthritis','Family history of FMF']}],
+  groups:[{k:'M',lg:'Criteria for children (first four: at least 3 attacks, each 6–72 h)',cls:'',items:['Fever, with an armpit temperature over 38 °C','Abdominal pain','Chest pain','Oligoarthritis','Family history of FMF']}],
   def:`Built for children in 2009 from 170 children with two variants and 141 controls. <b>Two or more</b> of the five criteria classify as FMF. The 2009 paper describes five items; some later reviews print a six-item version that adds exertional leg pain. [[Yalcinkaya2009,Lancieri2023]]`,
   judge(c){const n=c.M;return n>=2?['yes','FMF by the paediatric criteria',`${n} of 5 criteria (needs 2). With 3 or more, specificity rises and sensitivity falls (Kondi 2010).`]:['no','Paediatric criteria not met',`${n} of 5 criteria (needs 2).`]},
   perf:[{l:'Derivation, ≥2 criteria (Yalçınkaya 2009)',s:.865,p:.936},{l:'French mixed cohort, ≥2 criteria (Kondi 2010)',s:1,p:.5},{l:'French mixed cohort, ≥3 criteria (Kondi 2010)',s:.77,p:.95},{l:'Eurofever registry (Demirkaya 2016)',s:.874,p:.407}],
@@ -79,7 +79,7 @@ const DX_PATH=[
   pt:'The gene test can support the diagnosis but cannot rule it out.',
   hook:`FMF remains a <b>clinical diagnosis</b> (SHARE recommendations). Genetics supports it but cannot exclude it. [[Giancane2015]]`},
  {from:DX_PL[4],at:.74,k:'Step 5',t:'A colchicine trial',
-  txt:`GeneReviews describes a six-month colchicine trial to establish the diagnosis when molecular testing is inconclusive. Booty 2009 concluded that one variant plus typical symptoms justifies a trial. Response is a major Tel Hashomer criterion and a minor Livneh criterion. [[GeneReviews,Booty2009,Pras1998,Livneh1997]]`,
+  txt:`If the gene test leaves the answer open, GeneReviews describes giving colchicine for about six months and judging the diagnosis by the response. Booty 2009 concluded that one variant plus typical symptoms justifies a trial. Response is a major Tel Hashomer criterion and a minor Livneh criterion. [[GeneReviews,Booty2009,Pras1998,Livneh1997]]`,
   pt:'If daily colchicine makes the attacks stop over months, that strongly supports FMF.'},
  {from:DX_PL[5],at:.95,k:'Step 6',t:'Reassess over months',
   txt:`Colchicine fully prevents attacks in about 60–70% of patients, gives a partial response in 20–30% and fails in about 5%. EULAR 2016 advised reviewing response, toxicity and adherence every 6 months; the EULAR/PReS 2024 update, published in 2025, keeps regular review but sets no fixed interval, asking for it more often at diagnosis and when the disease is uncontrolled. An atypical course sends the work-up back to the mimics. [[SoonLaxer2017,Ozen2016,Ozen2025,Cush2025]]`,

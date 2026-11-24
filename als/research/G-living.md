@@ -20,7 +20,7 @@ This pass covers what published studies, guidelines and official registries say 
 - Note on "apathy is the commonest behavioural change": Witgert2010 supports this on the FrSBe. In Burke2017 apathy (31.1%) ranked fourth by item frequency, behind hygiene, irritability and unusual habits. The claim depends on the instrument [Witgert2010; Burke2017].
 - In a longitudinal study of 49 people with ALS and their caregivers, initiation apathy was the most common apathy subtype at baseline (38.8%), followed by emotional apathy (16.3%). Initiation and executive apathy increased over time and were variably linked to higher caregiver burden or strain [Radakovic2025].
 - NICE advises awareness that people with MND and FTD may lack mental capacity (care in line with the Mental Capacity Act 2005). It recommends exploring cognitive or behavioural change at diagnosis and when concern arises, with referral for formal assessment if needed [NICE2016].
-- The AAN 2009 practice parameter recommends that screening for cognitive and behavioural impairment be considered (Level B), "because many patients with ALS demonstrate cognitive impairment, which in some cases meets criteria for dementia" [Miller2009AANb].
+- The AAN 2009 practice parameter recommends that screening for cognitive and behavioural impairment be considered (Level B), since cognitive impairment is common in ALS and sometimes reaches the level of dementia [Miller2009AANb].
 
 ### Communication
 - More than 80% of people living with MND develop speech difficulties, and most eventually use an AAC device. This is stated as background in Cave & Bloch, and Ball 2004 attributes a similar 80% figure to a 1982 source not read here, so treat it as secondary [Cave2021; Ball2004].
@@ -71,7 +71,7 @@ This pass covers what published studies, guidelines and official registries say 
 - In the Irish ALS register (1996-2000), people who attended the multidisciplinary ALS clinic (24%) had median survival 7.5 months longer than those in general neurology clinics. Bulbar-onset survival was extended by 9.6 months, and clinic attendance was an independent covariate (HR 1.47) [Traynor2003].
 - In 719 incident cases across Ireland and Northern Ireland (2005-2010), multidisciplinary clinic attendance was associated with longer survival (HR 0.59, 95% CI 0.49-0.71) [Rooney2015].
 - Controversy (selection bias): the clinic cohort in Traynor2003 was about five years younger and more often took riluzole (99% vs 61%), so these observational survival gains may partly reflect who attends [Traynor2003].
-- The AAN recommends that referral to a multidisciplinary clinic be considered to optimise care and prolong survival (Level B) and may be considered to enhance quality of life (Level C) [Miller2009AANb].
+- The AAN says referral to a multidisciplinary clinic should be considered, to improve care and lengthen survival (Level B), and may be considered to improve quality of life (Level C) [Miller2009AANb].
 - NICE recommends coordinated MDT clinic assessments, usually every 2 to 3 months, and a face-to-face follow-up within 4 weeks of diagnosis. The core team includes a speech and language therapist and someone with palliative care expertise [NICE2016].
 - Travel: no peer-reviewed source on air or long-distance travel in ALS was read in this pass.
 
@@ -79,7 +79,7 @@ This pass covers what published studies, guidelines and official registries say 
 - A review of international guidelines states that optimal ALS management requires a palliative approach from diagnosis. It notes that late referral to palliative services is common and that integration varies widely between health systems [Bede2011].
 - NICE: offer the chance to discuss end-of-life preferences at trigger points: at diagnosis, at a significant change in respiratory function, and when interventions such as gastrostomy or NIV are needed. Be prepared to discuss end-of-life issues whenever the person wishes [NICE2016].
 - NICE lists advance care planning topics: how death may occur, anticipatory medicines at home, Advance Decisions to Refuse Treatment (ADRT), DNACPR orders and Lasting Power of Attorney. It advises discussing these earlier if communication, cognition or capacity is expected to worsen [NICE2016].
-- EFNS 2012: advance directives for palliative end-of-life care should be discussed early with the person and carers, respecting social and cultural background [Andersen2012EFNS].
+- EFNS 2012: talk early with the person and carers about advance directives for palliative and end-of-life care, with respect for their social and cultural background [Andersen2012EFNS].
 - The EAN 2024 guideline adapts NICE's end-of-life recommendations. Its additions include discussing invasive ventilation as part of advance care planning (aiming to avoid emergency invasive ventilation), palliative sedation and withdrawal of treatment. It also adds a recommendation to be prepared to discuss euthanasia and assisted suicide [VanDamme2024].
 - A 2024 meta-analysis of 26 studies found advance directives signed in 60.4% of records (1,629 of 2,696 people). The proportion was lower in 2012-2024 studies (42%) than in 1999-2011 studies (78%) [Mangal2024].
 - At a US academic ALS centre (513 people, 2014-2018), 30% had any advance care planning document, 16.6% had a POLST form and only 5.1% saw a palliative care physician [Takacs2022].

@@ -94,7 +94,7 @@ Scope: this file covers acetylcholinesterase inhibitors (pyridostigmine, with ne
 - **Risk factors.** Bae 2006 found older age, severe bulbar symptoms and more severe disease; the dose per kg did not predict worsening [Bae2006]. Kanai 2019 found thymoma-associated or early-onset MG, a starting prednisolone dose ≥40 mg/day, and upper-limb weakness. A 0-3 point score predicted worsening with an AUC of 0.770. [Kanai2019]
 - **Timing.** None of the sources I could read gives a specific day window (such as days 5-10). The Cochrane review says no included trial reported early deterioration and that older reports gave no timing. The anchor window available is "within 2 weeks" or "within 4 weeks" of starting. (day 5-10: unverified) [SchneiderGold2005; Kanai2019; Bae2006]
 - Seybold and Drachman (1974) developed the gradually increasing dose schedule to avoid the early worsening seen with oral doses of 60-100 mg. The NEJM paper has no abstract, so this is as the Cochrane review describes it. [Seybold1974; SchneiderGold2005]
-- **Consensus advice.** Because steroids may cause transient worsening, "it may be appropriate to wait several days for PLEX or IVIg to have a beneficial effect before starting corticosteroids". [Sanders2016]
+- **Consensus advice.** Because steroids can make weakness briefly worse, the consensus suggests it may be reasonable to give PLEX or IVIg a few days to start working before corticosteroids begin. [Sanders2016]
 - **Nordic advice.** Combine 30-50 mg/day with IVIG or PLEX to avoid the "steroid dip". [Gilhus2024]
 - The EPITOME trial in ocular MG started prednisone at 10 mg every other day and titrated it over 16 weeks to a maximum of 40 mg/day. [Benatar2016]
 
@@ -112,7 +112,7 @@ Scope: this file covers acetylcholinesterase inhibitors (pyridostigmine, with ne
   - The azathioprine group had fewer treatment failures and longer remissions.
   This trial is the anchor showing azathioprine's slow onset.
 - **Witte 1984 series.** 18 of 24 patients tolerated azathioprine; 15 of those 18 (83%) improved. First response came after 4-10 months (mean 6.4). Improvement continued up to 24 months, with mean peak improvement at 14 months. All 6 patients who stopped relapsed within a year. [Witte1984]
-- The international consensus: "Expert consensus and some RCT evidence support the use of azathioprine as a first-line IS agent in MG." [Sanders2016]
+- The international consensus backs azathioprine as a first-line immunosuppressant in MG, on expert agreement plus some RCT evidence. [Sanders2016]
 - **German dosing.** Start at 25-50 mg/day and increase over 3-4 weeks with laboratory checks, toward 2-3 mg/kg/day. The lymphocyte target is 600-1,000/µL; the effect takes several months. Use beyond 10 years should generally be avoided because of malignancy risk. [Wiendl2023]
 - **Nordic dosing.** 2-3 mg/kg. Test TPMT activity and avoid azathioprine if TPMT is absent or low (<20 mU/L). The Nordic guidance considers it safe in pregnancy and breastfeeding. [Gilhus2024]
 - **US label.** Imuran carries a boxed malignancy warning. It says patients with low or absent TPMT activity risk severe, life-threatening bone-marrow toxicity at conventional doses, and that TPMT testing "cannot substitute for" complete blood count monitoring. Its US indications are kidney transplant and rheumatoid arthritis, so MG use is off-label. [FDAImuran2025]
@@ -160,7 +160,7 @@ Scope: this file covers acetylcholinesterase inhibitors (pyridostigmine, with ne
 
 ### IVIG and plasma exchange
 - **Indications (international consensus).** Short-term IVIG or PLEX is used for life-threatening signs such as respiratory insufficiency or dysphagia, before surgery in patients with significant bulbar weakness, when a rapid response is needed, or when other treatments are not enough. The two are "probably equally effective" in severe generalized MG. [Sanders2016]
-- **Other consensus statements.** IVIG's effect is less certain in milder or ocular MG. PLEX may work better than IVIG in MuSK MG. In crisis, "expert consensus suggests that PLEX is more effective and works more quickly". [Sanders2016]
+- **Other consensus statements.** IVIG's effect is less certain in milder or ocular MG. PLEX may work better than IVIG in MuSK MG. In crisis, the expert view is that PLEX works better and faster. [Sanders2016]
 - **Contraindications.** IVIG is contraindicated in hypercoagulable states, renal failure and hypersensitivity to immunoglobulin. PLEX cannot be used in sepsis. [Sanders2016]
 - **Barth 2011.** 84 patients with QMG >10.5 and worsening weakness were randomized to IVIG 1 g/kg/day for 2 days or 5 single-volume PLEX sessions every other day. [Barth2011]
   - QMG at baseline: 14.30 vs 14.35.

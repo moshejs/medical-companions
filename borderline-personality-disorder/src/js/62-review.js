@@ -23,8 +23,8 @@ const RV_FC=[
  /* ---- Part 2: diagnosis ---- */
  [2,`How many DSM-5-TR criteria are needed for BPD, and how many combinations are possible?`,`5 or more of 9, which gives 256 possible combinations, 126 of them with exactly 5 [[APA2022,Mulay2019]].`],
  [2,`Under which criterion is suicidal or self-harming behaviour scored?`,`Only criterion 5. It is never counted under criterion 1 (abandonment) or 4 (impulsivity) [[APA2022,Kaess2025]].`],
- [2,`How long do the mood shifts of criterion 6 usually last?`,`Usually a few hours and only rarely more than a few days [[APA2022,Kaess2025]]. Sustained mood episodes point to bipolar disorder [[Paris2015]].`],
- [2,`What is criterion 9?`,`Transient, stress-related paranoid ideation or severe dissociative symptoms [[APA2022]].`],
+ [2,`How long do the mood shifts of criterion 6 usually last?`,`Typically a few hours, and seldom more than a few days [[APA2022,Kaess2025]]. Sustained mood episodes point to bipolar disorder [[Paris2015]].`],
+ [2,`What is criterion 9?`,`Brief paranoid thoughts, or severe dissociation, that come on under stress [[APA2022]].`],
  [2,`Which criterion has the highest sensitivity?`,`Affective instability: sensitivity 92.8% and negative predictive value 99%, so its absence nearly rules BPD out [[Zimmerman2017BJP]].`],
  [2,`Which features best separate BPD from bipolar disorder?`,`Abandonment fears and identity disturbance. Affective instability is transdiagnostic [[Bayes2020]].`],
  [2,`What are the numbers for the MSI-BPD?`,`10 yes/no items, cut-off 7, sensitivity 0.81, specificity 0.85 [[Zanarini2003MSI]].`],
@@ -116,8 +116,8 @@ const RV_CRIT=[
 ];
 const RV_ROWS=[['R','Relationships','--other'],['S','Self-image','--self'],['A','Affects','--storm'],['I','Impulsivity','--med'],['9','Stress','--dx']];
 const RV_STEPS=[
- {from:0,at:.13,k:'Definition',t:'Four instabilities',txt:`DSM-5-TR defines BPD as a pervasive pattern of instability of interpersonal relationships, self-image and affects, and marked impulsivity, beginning by early adulthood and present in a variety of contexts, shown by 5 or more of 9 criteria [[APA2022,Kaess2025]].`,pt:'BPD is about things that keep shifting: relationships, how you see yourself, feelings, and acting on impulse.',hook:'Instability of relationships, self-image and affects, plus marked impulsivity; onset by early adulthood.'},
- {from:.2,at:.33,k:'R-S-A-I + 9',t:'Sort the nine',txt:`As a memory aid, hang the nine criteria on the four words: relationships (1 abandonment, 2 unstable relationships), self (3 identity, 7 emptiness), affects (6 affective instability, 8 anger), impulsivity (4 impulsivity, 5 suicidal or self-harming behaviour), and criterion 9, transient stress-related paranoid ideation or severe dissociation [[APA2022,Kaess2025]]. The grouping is for study only: statistically the nine criteria form one coherent construct [[Sanislow2002]].`,pt:'Five short words can help you remember all nine criteria.',hook:'Criterion 9 = transient, stress-related paranoid ideation or severe dissociative symptoms.'},
+ {from:0,at:.13,k:'Definition',t:'Four instabilities',txt:`In DSM-5-TR, BPD is a long-standing pattern of unstable relationships, self-image and emotions, with marked impulsivity, starting by early adulthood and showing across many areas of life; at least 5 of 9 criteria must be met [[APA2022,Kaess2025]].`,pt:'BPD is about things that keep shifting: relationships, how you see yourself, feelings, and acting on impulse.',hook:'Instability of relationships, self-image and affects, plus marked impulsivity; onset by early adulthood.'},
+ {from:.2,at:.33,k:'R-S-A-I + 9',t:'Sort the nine',txt:`As a memory aid, hang the nine criteria on the four words: relationships (1 abandonment, 2 unstable relationships), self (3 identity, 7 emptiness), affects (6 affective instability, 8 anger), impulsivity (4 impulsivity, 5 suicidal or self-harming behaviour), and criterion 9, brief stress-related paranoid thoughts or severe dissociation [[APA2022,Kaess2025]]. The grouping is for study only: statistically the nine criteria form one coherent construct [[Sanislow2002]].`,pt:'Five short words can help you remember all nine criteria.',hook:'Criterion 9 = brief paranoid thoughts or severe dissociative symptoms.'},
  {from:.4,at:.53,k:'5 of 9',t:'256 ways in',txt:`Any 5 of 9 can be met in 256 combinations: 126 with exactly 5 criteria, 84 with 6, 36 with 7, 9 with 8 and 1 with all 9 [[Mulay2019]]. Even so, affective instability and identity disturbance were the most central symptoms in network analyses of three samples [[Peters2023]].`,pt:'There are many different ways to have BPD, so no two people look exactly alike.',hook:'5 of 9 = 256 combinations; 126 of them use exactly 5 criteria.'},
  {from:.6,at:.72,k:'Two people',t:'Sharing one criterion',txt:`Two people can both meet the threshold yet share only one criterion: one meets criteria 1–5, the other 5–9 [[Mulay2019]]. This heterogeneity is one reason ICD-11 grades personality disorder by severity first and adds an optional borderline pattern [[Tyrer2019,Bach2018BMC]].`,pt:'Two people with the same diagnosis may have very different struggles, so care is planned around the person.',hook:'Polythetic criteria mean heterogeneity: criteria 1–5 and 5–9 overlap only at 5.'},
  {from:.79,at:.94,k:'Count once',t:'Where self-harm counts',txt:`Suicidal or self-harming behaviour is scored only under criterion 5, never under criterion 1 or 4 [[APA2022,Kaess2025]]. Affective instability has the highest sensitivity of the nine (92.8%) and a negative predictive value of 99%, so asking about it works as a one-question screen [[Zimmerman2017BJP]]. A screen is not a diagnosis: that needs a careful interview [[Chanen2008,Zanarini2003MSI]].`,pt:'Self-harm is a sign that someone needs support now. Help works, and recovery is common [[Zanarini2012]].',hook:'Absent affective instability nearly rules out BPD (NPV 99%).'}
@@ -187,7 +187,7 @@ inits.review=()=>{
     s+=`<rect x="0" y="0" width="${R.w}" height="${R.h}" rx="12" style="fill:var(--panel-2);opacity:.55"/>`;
     /* phase 0: the four words */
     const a0=v0(0);
-    if(a0>0){s+=`<g style="opacity:${f1(a0)}"><text class="t-sm" x="16" y="28">A pervasive pattern of instability in</text>`;
+    if(a0>0){s+=`<g style="opacity:${f1(a0)}"><text class="t-sm" x="16" y="28">A long-standing pattern of instability in</text>`;
       RV_ROWS.slice(0,4).forEach(([ch,nm,col],k)=>{const on=ramp(t,.02+k*.025,.05+k*.025),y=(N?54:62)+k*(N?32:44);
         s+=`<g style="opacity:${f1(.2+.8*on)}"><circle cx="30" cy="${y}" r="${N?13:15}" style="fill:var(${col});opacity:.18"/><text class="t-big t-mid" x="30" y="${y+6}" style="fill:var(${col})">${ch}</text><text class="t-big" x="54" y="${y+6}">${k===3?'marked Impulsivity':nm}</text></g>`});
       s+=`<text class="t-sm" x="16" y="${N?190:256}">begins by early adulthood,</text><text class="t-sm" x="16" y="${N?206:274}">across contexts: 5 or more of 9</text>`;
@@ -283,7 +283,7 @@ const QZ_Q=[
  [3,`The weekly self-monitoring form in DBT is called the:`,[`Thought record`,`Mood chart`,`Fear ladder`,`Diary card`],3,`The therapist uses it to set the session agenda [[Chapman2006DBT]].`],
  [3,`The first RCT of DBT was published in:`,[`1991`,`1975`,`2006`,`2015`],0,`Linehan 1991, in chronically parasuicidal women with BPD [[Linehan1991]].`],
  [3,`Linehan 2006 found that DBT, compared with expert community therapy:`,[`Had no effect on suicide attempts`,`Halved the likelihood of a suicide attempt`,`Doubled dropout`,`Worked only with medication`],1,`HR 2.66; the control arm matched therapist expertise and allegiance [[Linehan2006]].`],
- [3,`In the Linehan 2015 component trial, the extra fall in self-injury came from:`,[`Phone coaching alone`,`Medication`,`Skills training`,`Group activities without skills`],2,`"Interventions that include DBT skills training are more effective than DBT without skills training" [[Linehan2015]].`],
+ [3,`In the Linehan 2015 component trial, the extra fall in self-injury came from:`,[`Phone coaching alone`,`Medication`,`Skills training`,`Group activities without skills`],2,`DBT versions that included skills training worked better than DBT without it [[Linehan2015]].`],
  [3,`McMain 2009 compared DBT with general psychiatric management for 1 year and found:`,[`DBT far superior`,`GPM far superior`,`Both harmful`,`No significant differences on any outcome`],3,`Both groups improved [[McMain2009]].`],
  [3,`McMain 2022 showed that for self-harm, 6 months of DBT was:`,[`Non-inferior to 12 months`,`Worse than 12 months`,`Not tested`,`Worse than no treatment`],0,`It also gave faster falls in BPD symptoms [[McMain2022]].`],
  [3,`In high-risk adolescents, McCauley 2018 found DBT vs supportive therapy:`,[`Increased suicide attempts`,`Reduced suicide attempts (OR 0.30)`,`Made no difference to anything`,`Was not tolerated`],1,`The advantage narrowed between 6 and 12 months [[McCauley2018]].`],
@@ -370,9 +370,9 @@ inits.quiz=()=>{
 const GL_T=[
  ["6D10 · personality disorder (ICD-11)",`The single ICD-11 personality disorder code, graded mild (6D10.0), moderate (6D10.1) or severe (6D10.2) [[Sharan2023]].`,"icd"],
  ["988 Suicide & Crisis Lifeline",`The US line offering free, confidential support 24/7 by call, text or chat to 988 [[SAMHSA988]].`,"crisis"],
- ["Abandonment fears (criterion 1)",`Frantic efforts to avoid real or imagined abandonment. Suicidal or self-harming behaviour is not counted here [[APA2022,Kaess2025]].`,"criteria"],
+ ["Abandonment fears (criterion 1)",`Desperate efforts not to be left, whether the abandonment is real or feared. Suicidal or self-harming behaviour is not counted here [[APA2022,Kaess2025]].`,"criteria"],
  ["Acute vs temperamental symptoms",`MSAD's split between symptoms such as self-injury, which resolve faster, and chronic anger or abandonment concerns, which resolve slowly [[Zanarini2005MSAD]].`,"course"],
- ["Affective instability (criterion 6)",`Marked reactivity of mood, usually lasting a few hours and only rarely more than a few days [[APA2022,Kaess2025]]; the most sensitive criterion (92.8%) [[Zimmerman2017BJP]].`,"criteria"],
+ ["Affective instability (criterion 6)",`Mood that reacts sharply to events, with shifts that typically last a few hours and seldom more than a few days [[APA2022,Kaess2025]]; the most sensitive criterion (92.8%) [[Zimmerman2017BJP]].`,"criteria"],
  ["Aftercare",`Follow-up after self-harm; NICE NG225 asks for initial aftercare within 48 hours if there are ongoing safety concerns [[NICE2022SelfHarm]].`,"crisis"],
  ["Akathisia",`An inner restlessness caused by some antipsychotics; 14.0% vs 1.2% on placebo in the brexpiprazole phase 2 trial [[Rothman2024Brexpiprazole]].`,"meds"],
  ["ALSPAC",`A UK birth cohort; in it, chronic peer victimisation gave OR 5.44 for BPD symptoms at age 11 [[Wolke2012]].`,"causes"],
@@ -387,7 +387,7 @@ const GL_T=[
  ["Bipolar disorder",`Mood episodes lasting days to weeks; BPD occurs in 21.6% of people with bipolar disorder, and bipolar in 18.5% of people with BPD [[Fornaro2016,Paris2015]].`,"differential"],
  ["BOOTS trial",`A Dutch RCT of DBT vs schema therapy in 204 outpatients: no significant difference in BPD severity at 3 years [[Wibbelink2026BOOTS]].`,"compare"],
  ["Borderline pattern (6D11.5)",`An optional ICD-11 specifier, defined by 5 of 9 features adapted from DSM BPD criteria [[Sharan2023,Bach2018BMC]].`,"icd"],
- ["Borderline personality disorder (BPD)",`A pervasive pattern of instability in relationships, self-image and affects, with marked impulsivity, beginning by early adulthood [[APA2022,Kaess2025]].`,"what"],
+ ["Borderline personality disorder (BPD)",`A long-standing pattern of unstable relationships, self-image and emotions, with marked impulsivity, starting by early adulthood [[APA2022,Kaess2025]].`,"what"],
  ["Borderline personality organisation",`Kernberg's 1967 concept: a middle level of organisation with primitive defences, identity diffusion and lapses in reality testing [[Kernberg1967]].`,"history"],
  ["BPQ (Borderline Personality Questionnaire)",`A youth screen: sensitivity 0.68, specificity 0.90 in 15–25-year-olds; it "is not a replacement for clinical diagnosis" [[Chanen2008]].`,"assess"],
  ["Brain stimulation (rTMS)",`Repetitive transcranial magnetic stimulation; 8 small studies (63 patients) found it tolerated but not proven effective in BPD (Early evidence) [[Konstantinou2021rTMS]].`,"frontier"],
@@ -398,7 +398,7 @@ const GL_T=[
  ["Carer burden",`The practical and emotional load of caring; about half an SD higher in carers of people with BPD than of people with other serious mental illnesses [[Bailey2013]].`,"families"],
  ["Chain analysis",`A DBT method that traces what led to a target behaviour and what keeps it going, then finds more skilful alternatives [[Chapman2006DBT,Lynch2006DBT]].`,"dbt"],
  ["Childhood adversity",`Abuse, neglect or bullying in childhood; OR 13.91 for BPD vs non-clinical controls, largest for emotional abuse and neglect [[Porter2020]].`,"causes"],
- ["Chronic emptiness (criterion 7)",`Chronic feelings of emptiness [[APA2022]]; among the most persistent symptoms over time [[Zanarini2007Subsyndromal]].`,"criteria"],
+ ["Chronic emptiness (criterion 7)",`Long-lasting feelings of emptiness [[APA2022]]; among the most persistent symptoms over time [[Zanarini2007Subsyndromal]].`,"criteria"],
  ["Chronic vs acute suicide risk",`Paris distinguishes chronic suicidality, often a way of communicating distress, from acute risk [[Paris2002Chronic]].`,"crisis"],
  ["CLPS",`The Collaborative Longitudinal Personality Disorders Study; 85% of people with BPD remitted and 12% relapsed over 10 years [[Gunderson2000CLPS,Gunderson2011]].`,"course"],
  ["Clozapine",`An antipsychotic whose BPD trial (CALMED) closed early with 29 participants, so its main question went unanswered [[Crawford2022CALMED]].`,"meds"],
@@ -452,8 +452,8 @@ const GL_T=[
  ["ICD-10 F60.31",`Emotionally unstable personality disorder, borderline type, the ICD-10 code used in Danish register studies [[Kjaer2020]].`,"icd"],
  ["ICD-11",`The WHO classification in use since 2022; one personality disorder graded by severity, with trait domains [[Reed2019,Tyrer2019]].`,"icd"],
  ["Idealisation and devaluation (criterion 2)",`Unstable, intense relationships alternating between extremes [[APA2022,Kaess2025]].`,"criteria"],
- ["Identity disturbance (criterion 3)",`A markedly and persistently unstable self-image or sense of self [[APA2022]]; one of the most central symptoms in networks [[Peters2023]].`,"criteria"],
- ["Impulsivity (criterion 4)",`In at least two potentially self-damaging areas, such as spending, sex, substances, reckless driving or binge eating [[APA2022,Kaess2025]].`,"criteria"],
+ ["Identity disturbance (criterion 3)",`A self-image or sense of self that stays clearly unstable over time [[APA2022]]; one of the most central symptoms in networks [[Peters2023]].`,"criteria"],
+ ["Impulsivity (criterion 4)",`Impulsive behaviour in at least two areas that could do harm, such as spending, sex, substances, reckless driving or binge eating [[APA2022,Kaess2025]].`,"criteria"],
  ["Inappropriate anger (criterion 8)",`Intense anger or difficulty controlling anger [[APA2022]]; among the most persistent symptoms [[Zanarini2016Fluidity]].`,"criteria"],
  ["Interpersonal effectiveness",`DBT skills for asking for what you need and keeping relationships and self-respect [[Chapman2006DBT]].`,"dbt"],
  ["Intimate partner violence",`BPD shows robust links with both perpetration and victimisation; assess safety in both directions [[Collison2021]].`,"living"],
@@ -489,7 +489,7 @@ const GL_T=[
  ["Oxytocin",`A social hormone; single-dose lab studies show mixed effects in BPD, and no clinical benefit is shown (Early evidence) [[Bertsch2013Oxytocin,Bartz2011Oxytocin]].`,"frontier"],
  ["PAI-BOR",`The Personality Assessment Inventory Borderline Features scale; a T-score of 70 or more classified 73% correctly [[Stein2007PAI]].`,"assess"],
  ["Papageno effect",`Fewer suicides linked to stories of people coping with suicidal thoughts (Early evidence) [[Niederkrotenthaler2010]].`,"crisis"],
- ["Paranoid ideation, stress-related (criterion 9)",`Transient, stress-related paranoid ideation or severe dissociative symptoms [[APA2022]].`,"criteria"],
+ ["Paranoid ideation, stress-related (criterion 9)",`Brief paranoid thoughts, or severe dissociation, that come on under stress [[APA2022]].`,"criteria"],
  ["Partial hospitalisation",`Day-hospital treatment; the setting of Bateman and Fonagy's 1999 trial, forerunner of MBT [[Bateman1999]].`,"mbt"],
  ["Peer support worker",`A worker with lived experience who supports people with BPD or carers [[Barr2020]].`,"living"],
  ["Person-first language",`Saying "people with BPD" and describing behaviour, not character; stigmatising language hurts [[vanSchie2024,Sheehan2016]].`,"what"],

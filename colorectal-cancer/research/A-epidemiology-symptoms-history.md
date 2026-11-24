@@ -37,7 +37,7 @@ Access notes:
 - 45% of new diagnoses are now in people younger than 65, up from 27% in 1995. Nearly one third of 2026 CRC deaths will be in people younger than 65 [[Siegel2026CRC]].
 - ACS projection for 2025: 154,270 new CRC cases and 52,900 deaths [[Siegel2025]].
 - ACS projection for 2023: about 153,020 diagnoses and 52,550 deaths, including 19,550 cases and 3,750 deaths in people younger than 50 [[Siegel2023CRC]].
-- CRC is the second most common cause of cancer death in the United States and ranks first in adults younger than 50 [[Siegel2026CRC]].
+- In the United States CRC is the second leading cause of cancer death overall, and the leading one in people under 50 [[Siegel2026CRC]].
 - In the late 1990s CRC was the fourth leading cause of cancer death in men and in women younger than 50. By 2024 it was first in men and second in women in that age group [[Siegel2024]].
 - Lifetime probability (birth to death) of developing invasive CRC, 2018–2021: 4.1% (1 in 24) for males and 3.8% (1 in 26) for females [[Siegel2025]].
 - Probability by age interval (males / females): birth–49, 0.4% (1 in 238) / 0.4% (1 in 255); 50–64, 1.2% (1 in 85) / 0.9% (1 in 117); 65–84, 2.6% (1 in 39) / 2.1% (1 in 47); 85 and older, 1.7% / 1.6% [[Siegel2025]].
@@ -68,7 +68,7 @@ Access notes:
 - Even in people 65 and older, rectal cancer is now 21% more common than distal colon cancer, reversing the historical pattern [[Siegel2026CRC]].
 - Right-sided (proximal) and left-sided (distal) CRC differ in incidence, pathogenesis, molecular pathways and outcome (Established) [[Lee2015]].
 - Right-sided tumours more often show mismatch-repair defects and flat histology. Left-sided tumours more often follow the chromosomal-instability pathway (KRAS, APC, PIK3CA, TP53) with polypoid morphology. The review reports differing therapy responses by side (Established) [[Baran2018]].
-- Several decades ago CRC was infrequently diagnosed. Ageing, Western diets, obesity, inactivity and smoking now make it the world's fourth most deadly cancer, with almost 900,000 deaths a year (2019 review) [[Dekker2019]].
+- Several decades ago CRC was infrequently diagnosed. Ageing, Western diets, obesity, inactivity and smoking have since made it the fourth biggest cancer killer worldwide, causing almost 900,000 deaths a year (2019 review) [[Dekker2019]].
 - New treatment options have doubled overall survival for advanced disease to about 3 years. CRC tends to cause symptoms only at an advanced stage, which is the rationale for organised screening [[Dekker2019]].
 
 ### what · Early-onset colorectal cancer (under 50)
@@ -128,7 +128,7 @@ Access notes:
 
 ### symptoms · FIT in people with symptoms
 - A systematic review informing NICE DG30 assessed FIT at a cut-off of 10 µg Hb/g faeces. Pooled sensitivity was 92.1% for OC-Sensor (specificity 85.8%), and 100% in one HM-JACKarc study (specificity 76.6%) [[Westwood2017]].
-- Triage with FIT at about 10 µg Hb/g could correctly rule out CRC and avoid colonoscopy in 75%–80% of symptomatic patients [[Westwood2017]].
+- Used for triage at about 10 µg Hb/g, FIT could safely exclude CRC and spare colonoscopy for 75%–80% of people with symptoms [[Westwood2017]].
 - Meta-analysis in primary care (23 studies, 69,536 participants): at 10 µg/g, sensitivity was 87.2% and specificity 84.4%. At ≥150 µg/g, sensitivity was 64.1% and specificity 95.0% [[PinVieito2022]].
 - Moving from a 10 to a 20 µg/g threshold would miss fewer than one additional CRC per 1,000 patients investigated (at 2% CRC prevalence) [[PinVieito2022]].
 - NICE FIT study (9,822 patients referred on the 2-week-wait pathway; CRC prevalence 3.3%): at cut-offs of 2, 10 and 150 µg/g, sensitivity was 97.0%, 90.9% and 70.8%. PPV was 8.7%, 16.1% and 31.1%, and NPV 99.8%, 99.6% and 98.9% [[DSouza2021Gut]].

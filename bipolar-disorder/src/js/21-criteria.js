@@ -1,11 +1,11 @@
 /* =============== 2.1 DSM-5-TR criteria =============== */
 /* Seven Criterion B symptoms in DIGFAST order (a memory aid, not DSM wording) */
-const CR_MAN=[['D','Distractibility','Distractibility'],['I','Risky activities','Excessive involvement in activities with a high potential for painful consequences'],
- ['G','Grandiosity','Inflated self-esteem or grandiosity'],['F','Racing thoughts','Flight of ideas, or racing thoughts'],
- ['A','More activity','Increased goal-directed activity or psychomotor agitation'],['S','Less need for sleep','Decreased need for sleep'],['T','Talkative, pressured','More talkative than usual, or pressure to keep talking']];
-const CR_DEP=[['Depressed mood','Depressed mood'],['Loss of interest','Markedly diminished interest or pleasure'],['Weight / appetite','Significant weight or appetite change'],
- ['Sleep too little/much','Insomnia or hypersomnia'],['Agitation or slowing','Psychomotor agitation or retardation'],['Fatigue','Fatigue or loss of energy'],
- ['Worthless or guilty','Feelings of worthlessness or excessive guilt'],['Poor concentration','Diminished ability to think, concentrate or decide'],['Thoughts of death','Recurrent thoughts of death or suicide']];
+const CR_MAN=[['D','Distractibility','Attention pulled away very easily'],['I','Risky activities','Throwing themselves into risky things likely to end in harm'],
+ ['G','Grandiosity','Overblown self-confidence or sense of importance'],['F','Racing thoughts','Thoughts racing or leaping from idea to idea'],
+ ['A','More activity','Far more busy with plans and projects, or restless agitation'],['S','Less need for sleep','Needing much less sleep than usual'],['T','Talkative, pressured','Talking much more than usual, or driven to keep talking']];
+const CR_DEP=[['Depressed mood','Depressed mood'],['Loss of interest','Much less interest or pleasure in things'],['Weight / appetite','A clear change in weight or appetite'],
+ ['Sleep too little/much','Sleeping too little or too much'],['Agitation or slowing','Restless, or slowed down in movement and speech'],['Fatigue','Tiredness or low energy'],
+ ['Worthless or guilty','Feeling worthless or far too guilty'],['Poor concentration','Trouble thinking, concentrating or deciding'],['Thoughts of death','Thoughts of death or suicide that keep returning']];
 const CR_MODES={
  mania:{name:'Manic episode',col:'var(--up)',fill:'var(--up-fill)',soft:'var(--up-soft)',need:7,max:10,unit:'day',gates:[['A','Mood + energy','≥ 1 week','Mood'],['B','Symptoms','3 of 7 (4)','Sympt.'],['C','Severity','any 1 of 3','Impact'],['D','Cause','rule out causes','Cause']],
   lit:[5,6,3,4],verdict:'Manic episode: criteria met',vsub:'One lifetime manic episode = bipolar I'},
@@ -18,11 +18,11 @@ const CR_SLOTS=[[0,.2],[.22,.4],[.42,.58],[.6,.76],[.78,.92]];
 const CR_STEPSET={
  mania:[
   {from:0,at:.12,k:'Criterion A',t:'Mood and energy for a week',
-   txt:`Two things must both be present: a distinct period of abnormally and persistently elevated, expansive or irritable mood, <b>and</b> abnormally and persistently increased activity or energy. Together they last at least 1 week and are present most of the day, nearly every day, or any duration if hospitalisation is necessary. [[APA2022,Yatham2018]]`,
+   txt:`Two things must both be present: a clear stretch of time when mood is unusually and steadily high, expansive or irritable, <b>and</b> when activity or energy is unusually and steadily raised. Together they last at least 1 week, for most of each day on almost every day, or for any length of time if the person has to be admitted to hospital. [[APA2022,Yatham2018]]`,
    pt:`A high or irritable mood on its own is not enough. Energy or activity must be up too, and it has to last about a week.`,
    hook:`Mania: at least 1 week, or any duration if hospitalised. Since DSM-5, Criterion A needs increased activity or energy as well as the mood change. [[Yatham2018,Grunze2021]]`},
   {from:.22,at:.34,k:'Criterion B',t:'Three of seven symptoms',
-   txt:`At least 3 of 7 symptoms, present to a significant degree and a noticeable change from usual behaviour: grandiosity, decreased need for sleep, more talkative or pressured, flight of ideas or racing thoughts, distractibility, increased goal-directed activity or agitation, and risky activities with painful consequences. [[APA2022,Yatham2018]]`,
+   txt:`At least 3 of 7 symptoms, clearly present and a real change from how the person usually behaves: grandiosity, needing much less sleep, talking more or under pressure, racing or leaping thoughts, distractibility, much more goal-directed activity or agitation, and risky behaviour likely to end in harm. [[APA2022,Yatham2018]]`,
    pt:`Sleeping much less but not feeling tired, talking fast, thoughts racing, starting many projects: a cluster of changes, not one.`,
    hook:`DIGFAST (a memory aid): Distractibility, Irresponsibility, Grandiosity, Flight of ideas, Activity, Sleep need down, Talkativeness.`},
   {from:.42,at:.52,k:'Criterion B',t:'Four if mood is only irritable',
@@ -30,20 +30,20 @@ const CR_STEPSET={
    pt:`Irritability alone is less specific, so the rule asks for one more symptom.`,
    hook:`3 of 7, or 4 of 7 when the mood is irritable only.`},
   {from:.6,at:.7,k:'Criterion C',t:'Impairment, hospital or psychosis',
-   txt:`At least one of: marked impairment in social or occupational functioning, hospitalisation to prevent harm to self or others, or psychotic features. This is the gate that separates mania from hypomania. [[APA2022,Yatham2018]]`,
+   txt:`At least one of three: the episode seriously disrupts work or social life, the person needs hospital care to keep themselves or others safe, or there are psychotic features. This is the gate that separates mania from hypomania. [[APA2022,Yatham2018]]`,
    pt:`Mania is severe enough to seriously disrupt life, to need hospital care, or to come with losing touch with reality.`,
    hook:`Any psychotic features make the episode manic, never hypomanic. [[APA2022,Yatham2018]]`},
   {from:.78,at:.95,k:'Criterion D',t:'Not due to a substance or illness',
-   txt:`The episode is not attributable to the physiological effects of a substance (a drug of abuse, a medication, another treatment) or to another medical condition. One exception matters: a full manic episode that emerges during antidepressant treatment and persists at a fully syndromal level beyond the treatment's physiological effect counts, and so does bipolar I. [[APA2022,Yatham2018]]`,
+   txt:`A substance (a street drug, a medicine or another treatment) or another medical condition must not be the cause. One exception matters: if a full manic episode starts during antidepressant treatment and stays at full strength after the treatment's direct effect should have worn off, it counts as mania, and so as bipolar I. [[APA2022,Yatham2018]]`,
    pt:`Doctors check that a medicine, a drug or a physical illness is not causing the high before calling it mania.`,
    hook:`At least one lifetime manic episode is required, and is enough, for bipolar I disorder. [[APA2022,McIntyre2020Lancet]]`}],
  hypo:[
   {from:0,at:.12,k:'Criterion A',t:'Mood and energy for 4 days',
-   txt:`The same two-part change as mania, elevated, expansive or irritable mood plus increased activity or energy, lasting at least 4 consecutive days and present most of the day, nearly every day. [[APA2022,Yatham2018]]`,
+   txt:`The same two-part change as mania (high, expansive or irritable mood together with raised activity or energy), lasting at least 4 days in a row, for most of each day on almost every day. [[APA2022,Yatham2018]]`,
    pt:`Hypomania is a milder high that lasts at least 4 days in a row.`,
    hook:`Hypomania: at least 4 consecutive days. Shorter (2–3-day) hypomanias with major depressions fall under "other specified bipolar and related disorder". [[APA2022,Severus2014]]`},
   {from:.22,at:.34,k:'Criterion B',t:'The same three of seven',
-   txt:`The same Criterion B list as mania, 3 of 7 symptoms (4 if the mood is only irritable), persisting and present to a significant degree. The symptom list does not separate mania from hypomania; severity and duration do. [[APA2022,Yatham2018]]`,
+   txt:`The same Criterion B list as mania, 3 of 7 symptoms (4 if the mood is only irritable), lasting and clearly present. The symptom list does not separate mania from hypomania; severity and duration do. [[APA2022,Yatham2018]]`,
    pt:`The symptoms are the same kind as in mania. What differs is how long and how severe.`,
    hook:`Hypomania and mania share Criterion B; they differ in duration (4 days vs 1 week) and severity.`},
   {from:.42,at:.52,k:'Criterion B',t:'Four if mood is only irritable',
@@ -51,20 +51,20 @@ const CR_STEPSET={
    pt:`With irritability alone, one more symptom is needed.`,
    hook:``},
   {from:.6,at:.7,k:'Severity',t:'Noticed by others, not severe',
-   txt:`The episode brings an unequivocal change in functioning, uncharacteristic of the person, that others can observe. But it is not severe enough to cause marked impairment or to need hospitalisation. If there are psychotic features, the episode is by definition manic. [[APA2022,Yatham2018]]`,
+   txt:`The episode clearly changes how the person functions, in a way that is unlike them and that other people can see. But it does not seriously disrupt work or social life and does not need hospital care. If there are psychotic features, the episode counts as manic by definition. [[APA2022,Yatham2018]]`,
    pt:`Other people notice the change, but it does not wreck work or home life.`,
    hook:`Hypomania: observable change, no marked impairment, no hospitalisation, no psychosis. [[APA2022,Yatham2018]]`},
   {from:.78,at:.95,k:'Exclusion',t:'Not due to a substance or illness',
-   txt:`As for mania, the episode must not be attributable to a substance or another medical condition. A full hypomanic episode that emerges on antidepressant treatment and persists at a fully syndromal level beyond the drug's physiological effect counts as hypomania. [[APA2022,Yatham2018]] Bipolar II needs at least one hypomanic episode and at least one major depressive episode, and never a manic episode. [[APA2022,Yatham2018,McIntyre2020Lancet]]`,
+   txt:`As for mania, a substance or another medical condition must not be the cause. If a full hypomanic episode starts on antidepressant treatment and stays at full strength after the drug's direct effect should have worn off, it counts as hypomania. [[APA2022,Yatham2018]] Bipolar II needs at least one hypomanic episode and at least one major depressive episode, and never a manic episode. [[APA2022,Yatham2018,McIntyre2020Lancet]]`,
    pt:`Bipolar II is not "bipolar lite": its low periods can be just as heavy and long as in bipolar I.`,
    hook:`Bipolar II = at least one hypomanic + at least one major depressive episode, never mania. [[APA2022,McIntyre2020Lancet]]`}],
  mde:[
   {from:0,at:.12,k:'Criterion A',t:'Five of nine symptoms',
-   txt:`Five or more of nine symptoms during the same 2-week period, a change from previous functioning: depressed mood, loss of interest or pleasure, weight or appetite change, insomnia or hypersomnia, agitation or slowing, fatigue, worthlessness or excessive guilt, poor concentration or indecision, and recurrent thoughts of death or suicide. [[APA2022,Yatham2018]]`,
+   txt:`Five or more of nine symptoms within the same 2-week period, marking a change from how the person was before: low mood, loss of interest or pleasure, a change in weight or appetite, sleeping too little or too much, agitation or slowing, tiredness, feeling worthless or too guilty, poor concentration or indecision, and repeated thoughts of death or suicide. [[APA2022,Yatham2018]]`,
    pt:`A depressive episode is a cluster of changes in mood, sleep, energy, thinking and interest that lasts at least two weeks.`,
    hook:`Major depressive episode: 5 of 9 symptoms for 2 weeks. [[APA2022,Yatham2018]]`},
   {from:.22,at:.34,k:'Criterion A',t:'One must be a core symptom',
-   txt:`At least one of the five must be depressed mood or markedly diminished interest or pleasure. Five symptoms without either of these do not make a major depressive episode. [[APA2022,Yatham2018]]`,
+   txt:`At least one of the five must be low mood or a clear loss of interest or pleasure. Five symptoms without either of these do not make a major depressive episode. [[APA2022,Yatham2018]]`,
    pt:`Low mood, or losing interest in things you usually enjoy, has to be part of the picture.`,
    hook:`Core symptoms: depressed mood or anhedonia; at least one is required.`},
   {from:.42,at:.52,k:'Criterion A',t:'The same two weeks',
@@ -72,11 +72,11 @@ const CR_STEPSET={
    pt:`Two weeks is the minimum. Shorter or milder low patches still matter and are worth telling the care team about.`,
    hook:`Duration thresholds: mania 7 days, hypomania 4 days, major depression 14 days. [[APA2022]]`},
   {from:.6,at:.7,k:'Criterion B',t:'Distress or impairment',
-   txt:`The episode must cause clinically significant distress or impairment in social, occupational or other important areas of functioning. [[APA2022]] In the World Mental Health surveys, 74.0% of people with bipolar depression reported severe role impairment, compared with 50.9% with mania. [[Merikangas2011]]`,
+   txt:`The episode must cause real distress, or clearly get in the way of work, social life or other important parts of life. [[APA2022]] In the World Mental Health surveys, 74.0% of people with bipolar depression reported severe role impairment, compared with 50.9% with mania. [[Merikangas2011]]`,
    pt:`Depression in bipolar disorder often disrupts life more than the highs do.`,
    hook:``},
   {from:.78,at:.95,k:'Criterion C',t:'Not due to a substance or illness',
-   txt:`The episode is not attributable to a substance or another medical condition. There is no separate criteria set for "bipolar depression": it is a major depressive episode in someone with bipolar disorder, and no single feature distinguishes it from unipolar depression. [[APA2022,Yatham2018,Mitchell2008]]`,
+   txt:`A substance or another medical condition must not be the cause. There is no separate criteria set for "bipolar depression": it is a major depressive episode in someone with bipolar disorder, and no single feature distinguishes it from unipolar depression. [[APA2022,Yatham2018,Mitchell2008]]`,
    pt:`The same depression checklist is used whether or not someone has bipolar disorder. The history of highs makes the difference.`,
    hook:`No pathognomonic feature separates bipolar from unipolar depression; a probabilistic approach is proposed. [[Mitchell2008]]`}]};
 function crIco(k,x,y,on,col){const c=on?col:'var(--muted)',op=on?1:.4,st=`style="fill:none;stroke:${c};stroke-width:2;stroke-linecap:round;stroke-linejoin:round"`;let s=`<g opacity="${op}">`;
@@ -129,7 +129,7 @@ inits.criteria=()=>{
       s+=`<line x1="${f1(X(need))}" x2="${f1(X(need))}" y1="${by+2}" y2="${by+30}" style="stroke:var(--dx);stroke-width:2;stroke-dasharray:3 2"/>`;
       s+=`<text x="${f1(X(need))}" y="${by}" class="t-xs t-mid" style="fill:var(--dx);font-weight:700">${need===7?'1 week':need===4?'4 days':'2 weeks'}</text>`;
       const met=days>=need;
-      s+=`<text x="${bx}" y="${by+58}" class="t-sm" style="fill:${met?'var(--good)':'var(--ink)'}">${on?(met?'✓ ':'')+'day '+Math.max(1,Math.floor(days))+(met?' · duration met':''):'days, most of the day, nearly every day'}</text>`;
+      s+=`<text x="${bx}" y="${by+58}" class="t-sm" style="fill:${met?'var(--good)':'var(--ink)'}">${on?(met?'✓ ':'')+'day '+Math.max(1,Math.floor(days))+(met?' · duration met':''):'days, most of each day, almost daily'}</text>`;
       if(mode==='mania')s+=`<text x="${bx}" y="${by+72}" class="t-xs">or any length if hospitalised</text>`;
       if(mode==='hypo')s+=`<text x="${bx}" y="${by+72}" class="t-xs">4 consecutive days</text>`;
       }

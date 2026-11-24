@@ -2,21 +2,23 @@
 /* Main scrubber: the 15 items fill in for the current score set, with body, face and brain hints. The item cards below are the
    calculator and share that state. Then bands, the left-hemisphere bias, the posterior blind spot and the mRS explainer.
    Example score sets are invented for teaching. Uses sgHB, sgLines and sgFit from 21-signs.js. */
-const NH_MOTOR=[[0,'No drift'],[1,'Drift'],[2,'Some effort against gravity'],[3,'No effort against gravity, limb falls'],[4,'No movement']];
+/* score options are numbers only; the response wording for each score is on the official NINDS form */
+const nhO=m=>Array.from({length:m+1},(_,v)=>[v,'']);
+const NH_MOTOR=nhO(4);
 const NH_UNJ='Amputation or joint fusion';
 const NH_ITEMS=[
- {id:'1a',s:'Consciousness',name:'Level of consciousness',tst:'Tests alertness',o:[[0,'Alert; responsive'],[1,'Not alert; somnolent'],[2,'Not alert; soporose'],[3,'Comatose']],
+ {id:'1a',s:'Consciousness',name:'Level of consciousness',tst:'Tests alertness',o:nhO(3),
   n:`The modified NIHSS removes level of consciousness [[Lyden2001]]. In the original scale the most reliable item, pupillary response, had low validity, while less reliable motor items were more valid [[Brott1989]].`},
- {id:'1b',s:'LOC questions',name:'LOC questions',tst:'Tests month and age',o:[[0,'Both correct'],[1,'One correct'],[2,'Neither correct']],
+ {id:'1b',s:'LOC questions',name:'LOC questions',tst:'Tests month and age',o:nhO(2),
   n:`Uses month and age [[ContinuumNIHSS2014]]. A high LVO signal: LOC questions independently predicted central occlusion [[Fischer2005]].`},
- {id:'1c',s:'LOC commands',name:'LOC commands',tst:'Tests close eyes and hand grip',o:[[0,'Both tasks'],[1,'One task'],[2,'Neither task']],
+ {id:'1c',s:'LOC commands',name:'LOC commands',tst:'Tests close eyes and hand grip',o:nhO(2),
   n:`Two simple tasks: closing the eyes and gripping the hand [[Budincevic2022]].`},
- {id:'2',s:'Gaze',name:'Best gaze',tst:'Tests eye movement',o:[[0,'Normal'],[1,'Partial gaze palsy'],[2,'Total gaze palsy']],
+ {id:'2',s:'Gaze',name:'Best gaze',tst:'Tests eye movement',o:nhO(2),
   n:`A high LVO signal: gaze independently predicted central occlusion [[Fischer2005]], and gaze deviation was a significant LVO indicator across tools [[Antipova2019]].`},
- {id:'3',s:'Visual',name:'Visual',tst:'Tests visual fields',o:[[0,'No visual loss'],[1,'Partial hemianopia'],[2,'Complete hemianopia'],[3,'Bilateral hemianopia (blind including cortical blindness)']],
+ {id:'3',s:'Visual',name:'Visual',tst:'Tests visual fields',o:nhO(3),
   n:`One of only two subscores that run higher in posterior stroke [[Sato2008]]. Hemianopia explained 10.8% of EQ-5D utility variance at 90 days [[vanderEnde2023]].`},
- {id:'4',s:'Face',name:'Facial palsy',tst:'Tests the face',o:[[0,'Normal'],[1,'Minor paralysis'],[2,'Partial paralysis'],[3,'Complete paralysis']],
-  n:`Historically one of the hardest items to agree on, kappa below 0.40 [[Lyden1994]]. One summary words 2 as "partial (lower only)" and 3 as "complete (upper and lower)" [[ContinuumNIHSS2014]]. The modified NIHSS removes it [[Lyden2001]].`},
+ {id:'4',s:'Face',name:'Facial palsy',tst:'Tests the face',o:nhO(3),
+  n:`Historically one of the hardest items to agree on, kappa below 0.40 [[Lyden1994]]. The modified NIHSS removes it [[Lyden2001]].`},
  {id:'5a',s:'Arm, left',name:'Motor arm, left',tst:'Tests drift, held for 10 s',o:NH_MOTOR,un:NH_UNJ,
   n:`Limb paresis explained most of the variance in quality of life at 90 days (17.5 to 24.1% of EQ-5D utility) [[vanderEnde2023]]. A right-hemisphere stroke shows here with no language points to add [[Woo1999]].`},
  {id:'5b',s:'Arm, right',name:'Motor arm, right',tst:'Tests drift, held for 10 s',o:NH_MOTOR,un:NH_UNJ,
@@ -25,16 +27,16 @@ const NH_ITEMS=[
   n:`A high LVO signal: motor leg independently predicted central occlusion [[Fischer2005]].`},
  {id:'6b',s:'Leg, right',name:'Motor leg, right',tst:'Tests drift, held for 5 s',o:NH_MOTOR,un:NH_UNJ,
   n:`Same options as the left leg, and the same LVO signal [[Fischer2005]].`},
- {id:'7',s:'Ataxia',name:'Limb ataxia',tst:'Tests finger-nose-finger and heel-knee-shin',o:[[0,'Absent'],[1,'Present in one limb'],[2,'Present in two limbs']],un:NH_UNJ,
+ {id:'7',s:'Ataxia',name:'Limb ataxia',tst:'Tests finger-nose-finger and heel-knee-shin',o:nhO(2),un:NH_UNJ,
   n:`Kappa below 0.40 historically [[Lyden1994]]. Runs higher in posterior stroke [[Sato2008]]. Truncal ataxia, the commonest sign in people who scored 0 with an infarct on DWI, is not on the scale [[MartinSchild2011]].`},
- {id:'8',s:'Sensory',name:'Sensory',tst:'Tests pinprick',o:[[0,'Normal'],[1,'Mild-to-moderate loss'],[2,'Severe-to-total loss']],
+ {id:'8',s:'Sensory',name:'Sensory',tst:'Tests pinprick',o:nhO(2),
   n:`Uses pinprick [[ContinuumNIHSS2014]]. The modified NIHSS collapses it to 2 responses [[Lyden2001]].`},
- {id:'9',s:'Language',name:'Best language',tst:'Tests for aphasia',o:[[0,'No aphasia'],[1,'Mild-to-moderate aphasia'],[2,'Severe aphasia'],[3,'Mute, global aphasia']],
+ {id:'9',s:'Language',name:'Best language',tst:'Tests for aphasia',o:nhO(3),
   n:`Language adds points that right-sided signs do not, so left hemisphere strokes score higher for the same volume [[Woo1999,Lyden2004]]. Aphasia explained 10.0% of EQ-5D utility variance at 90 days [[vanderEnde2023]].`},
- {id:'10',s:'Dysarthria',name:'Dysarthria',tst:'Tests articulation',o:[[0,'Normal'],[1,'Mild-to-moderate'],[2,'Severe']],un:'Intubated or other physical barrier',
-  n:`Option 2 reads "near to unintelligible or worse" in one summary and "severe" in the other [[Budincevic2022,ContinuumNIHSS2014]]. The modified NIHSS removes it [[Lyden2001]].`},
- {id:'11',s:'Inattention',name:'Extinction and inattention',tst:'Formerly neglect',o:[[0,'No abnormality'],[1,'Mild'],[2,'Severe']],
-  n:`Reads "partial" and "complete" neglect in one summary, "mild" and "severe" in the other [[Budincevic2022,ContinuumNIHSS2014]]. A high LVO signal [[Fischer2005]]. Neglect explained 8.9% of EQ-5D utility variance at 90 days [[vanderEnde2023]]. At most 2 points, against 3 for language.`}
+ {id:'10',s:'Dysarthria',name:'Dysarthria',tst:'Tests articulation',o:nhO(2),un:'Intubated or other physical barrier',
+  n:`The two summaries word the top score differently [[Budincevic2022,ContinuumNIHSS2014]]. The modified NIHSS removes it [[Lyden2001]].`},
+ {id:'11',s:'Inattention',name:'Extinction and inattention',tst:'Formerly neglect',o:nhO(2),
+  n:`The two summaries word its scores differently [[Budincevic2022,ContinuumNIHSS2014]]. A high LVO signal [[Fischer2005]]. Neglect explained 8.9% of EQ-5D utility variance at 90 days [[vanderEnde2023]]. At most 2 points, against 3 for language.`}
 ];
 const NH_MAX=[3,2,2,2,3,3,4,4,4,4,2,2,3,2,2];
 /* invented teaching score sets, in item order */
@@ -59,12 +61,12 @@ const NH_HEMI={
  fink:{L:3.2,R:8.8,sL:'NIHSS 0 to 5',sR:'NIHSS 0 to 5',cap:`<b>Low scores hide more on the right.</b> With NIHSS 0 to 5, DWI volume 8.8 cm³ right vs 3.2 cm³ left (P=0.04). Among lesions above the median of 9 cm³, 8 of 37 right-sided and 1 of 39 left-sided strokes scored 0 to 5 (P=0.01) [[Fink2002Stroke]].`}
 };
 const NH_MRS=[
- {g:0,t:'0 No symptoms',d:'No symptoms at all',rows:['yes','yes','yes','yes'],txt:`"No symptoms at all" [[Luo2026]].`},
- {g:1,t:'1 No significant disability',d:'No significant disability despite symptoms; able to carry out all usual duties and activities',rows:['yes','yes','yes','yes'],txt:`"No significant disability despite symptoms; able to carry out all usual duties and activities" [[Luo2026]]. The standard label is symptomatic but nondisabled, "excellent" [[Saver2021]].`},
- {g:2,t:'2 Slight disability',d:'Slight disability; unable to carry out all previous activities but able to look after own affairs without assistance',rows:['no','yes','yes','yes'],txt:`"Slight disability; unable to carry out all previous activities but able to look after own affairs without assistance" [[Luo2026]].`},
- {g:3,t:'3 Moderate disability',d:'Moderate disability; requires some help, but able to walk without assistance',rows:['no','no','yes','—'],txt:`"Moderate disability; requires some help, but able to walk without assistance" [[Luo2026]].`,hook:`Grade 3 walks unaided with some help; grade 4 cannot walk unaided [[Luo2026]].`},
- {g:4,t:'4 Moderately severe',d:'Moderately severe disability; unable to walk without assistance and unable to attend to own bodily needs without help',rows:['no','no','no','no'],txt:`"Moderately severe disability; unable to walk without assistance and unable to attend to own bodily needs without help" [[Luo2026]].`,hook:`Grade 3 walks unaided with some help; grade 4 cannot walk unaided [[Luo2026]].`},
- {g:5,t:'5 Severe disability',d:'Severe disability; bedridden, incontinent, and requiring constant nursing care and attention',rows:['no','no','no','no'],txt:`"Severe disability; bedridden, incontinent, and requiring constant nursing care and attention" [[Luo2026]]. The standard label is requires constant care, "very poor" [[Saver2021]].`},
+ {g:0,t:'0 No symptoms',d:'No symptoms.',rows:['yes','yes','yes','yes'],txt:`Grade 0: no symptoms. The yes and no rows summarise each grade; the official grade wording is in the published scale [[Luo2026]].`},
+ {g:1,t:'1 No significant disability',d:'Symptoms, but no significant disability.',rows:['yes','yes','yes','yes'],txt:`Grade 1: symptoms without significant disability; see the rows [[Luo2026]]. The standard label is symptomatic but nondisabled, "excellent" [[Saver2021]].`},
+ {g:2,t:'2 Slight disability',d:'Slight disability.',rows:['no','yes','yes','yes'],txt:`Grade 2: slight disability. The first row changes: not every earlier activity is still possible [[Luo2026]].`},
+ {g:3,t:'3 Moderate disability',d:'Moderate disability.',rows:['no','no','yes','—'],txt:`Grade 3: moderate disability. Some help is needed, but walking is still possible without help [[Luo2026]].`,hook:`Grade 3 walks unaided with some help; grade 4 cannot walk unaided [[Luo2026]].`},
+ {g:4,t:'4 Moderately severe',d:'Moderately severe disability.',rows:['no','no','no','no'],txt:`Grade 4: moderately severe disability. Walking and bodily care both need help [[Luo2026]].`,hook:`Grade 3 walks unaided with some help; grade 4 cannot walk unaided [[Luo2026]].`},
+ {g:5,t:'5 Severe disability',d:'Severe disability.',rows:['no','no','no','no'],txt:`Grade 5: severe disability, with constant nursing care [[Luo2026]]. The standard label is requires constant care, "very poor" [[Saver2021]].`},
  {g:6,t:'6 Death',d:'Death',rows:null,txt:`Modern usage adds 6 for death, so that trials count it on the same scale [[Saver2021,Thomalla2018]].`}
 ];
 const NH_MRS_STEPS=NH_MRS.map((m,i)=>({from:i/7,at:(i+.5)/7,k:'mRS '+m.g,t:m.t,txt:m.txt,hook:m.hook}));
@@ -80,7 +82,7 @@ inits.nihss=()=>{
   const total=()=>val.reduce((a,_,i)=>a+num(i),0);
   const bandOf=T=>{if(T===0)return null;return NH_BANDS.find(b=>T>=b[0]&&T<=b[1])};
   /* ---------- item cards ---------- */
-  host.innerHTML=NH_ITEMS.map((it,i)=>`<article class="nhitem" data-nhcard="${i}"><h4><span>${it.id}</span>${it.name}</h4><p class="tst">${it.tst}. Maximum ${NH_MAX[i]}.</p><div class="nhopts" role="group" aria-label="${it.name}">${it.o.map(o=>`<button class="nhopt" data-nhi="${i}" data-nhv="${o[0]}" aria-pressed="false"><b>${o[0]}</b><span>${o[1]}</span></button>`).join('')}${it.un?`<button class="nhopt" data-nhi="${i}" data-nhv="UN" aria-pressed="false"><b>UN</b><span>${it.un}: untestable, adds nothing</span></button>`:''}</div><p class="nhnote">${it.n}</p></article>`).join('');
+  host.innerHTML=NH_ITEMS.map((it,i)=>`<article class="nhitem" data-nhcard="${i}"><h4><span>${it.id}</span>${it.name}</h4><p class="tst">${it.tst}. Maximum ${NH_MAX[i]}.</p><div class="nhopts" role="group" aria-label="${it.name}">${it.o.map(o=>`<button class="nhopt" data-nhi="${i}" data-nhv="${o[0]}" aria-pressed="false"><b>${o[0]}</b><span>${o[1]||''}</span></button>`).join('')}${it.un?`<button class="nhopt" data-nhi="${i}" data-nhv="UN" aria-pressed="false"><b>UN</b><span>${it.un}: untestable, adds nothing</span></button>`:''}</div><p class="nhnote">${it.n}</p></article>`).join('');
   function syncCards(){$$('.nhopt',host).forEach(b=>{const i=+b.dataset.nhi,v=b.dataset.nhv;b.setAttribute('aria-pressed',String(val[i])===v)});
     $$('.nhitem',host).forEach((c,i)=>c.classList.toggle('cur',i===curI));
     const T=total(),b=bandOf(T),un=val.filter(v=>v==='UN').length;

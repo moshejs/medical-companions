@@ -124,7 +124,7 @@ const GE_PS={
 /* the age slider runs 30 to 85; steps sit on the published ages */
 const GE_PDS=[
  {from:0,at:0,k:`Age 30 · Inheritance`,t:`A 50:50 chance for each child`,
-  txt:`"Each child of an individual with C9orf72-FTD/ALS has a 50% chance of inheriting" the expansion. Almost everyone with <i>C9orf72</i> disease inherited it from a parent, who may be unaffected because penetrance is age-dependent and reduced, as with the grandfather here. [[GossyeGeneReviews]]`,
+  txt:`Every child of a person with <i>C9orf72</i>-FTD/ALS has a 1 in 2 (50%) chance of inheriting the expansion. Nearly everyone with <i>C9orf72</i> disease got it from a parent, and that parent can stay well because penetrance is reduced and rises with age, as with the grandfather here. [[GossyeGeneReviews]]`,
   pt:`Each child has a 1 in 2 chance of getting the changed copy. Getting it is not the same as getting ALS.`,
   hook:`A child of a carrier has a <b>50% chance of inheriting</b> the expansion, but a lower chance of ALS or FTD: <b>50% × penetrance</b> at that age. By 80 that is close to 50% with family-based figures and about 29–33% with UK Biobank figures (arithmetic from the cited numbers, not a published risk). [[GossyeGeneReviews,Majounie2012,Gao2025]]`},
  {from:.07,at:.0909,k:`Age 35 · Early adulthood`,t:`Before 35: no carriers affected`,

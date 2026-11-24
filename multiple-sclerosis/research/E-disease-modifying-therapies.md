@@ -55,7 +55,7 @@ Two corrections to the brief:
   - biosimilar natalizumab-sztn (Tyruko): 24 Aug 2023
   - subcutaneous ocrelizumab with hyaluronidase (Ocrevus Zunovo): 13 Sep 2024 [FDA2026Approvals]
 - In the EU, Tysabri was first authorised on 27 June 2006 for "highly active relapsing remitting multiple sclerosis" (despite at least one DMT, or rapidly evolving severe disease). This is narrower than the US "relapsing forms" wording [EMATysabri2026].
-- The current US labels share one indication: "relapsing forms of multiple sclerosis (MS), to include clinically isolated syndrome, relapsing-remitting disease, and active secondary progressive disease, in adults." Labels with this wording:
+- The current US labels share one indication: relapsing forms of MS in adults, covering clinically isolated syndrome, relapsing-remitting disease and active secondary progressive disease. Labels with this indication:
   - interferons, glatiramer acetate, teriflunomide
   - dimethyl fumarate, diroximel fumarate
   - siponimod, ozanimod, ponesimod
@@ -64,8 +64,8 @@ Two corrections to the brief:
 - Fingolimod has the same relapsing-forms indication but extends it to patients 10 years and older [GilenyaLabel2026].
 - Ocrelizumab is the only label here that includes primary progressive MS in adults. It also covers relapsing forms in adults, and relapsing-remitting MS in children aged 10 and older who weigh at least 25 kg [OcrevusLabel2026].
 - Alemtuzumab and cladribine leave out clinically isolated syndrome and are positioned later in the sequence:
-  - Alemtuzumab "should generally be reserved for patients who have had an inadequate response to two or more drugs" [LemtradaLabel2025].
-  - Cladribine is "generally recommended for patients who have had an inadequate response to, or are unable to tolerate, an alternate drug", and is "not recommended" in CIS [MavencladLabel2026].
+  - The alemtuzumab label keeps it, as a rule, for people who have not responded well enough to two or more drugs [LemtradaLabel2025].
+  - The cladribine label generally places it after another drug has not worked well enough or was not tolerated, and it is "not recommended" in CIS [MavencladLabel2026].
 - The mitoxantrone label covers secondary (chronic) progressive, progressive relapsing, or worsening relapsing-remitting MS, and states it is not indicated in primary progressive MS [MitoxantroneLabel2025].
 
 ### Interferons and glatiramer acetate
@@ -165,7 +165,7 @@ Two corrections to the brief:
   - relapse-free 79.7% versus 60.9%
   - 3-month sustained disability progression HR 0.67 (95% CI 0.48–0.93)
   - lymphocytopenia as an adverse event in 21.6% versus 1.8% [Giovannoni2010]
-- Label dosing: cumulative 3.5 mg/kg orally, split into 2 yearly treatment courses of 1.75 mg/kg. Each course has 2 cycles of 1–2 tablets daily for 4 or 5 consecutive days. No further cladribine is given in the following 2 years, because "Treatment during these 2 years may further increase the risk of malignancy" [MavencladLabel2026].
+- Label dosing: cumulative 3.5 mg/kg orally, split into 2 yearly treatment courses of 1.75 mg/kg. Each course has 2 cycles of 1–2 tablets daily for 4 or 5 consecutive days. No further cladribine is given in the following 2 years, because the label warns that more treatment in that period could raise the cancer risk further [MavencladLabel2026].
 - Label lymphocyte rules: counts must be normal before course 1 and at least 800 cells/µL before course 2. Course 2 can be delayed up to 6 months; if recovery takes longer, no further cladribine is given [MavencladLabel2026].
 - In the label, 87% of treated patients had lymphopenia. On 3.5 mg/kg, nadir counts fell below 500 cells/µL in 26% and below 200 in 1%, and median recovery to at least 800 cells/µL took about 28 weeks [MavencladLabel2026].
 - Malignancies occurred in 0.27 events per 100 patient-years on cladribine. The boxed warning covers malignancy and teratogenicity [MavencladLabel2026].
@@ -278,7 +278,7 @@ Two corrections to the brief:
   - LVEF assessed before every dose
   - congestive heart failure "may occur ... months to years after termination"
   - therapy "increases the risk of developing secondary acute myeloid leukemia" [MitoxantroneLabel2025]
-- AAN 2018 (Level B): "clinicians should not prescribe mitoxantrone to people with MS unless the potential therapeutic benefits greatly outweigh the risks," citing cardiomyopathy, ovarian failure and promyelocytic leukaemia [RaeGrant2018].
+- AAN 2018 (Level B): do not prescribe mitoxantrone in MS unless the likely benefits clearly and greatly exceed the risks, citing cardiomyopathy, ovarian failure and promyelocytic leukaemia [RaeGrant2018].
 
 ### BTK inhibitors (regulatory status only; results belong to pass G)
 - **Established:** HERCULES (Fox 2025; 1131 participants with non-relapsing SPMS) compared tolebrutinib 60 mg daily with placebo. 6-month confirmed disability progression occurred in 22.6% versus 30.7% (HR 0.69, 95% CI 0.55–0.88). ALT above 3× the upper limit occurred in 4.0% versus 1.6% [Fox2025].
@@ -288,25 +288,25 @@ Two corrections to the brief:
 - On 30 Sep 2026 the FDA accepted Roche's new drug application for fenebrutinib in relapsing MS and PPMS under priority review. No decision had been made by 2026-10-20 [Roche2026].
 
 ### Treatment strategy: guidelines
-- ECTRIMS/EAN 2018 produced 21 recommendations using GRADE. Wording of the starting recommendations:
-  - R2 (strong): "Offer interferon or glatiramer acetate to patients with CIS and an abnormal MRI with lesions suggestive of MS who do not fulfil criteria for MS"
-  - R3 (strong): "Offer early treatment with DMDs to patients with active relapsing-remitting MS as defined by clinical relapses and/or MRI activity" [Montalban2018]
-- ECTRIMS/EAN 2018 R14 (strong): "Offer a more efficacious drug to patients treated with interferon or glatiramer acetate who show evidence of disease activity." R16 (consensus) adds that when a highly efficacious drug is stopped, clinicians should "consider starting another highly efficacious drug," weighing half-life and "the potential for resumed disease activity or even rebound (particularly with natalizumab)" [Montalban2018].
+- ECTRIMS/EAN 2018 produced 21 recommendations using GRADE. The starting recommendations, in summary:
+  - R2 (strong): offer interferon or glatiramer acetate in CIS when MRI shows lesions suggestive of MS but the criteria for MS are not yet met
+  - R3 (strong): treat early in relapsing-remitting MS that is active, meaning relapses, MRI activity or both [Montalban2018]
+- ECTRIMS/EAN 2018 R14 (strong): move to a more effective drug if disease activity appears on interferon or glatiramer acetate. R16 (consensus) adds that when a highly efficacious drug is stopped, clinicians should "consider starting another highly efficacious drug," weighing its half-life and the chance that disease activity returns or even rebounds, especially with natalizumab [Montalban2018].
 - ECTRIMS/EAN 2018 recommendations for progressive MS (all weak):
   - R5: interferon-1a (SC) or -1b for active SPMS, noting "the dubious efficacy"
   - R6: mitoxantrone for active SPMS
   - R7: ocrelizumab or cladribine for active SPMS
   - R8: ocrelizumab for PPMS [Montalban2018]
 - ECTRIMS/EAN 2018 R11 (consensus) on monitoring response: take a reference brain MRI "usually within six months of treatment onset" and compare it with one "typically 12 months after starting treatment." R13: MRI every 3–6 months for patients at high PML risk (JCV positive, natalizumab beyond 18 months) [Montalban2018].
-- AAN 2018 produced 30 recommendations: 17 on starting, 10 on switching and 3 on stopping. Starting Recommendation 9 (Level B): "Clinicians should offer DMTs to people with relapsing forms of MS with recent clinical relapses or MRI activity" [RaeGrant2018].
+- AAN 2018 produced 30 recommendations: 17 on starting, 10 on switching and 3 on stopping. Starting Recommendation 9 (Level B): offer a DMT in relapsing MS when there have been recent relapses or MRI activity [RaeGrant2018].
 - AAN 2018 recommendations on CIS:
   - Starting Rec 7 (Level B): clinicians should prescribe DMT to people with a single demyelinating event and two or more characteristic brain lesions "who decide they want this therapy."
   - Starting Rec 8 (Level C): clinicians may follow untreated, inactive CIS or relapsing MS with at least annual imaging for five years instead [RaeGrant2018]
 - AAN 2018 recommendations on higher-efficacy and progressive disease:
-  - Starting Rec 14 (Level B): "Clinicians should prescribe alemtuzumab, fingolimod, or natalizumab for people with MS with highly active MS."
-  - Starting Rec 17 (Level B): "Clinicians should offer ocrelizumab to people with PPMS who are likely to benefit from this therapy unless there are risks of treatment that outweigh the benefits." [RaeGrant2018]
-- AAN 2018 defines breakthrough disease in Switching Rec 1 (Level B): clinicians should discuss switching in adherent patients on a DMT long enough to take full effect who have "one or more relapses, two or more unequivocally new MRI-detected lesions, or increased disability on examination, over a one-year period" [RaeGrant2018].
-- AAN 2018 notes that "current evidence supports higher efficacy of alemtuzumab, natalizumab, fingolimod, and ocrelizumab compared with previously approved self-injectable DMTs." It gives PML risk on natalizumab after 25–36 months without prior immunosuppression as 0.2/1000 (index ≤0.9), 0.3/1000 (0.9–1.5) and 3/1000 (>1.5) [RaeGrant2018].
+  - Starting Rec 14 (Level B): for highly active MS, prescribe alemtuzumab, fingolimod or natalizumab.
+  - Starting Rec 17 (Level B): offer ocrelizumab in PPMS to people likely to benefit, unless the risks of treatment outweigh the benefits [RaeGrant2018]
+- AAN 2018 defines breakthrough disease in Switching Rec 1 (Level B): clinicians should discuss switching in adherent patients on a DMT long enough to take full effect who, within one year, have had at least one relapse, at least two clearly new MRI lesions, or worse disability on examination [RaeGrant2018].
+- AAN 2018 states that the evidence favours alemtuzumab, natalizumab, fingolimod and ocrelizumab as more effective than the self-injectable DMTs approved before them. It gives PML risk on natalizumab after 25–36 months without prior immunosuppression as 0.2/1000 (index ≤0.9), 0.3/1000 (0.9–1.5) and 3/1000 (>1.5) [RaeGrant2018].
 - **Established:** NEDA (no evident disease activity) was proposed as a treat-to-target goal in 2015, with a rebaselining MRI after the DMT takes effect and at least annual MRI. The trial version, NEDA-3, means no relapses, no sustained disability progression and no new or enlarging T2 or gadolinium-enhancing lesions [Giovannoni2015; Havrdova2009].
 - The 2021 MAGNIMS-CMSC-NAIMS MRI consensus names 3D FLAIR as the core brain sequence for detecting new lesions when monitoring treatment effect, and recommends judicious use of gadolinium [Wattjes2021].
 - **Established:** The Cochrane network meta-analysis update (Gonzalez-Lorenzo 2024; 50 RCTs, 36,541 participants) reported high certainty that natalizumab, cladribine and alemtuzumab reduce relapses over 24 months versus placebo, with relative risks of people relapsing:
@@ -333,18 +333,18 @@ Two corrections to the brief:
   - non-inferiority against the 8% margin could not be concluded
   - the authors say discontinuation "might be a reasonable option" in stable patients over 55 [Corboy2023]
 - AAN 2018 stopping recommendations:
-  - Level B: advocate that stable patients "continue their current DMT unless the patient and physician decide a trial off therapy is warranted"
+  - Level B: encourage stable patients to stay on their current DMT unless they and their doctor agree that a trial off treatment is justified
   - Level C: clinicians may advise stopping in SPMS without relapses or gadolinium-enhancing lesions in people who have not been ambulatory (EDSS 7 or more) for at least 2 years [RaeGrant2018]
-- ECTRIMS/EAN 2018 R18 (weak): "Consider continuing a DMD if a patient is stable (clinically and on MRI) and shows no safety or tolerability issues." R17 (weak) warns of "resumed disease activity or even rebound when stopping treatment, particularly with natalizumab" [Montalban2018].
+- ECTRIMS/EAN 2018 R18 (weak): consider staying on a DMD when the person is stable, clinically and on MRI, with no safety or tolerability problems. R17 (weak) warns that disease activity can return, or even rebound, after stopping, especially with natalizumab [Montalban2018].
 - AAN 2018 Switching Rec 9:
   - Level A: physicians must counsel that relapse or MRI activity risk rises "within six months" of stopping natalizumab
   - Level B: when switching from natalizumab to fingolimod, start fingolimod "within eight to 12 weeks" (for reasons other than pregnancy) [RaeGrant2018]
 
 ### Pregnancy and lactation (label statements)
 - **Interferon beta:** labels state that a large population-based cohort and decades of data "have not identified a drug-associated risk of major birth defects" with early-pregnancy exposure. Findings on low birth weight or miscarriage are "inconsistent." Low levels of interferon beta-1a have been described in human milk [RebifLabel2025; AvonexLabel2025; PlegridyLabel2025].
-- **Glatiramer acetate:** decades of data "have not identified a drug-associated risk of major birth defects, miscarriage, or other adverse maternal or fetal outcomes." Breastfeeding "is not expected to result in clinically relevant exposure of the infant" [CopaxoneLabel2026].
+- **Glatiramer acetate:** the label says decades of data have shown no drug-linked increase in major birth defects, miscarriage or other harm to mother or baby, and it expects breastfeeding to expose the infant to no clinically relevant amount [CopaxoneLabel2026].
 - **Dimethyl fumarate:** the pregnancy registry and other data "have not indicated an increased risk of major birth defects, miscarriage." Most exposures were in the first trimester [TecfideraLabel2025].
-- **Fingolimod:** registry data "suggest that use of GILENYA is associated with an increased prevalence of major birth defects," with limits on firm conclusions. Contraception is advised during treatment and for 2 months after stopping [GilenyaLabel2026].
+- **Fingolimod:** the label says registry data point to more major birth defects with fingolimod use, with limits on firm conclusions. Contraception is advised during treatment and for 2 months after stopping [GilenyaLabel2026].
 - **Other S1P modulators:** contraception for 10 days after stopping siponimod, 3 months after ozanimod and 1 week after ponesimod [MayzentLabel2026; ZeposiaLabel2026; PonvoryLabel2025].
 - **Teriflunomide:** contraindicated in pregnancy and in women of reproductive potential not using effective contraception [AubagioLabel2026].
 - **Cladribine:** contraindicated in pregnancy. Contraception is required during dosing and for 6 months after the last dose of each course for women, or 14 weeks for men. Breastfeeding is contraindicated on a treatment day and for 10 days after the last dose [MavencladLabel2026].
@@ -354,20 +354,20 @@ Two corrections to the brief:
 - ECTRIMS/EAN 2018 pregnancy recommendations:
   - R19 (consensus): DMDs "are not licensed during pregnancy, except glatiramer acetate 20 mg/ml"
   - R21 (weak): for persistent high activity, "natalizumab throughout pregnancy may be considered after full discussion," and alemtuzumab is an option for planned pregnancy if "a 4-month interval is strictly observed" before conception [Montalban2018]
-- AAN 2018 Switching Rec 10 (Level B): clinicians should counsel stopping DMT before conception for planned pregnancies "unless the risk of MS activity during pregnancy outweighs the risk associated with the specific DMT" [RaeGrant2018].
+- AAN 2018 Switching Rec 10 (Level B): clinicians should counsel stopping DMT before conception for planned pregnancies, unless the risk of MS activity in pregnancy is greater than the risk of that particular drug [RaeGrant2018].
 
 ### Vaccination on DMTs
 - ECTRIMS/EAN 2023 vaccination consensus (53 recommendations), timing before starting immunosuppressive DMTs:
   - inactivated vaccines "ideally at least 2 weeks before treatment onset"
-  - live attenuated vaccines "at least 4 weeks before treatment onset, 6 weeks for ocrelizumab and alemtuzumab" [OteroRomero2023]
+  - live attenuated vaccines at least 4 weeks before starting, or 6 weeks for ocrelizumab and alemtuzumab [OteroRomero2023]
 - The same consensus says live attenuated vaccines can be used untreated or on interferon or glatiramer acetate. They "should be avoided" on these immunosuppressive therapies:
   - dimethyl fumarate, teriflunomide
   - S1P modulators, natalizumab
   - cladribine, alemtuzumab, anti-CD20 antibodies [OteroRomero2023]
-- On 6-monthly anti-CD20 therapy, the consensus advises inactivated vaccines "at least 3 months after the last anti-CD20 treatment and 4–6 weeks before the next infusion." In VELOCE, responses on ocrelizumab were lower than in controls:
+- On 6-monthly anti-CD20 therapy, the consensus advises giving inactivated vaccines at least 3 months after the last anti-CD20 dose and 4–6 weeks before the next infusion. In VELOCE, responses on ocrelizumab were lower than in controls:
   - tetanus 23.9% versus 54.5%
   - 12 or more pneumococcal serotypes 37.3% versus 97.1% [OteroRomero2023]
-- The fingolimod label says the drug "reduces the immune response to vaccination." Vaccination "may be less effective during and for up to 2 months after" stopping, and live attenuated vaccines should be avoided during and for 2 months after treatment [GilenyaLabel2026].
+- The fingolimod label says the drug "reduces the immune response to vaccination." Vaccines may work less well while on it and for up to 2 months after stopping, and live attenuated vaccines should be avoided during and for 2 months after treatment [GilenyaLabel2026].
 - The ocrelizumab label advises giving live vaccines at least 4 weeks, and non-live vaccines "whenever possible, at least 2 weeks," before starting [OcrevusLabel2026].
 
 ## Controversies

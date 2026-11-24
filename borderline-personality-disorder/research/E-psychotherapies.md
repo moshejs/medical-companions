@@ -25,14 +25,14 @@ Access notes:
 - Diary card: each week the person completes a self-monitoring form (the "diary card") tracking treatment targets such as self-harm, suicide attempts and emotional misery; the therapist uses it to set the session agenda [[Chapman2006DBT]].
 - Target hierarchy: session time goes first to behaviours that threaten life (suicidal or self-injurious behaviour), then to behaviours that interfere with therapy (absence, lateness, non-collaboration), then to behaviours that interfere with quality of life [[Chapman2006DBT]].
 - Chain analysis: after picking the target, therapist and patient work out what led up to the behaviour and which consequences may be maintaining it, then find more skilful alternatives [[Chapman2006DBT,Lynch2006DBT]].
-- DBT's risk-management toolkit is described as the diary card, chain analysis, solution analysis, phone coaching and consultation team, with early orientation and commitment to reducing life-threatening behaviour [[Alba2022DBT]].
+- The tools DBT uses to manage risk include the diary card, chain and solution analysis, phone coaching and the consultation team, with early orientation and commitment to reducing life-threatening behaviour [[Alba2022DBT]].
 - The consultation team meets weekly for about 1–2 hours to support therapists, keep a compassionate, non-judgemental stance, and reduce burnout [[Chapman2006DBT]].
 - Essential DBT elements beyond the format: the biosocial theory and a focus on emotions, a dialectical philosophy, and mindfulness and acceptance-oriented interventions [[Chapman2006DBT]].
 - Proposed mechanisms of change in DBT can be distilled to "the reduction of ineffective action tendencies linked with dysregulated emotions", working through mindfulness, validation, targeting and chain analysis, and dialectics (Hypothesis) [[Lynch2006DBT]].
 
 ### dbt · Pivotal trials in adults
 - Linehan 1991: the first RCT of DBT, 1 year of DBT vs community treatment as usual in chronically parasuicidal women with BPD, assessed every 4 months [[Linehan1991]].
-- Linehan 1991 result: DBT recipients had fewer and less medically severe parasuicidal acts, stayed in individual therapy more, and had fewer inpatient psychiatric days; there were no between-group differences in depression, hopelessness, suicidal ideation or reasons for living [[Linehan1991]].
+- Linehan 1991 result: people in DBT had fewer and less medically serious parasuicidal acts, were more likely to stay in individual therapy, and spent fewer days as psychiatric inpatients; the groups did not differ in depression, hopelessness, suicidal ideation or reasons for living [[Linehan1991]].
 - Linehan 2006: 101 women with recent suicidal and self-injurious behaviour randomised to 1 year of DBT or community treatment by non-behavioural experts, followed for a further year [[Linehan2006]].
 - Linehan 2006: people receiving DBT were "half as likely to make a suicide attempt" (hazard ratio 2.66; P = .005) over the 2-year treatment and follow-up period [[Linehan2006]].
 - Linehan 2006: DBT also meant less hospitalisation for suicidal ideation, lower medical risk across suicide attempts and self-injury, fewer psychiatric hospitalisations and psychiatric emergency visits, and lower dropout (hazard ratio 3.2; P < .001) [[Linehan2006]].
@@ -41,7 +41,7 @@ Access notes:
 - Linehan 2015 component trial: 99 women with BPD and recent suicide attempts and self-injury were randomised to standard DBT, DBT skills training plus case management (DBT-S), or DBT individual therapy plus an activities group without skills (DBT-I), with 1 year of treatment and 1 year of follow-up [[Linehan2015]].
 - Linehan 2015: all three arms improved similarly on suicide attempts, suicidal ideation, crisis-service use and reasons for living [[Linehan2015]].
 - Linehan 2015: arms containing skills training reduced self-injury (NSSI) more than DBT-I, and standard DBT had lower treatment dropout than DBT-I (8 patients, 24% vs 16 patients, 48%; P = .04) [[Linehan2015]].
-- Linehan 2015 conclusion: "Interventions that include DBT skills training are more effective than DBT without skills training" [[Linehan2015]].
+- Linehan 2015 conclusion: DBT versions that included skills training worked better than DBT without it [[Linehan2015]].
 - McMain 2017: 84 suicidal outpatients with BPD randomised to 20 weeks of DBT skills group (n = 42) or a waitlist (n = 42); the skills group reduced suicidal and NSSI episodes more by 32 weeks (P < 0.0001) and improved anger, distress tolerance and emotion regulation [[McMain2017]].
 - DBT for PTSD (DBT-PTSD) vs cognitive processing therapy: 193 women with childhood-abuse PTSD and at least 3 BPD criteria; both groups improved (d 1.35 vs 0.98), with a small advantage for DBT-PTSD (difference 4.82 CAPS-5 points; 95% CI 0.67–8.96; d 0.33) [[Bohus2020DBTPTSD]].
 - In the same trial, DBT-PTSD had less early dropout (25.5% vs 39.0%) and more symptomatic remission (58.4% vs 40.7%) than cognitive processing therapy [[Bohus2020DBTPTSD]].
@@ -66,9 +66,9 @@ Access notes:
 
 ### gpm · General psychiatric management (GPM) and structured clinical management (SCM)
 - McMain 2009: 180 people with BPD and at least 2 suicidal or non-suicidal self-injurious episodes in 5 years were randomised to 1 year of DBT or general psychiatric management (psychodynamically informed therapy plus symptom-targeted medication management following APA guidance) [[McMain2009]].
-- McMain 2009: both groups improved, with fewer and less severe self-harm episodes, fewer emergency visits and hospital days, and better BPD symptoms, depression, anger and interpersonal functioning; "No significant differences across any outcomes were found between groups" [[McMain2009]].
+- McMain 2009: both groups improved, with fewer and less severe self-harm episodes, fewer emergency visits and hospital days, and better BPD symptoms, depression, anger and interpersonal functioning; the groups did not differ significantly on any outcome [[McMain2009]].
 - McMain 2012 (2 years after treatment): gains held in both groups with no loss on any outcome; about two-thirds reached diagnostic remission, but 53% were neither employed nor in school and 39% were receiving psychiatric disability support at 36 months [[McMain2012]].
-- GPM is described as "a once-weekly, generalist model that medicalizes the disorder, emphasizes psychoeducation, and focuses on social adaptation"; its authors propose it as the primary intervention, with more intensive therapies kept for people who do not respond (Hypothesis) [[Gunderson2018GPM]].
+- GPM is described as a generalist model, delivered once a week, that treats BPD as a medical condition, puts psychoeducation first and concentrates on social adaptation; its authors propose it as the primary intervention, with more intensive therapies kept for people who do not respond (Hypothesis) [[Gunderson2018GPM]].
 - Brief GPM (10 sessions over 4 months) vs usual treatment, 76 patients: no difference in total ZAN-BPD at 4 months (d 0.04); GPM did better on relationship problems (d 0.52), impulsivity, social problems and retention [[Kramer2024GPM]].
 - At 12 months after the same brief treatment, the GPM group showed significantly greater ZAN-BPD symptom reduction than usual treatment (Early evidence) [[BlancoMachinea2026]].
 - Structured clinical management (SCM) was the active comparator in Bateman 2009: 18 months of outpatient MBT vs SCM in 134 patients; "Substantial improvements were observed in both conditions" [[Bateman2009]].
@@ -89,9 +89,9 @@ Access notes:
 - In MOBY, the HYPE service model had higher treatment completion than a general youth mental health service (47.8% vs 19.2%) [[Chanen2022MOBY]].
 
 ### mbt · What MBT is
-- Mentalizing is "the capacity to understand others and oneself in terms of internal mental states", described along four dimensions: automatic–controlled, internal–external focus, self–other, and cognitive–affective [[Luyten2020]].
+- Mentalizing is the ability to make sense of oneself and others in terms of what is going on inside (thoughts, feelings, wishes), described along four dimensions: automatic–controlled, internal–external focus, self–other, and cognitive–affective [[Luyten2020]].
 - In the mentalizing model, people with BPD show reduced capacity to mentalize, which leads to problems with emotion regulation and impulsivity, especially in close relationships (Hypothesis) [[Bateman2010WP]].
-- MBT is "a time-limited treatment which structures interventions that promote the further development of mentalizing", and was found effective when delivered by mental health professionals with limited extra training and moderate supervision [[Bateman2010WP]].
+- MBT is a treatment of fixed length whose interventions are organised to help mentalizing keep developing, and it was found effective when delivered by mental health professionals with limited extra training and moderate supervision [[Bateman2010WP]].
 - Three low-mentalizing ("pre-mentalizing") modes [[Chung2026]]:
   - Psychic equivalence: treating inner experience as if it were outer reality.
   - Pretend mode: appearing to mentalize while cut off from real inner states and reality.
@@ -162,7 +162,7 @@ Access notes:
   - Self-harm: SMD −0.32 (95% CI −0.49 to −0.14; 13 trials; low certainty).
   - Suicide-related outcomes: SMD −0.34 (95% CI −0.57 to −0.11; 13 trials; low certainty).
   - Psychosocial functioning: SMD −0.45 (95% CI −0.68 to −0.22; 22 trials; low certainty), about −2.8 GAF points.
-- Cochrane 2020: "only the outcome of BPD severity reached the MIREDIF-defined cut-off for a clinically meaningful improvement", and subgroup analysis found no clear difference between types of therapy vs usual care [[Storebo2020]].
+- Cochrane 2020: BPD severity was the only outcome whose improvement passed the MIREDIF cut-off for being clinically meaningful, and subgroup analysis found no clear difference between types of therapy vs usual care [[Storebo2020]].
 - Cochrane 2020, single therapies vs usual care (all low-certainty) [[Storebo2020]]:
   - DBT: BPD severity SMD −0.60 (3 trials), self-harm SMD −0.28 (7 trials), psychosocial functioning SMD −0.36 (6 trials).
   - MBT: self-harm RR 0.62 (95% CI 0.49–0.80; 3 trials) and suicidality RR 0.10 (95% CI 0.04–0.30; 3 trials).
@@ -174,7 +174,7 @@ Access notes:
   - Add-on DBT skills training: BPD severity SMD −0.66 (moderate certainty).
   - Add-on STEPPS: BPD severity SMD −0.48.
 - Cristea 2017 (33 RCTs, 2256 participants): psychotherapies beat controls on BPD-relevant outcomes with small effects (stand-alone g 0.32; add-on g 0.40); only DBT (g 0.34) and psychodynamic approaches (g 0.41) beat controls on their own [[Cristea2017]].
-- Cristea 2017 warns that effects are "inflated by risk of bias and publication bias, and particularly unstable at follow-up" [[Cristea2017]].
+- Cristea 2017 warns that the effects are inflated by risk of bias and publication bias, and are especially unstable at follow-up [[Cristea2017]].
 - Oud 2018 (20 RCTs, 1375 participants): specialised therapies (DBT, MBT, TFP, schema therapy) vs usual care or community experts gave a medium effect on BPD severity (SMD −0.59; 95% CI −0.90 to −0.28; moderate quality); DBT vs usual care reduced self-injury (SMD −0.40) [[Oud2018]].
 - Rameckers 2021 (87 studies, 5881 people, all designs): schema therapy, MBT and reduced DBT had higher-than-average effect sizes; general severity and affective instability improved most, while dissociation, anger, impulsivity and suicidality/self-injury improved least [[Rameckers2021]].
 - Individual-participant meta-analysis (19 trials, 1104 participants): psychotherapy reduced BPD severity vs usual care or clinical management (β −0.25; 95% CI −0.43 to −0.07); co-occurring depression and sexual trauma predicted less benefit, while co-occurring anxiety or alcohol use disorder predicted more [[PereiraRibeiro2026]].
@@ -185,7 +185,7 @@ Access notes:
 ### compare · Dropout
 - Pooled dropout from BPD psychotherapy studies was 22.3% across all studies and 28.2% in outpatient RCTs, and up to 29.9% after adjusting for publication bias; most dropout happened in the first half of treatment [[Iliakis2021]].
 - Reasons for dropout included dissatisfaction with treatment, being discharged by the service ("expulsion"), and low motivation [[Iliakis2021]].
-- A survival meta-analysis (111 studies, 159 arms, N = 9100): dropout was highest in the first quarter of treatment; schema therapy had the lowest dropout overall, MBT in the first two quarters, and community treatment by experts the highest [[Arntz2023Dropout]].
+- A survival meta-analysis (111 studies, 159 arms, N = 9100): most dropout happened in the first quarter of treatment; schema therapy had the lowest dropout overall, MBT in the first two quarters, and community treatment by experts the highest [[Arntz2023Dropout]].
 - In the same analysis, individual therapy had the lowest dropout, group therapy the highest, and combined formats were in between [[Arntz2023Dropout]].
 
 ### compare · Costs, access and new formats
@@ -195,14 +195,14 @@ Access notes:
 - A review describes a move toward generalist care models and "pared down" forms of intensive therapies, for example case management plus DBT skills groups [[ChoiKain2017]].
 
 ### compare · Guideline wording
-- APA 2024, the single psychotherapy statement: "APA recommends (1B) that a patient with borderline personality disorder be treated with a structured approach to psychotherapy that has support in the literature and targets the core features of the disorder." [[APA2024Guideline]]
-- APA 2024 also recommends (1C) "a collaborative discussion about their diagnosis and treatment, which includes psychoeducation related to the disorder" [[APA2024Guideline]].
-- APA 2024 suggests (2C) that "any psychotropic medication treatment of borderline personality disorder be time-limited, aimed at addressing a specific measurable target symptom, and adjunctive to psychotherapy" [[APA2024Guideline]].
+- APA 2024, the single psychotherapy statement (1B): people with BPD should be treated with a structured psychotherapy that has research support and targets the core features of the disorder [[APA2024Guideline]].
+- APA 2024 also recommends (1C) talking the diagnosis and treatment through together with the person, including psychoeducation about the disorder [[APA2024Guideline]].
+- APA 2024 suggests (2C) that any psychiatric medicine for BPD be given for a limited time, aimed at one specific symptom that can be measured, and used alongside psychotherapy [[APA2024Guideline]].
 - The APA's news release states the guideline has eight statements in all; its chair said several structured psychotherapies were effective and "No therapy emerged as a 'gold standard'" [[APA2024Guideline]].
-- NICE CG78 1.3.4.4: "Do not use brief psychological interventions (of less than 3 months' duration) specifically for borderline personality disorder or for the individual symptoms of the disorder, outside a service that has the characteristics outlined in recommendation 1.3.4.3." [[NICE2009]]
-- NICE CG78 1.3.4.3 service characteristics: "an explicit and integrated theoretical approach used by both the treatment team and the therapist, which is shared with the service user", structured care and therapist supervision; "twice-weekly sessions may be considered" [[NICE2009]].
-- NICE CG78 1.3.4.5: "For women with borderline personality disorder for whom reducing recurrent self-harm is a priority, consider a comprehensive dialectical behaviour therapy programme." [[NICE2009]]
-- NICE CG78 1.3.5.1: "Drug treatment should not be used specifically for borderline personality disorder or for the individual symptoms or behaviour associated with the disorder" [[NICE2009]].
+- NICE CG78 1.3.4.4 advises against brief psychological interventions (shorter than 3 months) aimed specifically at BPD or its individual symptoms, unless they are given within a service that has the features set out in recommendation 1.3.4.3 [[NICE2009]].
+- NICE CG78 1.3.4.3 service characteristics: a clear, joined-up theoretical model that the therapist and the whole treatment team use and share with the person receiving care, structured care and therapist supervision; "twice-weekly sessions may be considered" [[NICE2009]].
+- NICE CG78 1.3.4.5 suggests considering a comprehensive dialectical behaviour therapy programme for women with BPD when reducing repeated self-harm is a priority [[NICE2009]].
+- NICE CG78 1.3.5.1: drugs should not be used specifically to treat BPD or its individual symptoms or behaviours [[NICE2009]].
 - NICE CG78 1.3.4.7 asks services to monitor the effect of treatment on a broad range of outcomes, including personal functioning, drug and alcohol use, self-harm, depression and BPD symptoms [[NICE2009]].
 
 ### Exam hooks

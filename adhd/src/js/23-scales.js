@@ -49,16 +49,16 @@ const SC_SET=[
  {id:'sud',n:'Adults in substance-use treatment',p:23.1,c:'[[vanEmmerikvanOortmerssen2012]]'},
  {id:'cl',n:'Adults referred to a psychiatry clinic (NYU sample)',p:57.7,c:'[[Ustun2017]]'}
 ];
-/* illustrative screening questions, written for this guide (NOT the ASRS wording), each tied to a DSM-5-TR item [[APA2022DSM]] */
+/* illustrative topics only, each tied to a DSM-5-TR item [[APA2022DSM]]; no ASRS question wording is reproduced */
 const SC_Q=[
- {q:'How often do you have trouble finishing the last details of a task once the hard part is done?',d:'A1(d) does not follow through'},
- {q:'How often is it hard to get things in order when a task needs organising?',d:'A1(e) organising'},
- {q:'How often do you forget appointments or things you meant to do?',d:'A1(i) forgetful'},
- {q:'How often do you put off starting a task that needs a lot of thought?',d:'A1(f) avoids sustained effort'},
- {q:'How often do you fidget or squirm when you have to sit for a long time?',d:'A2(a) fidgets'},
- {q:'How often do you feel driven, as if you have to keep moving?',d:'A2(e) “driven by a motor”'}
+ {q:'Finishing tasks',d:'A1(d) unfinished tasks'},
+ {q:'Getting organised',d:'A1(e) organising'},
+ {q:'Remembering commitments',d:'A1(i) forgets routines'},
+ {q:'Starting effortful work',d:'A1(f) avoids effort'},
+ {q:'Fidgeting when seated',d:'A2(a) fidgeting'},
+ {q:'Feeling restless',d:'A2(e) always busy'}
 ];
-const SC_FREQ=['Never','Rarely','Sometimes','Often','Very often'];
+const SC_FREQ=['0','1','2','3','4'];
 inits.scales=()=>{
   /* ---------------- the assessment pathway ---------------- */
   const svg=$('#scSvg'),rg=$('#scT');
@@ -110,11 +110,11 @@ inits.scales=()=>{
   /* ---------------- the screener walkthrough ---------------- */
   const ans=new Array(6).fill(-1);
   const wq=$('#scWalk');
-  wq.innerHTML=SC_Q.map((q,i)=>`<div class="scq"><p><b>${i+1}.</b> ${q.q} <span class="scd">${q.d}</span></p><div class="scf" role="group" aria-label="Question ${i+1}">${SC_FREQ.map((f,k)=>`<button class="btn" data-q="${i}" data-f="${k}" aria-pressed="false">${f}</button>`).join('')}</div></div>`).join('');
+  wq.innerHTML=SC_Q.map((q,i)=>`<div class="scq"><p><b>${i+1}.</b> ${q.q} <span class="scd">${q.d}</span></p><div class="scf" role="group" aria-label="Topic ${i+1}: ${q.q}, points 0 to 4">${SC_FREQ.map((f,k)=>`<button class="btn" data-q="${i}" data-f="${k}" aria-pressed="false" aria-label="${f} points">${f}</button>`).join('')}</div></div>`).join('');
   function walk(){const n=ans.filter(a=>a>=0).length,hi=ans.filter(a=>a>=3).length;
     let h=`<div class="kicker">${n} of 6 answered</div>`;
-    if(n<6)h+=`<h4>Keep going</h4><p>So far ${hi} answer${hi===1?'':'s'} at "often" or "very often". A screener only makes sense once every question is answered.</p>`;
-    else h+=`<h4>${hi} of 6 at "often" or more</h4><p>On a real screener a published scoring rule turns answers like these into "screen positive" or "screen negative". This illustrative set has no validated rule, so it gives no result, on purpose.</p>`;
+    if(n<6)h+=`<h4>Keep going</h4><p>So far ${hi} answer${hi===1?'':'s'} at 3 or 4 points. A screener only makes sense once every topic is rated.</p>`;
+    else h+=`<h4>${hi} of 6 at 3 points or more</h4><p>On a real screener a published scoring rule turns answers like these into "screen positive" or "screen negative". This illustrative set has no validated rule, so it gives no result, on purpose.</p>`;
     h+=`<div class="pt"><b>What a positive screen means</b>Only that a full assessment may be worth having. The ASRS was built for case-finding in surveys and outreach. [[Kessler2005,Ustun2017]] In the validation sample the 6-question screener caught 68.7% of people with ADHD (sensitivity) and correctly cleared 99.5% without it (specificity). [[Kessler2005]]</div>`;
     h+=`<div class="hook"><b>What a full assessment adds</b>A clinical interview, childhood history, reports from people in other settings, checks for look-alikes and co-occurring conditions, and the impact on daily life. Single ASRS items agreed with clinicians only modestly (kappa 0.16–0.81), so no one answer carries much weight. [[Kessler2005,Faraone2021]]</div>`;
     $('#scWalkOut').innerHTML=h}

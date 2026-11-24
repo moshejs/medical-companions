@@ -21,7 +21,7 @@ const DB_STEPS=[
   pt:`The newest systems listen to the brain's rhythm and turn the current up or down to match.`,
   hook:`Beta is not a universal signal: ADAPT-PD found raised alpha/beta activity on both sides in 65.2% of patients. [[Koeglsperger2026]]`},
  {from:.88,at:.95,k:'Step 6 · Expectations',t:'What it helps and what it does not',
-  txt:`"With the exception of tremor, DBS treats primarily levodopa-responsive symptoms." Over time many people develop freezing of gait, postural instability and cognitive decline, and STN stimulation can worsen speech and gait in some. [[Bronstein2011]] At 5 years in the first 49 Grenoble patients, off-medication motor scores were 54% better, but speech was the only motor item not improved, and on-medication akinesia, speech, balance and freezing worsened between years 1 and 5. [[Krack2003]]`,
+  txt:`Apart from tremor, DBS mainly helps the symptoms that respond to levodopa. Over time many people develop freezing of gait, postural instability and cognitive decline, and STN stimulation can worsen speech and gait in some. [[Bronstein2011]] At 5 years in the first 49 Grenoble patients, off-medication motor scores were 54% better, but speech was the only motor item not improved, and on-medication akinesia, speech, balance and freezing worsened between years 1 and 5. [[Krack2003]]`,
   pt:`It mainly improves what the medicine improves, smooths the swings and can lower the dose. Balance, speech and thinking are not what it fixes.`,
   hook:`Levodopa response predicts DBS response: a 30% motor-score improvement on a levodopa challenge is the usual marker, and levodopa-resistant tremor is the accepted exception. [[Bronstein2011]]`}
 ];

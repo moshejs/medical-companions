@@ -62,7 +62,7 @@ const RV_FC=[
  [4,`Why give albumin in SBP?`,`In the Sort trial, albumin with cefotaxime cut renal impairment from 33% to 10% and in-hospital death from 29% to 10% [[Sort1999NEJM]].`],
  [4,`How much albumin does EASL quote after large-volume paracentesis?`,`8 g per litre removed when more than 5 L is drained, as published [[EASL2018Decomp]].`],
  [4,`What did CONFIRM show for terlipressin in HRS?`,`HRS reversal 32% vs 17%, with more respiratory deaths; the label carries a boxed warning for respiratory failure [[Wong2021CONFIRM,FDA-Terlivaz]].`],
- [4,`What separates West Haven grade I from grade II?`,`Grade I: oriented, with trivial lack of awareness. Grade II: disorientation for time, and asterixis [[Vilstrup2014HE]].`],
+ [4,`What separates West Haven grade I from grade II?`,`Grade I: still oriented, with only subtle loss of awareness. Grade II: disorientation for time, and asterixis [[Vilstrup2014HE]].`],
  [4,`What most often triggers episodic overt HE?`,`Infection, then GI bleeding and diuretic overdose [[Vilstrup2014HE]].`],
  [4,`Does a high ammonia level diagnose HE?`,`No: alone it adds no diagnostic, staging or prognostic value [[Vilstrup2014HE]].`],
  [4,`How much did rifaximin cut breakthrough HE?`,`22.1% vs 45.9% over 6 months; more than 90% also took lactulose [[Bass2010Rifaximin]].`],

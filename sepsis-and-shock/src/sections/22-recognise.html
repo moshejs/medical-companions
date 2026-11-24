@@ -49,7 +49,7 @@
       <svg id="rcSvg2" viewBox="0 0 720 380" role="img" aria-label="A chart of an invented patient's observations over 8 hours, recorded every 2 hours. Six rows show breathing rate, oxygen saturation, systolic blood pressure, pulse, temperature and consciousness, each as a coloured cell holding the measured value and its NEWS2 points from 0 to 3. Below, the total NEWS2 score is drawn as a line that climbs from 0 at hour 0, to 2 at hour 2, 5 at hour 4 (the medium band), 7 at hour 6 (the high band) and 14 at hour 8 when new confusion appears. Bands for low (0 to 4), medium (5 to 6) and high (7 or more) are shaded behind the line."></svg>
       <div class="ctrls"><button class="btn primary" id="rcPlay2">Play</button><label class="stage-cap tl" for="rcT2">Hours <input type="range" id="rcT2" min="0" max="1" step="0.001" value="0.1"></label></div>
       <div class="readout" id="rcRead2"></div>
-      <p class="stage-cap">Invented example, not a real patient. Points and bands as in the NEWS2 chart reproduced by Verma 2023 from the Royal College of Physicians. [[Verma2023NEWS2]]</p>
+      <p class="stage-cap">Invented example, not a real patient. Point values and bands follow NEWS2 as reported by Verma 2023; the official NEWS2 chart is published by the <a href="https://www.rcp.ac.uk/improving-care/resources/national-early-warning-score-news-2/" target="_blank" rel="noopener">Royal College of Physicians</a>. [[Verma2023NEWS2,RCP2017NEWS2]]</p>
     </div>
     <aside class="note" id="rcNote2" aria-live="polite"></aside>
   </div>
@@ -75,19 +75,8 @@
     <aside class="note" id="rcCalcNote" aria-live="polite"></aside>
   </div>
 
-  <div class="tbl"><table>
-    <caption class="sr">NEWS2 points for each observation, as published</caption>
-    <thead><tr><th>Observation</th><th>3</th><th>2</th><th>1</th><th>0</th><th>1</th><th>2</th><th>3</th></tr></thead>
-    <tbody>
-      <tr><td><b>Respiration rate</b> (/min)</td><td class="num">≤8</td><td></td><td class="num">9–11</td><td class="num">12–20</td><td></td><td class="num">21–24</td><td class="num">≥25</td></tr>
-      <tr><td><b>SpO₂ scale 1</b> (%)</td><td class="num">≤91</td><td class="num">92–93</td><td class="num">94–95</td><td class="num">≥96</td><td></td><td></td><td></td></tr>
-      <tr><td><b>Air or oxygen</b></td><td></td><td>Oxygen</td><td></td><td>Air</td><td></td><td></td><td></td></tr>
-      <tr><td><b>Systolic BP</b> (mmHg)</td><td class="num">≤90</td><td class="num">91–100</td><td class="num">101–110</td><td class="num">111–219</td><td></td><td></td><td class="num">≥220</td></tr>
-      <tr><td><b>Pulse</b> (/min)</td><td class="num">≤40</td><td></td><td class="num">41–50</td><td class="num">51–90</td><td class="num">91–110</td><td class="num">111–130</td><td class="num">≥131</td></tr>
-      <tr><td><b>Consciousness</b></td><td></td><td></td><td></td><td>Alert</td><td></td><td></td><td>New confusion, V, P or U</td></tr>
-      <tr><td><b>Temperature</b> (°C)</td><td class="num">≤35.0</td><td></td><td class="num">35.1–36.0</td><td class="num">36.1–38.0</td><td class="num">38.1–39.0</td><td class="num">≥39.1</td><td></td></tr>
-    </tbody></table></div>
-  <p class="prose">Scale 2 for oxygen saturation gives 3 points at 83% or less, 2 at 84–85%, 1 at 86–87%, 0 at 88–92% (or 93% or more on air), then 1, 2 and 3 points at 93–94%, 95–96% and 97% or more on oxygen. It "should only be used in patients confirmed to have a hypercapnic respiratory failure on blood gas analysis". The total runs from 0 to 20: 0–4 is low clinical risk, 5–6 medium and 7 or more high, and a score of 3 in any single observation is treated as low-medium risk. "V, P or U" means the person responds only to voice, only to pain, or not at all. [[Verma2023NEWS2]]</p>
+  <p class="prose">In words, the calculator uses these point values. Breathing rate scores 0 at 12–20 a minute, 1 at 9–11, 2 at 21–24, and 3 at 8 or fewer or 25 or more. Oxygen saturation on scale 1 scores 0 at 96% or more, 1 at 94–95%, 2 at 92–93% and 3 at 91% or less, and breathing supplemental oxygen adds 2. Systolic blood pressure scores 0 at 111–219 mmHg, 1 at 101–110, 2 at 91–100, and 3 at 90 or less or 220 or more. Pulse scores 0 at 51–90, 1 at 41–50 or 91–110, 2 at 111–130, and 3 at 40 or less or 131 or more. Being alert scores 0; new confusion, or responding only to voice, only to pain or not at all, scores 3. Temperature scores 0 at 36.1–38.0°C, 1 at 35.1–36.0 or 38.1–39.0, 2 at 39.1 or more, and 3 at 35.0 or less. [[Verma2023NEWS2]]</p>
+  <p class="prose">Scale 2 for oxygen saturation gives 3 points at 83% or less, 2 at 84–85%, 1 at 86–87%, 0 at 88–92% (or 93% or more on air), then 1, 2 and 3 points at 93–94%, 95–96% and 97% or more on oxygen. It is meant only for people whose hypercapnic respiratory failure has been confirmed on a blood gas. The total runs from 0 to 20: 0–4 is low clinical risk, 5–6 medium and 7 or more high, and a score of 3 in any single observation is treated as low-medium risk. [[Verma2023NEWS2]] The official chart, with its colour bands and escalation guidance, is published by the <a href="https://www.rcp.ac.uk/improving-care/resources/national-early-warning-score-news-2/" target="_blank" rel="noopener">Royal College of Physicians</a>. [[RCP2017NEWS2]]</p>
 
   <h3 class="sub">How the scores compare</h3>
   <p class="prose">Several bedside tools compete for the same job: spotting the infected patient who is about to get much worse. qSOFA (3 items) and SIRS (4 items) come from the sepsis definitions, explained in <button class="btn ghost" data-go="definitions">Definitions &amp; scores</button>. NEWS and NEWS2 are general early warning scores. Every figure below is a population statistic from the study named.</p>
@@ -100,7 +89,7 @@
       <tr><td><b>Usman 2019</b></td><td>130,595 emergency department visits</td><td>For spotting severe sepsis or septic shock at triage: AUROC NEWS 0.91, SIRS 0.88, qSOFA 0.81; sensitivity NEWS ≥4 84.2%, SIRS ≥2 86.1%, qSOFA ≥2 28.5%. [[Usman2019]]</td></tr>
       <tr><td><b>Verma 2023</b></td><td>373 emergency department sepsis patients in India</td><td>NEWS2 AUC 0.781 against 0.729 for qSOFA, for mortality. [[Verma2023NEWS2]]</td></tr>
     </tbody></table></div>
-  <p class="callout">The Surviving Sepsis Campaign 2021 guideline puts it plainly: "We recommend against using qSOFA compared to SIRS, NEWS, or MEWS as a single screening tool for sepsis or septic shock" (strong recommendation, moderate-quality evidence). It adds that "neither SIRS nor qSOFA are ideal screening tools". [[Evans2021SSC]]</p>
+  <p class="callout">The Surviving Sepsis Campaign 2021 guideline is clear on this: it recommends against using qSOFA on its own as a screening tool for sepsis or septic shock, in preference to SIRS, NEWS or MEWS (strong recommendation, moderate-quality evidence). It also says that neither SIRS nor qSOFA is an ideal screening tool. [[Evans2021SSC]]</p>
 
   <h3 class="sub">Screening systems, alerts and the evidence</h3>
   <div class="cards">
@@ -113,7 +102,7 @@
   </div>
 
   <h3 class="sub">In hospital: NEWS2 in the UK guidance</h3>
-  <p class="prose">NICE's 2024 update of its sepsis guidance brought NEWS2 in for assessing people with suspected sepsis who are aged 16 or over, are not pregnant or recently pregnant, and are in an acute hospital, an acute mental health setting or an ambulance. [[Gildea2024NICE]] The score is a trend tool: Churpek and colleagues found that patients who went on to die or need intensive care first met 2 or more SIRS criteria a median of 17 hours before that outcome, and 2 or more qSOFA criteria only 5 hours before. Repeated observations are what reveal the slope. [[Churpek2017]] A lactate blood test often sits beside the score: SSC 2021 suggests measuring blood lactate in adults suspected of having sepsis (weak recommendation, low-quality evidence), while noting that lactate "alone is neither sensitive nor specific enough to rule-in or rule-out the diagnosis". See <button class="btn ghost" data-go="tests">Lactate, cultures &amp; tests</button>. [[Evans2021SSC]]</p>
+  <p class="prose">NICE's 2024 update of its sepsis guidance brought NEWS2 in for assessing people with suspected sepsis who are aged 16 or over, are not pregnant or recently pregnant, and are in an acute hospital, an acute mental health setting or an ambulance. [[Gildea2024NICE]] The score is a trend tool: Churpek and colleagues found that patients who went on to die or need intensive care first met 2 or more SIRS criteria a median of 17 hours before that outcome, and 2 or more qSOFA criteria only 5 hours before. Repeated observations are what reveal the slope. [[Churpek2017]] A lactate blood test often sits beside the score: SSC 2021 suggests measuring blood lactate in adults suspected of having sepsis (weak recommendation, low-quality evidence), while noting that a lactate result on its own cannot reliably confirm or exclude sepsis. See <button class="btn ghost" data-go="tests">Lactate, cultures &amp; tests</button>. [[Evans2021SSC]]</p>
 
   <h3 class="sub">If you are worried about someone</h3>
   <div class="rcsign">

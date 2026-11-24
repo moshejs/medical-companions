@@ -37,7 +37,7 @@ Access notes:
 - A second GBD 2021 analysis found that incidence peaks at ages 15–19 and is higher in females than in males. Australasia had the highest age-standardised prevalence and incidence, and incidence, prevalence and DALYs are projected to keep rising through 2035 [[Liu2026GBD]].
 - In GBD 2019, bipolar disorder was one of 12 mental disorders modelled. Mental disorders as a group rose from 80.8 million DALYs in 1990 to 125.3 million in 2019, and from 3.1% to 4.9% of all global DALYs [[GBD2019Mental]].
 - The GBD 2019 mental disorders analysis found no marked difference in burden by sex for bipolar disorder, and less variation in prevalence across regions for bipolar disorder than for most other disorders [[GBD2019Mental]].
-- In GBD 2023, which also includes bipolar disorder, mental disorders together were the fifth leading cause of global DALYs (up from 12th in 1990) and the leading cause of YLDs, at 17.3% of all YLDs [[GBD2023Mental]].
+- In GBD 2023, which also includes bipolar disorder, mental disorders together ranked fifth among causes of DALYs worldwide (they ranked 12th in 1990) and the leading cause of YLDs, at 17.3% of all YLDs [[GBD2023Mental]].
 - Major reviews call bipolar disorders one of the leading causes of disability in young people, through cognitive and functional impairment and raised mortality [[Grande2016,Vieta2018]].
 
 ### what · Age at onset
@@ -131,9 +131,9 @@ Access notes:
 ### what · Suicide risk (safe-messaging framing)
 - People with bipolar disorder have a much higher suicide risk than the general population. Estimates range from about 10–30 times [[Dome2019]] to roughly 20–30 times higher [[Plans2019]]; meta-analytic suicide SMRs are 14.44 [[Hayes2015]], with a risk ratio of 11.69 [[Biazus2023]].
 - The ISBD Task Force pooled a suicide rate of 164 per 100,000 person-years (95% CI 5–324). This is lower than earlier published estimates [[Schaffer2015Epi]].
-- The ISBD Task Force found that suicide rates were about 1.7 times higher in men than in women with bipolar disorder, and that people with bipolar disorder account for 3.4–14% of all suicide deaths [[Schaffer2015Epi]].
+- The ISBD Task Force found that suicide rates were about 1.7 times higher in men than in women with bipolar disorder, and that 3.4–14% of all suicide deaths are among people with bipolar disorder [[Schaffer2015Epi]].
 - A JAMA review gives an annual suicide rate of about 0.9% in people with bipolar disorder, against 0.014% in the general population [[Nierenberg2023]].
-- Epidemiological studies report that 23–26% of people with bipolar disorder attempt suicide, with higher rates in clinical samples [[Schaffer2015Epi]].
+- In epidemiological studies, 23–26% of people with bipolar disorder have attempted suicide; clinical samples show higher rates [[Schaffer2015Epi]].
 - In the WMH surveys, about 1 in 4 people with BP-I, 1 in 5 with BP-II and 1 in 10 with subthreshold bipolar disorder reported a past suicide attempt [[Merikangas2011]].
 - Retrospective reports of lifetime suicide attempts did not differ significantly between BP-II (32.4%) and BP-I (36.3%) (OR 1.21, 95% CI 0.98–1.48) [[Novick2010]].
 - Factors linked to suicide attempts were female sex, younger onset, a depressive first or most recent episode, comorbid anxiety, substance use or cluster B/borderline personality disorder, and a family history of suicide. Suicide deaths were linked to male sex and a family history of suicide [[Schaffer2015Meta]].

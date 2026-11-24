@@ -87,7 +87,7 @@ const CU_CARDS=[
    txt:`106 adults with C9orf72-ALS received intrathecal BIIB078 (5-90 mg) or placebo. Serious adverse events occurred in 18% on BIIB078 and 33% on placebo. There was no reduction in neurofilament levels and no benefit on clinical outcomes, and development was discontinued [[vandenBerg2024,NCT03626012]]. In tissue from treated people, CSF dipeptide repeat proteins fell, but these proteins and phosphorylated TDP-43 remained abundant in the brain [[McEachin2025]].`,
    reg:[{n:'BIIB078 phase 1',id:'NCT03626012',s:'COMPLETED',d:'2022-01-14'}]},
   {ev:'neg',h:'WVE-004 (FOCUS-C9)',
-   txt:`Terminated with 35 enrolled. The registry reason reads "Despite robust, sustained reductions in poly(GP), no clinical benefit was seen at 24 weeks"; the company reported maximal mean poly(GP) reductions of 48-51% [[NCT04931862,Wave2023]].`,
+   txt:`Terminated with 35 enrolled. The registry gives the reason: poly(GP) fell strongly and stayed down, but there was no clinical benefit at 24 weeks; the company reported maximal mean poly(GP) reductions of 48-51% [[NCT04931862,Wave2023]].`,
    reg:[{n:'FOCUS-C9',id:'NCT04931862',s:'TERMINATED',d:'2023-10-23'}]},
   {ev:'early',w:'Early evidence: one person, biomarker only',h:'An optimised C9orf72 antisense in one person',
    txt:`Repeated intrathecal dosing was well tolerated with significant falls in CSF poly(GP). The authors state that further trials are needed to show safety and efficacy [[Tran2022]].`},
@@ -118,7 +118,7 @@ const CU_CARDS=[
    txt:`A February 2026 company release reported a reduction in pNfH in the low-dose group, an ALSFRS-R "trend", and a significant result only in a post hoc subgroup. No numbers were released. The company plans a phase 3 in 2027. 69 are enrolled [[NCT05633459,QurAlis2026]].`,
    reg:[{n:'ANQUR',id:'NCT05633459',s:'ACTIVE_NOT_RECRUITING',d:'2026-05-15'}]}
  ]},
- {t:'Other TDP-43 routes: UNC13A, antibodies, PIKFYVE',lede:`Silencing TDP-43 itself is probably not appropriate given its critical cellular functions, which is why indirect routes were pursued [[Becker2017]].`,items:[
+ {t:'Other TDP-43 routes: UNC13A, antibodies, PIKFYVE',lede:`TDP-43 does vital work in the cell, so switching it off directly is probably unwise; that is why indirect routes were tried [[Becker2017]].`,items:[
   {ev:'hyp',h:'UNC13A',
    txt:`TDP-43 loss lets a cryptic exon into UNC13A RNA and lowers the protein; the ALS and FTD risk variants sit in that intron and increase cryptic exon inclusion. Both 2022 papers name it a therapeutic target [[Ma2022,Brown2022]].`},
   {ev:'neg',w:'Tested and negative (interim analysis)',h:'Lithium in UNC13A C/C carriers (TRICALS)',

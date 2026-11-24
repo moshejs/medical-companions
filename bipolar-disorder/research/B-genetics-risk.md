@@ -65,7 +65,7 @@ Access notes:
 - **Dutch Bipolar Offspring Study, 12-year follow-up** (140 offspring aged 12–21 at entry; 108 followed for 12 years):
   - 72% developed any DSM-IV axis I disorder, 54% a mood disorder, 13% a bipolar spectrum disorder, and only 3% bipolar I disorder.
   - In 88% of those with a bipolar spectrum disorder, the illness began with a depressive episode [[Mesman2013]].
-- In the same cohort at 12 years, 24% of offspring with a unipolar mood disorder developed a bipolar spectrum disorder over time. Mood disorders were often recurrent (31%) and comorbid (67%), and began before age 25 [[Mesman2013]].
+- In the same cohort at 12 years, a bipolar spectrum disorder later developed in 24% of the offspring who had a unipolar mood disorder. Mood disorders were often recurrent (31%) and comorbid (67%), and began before age 25 [[Mesman2013]].
 - **Dutch study, 22-year follow-up** (n = 100, mean age 38.3):
   - No new cases of bipolar disorder appeared after the 12-year visit. Lifetime bipolar disorder was 11–13% (bipolar I 4%, bipolar II 7%).
   - Lifetime prevalence was 65% for any mood disorder and 36% for major depression; 37% had recurrent mood episodes [[Helmink2025]].
@@ -175,9 +175,9 @@ Access notes:
 - **O'Connell 2025.** Using the multi-ancestry score without self-reported cases [[OConnell2025]]:
   - top PRS quintile vs middle quintile: OR 7.06 (95% CI 3.9–10.4)
   - median AUC: 0.70 (95% CI 0.67–0.73)
-  - the authors conclude that "the BD liability explained remains insufficient for diagnostic prediction in the general population."
+  - the authors conclude that the share of bipolar liability it explains is still too small to predict diagnosis in the general population.
 - **Earlier result.** Stahl 2019 reported a PRS liability-scale R² of 0.04 (observed Nagelkerke R² 0.08) [[Stahl2019]].
-- PRS alone "will never be able" to establish or definitively predict a diagnosis of a common complex condition such as a mental disorder. Genes contribute only part of the risk, and a PRS captures only part of the genetic part. Combining PRS with clinical risk factors may help (Established) [[Murray2021PRS]].
+- The authors argue that a PRS on its own can never settle or firmly predict the diagnosis of a common, complex condition such as a mental disorder. Genes contribute only part of the risk, and a PRS captures only part of the genetic part. Combining PRS with clinical risk factors may help (Established) [[Murray2021PRS]].
 - PRS currently have low discriminative ability in the general population. They may be more useful where the prior probability is higher, such as early illness. They have a weaker evidence base in non-European ancestries [[LewisVassos2020]].
 - **Pittsburgh offspring with PRS** (156 parents with bipolar disorder, 251 of their offspring, 13 years of follow-up):
   - Bipolar disorder developed in 23.1% of offspring of parents with bipolar disorder vs 5.1% of offspring of other parents; depression in 50.2% vs 32.9% [[Birmaher2022]].

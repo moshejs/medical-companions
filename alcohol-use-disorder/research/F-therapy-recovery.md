@@ -48,7 +48,7 @@ Access notes:
 - A meta-analysis of relapse prevention (26 studies, 9,504 participants) found it generally effective, especially for alcohol problems and when combined with medication [[Irvin1999]].
 - In a meta-analysis of CBT for alcohol or other drug use disorders, CBT beat minimal treatment with a moderate effect. It beat non-specific therapy or usual care only at early follow-up, and it was not better than another specific therapy [[Magill2019]].
 - CBT combined with medication did better than usual care (Hedges g 0.18–0.28; 30 RCTs). CBT was not better than other evidence-based therapies such as MET or contingency management [[Ray2020CBT]].
-- The authors of that meta-analysis concluded that best practice should include medication plus CBT or another evidence-based therapy, rather than usual clinical management or non-specific counselling [[Ray2020CBT]].
+- The authors of that meta-analysis concluded that medicine is best combined with CBT or another proven therapy, not with routine clinical management or general counselling [[Ray2020CBT]].
 - In COMBINE (1,383 people with alcohol dependence), percent days abstinent during treatment was 80.6 with naltrexone plus medical management, 79.2 with the combined behavioural intervention (CBI) plus medical management, 77.1 with both, and 75.1 with placebo plus medical management [[Anton2006COMBINE]].
 - In COMBINE, CBI alone without pills or medical management did worse (66.6 percent days abstinent) than placebo plus medical management (73.8). The authors noted that placebo pills and meeting a health professional had a positive effect [[Anton2006COMBINE]].
 
@@ -135,7 +135,7 @@ Access notes:
 - In that cohort, relapse by 16 years was more likely in people who drank more, did not see their drinking as a problem, had less self-efficacy and relied more on avoidance coping [[Moos2006Relapse]].
 - In a review of natural-recovery studies, low-risk drinking was reported as an outcome in 78.6% of alcohol samples [[Sobell2000]].
 - In a 60-year cohort of inner-city Boston men, by age 70 the 72 men with alcohol dependence who were followed up were: 54% died, 32% abstinent, 1% controlled drinking, and 12% still had alcohol problems [[Vaillant2003]].
-- In that cohort, prior alcohol dependence and AA attendance were the two best predictors of sustained abstinence. Alcohol problems could also persist for decades without remission [[Vaillant2003]].
+- In that cohort, a history of alcohol dependence and going to AA best predicted lasting abstinence. Alcohol problems could also last for decades without remission [[Vaillant2003]].
 - In NESARC, only 14.6% of people with lifetime AUD had ever received alcohol treatment, including mutual-help groups [[Cohen2007]].
 - In NESARC-III (2012–13), lifetime AUD prevalence was 29.1%, and only 19.8% of people with lifetime AUD had ever been treated [[Grant2015NESARC]].
 - Worldwide, about one in six people with AUD receive treatment (pooled 17.3%, 95% CI 12.8–22.3%). The figure is 9.3% in low and lower-middle-income countries [[Mekonen2021]].

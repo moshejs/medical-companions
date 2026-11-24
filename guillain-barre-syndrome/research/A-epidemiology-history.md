@@ -17,14 +17,14 @@ Access notes:
 
 ### what · What GBS is
 - The EAN/PNS 2023 guideline defines GBS as "an acute polyradiculoneuropathy"; besides weakness and sensory disturbance, people may have cranial nerve involvement, respiratory insufficiency, autonomic dysfunction and pain [[vanDoorn2023]].
-- GBS is a rare but potentially fatal immune-mediated disease of the peripheral nerves and nerve roots, usually triggered by infections [[Leonhard2019]].
+- GBS is an uncommon immune disorder of the peripheral nerves and their roots; it usually follows an infection and can be fatal [[Leonhard2019]].
 - GBS is described as the most common cause of acute flaccid paralysis worldwide [[Shahrizaila2021]] and as "the most common and most severe acute paralytic neuropathy", with about 100,000 people developing it each year worldwide [[Willison2016]].
 - The acute flaccid paralysis surveillance programme was built for poliomyelitis, and it covers children up to 15 years. Studies from China and Bangladesh show GBS is now the predominant cause of acute flaccid paralysis in that age group [[Papri2021]].
 - Classic GBS is an acute-onset ascending sensorimotor neuropathy, but it can present atypically or as a clinical variant [[Leonhard2019]].
 - Classic sensorimotor GBS is rapidly progressive symmetrical weakness with sensory signs and absent or reduced tendon reflexes, usually reaching its worst point (nadir) within 2 weeks [[Leonhard2019]].
-- GBS is defined clinically as a peripheral neuropathy causing limb weakness that progresses for up to 4 weeks before reaching a plateau [[Hughes1997]].
+- Clinically, GBS is a peripheral neuropathy in which limb weakness worsens for as long as 4 weeks and then levels off [[Hughes1997]].
 - GBS has a monophasic course. Treatment-related fluctuations and relapses occur in a minority [[Leonhard2019]]. In 494 Dutch adults, 95% had a monophasic course, and 10% of those had a treatment-related fluctuation [[Fokke2014]].
-- Changing the diagnosis to acute-onset chronic inflammatory demyelinating polyradiculoneuropathy should be considered if progression continues after 8 weeks from onset, which occurs in around 5% of people first diagnosed with GBS [[vanDoorn2023]].
+- If worsening goes on beyond 8 weeks from onset, the diagnosis should be reconsidered as acute-onset chronic inflammatory demyelinating polyradiculoneuropathy; this happens in about 5% of people first diagnosed with GBS [[vanDoorn2023]].
 - After the progressive phase comes a plateau lasting days to weeks or months, followed by recovery [[Leonhard2019]].
 
 ### what · How it presents, in outline
@@ -33,7 +33,7 @@ Access notes:
 - Weakness is always bilateral but can be asymmetrical, mainly proximal or mainly distal, and it can start in the legs, the arms or all limbs at once [[Leonhard2019]].
 - A minority, particularly those with a pure motor variant and the acute motor axonal neuropathy (AMAN) subtype, may keep normal or even exaggerated reflexes [[Leonhard2019]].
 - Severe diffuse pain or isolated cranial nerve dysfunction can come before the weakness [[Leonhard2019]].
-- Dysautonomia is common and can include blood pressure or heart rate instability, pupil changes, and bowel or bladder dysfunction [[Leonhard2019]].
+- Autonomic disturbance is common: blood pressure or heart rate may swing, the pupils may change, and bowel or bladder function may be affected [[Leonhard2019]].
 - Children under 6 can present with poorly localised pain, refusal to bear weight, irritability, meningism or an unsteady gait [[Leonhard2019]]. GBS is correctly diagnosed at admission in only about one-third of affected preschool-aged children [[Papri2021]].
 - Maximum disability within 24 hours of onset, or after 4 weeks, should prompt a search for another diagnosis [[Leonhard2019]].
 - Time to nadir varies by source: within 2 weeks in 80%, 4 weeks in 97% and 6 weeks in all (494 Dutch adults) [[Fokke2014]]; within 2 weeks in 96% and 4 weeks in 99.8% (IGOS, n=858 with data) [[Doets2018]].

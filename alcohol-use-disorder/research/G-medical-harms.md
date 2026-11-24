@@ -63,7 +63,7 @@ Terminology: the AASLD now uses "alcohol-associated liver disease (ALD)" and "al
 - In the global AH study, the Maddrey score had the lowest accuracy (AUROC 0.701 for 28-day mortality) and MELD-type scores performed best; the authors suggested the Maddrey score should no longer be used for prognosis [[MoralesArraez2022]].
 - The Lille model combines age, renal insufficiency, albumin, prothrombin time, bilirubin and the change in bilirubin by day 7 of corticosteroids; its AUROC for 6-month death was 0.89 [[Louvet2007Lille]].
 - A Lille score ≥0.45 defines "nonresponse"; it applied to 40% of steroid-treated people, whose 6-month survival was 25% versus 85% for responders [[Louvet2007Lille]].
-- ACG wording: "Prednisolone is used in a dose of 40 mg per day for a total duration of 4 weeks", with methylprednisolone 32 mg/day IV for those unable to take oral medicine (quoted as published, not as instructions) [[Singal2018ACG]].
+- ACG guideline: prednisolone 40 mg a day for 4 weeks in total, with methylprednisolone 32 mg/day IV for those unable to take oral medicine (reported as published, not as instructions) [[Singal2018ACG]].
 - In the 1989 trial, 28-day mortality was 35% (11/31) with placebo versus 6% (2/35) with methylprednisolone in severe AH (Maddrey >32 or spontaneous encephalopathy) [[Carithers1989]].
 - STOPAH (1,103 randomised; 2×2 factorial): 28-day mortality was 17% placebo–placebo, 14% prednisolone, 19% pentoxifylline and 13% both [[Thursz2015STOPAH]].
 - In STOPAH, the odds ratio for 28-day death with prednisolone was 0.72 (95% CI 0.52–1.01; P=0.06), with no benefit at 90 days or 1 year; pentoxifylline OR was 1.07 (0.77–1.49) [[Thursz2015STOPAH]].
@@ -109,7 +109,7 @@ Terminology: the AASLD now uses "alcohol-associated liver disease (ALD)" and "al
 
 ### body · how much is too much? risk curves, the J-curve and Mendelian randomisation
 - GBD 2016: alcohol was the seventh leading risk factor for deaths and DALYs globally and the leading risk factor in people aged 15–49, accounting for 12.2% of male and 3.8% of female deaths at those ages [[GBD2016Alcohol]].
-- GBD 2016 concluded that the level of drinking that minimised harm across health outcomes was zero (95% UI 0.0–0.8) standard drinks per week, with a standard drink defined as 10 g of alcohol [[GBD2016Alcohol]].
+- GBD 2016 concluded that, across all health outcomes, the amount of drinking with the least harm was zero (95% UI 0.0–0.8) standard drinks a week, with a standard drink defined as 10 g of alcohol [[GBD2016Alcohol]].
 - In GBD 2016, the risk of all cancers rose monotonically with consumption; only ischaemic heart disease showed a significant J-shaped curve [[GBD2016Alcohol]].
 - GBD 2020 made the risk curve depend on age and region: for people aged 15–39 in 2020, the theoretical minimum risk exposure level (TMREL) ranged from 0 to 0.603 standard drinks per day [[GBD2020Alcohol]].
 - For people aged 40 and older, GBD 2020 found a J-shaped curve in all regions, with TMREL 0.114–1.87 standard drinks per day [[GBD2020Alcohol]].
@@ -155,7 +155,7 @@ Terminology: the AASLD now uses "alcohol-associated liver disease (ALD)" and "al
 - In a US multicentre study, very heavy drinking (≥5 drinks/day) was associated with chronic pancreatitis (OR 3.10, 95% CI 1.87–5.14), and smoking was an independent, dose-dependent risk factor [[Yadav2009ArchIntMed]].
 
 ### body · brain and dementia
-- In a French national hospital cohort (over 1.1 million people with dementia), alcohol use disorders were the strongest modifiable risk factor for dementia onset: adjusted HR 3.34 in women and 3.36 in men [[Schwarzinger2018LPH]].
+- In a French national hospital cohort (over 1.1 million people with dementia), alcohol use disorders were the largest risk factor for dementia that could be changed: adjusted HR 3.34 in women and 3.36 in men [[Schwarzinger2018LPH]].
 - Of 57,353 cases of early-onset dementia (<65 years), 38.9% were alcohol-related by definition and a further 17.6% had a co-diagnosis of an alcohol use disorder [[Schwarzinger2018LPH]].
 - "Alcohol-related brain damage" is an umbrella term covering alcohol-related dementia and Wernicke-Korsakoff syndrome; people can partly recover in brain structure and function if abstinence is maintained [[Ridley2013AlzResTher]].
 - Over 30 years in Whitehall II, drinking 14–21 units/week was associated with three times the odds of right hippocampal atrophy (OR 3.4), and >30 units/week with OR 5.8, versus abstinence; light drinking showed no protective effect [[Topiwala2017BMJ]].
@@ -167,13 +167,13 @@ Terminology: the AASLD now uses "alcohol-associated liver disease (ALD)" and "al
 - For non-traffic injuries, the odds ratio rises 1.30 per 10 g, reaching 24.2 at 140 g; the authors state that no level of drinking is safe when driving [[Taylor2010DAD]].
 - Alcohol interacts with many medicines in two ways: by changing how the liver handles them (pharmacokinetic) and by adding to their effects, especially sedation (pharmacodynamic) [[Weathermon1999]].
 - Classes that interact include antibiotics, antidepressants, antihistamines, barbiturates, benzodiazepines, muscle relaxants, opioids, non-opioid pain medicines and warfarin, as well as some over-the-counter and herbal products [[Weathermon1999]].
-- The US opioid label boxed warning (OxyContin) states that using opioids with benzodiazepines or other CNS depressants, "including alcohol, may result in profound sedation, respiratory depression, coma, and death" [[FDA-OxyContin]].
+- The US opioid label boxed warning (OxyContin) states that using opioids with benzodiazepines or other CNS depressants, alcohol included, can cause deep sedation, breathing that slows or stops, coma and death [[FDA-OxyContin]].
 - The US alprazolam (Xanax) boxed warning states that misuse of benzodiazepines often involves alcohol and other substances, which is associated with more serious adverse outcomes [[FDA-Xanax]].
 - The US acetaminophen OTC label warns that severe liver damage may occur if a person takes it while having 3 or more alcoholic drinks every day [[FDA-Tylenol]].
 
 ### pregnancy · no known safe amount
 - CDC: "There is no known safe amount of alcohol consumption during pregnancy"; drinking during pregnancy can cause FASD and might increase the risk of miscarriage and stillbirth [[Gosdin2022MMWR]].
-- AAP clinical report: prenatal alcohol exposure is the leading preventable cause of birth defects and intellectual and neurodevelopmental disabilities [[Williams2015AAP]].
+- AAP clinical report: alcohol exposure before birth is the top preventable cause of birth defects and of intellectual and neurodevelopmental disability [[Williams2015AAP]].
 - AAP: during pregnancy no amount of alcohol should be considered safe, there is no safe trimester, all forms (beer, wine, liquor) pose similar risk, and binge drinking poses dose-related risk [[Williams2015AAP]].
 - AAP: alcohol-related birth defects and developmental disabilities are completely preventable when no alcohol is used in pregnancy; the neurocognitive and behavioural effects are lifelong; early recognition and therapy improve outcomes [[Williams2015AAP]].
 - In US BRFSS data 2018–2020, 13.5% of pregnant adults reported current drinking and 5.2% reported binge drinking, each about 2 percentage points higher than in 2015–2017 [[Gosdin2022MMWR]].
@@ -197,7 +197,7 @@ Terminology: the AASLD now uses "alcohol-associated liver disease (ALD)" and "al
 - Receiving the diagnosis at a younger age and growing up in a stable, nurturing home raised the odds of avoiding these adverse outcomes 2- to 4-fold [[Streissguth2004JDBP]].
 
 ### pregnancy · breastfeeding
-- LactMed (NIH) states that with casual alcohol use (such as one glass of wine or beer) it is best to wait 2 to 2.5 hours per drink before nursing (quoted as published) [[LactMed-Alcohol]].
+- LactMed (NIH) states that with casual alcohol use (such as one glass of wine or beer) waiting 2 to 2.5 hours for each drink before nursing is advised (reported as published) [[LactMed-Alcohol]].
 - Breast milk alcohol levels closely follow blood alcohol levels and peak 30 to 60 minutes after a drink; food delays the peak [[LactMed-Alcohol]].
 - Nursing after 1 or 2 drinks can reduce the infant's milk intake by 20–23% and cause agitation and poor sleep; 5 or more drinks can reduce milk let-down [[LactMed-Alcohol]].
 - An infant receives about 5–6% of the weight-adjusted maternal dose through milk; newborns metabolise alcohol at about half the adult rate [[Haastrup2014BCPT]].

@@ -1,23 +1,23 @@
 /* =============== 2.2 stages =============== */
-const ST_HY='1967 wording as commonly reproduced in secondary sources; the original text could not be checked (unverified).';
+const ST_HY='our summary of the 1967 stage; the original paper could not be checked (unverified)';
 const ST_STEPS=[
  {from:0,at:.08,k:'Stage 1',t:'One side',
-  txt:`"Unilateral involvement only, usually with minimal or no functional impairment." (${ST_HY}) [[Hoehn1967,Goetz2004HY]] In a Singapore cohort of 695 people, the median time to move from stage 1 to stage 2 was 20 months. [[Zhao2010]]`,
+  txt:`Signs on one side of the body only, usually with little or no effect on function (${ST_HY}). [[Hoehn1967,Goetz2004HY]] In a Singapore cohort of 695 people, the median time to move from stage 1 to stage 2 was 20 months. [[Zhao2010]]`,
   pt:'Signs are on one side of the body only, for example a tremor or stiffness in one hand. Everyday life is usually little affected.',
   hook:'Hoehn and Yahr 1 = one side only.'},
  {from:.2,at:.28,k:'Stage 2',t:'Both sides, balance kept',
-  txt:`"Bilateral or midline involvement, without impairment of balance." (${ST_HY}) [[Hoehn1967,Goetz2004HY]] The widely used modified scale adds 1.5 (one side plus the trunk) and 2.5 (mild disease on both sides, with recovery on the pull test). [[Goetz2004HY]] In the Singapore cohort the median time from 2 to 2.5 was 62 months, the longest step. [[Zhao2010]]`,
+  txt:`Signs on both sides or in the midline, with balance still intact (${ST_HY}). [[Hoehn1967,Goetz2004HY]] The widely used modified scale adds 1.5 (one side plus the trunk) and 2.5 (mild disease on both sides, with recovery on the pull test). [[Goetz2004HY]] In the Singapore cohort the median time from 2 to 2.5 was 62 months, the longest step. [[Zhao2010]]`,
   pt:'Both sides of the body are affected, or the middle of the body such as posture or speech, but balance is still normal.'},
  {from:.42,at:.5,k:'Stage 3',t:'Balance affected',
-  txt:`"First signs of impaired righting reflexes", seen as unsteadiness on turning or when pushed; some restriction of activities, but people remain physically able to lead independent lives. (${ST_HY}) [[Hoehn1967,Goetz2004HY]] Median 25 months from 2.5 to 3. [[Zhao2010]] In CamPaIGN a non-tremor-dominant motor type, age and other illnesses predicted reaching postural instability sooner, and 68% had it by 10 years. [[WilliamsGray2013]]`,
+  txt:`The first loss of the reflexes that keep a person upright, seen as unsteadiness on turning or when pushed. Activities are somewhat limited, but people can still live independently (${ST_HY}). [[Hoehn1967,Goetz2004HY]] Median 25 months from 2.5 to 3. [[Zhao2010]] In CamPaIGN a non-tremor-dominant motor type, age and other illnesses predicted reaching postural instability sooner, and 68% had it by 10 years. [[WilliamsGray2013]]`,
   pt:'Balance starts to go: the person may stagger when turning or when pulled backwards, but still lives independently.',
   hook:'Hoehn and Yahr stage 3 = first postural instability (pull test) with physical independence.'},
  {from:.62,at:.7,k:'Stage 4',t:'Severe disability, still walks',
-  txt:`"Fully developed, severely disabling disease"; the person can still walk and stand unassisted but is markedly incapacitated. (${ST_HY}) [[Hoehn1967,Goetz2004HY]] Median 24 months from 3 to 4. [[Zhao2010]] Falls are common across the course: in prospective studies 60.5% fell at least once and 39% fell repeatedly, and 47% of 6,620 people surveyed reported regular freezing. [[Allen2013,Macht2007]]`,
+  txt:`The disease is fully developed and severely disabling, though the person can still stand and walk without help (${ST_HY}). [[Hoehn1967,Goetz2004HY]] Median 24 months from 3 to 4. [[Zhao2010]] Falls are common across the course: in prospective studies 60.5% fell at least once and 39% fell repeatedly, and 47% of 6,620 people surveyed reported regular freezing. [[Allen2013,Macht2007]]`,
   pt:'Walking and standing are still possible without help, but the illness now limits most activities.',
   hook:'Stage 4 still walks and stands unassisted; needing a wheelchair or bed unless aided is stage 5.'},
  {from:.82,at:.9,k:'Stage 5',t:'Wheelchair or bed',
-  txt:`"Confinement to bed or wheelchair unless aided." (${ST_HY}) [[Hoehn1967,Goetz2004HY]] Median 26 months from 4 to 5 in the Singapore cohort. [[Zhao2010]] In the Sydney cohort, 48% of the people still alive at 20 years were in nursing homes. [[Hely2008]]`,
+  txt:`The person is in a wheelchair or bed unless helped (${ST_HY}). [[Hoehn1967,Goetz2004HY]] Median 26 months from 4 to 5 in the Singapore cohort. [[Zhao2010]] In the Sydney cohort, 48% of the people still alive at 20 years were in nursing homes. [[Hely2008]]`,
   pt:'The person needs help to get about and spends most of the day in a wheelchair or bed.',
   hook:'The scale says nothing about non-motor problems such as mood, sleep or thinking. [[Goetz2004HY]]'}
 ];
@@ -29,7 +29,7 @@ const ST_CHIPS=[ /* [sides, balance, mobility] as [lines, severity 0 good 1 caut
  [ [['both sides'],2],[['unsteady when','pulled or turning'],1],[['walks unaided'],0] ],
  [ [['both sides'],2],[['impaired'],2],[['walks unaided,','markedly limited'],1] ],
  [ [['both sides'],2],[['impaired'],2],[['wheelchair or bed','unless aided'],2] ] ];
-const ST_WORD=['Unilateral involvement only, usually with minimal or no functional impairment.','Bilateral or midline involvement, without impairment of balance.','First signs of impaired righting reflexes (unsteady on turning or when pushed); some restriction of activities, but physically able to lead an independent life.','Fully developed, severely disabling disease; can still walk and stand unassisted but markedly incapacitated.','Confinement to bed or wheelchair unless aided.'];
+const ST_WORD=['Signs on one side only; daily function little or not affected.','Signs on both sides or in the midline; balance still normal.','Balance starts to fail (unsteady on turning or when pushed); some activities limited, but still independent.','Severe disability; can still stand and walk without help.','In a wheelchair or bed unless helped.'];
 const ST_SHORT=['one side','both','balance','severe','chair, bed'],ST_MID=['One side','Both sides','Balance','Severe','Chair or bed'];
 const ST_TIME=[ ['1→2',20],['2→2.5',62],['2.5→3',25],['3→4',24],['4→5',26] ];
 const ST_NM=[ ['Any non-motor symptom',98.6,'PRIAMO'],['Fatigue',58,'PRIAMO'],['Anxiety',56,'PRIAMO'],['REM sleep behaviour disorder',46,'meta-analysis'],['Insomnia',44,'meta-analysis'],['Apathy',39.8,'23 studies'],['Urgency or nocturia',35,'PRIAMO'],['Depressive symptoms',35,'36 articles'],['Daytime sleepiness',35,'meta-analysis'],['Orthostatic hypotension',30.1,'25 studies'],['Mild cognitive impairment',27,'without dementia'],['Dementia',24.5,'review'] ];
@@ -99,8 +99,8 @@ inits.stages=()=>{
         lines.forEach((ln,j)=>{s+=`<text x="${f1(x+10)}" y="${L.cy+38+j*15}" class="${lines.length>1||N?'t-xs':'t-sm'}" style="fill:var(--ink);font-weight:600">${ln}</text>`})});
       /* wording */
       const wl=stWrap(ST_WORD[k],L.wc);
-      s+=`<rect x="${L.px}" y="${L.wy}" width="${L.pw}" height="${L.wh}" rx="10" style="fill:var(--panel);stroke:var(--line)"/><text x="${L.px+12}" y="${L.wy+18}" class="t-xs" style="fill:var(--warn);font-weight:700">AS COMMONLY REPRODUCED · 1967 WORDING UNVERIFIED</text>`;
-      wl.forEach((ln,j)=>{s+=`<text x="${L.px+12}" y="${L.wy+38+j*16}" class="t-sm" style="fill:var(--ink)">${j===0?'“':''}${ln}${j===wl.length-1?'”':''}</text>`});
+      s+=`<rect x="${L.px}" y="${L.wy}" width="${L.pw}" height="${L.wh}" rx="10" style="fill:var(--panel);stroke:var(--line)"/><text x="${L.px+12}" y="${L.wy+18}" class="t-xs" style="fill:var(--warn);font-weight:700">THE STAGE IN PLAIN WORDS · OUR SUMMARY</text>`;
+      wl.forEach((ln,j)=>{s+=`<text x="${L.px+12}" y="${L.wy+38+j*16}" class="t-sm" style="fill:var(--ink)">${ln}</text>`});
       /* subtype bar: DATATOP 800 */
       const sx0=L.px+12,sw=L.pw-24,sy=L.sy;
       s+=`<rect x="${L.px}" y="${sy}" width="${L.pw}" height="${L.sh}" rx="10" style="fill:var(--panel);stroke:var(--line)"/><text x="${sx0}" y="${sy+18}" class="t-xs" style="fill:var(--ink);font-weight:700">MOTOR SUBTYPES AT BASELINE · DATATOP, 800 PEOPLE</text>`;
@@ -131,7 +131,7 @@ inits.stages=()=>{
   const setSt=stepWire($('#stSteps'),ST_STEPS,rg,draw,stop);
   svg.addEventListener('click',e=>{const b=e.target.closest('[data-st-go]');if(!b)return;stop();const s=ST_STEPS[+b.dataset.stGo];rg.value=s.at;draw(s.at)});
   const setView=v=>{nm=v;$('#stViewM').setAttribute('aria-pressed',!v);$('#stViewN').setAttribute('aria-pressed',v);
-    $('#stCap').textContent=v?'Non-motor view: pooled or survey prevalences from different studies (PRIAMO, meta-analyses and reviews), shown for people with Parkinson\'s at any stage, not by stage. The figure and the bar of months still follow the stage.':'Schematic figure. Stage wording is the 1967 scale as commonly reproduced; the original paper could not be checked (unverified). The bar places one cohort\'s median months between stages end to end (Zhao 2010, Singapore, modified scale with stage 2.5); a sum of medians is not a median time to stage 5.';
+    $('#stCap').textContent=v?'Non-motor view: pooled or survey prevalences from different studies (PRIAMO, meta-analyses and reviews), shown for people with Parkinson\'s at any stage, not by stage. The figure and the bar of months still follow the stage.':'Schematic figure. Stage descriptions are our own summary of the 1967 scale; the original paper could not be checked (unverified). The bar places one cohort\'s median months between stages end to end (Zhao 2010, Singapore, modified scale with stage 2.5); a sum of medians is not a median time to stage 5.';
     draw(+rg.value)};
   const setSub=v=>{pigd=v;$('#stSubT').setAttribute('aria-pressed',!v);$('#stSubP').setAttribute('aria-pressed',v);draw(+rg.value)};
   $('#stViewM').onclick=()=>setView(false);$('#stViewN').onclick=()=>setView(true);

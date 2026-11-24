@@ -181,9 +181,9 @@ Access notes:
 - Whatever feeding method a parent chooses, they should be supported to complete therapy. Formula and safe-preparation advice should be provided if they do not breastfeed [[Maugans2023]].
 - Infection control should not usually separate a parent from their newborn. Most pregnant people on effective therapy are unlikely to transmit TB, and fear-based practices can deepen stigma and harm adherence [[Maugans2023]].
 - People of reproductive age on TB treatment should be offered pregnancy testing and family-planning referral free of charge and without judgment. Rifamycins can reduce the effect of oral hormonal contraception [[Maugans2023]].
-- The rifampin label: "the reliability of oral or other systemic hormonal contraceptives may be affected", and alternative contraceptive measures should be considered [[FDA-Rifampin]].
+- The rifampin label warns that oral and other systemic hormonal contraceptives may work less reliably, and that other methods of contraception should be considered [[FDA-Rifampin]].
 - The rifampin label says that use in the last weeks of pregnancy can cause postnatal bleeding in mother and infant, for which vitamin K may be indicated [[FDA-Rifampin]].
-- The isoniazid label says that "the low levels of isoniazid in breast milk do not threaten the neonate". The ethambutol label says the drug is excreted in breast milk [[FDA-Isoniazid,FDA-Ethambutol]].
+- The isoniazid label says the small amounts of isoniazid that reach breast milk are not a danger to the newborn. The ethambutol label says the drug is excreted in breast milk [[FDA-Isoniazid,FDA-Ethambutol]].
 - The guidance suggests giving pregnant people an "emergency" supply of TB medicines to take during and after delivery, with a referral letter documenting their medication needs, before the due date [[Maugans2023]].
 
 ### living · Rehabilitation after TB

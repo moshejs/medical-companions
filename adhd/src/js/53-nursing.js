@@ -1,7 +1,7 @@
 /* =============== 5.3 Nursing care =============== */
 const NU_STEPS=[
  {from:0,at:.1,k:'Station 1',t:'Referral and assessment',
-  txt:`Diagnosis is made by a specialist after a full assessment. NICE says "a diagnosis of ADHD should not be made solely on the basis of rating scale or observational data": parent and teacher scales are aids, not tests. For children under 5, group parent training comes first, and NICE says do not offer medication "without a second specialist opinion". [[NICE2018F]]`,
+  txt:`Diagnosis is made by a specialist after a full assessment. NICE says rating scales or observation alone are not enough to make the diagnosis: parent and teacher scales are aids, not tests. For children under 5, group parent training comes first, and NICE says do not offer medication "without a second specialist opinion". [[NICE2018F]]`,
   pt:`The questionnaires you fill in help the specialist, but they cannot diagnose ADHD on their own.`,
   hook:`Rating scales support, but never replace, a full diagnostic assessment.`,
   ck:[[`Parent and teacher rating scales collected as aids`,`NICE2018F`],[`Under 5: parent training first; medication only after a second specialist opinion`,`NICE2018F`],[`Explain that parent training "does not imply bad parenting"`,`NICE2018F`]],
@@ -31,7 +31,7 @@ const NU_STEPS=[
   ck:[[`Benefits, adverse effects, school or work`,`NICE2018F`],[`Effects of missed doses and breaks`,`NICE2018F`],[`Consider a trial off or a lower dose`,`NICE2018F`],[`Consider a holiday break if growth is affected`,`NICE2018F`]],
   doc:`The reasons for continuing medication.`},
  {from:.85,at:1,k:'Station 6',t:'Transition to adult services',
-  txt:`NICE: reassess at school-leaving age, and if treatment is still needed the transfer "should usually be completed by the time the young person is 18 years", with a formal meeting between services considered and a full assessment by adult services. The AAP suggests planning from about 14. In UK surveillance of young people on ADHD medication, 64% had a referral accepted, 22% attended a first adult appointment and 6% had an optimal transition. In UK primary care, 63% were still on medication at 17 and 41% at 18. [[NICE2018F,Wolraich2019,Eke2020,NewloveDelgado2018]]`,
+  txt:`NICE: reassess at school-leaving age, and if treatment is still needed the transfer should normally be finished by age 18, with a formal meeting between services considered and a full assessment by adult services. The AAP suggests planning from about 14. In UK surveillance of young people on ADHD medication, 64% had a referral accepted, 22% attended a first adult appointment and 6% had an optimal transition. In UK primary care, 63% were still on medication at 17 and 41% at 18. [[NICE2018F,Wolraich2019,Eke2020,NewloveDelgado2018]]`,
   pt:`Moving from children's to adult services is where many people fall through the gap. Start talking about it around age 14.`,
   hook:`Only 6% of UK young people on ADHD medication had an optimal transition.`,
   ck:[[`Reassess at school-leaving age`,`NICE2018F`],[`Plan from about age 14`,`Wolraich2019`],[`Formal meeting between child and adult services`,`NICE2018F`],[`Transfer usually completed by 18`,`NICE2018F`]],

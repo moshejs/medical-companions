@@ -5,14 +5,14 @@ const MT_STEPS=[
   pt:`During pregnancy the heart beats faster, more blood is pumped and breathing gets deeper. This is normal and healthy.`,
   hook:`Pregnancy: heart rate +10–20 bpm, cardiac output +40%, SVR −25–30%, minute ventilation +40–50%. [[SomaPillay2016]]`},
  {from:.2,at:.32,k:'Step 2 · the overlap',t:'Early sepsis pushes the same way',
-  txt:`These normal changes overlap with early signs of sepsis: a fast heart rate, lower blood pressure and faster breathing. That is why obstetric-specific thresholds and scores were developed. SMFM 2023 recommends considering sepsis in pregnant or postpartum patients with otherwise unexplained end-organ damage and a suspected or confirmed infection "regardless of the presence of fever" (GRADE 1C). [[Albright2014SOS,SomaPillay2016,SMFM2023Sepsis]]`,
+  txt:`These normal changes overlap with early signs of sepsis: a fast heart rate, lower blood pressure and faster breathing. That is why obstetric-specific thresholds and scores were developed. SMFM 2023 recommends thinking of sepsis whenever a pregnant or postpartum patient has organ damage with no other explanation and a suspected or confirmed infection, "regardless of the presence of fever" (GRADE 1C). [[Albright2014SOS,SomaPillay2016,SMFM2023Sepsis]]`,
   pt:`Because pregnancy already changes heart rate, breathing and blood pressure, the warning signs of sepsis can be easier to miss. Feeling very unwell with or without a fever, during pregnancy or after birth, needs urgent help.`,
   hook:`Fever is not required: SMFM 2023 says consider sepsis "regardless of the presence of fever". [[SMFM2023Sepsis]]`},
  {from:.4,at:.52,k:'Step 3 · blood tests',t:'The lab ranges move too',
   txt:`Plasma volume rises by about 50% by 34 weeks, so haemoglobin falls. In 5–10% of women, platelets fall to 100–150 × 10⁹/L by term with no disease present. Arterial pH is about 7.44 and serum bicarbonate 18–22 mmol/L because of the compensated respiratory alkalosis. [[SomaPillay2016]]`,
   pt:`Some blood test results are different in pregnancy, so the team reads them against pregnancy ranges.`},
  {from:.6,at:.72,k:'Step 4 · warning charts',t:'MEOWS: good at ruling out',
-  txt:`MEOWS, recommended for all obstetric inpatients by the UK 2003–05 enquiry, was 89% sensitive and 79% specific in 676 consecutive admissions, with a PPV of 39% and NPV of 98% for morbidity. A GLOSS analysis of 21 early warning systems in 2,560 women found that "no score demonstrated enough diagnostic accuracy to be used alone to identify sepsis". [[Singh2012MEOWS,Chimwaza2025EWS]]`,
+  txt:`MEOWS, recommended for all obstetric inpatients by the UK 2003–05 enquiry, was 89% sensitive and 79% specific in 676 consecutive admissions, with a PPV of 39% and NPV of 98% for morbidity. A GLOSS analysis of 21 early warning systems in 2,560 women found none accurate enough to identify sepsis on its own. [[Singh2012MEOWS,Chimwaza2025EWS]]`,
   pt:`Warning charts help staff notice when someone is getting sicker. No single score is perfect, and they are not for checking yourself at home.`,
   hook:`MEOWS: sensitivity 89%, specificity 79%, PPV 39%, NPV 98%. [[Singh2012MEOWS]]`},
  {from:.8,at:.9,k:'Step 5 · group A streptococcus',t:'It can move in hours',
@@ -140,7 +140,7 @@ inits.maternal=()=>{
     s+=`<text x="${N?12:40}" y="16" class="t-xs" style="fill:var(--ink);font-weight:700">${D.n}: ${D.out}</text>`;
     vs.innerHTML=s;
     $('#mvNote').innerHTML=`<div class="kicker">${D.n} · randomised trial</div><h4>${D.out[0].toUpperCase()+D.out.slice(1)}: ${D.a[1]} vs ${D.b[1]} ${big?'per 1,000':'per 100'}</h4>
-      <p>${D.w}. ${D.more} ${D.rr}. Interventions and doses are quoted as published, not as advice. ${D.src}</p>
+      <p>${D.w}. ${D.more} ${D.rr}. Interventions and doses are summarised from the sources, not given as advice. ${D.src}</p>
       <div class="pt"><b>%t:note.plain%</b>Trials like this test whether one antibiotic dose at the right moment prevents infection in large groups of women. Whether it applies to you is a question for your maternity team.</div>`}
   pick.addEventListener('click',e=>{const b=e.target.closest('[data-mv]');if(!b)return;mv=b.dataset.mv;$$('[data-mv]',pick).forEach(x=>x.setAttribute('aria-pressed',x===b));
     if(mvA)mvA();mvA=RM?null:animate(900,drawV,()=>{mvA=null});if(RM)drawV(1)});

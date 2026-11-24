@@ -40,7 +40,7 @@ const HE_SYS={
  safety:{n:'Safety',at:[-.4,.8],lab:'wandering &amp; water',col:'var(--bad)',big:'49%',bl:'tried to wander away after age 4',u:'%',mx:100,
   bars:[['Ever tried to wander off (after 4)',49],['Missing long enough to worry',26],['Fatal drownings after wandering',73.9],['Deaths from injury (US)',27.9]],
   k:'Safety · wandering, injury, drowning',t:'Wandering & water',
-  txt:`In 1,218 autistic children, 49% had tried to wander away after age 4 and 26% were missing long enough to cause concern; of those who went missing, 24% were in danger of drowning. [[Anderson2012Elopement]] Injury caused 27.9% of 1,367 US deaths with autism recorded, and drowning had the highest proportionate mortality ratio (39.89). [[Guan2017AJPH]] Wandering preceded 73.9% of news-reported fatal drownings, most often in ponds. [[Guan2017Drowning]]`,
+  txt:`In 1,218 autistic children, 49% had tried to wander away after age 4 and 26% had been gone long enough for people to worry; of those who went missing, 24% were in danger of drowning. [[Anderson2012Elopement]] Injury caused 27.9% of 1,367 US deaths with autism recorded, and drowning had the highest proportionate mortality ratio (39.89). [[Guan2017AJPH]] Wandering preceded 73.9% of news-reported fatal drownings, most often in ponds. [[Guan2017Drowning]]`,
   pt:`Some autistic children wander away, and water is a real danger. Close supervision, barriers around water and personal alarms are worth thinking about. [[Anderson2012Elopement,Guan2017Drowning,Peden2020]]`,
   hook:`Leading injury causes of death in autism: suffocation, asphyxiation and drowning (PMR 39.89). [[Guan2017AJPH]]`}
 };

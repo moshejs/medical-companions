@@ -121,7 +121,7 @@ Access notes:
 - GBD defines a standard drink as 10 g of pure ethyl alcohol [[GBD2016Alcohol]].
 
 ### drinks · No health-protective amount
-- GBD 2016 found that the level of alcohol consumption that minimised harm across health outcomes was zero standard drinks per week (95% UI 0.0–0.8) (Established) [[GBD2016Alcohol]].
+- GBD 2016 found that, across all health outcomes, the amount of drinking with the least harm was zero standard drinks a week (95% UI 0.0–0.8) (Established) [[GBD2016Alcohol]].
 - GBD 2020 found that the risk-minimising level depends on age and region. For people aged 15–39, it ranged from 0 to 0.603 standard drinks per day. Of people drinking harmful amounts in 2020, 59.1% were aged 15–39 and 76.9% were male [[GBD2020Alcohol]].
 - A 2023 meta-analysis covered 107 cohort studies with 4.8 million participants. After adjustment for biases, occasional and low-volume drinkers (1.3–24.0 g/day) had no significantly lower all-cause mortality than lifetime non-drinkers (RR 0.93, P = .07). Risk was higher at 45–64 g/day (RR 1.19) and ≥65 g/day (RR 1.35) [[Zhao2023JAMANO]].
 - **Genetic (Mendelian randomisation) evidence from 161,498 genotyped adults in the China Kadoorie Biobank:**
@@ -215,7 +215,7 @@ Access notes:
   | Adoptive parents | 1.40 (1.09–1.80) |
 
 - In the same study, genetic and environmental risk acted additively, so both nature and rearing environment carry risk [[Kendler2015Adoption]].
-- Genetic risk for AUD reflects both a specific liability to AUD and a wider liability to externalising disorders [[Kendler2015Adoption]].
+- Part of the genetic risk for AUD is specific to AUD, and part is a broader risk shared with externalising disorders [[Kendler2015Adoption]].
 
 ### genes · Alcohol-metabolising gene variants
 - ADH1B*2 and ADH1B*3 encode β subunits with a 70- to 80-fold higher turnover rate than β1. ADH1B*3 is found mainly in people of African descent [[Edenberg2007]].

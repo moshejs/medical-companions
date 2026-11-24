@@ -19,7 +19,7 @@ const TH_STEPS=[
   pt:`More therapy sessions helped more people recover from depression within a year: about 64 in 100 compared with about 52 in 100.`,
   hook:`STEP-BD: intensive psychotherapy (FFT, IPSRT or CBT) 64.4% year-end recovery vs 51.5% with 3-session collaborative care; HR 1.47.`},
  {from:TH_S12,at:1,k:'Pooled evidence',t:'What 39 trials say together',
-  txt:`<span class="ev est">Established</span> In a network meta-analysis of 39 RCTs (3863 participants), manualised psychotherapy plus medication had lower recurrence than control treatments (OR 0.56, 95% CI 0.43–0.74). Psychoeducation with guided practice of illness-management skills worked better in a family or group format than individually (OR 0.12). [[Miklowitz2021NMA]] In a subsample of STEP-BD, intensive therapy also improved relationships and life satisfaction, though not work functioning. [[Miklowitz2007AJP]]`,
+  txt:`<span class="ev est">Established</span> In a network meta-analysis of 39 RCTs (3863 participants), manualised psychotherapy plus medication had lower recurrence than control treatments (OR 0.56, 95% CI 0.43–0.74). Psychoeducation with guided practice in managing the illness worked better in a family or group format than one-to-one (OR 0.12). [[Miklowitz2021NMA]] In a subsample of STEP-BD, intensive therapy also improved relationships and life satisfaction, though not work functioning. [[Miklowitz2007AJP]]`,
   pt:`Talking therapies work best alongside medicine. Learning in a group or with family seems to help most.`,
   hook:`Miklowitz 2021 NMA: therapy + medication vs control, recurrence OR 0.56; family/group skills practice OR 0.12 vs individual.`}
 ];

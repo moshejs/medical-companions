@@ -59,7 +59,7 @@ Access notes:
 - Children with hypermobility syndrome (n=29) had more passive knee range than 37 controls. They walked with less knee flexion and more mid-stance knee extension, at the same speed (Early evidence) [[Fatoye2011]].
 
 ### joints · Dislocations, subluxations and instability by joint and age
-- hEDS is described as likely the most common hereditary connective tissue disorder. Its picture is mainly joint hypermobility, subluxations and dislocations, and skin and soft-tissue features. Many patients report activity-related pain, and some go on to have daily pain (Established as clinical description) [[Tinkle2017]].
+- hEDS is described as likely the most common hereditary connective tissue disorder. Its picture is mainly joint hypermobility, subluxations and dislocations, and skin and soft-tissue features. Pain brought on by activity is common, and in some people it becomes an everyday pain (Established as clinical description) [[Tinkle2017]].
 - In 189 Italian patients with hEDS/joint hypermobility syndrome (aged 2–73), the Beighton score and hypermobility at other joints fell with age at diagnosis. The rate and sites of joint instability complications did not vary with age, except soft-tissue injuries (Early evidence) [[Morlino2017]].
 - In the hEDS natural-history model, the first decade is a "hypermobility" phase, with sprains and strains in about 40%. The second decade is a "pain" phase, with widespread chronic pain, more instability and less hypermobility. A later "stiffness" phase brings a marked loss of hypermobility and lower quality of life (Early evidence; descriptive clinical model) [[Malek2021C,Castori2013]].
 - One cited cut-off: after about age 33, most people diagnosed with hypermobility no longer reach a Beighton score of 4 [[Malek2021C]].
@@ -109,7 +109,7 @@ Access notes:
 - A review concludes that low BMD and fractures are frequent in some rare types (kyphoscoliotic, arthrochalasia, spondylodysplastic, classical-like). In hEDS and cEDS, BMD is at most mildly lower and higher fracture rates are not clearly shown, though vertebral shape abnormalities seem common (Established) [[Basalom2020]].
 
 ### pain · How common and how severe
-- Chronic pain in EDS is common and may be severe. According to one study, "nearly 90%" of patients report some form of chronic pain, and pain is often one of the first symptoms (Established) [[Chopra2017]].
+- Long-term pain is frequent in EDS and can be severe. One study found that "nearly 90%" of patients had chronic pain of some kind, and pain is often among the earliest symptoms (Established) [[Chopra2017]].
 - In 273 members of the Dutch EDS patient organisation, chronic pain was highly prevalent and associated with regular analgesic use [[Voermans2010Pain]]:
   - It was more prevalent and more severe in the hypermobility type than in the classical type.
   - Severity correlated with hypermobility, dislocations, previous surgery and poor sleep.
@@ -120,7 +120,7 @@ Access notes:
 - Pain burden matches fibromyalgia and exceeds rheumatoid arthritis. In 206 women (72 hEDS, 69 fibromyalgia, 65 rheumatoid arthritis), physical and overall function in hEDS was similar to fibromyalgia and worse than rheumatoid arthritis. Pain severity was higher than in rheumatoid arthritis but lower than in fibromyalgia (Established) [[Rombaut2011Pain]].
 - At diagnosis in an Italian registry (n = 96 EDS/HSD), 49% reported moderate-to-severe pain. Independent predictors were older age (OR 1.06 per year), an hEDS rather than HSD diagnosis (OR 6.25, 95% CI 1.31–29.74) and headache (OR 3.97) (Early evidence) [[Morri2026]].
 - Classical EDS also hurts, though usually less. In 19 people with cEDS, 32% rated average pain ≥5/10 over the past month [[Colman2023]]. In 75 people with cEDS, chronic disabling pain was infrequent and opioid use very uncommon [[Ritelli2020C]].
-- Pain is multifactorial. Listed contributors include subluxations and dislocations, previous surgery, muscle weakness, proprioceptive disorders and vertebral instability. Pain also arises from the gut, the temporomandibular joint, dysmenorrhoea and vulvodynia (Established as a description; the weight of each cause is unknown) [[Chopra2017]].
+- Pain is multifactorial. The review names partial and full dislocations, past operations, weak muscles, poor joint-position sense and an unstable spine as contributors. Pain also arises from the gut, the temporomandibular joint, dysmenorrhoea and vulvodynia (Established as a description; the weight of each cause is unknown) [[Chopra2017]].
 - A practical topographic classification divides pain in joint hypermobility syndrome/hEDS into [[Castori2012]]:
   - articular limb pain (acute or subacute, and chronic)
   - muscular limb pain (myofascial and fibromyalgia)

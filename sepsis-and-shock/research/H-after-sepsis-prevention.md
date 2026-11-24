@@ -15,7 +15,7 @@ Access notes:
 
 ### after · What "after sepsis" looks like: the big picture
 - Each year more than 19 million people worldwide develop sepsis and about 14 million survive to hospital discharge (Prescott & Angus review estimate) [[Prescott2018Recovery]].
-- Among people discharged after sepsis, about half recover, one-third die during the following year, and one-sixth have severe persistent impairments (review estimate; population statistics) [[Prescott2018Recovery]].
+- Among people discharged after sepsis, roughly 1 in 2 recover, 1 in 3 die within the next year, and 1 in 6 are left with severe lasting problems (review estimate; population statistics) [[Prescott2018Recovery]].
 - Impairments after sepsis include an average of 1 to 2 new functional limitations, for example being unable to bathe or dress without help [[Prescott2018Recovery]].
 - The review's recommended post-discharge focus has three parts: (1) find new physical, mental and cognitive problems and refer for treatment, (2) review and adjust long-term medicines, (3) look for treatable conditions that often lead to readmission (infection, heart failure, kidney failure, aspiration). It adds that for people whose health was poor or falling before sepsis, focusing on palliation of symptoms may be appropriate [[Prescott2018Recovery]].
 - "Post-sepsis syndrome" describes a cluster of long-term effects after sepsis: neurocognitive impairment, functional disability, psychological problems and worsening medical conditions, with higher risk of death and poorer quality of life (Established as a clinical concept; its mechanisms are still being worked out) [[Mostel2019PSS]].
@@ -26,7 +26,7 @@ Access notes:
 - In US Health and Retirement Study participants aged ≥65 (960 sepsis admissions, 1998–2010), sepsis was linked to a 22.1% (95% CI 17.5–26.7%) absolute increase in late mortality (31 days to 2 years) compared with matched adults not in hospital. The increase was 10.4% (5.4–15.4%) compared with non-sepsis infection admissions and 16.2% (10.2–22.2%) compared with sterile inflammatory admissions [[Prescott2016LateMortality]].
 - The same study concluded that more than one in five people who survive sepsis have a late death not explained by their health before sepsis [[Prescott2016LateMortality]].
 - Among 94,748 adult sepsis survivors discharged from 192 English critical care units (2009–2014), 15% had died by 1 year after discharge, and 6% to 8% died per year over the following 5 years [[ShankarHari2019LateMortality]].
-- In that cohort, age, sex, ethnicity, severe comorbidities, dependency, non-surgical status and site of infection were independently associated with long-term mortality [[ShankarHari2019LateMortality]].
+- In that cohort, age, sex, ethnicity, severe comorbidities, dependency, non-surgical status and the site of infection each independently predicted long-term mortality [[ShankarHari2019LateMortality]].
 - In the German SMOOTH trial cohort of ICU sepsis survivors (mean age 61.6), overall mortality was 13.7% at 6 months and 18.2% at 12 months after ICU discharge [[Schmidt2016SMOOTH]].
 
 ### after · Readmission
@@ -40,7 +40,7 @@ Access notes:
 
 ### after · Heart and circulation
 - A meta-analysis of 27 observational studies found that, compared with non-sepsis controls, sepsis survivors had higher long-term risk of myocardial infarction (aHR 1.77, 95% CI 1.26–2.48), stroke (aHR 1.67, 1.37–2.05) and heart failure (aHR 1.65, 1.46–1.86). Certainty was low to very low (Early evidence) [[Kosyakovsky2021CV]].
-- The pooled cumulative incidence of myocardial infarction, stroke and heart failure in sepsis survivors ranged from 3% to 9% at the longest follow-up, and the excess hazard may persist for at least 5 years [[Kosyakovsky2021CV]].
+- In sepsis survivors, pooled cumulative incidence of myocardial infarction, stroke and heart failure was 3% to 9% at the longest follow-up, and the extra risk may last 5 years or more [[Kosyakovsky2021CV]].
 - The Prescott & Angus review cites adjusted hazard ratios of 1.1–1.4 for new cardiovascular events after sepsis [[Prescott2018Recovery]].
 
 ### after · Thinking and memory
@@ -48,7 +48,7 @@ Access notes:
 - Survivors with no limitations before sepsis developed a mean of 1.57 (0.99–2.15) new functional limitations, vs 0.48 (0.39–0.57) after non-sepsis hospitalisation [[Iwashyna2010Cognitive]].
 - The review summarises this as a 3-fold rise in moderate to severe cognitive impairment, from 6.1% before to 16.7% after hospitalisation [[Prescott2018Recovery]].
 - In BRAIN-ICU (821 adults with respiratory failure or shock), 40% had global cognition scores 1.5 SD below population means at 3 months (similar to moderate traumatic brain injury) and 26% were 2 SD below (similar to mild Alzheimer's disease). At 12 months the figures were 34% and 24% [[Pandharipande2013BRAINICU]].
-- In BRAIN-ICU, delirium developed in 74% during the hospital stay, and longer delirium was independently associated with worse global cognition at 3 and 12 months [[Pandharipande2013BRAINICU]].
+- In BRAIN-ICU, delirium developed in 74% during the hospital stay, and a longer spell of delirium independently predicted poorer global cognition at 3 and 12 months [[Pandharipande2013BRAINICU]].
 
 ### after · Mood, trauma and sleep
 - Among sepsis survivors, the review reports anxiety in 32%, depression in 29% and post-traumatic stress disorder (PTSD) in 44% [[Prescott2018Recovery]].
@@ -84,8 +84,8 @@ Access notes:
 - Clinician teams setting up ICU follow-up clinics and peer support groups found enablers (motivated leaders, sharing survivors' experiences with administrators) and barriers (patient and family access, funding, low awareness) [[Haines2019Thrive]].
 
 ### after · Surviving Sepsis Campaign 2021 statements on recovery (quoted as published)
-- Rec 74 (best practice statement): "we recommend discussing goals of care and prognosis with patients and families over no such discussion." Rec 75 (weak, low-quality evidence): addressing goals of care early (within 72 h) over late [[Evans2021SSC]].
-- Rec 79 (weak, very low-quality evidence): "For adult survivors of sepsis or septic shock and their families, we suggest referral to peer support groups over no such referral" [[Evans2021SSC]].
+- Rec 74 (best practice statement): talk through goals of care and prognosis with patients and families rather than not discussing them. Rec 75 (weak, low-quality evidence): addressing goals of care early (within 72 h) over late [[Evans2021SSC]].
+- Rec 79 (weak, very low-quality evidence): offering adult survivors of sepsis or septic shock, and their families, a referral to peer support groups is suggested [[Evans2021SSC]].
 - Rec 82 (best practice statement): screening patients and families for economic and social support (housing, nutritional, financial and spiritual) and referring where available [[Evans2021SSC]].
 - Rec 83 (weak, very low-quality evidence): offering written and verbal sepsis education (diagnosis, treatment, and post-ICU/post-sepsis syndrome) before hospital discharge and in follow-up [[Evans2021SSC]].
 - Rec 84 (best practice statement): giving patients and families the opportunity for shared decision-making in post-ICU and discharge planning [[Evans2021SSC]].
@@ -103,7 +103,7 @@ Access notes:
 - Under the 2024 Phoenix criteria, children with sepsis had in-hospital mortality of 7.1% in higher-resource settings and 28.5% in lower-resource settings. For septic shock the figures were 10.8% and 33.5% [[Schlapbach2024Phoenix]].
 
 ### prevention · Recognising meningococcal disease early (children)
-- In 448 UK children with meningococcal disease, most had only non-specific symptoms in the first 4–6 h but were close to death by 24 h [[Thompson2006Meningococcal]].
+- In 448 UK children with meningococcal disease, most showed only vague symptoms for the first 4–6 h, yet many were close to death by 24 h [[Thompson2006Meningococcal]].
 - The classic signs (haemorrhagic rash, meningism, impaired consciousness) appeared late, at a median onset of 13–22 h [[Thompson2006Meningococcal]].
 - 72% of the children had early sepsis signs (leg pains, cold hands and feet, abnormal skin colour) first appearing at a median of 8 h, well before the median hospital admission time of 19 h [[Thompson2006Meningococcal]].
 - Only 51% of the children were sent to hospital after the first consultation. The authors urge parents and clinicians to look for the early signs rather than wait for the rash [[Thompson2006Meningococcal]].
@@ -135,7 +135,7 @@ Access notes:
 
 ### maternal · Preventing infection around birth
 - Without intrapartum antibiotic prophylaxis, about 50% of GBS-colonised women pass the bacteria to their newborns, and 1–2% of those newborns develop early-onset GBS disease [[ACOG2020GBS]].
-- ACOG (2020) recommends universal GBS screening between 36 0/7 and 37 6/7 weeks. All women with a positive culture should receive intrapartum antibiotic prophylaxis unless a prelabour caesarean is done with intact membranes (quoted as published) [[ACOG2020GBS]].
+- ACOG (2020) recommends universal GBS screening between 36 0/7 and 37 6/7 weeks. Women with a positive culture should be given antibiotic prophylaxis in labour, except when a caesarean is done before labour with intact membranes [[ACOG2020GBS]].
 - ACOG notes that prophylaxis for 4 or more hours is more effective than shorter courses, but obstetric interventions should not be delayed only to reach 4 hours [[ACOG2020GBS]].
 - As US intrapartum prophylaxis expanded, early-onset GBS disease fell 65%, from 1.7 per 1,000 live births in 1993 to 0.6 per 1,000 in 1998. An estimated 3,900 early-onset infections and 200 newborn deaths were prevented in 1998 [[Schrag2000GBS]].
 - A-PLUS (29,278 women in labour, 8 countries): a single oral 2-g dose of azithromycin lowered maternal sepsis or death from 2.4% to 1.6% (RR 0.67, 0.56–0.79). It did not change stillbirth, neonatal death or neonatal sepsis (10.5% vs 10.3%) [[Tita2023APLUS]].

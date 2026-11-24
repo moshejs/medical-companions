@@ -25,7 +25,7 @@
         <button class="btn" data-sccoh="s08" aria-pressed="false">Six 2008 (120)</button>
       </div>
       <div class="readout" id="scRead"></div>
-      <p class="stage-cap">The example patient's answers come from the HEART calculator below: change them there and the animation follows. Item wording as published in Six 2008. Event rates are population statistics from each cohort. [[Six2008HEART,Backus2010,Backus2013]]</p>
+      <p class="stage-cap">The example patient's answers come from the HEART calculator below: change them there and the animation follows. Items, points and cut-offs follow Six 2008; the short labels are our own wording. Event rates are population statistics from each cohort. [[Six2008HEART,Backus2010,Backus2013]]</p>
     </div>
     <aside class="note" id="scNote" aria-live="polite"></aside>
   </div>
@@ -35,10 +35,10 @@
   <div class="lab">
     <div class="stage">
       <div class="calc" id="scHeartCalc">
-        <label for="scH">History<select id="scH"><option value="0">0 · slightly suspicious</option><option value="1" selected>1 · moderately suspicious</option><option value="2">2 · highly suspicious</option></select></label>
-        <label for="scE">ECG<select id="scE"><option value="0">0 · normal</option><option value="1" selected>1 · nonspecific repolarisation disturbance</option><option value="2">2 · significant ST depression</option></select></label>
+        <label for="scH">History<select id="scH"><option value="0">0 · low suspicion</option><option value="1" selected>1 · some suspicion</option><option value="2">2 · strong suspicion</option></select></label>
+        <label for="scE">ECG<select id="scE"><option value="0">0 · normal</option><option value="1" selected>1 · non-specific repolarisation change</option><option value="2">2 · clear ST depression</option></select></label>
         <label for="scA">Age<select id="scA"><option value="0">0 · under 45</option><option value="1" selected>1 · 45–65</option><option value="2">2 · 65 or older</option></select></label>
-        <label for="scR">Risk factors<select id="scR"><option value="0">0 · none known</option><option value="1" selected>1 · 1–2 risk factors</option><option value="2">2 · 3 or more, or known atherosclerotic disease</option></select></label>
+        <label for="scR">Risk factors<select id="scR"><option value="0">0 · none known</option><option value="1" selected>1 · 1–2 risk factors</option><option value="2">2 · 3 or more, or atherosclerosis already diagnosed</option></select></label>
         <label for="scTr">Troponin<select id="scTr"><option value="0" selected>0 · at or below the normal limit</option><option value="1">1 · 1–2 × the normal limit</option><option value="2">2 · more than 2 × the normal limit</option></select></label>
       </div>
       <div class="scroll"><svg id="scHcSvg" viewBox="0 0 720 150" style="min-width:560px" role="img" aria-label="The HEART total on a 0 to 10 ruler with its band, beside an array of 100 people coloured by the 6-week event rate reported for that band."></svg></div>
@@ -48,7 +48,7 @@
   </div>
 
   <h3 class="sub">Teaching calculator: TIMI (unstable angina / NSTEMI)</h3>
-  <p class="teach"><b>Teaching tool, not for triage</b>The TIMI risk score was built from trial patients already diagnosed with unstable angina or NSTEMI. Its seven items each score one point, as published in Antman 2000. [[Antman2000]]</p>
+  <p class="teach"><b>Teaching tool, not for triage</b>The TIMI risk score was built from trial patients already diagnosed with unstable angina or NSTEMI. Its seven items each score one point; the items follow Antman 2000, described here in our own words. [[Antman2000]]</p>
   <div class="lab">
     <div class="stage">
       <div class="sc-chk" id="scTimi"></div>
@@ -100,7 +100,7 @@
   <div class="cards">
     <div class="card"><span class="ev est">Established</span><h4>HEART Pathway trial</h4><p>In 282 patients, HEART plus troponin at 0 and 3 hours cut objective cardiac testing at 30 days (56.7% vs 68.8%) and shortened hospital stay by 12 hours (9.9 vs 21.9 h). [[Mahler2015]]</p></div>
     <div class="card"><span class="ev est">Established</span><h4>A stepped-wedge trial in 9 hospitals</h4><p>In 3648 patients, HEART-guided care was non-inferior for 6-week events, with 2.0% in low-risk patients, but did not reduce use of health-care resources much. Benefit depends on whether clinicians act on the score. [[Poldervaart2017AIM]]</p></div>
-    <div class="card"><span class="tag dx">Small print</span><h4>The HEART age item</h4><p>The printed table in Six 2008 says "≤65" for 2 points while the Methods text says 65 or older; this page follows the Methods. In the 120-patient derivation, endpoint risk was 2.5%, 20.3% and 72.7% across the three bands. [[Six2008HEART]]</p></div>
+    <div class="card"><span class="tag dx">Small print</span><h4>The HEART age item</h4><p>The printed table in Six 2008 gives the 2-point age band as "≤65" while the Methods text says 65 or older; this page follows the Methods. In the 120-patient derivation, endpoint risk was 2.5%, 20.3% and 72.7% across the three bands. [[Six2008HEART]]</p></div>
     <div class="card"><span class="tag dx">Troponin first</span><h4>Scores sit beside the blood test</h4><p>Rapid troponin pathways now rule many people out within 1 to 2 hours, and the T in HEART depends on the assay's normal limit. See <a href="#troponin" data-go="troponin">Troponin &amp; rapid rule-out</a> and <a href="#ecg" data-go="ecg">the ECG</a>. [[Byrne2023ESC]]</p></div>
   </div>
 </section>

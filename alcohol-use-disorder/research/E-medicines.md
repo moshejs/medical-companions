@@ -20,13 +20,13 @@ Access notes:
 - First US approvals in Drugs@FDA: Antabuse (disulfiram) NDA007883, 28 Aug 1951. ReVia (naltrexone) NDA018932 was first approved on 20 Nov 1984, and an efficacy supplement was approved on 30 Dec 1994. Campral (acamprosate) NDA021431, 29 Jul 2004. Vivitrol (naltrexone extended-release injectable suspension) NDA021897, 13 Apr 2006 [[DrugsFDA-AUD]].
 - One review dates disulfiram's first approval for AUD to 1949 [[KranzlerSoyka2018]]. The earliest Drugs@FDA record for Antabuse is 1951 [[DrugsFDA-AUD]]. (The two sources disagree; see Open questions.)
 - An earlier 2001 meta-analysis called naltrexone FDA-approved for alcohol dependence. At that time acamprosate was used in many other countries but not approved in the US [[KranzlerVanKirk2001]].
-- Each label says the medicine should be part of a wider programme. Vivitrol and acamprosate name "a comprehensive management program that includes psychosocial support". Oral naltrexone says it has not been shown to help "except as part of an appropriate plan of management for the addictions" [[FDA-Vivitrol,FDA-Campral,FDA-Naltrexone]].
+- Each label says the medicine should be part of a wider programme. Vivitrol and acamprosate name "a comprehensive management program that includes psychosocial support". Oral naltrexone says it has not been shown to help unless it is used within a proper plan for managing the addiction [[FDA-Vivitrol,FDA-Campral,FDA-Naltrexone]].
 - The labels use the older DSM-IV term "alcohol dependence". The disulfiram label also uses outdated wording for people with AUD [[FDA-Naltrexone,FDA-Campral,FDA-Antabuse]].
 
 ### medicines · Oral naltrexone: mechanism and label
 - Naltrexone is a pure opioid receptor antagonist. The label says its mechanism in AUD "is not understood", but preclinical data suggest the endogenous opioid system is involved. It may block the effects of endogenous opioids [[FDA-Naltrexone]].
 - The oral naltrexone label says it "is not aversive therapy" and causes no disulfiram-like reaction with alcohol or opioids [[FDA-Naltrexone]].
-- Labelled dose: "A dose of 50 mg once daily is recommended for most patients". The placebo-controlled trials used 50 mg once daily for up to 12 weeks, and other regimens or durations were not evaluated in them [[FDA-Naltrexone]].
+- Labelled dose: 50 mg once a day is recommended for most patients. The placebo-controlled trials used 50 mg once daily for up to 12 weeks, and other regimens or durations were not evaluated in them [[FDA-Naltrexone]].
 - Oral bioavailability is 5% to 40% because of large first-pass metabolism. Both naltrexone and its metabolite 6-β-naltrexol are thought to be active [[FDA-Naltrexone]].
 - In blockade studies, 50 mg blocked the effects of 25 mg of intravenous heroin for up to 24 hours. Doubling the dose blocked them for 48 hours and tripling it for about 72 hours [[FDA-Naltrexone]].
 - Contraindications: current opioid analgesics; current opioid dependence, including methadone or buprenorphine maintenance; acute opioid withdrawal; a failed naloxone challenge or positive urine opioid screen; and hypersensitivity [[FDA-Naltrexone]].
@@ -55,7 +55,7 @@ Access notes:
 - A meta-analysis of 64 trials found naltrexone had a larger effect than acamprosate on heavy drinking and craving. Requiring abstinence before naltrexone started was linked to larger effects [[Maisel2013]].
 
 ### medicines · Extended-release injectable naltrexone (Vivitrol)
-- Labelled AUD indication: treatment of alcohol dependence in patients "able to abstain from alcohol in an outpatient setting prior to initiation". Patients "should not be actively drinking" at the first injection [[FDA-Vivitrol]].
+- Labelled AUD indication: treatment of alcohol dependence in patients who can stop drinking as outpatients before starting it. Patients "should not be actively drinking" at the first injection [[FDA-Vivitrol]].
 - Labelled dose: 380 mg as a deep intramuscular gluteal injection every 4 weeks or once a month, alternating buttocks. It must be prepared and given by a healthcare provider, using only the needles in the carton [[FDA-Vivitrol]].
 - The label requires needle length (1½ or 2 inches) to be checked against body habitus before each injection [[FDA-Vivitrol]].
 - Pharmacokinetics: a first plasma peak about 2 hours after injection, a second about 2–3 days later, and a slow decline from about day 14, with levels measurable for more than 1 month [[FDA-Vivitrol]].
@@ -71,10 +71,10 @@ Access notes:
 - Discontinuation for adverse events was 14.1% at 380 mg, 6.7% at 190 mg and 6.7% on placebo [[Garbutt2005JAMA]].
 - The label notes that only 8% of the trial (n=53) had abstained in the week before the first dose. In that group, 380 mg reduced drinking days and heavy drinking days and improved complete abstinence. These effects were not evident in the 92% (n=571) still drinking at the start [[FDA-Vivitrol]].
 - Meta-analysis: injectable naltrexone was not associated with return to any drinking (RD −0.04, 95% CI −0.10 to 0.03) but was associated with fewer heavy drinking days (WMD −4.6%, 95% CI −8.5% to −0.56%) [[Jonas2014JAMA]].
-- McPheeters 2023: injectable naltrexone was associated with fewer drinking days over the 30-day treatment period (WMD −4.99 days, 95% CI −9.49 to −0.49) [[McPheeters2023JAMA]].
+- McPheeters 2023: people on injectable naltrexone drank on fewer days across the 30-day treatment period (WMD −4.99 days, 95% CI −9.49 to −0.49) [[McPheeters2023JAMA]].
 
 ### medicines · Acamprosate
-- Labelled indication: "maintenance of abstinence from alcohol in patients with alcohol dependence who are abstinent at treatment initiation". Efficacy has not been shown in people who were not detoxified and abstinent before starting [[FDA-Campral]].
+- Labelled indication: helping people with alcohol dependence stay abstinent when they have already stopped drinking at the start of treatment. Efficacy has not been shown in people who were not detoxified and abstinent before starting [[FDA-Campral]].
 - Mechanism (label): "not completely understood". Chronic alcohol is thought to upset the balance between neuronal excitation and inhibition. Animal studies suggest acamprosate may act on glutamate and GABA systems, which leads to the hypothesis (Hypothesis) that it restores this balance [[FDA-Campral]].
 - Reviews describe acamprosate as modulating glutamatergic neurotransmission [[KranzlerSoyka2018]] or as a glutamate antagonist [[Rosner2010Acamprosate]].
 - Labelled dose: two 333 mg tablets (666 mg) three times daily. Treatment should start "as soon as possible after the period of alcohol withdrawal" and "should be maintained if the patient relapses" [[FDA-Campral]].
@@ -100,7 +100,7 @@ Access notes:
 ### medicines · Disulfiram
 - Mechanism: disulfiram blocks alcohol oxidation at the acetaldehyde stage. After drinking on disulfiram, blood acetaldehyde can be 5–10 times higher than with the same alcohol alone. This causes the disulfiram-alcohol reaction [[FDA-Antabuse]].
 - Reviews name the enzyme it inhibits as aldehyde dehydrogenase (ALDH), which normally breaks down acetaldehyde [[KranzlerSoyka2018]].
-- Boxed warning (label): disulfiram "should never be administered to a patient when he is in a state of alcohol intoxication, or without his full knowledge". The physician should tell relatives this [[FDA-Antabuse]].
+- Boxed warning (label): disulfiram must never be given to someone who is intoxicated, or without that person knowing. The physician should tell relatives this [[FDA-Antabuse]].
 - Labelled start: never until the person has abstained from alcohol for at least 12 hours [[FDA-Antabuse]]. Anyone who drinks heavily every day should get medical help to stop safely first.
 - Labelled dosing: up to 500 mg once daily for 1–2 weeks, then an average maintenance dose of 250 mg daily (range 125–500 mg), not more than 500 mg daily [[FDA-Antabuse]].
 - Reactions can occur with alcohol up to 14 days after the last disulfiram dose. The label warns about hidden alcohol in sauces, vinegars, cough mixtures, aftershave lotions and back rubs [[FDA-Antabuse]].

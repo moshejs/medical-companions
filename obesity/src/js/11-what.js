@@ -13,7 +13,7 @@ const WH_GRP={
 const WH_TOT=[127+67+13.9+17.5,504+374+65.1+94.2];
 const WH_STEPS=[
  {from:0,at:.03,k:'Step 1 · definition',t:'Excess adiposity',sub:'more body fat than is healthy, with many causes',
-  txt:`The 2025 Lancet Diabetes &amp; Endocrinology Commission defines obesity as "a condition characterised by excess adiposity, with or without abnormal distribution or function of adipose tissue, and with causes that are multifactorial and still incompletely understood" [[Rubino2025Commission]]. Its 58 experts, who included people with lived experience of obesity, reached 90–100% agreement, and 76 organisations endorsed it [[Rubino2025Commission]].`,
+  txt:`The 2025 Lancet Diabetes &amp; Endocrinology Commission defines obesity as a condition of excess adiposity, whether or not the fat tissue is abnormally distributed or works abnormally, with many causes that are still not fully understood [[Rubino2025Commission]]. Its 58 experts, who included people with lived experience of obesity, reached 90–100% agreement, and 76 organisations endorsed it [[Rubino2025Commission]].`,
   pt:`Obesity means carrying more body fat than is healthy for you. It is a long-term condition with many causes, including genes, biology, surroundings and life circumstances, not a failure of willpower [[Rubino2025Commission,Bray2017WOF]].`,
   hook:`Commission 2025: obesity is excess adiposity, with or without abnormal distribution or function of fat tissue [[Rubino2025Commission]].`},
  {from:.2,at:.3,k:'Step 2 · BMI',t:'The BMI definition',sub:'weight in kg ÷ height in metres, squared',
@@ -21,7 +21,7 @@ const WH_STEPS=[
   pt:`BMI is a quick screening number, but it cannot tell fat from muscle, so on its own it is not a diagnosis [[Okorodudu2010,Rubino2025Commission]].`,
   hook:`WHO classes: 25–29.9 overweight, 30–34.9 class I, 35–39.9 class II, ≥40 class III [[WHO2000TRS894,Flegal1998]].`},
  {from:.4,at:.5,k:'Step 3 · two states',t:'Clinical or preclinical',sub:'is excess fat already changing how the body works?',
-  txt:`Clinical obesity is "a chronic, systemic illness characterised by alterations in the function of tissues, organs, the entire individual, or a combination thereof, due to excess adiposity". Preclinical obesity is excess adiposity with preserved function of other tissues and organs, and a varying but generally increased risk of clinical obesity and other non-communicable diseases [[Rubino2025Commission]]. The Commission set 18 criteria for adults and 13 for children and adolescents [[Rubino2025Commission]].`,
+  txt:`Clinical obesity is a long-term illness affecting the whole body, in which excess adiposity changes how tissues, organs or the whole person function, alone or together. Preclinical obesity is excess adiposity with preserved function of other tissues and organs, and a varying but generally increased risk of clinical obesity and other non-communicable diseases [[Rubino2025Commission]]. The Commission set 18 criteria for adults and 13 for children and adolescents [[Rubino2025Commission]].`,
   pt:`Doctors now separate obesity that is already affecting how organs work or how someone manages daily life ("clinical obesity") from obesity that is not yet doing so ("preclinical obesity") [[Rubino2025Commission]].`,
   hook:`Clinical obesity = confirmed excess adiposity + organ dysfunction and/or limits on daily activities; 18 adult and 13 child criteria [[Rubino2025Commission]].`},
  {from:.6,at:.68,k:'Step 4 · chronic',t:'A chronic, relapsing disease',sub:'statements that frame obesity as a disease',

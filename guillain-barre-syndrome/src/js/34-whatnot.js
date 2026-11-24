@@ -10,7 +10,7 @@ const WN_STEPS=[
   hook:'About 20% die or have persistent disability despite immunotherapy [[Hughes2007]].'},
  {from:.17,at:.31,k:'Course 2 · no early gain',sv:'No better by 4 weeks',sub:'common, and not proof that treatment failed',
   t:'No improvement in the first 4 weeks is common',
-  txt:'About 40% of people on standard plasma exchange or IVIg do not improve in the first 4 weeks. This does not mean the treatment failed, because progression might have been worse without it [[Leonhard2019]]. In IGOS, 235 people (32%) did not improve after their initial treatment [[Verboon2019]]. The guideline does not suggest switching to the other treatment, for lack of trial evidence [[vanDoorn2023]].',
+  txt:'About 40% of people show no improvement in the first 4 weeks after a standard course of plasma exchange or IVIg. This does not mean the treatment failed, because progression might have been worse without it [[Leonhard2019]]. In IGOS, 235 people (32%) did not improve after their initial treatment [[Verboon2019]]. The guideline does not suggest switching to the other treatment, for lack of trial evidence [[vanDoorn2023]].',
   pt:'You may not improve in the first weeks, even with treatment. This is common, and it does not mean the treatment failed [[Leonhard2019]].',
   hook:'Worsening or no change at 4 weeks does not equal treatment failure: about 40% do not improve early [[Leonhard2019]].'},
  {from:.33,at:.48,k:'Course 3 · fluctuation',sv:'Better, then worse again',sub:'a treatment-related fluctuation',

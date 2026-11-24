@@ -6,7 +6,7 @@
 const SC_RISK=[
  {id:'base',n:'No extra risk factor',tot:7.5,ymax:12,pts:[[0,0],[1,.45],[2,.62],[5,.83],[20,.97]],
   lab:'5–10% over a lifetime',
-  src:`WHO's TB resource page stated that "on average, 5–10% of those who are infected will develop active TB disease over their lifetime"; a model of TB in England and Wales gave an age-weighted average of about 12%. The timing comes from contact and fingerprinting studies: 45% of cases by one year, 62% by two and 83% by five. [[Behr2018,Vynnycky2000]]`},
+  src:`WHO's TB resource page gave 5–10% as the average lifetime chance that an infected person develops active TB disease; a model of TB in England and Wales gave an age-weighted average of about 12%. The timing comes from contact and fingerprinting studies: 45% of cases by one year, 62% by two and 83% by five. [[Behr2018,Vynnycky2000]]`},
  {id:'recent',n:'Recently infected',tot:15,ymax:25,pts:[[0,0],[1,.45],[2,.62],[5,.83],[20,.97]],
   lab:'10–20% over a lifetime',
   src:`Modelling the lifetime risk of reactivation among people with a positive tuberculin skin test put it at 10–20% in people with recent skin-test conversion, and at 20% or more in most people with induration ≥10 mm who also have HIV or evidence of old healed TB. [[Horsburgh2004]]`},
@@ -42,7 +42,7 @@ const SC_BAR=[
  {n:'TB infection',c:'var(--accent)',w:40,sv:'viable bacteria, no pathology, not infectious',d:'Viable bacteria and a host response, but no macroscopic pathology: no symptoms, nothing to find in sputum, not infectious. [[Coussens2024,Drain2018]]'},
  {n:'Incipient',c:'var(--gold)',w:12,sv:'a changing immune signature before any disease',d:'Proposed between infection and disease: a blood transcriptomic signature predicted progression with 66.1% sensitivity and 80.6% specificity in the 12 months before diagnosis, and interferon signalling was already raised 18 months out. [[Drain2018,Zak2016,Scriba2017]]'},
  {n:'Subclinical TB',c:'var(--warn)',w:10,sv:'disease without reported symptoms',d:'Disease without reported symptoms. A median 50.4% of prevalent bacteriologically confirmed TB in national surveys was subclinical, and PET-CT found subclinical pulmonary abnormalities in 10 of 35 asymptomatic adults with HIV and TB infection, who were much likelier to progress. [[Frascella2021,Esmail2016]]'},
- {n:'TB disease',c:'var(--tb)',w:10,sv:'symptoms or signs, and likely infectious',d:'Symptoms or signs, and likely infectiousness. The consensus defines two subclinical and two clinical states, all requiring viable bacteria and a host response. [[Coussens2024]]'}];
+ {n:'TB disease',c:'var(--tb)',w:10,sv:'symptoms or signs, and likely infectious',d:'Symptoms or signs, and likely infectiousness. The consensus splits disease into two subclinical and two clinical states, each needing live bacteria and a host response. [[Coussens2024]]'}];
 const SC_VG=[
  {q:'A household contact of someone with pulmonary TB. No cough, no fever, feels completely well. IGRA positive, chest X-ray normal.',a:'inf',
   e:'<b>TB infection.</b> Disease is separated from infection by the presence of macroscopic pathology; here there is none. This person is not infectious and is a candidate for preventive treatment. [[Coussens2024,Drain2018]]'},
@@ -143,7 +143,7 @@ inits.spectrum=()=>{
         s+=`<text x="${x0+18}" y="${f1(yy)}" class="t-lbl" style="fill:${B.c}">${B.n}</text>`;
         s+=`<text x="${x0+(N?18:150)}" y="${f1(yy+(N?16:0))}" class="t-xs">${B.sv}</text>`});
       s2=`<div class="kicker">The spectrum</div><h4>Five states, not two</h4>`+SC_BAR.map(B=>`<p><b style="color:${B.c}">${B.n}.</b> ${B.d}</p>`).join('')
-        +`<div class="hook"><b>%t:note.hook%</b>The ICE-TB Delphi consensus (71 participants) distinguishes disease from infection by macroscopic pathology, defines two subclinical and two clinical states differentiated by reported symptoms or signs and by likely infectiousness, and requires viable <i>M. tuberculosis</i> plus a host response for every state. [[Coussens2024]]</div>`;
+        +`<div class="hook"><b>%t:note.hook%</b>In the ICE-TB Delphi consensus (71 participants), visible pathology is what separates disease from infection. Disease is split into two subclinical and two clinical states, told apart by whether symptoms or signs are reported and how infectious the person is likely to be, and every state needs live <i>M. tuberculosis</i> and a host response. [[Coussens2024]]</div>`;
     }
     bs.innerHTML=s;$('#scBarNote').innerHTML=s2;
   }

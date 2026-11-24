@@ -50,7 +50,7 @@ const GN_STEPS={
    pt:`About 1 in 300 people carry a Lynch syndrome gene change, and most do not know it. [[Win2017,DominguezValentin2020]]`,
    hook:`About 3% of colorectal cancer patients have Lynch syndrome. [[Hampel2008,Moreira2012]]`},
   {k:'Step 5 · surveillance',t:'What carriers are offered',
-   txt:`ACG 2015: colonoscopy "at least every 2 years, beginning between ages 20 and 25 years", considering annual colonoscopy. The UK advises every 2 years until 75, from 25 for MLH1/MSH2 and from 35 for MSH6/PMS2. [[Syngal2015,Monahan2020]] In a 15-year trial, colonoscopy every 3 years cut colorectal cancer from 16% to 6%, with no colorectal cancer deaths in the screened group. [[Jarvinen2000]] European and UK guidelines also discuss daily aspirin (CAPP2: 9% vs 13%). [[Burn2020,Seppala2021,Monahan2020]]`,
+   txt:`ACG 2015: colonoscopy no less often than every 2 years, starting at age 20 to 25, with yearly colonoscopy to be considered. The UK advises every 2 years until 75, from 25 for MLH1/MSH2 and from 35 for MSH6/PMS2. [[Syngal2015,Monahan2020]] In a 15-year trial, colonoscopy every 3 years cut colorectal cancer from 16% to 6%, with no colorectal cancer deaths in the screened group. [[Jarvinen2000]] European and UK guidelines also discuss daily aspirin (CAPP2: 9% vs 13%). [[Burn2020,Seppala2021,Monahan2020]]`,
    pt:`If you have Lynch syndrome, regular colonoscopy greatly lowers your chance of dying from bowel cancer. [[Jarvinen2000]]`,
    hook:`Järvinen 2000: CRC 6% vs 16% (−62%) with 3-yearly colonoscopy in Lynch families.`}],
  fap:[

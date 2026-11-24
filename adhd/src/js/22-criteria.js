@@ -35,15 +35,15 @@ const CR_STEPS=[
   pt:'Today the two main manuals agree closely. The American one counts symptoms; the WHO one describes them.',
   hook:'Codes: combined F90.2 / 6A05.2, inattentive F90.0 / 6A05.0, hyperactive-impulsive F90.1 / 6A05.1. [[APA2022DSM,TebartzVanElst2025]]'}
 ];
-/* criteria items: close paraphrases of DSM-5-TR A1 and A2 [[APA2022DSM]] */
-const CR_A1=['Careless mistakes or misses details','Trouble keeping attention on tasks or play','Seems not to listen when spoken to directly','Does not follow through; leaves tasks unfinished','Trouble organising tasks and activities','Avoids or dislikes tasks that need sustained mental effort','Loses things needed for tasks','Easily distracted (in adults this can include unrelated thoughts)','Forgetful in daily activities'];
-const CR_A2=['Fidgets, taps or squirms','Leaves seat when staying seated is expected','Runs or climbs when it is inappropriate (in teens and adults, may be only restlessness)','Cannot play or do leisure activities quietly','“On the go”, as if “driven by a motor”','Talks excessively','Blurts out answers','Trouble waiting their turn','Interrupts or intrudes on others'];
+/* criteria items: short plain-language summaries written for this guide, one per DSM-5-TR A1 and A2 symptom; not the manual's wording [[APA2022DSM]] */
+const CR_A1=['Slips up on details; makes avoidable errors','Hard to stay focused on a task, lesson or game','Appears not to be listening, even when addressed directly','Starts things but leaves them unfinished','Struggles to plan and order what needs doing','Puts off or dislikes jobs that need long mental effort','Often mislays things needed for everyday tasks','Attention is easily pulled away (in adults, also by their own unrelated thoughts)','Forgets everyday routines and commitments'];
+const CR_A2=['Restless hands or feet; shifts about in the seat','Gets up when they are expected to stay seated','Runs about or climbs where it does not fit (in teens and adults, may be only a feeling of restlessness)','Finds it hard to do leisure activities quietly','Constantly busy and hard to keep still','Talks a great deal','Answers before the question is finished','Finds waiting for a turn hard','Cuts into other people’s conversations or activities'];
 const CR_OTHER=[
  {id:'dur',t:'Symptoms have lasted 6 months or more',s:'Criterion A, duration'},
  {id:'b',t:'Several symptoms were present before age 12',s:'Criterion B'},
- {id:'c',t:'Several symptoms show in two or more settings (home, school or work, friends, other activities)',s:'Criterion C'},
- {id:'d',t:'Clear evidence they interfere with, or reduce the quality of, social, school or work functioning',s:'Criterion D'},
- {id:'e',t:'Not better explained by another condition (for example a mood, anxiety or psychotic disorder, or substance intoxication or withdrawal)',s:'Criterion E'}
+ {id:'c',t:'Several symptoms show up in at least two parts of life (for example home, school or work, time with friends)',s:'Criterion C'},
+ {id:'d',t:'The symptoms clearly get in the way of, or make worse, social life, study or work',s:'Criterion D'},
+ {id:'e',t:'Another condition does not account for them better (for example a mood, anxiety or psychotic disorder, or the effects of a drug or of stopping it)',s:'Criterion E'}
 ];
 const CR_PRESETS={
  kid:{age:'u',a1:[0,1,2,3,4,6,8],a2:[0],o:['dur','b','c','d','e'],lab:'An 8-year-old with mostly inattentive symptoms'},

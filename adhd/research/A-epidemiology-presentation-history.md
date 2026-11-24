@@ -41,7 +41,7 @@ Two corrections to the brief:
 
 ### what · Why the estimates differ: method, not place or decade
 - In Polanczyk 2007's metaregression, diagnostic criteria, source of information, the requirement of impairment and geographic origin were all associated with prevalence; geography mattered only between North America and both Africa and the Middle East, and Europe did not differ from North America (Established) [[Polanczyk2007]].
-- The authors concluded that the variability "seems to be explained primarily by the methodological characteristics of studies" [[Polanczyk2007]].
+- The authors concluded that differences in how the studies were done account for most of the variability [[Polanczyk2007]].
 - The 2014 update (154 studies identified, 135 in the multivariate model) found that diagnostic criteria, impairment criterion and information source explained heterogeneity, while geographic location and year of study did not (Established) [[Polanczyk2014]].
 - Over three decades there was "no evidence to suggest an increase" in the number of children in the community meeting criteria when standardised procedures were followed [[Polanczyk2014]].
 - In the 2015 all-disorders meta-analysis, sample representativeness, sample frame and diagnostic interview were significant moderators; location and year of data collection were not; the model explained 88.89% of heterogeneity, and requiring functional impairment lowered estimates [[Polanczyk2015]].
@@ -68,7 +68,7 @@ Two corrections to the brief:
 - 2022 National Survey of Children's Health (n = 45,169; ages 3–17): 11.4% ever diagnosed (7.1 million) and 10.5% with current ADHD (6.5 million) [[Danielson2024]].
 - Among US children with current ADHD in 2022, 58.1% had moderate or severe ADHD and 77.9% had at least one co-occurring disorder [[Danielson2024]].
 - Among US children with current ADHD in 2022, 53.6% received ADHD medication, 44.4% received behavioural treatment in the past year and 30.1% received no ADHD-specific treatment [[Danielson2024]].
-- About 1 million more US children had ever received an ADHD diagnosis in 2022 than in 2016 [[Danielson2024]].
+- In 2022, about 1 million more US children had been diagnosed with ADHD at some point than in 2016 [[Danielson2024]].
 - 2016 NSCH (n = 45,736; ages 2–17): 9.4% ever diagnosed (6.1 million), 8.4% current (89.4% of those ever diagnosed); of current cases 62.0% took medication, 46.7% had behavioural treatment and 23.0% had neither [[Danielson2018]].
 - National Health Interview Survey 2015–2016: diagnosed ADHD in 10.2% (95% CI 9.6–10.8) of children aged 4–17, 14.0% of boys versus 6.3% of girls [[Xu2018]].
 - By race and ethnicity in 2015–2016, diagnosed ADHD was 6.1% in Hispanic, 12.0% in non-Hispanic White and 12.8% in non-Hispanic Black children [[Xu2018]].
@@ -112,7 +112,7 @@ Two corrections to the brief:
 
 ### what · Screening tools as teaching examples
 - The WHO Adult ADHD Self-Report Scale (ASRS) has 18 questions on DSM-IV symptoms; a 6-question screener had sensitivity 68.7%, specificity 99.5% and accuracy 97.9% against blinded clinical diagnosis in a US community sample [[Kessler2005]].
-- A screener is not a diagnosis: ADHD "can only be diagnosed by a licensed clinician" and "cannot be diagnosed by rating scales alone, neuropsychological tests, or methods for imaging the brain" [[Faraone2021]].
+- A screener is not a diagnosis: only a licensed clinician can diagnose ADHD, and rating scales, neuropsychological tests and brain imaging cannot do it on their own [[Faraone2021]].
 
 ### signs · The three presentations and their shares
 - DSM-5 describes three presentations (predominantly inattentive, predominantly hyperactive-impulsive, combined); DSM-5 replaced "subtype" with "presentation" because the symptom pattern can change as people mature [[Posner2020,Epstein2013]].
@@ -140,7 +140,7 @@ Two corrections to the brief:
 - People with ADHD of all ages have medium-sized weaknesses in executive function (effect sizes 0.46–0.69 across 83 studies), strongest for response inhibition, vigilance, working memory and planning; these weaknesses are not present in every person with ADHD (Established) [[Willcutt2005]].
 
 ### signs · Emotional dysregulation
-- Emotional dysregulation is common in ADHD throughout the lifespan and is a major contributor to impairment [[Shaw2014Emotion]].
+- Emotional dysregulation is common in ADHD at every age and adds a great deal to impairment [[Shaw2014Emotion]].
 - Emotional dysregulation is found in about 25–45% of children and 30–70% of adults with ADHD [[Shaw2014Emotion]].
 - In a population study of 5,326 young people, mood lability was found in 38% of children with ADHD, a ten-fold increase over population rates [[Shaw2014Emotion]].
 - Clinic studies of adults with ADHD report impairing emotional dysregulation in 34–70% [[Shaw2014Emotion]].
@@ -150,7 +150,7 @@ Two corrections to the brief:
 
 ### signs · Persistence into adulthood
 - In a meta-analysis of controlled follow-up studies, about 15% of children with ADHD still met full criteria at age 25, but about 65% did when ADHD in partial remission was included [[Faraone2006]].
-- The consensus statement summarises this as "only about one in six youths with ADHD still meet full diagnostic criteria for ADHD at age 25, and about half show signs of residual impairment" [[Faraone2021]].
+- The consensus statement summarises this as: by age 25, roughly 1 in 6 young people with ADHD still meet full criteria, and about half still show some lasting impairment [[Faraone2021]].
 - Posner and colleagues summarise meta-analytic data as 15% persisting with full criteria and 40–60% partial remitters [[Posner2020]].
 - Reported remission rates depend mainly on the definition used: remission was highest for syndromatic remission (fewer than full criteria) and lowest for functional recovery [[Biederman2000Decline]].
 - In the WHO surveys, 57.0% of people with childhood ADHD still had ADHD as adults [[Fayyad2017]].
@@ -177,7 +177,7 @@ Two corrections to the brief:
 - Clinic-referred samples of children show a male-to-female ratio of about 10:1, compared with about 3:1 in community samples [[Biederman2002Gender]].
 - Clinical referral ratios in boys versus girls range from 3:1 to 16:1, compared with about 3:1 in community samples, so many girls with ADHD are likely to remain unidentified and untreated [[Young2020Females]].
 - Parent and teacher ratings in youth give a roughly 2:1 male-to-female ratio [[Faraone2021]].
-- Girls meet diagnostic criteria at just under half the rate of boys, a ratio that becomes much closer to equal by adulthood [[Hinshaw2022]].
+- Girls meet diagnostic criteria at a little under half the rate of boys; by adulthood the rates are much nearer equal [[Hinshaw2022]].
 - In the WHO surveys, adult ADHD was more common in men than women (OR 1.6, 95% CI 1.3–1.9), and this gap reflected the higher childhood rate in males rather than a sex difference in persistence [[Fayyad2017]].
 - In the Missouri community study, the 2.28:1 male:female ratio was lower than clinic ratios, which the authors read as under-diagnosis of females [[Ramtekkar2010]].
 - In Sweden (9.6 million people, 2003–2019), males had higher incidence of diagnosed ADHD before age 14 [[Yang2024Sweden]].

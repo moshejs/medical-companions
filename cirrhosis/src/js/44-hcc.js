@@ -6,7 +6,7 @@ const HC_STEPS=[
   pt:`People with cirrhosis have a higher chance of liver cancer. Each year a small number of them develop it [[Tapper2023JAMA]].`,
   hook:`Surveillance threshold (AASLD 2023): HCC risk ≥1.0% a year, which covers Child–Pugh A–B cirrhosis of any cause [[Singal2023AASLDHCC]].`},
  {from:.34,at:.4,k:'Year 2 · no symptoms',t:'A tumour starts silently',
-  txt:`An early liver cancer usually causes no symptoms, which is why surveillance is offered rather than waiting for them. AASLD 2023: "HCC surveillance should be performed using ultrasound and AFP at semiannual (approximately every 6 months) intervals" (Level 2, Strong Recommendation). It does not recommend routine CT- or MRI-based surveillance [[Singal2023AASLDHCC]].`,
+  txt:`An early liver cancer usually causes no symptoms, which is why surveillance is offered rather than waiting for them. AASLD 2023 recommends that HCC surveillance means an ultrasound plus an AFP blood test about every 6 months (Level 2, Strong Recommendation). It does not recommend routine CT- or MRI-based surveillance [[Singal2023AASLDHCC]].`,
   pt:`An ultrasound, often with an AFP blood test, every 6 months can find liver cancer early, when it is easier to treat [[Singal2023AASLDHCC,Singal2014PLoSMed]].`,
   hook:`HCC surveillance = ultrasound ± AFP every 6 months for people with cirrhosis [[Singal2023AASLDHCC]].`},
  {from:.48,at:.6,k:'Years 3–3.5 · the 6-monthly check',t:'A check finds it while small',
@@ -50,7 +50,7 @@ const HC_BC=[
 ];
 const HC_IV={
  3:{t:'Every 3 months',txt:`More often is not better: in a randomised trial, quarterly surveillance did not improve on semiannual surveillance [[Singal2023AASLDHCC]].`,pt:`Extra scans add appointments without finding cancers earlier in a way that helped.`},
- 6:{t:'Every 6 months',txt:`AASLD 2023: "HCC surveillance should be performed using ultrasound and AFP at semiannual (approximately every 6 months) intervals" (Level 2, Strong Recommendation) [[Singal2023AASLDHCC]]. The Shanghai trial that cut HCC mortality by 37% used a 6-monthly schedule [[Zhang2004Screening]].`,pt:`Twice a year is the schedule the guidelines recommend.`},
+ 6:{t:'Every 6 months',txt:`AASLD 2023 recommends that HCC surveillance means an ultrasound plus an AFP blood test about every 6 months (Level 2, Strong Recommendation) [[Singal2023AASLDHCC]]. The Shanghai trial that cut HCC mortality by 37% used a 6-monthly schedule [[Zhang2004Screening]].`,pt:`Twice a year is the schedule the guidelines recommend.`},
  12:{t:'Every 12 months',txt:`Semiannual surveillance was linked with earlier stage at diagnosis and longer survival than annual surveillance, even after adjusting for lead time (40.3 vs 30 months) [[Singal2023AASLDHCC]].`,pt:`Once a year leaves a longer gap in which a tumour can grow unseen.`}
 };
 inits.hcc=()=>{

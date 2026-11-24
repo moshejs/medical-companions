@@ -149,7 +149,7 @@ Language note for builders: many autistic people prefer identity-first language 
 - UK survey (Kenny 2016; 3,470 respondents: autistic people, parents, wider family and friends, professionals):
   - the most widely endorsed terms were "autism" and "on the autism spectrum"
   - "autistic" was endorsed by many autistic adults, family members and parents but by fewer professionals
-  - "person with autism" was endorsed by almost half of professionals but by fewer autistic adults and parents [[Kenny2016]]
+  - nearly half of professionals favoured "person with autism", but fewer autistic adults and parents did [[Kenny2016]]
 - The UK consensus was not universal. About 40% of autistic respondents in Kenny 2016 did not endorse "autistic", and over 50% did not endorse "autistic person" [[Keating2023]].
 - US survey: autistic adults (n = 299) "overwhelmingly" preferred identity-first terms. Professionals (n = 207) were more likely to support and use person-first terms [[Taboas2023]].
 - Australia (198 adults with an autism diagnosis): those with a stronger autism identity found identity-first terms more preferable. Those reporting more experience and internalisation of stigma found identity-first terms less preferable and more offensive. Neither factor was associated with views on person-first terms [[Bury2023]].
@@ -178,7 +178,7 @@ Language note for builders: many autistic people prefer identity-first language 
 - In an online survey (N = 657), identifying as autistic and knowing about neurodiversity were associated with seeing autism as a positive identity "that needs no cure". Groups still overlapped substantially in recognising autism's difficulties, which supports a "deficit-as-difference" view (Early evidence) [[Kapp2013]].
 - An autistic researcher describes neurodiversity as accepting autism as natural variation while still supporting people with their disabilities [[denHouting2019]].
 - The concept of neurodiversity is often credited to the Australian sociologist Judy Singer (late 1990s). Botha and colleagues present archival evidence that "neurological diversity" was in use earlier and conclude the concept was "collectively developed by neurodivergent people" [[Botha2024]].
-- The 2014 Lancet seminar ends with "creation of a supportive environment that accepts and respects that the individual is different is crucial" [[Lai2014]].
+- The 2014 Lancet seminar ends by stressing that a supportive environment, one that accepts and respects the person's difference, is essential [[Lai2014]].
 
 ### words · The double empathy problem
 - Damian Milton, an autistic sociologist, described the "double empathy problem" in 2012. It reframes social difficulty as a two-way mismatch between autistic and non-autistic people, not a one-sided deficit (Hypothesis, with supporting studies below) [[Milton2012,Milton2022]].
@@ -203,14 +203,14 @@ Language note for builders: many autistic people prefer identity-first language 
 - A systematic review of 29 studies found three preliminary patterns. Adults with more autistic traits camouflage more. Sex and gender differences exist. Higher self-reported camouflaging goes with worse mental health. Samples were not representative of the whole autistic community (Early evidence) [[Cook2021Camouflaging]].
 - In a qualitative survey, 277 autistic adults described camouflaging as both protective (access to social spaces, safety) and harmful (exhaustion, isolation, loss of identity, delayed diagnosis). The time spent camouflaging seemed most damaging [[Bradley2021]].
 - In 180 UK undergraduates, camouflaging explained a further 3.2% of the variance in defeat and entrapment after autistic traits (1.1%). Camouflaging, defeat and entrapment together mediated the link between autistic traits and lifetime suicidal thoughts. This was a cross-sectional student sample (Early evidence) [[Cassidy2023Camouflaging]].
-- Autistic adults describe autistic burnout as chronic exhaustion, loss of skills and reduced tolerance to stimuli. Unmasking and acceptance were linked with recovery (Early evidence) [[Raymaker2020]].
+- Autistic adults describe autistic burnout as long-term exhaustion, with skills lost and a lower tolerance for sensory input. Unmasking and acceptance were linked with recovery (Early evidence) [[Raymaker2020]].
 - The construct is debated. Fombonne questions camouflaging's construct validity and its use to explain late diagnosis and a "female autism phenotype" [[Fombonne2020Camouflage]]. Lai and colleagues reply that better measurement is warranted, that subjective experience matters for adult diagnosis, and that camouflaging "is not necessarily a feature of autism in female individuals" [[Lai2021Commentary]].
 
 ### words · "Profound autism"
 - The 2021 Lancet Commission on the future of care and clinical research in autism was written by 32 authors from 6 continents and 13 disciplines, including autistic people and parents. It calls for personalised, stepped and accessible care and for more appreciation of neurodiversity [[Lord2022Lancet,Yu2022]].
 - The Commission proposed "profound autism" as an administrative term for autistic people who need 24-hour access to an adult to stay safe. The initial definition included a minimum age and suggested considering IQ and verbal ability [[Lord2022Lancet,Siegel2026]].
 - Applying a working definition (nonverbal or minimally verbal, or IQ <50) to ADDM data for 20,135 autistic 8-year-olds (2000–2016), 26.7% had profound autism. Its prevalence in 2016 was 4.6 per 1,000 8-year-olds [[Hughes2023]].
-- Compared with others in the ADDM data, children with profound autism were more likely to be female, from racial and ethnic minority groups, of low socioeconomic status, born preterm or with low birth weight, and to have self-injury or seizures [[Hughes2023]].
+- Compared with others in the ADDM data, children with profound autism were more often girls, from racial and ethnic minority groups or low-income backgrounds, born early or small, and more often had self-injury or seizures [[Hughes2023]].
 - A 2026 Delphi study reached 76% agreement on a research definition. Its parts are age 8 or older, adaptive functioning well below age level, needing adult supervision for safety, and IQ below 50 and/or not communicating verbally beyond single words or fixed phrases [[Siegel2026]].
 - A 2026 bioRxiv preprint (not peer reviewed) found no genomic, transcriptomic or regulatory evidence that profound autism is a biologically distinct group (Early evidence) [[Eicher2026]].
 
@@ -222,7 +222,7 @@ Language note for builders: many autistic people prefer identity-first language 
 
 ### history · Kanner and Asperger
 - 1943: Leo Kanner in Baltimore published "Autistic disturbances of affective contact", the first systematic description of early infantile autism, based on 11 children [[Kanner1968,Kanner1971,Harris2018Kanner]].
-- Kanner wrote that these children "have come into the world with an innate inability to form the usual, biologically provided contact with people" [[Harris2018Kanner]].
+- Kanner wrote that these children were born with an "innate inability" to make the ordinary, biologically given contact with other people [[Harris2018Kanner]].
 - 1938: Kanner examined the first child in his case series [[Olmsted2016]].
 - 1971: Kanner published a follow-up of the 11 children originally reported in 1943 [[Kanner1971]].
 - 1938 and 1944: Hans Asperger in Vienna first described "autistic psychopaths" in 1938. His full study was published in 1944 [[Czech2018,Asperger1944]].

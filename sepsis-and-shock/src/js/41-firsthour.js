@@ -1,25 +1,25 @@
 /* =============== 4.1 The first hour: bundle & antibiotics =============== */
 /* the five Hour-1 elements; m = the schematic minute each one starts on the clock (illustrative, not a standard) */
 const FH_EL=[
- {m:8,n:'Lactate',q:'"measure lactate level and remeasure lactate level if initial lactate is >2 mmol/L"'},
- {m:15,n:'Cultures',q:'"obtain blood cultures before administering antibiotics"'},
- {m:24,n:'Antibiotics',q:'"administer broad-spectrum antibiotics"'},
- {m:31,n:'Fluids',q:'"begin rapid administration of 30 mL/kg crystalloid for hypotension or lactate ≥4 mmol/L"'},
- {m:44,n:'Pressor',q:'"apply vasopressor if hypotension is present during or after fluid resuscitation to maintain a mean arterial pressure ≥65 mmHg"'}];
+ {m:8,n:'Lactate',q:'check the lactate level, and check it again if the first value is above 2 mmol/L'},
+ {m:15,n:'Cultures',q:'take blood cultures before the first antibiotic dose'},
+ {m:24,n:'Antibiotics',q:'give broad-spectrum antibiotics'},
+ {m:31,n:'Fluids',q:'start 30 mL/kg of crystalloid quickly if there is hypotension or a lactate of 4 mmol/L or more'},
+ {m:44,n:'Pressor',q:'add a vasopressor if hypotension persists during or after fluids, to keep the mean arterial pressure at 65 mmHg or more'}];
 const FH_STEPS=[
  {from:0,at:.03,k:'Minute 0 · time zero',t:'Sepsis is recognised',
-  txt:`SSC 2021: "Sepsis and septic shock are medical emergencies, and we recommend that treatment and resuscitation begin immediately" (best practice statement). The SSC 2018 bundle update introduced the "Hour-1 bundle", whose five elements are meant to be started within the first hour. The 2018 paper is paywalled, so its wording here comes from a verbatim listing in an open-access compliance study. [[Evans2021SSC,Levy2018Bundle,Wang2021Hour1]]`,
+  txt:`SSC 2021 treats sepsis and septic shock as medical emergencies and recommends starting treatment and resuscitation straight away (best practice statement). The SSC 2018 bundle update introduced the "Hour-1 bundle", whose five elements are meant to be started within the first hour. The elements are summarised here in our own words from the 2018 paper and an open-access compliance study that lists them. [[Evans2021SSC,Levy2018Bundle,Wang2021Hour1]]`,
   pt:`Sepsis is an emergency. Once a hospital team suspects it, they start several things at once, as quickly as they can.`,
   hook:`Hour-1 bundle: lactate (remeasure if >2), blood cultures before antibiotics, broad-spectrum antibiotics, 30 mL/kg crystalloid for hypotension or lactate ≥4, vasopressors for MAP ≥65. [[Wang2021Hour1,Levy2018Bundle]]`},
  {from:.1,at:.2,k:'Element 1 · lactate',t:'Measure lactate',
-  txt:`As published, the bundle's first element is to ${FH_EL[0].q}. SSC 2021 suggests measuring blood lactate in adults suspected of having sepsis (weak, low quality), as an adjunct: lactate alone cannot rule sepsis in or out. A missed 3- or 6-hour lactate was the commonest reason for failing the US SEP-1 measure (40% of failures). [[Wang2021Hour1,Levy2018Bundle,Evans2021SSC,Rhee2018SEP1]]`,
+  txt:`The bundle's first element is to ${FH_EL[0].q}. SSC 2021 suggests measuring blood lactate in adults suspected of having sepsis (weak, low quality), as an adjunct: lactate alone cannot rule sepsis in or out. A missed 3- or 6-hour lactate was the commonest reason for failing the US SEP-1 measure (40% of failures). [[Wang2021Hour1,Levy2018Bundle,Evans2021SSC,Rhee2018SEP1]]`,
   pt:`A blood test for lactate gives the team a sense of how stressed the body is, and it is often repeated.`,
   hook:`Remeasure lactate if the first value is above 2 mmol/L. <button class="btn ghost" data-go="tests">Lactate →</button>`},
  {from:.217,at:.31,k:'Element 2 · cultures',t:'Blood cultures before antibiotics',
-  txt:`The bundle says to ${FH_EL[1].q}. SSC 2021 frames this as taking cultures first only "if it results in no substantial delay in the start of antimicrobials (i.e. &lt; 45 min)". Cultures drawn after antimicrobials were positive in 19.4% of patients, against 31.4% before. [[Wang2021Hour1,Levy2018Bundle,Evans2021SSC,Cheng2019Cultures]]`,
+  txt:`The bundle says to ${FH_EL[1].q}. SSC 2021 frames this as taking cultures first only if that does not hold up the first antimicrobial dose by much (under 45 minutes). Cultures drawn after antimicrobials were positive in 19.4% of patients, against 31.4% before. [[Wang2021Hour1,Levy2018Bundle,Evans2021SSC,Cheng2019Cultures]]`,
   pt:`Blood samples are taken to grow the germ, ideally before antibiotics. Antibiotics should not wait long for them.`},
  {from:.367,at:.46,k:'Element 3 · antibiotics',t:'Broad-spectrum antibiotics',
-  txt:`The bundle says to ${FH_EL[2].q}. SSC 2021 recommends antimicrobials "immediately, ideally within 1 h of recognition" for possible septic shock or a high likelihood of sepsis (strong), and suggests rapid investigation with antimicrobials within 3 h if concern persists for possible sepsis without shock (weak). Choosing the right drug matters too: survival in septic shock was 52.0% after appropriate and 10.3% after inappropriate initial therapy (Kumar 2009). [[Wang2021Hour1,Levy2018Bundle,Evans2021SSC,Kumar2009Inappropriate]]`,
+  txt:`The bundle says to ${FH_EL[2].q}. SSC 2021 recommends antimicrobials at once, ideally within 1 h of recognition, for possible septic shock or a high likelihood of sepsis (strong), and suggests rapid investigation with antimicrobials within 3 h if concern persists for possible sepsis without shock (weak). Choosing the right drug matters too: survival in septic shock was 52.0% after appropriate and 10.3% after inappropriate initial therapy (Kumar 2009). [[Wang2021Hour1,Levy2018Bundle,Evans2021SSC,Kumar2009Inappropriate]]`,
   pt:`Antibiotics are started quickly, through a drip. When shock is possible, guidelines say to give them within an hour.`,
   hook:`SSC 2021: ≤1 h for possible shock or high likelihood of sepsis; ≤3 h after rapid assessment for possible sepsis without shock. [[Evans2021SSC]]`},
  {from:.483,at:.6,k:'Element 4 · fluids',t:'Crystalloid for hypotension or high lactate',
@@ -48,7 +48,7 @@ const FE_STEPS=[
  {from:.4,at:.54,k:'2014 · Australasia',t:'ARISE: no benefit',
   txt:`ARISE (1,600 patients, 51 centres, mainly Australia and New Zealand) found 90-day mortality of 18.6% with EGDT and 18.8% with usual care (difference −0.3 percentage points, −4.1 to 3.6). [[ARISE2014]]`},
  {from:.6,at:.74,k:'2015 · England',t:'ProMISe: no benefit, more cost',
-  txt:`ProMISe (1,260 patients, 56 English hospitals) found 90-day mortality of 29.5% with EGDT and 29.2% with usual care (RR 1.01, 0.85–1.20). EGDT raised costs, and the probability that it was cost-effective was below 20%. [[Mouncey2015ProMISe]]`},
+  txt:`ProMISe (1,260 patients, 56 English hospitals) found 90-day mortality of 29.5% with EGDT and 29.2% with usual care (RR 1.01, 0.85–1.20). EGDT raised costs, and it had less than a 20% chance of being cost-effective. [[Mouncey2015ProMISe]]`},
  {from:.8,at:.92,k:'2017 · pooled',t:'PRISM: the verdict',
   txt:`PRISM pooled individual data from 3,723 patients at 138 hospitals in ProCESS, ARISE and ProMISe. 90-day mortality was 24.9% with EGDT and 25.4% with usual care (adjusted OR 0.97, 0.82–1.14); EGDT increased ICU use and costs, with no benefit even in subgroups with worse shock (higher lactate, or hypotension plus hyperlactataemia). [[PRISM2017]]`,
   pt:`When the three big trials were combined, the strict protocol still did not save more lives. Early recognition, antibiotics and fluids remain the core of care.`,
@@ -86,8 +86,8 @@ inits.firsthour=()=>{
     T.forEach((B,k)=>{s+=tile(k,B,min,N)});
     const K=N?{x:12,y:530,w:376,h:110}:{x:12,y:272,w:696,h:98};
     s+=`<rect x="${K.x}" y="${K.y}" width="${K.w}" height="${K.h}" rx="10" style="fill:var(--field);stroke:var(--line)"/>`;
-    const head=p===0?'SSC 2021, as published:':`Hour-1 bundle element ${p} (SSC 2018), as published:`,
-      q=p===0?'"Sepsis and septic shock are medical emergencies, and we recommend that treatment and resuscitation begin immediately"':FH_EL[p-1].q;
+    const head=p===0?'SSC 2021, in brief:':`Hour-1 bundle element ${p} (SSC 2018), in brief:`,
+      q=p===0?'Sepsis and septic shock are emergencies: treatment and resuscitation should start straight away.':FH_EL[p-1].q.charAt(0).toUpperCase()+FH_EL[p-1].q.slice(1)+'.';
     s+=`<text x="${K.x+12}" y="${K.y+20}" class="t-xs" style="fill:var(--rx);font-weight:700">${head}</text>`;
     fhWrap(q,N?58:96).forEach((l,j)=>{s+=`<text x="${K.x+12}" y="${K.y+40+j*(N?16:18)}" class="${N?'t-xs':'t-sm'}" style="fill:var(--ink)">${l.replace(/>/g,'&gt;')}</text>`});
     svg.innerHTML=s;setSt(p);

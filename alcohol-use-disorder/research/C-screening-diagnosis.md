@@ -18,7 +18,7 @@ Access notes:
 - AUD is undertreated, partly because of stigma and partly because of insufficient systematic screening in primary care; the Lancet seminar recommends routine screening for alcohol use in primary care with a stepped response from brief advice to medicines [[Carvalho2019Lancet]].
 - In NESARC-III (US adults, 2012–2013, N = 36,309), only 19.8% of people with lifetime DSM-5 AUD had ever been treated [[Grant2015NESARC]].
 - In 2017 BRFSS data from 13 US states and DC, 81.4% of adults said a health professional asked about alcohol use at a checkup in the past 2 years, but only 37.8% were asked about binge-level drinking (age-standardised) [[McKnightEily2020MMWR]].
-- Among adults in that survey who reported current binge drinking, only 41.7% were advised about the harms of drinking too much and only 20.1% were advised to reduce or quit [[McKnightEily2020MMWR]].
+- Among adults in that survey who reported current binge drinking, only 41.7% were told about the harms of heavy drinking and only 20.1% were told to cut down or stop [[McKnightEily2020MMWR]].
 - In the 2015–2016 US National Ambulatory Medical Care Survey, 71.7% of office-based primary care physicians reported screening for alcohol misuse, and fewer than 40% of those who screened said they always intervened when a patient screened positive [[Green2022PCP]].
 - The USPSTF defines "unhealthy alcohol use" as a spectrum of behaviours, from risky drinking to AUD, that raise the risk of health consequences [[USPSTF2018Alcohol]].
 - WHO terminology used with the AUDIT: "hazardous use" is a pattern that increases the risk of harmful consequences for the user, even without any current disorder; "harmful use" is a pattern already causing damage to health [[HigginsBiddle2018USAUDIT]].
@@ -51,7 +51,7 @@ Access notes:
 
 ### screening · SBIRT
 - SBIRT (Screening, Brief Intervention, and Referral to Treatment) is an integrated public-health approach built on universal screening for people with, or at risk of, substance use disorders [[Babor2007SBIRT]].
-- More than a hundred clinical trials have tested alcohol screening and brief intervention in primary care, emergency departments and trauma centres; short-term individual benefit is well supported, while long-term population effects have not been demonstrated (Established for short-term effects; Hypothesis for population-level effects) [[Babor2007SBIRT]].
+- Over a hundred trials have tested screening plus brief intervention in primary care, emergency departments and trauma centres; short-term individual benefit is well supported, while long-term population effects have not been demonstrated (Established for short-term effects; Hypothesis for population-level effects) [[Babor2007SBIRT]].
 - The "referral to treatment" step is the weakest link in the evidence, because brief interventions have not been shown to increase uptake of specialty care [[Glass2015Referral]].
 
 ### screening · AUDIT (10 items)
@@ -85,7 +85,7 @@ Access notes:
 - Higher AUDIT-C scores therefore mean higher probability of dependence, but even a positive screen leaves wide uncertainty and needs a diagnostic assessment [[Rubinsky2010AUDITZones]].
 
 ### screening · Single alcohol screening question (NIAAA)
-- The NIAAA single question is: "How many times in the past year have you had X or more drinks in a day?" with X = 5 for men and 4 for women; an answer of 1 or more is positive [[Smith2009JGIM]].
+- The NIAAA single question asks for the number of days in the past year with X or more drinks, where X = 5 for men and 4 for women; an answer of 1 or more is positive [[Smith2009JGIM]].
 - In 286 primary care patients, it was 81.8% sensitive (95% CI 72.5–88.5%) and 79.3% specific (95% CI 73.1–84.4%) for unhealthy alcohol use [[Smith2009JGIM]].
 - For a current AUD it was 87.9% sensitive (95% CI 72.7–95.2%) but only 66.8% specific (95% CI 60.8–72.3%) [[Smith2009JGIM]].
 - Its accuracy was similar to a commonly used three-item screen and was little affected by demographics [[Smith2009JGIM]].
@@ -117,8 +117,8 @@ Access notes:
 - Screening and counselling in pregnancy are covered by the USPSTF B recommendation, and counselling increased reported abstinence [[USPSTF2018Alcohol,OConnor2018JAMA]].
 
 ### criteria · DSM-5-TR alcohol use disorder
-- DSM-5-TR defines AUD as a problematic pattern of alcohol use causing clinically significant impairment or distress, shown by at least 2 of 11 criteria within a 12-month period [[APA2022,Hasin2013DSM5]].
-- The 11 criteria, paraphrased: (1) drinking more or longer than intended; (2) persistent wish or failed efforts to cut down; (3) much time spent getting, using or recovering; (4) craving; (5) failure to meet major role obligations; (6) continued use despite social or interpersonal problems; (7) giving up important activities; (8) use in physically hazardous situations; (9) continued use despite physical or psychological problems; (10) tolerance; (11) withdrawal [[APA2022]].
+- In DSM-5-TR, AUD is a pattern of drinking that causes real harm or distress, shown by at least 2 of 11 criteria within 12 months [[APA2022,Hasin2013DSM5]].
+- The 11 criteria, in our own words: (1) drinking more or for longer than planned; (2) trying and failing to cut back; (3) a lot of time lost to getting drink, drinking or recovering; (4) craving; (5) duties at work, school or home slipping; (6) drinking on despite trouble with other people; (7) dropping things that mattered; (8) drinking again and again where it is physically dangerous; (9) drinking on despite a body or mental health problem it worsens; (10) tolerance; (11) withdrawal [[APA2022]].
 - Severity is set by the number of criteria met: mild 2–3, moderate 4–5, severe 6 or more [[Hasin2013DSM5,APA2022]].
 - Early remission: at least 3 but less than 12 months without meeting any AUD criterion except craving; sustained remission: 12 months or more without meeting any criterion except craving [[Hasin2013DSM5,APA2022]].
 - A specifier "in a controlled environment" applies when the person is in a setting where access to alcohol is restricted [[APA2022]].
@@ -223,7 +223,7 @@ Access notes:
 
 ### biomarkers · Hair EtG
 - EtG is stable in hair and can show drinking over months; hair grows about 1 cm per month, so a 3 cm proximal segment reflects roughly 3 months [[Crunelle2014HairEtG,Arnts2021LiverBiomarkers]].
-- 2026 Society of Hair Testing consensus: in proximal scalp hair, EtG ≤5 pg/mg does not contradict self-reported abstinence, and EtG ≥30 pg/mg strongly suggests chronic excessive drinking [[Favretto2026SoHT]].
+- 2026 Society of Hair Testing consensus: EtG of 5 pg/mg or less in the hair nearest the scalp fits with reported abstinence, and 30 pg/mg or more points strongly to long-term heavy drinking [[Favretto2026SoHT]].
 - The previous (2016) SoHT cut-offs for EtG were 7 pg/mg and 30 pg/mg [[Pragst2017SoHT]].
 - Ethyl palmitate can complement hair EtG, with chronic-excessive cut-offs of ≥350 pg/mg (0–3 cm) and ≥450 pg/mg (0–6 cm) [[Favretto2026SoHT]].
 - Hair results must be read in light of hair segment, growth, cosmetic or heat treatment and method [[Favretto2026SoHT,Crunelle2014HairEtG]].
@@ -232,7 +232,7 @@ Access notes:
 ### Exam hooks
 - AUDIT: 10 items, 0–40; 8 or more flags hazardous or harmful use; WHO zones 0–7, 8–15, 16–19, 20–40 [[Saunders1993AUDIT,Babor2016AUDITZones]].
 - AUDIT-C positive: ≥4 in men, ≥3 in women (primary care sensitivity/specificity 0.86/0.89 and 0.73/0.91) [[Bradley2007AUDITC]].
-- NIAAA single question: "How many times in the past year have you had 5 (men) / 4 (women) or more drinks in a day?"; 1 or more is positive (sensitivity 81.8%, specificity 79.3%) [[Smith2009JGIM]].
+- NIAAA single question: the number of days in the past year with 5 (men) / 4 (women) or more drinks; 1 or more is positive (sensitivity 81.8%, specificity 79.3%) [[Smith2009JGIM]].
 - USPSTF 2018: screen adults 18+ including pregnant people, then brief counselling (grade B); adolescents 12–17 = I statement [[USPSTF2018Alcohol]].
 - Brief intervention: about −1.6 drinks/week (USPSTF review) or −20 g/week at 1 year (Cochrane) [[OConnor2018JAMA,Kaner2018Cochrane]].
 - Brief intervention does not reliably increase uptake of specialty treatment [[Glass2015Referral]].

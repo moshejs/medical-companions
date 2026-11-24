@@ -136,7 +136,7 @@ const STRV_MN=[
  ["Four to fourteen, peak at six to ten",0,`Delayed cerebral ischaemia after aneurysmal SAH: mostly days <b>4</b> to <b>14</b>, peak risk days <b>6</b> to <b>10</b> [[Hoh2023]].`],
  ["Seventy big, fifty small, thirty harmed",0,`Symptomatic carotid surgery by stenosis: 70% or more gains 16% over 5 years, 50-69% gains 4.6%, and below 30% is harmed [[Rothwell2003]].`]
 ];
-/* ABCD2 for the animation: letter, word, the rule as published, the most points the item can add */
+/* ABCD2 for the animation: letter, word, the rule in our own words, the most points the item can add */
 const STRV_AB=[
  ['A','Age','60 or over: 1 point',1],
  ['B','Blood pressure','140/90 mmHg or higher: 1 point',1],

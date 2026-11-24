@@ -33,7 +33,7 @@ Access notes:
 - Teaching point: pancreatitis needs surviving acinar tissue, so it is a complication of PS, not PI (Established) [[Ooi2011,Singh2017PI]].
 
 ### nutrition · Pancreatic enzyme replacement therapy (PERT): label and guideline doses (quoted, not instructions)
-- Creon (pancrelipase) is indicated "for the treatment of exocrine pancreatic insufficiency in adult and pediatric patients"; dosing is based on lipase units [[FDA-Creon]].
+- Creon (pancrelipase) is approved to treat exocrine pancreatic insufficiency in adults and children; dosing is based on lipase units [[FDA-Creon]].
 - Creon label starting doses for people older than 12 months: 1,000 lipase units/kg/meal for ages >12 months to <4 years; 500 lipase units/kg/meal for ages 4 years and older [[FDA-Creon]].
 - Creon label ceiling: do not exceed 2,500 lipase units/kg/meal, 10,000 lipase units/kg/day, or 4,000 lipase units/g fat ingested/day (people >12 months) "without further investigation" [[FDA-Creon]].
 - Creon label: snacks take about half the meal dose; daily dosing should reflect about three meals plus two or three snacks [[FDA-Creon]].
@@ -147,7 +147,7 @@ Access notes:
 - Pooled prevalence of radiological vertebral fractures was 14% (95% CI 7.8–21.7) and of non-vertebral fractures 19.7% (95% CI 6.0–38.8) [[Paccou2010]].
 - CFF bone guide: some studies found 50–75% of adults with CF have low bone density; risk factors include poor absorption of fat-soluble vitamins, altered sex hormones, chronic lung infection and inflammatory cytokines, low activity and glucocorticoids [[Aris2005]].
 - European (ECFS) bone mineralisation guidelines give Delphi-validated consensus statements on the assessment, prevention and treatment of CF-related skeletal deficits [[SermetGaudelus2011]].
-- ESPEN-ESPGHAN-ECFS: bone mineral density examination should be performed from age 8–10 years [[Turck2016Nutrition]].
+- ESPEN-ESPGHAN-ECFS: bone mineral density should be checked from age 8–10 years [[Turck2016Nutrition]].
 - CFF vitamin D guideline: yearly screening of vitamin D status, preferably at the end of winter, with serum 25-hydroxyvitamin D of at least 30 ng/mL (75 nmol/L) considered sufficient [[Tangpricha2012]].
 
 ### organs · Reproduction (male), joints, kidneys, hearing
@@ -194,7 +194,7 @@ Access notes:
 - A randomized trial in 100 pancreatic-insufficient people with CF found a liposomal vitamin preparation raised 25-hydroxyvitamin D3 more than standard preparations over 3 months (+9.7 vs +2.0 ng/mL) (Early evidence) [[Nowak2022]].
 
 ### nutrition · Supplements and tube feeding
-- ESPEN-ESPGHAN-ECFS: oral nutritional supplements, then polymeric enteral tube feeding, are recommended when growth or nutritional status is impaired [[Turck2016Nutrition]].
+- ESPEN-ESPGHAN-ECFS: when growth or nutrition falters, the guideline recommends oral supplements first, then polymeric tube feeding [[Turck2016Nutrition]].
 - The CFF 2016 enteral tube feeding guideline covers when to consider tube feeding, checking for other causes of poor nutrition, preparing for tube placement, and care afterwards [[Schwarzenberg2016Tube]].
 - ESPEN-ESPGHAN-ECFS found not enough evidence to recommend essential fatty acids, growth hormone, appetite stimulants or probiotics routinely [[Turck2016Nutrition]].
 

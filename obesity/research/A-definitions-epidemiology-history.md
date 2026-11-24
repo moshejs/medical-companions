@@ -17,10 +17,10 @@ Shared keys checked and correct: NCDRisC2024 (PMID 38432237), Rubino2025Commissi
 ## Findings
 
 ### what · What obesity is: definitions and disease status
-- The 2025 Lancet Diabetes & Endocrinology Commission defines obesity as "a condition characterised by excess adiposity, with or without abnormal distribution or function of adipose tissue, and with causes that are multifactorial and still incompletely understood" [[Rubino2025Commission]].
+- The 2025 Lancet Diabetes & Endocrinology Commission defines obesity as a condition of excess adiposity, whether or not the fat tissue is abnormally distributed or works abnormally, with many causes that are still not fully understood [[Rubino2025Commission]].
 - The Commission was a group of 58 experts from several medical specialties and countries, and it included people with lived experience of obesity. Its recommendations reached 90–100% agreement among commissioners, and 76 organisations worldwide endorsed it [[Rubino2025Commission]].
 - The Commission's consensus statements say the causes of obesity include genetic, environmental, psychological, nutritional and metabolic factors that alter the biology maintaining normal adipose tissue mass, distribution and function (agreement 95%) [[Rubino2025Commission]].
-- **Clinical obesity** is "a chronic, systemic illness characterised by alterations in the function of tissues, organs, the entire individual, or a combination thereof, due to excess adiposity". It can lead to end-organ damage such as heart attack, stroke and renal failure [[Rubino2025Commission]].
+- **Clinical obesity** is a long-term illness affecting the whole body, in which excess adiposity changes how tissues, organs or the whole person function, alone or together. It can lead to end-organ damage such as heart attack, stroke and renal failure [[Rubino2025Commission]].
 - **Preclinical obesity** is excess adiposity with preserved function of other tissues and organs. It carries a varying but generally increased risk of clinical obesity and of other non-communicable diseases (type 2 diabetes, cardiovascular disease, some cancers, mental disorders) [[Rubino2025Commission]].
 - Remission of clinical obesity is defined as partial or complete resolution of the clinical and laboratory evidence of obesity-related organ dysfunction, and "does not imply cure". Preclinical obesity can be a state of remission if resolution is sustained for at least 6 months without ongoing drug treatment (agreement 95–97%) [[Rubino2025Commission]].
 - The Commission recommends that BMI be used only as a surrogate measure of health risk at a population level, for epidemiology or for screening, not as an individual measure of health [[Rubino2025Commission]].
@@ -127,7 +127,7 @@ Shared keys checked and correct: NCDRisC2024 (PMID 38432237), Rubino2025Commissi
 ### assessment · Edmonton Obesity Staging System (EOSS)
 - Sharma and Kushner (2009) proposed EOSS, a clinical and functional staging system used alongside anthropometric classes. It describes the morbidity and functional limitation linked to excess weight, which BMI and waist do not capture [[Sharma2009EOSS]].
 - EOSS is a 5-point ordinal scale (stages 0–4) that grades comorbidity and functional status [[Padwal2011EOSS]].
-- In a modified version used with cohort data, stage 0 means no risk factors or comorbidities, stage 1 mild conditions, and stages 2–3 moderate to severe conditions [[Kuk2011EOSS]].
+- In a modified version used with cohort data, stage 0 had neither risk factors nor related conditions, stage 1 only mild ones, and stages 2 and 3 moderate to severe ones [[Kuk2011EOSS]].
 - In NHANES III and 1999–2004 adults with overweight or obesity (mortality follow-up to 2006) [[Padwal2011EOSS]]:
   - Over 75% scored stage 1 or 2.
   - Survival curves separated by EOSS stage but not by obesity class alone.

@@ -77,7 +77,7 @@ const TR_ELIG={
   kal:['maybe',`${TR_TAB}; since 2017 the FDA has added rare variants on in vitro FRT data [[FDA-Kalydeco,Durmowicz2018]].`],
   ork:['no',`The label covers only people homozygous for F508del [[FDA-Orkambi]].`],
   sym:['maybe',`${TR_TAB} (about 154 listed) [[FDA-Symdeko]].`],
-  tri:['maybe',`The label covers a variant "either responsive based on clinical and/or in vitro data … or results in production of CFTR protein" (N1303K is listed on HBE cell data). In FRT cells 518 of 620 rare variants (84%) responded; in trial 445-124 ppFEV1 rose 9.2 points vs placebo [[FDA-Trikafta,Castellani2026RareVariants]].`],
+  tri:['maybe',`The label covers a variant that responds on clinical and/or in vitro data, or one that leads to CFTR protein being made, under the conditions the label sets out (N1303K is listed on HBE cell data). In FRT cells 518 of 620 rare variants (84%) responded; in trial 445-124 ppFEV1 rose 9.2 points vs placebo [[FDA-Trikafta,Castellani2026RareVariants]].`],
   aly:['maybe',`${TR_TAB} (about 560 listed) [[FDA-Alyftrek]].`]},
  non:{lbl:'Two nonsense variants (no protein)',
   kal:['no',`Drugs that act on the CFTR protein cannot help when no protein is made, as with many nonsense variants [[Kerem2014Ataluren]].`],

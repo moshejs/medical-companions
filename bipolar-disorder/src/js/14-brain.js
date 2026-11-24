@@ -61,7 +61,7 @@ const BR_L={
 };
 const BR_K={
  data:{k:'Danish registers',t:'Recurrence rises with episode count',
-  txt:`${BR_EV.est} for the association. In a Danish register of 20,350 first-admission patients (1971–1993), the rate of recurrence rose with the number of previous episodes, in both unipolar and bipolar disorder. A later register study (1,106 people with mania or bipolar disorder) found the same, and relapse rates had not fallen despite newer treatments. A 2017 review linked more episodes with higher recurrence risk, longer and more severe episodes and higher dementia risk, while noting how varied the course is. [[Kessing1998Recurrence,Kessing2004Course,Kessing2017Progression]]`,
+  txt:`${BR_EV.est} for the association. In a Danish register of 20,350 first-admission patients (1971–1993), each extra previous episode went with a higher rate of recurrence, in unipolar and bipolar disorder alike. A later register study (1,106 people with mania or bipolar disorder) found the same, and relapse rates had not fallen despite newer treatments. A 2017 review linked more episodes with higher recurrence risk, longer and more severe episodes and higher dementia risk, while noting how varied the course is. [[Kessing1998Recurrence,Kessing2004Course,Kessing2017Progression]]`,
   pt:`On average, people who have had more episodes are more likely to have another. Why is the open question.`,
   hook:`Danish registers: recurrence rate rises with the number of prior episodes (an association). [[Kessing1998Recurrence]]`},
  kindle:{k:'Reading 1',t:'Kindling and neuroprogression',

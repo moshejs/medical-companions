@@ -134,7 +134,7 @@ inits.differential=()=>{
       ['sudden severe sharp pain: the commonest complaint'].forEach(l=>{wrap(l,N?46:50).forEach(q=>{s+=`<text x="${x}" y="${y}" class="t-sm" style="fill:var(--ink)">${q}</text>`;y+=15})});y+=16;
       s+=bar(y,'aortic regurgitation present',31.6,100,'var(--muted)','31.6%');y+=32;s+=bar(y,'pulse deficit present',15.1,100,'var(--muted)','15.1%');y+=32;s+=bar(y,'normal ECG',31.3,100,'var(--warn)','31.3%');y+=32;s+=bar(y,'died in hospital',27.4,100,'var(--bad)','27.4%');y+=20;
       keyt(y,'ADD-RS ≤1 with D-dimer below 500 ng/mL: failure rate 0.3% (ADvISED)')}
-    else if(i===2){head('Pulmonary embolism','Wells score items · points as published');const W=[['signs of DVT',3],['no likelier alternative',3],['heart rate over 100',1.5],['immobilised or surgery, 4 wk',1.5],['previous DVT or PE',1.5],['coughing blood',1],['cancer',1]];
+    else if(i===2){head('Pulmonary embolism','Wells score items · points from Wells 2000');const W=[['signs of DVT',3],['no likelier alternative',3],['heart rate over 100',1.5],['immobilised or surgery, 4 wk',1.5],['previous DVT or PE',1.5],['coughing blood',1],['cancer',1]];
       let y=P.y+70;const bw=w-60;W.forEach((q,j)=>{const op=clamp(u*7-j);s+=`<g style="opacity:${f1(.25+.75*op)}"><text x="${x}" y="${y+9}" class="t-sm" style="fill:var(--ink)">${q[0]}</text><rect x="${x+w-54}" y="${y}" width="${f1(54*q[1]/3)}" height="11" rx="3" style="fill:var(--dx)"/><text x="${x+w-58}" y="${y+10}" class="t-sm t-end" style="fill:var(--dx);font-weight:700">${q[1].toFixed(1)}</text></g>`;y+=N?22:21});void bw;
       y+=8;keyt(y,'Wells ≤4.0 plus negative D-dimer: PE in 1.7% on validation, in 46% of patients')}
     else if(i===3){head('Pericarditis & myocarditis','JAMA review · Imazio 2015');let y=P.y+74;

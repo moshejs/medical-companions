@@ -31,7 +31,7 @@ const DF_P=[
 ];
 const DF_STEPS=[
  {from:0,at:.18,k:'Profile 1 · BPD',t:'Hours, after a hurt',
-  txt:`In BPD, affective instability comes from marked reactivity of mood: intense dysphoria, irritability or anxiety "usually lasting a few hours and only rarely more than a few days". [[APA2022,Kaess2025]] The shifts are transient and follow interpersonal stressors such as perceived rejection. [[Paris2015,Sharan2023]] Affective instability is the most sensitive criterion (92.8%) but is transdiagnostic, so on its own it separates BPD from bipolar disorder poorly. [[Zimmerman2017BJP,Bayes2020]]`,
+  txt:`In BPD, affective instability means mood that reacts sharply to events: bursts of intense unease or low mood, irritability or anxiety that typically last a few hours and seldom more than a few days. [[APA2022,Kaess2025]] The shifts are transient and follow interpersonal stressors such as perceived rejection. [[Paris2015,Sharan2023]] Affective instability is the most sensitive criterion (92.8%) but is transdiagnostic, so on its own it separates BPD from bipolar disorder poorly. [[Zimmerman2017BJP,Bayes2020]]`,
   pt:`Moods in BPD can swing several times a week, often after a hurt in a relationship, and settle within hours.`,
   hook:`BPD mood shifts last hours and are reactive: ask what happened just before.`},
  {from:.2,at:.38,k:'Profile 2 · Bipolar II',t:'Days to weeks, with or without a trigger',
@@ -54,13 +54,13 @@ const DF_STEPS=[
 const DF_NONE='<span class="df-none">—</span>';
 const DF_ROWS=[
  {id:'time',n:'Mood time scale',sh:[0,1,2,3,4],
-  c:[`Reactive shifts usually lasting a few hours, rarely more than a few days [[APA2022,Kaess2025]]`,`Sustained episodes of days to weeks; can occur regardless of events [[Paris2015,Sharan2023]]`,`Chronic, pervasive disturbance in emotion regulation [[Maercker2022]]`,`Emotion dysregulation present but less than in BPD; most with both [[Ditrich2021]]`,DF_NONE,DF_NONE],
+  c:[`Reactive shifts, typically a few hours, seldom more than a few days [[APA2022,Kaess2025]]`,`Sustained episodes of days to weeks; can occur regardless of events [[Paris2015,Sharan2023]]`,`Chronic, pervasive disturbance in emotion regulation [[Maercker2022]]`,`Emotion dysregulation present but less than in BPD; most with both [[Ditrich2021]]`,DF_NONE,DF_NONE],
   out:`Overlaying all five traces on one axis: only BPD has sharp dips lasting hours. Watch the one-day zoom.`},
  {id:'self',n:'Identity and self-concept',sh:[0,2],
   c:[`Alternating, unstable self-concept; identity disturbance is one of the most central criteria [[Frost2020,Peters2023]]`,`Identity disturbance (with abandonment fears) separates BPD from bipolar disorder best [[Bayes2020]]`,`Stably negative self-concept, its most distinctive feature [[Frost2020]]`,DF_NONE,DF_NONE,`Identity disruption much lower than in BPD (d = −1.36) [[Barnicot2026]]`],
   out:`Dashed lines show self-concept: BPD flips between positive and negative, complex PTSD stays low.`},
  {id:'aband',n:'Fear of abandonment',sh:[0,1],
-  c:[`Criterion 1; highest specificity and PPV (0.90) against bipolar disorder [[Bayes2020]]`,`Abandonment fears best separate BPD from bipolar disorder [[Bayes2020]]`,`Frantic efforts to avoid abandonment raised the odds of BPD over complex PTSD [[Cloitre2014]]`,DF_NONE,DF_NONE,`Coping with being alone was one of five separating features [[Barnicot2026]]`],
+  c:[`Criterion 1; highest specificity and PPV (0.90) against bipolar disorder [[Bayes2020]]`,`Abandonment fears best separate BPD from bipolar disorder [[Bayes2020]]`,`Desperate efforts to avoid abandonment raised the odds of BPD over complex PTSD [[Cloitre2014]]`,DF_NONE,DF_NONE,`Coping with being alone was one of five separating features [[Barnicot2026]]`],
   out:`The triangles mark interpersonal triggers such as perceived rejection: BPD dips follow them; bipolar episodes do not.`},
  {id:'trauma',n:'Trauma history',sh:[0,2],
   c:[`PTSD common but not universal: 30.2% in a US population sample [[Pagura2010PTSD,Zanarini1998AxisI]]`,`Childhood sexual abuse predicted BPD rather than bipolar disorder [[Bayes2016]]`,`Usually follows sustained or multiple trauma exposure [[Maercker2022]]`,`In women with BPD, childhood ADHD went with childhood emotional abuse [[Philipsen2008]]`,DF_NONE,DF_NONE],

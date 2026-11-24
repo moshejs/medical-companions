@@ -40,7 +40,7 @@ Access notes:
 - Cochrane 2017 (23 RCTs, 2,890 participants after MI, revascularisation or heart failure): no difference in mortality up to 12 months (RR 1.19, 0.65–2.16; very low quality) or exercise capacity (SMD −0.13, −0.28 to 0.02). Completion was marginally higher at home (RR 1.04, 1.00–1.08) [[Anderson2017HB]].
 - Cochrane 2023 update (24 RCTs, 3,046 participants; home-based included digital or telehealth): mortality RR 1.19 (0.65–2.16); exercise capacity SMD −0.10 (−0.24 to 0.04); completion RR 1.03 (0.99–1.08). Cost per patient was similar [[McDonagh2023]].
 - In Cochrane 2023, 71 of 77 quality-of-life comparisons up to 24 months showed no significant difference between home and centre [[McDonagh2023]].
-- The 2019 AACVPR/AHA/ACC home-based CR statement concluded that home-based CR "may be a reasonable option for selected clinically stable low- to moderate-risk patients who are eligible for CR but cannot attend a traditional center-based CR program" [[Thomas2019HBCR]].
+- The 2019 AACVPR/AHA/ACC home-based CR statement concluded that home-based CR may be reasonable for some clinically stable people at low to moderate risk who qualify for CR but cannot get to a centre-based programme [[Thomas2019HBCR]].
 - That statement rated the evidence that home-based and centre-based CR give similar 3- to 12-month outcomes as low to moderate strength, with gaps for older adults, women and underrepresented groups [[Thomas2019HBCR]].
 
 ### rehab · Referral and participation gaps
@@ -79,7 +79,7 @@ Access notes:
 - Case-crossover meta-analysis: sexual activity was associated with a transiently higher relative risk of MI (RR 2.70, 1.48–4.91). The absolute risk increase for 1 extra hour per week of sexual or physical activity was 2–3 MIs per 10,000 person-years [[Dahabreh2011]].
 - The triggering effect was weaker in people with higher habitual physical activity. For each additional weekly session of habitual exercise, the RR of an activity-triggered MI fell by about 45% [[Dahabreh2011]].
 - The AHA/ESC CCNAP sexual-counselling consensus reports that erectile dysfunction in men with cardiovascular disease is about twice as common as in the general population, with similar rates of sexual dysfunction in women. It recommends routine assessment and counselling for patients and their partners [[Steinke2013]].
-- The nitroglycerin label: "Do not use NITROSTAT in patients who are taking PDE-5 Inhibitors, such as avanafil, sildenafil, tadalafil, vardenafil hydrochloride. Concomitant use can cause severe hypotension, syncope, or myocardial ischemia." [[FDA-Nitrostat]].
+- The nitroglycerin label says it must not be used with PDE-5 inhibitors (such as avanafil, sildenafil, tadalafil or vardenafil), because the combination can cause severe hypotension, fainting (syncope) or myocardial ischaemia [[FDA-Nitrostat]].
 
 ### living · Depression
 - Major depression after MI on structured interview: 19.8% (95% CI 19.1–20.6; 8 studies, n=10,785). Depressive symptoms were found in 31.1% with BDI ≥10, 15.5% with HADS ≥8 and 7.3% with HADS ≥11 [[Thombs2006]].
@@ -144,11 +144,11 @@ Access notes:
 - PARIS registry (5,018 PCI patients, 2 years): DAPT disruption (non-compliance or bleeding) raised MACE risk (HR 1.50, 1.14–1.97), with HR 7.04 in the first 7 days after disruption. Physician-guided discontinuation did not raise risk (HR 0.63) [[Mehran2013]].
 - PREMIER: 13.6% of DES-treated MI patients had stopped their thienopyridine by 30 days. Their 11-month mortality was 7.5% vs 0.7% (adjusted HR 9.0, 1.3–60.6) [[Spertus2006]].
 - Ontario, ≥65 years after AMI: 79% of prescriptions were filled within 120 days. Filling none of the discharge medicines vs all was linked to higher 1-year mortality (OR 1.80, 1.35–2.42). Discharge medication counselling was a factor associated with filling them [[Jackevicius2008]].
-- Ticagrelor label, boxed warning: "If possible, manage bleeding without discontinuing BRILINTA. Stopping BRILINTA increases the risk of subsequent cardiovascular events." [[FDA-Brilinta]].
+- Ticagrelor label, boxed warning, in summary: treat bleeding without stopping BRILINTA where possible, because stopping raises the risk of later cardiovascular events [[FDA-Brilinta]].
 - Ticagrelor label: dyspnoea occurred in about 14% (PLATO, PEGASUS) to 21% (THEMIS) of patients, "usually mild to moderate in intensity" and often resolving with continued treatment [[FDA-Brilinta]].
-- Sublingual nitroglycerin label: "Administer one tablet under the tongue or in the buccal pouch at the first sign of an acute anginal attack … One additional tablet may be administered every 5 minutes until relief is obtained. No more than three tablets are recommended within a 15-minute period. If the pain persists after a total of 3 tablets in a 15-minute period, or if the pain is different than is typically experienced, seek prompt medical attention." [[FDA-Nitrostat]].
+- Sublingual nitroglycerin label, in summary: one tablet under the tongue or inside the cheek at the first sign of angina; one more every 5 minutes until relief, with no more than three in 15 minutes; get prompt medical help if pain continues after 3 tablets in 15 minutes or is unlike the usual pain [[FDA-Nitrostat]].
 - Nitroglycerin label: "Administer NITROSTAT at rest, preferably in the sitting position", because severe hypotension can occur, "particularly with upright posture" [[FDA-Nitrostat]].
-- Nitroglycerin label storage: "keep in the original glass container and must be tightly capped after each use to prevent loss of tablet potency." [[FDA-Nitrostat]].
+- Nitroglycerin label storage: keep tablets in their original glass bottle, closed tightly after every use so they do not lose strength [[FDA-Nitrostat]].
 
 ### nursing · Discharge, readmission and follow-up
 - US Medicare 2007–2009: 19.9% of 548,834 AMI hospitalisations were followed by readmission within 30 days. Only 10.0% of readmissions were for AMI again. 67.6% occurred within 15 days, and the median time to readmission was 10 days [[Dharmarajan2013]].

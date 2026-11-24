@@ -178,7 +178,7 @@ Access notes:
   - synchronous or metachronous Lynch-related tumours at any age
   - MSI-H histology before 60
   - CRC with one or more FDRs with a Lynch-related cancer, one diagnosed before 50
-- ACG 2015: "All newly diagnosed colorectal cancers (CRCs) should be evaluated for mismatch repair deficiency" by IHC and/or MSI. Tumours with MLH1 loss should have BRAF or MLH1 promoter-methylation testing [[Syngal2015]].
+- ACG 2015: every newly diagnosed colorectal cancer should be checked for mismatch repair deficiency, by IHC and/or MSI. Tumours with MLH1 loss should have BRAF or MLH1 promoter-methylation testing [[Syngal2015]].
 - EGAPP 2009 found sufficient evidence to offer Lynch syndrome testing to everyone with newly diagnosed CRC, to benefit their relatives. Relatives who inherit the mutation have about a 45% risk of CRC by age 70 [[EGAPP2009]].
 - European 2021 guideline: all colorectal and endometrial cancers should be tested for MMR deficiency [[Seppala2021]].
 - UK guidance points to universal dMMR testing as set out in NICE DG27 [[Monahan2020]].
@@ -218,7 +218,7 @@ Access notes:
   - CRC: 6% with colonoscopy every 3 years vs 16% without (a 62% reduction)
   - deaths: 10 vs 26
   - CRC deaths: none in the screened group vs 9 in controls
-- ACG 2015: colonoscopy "at least every 2 years, beginning between ages 20 and 25 years". Annual colonoscopy should be considered in confirmed carriers [[Syngal2015]].
+- ACG 2015: colonoscopy no less often than every 2 years, starting at age 20 to 25. Yearly colonoscopy should be considered in confirmed carriers [[Syngal2015]].
 - ACG 2015 table: start at 20–25 (MLH1/MSH2) or 25–30 (MSH6/PMS2), every 1–2 years [[Syngal2015]].
 - Europe (EHTG/ESCP) 2021 [[Seppala2021]]:
   - colonoscopy every 2 or 3 years for MLH1, MSH2 and MSH6 carriers (biennial after a previous CRC)

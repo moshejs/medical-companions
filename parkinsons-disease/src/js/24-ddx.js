@@ -2,7 +2,7 @@
 /* ---- decision pathway ---- */
 const DDX_STEPS=[
  {k:'Question 1 · tremor and slowness',t:'Is it parkinsonism?',ti:'Parkinsonism?',sub:'slowness + tremor',ex:['Essential tremor','action tremor only'],
-  txt:`Parkinsonism needs bradykinesia with rest tremor, rigidity or both. Rest tremor is "4-6 Hz tremor in the fully resting limb which is suppressed during movement initiation"; kinetic and postural tremor do not count. Essential tremor is a bilateral upper-limb action tremor of at least 3 years, often with head tremor, and without parkinsonism. [[PPMI-FEATPD,Bhatia2018]] The tremor chart below plays both.`,
+  txt:`Parkinsonism needs bradykinesia with rest tremor, rigidity or both. Rest tremor is a 4-6 Hz tremor in a limb fully at rest that stops as movement begins; tremor on holding or moving does not count. Essential tremor is a bilateral upper-limb action tremor of at least 3 years, often with head tremor, and without parkinsonism. [[PPMI-FEATPD,Bhatia2018]] The tremor chart below plays both.`,
   pt:`A tremor in a hand resting in the lap points one way; a tremor when holding a cup or writing points another. Slowness is what makes it parkinsonism.`,
   hook:`ET = bilateral action (postural and kinetic) tremor; PD = rest tremor suppressed when movement starts. ET with a rest tremor is called "ET plus". [[Bhatia2018,PPMI-FEATPD]]`},
  {k:'Question 2 · medicines',t:'Which medicines?',ti:'Medicines',sub:'dopamine blockers',ex:['Drug-induced','antipsychotics, others'],
@@ -54,11 +54,11 @@ const DDX_TRS=[
   txt:`The MDS definition says the rest tremor "is suppressed during movement initiation". In essential tremor the opposite happens: the tremor appears as the arm starts to work. [[PPMI-FEATPD,Bhatia2018]]`,
   pt:`Starting a movement quietens a Parkinson's tremor and brings out an essential tremor.`},
  {from:.36,at:.48,k:'Arms held out',t:'Holding a posture',
-  txt:`Holding the arms out brings out the postural part of essential tremor, which is bilateral and in the upper limbs; head tremor is common and voice tremor occurs only with hand tremor. A person with PD can also have some postural tremor, drawn faintly here, but "kinetic and postural tremor do not qualify for parkinsonism criteria". [[Bhatia2018,PPMI-FEATPD]]`,
+  txt:`Holding the arms out brings out the postural part of essential tremor, which is bilateral and in the upper limbs; head tremor is common and voice tremor occurs only with hand tremor. A person with PD can also have some postural tremor, drawn faintly here, but tremor on holding or moving does not count towards parkinsonism. [[Bhatia2018,PPMI-FEATPD]]`,
   pt:`A tremor of both hands when holding them out, sometimes with a nodding head, is typical of essential tremor.`,
   hook:`ET: bilateral upper-limb action tremor, at least 3 years, with or without head, voice or leg tremor, and no dystonia, ataxia or parkinsonism. [[Bhatia2018]]`},
  {from:.62,at:.72,k:'A kinetic task',t:'Finger to nose',
-  txt:`The core feature of essential tremor is "a 4 to 12 Hz simple kinetic tremor of the arms", seen during tasks like this one. Small doses of alcohol may reduce it: a quantitative home test found alcohol sensitivity in 46% of 104 people, but the 2018 consensus judged the effect not consistent enough to include in the definition. Use the toggle to see it. [[Louis2026,Hopfner2015,Bhatia2018]]`,
+  txt:`The core feature of essential tremor is a simple 4 to 12 Hz tremor of the arms during movement, seen in tasks like this one. Small doses of alcohol may reduce it: a quantitative home test found alcohol sensitivity in 46% of 104 people, but the 2018 consensus judged the effect not consistent enough to include in the definition. Use the toggle to see it. [[Louis2026,Hopfner2015,Bhatia2018]]`,
   pt:`Essential tremor gets in the way of drinking, writing and pointing. In some people a small drink of alcohol eases it for a while.`,
   hook:`Alcohol responsiveness supports ET but is not part of its definition: 46% in one quantitative study. [[Hopfner2015,Bhatia2018]]`},
  {from:.86,at:.94,k:'Back at rest · frequencies',t:'Back at rest',

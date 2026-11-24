@@ -1,16 +1,16 @@
 /* =============== 3.3 DSM-5-TR & ICD-11 criteria =============== */
-/* paraphrased criteria (DSM-5-TR, cross-checked against the ESCAP 2021 summary); never quoted */
+/* criteria summarised in our own words (DSM-5-TR, cross-checked against the ESCAP 2021 summary); counts and rules kept, wording not reproduced */
 const CR_BOX={
- A1:{n:'A1',l:['Social-emotional','reciprocity'],d:'back-and-forth conversation, sharing interests or feelings, starting or answering interaction'},
- A2:{n:'A2',l:['Nonverbal','communication'],d:'eye contact, gestures, facial expression and body language, and understanding them'},
- A3:{n:'A3',l:['Relationships'],d:'developing, keeping and understanding relationships'},
- B1:{n:'B1',l:['Repetitive','movement/speech'],ln:['Repetitive','acts, speech'],d:'stereotyped or repetitive movements, use of objects or speech'},
- B2:{n:'B2',l:['Sameness,','routines'],d:'insistence on sameness, inflexible routines or ritualised behaviour'},
- B3:{n:'B3',l:['Intense','interests'],d:'highly restricted, fixated interests, unusual in intensity or focus'},
- B4:{n:'B4',l:['Sensory','reactivity'],d:'hyper- or hyporeactivity to sensory input, or unusual sensory interests'},
- C:{n:'C',l:['Early development'],l2:['Onset in development'],d:'present in the early developmental period; may only show when social demands exceed capacities, or be masked later'},
- D:{n:'D',l:['Significant impact'],l2:['Impairment'],d:'clinically significant impairment in social, occupational or other important areas'},
- E:{n:'E',l:['Not better explained'],d:'not better explained by intellectual developmental disorder or global developmental delay'}};
+ A1:{n:'A1',l:['Social-emotional','reciprocity'],d:'the give-and-take of social contact: conversation, sharing interests or feelings, and starting or responding to interaction'},
+ A2:{n:'A2',l:['Nonverbal','communication'],d:'using and reading the unspoken side of communication, such as eye contact, gestures, facial expression and body language'},
+ A3:{n:'A3',l:['Relationships'],d:'making, keeping and making sense of relationships'},
+ B1:{n:'B1',l:['Repetitive','movement/speech'],ln:['Repetitive','acts, speech'],d:'repeated body movements, repeated ways of using objects, or repeated speech'},
+ B2:{n:'B2',l:['Sameness,','routines'],d:'a strong need for sameness, fixed routines or ritual-like habits'},
+ B3:{n:'B3',l:['Intense','interests'],d:'very narrow interests held with unusual strength or focus'},
+ B4:{n:'B4',l:['Sensory','reactivity'],d:'over- or under-reaction to what the senses take in, or an unusual pull towards sensory experiences'},
+ C:{n:'C',l:['Early development'],l2:['Onset in development'],d:'began in early development, though it may not be obvious until social demands outgrow the person’s capacities, or may be hidden later by learned strategies'},
+ D:{n:'D',l:['Significant impact'],l2:['Impairment'],d:'the differences cause clinically significant problems in social life, work or other important areas'},
+ E:{n:'E',l:['Not better explained'],d:'intellectual developmental disorder or global developmental delay does not account for them better'}};
 const CR_LV=['requiring support','requiring substantial support','requiring very substantial support'];
 const CR_LANG=['mild or no impairment of functional language','impaired functional language','absence of functional language'];
 const CR_HIST=[
@@ -68,7 +68,7 @@ inits.criteria=()=>{
   function draw(){
     const N=vb(svg,'720 410','400 780'),Gm=geo(N),S=state(),icd=sys==='icd';
     let s=`<text x="${Gm.title[0]}" y="${Gm.title[1]}" class="t-sm" style="fill:var(--accent)">${icd?'ICD-11 6A02 · AUTISM SPECTRUM DISORDER':'DSM-5-TR · AUTISM SPECTRUM DISORDER'}</text>`;
-    if(!N)s+=`<text x="704" y="22" class="t-xs t-end">paraphrased · teaching only</text>`;
+    if(!N)s+=`<text x="704" y="22" class="t-xs t-end">summarised · teaching only</text>`;
     /* connectors first */
     const Acol='var(--accent)';
     for(const k in Gm.A){const [x,y,w,h]=Gm.A[k],bx=x+w/2,by=y+h;

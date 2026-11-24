@@ -3,34 +3,34 @@ const ED_V=[0,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,6.5,7,7.5,8,8.5,9,9.5,10];
 const ED_FS=['Pyramidal','Cerebellar','Brainstem','Sensory','Bowel & bladder','Visual','Cerebral','Other'];
 const edBand=v=>v<4?0:v<6?1:v<7?2:v<10?3:4;
 const ED_BANDS=[{n:'exam findings',nn:'exam findings',c:'var(--brand)',cs:'var(--brand-soft)',r:'0–3.5'},{n:'walking range',nn:'walking',c:'var(--orange)',cs:'var(--orange-soft)',r:'4.0–5.5'},{n:'aids',nn:'aids',c:'var(--warn)',cs:'var(--warn-soft)',r:'6.0–6.5'},{n:'wheelchair, care',nn:'wheelchair, care',c:'var(--attack)',cs:'var(--attack-soft)',r:'7.0–9.5'},{n:'',nn:'',c:'var(--muted)',cs:'var(--panel-2)',r:'10'}];
-const ED_LOW=['Increasing signs or disability in the functional systems; fully ambulatory','Signs in the functional','systems; fully ambulatory'];
-const ED_A={0:['Normal neurological examination','Normal neurological','examination'],
- 4:['Walks ≥500 m without aid or rest','Walks ≥500 m','without aid or rest'],4.5:['Walks ≥300 m without aid','Walks ≥300 m','without aid'],5:['Walks ≥200 m without aid','Walks ≥200 m','without aid'],5.5:['Walks ≥100 m without aid','Walks ≥100 m','without aid'],
- 6:['Walks ≥100 m with unilateral assistance (one aid)','Walks ≥100 m with','one aid (one side)'],6.5:['Walks ≥20 m with bilateral assistance (two aids)','Walks ≥20 m with','two aids (both sides)'],
- 7:['Walks ≤5 m with aid; uses a wheelchair, wheels self and transfers alone','Walks ≤5 m with aid;','wheelchair, transfers alone'],
- 7.5:['A few steps only; may need help to transfer','A few steps only; may','need help to transfer'],
- 8:['Essentially restricted to bed or chair; keeps effective use of the arms','Mostly in bed or chair;','effective use of the arms'],
- 8.5:['Restricted to bed much of the day','In bed much','of the day'],9:['Helpless in bed, but can communicate and eat','In bed; can','communicate and eat'],
- 9.5:['Totally dependent; cannot communicate effectively or eat/swallow','Totally dependent; cannot','communicate or eat'],10:['Death due to MS','Death due to MS','']};
+const ED_LOW=['Exam signs; no walking limit','Exam signs;','no walking limit'];
+const ED_A={0:['Normal exam','Normal exam',''],
+ 4:['Walking: about 500 m, no aid, no rest','Walking: 500 m,','no aid, no rest'],4.5:['Walking: about 300 m, no aid','Walking: 300 m,','no aid'],5:['Walking: about 200 m, no aid','Walking: 200 m,','no aid'],5.5:['Walking: about 100 m, no aid','Walking: 100 m,','no aid'],
+ 6:['Walking: about 100 m, one aid','Walking: 100 m,','one aid'],6.5:['Walking: about 20 m, two aids','Walking: 20 m,','two aids'],
+ 7:['Walking: 5 m or less; wheelchair, independent','Wheelchair,','independent'],
+ 7.5:['Wheelchair; transfer help','Wheelchair;','transfer help'],
+ 8:['Bed or chair; arm use','Bed or chair;','arm use'],
+ 8.5:['Bed for much of the day','Bed for much','of the day'],9:['Bed-bound; eating and speech','Bed-bound;','eating, speech'],
+ 9.5:['Full dependence','Full','dependence'],10:['Death due to MS','Death due to MS','']};
 const edAnch=v=>ED_A[v]||ED_LOW;
 const ED_LIM={4:500,4.5:300,5:200,5.5:100,6:100,6.5:20};
 const ED_STEPS=[
  {from:0,at:.175,k:'EDSS 0–3.5',t:'Exam findings, walking unaffected',
-  txt:`The EDSS (Kurtzke, 1983) expanded the earlier 0–10 Disability Status Scale into half-steps. It rests on eight functional systems: pyramidal, cerebellar, brainstem, sensory, bowel and bladder, visual, cerebral and other. 0 is a normal examination; 1.0 to 3.5 reflect increasing signs or disability in the functional systems while the person is fully ambulatory. Agreement between raters is weakest in this range. [[Kurtzke1983,Das2019,MeyerMoock2014]]`,
+  txt:`The EDSS (Kurtzke, 1983) expanded the earlier 0–10 Disability Status Scale into half-steps. It rests on eight functional systems: pyramidal, cerebellar, brainstem, sensory, bowel and bladder, visual, cerebral and other. 0 is a normal examination. From 1.0 to 3.5 the score rises with the findings in these systems, while walking is still unrestricted. Agreement between raters is weakest in this range. [[Kurtzke1983,Das2019,MeyerMoock2014]]`,
   pt:`In the lower steps, the score comes from what the neurologist finds on examination. Walking is still normal.`,
   hook:`Eight functional systems: pyramidal, cerebellar, brainstem, sensory, bowel &amp; bladder, visual, cerebral, other.`},
  {from:.35,at:.425,k:'EDSS 4.0–5.5',t:'Walking distance shrinks',
-  txt:`From 4.0 the scale leans on walking: at least 500 m without aid or rest at 4.0, 300 m at 4.5, 200 m at 5.0 and 100 m at 5.5. EDSS 4–6 depends heavily on walking ability. In the Lyon cohort, the median time from onset to irreversible DSS 4 was 11.4 years with relapsing onset. [[Das2019,MeyerMoock2014,Confavreux2000]]`,
+  txt:`From 4.0 the scale leans on walking distance without an aid: 500 m (with no rest) at 4.0, 300 m at 4.5, 200 m at 5.0 and 100 m at 5.5. EDSS 4–6 depends heavily on walking ability. In the Lyon cohort, the median time from onset to irreversible DSS 4 was 11.4 years with relapsing onset. [[Das2019,MeyerMoock2014,Confavreux2000]]`,
   pt:`Here the score mostly depends on how far the person can walk without stopping.`,
   hook:`4.0 = 500 m, 4.5 = 300 m, 5.0 = 200 m, 5.5 = 100 m, all without an aid.`},
  {from:.55,at:.575,k:'EDSS 6.0–6.5',t:'Walking aids',
-  txt:`6.0 means walking at least 100 m with unilateral assistance (one aid); 6.5, at least 20 m with bilateral assistance. EDSS 6 is a common milestone: in NO.MS, placebo-treated patients starting at EDSS 1 took 18.48 years to reach it, and in the Lyon cohort the median time to DSS 6 was 23.1 years with relapsing onset and 7.1 years with progressive onset. [[Das2019,Lublin2022,Confavreux2000]]`,
+  txt:`At 6.0 the distance is 100 m using one aid; at 6.5 it is 20 m using two. EDSS 6 is a common milestone: in NO.MS, placebo-treated patients starting at EDSS 1 took 18.48 years to reach it, and in the Lyon cohort the median time to DSS 6 was 23.1 years with relapsing onset and 7.1 years with progressive onset. [[Das2019,Lublin2022,Confavreux2000]]`,
   pt:`At 6.0 a person uses a walking aid on one side; at 6.5, support on both sides.`,
   hook:`EDSS 6.0 = one aid for 100 m; 6.5 = two aids for 20 m.`},
  {from:.65,at:.675,k:'EDSS 7.0–10',t:'Wheelchair and care needs',
-  txt:`At 7.0 a person walks 5 m or less even with aid and mainly uses a wheelchair, wheeling themselves and transferring alone; at 7.5, only a few steps, and help may be needed to transfer. 8.0 to 9.5 describe increasing care needs, from bed or chair with effective use of the arms to total dependence. 10 is death due to MS. Above 6, the scale mostly measures handicap. [[Das2019,MeyerMoock2014]]`,
+  txt:`From 7.0 walking is limited to 5 m or less and a wheelchair is the main way of getting about: at 7.0 the person manages it on their own, at 7.5 they may need help to move in and out of it. 8.0 to 9.5 track rising care needs as the person spends more time in bed or a chair, ending in full dependence. 10 is death due to MS. Above 6, the scale mostly measures handicap. [[Das2019,MeyerMoock2014]]`,
   pt:`The top of the scale describes how much help a person needs in daily life, not walking distance.`,
-  hook:`7.0 = wheelchair, transfers alone; 7.5 = help to transfer; 8.0 = bed or chair, arms still useful.`}
+  hook:`7.0 = wheelchair, independent; 7.5 = help to transfer; 8.0 to 9.5 = rising care needs.`}
 ];
 const ED_INK='stroke:var(--ink);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;fill:none';
 function edPerson(x,g,o={}){const a=o.walk?Math.sin(o.ph||0)*.42:.2,hp=g-26,sh=g-44;
@@ -61,9 +61,9 @@ function edArmchair(x,g,ph){let r=`<path d="M${f1(x-22)} ${f1(g)}L${f1(x-22)} ${
   const hy=g-50+Math.sin(ph||0)*3;
   r+=`<circle cx="${f1(x-8)}" cy="${f1(g-70)}" r="6.5" style="fill:var(--panel);stroke:var(--ink);stroke-width:2.2"/><path d="M${f1(x-9)} ${f1(g-62)}L${f1(x-12)} ${f1(g-34)}L${f1(x+14)} ${f1(g-34)}L${f1(x+18)} ${f1(g-6)}M${f1(x-10)} ${f1(g-56)}L${f1(x+12)} ${f1(hy)}" style="${ED_INK}"/><rect x="${f1(x+10)}" y="${f1(hy-12)}" width="14" height="18" rx="2" style="fill:var(--gold-soft);stroke:var(--gold)" transform="rotate(-12 ${f1(x+17)} ${f1(hy-3)})"/>`;
   return r}
-/* simplified teaching rule: only what the published anchors support.
+/* simplified teaching rule: topic levels and published walking distances only.
    No walking limit: normal exam = 0; any functional-system signs = the 1.0-3.5 range (exact step needs Kurtzke's grade rules, not reproduced).
-   Walking limit or care needs: the published anchor for that walking/care level. */
+   Walking limit or care needs: the step for that walking/care level. */
 function edTeach(n,W){if(W>0)return{v:W,range:false};return n?{v:1,range:true}:{v:0,range:false}}
 inits.edss=()=>{
   const svg=$('#edSvg'),rg=$('#edT');
@@ -88,7 +88,7 @@ inits.edss=()=>{
     ED_FS.forEach((n,k)=>{const y=L.fsy+18+k*13;s+=`<text x="${L.fsx}" y="${y}" class="t-xs" style="${dim?'opacity:.55':''}">${n}</text>`});
     s+=`<rect x="${bx}" y="${bT}" width="12" height="${bB-bT}" rx="2" style="fill:none;stroke:var(--muted);stroke-width:.8"/>`;
     if(v<10&&lvl>0)s+=`<rect x="${bx}" y="${f1(bB-(bB-bT)*lvl)}" width="12" height="${f1((bB-bT)*lvl)}" rx="2" style="fill:${BD.c};opacity:${dim?.4:.85}"/>`;
-    const fsT=v===0?['no signs:','normal exam']:v<4?['increasing','signs, fully','ambulatory']:v<10?['walking and','care set','the step']:['–'];
+    const fsT=v===0?['no signs:','normal exam']:v<4?['more signs,','no walking','limit']:v<10?['walking and','care set','the step']:['–'];
     s+=`<text x="${bx+20}" y="${bT+10}" class="t-xs" style="font-weight:600">signs on exam</text><text x="${bx+20}" y="${bT+23}" class="t-xs">(schematic)</text>`;
     fsT.forEach((tx,k)=>s+=`<text x="${bx+20}" y="${bT+44+k*13}" class="t-xs" style="fill:${BD.c}">${tx}</text>`);
     /* scene panel */
@@ -118,7 +118,7 @@ inits.edss=()=>{
     svg.innerHTML=s;
     const p=phaseOf(ED_STEPS,t);setSt(p);
     rg.setAttribute('aria-valuetext',`EDSS ${v.toFixed(1)}: ${A[0]}`);
-    $('#edRead').innerHTML=`<span>EDSS <b>${v.toFixed(1)}</b></span><span>range <b>${v===10?'10':BD.r+' · '+BD.n}</b></span><span>anchor <b>${A[0]}</b></span>`;
+    $('#edRead').innerHTML=`<span>EDSS <b>${v.toFixed(1)}</b></span><span>range <b>${v===10?'10':BD.r+' · '+BD.n}</b></span><span>level <b>${A[0]}</b></span>`;
     $('#edNote').innerHTML=noteHTML(ED_STEPS[p])+`<div class="kv"><div><dt>EDSS ${v.toFixed(1)}</dt><dd>${A[0]}${v>0&&v<4?'. Within 1.0–3.5 the exact half-step depends on the grades in the functional systems under Kurtzke\'s detailed rules, which are not shown here':''}. [[Das2019,Kurtzke1983]]</dd></div></div>`;
   }
   const stop=playWire(rg,$('#edPlay'),draw,24000,'Replay','edss');
@@ -134,10 +134,10 @@ inits.edss=()=>{
     const odd=W>=4&&nS===0?' This is an unusual combination: a walking limit usually comes with findings on examination, and real scoring checks that the two fit together.':'';
     const fsTxt=nS?`signs in ${nS} system${nS>1?'s':''} (${on.join(', ').replace('&','&amp;')})`:'no signs ticked';
     const resTxt=edRng?'1.0–3.5':res.toFixed(1);
-    const anch=edRng?'Increasing signs or disability in the functional systems; fully ambulatory':edAnch(res)[0];
+    const anch=edRng?ED_LOW[0]:edAnch(res)[0];
     $('#edCalcNote').innerHTML=`<div class="kicker">Teaching result (simplified)</div><div class="edbig">EDSS ${edRng?'':'≈ '}${resTxt}</div><p><b>${anch}.</b></p>
-      <div class="kv"><div><dt>Functional systems</dt><dd>${fsTxt}</dd></div><div><dt>Walking</dt><dd>${wl} → ${W?W.toFixed(1):'no walking limit'}</dd></div><div><dt>The rule used here</dt><dd>A normal examination with no walking limit is 0. Signs in any functional system while the person is fully ambulatory place the score in the 1.0–3.5 range; the exact half-step depends on the grades in each system under Kurtzke\'s detailed rules, which this tool does not reproduce. From 4.0 the step shown is the published walking or care anchor you chose; a real score also checks the functional systems.${odd} [[Kurtzke1983,Das2019,MeyerMoock2014]]</dd></div></div>
-      <div class="hook"><b>Exam hook</b>EDSS 0 = normal exam; 1.0–3.5 = increasing functional-system signs, fully ambulatory; from 4.0 walking-weighted: 6.0 = one aid for 100 m. Only a trained examiner gives a real score.</div>`;
+      <div class="kv"><div><dt>Functional systems</dt><dd>${fsTxt}</dd></div><div><dt>Walking</dt><dd>${wl} → ${W?W.toFixed(1):'no walking limit'}</dd></div><div><dt>The rule used here</dt><dd>A normal examination with no walking limit is 0. Signs in any functional system with no walking limit place the score in the 1.0–3.5 range; the exact half-step depends on the grades in each system under Kurtzke\'s detailed rules, which this tool does not reproduce. From 4.0 the step shown is the walking or care level you chose; a real score also checks the functional systems.${odd} [[Kurtzke1983,Das2019,MeyerMoock2014]]</dd></div></div>
+      <div class="hook"><b>Exam hook</b>EDSS 0 = normal exam; 1.0–3.5 = functional-system signs, no walking limit; from 4.0 walking-weighted: 6.0 = one aid for 100 m. Only a trained examiner gives a real score.</div>`;
     drawC()}
   function drawC(){const NC=vb(cs,'720 96','400 110');const x0=NC?20:40,x1=NC?380:700,y=NC?66:56,X=v=>lerp(x0,x1,v/10);let s='';
     [ [0,4],[4,6],[6,7],[7,10] ].forEach(([a,b],k)=>s+=`<rect x="${f1(X(a))}" y="${y-10}" width="${f1(X(b)-X(a))}" height="20" style="fill:${ED_BANDS[k].cs};stroke:${ED_BANDS[k].c};stroke-width:.8"/>`);

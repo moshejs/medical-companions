@@ -31,7 +31,7 @@ Access notes:
 - The median age at death was 43.0 years for index patients and 65.0 years for relatives. Relatives are typically found by family testing, so they are less severely ascertained [[Demirdas2024]].
 - Male sex, the type and position of the COL3A1 variant, and a physical appearance highly suggestive of vEDS were associated with earlier major events in the Dutch cohort [[Demirdas2024]].
 - The estimated frequency of vEDS is 1 in 50,000 to 1 in 200,000 [[Byers2017]].
-- vEDS is autosomal dominant. About 50% of people diagnosed have an affected parent, and each child of an affected person has a 50% chance of inheriting the variant [[ByersGR-vEDS]].
+- vEDS follows autosomal dominant inheritance. Roughly half (about 50%) of diagnosed people have a parent with it, and a child of someone with vEDS has a 1 in 2 (50%) chance of inheriting the variant [[ByersGR-vEDS]].
 
 ### vascular · Where the arteries fail
 - In 86 people with genetically confirmed vEDS from 11 US institutions, 53 (61.6%) had 139 aortic or arterial pathologies, at a median age of 33 years [[Shalhub2019]].
@@ -58,9 +58,9 @@ Access notes:
 ### vascular · Children with vEDS
 - In 63 people diagnosed with vEDS in childhood in the London national service, 13 had 18 events in childhood. The first event came at a median age of 11 years (IQR 0-13) [[Wilkinson2025]].
 - In 11 of those 13 children, genetic testing started because of the first event. Across the whole cohort, 55% were diagnosed through family genetic testing [[Wilkinson2025]].
-- About 60% of people diagnosed with vEDS before age 18 are identified because of a positive family history [[ByersGR-vEDS]].
-- About half of children tested for vEDS without a family history present with a major complication, at an average age of 11 years [[ByersGR-vEDS]].
-- Neonates may present with clubfoot, hip dislocation, limb deficiency or amniotic bands [[ByersGR-vEDS]].
+- Of people diagnosed with vEDS before 18, about 60% are found because a relative already has it [[ByersGR-vEDS]].
+- When children are tested without any known family history, about half have come to attention through a major complication, at an average age of 11 years [[ByersGR-vEDS]].
+- At birth, signs can include clubfoot, a dislocated hip, a missing or shortened limb, or amniotic bands [[ByersGR-vEDS]].
 
 ### vascular · Survival in the modern era
 - In a French referral cohort of 144 people with molecularly confirmed vEDS (2000-2017; median age at diagnosis 34.5 years), overall survival after a median follow-up of 5.3 years was 71.6% (95% CI 50%-90%) [[Frank2019]].
@@ -73,19 +73,19 @@ Access notes:
 - Consensus management includes an emergency plan or "vascular EDS passport", keeping blood pressure in the normal range, and arterial surveillance, often annually [[Byers2017]].
 
 ### vascular · The emergency picture
-- People with vEDS are told to seek immediate medical attention for sudden, unexplained pain [[ByersGR-vEDS]].
-- Vascular dissection or rupture, gastrointestinal perforation or organ rupture are the presenting signs in most adults with vEDS. Arterial rupture may be preceded by aneurysm, arteriovenous fistula or dissection, or may happen spontaneously [[ByersGR-vEDS]].
-- Arteriography should be discouraged and used only to find life-threatening bleeding before surgery, because it can injure the vessels. Routine colonoscopy is not advised without concerning symptoms or a strong family history of colon cancer [[ByersGR-vEDS]].
-- Elective surgery is discouraged unless the benefit is expected to be substantial [[ByersGR-vEDS]].
+- Any sudden pain without a clear cause is a reason for people with vEDS to get urgent medical help [[ByersGR-vEDS]].
+- Most adults with vEDS first come to attention with a torn or burst blood vessel, a hole in the bowel or a ruptured organ. An artery may burst after an aneurysm, an abnormal artery-vein connection (fistula) or a dissection has formed, or with no warning at all [[ByersGR-vEDS]].
+- Because the catheter can damage vessels, arteriography is best avoided and kept for finding a life-threatening bleed before an operation. Routine colonoscopy is not recommended unless there are worrying symptoms or a strong family history of bowel cancer [[ByersGR-vEDS]].
+- Planned surgery is advised against unless the expected gain is large [[ByersGR-vEDS]].
 - When a young person presents with uterine rupture in pregnancy, or with arterial or visceral rupture, vEDS should be considered [[Pepin2000]].
 
 ### pregnancy · Vascular EDS
-- In the 2000 series, pregnancy complications led to death in 12 of the 81 women who became pregnant [[Pepin2000]].
+- In the 2000 series, 12 of the 81 women who had been pregnant died of pregnancy complications [[Pepin2000]].
 - A pedigree review found pregnancy-related deaths in 30 of 565 deliveries (5.3%) [[Murray2014]].
 - Kaplan-Meier survival was no different between parous and nulliparous women with vEDS [[Murray2014]].
 - In interviews covering 76 deliveries, 46% were uncomplicated. The most common complications were third- or fourth-degree lacerations (20%) and preterm delivery (19%) [[Murray2014]].
 - Life-threatening complications occurred in 14.5% of interviewed deliveries: arterial dissection or rupture 9.2%, uterine rupture 2.6% and surgical complications 2.6%. There were 5 maternal deaths in 76 deliveries (6.5%) [[Murray2014]].
-- GeneReviews summarises the risk as a 5% mortality risk with each pregnancy for affected women [[ByersGR-vEDS]].
+- GeneReviews puts the risk of death for a woman with vEDS at 5% in each pregnancy [[ByersGR-vEDS]].
 - A 2024 systematic review (6 studies, 412 pregnancies) found a maternal mortality rate of 5.7% per pregnancy. The miscarriage rate was 13.8% (57/412), 8.8% of live births were premature, and obstetric anal sphincter injury occurred in 11.3% (23/203) of deliveries [[Haem2024]].
 - The authors of that review suggest a caesarean at 37 weeks to avoid expulsive efforts. This is their conclusion, not a trial result [[Haem2024]].
 - In the UK cohort, 53 women had 114 pregnancies. Excluding women with group III (later-onset) variants, 10% (5/48) had a life-threatening or fatal vascular event in pregnancy or the perinatal period [[Bowen2023vEDS]].
@@ -109,8 +109,8 @@ Access notes:
 - In the French hEDS cohort, gynaecological complaints were common: menorrhagia (76%), dysmenorrhoea (72%) and dyspareunia (43%). Symptoms worsened around puberty, before menstruation and postpartum in a subset [[HugonRodin2016]].
 
 ### pregnancy · Classical EDS
-- Classical EDS (heterozygous variants in COL5A1, COL5A2 or COL1A1) is autosomal dominant with fragile, hyperextensible skin and atrophic scars. Aortic root dilatation and mitral valve prolapse occur but are rarely clinically significant [[MalfaitGR-cEDS]].
-- Children with classical EDS may have mild hypotonia with delayed motor development [[MalfaitGR-cEDS]].
+- Classical EDS (one changed copy of COL5A1, COL5A2 or COL1A1) is autosomal dominant. The skin is fragile and over-stretchy and heals with thin, wide scars. A widened aortic root or a floppy mitral valve can occur but seldom causes problems [[MalfaitGR-cEDS]].
+- Children with classical EDS may have slightly low muscle tone and reach motor milestones late [[MalfaitGR-cEDS]].
 - I found no large cohort giving classical-EDS-specific obstetric rates. The fetal-membrane mechanism above [[Lind2002,Almheiri2026]] is the best-supported point.
 
 ### autonomic · POTS definitions
@@ -150,14 +150,14 @@ Access notes:
 - In 1,044 people with hEDS/HSD, cluster analysis found 466 with functional foregut disorders plus IBS, 180 with IBS alone and 337 with no DGBI. The foregut-plus-IBS cluster had more anxiety, depression, POTS and autonomic symptoms [[Choudhary2025]].
 - A gastroenterology review describes JHS/hEDS as highly prevalent in functional dyspepsia and IBS, with the pathophysiology still uncertain [[Beckers2017]].
 - The American Gastroenterological Association (2025) advises testing for functional defecation disorders in hEDS/HSD with lower GI symptoms, "given the high prevalence of pelvic floor dysfunction, especially rectal hyposensitivity" [[Aziz2025]].
-- The AGA also advises timely gastric-function testing in hEDS/HSD with POTS and chronic upper GI symptoms, as abnormal gastric emptying may be more common than in the general population [[Aziz2025]].
+- The AGA also advises timely gastric-function testing in hEDS/HSD with POTS and chronic upper GI symptoms, because abnormal stomach emptying may be found more often in this group than in people generally [[Aziz2025]].
 - The AGA suggests considering coeliac testing earlier in hEDS/HSD. It finds insufficient research to support routine testing for disaccharidase deficiency [[Aziz2025]].
 
 ### gut · Mast cell activation: association and the strength of evidence
 - A systematic literature search on the hEDS-POTS-MCAS triad found only 4 (narrow search) and 9 (broad search) original research articles. None studied all three conditions together [[Kucharik2020]].
 - That review concludes that the purported association rests on overlapping vague, subjective symptoms and on biased or outdated-criteria studies, which it calls inadequate evidence that the relationship exists (critique) [[Kucharik2020]].
 - Supportive reviews propose that mast-cell mediators could disrupt connective tissue and explain multisystem symptoms in hEDS/HSD (Hypothesis) [[Monaco2022,Seneviratne2017]].
-- GeneReviews lists inflammation from mast cell activation disorders among common features of hEDS, which shows how clinical-review sources and critics disagree [[HakimGR-hEDS,Kucharik2020]].
+- GeneReviews counts mast-cell-related inflammation as a common feature of hEDS, which shows how clinical-review sources and critics disagree [[HakimGR-hEDS,Kucharik2020]].
 - The AGA (2025) states that mechanistic evidence linking hEDS/HSD with POTS and MCAS is limited and evolving. It does not support universal testing for POTS or MCAS in hEDS/HSD [[Aziz2025]].
 - The AGA reserves mast-cell testing for patients with episodic symptoms in 2 or more organ systems. It requires a tryptase rise of 20% above baseline plus 2 ng/mL to show mast cell activation [[Aziz2025]].
 - The NIH POTS consensus says accurate data on the frequency of MCAS in POTS are not available [[Vernino2021]].
