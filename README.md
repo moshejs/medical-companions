@@ -160,3 +160,5 @@ Vercel's production branch is `site`. `vercel.json`'s `ignoreCommand` skips any 
 ## Licence
 
 All rights reserved. The code and the written content are not licensed for reuse; see [LICENSE](LICENSE). The web fonts under `fonts/` and any quoted or cited third-party work keep their own licences.
+
+Each font family's licence, copied from google/fonts, ships with the fonts in `fonts/licenses/`; [fonts/LICENSES.md](fonts/LICENSES.md) maps every font file to its licence and copyright (kept by `tools/font_licenses.py`, checked in CI).

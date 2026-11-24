@@ -57,6 +57,7 @@ jobs:
           python3 tools/check_site.py
           python3 tools/check_crosslinks.py
           python3 tools/test_most_read.py
+          python3 tools/test_font_licenses.py
 
       - name: Smoke tests
         run: |
