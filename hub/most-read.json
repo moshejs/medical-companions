@@ -1,0 +1,660 @@
+{
+ "_about": "English Wikipedia articles shown on /most-read/, one per health topic: the topics considered for a guide in October 2026, plus the two the site began with. tools/most_read.py fetches their pageviews and writes hub/most-read.html. \"also\": older titles of a renamed article, counted with it. \"guide\": the companion that covers the topic.",
+ "articles": [
+  {
+   "title": "Acne"
+  },
+  {
+   "title": "Acromegaly"
+  },
+  {
+   "title": "Acute myeloid leukemia"
+  },
+  {
+   "title": "Addison's disease"
+  },
+  {
+   "title": "Alcohol withdrawal syndrome",
+   "guide": "alcohol-use-disorder"
+  },
+  {
+   "title": "Alopecia areata"
+  },
+  {
+   "title": "ALS",
+   "guide": "als"
+  },
+  {
+   "title": "Alzheimer's disease",
+   "guide": "alzheimers"
+  },
+  {
+   "title": "Amyloidosis"
+  },
+  {
+   "title": "Anaphylaxis"
+  },
+  {
+   "title": "Ankylosing spondylitis"
+  },
+  {
+   "title": "Anorexia"
+  },
+  {
+   "title": "Antibiotic"
+  },
+  {
+   "title": "Anticoagulant"
+  },
+  {
+   "title": "Antipsychotic"
+  },
+  {
+   "title": "Anxiety disorder"
+  },
+  {
+   "title": "Aortic dissection"
+  },
+  {
+   "title": "Aortic stenosis"
+  },
+  {
+   "title": "Asthma"
+  },
+  {
+   "title": "Atherosclerosis"
+  },
+  {
+   "title": "Atopic dermatitis"
+  },
+  {
+   "title": "Atrial fibrillation"
+  },
+  {
+   "title": "Attention deficit hyperactivity disorder",
+   "guide": "adhd"
+  },
+  {
+   "title": "Autism",
+   "guide": "autism"
+  },
+  {
+   "title": "Bariatric surgery"
+  },
+  {
+   "title": "Behçet's disease"
+  },
+  {
+   "title": "Bell's palsy"
+  },
+  {
+   "title": "Benzodiazepine"
+  },
+  {
+   "title": "Bipolar disorder",
+   "guide": "bipolar-disorder"
+  },
+  {
+   "title": "Birth control"
+  },
+  {
+   "title": "Bladder cancer"
+  },
+  {
+   "title": "Body mass index"
+  },
+  {
+   "title": "Borderline personality disorder",
+   "guide": "borderline-personality-disorder"
+  },
+  {
+   "title": "Botulinum toxin"
+  },
+  {
+   "title": "BRCA mutation"
+  },
+  {
+   "title": "Breast cancer"
+  },
+  {
+   "title": "Burn"
+  },
+  {
+   "title": "Caesarean section"
+  },
+  {
+   "title": "Cancer immunotherapy"
+  },
+  {
+   "title": "Cardiac catheterization"
+  },
+  {
+   "title": "Cataract"
+  },
+  {
+   "title": "Cerebral palsy"
+  },
+  {
+   "title": "Charcot–Marie–Tooth disease"
+  },
+  {
+   "title": "Chemotherapy"
+  },
+  {
+   "title": "Chronic kidney disease"
+  },
+  {
+   "title": "Chronic lymphocytic leukemia"
+  },
+  {
+   "title": "Chronic obstructive pulmonary disease"
+  },
+  {
+   "title": "Cirrhosis",
+   "guide": "cirrhosis"
+  },
+  {
+   "title": "Clear aligners"
+  },
+  {
+   "title": "Coeliac disease"
+  },
+  {
+   "title": "Colchicine"
+  },
+  {
+   "title": "Colorectal cancer",
+   "guide": "colorectal-cancer"
+  },
+  {
+   "title": "Complete blood count"
+  },
+  {
+   "title": "Corticosteroid"
+  },
+  {
+   "title": "COVID-19"
+  },
+  {
+   "title": "Creutzfeldt–Jakob disease"
+  },
+  {
+   "title": "Cystic fibrosis",
+   "guide": "cystic-fibrosis"
+  },
+  {
+   "title": "Delirium"
+  },
+  {
+   "title": "Dementia with Lewy bodies"
+  },
+  {
+   "title": "Dental implant"
+  },
+  {
+   "title": "Diabetic ketoacidosis"
+  },
+  {
+   "title": "Diverticulitis"
+  },
+  {
+   "title": "Down syndrome"
+  },
+  {
+   "title": "Duchenne muscular dystrophy"
+  },
+  {
+   "title": "Ehlers–Danlos syndrome",
+   "guide": "ehlers-danlos-syndromes"
+  },
+  {
+   "title": "Electrocardiography"
+  },
+  {
+   "title": "Electrolyte imbalance"
+  },
+  {
+   "title": "Endometriosis"
+  },
+  {
+   "title": "Epilepsy"
+  },
+  {
+   "title": "Erectile dysfunction"
+  },
+  {
+   "title": "Familial hypercholesterolemia"
+  },
+  {
+   "title": "Familial Mediterranean fever",
+   "guide": "fmf"
+  },
+  {
+   "title": "Fibromyalgia"
+  },
+  {
+   "title": "Fragile X syndrome"
+  },
+  {
+   "title": "Frontotemporal dementia"
+  },
+  {
+   "title": "Gabapentin"
+  },
+  {
+   "title": "Gallstone"
+  },
+  {
+   "title": "Gastroesophageal reflux disease"
+  },
+  {
+   "title": "Gaucher's disease"
+  },
+  {
+   "title": "Gilbert's syndrome"
+  },
+  {
+   "title": "Glaucoma"
+  },
+  {
+   "title": "Glioblastoma"
+  },
+  {
+   "title": "Glomerulonephritis"
+  },
+  {
+   "title": "GLP-1 receptor agonist"
+  },
+  {
+   "title": "Glucose-6-phosphate dehydrogenase deficiency"
+  },
+  {
+   "title": "Glycated hemoglobin"
+  },
+  {
+   "title": "Gout",
+   "guide": "gout"
+  },
+  {
+   "title": "Graves' disease"
+  },
+  {
+   "title": "Guillain–Barré syndrome",
+   "guide": "guillain-barre-syndrome"
+  },
+  {
+   "title": "Haemophilia"
+  },
+  {
+   "title": "Hashimoto's thyroiditis"
+  },
+  {
+   "title": "Hearing loss"
+  },
+  {
+   "title": "Heart failure"
+  },
+  {
+   "title": "Hemorrhoid"
+  },
+  {
+   "title": "Hepatitis C"
+  },
+  {
+   "title": "Hereditary nonpolyposis colorectal cancer"
+  },
+  {
+   "title": "Hidradenitis suppurativa"
+  },
+  {
+   "title": "High cholesterol"
+  },
+  {
+   "title": "HIV/AIDS"
+  },
+  {
+   "title": "Human papillomavirus infection"
+  },
+  {
+   "title": "Huntington's disease"
+  },
+  {
+   "title": "Hydrocephalus"
+  },
+  {
+   "title": "Hypertension"
+  },
+  {
+   "title": "Hypertrophic cardiomyopathy"
+  },
+  {
+   "title": "Idiopathic pulmonary fibrosis"
+  },
+  {
+   "title": "In vitro fertilisation"
+  },
+  {
+   "title": "Infectious mononucleosis"
+  },
+  {
+   "title": "Inflammatory bowel disease"
+  },
+  {
+   "title": "Influenza"
+  },
+  {
+   "title": "Insomnia"
+  },
+  {
+   "title": "Irritable bowel syndrome"
+  },
+  {
+   "title": "Kawasaki disease"
+  },
+  {
+   "title": "Kidney dialysis"
+  },
+  {
+   "title": "Kidney stone disease"
+  },
+  {
+   "title": "Klinefelter syndrome"
+  },
+  {
+   "title": "LASIK"
+  },
+  {
+   "title": "Lecanemab"
+  },
+  {
+   "title": "Lipedema"
+  },
+  {
+   "title": "Low back pain"
+  },
+  {
+   "title": "Lung cancer"
+  },
+  {
+   "title": "Lupus"
+  },
+  {
+   "title": "Lyme disease"
+  },
+  {
+   "title": "Lymphoma"
+  },
+  {
+   "title": "Macular degeneration"
+  },
+  {
+   "title": "Magnetic resonance imaging"
+  },
+  {
+   "title": "Major depressive disorder"
+  },
+  {
+   "title": "Malaria"
+  },
+  {
+   "title": "Marfan syndrome"
+  },
+  {
+   "title": "Mast cell activation syndrome"
+  },
+  {
+   "title": "Measles"
+  },
+  {
+   "title": "Medical cannabis"
+  },
+  {
+   "title": "Medical genetics of Jews"
+  },
+  {
+   "title": "Melanoma"
+  },
+  {
+   "title": "Meningitis"
+  },
+  {
+   "title": "Menopause"
+  },
+  {
+   "title": "Mesothelioma"
+  },
+  {
+   "title": "Metabolic dysfunction–associated steatotic liver disease"
+  },
+  {
+   "title": "Methylphenidate"
+  },
+  {
+   "title": "Migraine"
+  },
+  {
+   "title": "Miscarriage"
+  },
+  {
+   "title": "Monoclonal antibody"
+  },
+  {
+   "title": "Multiple myeloma"
+  },
+  {
+   "title": "Multiple sclerosis",
+   "guide": "multiple-sclerosis"
+  },
+  {
+   "title": "Myalgic encephalomyelitis/chronic fatigue syndrome"
+  },
+  {
+   "title": "Myasthenia gravis",
+   "guide": "myasthenia-gravis"
+  },
+  {
+   "title": "Myocardial infarction",
+   "guide": "myocardial-infarction"
+  },
+  {
+   "title": "Myocarditis"
+  },
+  {
+   "title": "Narcolepsy"
+  },
+  {
+   "title": "Obesity",
+   "guide": "obesity"
+  },
+  {
+   "title": "Obsessive–compulsive disorder"
+  },
+  {
+   "title": "Obstructive sleep apnea"
+  },
+  {
+   "title": "Opioid use disorder"
+  },
+  {
+   "title": "Osteoarthritis"
+  },
+  {
+   "title": "Osteoporosis"
+  },
+  {
+   "title": "Ovarian cancer"
+  },
+  {
+   "title": "Pancreatic cancer"
+  },
+  {
+   "title": "Pancreatitis"
+  },
+  {
+   "title": "Paracetamol"
+  },
+  {
+   "title": "Parkinson's disease",
+   "guide": "parkinsons-disease"
+  },
+  {
+   "title": "Pattern hair loss"
+  },
+  {
+   "title": "Peripheral artery disease"
+  },
+  {
+   "title": "Peripheral neuropathy"
+  },
+  {
+   "title": "Pneumonia"
+  },
+  {
+   "title": "Polyendocrine metabolic ovarian syndrome",
+   "also": [
+    "Polycystic ovary syndrome"
+   ]
+  },
+  {
+   "title": "Post-traumatic stress disorder"
+  },
+  {
+   "title": "Postpartum depression"
+  },
+  {
+   "title": "Postural orthostatic tachycardia syndrome"
+  },
+  {
+   "title": "Prader–Willi syndrome"
+  },
+  {
+   "title": "Pre-eclampsia"
+  },
+  {
+   "title": "Precocious puberty"
+  },
+  {
+   "title": "Prenatal testing"
+  },
+  {
+   "title": "Prostate cancer"
+  },
+  {
+   "title": "Psoriasis"
+  },
+  {
+   "title": "Pulmonary embolism"
+  },
+  {
+   "title": "Rabies"
+  },
+  {
+   "title": "Raynaud syndrome"
+  },
+  {
+   "title": "Rett syndrome"
+  },
+  {
+   "title": "Rheumatoid arthritis"
+  },
+  {
+   "title": "Rosacea"
+  },
+  {
+   "title": "Sarcoidosis"
+  },
+  {
+   "title": "Schizophrenia"
+  },
+  {
+   "title": "Selective serotonin reuptake inhibitor"
+  },
+  {
+   "title": "Sepsis",
+   "guide": "sepsis-and-shock"
+  },
+  {
+   "title": "Sexually transmitted infection"
+  },
+  {
+   "title": "SGLT2 inhibitor"
+  },
+  {
+   "title": "Shingles"
+  },
+  {
+   "title": "Sickle cell disease"
+  },
+  {
+   "title": "Sjögren's disease"
+  },
+  {
+   "title": "Spinal muscular atrophy"
+  },
+  {
+   "title": "Stomach cancer"
+  },
+  {
+   "title": "Stroke",
+   "guide": "stroke"
+  },
+  {
+   "title": "Testosterone"
+  },
+  {
+   "title": "Thalassemia"
+  },
+  {
+   "title": "Thyroid cancer"
+  },
+  {
+   "title": "Tinnitus"
+  },
+  {
+   "title": "Tourette syndrome"
+  },
+  {
+   "title": "Traumatic brain injury"
+  },
+  {
+   "title": "Treatment-resistant depression"
+  },
+  {
+   "title": "Tuberculosis",
+   "guide": "tuberculosis"
+  },
+  {
+   "title": "Turner syndrome"
+  },
+  {
+   "title": "Type 1 diabetes"
+  },
+  {
+   "title": "Type 2 diabetes"
+  },
+  {
+   "title": "Urinary incontinence"
+  },
+  {
+   "title": "Urinary tract infection"
+  },
+  {
+   "title": "Uterine fibroid"
+  },
+  {
+   "title": "Vasculitis"
+  },
+  {
+   "title": "Vasectomy"
+  },
+  {
+   "title": "Vitamin D"
+  },
+  {
+   "title": "Vitiligo"
+  },
+  {
+   "title": "Wilson's disease"
+  }
+ ]
+}

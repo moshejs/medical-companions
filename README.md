@@ -36,6 +36,9 @@ The hub at `/` links to each one and carries the shared method and disclaimer. E
 ```
 site.json            the site address, the languages table, and the companions (names, languages, reviewers, old addresses)
 hub/index.html       the hub page source (hub/share-card.html renders its share image, hub/404.html the not-found page)
+hub/<name>.html      the bodies of the site's own pages, about/, privacy/ and most-read/, wrapped by hub/_page-head.html
+hub/most-read.json   the English Wikipedia articles /most-read/ ranks; tools/most_read.py fetches their views and
+                     writes hub/most-read.html and hub/most-read.data.json (rerun it to update the page)
 tools/               build tools shared by every companion; tools/i18n/<lang>.json holds the UI strings they share
 tools/core/          the script runtime every companion shares (helpers, routing, nav, theme, the player, boot)
 <companion>/src/     a companion's parts: head and styles, shell, sections, js, sources.json, pages.json, strings.json
