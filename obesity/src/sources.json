@@ -41,6 +41,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "ACOG2026GLP1",
+  "text": "American College of Obstetricians and Gynecologists. Use of Glucagon-Like Peptide-1 Receptor Agonists in Pregnancy and Lactation. ACOG Practice Advisory, October 2026. https://www.acog.org/clinical/guidance/practice-advisory/2026/10/use-of-glucagon-like-peptide-1-receptor-agonists-in-pregnancy-and-lactation Recommendations and text read on the ACOG page 2026-11-27.",
+  "link": "https://www.acog.org/clinical/guidance/practice-advisory/2026/10/use-of-glucagon-like-peptide-1-receptor-agonists-in-pregnancy-and-lactation",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "ACOG website"
+ },
+ {
   "key": "Acosta2021Phenotype",
   "text": "Acosta A, Camilleri M, Abu Dayyeh B, Calderon G, Gonzalez D, McRae A, et al. Selection of Antiobesity Medications Based on Phenotypes Enhances Weight Loss: A Pragmatic Trial in an Obesity Clinic. Obesity (Silver Spring). 2021;29(4):662-671. PMID 33759389; PMCID PMC8168710; doi:10.1002/oby.23120.",
   "link": "https://doi.org/10.1002/oby.23120",
@@ -1811,6 +1821,16 @@
   "link": "https://doi.org/10.1001/jama.2026.8142",
   "areas": [
    "I"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "GarciaCasal2026WHO",
+  "text": "Garcia-Casal MN, Pardo-Hernandez H, Peña-Rosas JP, Grummer-Strawn L, Branca F, De-Regil LM. Bending the Curve Early in Life: WHO Guidelines for the Integrated Management of Obesity in Children and Adolescents. Obes Rev. 2026 (online ahead of print, 24 Nov 2026):e70248. PMID 43074614; doi:10.1111/obr.70248. Abstract read; full text and the WHO guideline documents not accessed.",
+  "link": "https://doi.org/10.1111/obr.70248",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"

@@ -235,6 +235,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Attarian2026",
+  "text": "Attarian S, Magy L, Echaniz-Laguna A, Grapperon AM, Sole G, Rinaldi S, et al. A Phase 2 Study of Imlifidase in the Treatment of Guillain-Barré Syndrome. NEJM Evid. 2026;5(12):EVIDoa2600154. PMID 43076475; doi:10.1056/EVIDoa2600154.",
+  "link": "https://doi.org/10.1056/evidoa2600154",
+  "areas": [
+   "I"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Badry2019",
   "text": "Badry R. Prognostic Value of \"A\" Waves in Patients With Guillain Barre Syndrome. J Clin Neurophysiol. 2019;36(5):385-388. PMID 31033653; doi:10.1097/WNP.0000000000000592.",
   "link": "https://doi.org/10.1097/wnp.0000000000000592",
