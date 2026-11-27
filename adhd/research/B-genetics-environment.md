@@ -189,8 +189,8 @@ Shared keys checked and cited: Faraone2019 (PMID 29892054), Faraone2021 (3354973
   - crude 10-year ADHD risk was 2.46% unexposed and 2.87% exposed
   - without sibling control, HR 1.07 (95% CI 1.05–1.10), risk difference 0.21% [[Ahlqvist2024]]
 - In that cohort's matched full-sibling analysis, the ADHD HR was 0.98 (95% CI 0.94–1.02), with no dose-response. The authors conclude the population-level association was probably familial confounding. [[Ahlqvist2024]]
-- Hong Kong (708,020 mother–child pairs, about 43.3% exposed): in the sibling-matched ADHD cohort (97,285 children), the adjusted HR was 1.01 (95% CI 0.93–1.08). [[Luo2026JAMAIM]]
-- Use before pregnancy, which cannot affect the fetus, served as a negative control and was itself associated with ADHD (HR 1.24, 95% CI 1.20–1.28). The positive signals in conventional analyses are therefore likely residual familial confounding. [[Luo2026JAMAIM]]
+- Hong Kong (708,020 mother–child pairs, about 43.3% exposed): in the sibling-matched ADHD cohort (97,285 children), the adjusted HR was 1.01 (95% CI 0.93–1.09; corrected 2026-11-23). [[Luo2026JAMAIM]]
+- Use before pregnancy, which cannot affect the fetus, served as a negative control and was itself associated with ADHD (HR 1.26, 95% CI 1.22–1.30; corrected 2026-11-23 from 1.24, 1.20–1.28). The positive signals in conventional analyses are therefore likely residual familial confounding. [[Luo2026JAMAIM]]
 - Norwegian MoBa sibling study (26,613 children, 12,902 families): exposure for 29 days or more gave aHR 2.02 (95% CI 1.17–3.25). Between families the aHR was 2.77 (1.48–5.05); within families it was 1.06 (0.51–2.05), consistent with family confounding. [[Gustavson2021APAP]]
 - Earlier pooled observational data rated the association "convincing" (RR 1.25, 95% CI 1.17–1.34). That class rests on association strength, not on a causal design. [[Kim2020LancetPsych]]
 - A 2021 consensus statement backed by 91 scientists called for precaution. Its advice: avoid acetaminophen in pregnancy unless medically indicated, consult a clinician before long-term use, and use the lowest effective dose for the shortest time. [[Bauer2021]]
@@ -357,7 +357,7 @@ Shared keys checked and cited: Faraone2019 (PMID 29892054), Faraone2021 (3354973
 - acetaminophen_HR_by_design | population model (Sweden) | 1.07 | HR | [[Ahlqvist2024]]
 - acetaminophen_HR_by_design | sibling control (Sweden) | 0.98 | HR | [[Ahlqvist2024]]
 - acetaminophen_HR_by_design | sibling-matched (Hong Kong) | 1.01 | HR | [[Luo2026JAMAIM]]
-- acetaminophen_HR_by_design | pre-pregnancy negative control (Hong Kong) | 1.24 | HR | [[Luo2026JAMAIM]]
+- acetaminophen_HR_by_design | pre-pregnancy negative control (Hong Kong) | 1.26 | HR | [[Luo2026JAMAIM]]
 - acetaminophen_10y_risk | unexposed | 2.46 | % | [[Ahlqvist2024]]
 - acetaminophen_10y_risk | exposed | 2.87 | % | [[Ahlqvist2024]]
 - maternal_obesity_HR_by_design | population | 1.64 | HR | [[Chen2014IJE]]
@@ -438,7 +438,7 @@ Shared keys checked and cited: Faraone2019 (PMID 29892054), Faraone2021 (3354973
 - [SanMartinPorter2019] San Martin Porter M, Maravilla JC, Betts KS, Alati R. Low-moderate prenatal alcohol exposure and offspring attention-deficit hyperactivity disorder (ADHD): systematic review and meta-analysis. Arch Gynecol Obstet. 2019;300(2):269-277. PMID 31161393; doi:10.1007/s00404-019-05204-x. (validated: PubMed)
 - [Weyrauch2017] Weyrauch D, Schwartz M, Hart B, Klug MG, Burd L. Comorbid Mental Disorders in Fetal Alcohol Spectrum Disorders: A Systematic Review. J Dev Behav Pediatr. 2017;38(4):283-291. PMID 28460370; doi:10.1097/dbp.0000000000000440. (validated: PubMed)
 - [Ahlqvist2024] Ahlqvist VH, Sjöqvist H, Dalman C, Karlsson H, Stephansson O, Johansson S, et al. Acetaminophen Use During Pregnancy and Children's Risk of Autism, ADHD, and Intellectual Disability. JAMA. 2024;331(14):1205-1214. PMID 38592388; PMCID PMC11004836; doi:10.1001/jama.2024.3172. (validated: PubMed)
-- [Luo2026JAMAIM] Luo S, Gong Q, Ai Y, Zhang J, Chan L, Wong WCW, et al. Prenatal Acetaminophen (Paracetamol) Use and the Risk of Autism and/or Attention-Deficit/Hyperactivity Disorder Among Sibling-Matched Cohorts. JAMA Intern Med. 2026;186(9):1102-1111. PMID 42371637; doi:10.1001/jamainternmed.2026.2215. (validated: PubMed)
+- [Luo2026JAMAIM] Luo S, Gong Q, Ai Y, Zhang J, Chan L, Wong WCW, et al. Prenatal Acetaminophen (Paracetamol) Use and the Risk of Autism and/or Attention-Deficit/Hyperactivity Disorder Among Sibling-Matched Cohorts. JAMA Intern Med. 2026;186(9):1102-1111. PMID 42371637; doi:10.1001/jamainternmed.2026.2215. An erratum was published online on 2026-11-23 (JAMA Intern Med, e266013): coding errors; figures here follow the corrected abstract. (validated: PubMed)
 - [Gustavson2021APAP] Gustavson K, Ystrom E, Ask H, Ask Torvik F, Hornig M, Susser E, et al. Acetaminophen use during pregnancy and offspring attention deficit hyperactivity disorder - a longitudinal sibling control study. JCPP Adv. 2021;1(2):e12020. PMID 37431475; PMCID PMC10242945; doi:10.1002/jcv2.12020. (validated: PubMed)
 - [Prada2025] Prada D, Ritz B, Bauer AZ, Baccarelli AA. Evaluation of the evidence on acetaminophen use and neurodevelopmental disorders using the Navigation Guide methodology. Environ Health. 2025;24(1):56. PMID 40804730; PMCID PMC12351903; doi:10.1186/s12940-025-01208-0. (validated: PubMed)
 - [Bauer2021] Bauer AZ, Swan SH, Kriebel D, Liew Z, Taylor HS, Bornehag CG, et al. Paracetamol use during pregnancy - a call for precautionary action. Nat Rev Endocrinol. 2021;17(12):757-766. PMID 34556849; PMCID PMC8580820; doi:10.1038/s41574-021-00553-7. (validated: PubMed)

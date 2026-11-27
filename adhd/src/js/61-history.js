@@ -2,9 +2,9 @@
 /* kind: d description, m medicine, x manual or classification, s study or consensus */
 const HI_EV=[
  {y:1798,k:'d',c:'Crichton: "mental restlessness"',who:'Sir Alexander Crichton, Scottish physician',t:'1798 · Mental restlessness',
-  txt:`Crichton described "mental restlessness", an incapacity to attend "with a necessary degree of constancy to any one object", which could be present from birth and "generally diminished with age". Earlier still, in 1775, the German physician Melchior Adam Weikard described attention deficits in a medical textbook, proposed as the earliest known description. [[Lange2010,Palmer2001,Barkley2012Weikard]]`,
+  txt:`Crichton described "mental restlessness", an incapacity to attend "with a necessary degree of constancy to any one object", which could be present from birth and "generally diminished with age". Earlier still, in 1775, the German physician Melchior Adam Weikard described attention deficits in a medical textbook, proposed as the earliest known description. [[Lange2010,Palmer2001,Barkley2012Weikard]] A 1753 Dutch medical book by Cornelius Kloekhof has since been presented as an earlier description, possibly the earliest. [[vanKernebeek2024,Faraone2026]]`,
   pt:`Doctors noticed people who could not keep their attention on one thing more than 200 years ago.`,
-  hook:`Weikard 1775, Crichton 1798 and Still 1902 are all proposed as "first"; historians caution that each only partly matches ADHD. [[Lange2010,MartinezBadia2015]]`},
+  hook:`Kloekhof 1753, Weikard 1775, Crichton 1798 and Still 1902 are all proposed as "first"; historians caution that each only partly matches ADHD. [[vanKernebeek2024,Lange2010,MartinezBadia2015]]`},
  {y:1845,k:'d',c:'Hoffmann: "Fidgety Philip"',who:'Heinrich Hoffmann, Frankfurt physician',t:'1845 · Fidgety Philip',
   txt:`Hoffmann published "Struwwelpeter", drawn in 1844 for his 3-year-old son. Its stories "Fidgety Philip" and "Johnny Look-in-the-air" (added in 1847) depict restlessness and inattention. [[Lange2010,Thome2004,Faraone2021]]`,
   pt:`A children's picture book from 1845 shows a boy who cannot sit still at the table and another who never looks where he is going.`},

@@ -1342,6 +1342,17 @@
   "validated": "PubMed"
  },
  {
+  "key": "Faraone2026",
+  "text": "Faraone SV, Pritchard AE, Bellgrove MA, Buitelaar JK, Yang L, Rohde LA, et al. The World Federation of ADHD International Consensus Statement: 2026 update. Neurosci Biobehav Rev. 2026;193:107083 (online 2026-11-17, ahead of print). PMID 43044899; doi:10.1016/j.neubiorev.2026.107083.",
+  "link": "https://doi.org/10.1016/j.neubiorev.2026.107083",
+  "areas": [
+   "A",
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Farhat2022MolPsych",
   "text": "Farhat LC, Flores JM, Behling E, Avila-Quintero VJ, Lombroso A, Cortese S, et al. The effects of stimulant dose and dosing strategy on treatment outcomes in attention-deficit/hyperactivity disorder in children and adolescents: a meta-analysis. Mol Psychiatry. 2022;27(3):1562-1572. PMID 35027679; doi:10.1038/s41380-021-01391-9.",
   "link": "https://doi.org/10.1038/s41380-021-01391-9",
@@ -2728,7 +2739,7 @@
  },
  {
   "key": "Luo2026JAMAIM",
-  "text": "Luo S, Gong Q, Ai Y, Zhang J, Chan L, Wong WCW, et al. Prenatal Acetaminophen (Paracetamol) Use and the Risk of Autism and/or Attention-Deficit/Hyperactivity Disorder Among Sibling-Matched Cohorts. JAMA Intern Med. 2026;186(9):1102-1111. PMID 42371637; doi:10.1001/jamainternmed.2026.2215.",
+  "text": "Luo S, Gong Q, Ai Y, Zhang J, Chan L, Wong WCW, et al. Prenatal Acetaminophen (Paracetamol) Use and the Risk of Autism and/or Attention-Deficit/Hyperactivity Disorder Among Sibling-Matched Cohorts. JAMA Intern Med. 2026;186(9):1102-1111. PMID 42371637; doi:10.1001/jamainternmed.2026.2215. An erratum was published online on 2026-11-23 (JAMA Intern Med, e266013): coding errors; figures here follow the corrected abstract.",
   "link": "https://doi.org/10.1001/jamainternmed.2026.2215",
   "areas": [
    "B"
@@ -4729,6 +4740,16 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "vanKernebeek2024",
+  "text": "van Kernebeek MW, Crunelle CL. The Beginnings of Attention Deficit in a Dutch 18th Century Medical Treatise. J Atten Disord. 2024;28(8):1236-1241. PMID 38500265; doi:10.1177/10870547241238926.",
+  "link": "https://doi.org/10.1177/10870547241238926",
+  "areas": [
+   "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Veronesi2024",
