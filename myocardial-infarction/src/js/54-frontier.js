@@ -42,7 +42,7 @@ const FR_STEPS=[
   pt:`A second, bigger colchicine trial did not find a benefit, so experts now disagree. A medicine that lowers a fat called Lp(a) did not reduce heart events in its first big trial. A medicine that blocks an inflammation signal called IL-6 did not reduce them either.`,
   hook:`CLEAR SYNERGY: colchicine early after MI, 9.1% vs 9.3%, HR 0.99 (7,062 people). [[Jolly2025]]`},
  {from:frY2T(2026.9),at:0.995,k:'Step 5 · due from 2027',t:'Results still to come',
-  txt:`Registered outcome trials, with the dates their records give: ARTEMIS, ziltivekimab in about 10,000 people with an acute heart attack, primary completion January 2027. [[NCT06118281]] ORION-4 (16,124 people; listed October 2026) and VICTORION-2P (17,004; May 2027) test whether inclisiran prevents events. [[NCT03705234,NCT05030428]] OCEAN(a)-Outcomes tests olpasiran in 7,297 people, due March 2028. [[NCT05581303]] PROFID EHRA tests whether people with low LVEF after MI can safely go without an ICD, due November 2027. [[NCT05665608,Dagres2026PROFID]] All are <span class="ev hyp">Hypothesis</span> until they report. Registry dates often slip.`,
+  txt:`Registered outcome trials, with the dates their records give: ARTEMIS, ziltivekimab in 8,350 people with an acute heart attack, primary completion January 2027. [[NCT06118281]] ORION-4 (16,124 people; listed October 2026) and VICTORION-2P (17,004; May 2027) test whether inclisiran prevents events. [[NCT03705234,NCT05030428]] OCEAN(a)-Outcomes tests olpasiran in 7,297 people, due March 2028. [[NCT05581303]] PROFID EHRA tests whether people with low LVEF after MI can safely go without an ICD, due November 2027. [[NCT05665608,Dagres2026PROFID]] All are <span class="ev hyp">Hypothesis</span> until they report. Registry dates often slip.`,
   hook:`Awaited: ARTEMIS (ziltivekimab, acute MI), ORION-4 and VICTORION-2P (inclisiran), OCEAN(a)-Outcomes (olpasiran), PROFID EHRA (ICD vs no ICD). [[NCT06118281,NCT03705234,NCT05030428,NCT05581303,NCT05665608]]`}
 ];
 /* trial table rows: n name, w what, r result, ev, tg target, reg registered & running/awaiting, nct */
@@ -53,7 +53,7 @@ const FR_TRIALS=[
  {n:'CLEAR SYNERGY',w:'Colchicine started soon after MI (7,062 people)',r:'9.1% vs 9.3%, HR 0.99: no difference [[Jolly2025]]',ev:'early',tg:'infl'},
  {n:'RESCUE',w:'Ziltivekimab (IL-6) phase 2, chronic kidney disease and raised CRP',r:'CRP down 77–92% vs 4%: biomarker only [[Ridker2021RESCUE]]',ev:'early',tg:'infl'},
  {n:'ZEUS',w:'Ziltivekimab in 6,376 people with cardiovascular disease, kidney disease and inflammation',r:'17.6% vs 17.7%, HR 0.99: no difference; serious infections 20.4% vs 17.9% [[Ridker2026ZEUS]]',ev:'hyp',tg:'infl'},
- {n:'ARTEMIS',w:'Ziltivekimab in about 10,000 people with acute MI',r:'Active; primary completion est. January 2027 [[NCT06118281]]',ev:'hyp',tg:'infl',reg:1,nct:'NCT06118281'},
+ {n:'ARTEMIS',w:'Ziltivekimab in 8,350 people with acute MI',r:'Active; primary completion est. January 2027 [[NCT06118281]]',ev:'hyp',tg:'infl',reg:1,nct:'NCT06118281'},
  {n:'OCEAN(a)-DOSE',w:'Olpasiran (siRNA) phase 2, Lp(a) >150 nmol/L',r:'Lp(a) down 70.5% to 101.1%: biomarker only [[ODonoghue2022]]',ev:'early',tg:'lipid'},
  {n:'Lp(a)HORIZON',w:'Pelacarsen (antisense) in 8,322 people with cardiovascular disease and Lp(a) ≥70 mg/dL',r:'Lp(a) lowered; 12.3% vs 12.1%, HR 1.02: no difference [[Cho2026HORIZON]]',ev:'early',tg:'lipid'},
  {n:'OCEAN(a)-Outcomes',w:'Olpasiran in 7,297 people',r:'Active; primary completion est. March 2028 [[NCT05581303]]',ev:'hyp',tg:'lipid',reg:1,nct:'NCT05581303'},
@@ -65,6 +65,7 @@ const FR_TRIALS=[
  {n:'Cochrane review',w:'Bone marrow cells after MI, 41 trials, 2,732 people',r:'Long-term mortality RR 0.93 (0.58–1.50) [[Fisher2015Cochrane]]',ev:'hyp',tg:'muscle'},
  {n:'BAMI',w:'Intracoronary bone marrow cells, LVEF ≤45% after primary PCI',r:'Under-recruited (375 people); could not test its hypothesis [[Mathur2020BAMI]]',ev:'hyp',tg:'muscle'},
  {n:'SECURE',w:'Polypill (aspirin, ramipril, atorvastatin) within 6 months of MI, 2,499 people',r:'9.5% vs 12.7%, HR 0.76 [[Castellano2022SECURE]]',ev:'early',tg:'pill'},
+ {n:'LIBREXIA-ACS',w:'Milvexian (oral factor XIa inhibitor) added to antiplatelet therapy within 7 days of an acute coronary syndrome, 14,194 people',r:'Stopped for futility; 5.4% vs 5.1%, HR 1.05: no difference; BARC type 3c or 5 bleeding 0.3% vs 0.3% [[Gibson2026LIBREXIA]]',ev:'hyp',tg:'clot'},
  {n:'PARADISE-MI',w:'Sacubitril-valsartan vs ramipril after MI, 5,661 people',r:'11.9% vs 13.2%, HR 0.90: not superior [[Pfeffer2021PARADISE]]',ev:'hyp',tg:'prev'},
  {n:'EMPACT-MI',w:'Empagliflozin after MI, 6,522 people',r:'8.2% vs 9.1%, HR 0.90: not reduced [[Butler2024EMPACT]]',ev:'hyp',tg:'prev'},
  {n:'DAPA-MI',w:'Dapagliflozin after MI, 4,017 people',r:'Win ratio 1.34 on a cardiometabolic outcome; CV death or HF admission 2.5% vs 2.6% [[James2024DAPAMI]]',ev:'hyp',tg:'prev'},

@@ -4053,6 +4053,16 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Rochwerg2026FISSH",
+  "text": "Rochwerg B, Lamontagne F, Austin P, Millen T, D'Aragon F, Mehta S, et al. Ringer's lactate versus saline in the fluids in septic shock (FISSH) trial: a multicentre, blinded, parallel-group, randomised controlled trial. Lancet Respir Med. 2026 (online ahead of print 2026-11-24). PMID 43078115; doi:10.1016/S2213-2600(26)00347-4.",
+  "link": "https://doi.org/10.1016/s2213-2600(26)00347-4",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "PubMed|Crossref"
+ },
+ {
   "key": "Rubulotta2009Awareness",
   "text": "Rubulotta FM, Ramsay G, Parker MM, Dellinger RP, Levy MM, Poeze M, et al. An international survey: Public awareness and perception of sepsis. Crit Care Med. 2009;37(1):167-170. PMID 19123265; doi:10.1097/ccm.0b013e3181926883.",
   "link": "https://doi.org/10.1097/ccm.0b013e3181926883",
@@ -4237,6 +4247,26 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Scales2026PITSTOPabx",
+  "text": "Scales DC, Rogowsky A, Seymour CW, Burry L, Christenson J, Daneman N, et al. Prehospital Antibiotics for Patients With Suspected Sepsis: The PITSTOP-Antibiotics Factorial Randomized Clinical Trial. JAMA. 2026 (online ahead of print 2026-11-24). PMID 43076168; PMCID PMC13798123; doi:10.1001/jama.2026.25627.",
+  "link": "https://doi.org/10.1001/jama.2026.25627",
+  "areas": [
+   "E"
+  ],
+  "unverified": false,
+  "validated": "PubMed|Crossref"
+ },
+ {
+  "key": "Scales2026PITSTOPfluid",
+  "text": "Scales DC, Rogowsky A, Seymour CW, Burry L, Christenson J, Daneman N, et al. Prehospital Fluid Resuscitation for Patients With Suspected Sepsis: The PITSTOP-Fluids Factorial Randomized Clinical Trial. JAMA. 2026 (online ahead of print 2026-11-24). PMID 43076208; PMCID PMC13798122; doi:10.1001/jama.2026.25614.",
+  "link": "https://doi.org/10.1001/jama.2026.25614",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "PubMed|Crossref"
  },
  {
   "key": "Schjorring2021HOTICU",

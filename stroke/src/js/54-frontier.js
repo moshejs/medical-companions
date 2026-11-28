@@ -51,7 +51,7 @@ const FX_ROUTES=[
   s:'Lower Lp(a) a lot, and ask whether cardiovascular events, including stroke, fall too.',
   c:[
   {n:'ALPACA',y:2025,l:'small',r:'mix',e:'early',x:'Lepodisiran 400 mg lowered Lp(a) by 93.9 percentage points over days 60-180 in 320 people. A biomarker result, not an outcome result [[Nissen2025]].'},
-  {n:'Lp(a)HORIZON topline',y:2026.54,l:'large',r:'neu',e:'early',x:'Second-hand: a 2026 review reports September 2026 topline results with lower Lp(a) but no reduction in the primary composite. Full data are awaited, and the registry lists the trial as completed with no results posted. No numbers are available [[Cho2025,Sabouret2026,NCT04023552]].'},
+  {n:'Lp(a)HORIZON',y:2026.85,l:'large',r:'neu',e:'early',x:'Pelacarsen vs placebo in 8,322 people with cardiovascular disease and high Lp(a). Lp(a) at 12 months was 64.4 vs 233.4 nmol/L, but the primary composite (cardiovascular death, non-fatal MI, non-fatal stroke or urgent coronary revascularisation) over a median 4.7 years was 12.3% vs 12.1% (HR 1.02, 95% CI 0.90-1.15). A September 2026 topline came before the paper; the registry lists the trial as completed with no results posted [[Cho2026HORIZON,Cho2025,Sabouret2026,NCT04023552]].'},
   {n:'OCEAN(a)-Outcomes',y:2028.25,l:'wait',r:'none',e:'hyp',x:'Olpasiran, 7297 people, primary completion 2028-03-31. No result [[NCT05581303]].'},
   {n:'ACCLAIM-Lp(a)',y:2029.2,l:'wait',r:'none',e:'hyp',x:'Lepodisiran, 17,300 people, primary completion 2029-03. No result [[NCT06292013]].'}]},
  {id:'glp',st:'prev',sh:'GLP-1 drugs',t:'GLP-1 receptor agonists',
