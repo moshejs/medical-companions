@@ -1629,6 +1629,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Gibson2026LIBREXIA",
+  "text": "Gibson CM, Steg PG, Bahit MC, Al-Lamee R, Mehta SR, Mehran R, et al. Milvexian with Antiplatelet Therapy after Acute Coronary Syndrome Event. N Engl J Med. 2026;395(16):1575-1584. PMID 42670965; doi:10.1056/NEJMoa2608717. Abstract read; full text not accessed.",
+  "link": "https://doi.org/10.1056/nejmoa2608717",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "GISSI1986",
   "text": "Gruppo Italiano per lo Studio della Streptochinasi nell'Infarto Miocardico (GISSI). Effectiveness of intravenous thrombolytic treatment in acute myocardial infarction. Lancet. 1986;1(8478):397-402. PMID 2868337. No DOI listed in PubMed.",
   "link": "https://pubmed.ncbi.nlm.nih.gov/2868337/",
@@ -3318,7 +3328,7 @@
  },
  {
   "key": "NCT06118281",
-  "text": "ARTEMIS: A research study to look at how ziltivekimab works compared to placebo in people with a heart attack. Sponsor Novo Nordisk A/S. ClinicalTrials.gov NCT06118281; status Active, not recruiting (primary completion 2027-01-29, estimated enrolment 10000).",
+  "text": "ARTEMIS: A research study to look at how ziltivekimab works compared to placebo in people with a heart attack. Sponsor Novo Nordisk A/S. ClinicalTrials.gov NCT06118281; status Active, not recruiting (primary completion 2027-01-29, enrolment 8350).",
   "link": "",
   "areas": [
    "F"

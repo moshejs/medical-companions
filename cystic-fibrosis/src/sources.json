@@ -917,6 +917,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Davies2026STORM",
+  "text": "Davies G, Jones AP, Brayshaw E, Cooper R, Allen L, Bradley JM, et al. Stopping versus continuing nebulised mucoactive therapy in people with cystic fibrosis established on elexacaftor-tezacaftor-ivacaftor (CF STORM): a multicentre, registry-based, randomised, controlled, non-inferiority trial. Lancet Respir Med. 2026 (online ahead of print 2026-11-26). PMID 43098161; doi:10.1016/S2213-2600(26)00328-0.",
+  "link": "https://doi.org/10.1016/s2213-2600(26)00328-0",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed|Crossref"
+ },
+ {
   "key": "Davis2006",
   "text": "Davis PB. Cystic fibrosis since 1938. Am J Respir Crit Care Med. 2006;173(5):475-82. PMID 16126935; doi:10.1164/rccm.200505-840OE.",
   "link": "https://doi.org/10.1164/rccm.200505-840oe",

@@ -1868,6 +1868,16 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Cho2026HORIZON",
+  "text": "Cho L, Nicholls SJ, Frndak S, Wolski K, Nordestgaard BG, Manning B, et al. Pelacarsen and Cardiovascular Outcomes in Patients with High Lipoprotein(a). N Engl J Med. 2026 (online ahead of print 2026-11-07). PMID 43001734; doi:10.1056/NEJMoa2610159. Abstract read; full text not accessed.",
+  "link": "https://doi.org/10.1056/nejmoa2610159",
+  "areas": [
+   "I"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Chollet2011",
   "text": "Chollet F, Tardy J, Albucher JF, Thalamas C, Berard E, Lamy C, et al. Fluoxetine for motor recovery after acute ischaemic stroke (FLAME): a randomised placebo-controlled trial. Lancet Neurol. 2011;10(2):123-130. PMID 21216670; doi:10.1016/s1474-4422(10)70314-8.",
   "link": "https://doi.org/10.1016/s1474-4422(10)70314-8",
@@ -7301,7 +7311,7 @@
  },
  {
   "key": "NCT05686070",
-  "text": "OCEANIC-STROKE: A study to test asundexian for preventing a stroke caused by a clot after an acute ischemic stroke or high-risk TIA. Sponsor Bayer. ClinicalTrials.gov NCT05686070; status Completed (primary completion 2025-10-23), enrolment 12327; no results posted.",
+  "text": "OCEANIC-STROKE: A study to test asundexian for preventing a stroke caused by a clot after an acute ischemic stroke or high-risk TIA. Sponsor Bayer. ClinicalTrials.gov NCT05686070; status Completed (primary completion 2025-10-23), enrolment 12327; results first posted 2026-11-20.",
   "link": "",
   "areas": [
    "I"

@@ -858,6 +858,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Burn2026",
+  "text": "Burn J, Borthwick GM, Elliott F, Macrae F, Ong KR, Kraus AC, et al. Aspirin for cancer prevention in individuals with Lynch syndrome: first results from the CaPP3 multicentre, randomised, double-blind, non-inferiority trial. Lancet Gastroenterol Hepatol. 2026;11(9):760-774. PMID 42425127; doi:10.1016/S2468-1253(26)00114-7.",
+  "link": "https://doi.org/10.1016/s2468-1253(26)00114-7",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Butterworth2006",
   "text": "Butterworth AS, Higgins JP, Pharoah P. Relative and absolute risk of colorectal cancer for individuals with a family history: a meta-analysis. Eur J Cancer. 2006;42(2):216-27. PMID 16338133; doi:10.1016/j.ejca.2005.09.023.",
   "link": "https://doi.org/10.1016/j.ejca.2005.09.023",

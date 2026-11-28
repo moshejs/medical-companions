@@ -1095,6 +1095,15 @@
   "unverified": false
  },
  {
+  "key": "FDA-CRL-BLA761438",
+  "text": "U.S. Food and Drug Administration, Center for Drug Evaluation and Research. Complete response letter, BLA 761438, sirolimus for injectable suspension; pegadricase-sogo for injection (Swedish Orphan Biovitrum AB), dated 26 June 2026 (redacted; FDA Reference ID 5823777). openFDA Complete Response Letters database, file CRL_BLA761438_20260626_Redacted.pdf. https://download.open.fda.gov/crl/CRL_BLA761438_20260626_Redacted.pdf. Validated: openFDA transparency/crl endpoint (letter text read), 2026-11-27.",
+  "link": "https://download.open.fda.gov/crl/CRL_BLA761438_20260626_Redacted.pdf",
+  "areas": [
+   "H"
+  ],
+  "unverified": false
+ },
+ {
   "key": "FDA-Didanosine",
   "text": "Didanosine delayed-release capsules, US prescribing information (Physicians Total Care repackager SPL, published 8 May 2012), section 4.1 Allopurinol. DailyMed setid 829e744d-7bd4-43dc-9b58-ffb016cb8e67. Validated: FDA label (DailyMed), 2026-10-20.",
   "link": "",
